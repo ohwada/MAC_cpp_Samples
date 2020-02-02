@@ -6,7 +6,7 @@ C++ Sample <br/>
 ## read_write_text.cpp
 read and write Text File <br/>
 
-### build and excute sample code 
+### build and run sample code 
 % g++  read_write_text.cpp -o read_write_text -std=c++11 <br/>
 % ./read_write_text ./data/sample.txt output.txt <br/>
 

@@ -10,7 +10,7 @@ read and write Image File <br/>
 ### build sample code 
 % g++  image_read_write.cpp parse_filename.cpp -o image_read_write -std=c++11 `pkg-config --cflags --libs opencv4` <br/>
 
-### excute sample code 
+### run sample code 
 % ./image_read_write ./images/vegetables.jpg <br/>
 
 ### result 
