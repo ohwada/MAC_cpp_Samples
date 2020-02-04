@@ -5,9 +5,9 @@ OpenCL Sample <br/>
 
 show OpenCL version and others <br/>
 
-### build and excute sample code 
-%g++ OpenCLInfo.cpp -std=c++11 -framework OpenCL 
-% ./a.out
+### build and run sample code 
+%g++ OpenCLInfo.cpp -std=c++11 -framework OpenCL  <br/>
+% ./a.out <br/>
 
 ### result 
 display as below <br/>
