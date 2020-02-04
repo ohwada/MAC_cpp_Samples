@@ -3,9 +3,6 @@ MAC C++ Samples
 
 C++ sample codes for MAC <br/>
 
-### OpenCV-ImageReadWrite
-read and write Image File using OpenCV <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
 
 ### FileUtil
 - read and write Text File <br/>
@@ -15,3 +12,9 @@ read and write Image File using OpenCV <br/>
 read and write Image File using FreeImage <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/result/vegetables_gray.jpg" width="300" /><br/>
 
+### OpenCV-ImageReadWrite
+read and write Image File using OpenCV <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
+
+### OpenCLInfo
+show OpenCL version and others <br/>
