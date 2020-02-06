@@ -6,6 +6,9 @@ OpenCL Sample <br/>
 show OpenCL version and others <br/>
 
 ### build and run sample code 
+- require: macOS  OpenCL framework <br/>
+https://developer.apple.com/opencl/ <br/>
+
 %g++ OpenCLInfo.cpp -std=c++11 -framework OpenCL  <br/>
 % ./a.out <br/>
 
