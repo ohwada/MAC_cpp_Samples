@@ -7,9 +7,12 @@ operate simple addition with OpenCL<br/>
 and display the result <br/>
 
 ### build and run sample code
-- require: macOS  OpenCL framework <br/>
+requires:  <br/>
+-  macOS  OpenCL framework <br/>
 https://developer.apple.com/opencl/ <br/>
- 
+ - macOS  Xcode <br/>
+https://developer.apple.com/jp/support/xcode/ <br/>
+
 % g++ HelloWorld.cpp -o helloworld -std=c++11 -framework opencl <br/>
 % ./HelloWorld <br/>  
 
