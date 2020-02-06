@@ -18,3 +18,7 @@ read and write Image File using OpenCV <br/>
 
 ### OpenCLInfo
 show OpenCL version and others <br/>
+
+### OpenCL-HelloWorld
+operate simple addition with OpenCL<br/>
+
