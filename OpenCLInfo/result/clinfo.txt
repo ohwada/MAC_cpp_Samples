@@ -1,0 +1,195 @@
+result of clinfo command
+macOS : 10.15.2 Catalina
+----------
+
+Number of platforms                               1
+  Platform Name                                   Apple
+  Platform Vendor                                 Apple
+  Platform Version                                OpenCL 1.2 (Nov  9 2019 04:32:50)
+  Platform Profile                                FULL_PROFILE
+  Platform Extensions                             cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event
+
+  Platform Name                                   Apple
+Number of devices                                 2
+  Device Name                                     Intel(R) Core(TM) i7-5650U CPU @ 2.20GHz
+  Device Vendor                                   Intel
+  Device Vendor ID                                0xffffffff
+  Device Version                                  OpenCL 1.2 
+  Driver Version                                  1.1
+  Device OpenCL C Version                         OpenCL C 1.2 
+  Device Type                                     CPU
+  Device Profile                                  FULL_PROFILE
+  Device Available                                Yes
+  Compiler Available                              Yes
+  Linker Available                                Yes
+  Max compute units                               4
+  Max clock frequency                             2200MHz
+  Device Partition                                (core)
+    Max number of sub-devices                     0
+    Supported partition types                     None
+    Supported affinity domains                    (n/a)
+  Max work item dimensions                        3
+  Max work item sizes                             1024x1x1
+  Max work group size                             1024
+  Preferred work group size multiple              1
+  Preferred / native vector sizes                 
+    char                                                16 / 16      
+    short                                                8 / 8       
+    int                                                  4 / 4       
+    long                                                 2 / 2       
+    half                                                 0 / 0        (n/a)
+    float                                                4 / 4       
+    double                                               2 / 2        (cl_khr_fp64)
+  Half-precision Floating-point support           (n/a)
+  Single-precision Floating-point support         (core)
+    Denormals                                     Yes
+    Infinity and NANs                             Yes
+    Round to nearest                              Yes
+    Round to zero                                 Yes
+    Round to infinity                             Yes
+    IEEE754-2008 fused multiply-add               Yes
+    Support is emulated in software               No
+    Correctly-rounded divide and sqrt operations  Yes
+  Double-precision Floating-point support         (cl_khr_fp64)
+    Denormals                                     Yes
+    Infinity and NANs                             Yes
+    Round to nearest                              Yes
+    Round to zero                                 Yes
+    Round to infinity                             Yes
+    IEEE754-2008 fused multiply-add               Yes
+    Support is emulated in software               No
+  Address bits                                    64, Little-Endian
+  Global memory size                              8589934592 (8GiB)
+  Error Correction support                        No
+  Max memory allocation                           2147483648 (2GiB)
+  Unified memory for Host and Device              Yes
+  Minimum alignment for any data type             128 bytes
+  Alignment of base address                       1024 bits (128 bytes)
+  Global Memory cache type                        Read/Write
+  Global Memory cache size                        64
+  Global Memory cache line size                   4194304 bytes
+  Image support                                   Yes
+    Max number of samplers per kernel             16
+    Max size for 1D images from buffer            65536 pixels
+    Max 1D or 2D image array size                 2048 images
+    Base address alignment for 2D image buffers   1 bytes
+    Pitch alignment for 2D image buffers          1 pixels
+    Max 2D image size                             8192x8192 pixels
+    Max 3D image size                             2048x2048x2048 pixels
+    Max number of read image args                 128
+    Max number of write image args                8
+  Local memory type                               Global
+  Local memory size                               32768 (32KiB)
+  Max number of constant args                     8
+  Max constant buffer size                        65536 (64KiB)
+  Max size of kernel argument                     4096 (4KiB)
+  Queue properties                                
+    Out-of-order execution                        No
+    Profiling                                     Yes
+  Prefer user sync for interop                    Yes
+  Profiling timer resolution                      1ns
+  Execution capabilities                          
+    Run OpenCL kernels                            Yes
+    Run native kernels                            Yes
+  printf() buffer size                            1048576 (1024KiB)
+  Built-in kernels                                (n/a)
+  Device Extensions                               cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event cl_khr_fp64 cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_3d_image_writes cl_khr_image2d_from_buffer cl_APPLE_fp64_basic_ops cl_APPLE_fixed_alpha_channel_orders cl_APPLE_biased_fixed_point_image_formats cl_APPLE_command_queue_priority
+
+  Device Name                                     Intel(R) Iris(TM) Graphics 6100
+  Device Vendor                                   Intel Inc.
+  Device Vendor ID                                0x1024500
+  Device Version                                  OpenCL 1.2 
+  Driver Version                                  1.2(Nov 22 2019 18:23:21)
+  Device OpenCL C Version                         OpenCL C 1.2 
+  Device Type                                     GPU
+  Device Profile                                  FULL_PROFILE
+  Device Available                                Yes
+  Compiler Available                              Yes
+  Linker Available                                Yes
+  Max compute units                               48
+  Max clock frequency                             1000MHz
+  Device Partition                                (core)
+    Max number of sub-devices                     0
+    Supported partition types                     None
+    Supported affinity domains                    (n/a)
+  Max work item dimensions                        3
+  Max work item sizes                             256x256x256
+  Max work group size                             256
+  Preferred work group size multiple              32
+  Preferred / native vector sizes                 
+    char                                                 1 / 1       
+    short                                                1 / 1       
+    int                                                  1 / 1       
+    long                                                 1 / 1       
+    half                                                 0 / 0        (n/a)
+    float                                                1 / 1       
+    double                                               0 / 0        (n/a)
+  Half-precision Floating-point support           (n/a)
+  Single-precision Floating-point support         (core)
+    Denormals                                     No
+    Infinity and NANs                             Yes
+    Round to nearest                              Yes
+    Round to zero                                 Yes
+    Round to infinity                             Yes
+    IEEE754-2008 fused multiply-add               Yes
+    Support is emulated in software               No
+    Correctly-rounded divide and sqrt operations  Yes
+  Double-precision Floating-point support         (n/a)
+  Address bits                                    64, Little-Endian
+  Global memory size                              1610612736 (1.5GiB)
+  Error Correction support                        No
+  Max memory allocation                           402653184 (384MiB)
+  Unified memory for Host and Device              Yes
+  Minimum alignment for any data type             128 bytes
+  Alignment of base address                       1024 bits (128 bytes)
+  Global Memory cache type                        None
+  Image support                                   Yes
+    Max number of samplers per kernel             16
+    Max size for 1D images from buffer            25165824 pixels
+    Max 1D or 2D image array size                 2048 images
+    Base address alignment for 2D image buffers   4 bytes
+    Pitch alignment for 2D image buffers          32 pixels
+    Max 2D image size                             16384x16384 pixels
+    Max 3D image size                             2048x2048x2048 pixels
+    Max number of read image args                 128
+    Max number of write image args                8
+  Local memory type                               Local
+  Local memory size                               65536 (64KiB)
+  Max number of constant args                     8
+  Max constant buffer size                        65536 (64KiB)
+  Max size of kernel argument                     1024
+  Queue properties                                
+    Out-of-order execution                        No
+    Profiling                                     Yes
+  Prefer user sync for interop                    Yes
+  Profiling timer resolution                      80ns
+  Execution capabilities                          
+    Run OpenCL kernels                            Yes
+    Run native kernels                            No
+  printf() buffer size                            1048576 (1024KiB)
+  Built-in kernels                                (n/a)
+  Device Extensions                               cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_image2d_from_buffer cl_khr_gl_depth_images cl_khr_depth_images cl_khr_3d_image_writes 
+
+NULL platform behavior
+  clGetPlatformInfo(NULL, CL_PLATFORM_NAME, ...)  Apple
+  clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, ...)   Success [P0]
+  clCreateContext(NULL, ...) [default]            Success [P0]
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT)  Success (1)
+    Platform Name                                 Apple
+    Device Name                                   Intel(R) Iris(TM) Graphics 6100
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU)  Success (1)
+    Platform Name                                 Apple
+    Device Name                                   Intel(R) Core(TM) i7-5650U CPU @ 2.20GHz
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU)  Success (1)
+    Platform Name                                 Apple
+    Device Name                                   Intel(R) Iris(TM) Graphics 6100
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR)  No devices found in platform
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM)  Invalid device type for platform
+  clCreateContextFromType(NULL, CL_DEVICE_TYPE_ALL)  Success (2)
+    Platform Name                                 Apple
+    Device Name                                   Intel(R) Iris(TM) Graphics 6100
+    Device Name                                   Intel(R) Core(TM) i7-5650U CPU @ 2.20GHz
+	NOTE:	your OpenCL library only supports OpenCL 1.0,
+		but some installed platforms support OpenCL 1.2.
+		Programs using 1.2 features may crash
+		or behave unexpectedly
