@@ -5,9 +5,9 @@ C++ sample codes for MAC <br/>
 
 ### Prerequisites
  - Xcode <br/>
-https://developer.apple.com/jp/support/xcode/ <br/>
+https://developer.apple.com/support/xcode/ <br/>
  - Homebrew <br/>
-https://brew.sh/https://brew.sh/
+https://brew.sh/ <br/>
 
 
 ### FileUtil
