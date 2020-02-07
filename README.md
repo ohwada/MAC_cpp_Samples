@@ -3,6 +3,12 @@ MAC C++ Samples
 
 C++ sample codes for MAC <br/>
 
+### Prerequisites
+ - Xcode <br/>
+https://developer.apple.com/jp/support/xcode/ <br/>
+ - Homebrew <br/>
+https://brew.sh/https://brew.sh/
+
 
 ### FileUtil
 - read and write Text File <br/>
