@@ -28,3 +28,6 @@ show OpenCL version and others <br/>
 ### OpenCL-HelloWorld
 operate simple addition with OpenCL<br/>
 
+### OpenCL-ImageFilter2D
+this sample demonstrates performing Gaussian Filter (Gaussian Blur) on a 2D image using <br/>
+
