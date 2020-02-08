@@ -30,4 +30,5 @@ operate simple addition with OpenCL<br/>
 
 ### OpenCL-ImageFilter2D
 this sample demonstrates performing Gaussian Filter (Gaussian Blur) on a 2D image using <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/result/rectangles_5x5.png" width="300" /><br/>
 
