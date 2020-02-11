@@ -52,6 +52,10 @@ and write to output file  <br/>
  ex ) rectangles_5x5.png <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/result/rectangles_5x5.png" width="300" /><br/>
 
+
+### Docement
+- https://qiita.com/ohwada/items/34ca5175ad5aa146d680
+
 ### Reference 
 - https://www.khronos.org/opencl/
 - https://github.com/bgaster/opencl-book-samples/tree/master/src/Chapter_8/ImageFilter2D
