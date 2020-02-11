@@ -30,17 +30,11 @@ https://www.geeks3d.com/20180605/apple-announces-that-opengl-and-opencl-will-be-
 Usage:   ImageFilter2D  <inputImageFile> [kernel size] <br/>
 kernel size : 3(default) or 5 <br/>
 when 3 use 3 x 3 Gaussian Kernel <br/>
- | 1 |  2 | 1 | <br/>
- | 2 | 4 | 2 | <br/>
- | 1 |  2 | 1 | <br/>
-<br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/tex/gaussian_kernel_matrix_3x3.png" width="300" /><br/>
+
 when 5 use 5 x 5 Gaussian Kernel <br/>
- | 1 |  4 |   7 |   4 | 1 | <br/>
- | 4 | 16 | 26 | 16 | 4 | <br/>
- | 7 | 26 | 41 | 26 | 7 | <br/> 
- | 4 | 16 | 26 | 16 | 4 | <br/>
- | 1 |  4 |   7 |   4 | 1 | <br/>
-<br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/tex/gaussian_kernel_matrix_5x5.png" width="300" /><br/>
+
 ex ) <br/>
 % ./ImageFilter2D  ./images/rectangles.png 5 <br/>
 
