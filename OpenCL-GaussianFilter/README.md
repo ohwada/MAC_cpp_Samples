@@ -20,7 +20,7 @@ but don't mind <br/>
 warning: 'clCreateImage2D' is deprecated:  <br/>
 
 ### run sample code 
-Usage:  GaussianFilter  <inputImageFile> <radius> <sigma> <br/>
+Usage:  GaussianFilter  \<inputImageFile \> \<radius \> \<sigma \> <br/>
 ex ) <br/>
 % ./GaussianFilter  ./images/OpenCL_Logo.png 5 3.0 <br/>
 
