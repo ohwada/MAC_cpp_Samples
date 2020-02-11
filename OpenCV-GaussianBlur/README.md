@@ -13,7 +13,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCV-ImageReadWrite <br/
 % g++ GaussianBlur.cpp parse_filename.cpp  -o GaussianBlur -std=c++11 `pkg-config --cflags --libs opencv4` <br/>
 
 ### run sample code 
-Usage:  GaussianBlur  <inputImageFile> <radius> <sigma> <br/>
+Usage:  GaussianBlur  inputImageFile radius sigma <br/>
 ex ) <br/>
 % ./GaussianBlur  ./images/opencv_logo.png 5 3.0 <br/>
 
