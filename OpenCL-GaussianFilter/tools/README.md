@@ -16,7 +16,7 @@ to compare Gaussian Kernel by sigma <br/>　
 
 ### plot_gaussian_kernel_3d.py
 plot Gaussian Kernel 3d graph <br/>
-https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/gaussian_kernel_3d_101x101_10.0_.png<br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/gaussian_kernel_3d_101x101_10.0_.png" width="300" /> <br/>
 
 ### calc_gaussian_kernel.py
 calculate Gaussian Kernel <br/>
