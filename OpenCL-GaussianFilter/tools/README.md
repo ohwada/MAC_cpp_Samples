@@ -14,6 +14,10 @@ plot xy graph <br/>
 to compare Gaussian Kernel by sigma <br/>　
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/plot_sigma.png" width="300" /><br/>
 
+### plot_gaussian_kernel_3d.py
+plot Gaussian Kernel 3d graph <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/gaussian_kernel_101x101_10.0_.png" width="300" /><br/>
+
 ### calc_gaussian_kernel.py
 calculate Gaussian Kernel <br/>
 

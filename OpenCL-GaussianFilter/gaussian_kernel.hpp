@@ -19,7 +19,7 @@ static inline int calcKernelSize(int radius)
 }
 
 
-double gaussian( double x, double mu, double sigma );
+double gaussian(int row, int col,  int radius, double sigma );
 
 kernel_type produce2dGaussianKernel(int kernelRadius, double sigma);
 

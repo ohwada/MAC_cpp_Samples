@@ -12,9 +12,12 @@
 /**
  * gaussian
  */
-double gaussian( double x, double mu, double sigma ) {
-    const double a = ( x - mu ) / sigma;
-    return std::exp( -0.5 * a * a );
+double gaussian(int row, int col,  int radius, double sigma ) {
+     double x = (double)(col - radius); 
+     double y = (double)(row - radius);    
+    double a = (x*x + y*y) / ( 2 * sigma * sigma );
+    double ret = std::exp( -a ) / (2 * M_PI * sigma);
+    return ret;
 }
 
 
@@ -33,10 +36,9 @@ kernel_type produce2dGaussianKernel(int kernelRadius, double sigma) {
   // compute values
   for (int row = 0; row < kernel2d.size(); row++)
     for (int col = 0; col < kernel2d[row].size(); col++) {
-      double x = gaussian(row, kernelRadius, sigma)
-               * gaussian(col, kernelRadius, sigma);
-      kernel2d[row][col] = x;
-      sum += x;
+        double x = gaussian(row, col, kernelRadius, sigma);
+        kernel2d[row][col] = x;
+        sum += x;
     }
   // normalize
   for (int row = 0; row < kernel2d.size(); row++)

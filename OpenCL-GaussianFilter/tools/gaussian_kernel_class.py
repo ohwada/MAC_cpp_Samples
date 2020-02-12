@@ -2,6 +2,9 @@
 # calculate Gaussian Kernel
 # 2020-01-01 K.OHWADA
 
+# reference : https://stackoverflow.com/questions/8204645/implementing-gaussian-blur-how-to-calculate-convolution-matrix-kernel
+
+import math
 from math import exp
 
 # class GaussianKernel
@@ -14,13 +17,11 @@ class GaussianKernel():
 
 # createKernel2d
     def createKernel2d(self, radius, sigma):
-        kernel_size = 2*radius+1
-
+        ksize = 2*radius+1
 # compute the actual kernel elements
-        hkernel = [self.gaussian(x, radius, sigma) for x in range(kernel_size)]
+        hkernel = [self.gaussian(x, radius, sigma) for x in range(ksize)]
         vkernel = [x for x in hkernel]
         kernel2d = [[xh*xv for xh in hkernel] for xv in vkernel]
-
 # normalize the kernel elements
         kernelsum = sum([sum(row) for row in kernel2d])
         kernel2d = [[x/kernelsum for x in row] for row in kernel2d]
