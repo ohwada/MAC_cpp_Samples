@@ -44,4 +44,7 @@ process Image with Gaussian Filter (Gaussian Blur)  <br/>
 ### OPenCL-HPPーVectorAdd
 this simple demonstrates use OpenCL C++ Wrapper API <br/>
 
+### OpenCL-Sobel
+Sobel Edge Detection Filter <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
 
