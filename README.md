@@ -50,6 +50,7 @@ Sobel Edge Detection Filter <br/>
 
 ### OpenCL-Histogram
 calculate Histogram in RGB values <br/> 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL%E3%83%BCHistogram/result/baboon_hist_plot.png" width="300" /><br/>
+
 
 

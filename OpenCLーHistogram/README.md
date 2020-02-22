@@ -67,7 +67,7 @@ save to text file <br/>
 
 show graph  <br/>
 created by python script <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL%E3%83%BCHistogram/result/baboon_hist_plot.png" width="300" /><br/>
 
 ### Reference 
 - https://www.khronos.org/opencl/
