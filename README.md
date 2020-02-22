@@ -48,3 +48,8 @@ this simple demonstrates use OpenCL C++ Wrapper API <br/>
 Sobel Edge Detection Filter <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
 
+### OpenCL-Histogram
+calculate Histogram in RGB values <br/> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
+
+

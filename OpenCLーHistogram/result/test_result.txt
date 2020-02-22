@@ -1,0 +1,19 @@
+Messages when run test_histgram
+---------
+Device Vendor: Intel Inc. 
+Device Name: Intel(R) Iris(TM) Graphics 6100 
+Device Version: OpenCL 1.2  
+testing RGBA 8-bit histogram
+num_groups = 272
+Step1: 64,  1088
+Step 2: 768,  0
+Image Histogram for image type = CL_RGBA, CL_UNORM_INT8: VERIFIED
+save to: histogram_results_hist.txt
+Image dimensions: 1920 x 1080 pixels, Image type = CL_RGBA, CL_UNORM_INT8
+Time to compute histogram = 0 ms
+testing RGBA  32-bit fp histogram
+Image Histogram for image type = CL_RGBA, CL_FLOAT: verify_histogram_results failed for indx = 256, gpu result = 0, expected result = 1
+Image dimensions: 1920 x 1080 pixels, Image type = CL_RGBA, CL_FLOAT
+Time to compute histogram = 0 ms
+release resouces
+test histogram Successfull
