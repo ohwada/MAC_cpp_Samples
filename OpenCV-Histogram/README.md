@@ -31,7 +31,7 @@ save to text file <br/>
 save to image file <br/> 
 
 show histogram in graph  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histgram/result/screenshot_gray.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histogram/result/screenshot_gray.png" width="300" /><br/>
 
 
 ## histogram_color.cpp 
@@ -61,7 +61,7 @@ save to text file <br/>
 save to image file <br/> 
 
 show histogram in graph  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histgram/result/screenshot_color.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histogram/result/screenshot_color.png" width="300" /><br/>
 
 
 ### Reference 

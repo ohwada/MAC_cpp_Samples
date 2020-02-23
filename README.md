@@ -28,7 +28,7 @@ process Image with OpenCV GaussianBlur API <br/>
 
 ### OpenCV-Hisotgram
 calculate Histogram with OpenCV calcHist API <br/>'
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histgram/result/screenshot_color.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histogram/result/screenshot_color.png" width="300" /><br/>
 
 ### OpenCLInfo
 show OpenCL version and others <br/>
