@@ -70,7 +70,7 @@ created by python script <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
 
 ### Docement
-- https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCL-Histogram
+- https://qiita.com/ohwada/items/6435fdd34b1d8a52f6f8
 
 ### Reference 
 - https://www.khronos.org/opencl/
