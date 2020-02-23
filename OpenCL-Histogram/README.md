@@ -69,6 +69,9 @@ show graph  <br/>
 created by python script <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
 
+### Docement
+- https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCL-Histogram
+
 ### Reference 
 - https://www.khronos.org/opencl/
 - https://github.com/bgaster/opencl-book-samples/tree/master/src/Chapter_14/histogram
