@@ -55,5 +55,9 @@ Sobel Edge Detection Filter <br/>
 calculate Histogram in RGB values <br/> 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
 
+### OpenGL-GLUT
+open OpenGL window <br/>
+draw triangle <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_triangle.png" width="300" /><br/>
 
 
