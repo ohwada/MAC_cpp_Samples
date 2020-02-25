@@ -56,8 +56,13 @@ calculate Histogram in RGB values <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
 
 ### OpenGL-GLUT
-open OpenGL window <br/>
-draw triangle <br/>
+open OpenGL window with GLUT <br/>
+and draw triangle <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_triangle.png" width="300" /><br/>
+
+### OpenGL-GLFW
+open OpenGL window with glfw <br/>
+and draw triangle <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW/result/screenshot_triangle.png" width="300" /><br/>
 
 

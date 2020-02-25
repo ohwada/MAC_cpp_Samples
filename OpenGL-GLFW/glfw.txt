@@ -1,0 +1,38 @@
+cd /Users/ohwada/C++/OpenGL-GLFW
+
+===
+g++ hello_window.cpp  -std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3`
+
+niformblock.h:7:10: fatal error: 'glslprogram.h' file not found
+
+
+
+g++ triangle.cpp  -std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3`
+
+
+
+
+===
+gcc triangle-opengl.c  -framework OpenGL `pkg-config --cflags --libs glfw3`
+
+
+/Users/ohwada/Documents/2020/sample-code/glfw-master/deps
+
+=====
+g++ triangle-opengl.c   -std=c++11    -framework OpenGL -framework GLUT `pkg-config --cflags --libs glfw3`
+
+=====
+g++ triangle-opengl.c  glad.c  -std=c++11    -framework OpenGL -framework GLUT `pkg-config --cflags --libs glfw3`
+
+ % ./a.out
+Error: NSGL: The targeted version of macOS only supports forward-compatible core profile contexts for OpenGL 3.2 and above
+
+
+
+gcc hello.c  -framework OpenGL `pkg-config --cflags --libs glfw3`
+
+
+
+
+
+glfw triangle
