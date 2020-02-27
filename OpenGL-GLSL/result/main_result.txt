@@ -1,0 +1,11 @@
+result of run main
+-----------
+
+Usage: ./main recipe-name
+
+Recipe names: 
+        basic : Basic scene.
+  basic-attrib : Prints active attributes.
+  basic-debug : Display debug messages.
+  basic-uniform : Basic scene with a uniform variable.
+  basic-uniform-block : Scene with a uniform block variable.

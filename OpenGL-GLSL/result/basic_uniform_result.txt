@@ -1,0 +1,16 @@
+result of run main basic-uniform
+-----------
+
+OpenGL/GLSL: basic-uniform
+-------------------------------------------------------------
+GL Vendor    : Intel Inc.
+GL Renderer  : Intel(R) HD Graphics 6000
+GL Version   : 4.1 INTEL-14.4.23
+GL Version   : 4.1
+GLSL Version : 4.10
+-------------------------------------------------------------
+
+Active uniforms:
+------------------------------------------------
+ 0     RotationMatrix (mat4)
+

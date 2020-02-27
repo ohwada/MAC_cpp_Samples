@@ -1,0 +1,17 @@
+result of run main basic-attrib
+-----------
+
+OpenGL/GLSL: basic-attrib
+-------------------------------------------------------------
+GL Vendor    : Intel Inc.
+GL Renderer  : Intel(R) HD Graphics 6000
+GL Version   : 4.1 INTEL-14.4.23
+GL Version   : 4.1
+GLSL Version : 4.10
+-------------------------------------------------------------
+
+Active Attributes: 
+------------------------------------------------
+ 1     VertexColor (vec3)
+ 0     VertexPosition (vec3)
+

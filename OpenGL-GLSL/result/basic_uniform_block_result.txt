@@ -1,0 +1,20 @@
+result of run main basic-uniform-block
+-----------
+
+OpenGL/GLSL: basic-uniform-block
+-------------------------------------------------------------
+GL Vendor    : Intel Inc.
+GL Renderer  : Intel(R) HD Graphics 6000
+GL Version   : 4.1 INTEL-14.4.23
+GL Version   : 4.1
+GLSL Version : 4.10
+-------------------------------------------------------------
+
+Active Uniform blocks: 
+------------------------------------------------
+Uniform block "BlobSettings" (1):
+    BlobSettings (vec4)
+    BlobSettings (vec4)
+    BlobSettings (float)
+    BlobSettings (float)
+
