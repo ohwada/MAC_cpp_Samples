@@ -70,7 +70,7 @@ draw rotating Triangle <br/>
 draw Circle <br/>
 inner color is Yellow  <br/>
 outer color is Red  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLSL/result/screenshot_basic_unuiform_block.pngg" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLSL/result/screenshot_basic_unuiform_block.png" width="300" /><br/>
 
 
 ### Reference <br/>
