@@ -20,7 +20,7 @@ Note: <br/>
 https://pc.watch.impress.co.jp/docs/news/1125772.html
 
 ### run sample code
-Usage: test <inputImageFile> <br/> 
+Usage: test \< inputImageFile \> <br/> 
 ex)   <br/>
 % ./test ./images/sample_b32.tga <br/>
 
