@@ -5,8 +5,8 @@ OpenGL Vender: Intel Inc.
 OpenGL Renderer: Intel(R) HD Graphics 6000
 OpenGL Version: 2.1 INTEL-14.4.23
 GLUT Version: 5
-read : ./images/sample_b32.tga
+read : ./images/sample.tga
 TGA image format: full color
-TGA size: 124 x 124
+TGA size: 512 x 512
 TGA bit depth: 32
 Initialize TGALoader Successfully

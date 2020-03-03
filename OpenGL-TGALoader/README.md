@@ -22,7 +22,7 @@ https://pc.watch.impress.co.jp/docs/news/1125772.html
 ### run sample code
 Usage: test \< inputImageFile \> <br/> 
 ex)   <br/>
-% ./test ./images/sample_b32.tga <br/>
+% ./test ./images/sample.tga <br/>
 
 quit when enter 'q' <br/>
 
@@ -30,15 +30,17 @@ quit when enter 'q' <br/>
 display as below <br/>
 OpenGL test TGALoader <br/>
 OpenGL Vender: Intel Inc. <br/>
-read : ./images/sample_b32.tga <br/>
+read : ./images/sample.tga <br/>
 
 
 open OpenGL window <br/>
 and read TGA file  <br/>
 and draw  Texture <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-TGALoader/result/screenshot_sample_b32.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-TGALoader/result/screenshot_sample.png" width="300" /><br/>
 
-
+NOTE : <br/>
+it will be upside down,  <br/>
+when mapping the image on the Texture <br/>
 
 ### Reference <br/>
 - https://www.opengl.org/
