@@ -10,15 +10,14 @@ requires  <br/>
 - macOS  GLUT framework <br/>
 https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_intro/opengl_intro.html <br/>
 
+% g++  test_TGALoader.cpp  TGALoader.cpp parse_filename.cpp  -o test -std=c++11  -framework OpenGL  -framework GLUT
+
 display following warning when build <br/>
 but don't mind <br/>
 warning: 'glutInit' is deprecated: first deprecated in macOS 10.9
 
 Note: <br/>
 https://pc.watch.impress.co.jp/docs/news/1125772.html
-
-### build asample code 
-% g++  test_TGALoader.cpp  TGALoader.cpp parse_filename.cpp  -o test -std=c++11  -framework OpenGL  -framework GLUT
 
 ### run sample code
 Usage: test <inputImageFile> <br/> 
