@@ -1,12 +1,12 @@
-sample when run test ./images/sample.tga
+sample when run test ./images/sample_b32.tga
 ----------
 OpenGL test TGALoader
 OpenGL Vender: Intel Inc.
 OpenGL Renderer: Intel(R) HD Graphics 6000
 OpenGL Version: 2.1 INTEL-14.4.23
 GLUT Version: 5
-read : ./images/sample.tga
+read : ./images/sample_b32.tga
 TGA image format: full color
-TGA size: 512 x 512
-TGA bit depth: 24
+TGA size: 124 x 124
+TGA bit depth: 32
 Initialize TGALoader Successfully
