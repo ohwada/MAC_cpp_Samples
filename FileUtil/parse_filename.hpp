@@ -1,6 +1,6 @@
 /**
  * C++ Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 #include <string> 
