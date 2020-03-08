@@ -1,0 +1,12 @@
+sample when run image
+----------
+OpenGL/GLUT Texture
+OpenGL Vender: Intel Inc.
+OpenGL Renderer: Intel(R) HD Graphics 6000
+OpenGL Version: 2.1 INTEL-14.4.23
+GLUT Version: 5
+read : ./images/upsidedown.tga
+TGA image format: full color
+TGA size: 512 x 512
+TGA bit depth: 32
+Texture Successfully

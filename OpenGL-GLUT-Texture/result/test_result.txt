@@ -1,0 +1,9 @@
+sample when run test
+----------
+OpenGL/GLUT Texture
+Usage: ./test <mode> <size> 
+OpenGL Vender: Intel Inc.
+OpenGL Renderer: Intel(R) HD Graphics 6000
+OpenGL Version: 2.1 INTEL-14.4.23
+GLUT Version: 5
+Texture Successfully
