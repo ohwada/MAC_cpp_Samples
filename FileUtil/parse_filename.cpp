@@ -6,34 +6,111 @@
 #include <string> 
 #include <iostream>
 
+#include "parse_filename.hpp"
 
 using namespace std;
+
+
+/**
+ * parseFilePath
+ */
+void parseFilePath(string fullpath, string &dir, string &basename)
+{
+    int pos  = fullpath.find_last_of('/');
+    if (pos == std::string::npos) {
+        dir = "";
+        basename = fullpath;
+    } else {
+        dir = fullpath.substr(0,pos+1);
+        basename = fullpath.substr(pos+1, fullpath.size()-pos);
+    }
+
+}
+
+
+/**
+ * parseBaseName
+ */
+bool parseBaseName(string basename, string &title, string &ext)
+{
+
+
+    int pos = basename.find('.');
+    if (pos == std::string::npos) {
+        return false;
+    }
+
+    title = basename.substr(0, pos);
+    ext = basename.substr(pos+1, basename.size()-pos);
+
+    return true;
+}
+
 
 /**
  * parseFileName
  */
 bool parseFileName(string fullpath, string &dir, string &title, string &ext)
 {
-    string name;
 
-    int pos1  = fullpath.find_last_of('/');
-    if (pos1 == std::string::npos) {
-        dir = "";
-        name = fullpath;
-    } else {
-        dir = fullpath.substr(0,pos1+1);
-        name = fullpath.substr(pos1+1, fullpath.size()-pos1);
-    }
+    string basename;
+    parseFilePath(fullpath, dir, basename);
 
-
-    int pos2 = name.find('.');
-    if (pos2 == std::string::npos) {
+    bool ret = parseBaseName(basename, title, ext);
+    if (!ret) {
         return false;
     }
 
-    title = name.substr(0, pos2);
-    ext = name.substr(pos2+1, name.size()-pos2);
-
     return true;
 }
+
+/**
+ * getFileNameWithExt
+ */
+string getFileNameWithExt(string fullpath)
+{
+    string dir;
+    string basename;
+    parseFilePath(fullpath, dir, basename);
+    return basename;
+}
+
+
+/**
+ * getFileNameWithoutExt
+ */
+string getFileNameWithoutExt(string fullpath)
+{
+    string dir;
+    string basename;
+    parseFilePath(fullpath, dir, basename);
+
+    string title;
+    string ext;
+    bool ret = parseBaseName(basename, title, ext);
+if(!ret) {
+    title = basename;
+}
+    return title;
+}
+
+
+/**
+ * getFileNameExt
+ */
+string getFileNameExt(string fullpath)
+{
+    string dir;
+    string basename;
+    parseFilePath(fullpath, dir, basename);
+
+    string title;
+    string ext;
+    bool ret = parseBaseName(basename, title, ext);
+    if(!ret) {
+        ext = "";
+    }
+    return ext;
+}
+
 
