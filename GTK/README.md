@@ -55,7 +55,7 @@ Bytes of row:	2048 <br/>
 
 
 open GTK window <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshpt_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshot_uparrow.png" width="300" /><br/>
 
 
 ## test_pixel.cpp
@@ -76,7 +76,7 @@ GTK: ColorMatrix <br/>
 ColorMatrix: 256 x 256 <br/>
 
 open GTK window <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshpt_pixel_2_128.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshot_pixel_2_128.png" width="300" /><br/>
 
 
 ### Reference <br/>
