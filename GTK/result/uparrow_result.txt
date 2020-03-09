@@ -1,0 +1,11 @@
+sample when run image
+-----------
+GTK: image file
+load image: ./images/uparrow.png
+Number of channels:	4
+Has Alpha channel:	1
+Bits per sample:	8
+Width:	512
+Height:	512
+Bytes of row:	2048
+

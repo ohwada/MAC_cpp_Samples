@@ -14,6 +14,10 @@ https://brew.sh/ <br/>
 - read and write Text File <br/>
 - parse file fullpath to dir name, file name, file extension <br/>
 
+### GTK
+open GTK window and show image <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshpt_uparrow.png" width="300" /><br/>
+
 ### FreeImage
 read and write Image File using FreeImage <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/result/vegetables_gray.jpg" width="300" /><br/>
