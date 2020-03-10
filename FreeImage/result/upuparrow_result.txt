@@ -1,0 +1,6 @@
+sample when run test
+----------
+FreeImage : read write
+FreeImage : 3.18.0
+loadImage: ./images/uparrow.png ( 512 x 512 )
+saved Image: uparrow_copy.png
