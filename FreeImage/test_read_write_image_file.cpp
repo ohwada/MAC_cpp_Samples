@@ -1,6 +1,6 @@
 /**
  * Freeimage Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  *  reference : https://qiita.com/ignis_fatuus/items/a4ca7c041691fb0f8c77
  */
 
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
     string output_gray = file_title + "_gray." + file_ext;
 
     // read Image
-    FIBITMAP* bitmap = loadBitmap(input);
+    FIBITMAP* bitmap = fi_loadBitmap(input);
         if(!bitmap) {
                 cerr << "loadBitmap Failed" << endl;
                 return EXIT_FAILURE;
@@ -56,13 +56,13 @@ int main(int argc, char** argv)
 
 
     // save Image
-bool ret = saveBitmap(output_copy, bitmap);
+bool ret = fi_saveBitmap(output_copy, bitmap);
     if(!ret) {
-                cerr << "SaveImage Failed: " << output << endl;
+                cerr << "SaveImage Failed: " << output_copy << endl;
                 return EXIT_FAILURE;
     }
 
-    cout << "saved Image: " << output << endl;
+    cout << "saved Image: " << output_copy << endl;
 
         // convert to black and white
         FIBITMAP * grey = 
@@ -75,7 +75,7 @@ bool ret = saveBitmap(output_copy, bitmap);
         }
 
     // save Image
-    bool ret2 = saveBitmap(output_gray, grey);
+    bool ret2 = fi_saveBitmap(output_gray, grey);
     if(!ret2) {
                 cerr << "SaveImage Failed: " << output_gray << endl;
                 return EXIT_FAILURE;

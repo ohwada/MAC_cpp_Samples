@@ -1,6 +1,6 @@
 /**
  * Freeimage Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 
@@ -58,8 +58,7 @@ int main(int argc, char** argv)
         createColorMatrixPixel(size, scale);
 
     // save Image
-   // bool ret = saveImageWithSwapReverse(output, data, width, height);
-    bool ret = saveImage(output, data, width, height);
+    bool ret = fi_saveImage(output, data, width, height);
     if(!ret) {
                 cerr << "SaveImage Failed: " << output << endl;
                 return EXIT_FAILURE;

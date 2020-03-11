@@ -1,6 +1,6 @@
 /**
  * Freeimage Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 
@@ -18,12 +18,12 @@
  * reverse upside down 
  * swap R and B
  */
-char* loadImage(std::string filename, int &width, int &height)
+char* fi_loadImage(std::string filename, int &width, int &height)
 {
 
-    FIBITMAP* bitmap = loadBitmap(filename);
+    FIBITMAP* bitmap = fi_loadBitmap(filename);
 
-    char* data = convertTo32Bits(bitmap, width, height);
+    char* data = fi_convertTo32Bits(bitmap, width, height);
 
     return reverseAndSwap(data, width, height);
 
@@ -39,14 +39,14 @@ char* loadImage(std::string filename, int &width, int &height)
  * writable extensiton :png, tif, bmp
  * NOT writable : jpg, gif
  */
-bool saveImage(std::string fileName, char *data, int width, int height)
+bool fi_saveImage(std::string fileName, char *data, int width, int height)
 {
 
     char* converted =  reverseAndSwap(data, width, height);
 
-    FIBITMAP * bitmap = convertFromRawBits(converted, width, height);
+    FIBITMAP * bitmap = fi_convertFromRawBits(converted, width, height);
 
-    return saveBitmap(fileName, bitmap);
+    return fi_saveBitmap(fileName, bitmap);
 
 }
 
@@ -54,7 +54,7 @@ bool saveImage(std::string fileName, char *data, int width, int height)
 /**
  * loadBitmap
  */
-FIBITMAP* loadBitmap(std::string filename)
+FIBITMAP* fi_loadBitmap(std::string filename)
 {
 
         FREE_IMAGE_FORMAT format = FreeImage_GetFileType(filename.c_str(), 0);
@@ -72,7 +72,7 @@ FIBITMAP* loadBitmap(std::string filename)
 /**
  * saveBitmap
  */
-bool saveBitmap(std::string fileName, FIBITMAP* bitmap)
+bool fi_saveBitmap(std::string fileName, FIBITMAP* bitmap)
 {
 
         FREE_IMAGE_FORMAT format = 
@@ -86,7 +86,7 @@ bool saveBitmap(std::string fileName, FIBITMAP* bitmap)
 /**
  * convertTo32Bits
  */
-char* convertTo32Bits(FIBITMAP* bitmap, int &width, int &height)
+char* fi_convertTo32Bits(FIBITMAP* bitmap, int &width, int &height)
 {
 
 
@@ -114,7 +114,7 @@ char* convertTo32Bits(FIBITMAP* bitmap, int &width, int &height)
 /**
  * convertFromRawBits
  */
-FIBITMAP * convertFromRawBits(char *data, int width, int height)
+FIBITMAP * fi_convertFromRawBits(char *data, int width, int height)
 {
 
         FIBITMAP *bitmap = FreeImage_ConvertFromRawBits(

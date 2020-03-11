@@ -1,6 +1,6 @@
 /**
  * Freeimage Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 #include <string> 
@@ -70,7 +70,7 @@ int main(int argc, char** argv)
     // read Image
     int width;
     int height;
-    char * file_image = loadImage(input, width, height);
+    char * file_image = fi_loadImage(input, width, height);
 
         if(!file_image) {
                 cerr << "loadImage Failed" << endl;
@@ -88,7 +88,7 @@ int main(int argc, char** argv)
 	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
 
 // show Image
-    GtkWidget* image = image_new_with(
+    GtkWidget* image = image_new(
         file_image, width, height);
 	if (!image)
 	{

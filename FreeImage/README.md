@@ -49,7 +49,7 @@ show image in GTK window <br/>
 ### build sample code
 - require gtk <br/>
 
- % g++ test_gtk.cpp freeimage_util.cpp parse_filename.cpp -o gtk -std=c++11  `pkg-config --cflags --libs gtk+-2.0`  -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage
+ % g++ test_gtk.cpp freeimage_util.cpp parse_filename.cpp -o gtk -std=c++11  `pkg-config --cflags --libs gtk+-2.0`  -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage  <br/>
 
 ### run sample code 
 Usage: gtk \< inputImageFilename \>  <br/>
@@ -69,12 +69,12 @@ show image in GTK window <br/>
 write test pattern to image file <br/>
 
 ### build sample code
-% g++ test_write.cpp freeimage_util.cpp pixels.c  -o write -std=c++11  -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage
+% g++ test_write.cpp freeimage_util.cpp pixels.c  -o write -std=c++11  -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage <br/>
 
 ### run sample code 
-Usage: write [size] [scale] [outputFileExtension]
-ex)
- ./write 2 256 png
+Usage: write [size] [scale] [outputFileExtension] <br/>
+ex) <br/>
+ ./write 2 256 png <br/>
 
 
 ### result 
