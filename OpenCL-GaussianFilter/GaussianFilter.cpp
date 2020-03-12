@@ -1,12 +1,12 @@
 /**
  * OpenCL Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 
 #include <cstdio>
 
-#include "OpenCLUtil.hpp"
+#include "OpenCLFreeImageUtil.hpp"
 #include "parse_filename.hpp"
 #include "gaussian_kernel.hpp"
 
@@ -229,10 +229,7 @@ std::string createOutputFileName(std::string input, int radius, double sigma )
 
     char UNDER_BAR = '_';
 
-    std::string dir;
-    std::string title;
-    std::string ext;
-    parseFileName(input, dir, title, ext);
+    std::string fname = getFileNameWithoutExt(input);
 
     int ksize = calcKernelSize(radius);
     std::string str_ksize = std::to_string(ksize);
@@ -240,7 +237,7 @@ std::string createOutputFileName(std::string input, int radius, double sigma )
     std::string str_sigma = d2str(sigma, "%0.1f");
 
     // extension must be PNG 
-    std::string output = title + UNDER_BAR + str_ksize + "x" + str_ksize + UNDER_BAR + str_sigma + UNDER_BAR + ".png";
+    std::string output = fname + UNDER_BAR + str_ksize + "x" + str_ksize + UNDER_BAR + str_sigma + UNDER_BAR + ".png";
 
     return output;
 }

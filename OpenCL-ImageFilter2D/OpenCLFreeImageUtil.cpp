@@ -1,10 +1,12 @@
 /**
  * OpenCL Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 
-#include "OpenCLUtil.hpp"
+//    Requires FreeImage library for image I/O:
+//      http://freeimage.sourceforge.net/
+#include "OpenCLFreeImageUtil.hpp"
 
 
 /**
@@ -276,21 +278,8 @@ size_t RoundUp(int groupSize, int globalSize)
  */
 cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &height)
 {
-    FREE_IMAGE_FORMAT format = FreeImage_GetFileType(fileName.c_str(), 0);
-    FIBITMAP* image = FreeImage_Load(format, fileName.c_str());
 
-    // Convert to 32-bit image
-    FIBITMAP* temp = image;
-    image = FreeImage_ConvertTo32Bits(image);
-    FreeImage_Unload(temp);
-
-    width = FreeImage_GetWidth(image);
-    height = FreeImage_GetHeight(image);
-
-    char *buffer = new char[width * height * 4];
-    memcpy(buffer, FreeImage_GetBits(image), width * height * 4);
-
-    FreeImage_Unload(image);
+char* image = fi_loadImage(fileName, width, height);
 
     // Create OpenCL image
     cl_image_format clImageFormat;
@@ -305,7 +294,7 @@ cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &heig
                             width,
                             height,
                             0,
-                            buffer,
+                            image,
                             &errNum);
 
     if (errNum != CL_SUCCESS)
@@ -321,14 +310,10 @@ cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &heig
 /**
  * SaveImage
  */
-bool SaveImage(std::string fileName, char *buffer, int width, int height)
+bool SaveImage(std::string fileName, char *data, int width, int height)
 {
 
-    FREE_IMAGE_FORMAT format = 
-    FreeImage_GetFIFFromFilename(fileName.c_str());
+    return fi_saveImage(fileName, data, width, height);
 
-    FIBITMAP *image = FreeImage_ConvertFromRawBits((BYTE*)buffer, width,
-                        height, width * 4, 32,
-                        0xFF000000, 0x00FF0000, 0x0000FF00);
-    return (FreeImage_Save( format, image, fileName.c_str() ) == TRUE) ? true : false;
 }
+

@@ -19,11 +19,15 @@
 //    This example demonstrates performing gaussian filtering on a 2D image using
 //    OpenCL
 //
+
+
 //    Requires FreeImage library for image I/O:
 //      http://freeimage.sourceforge.net/
+#include "OpenCLFreeImageUtil.hpp"
 
-#include "OpenCLUtil.hpp"
+
 #include "parse_filename.hpp"
+
 
 
 /**
@@ -72,7 +76,8 @@
 
     // Load input image from file and load it into
     // an OpenCL image object
-    int width, height;
+    int width;
+    int height;
     memObjects[0] = LoadImage(context, input, width, height);
     if (memObjects[0] == 0)
     {
@@ -169,7 +174,6 @@
     std::cout << std::endl;
     std::cout << "Executed program succesfully." << std::endl;
 
-    //memset(buffer, 0xff, width * height * 4);
     // Save the image out to disk
     bool ret = SaveImage(output, buffer, width, height);
 
@@ -216,10 +220,6 @@ int main(int argc, char** argv)
             input = argv[1];
     }
 
-    std::string dir;
-    std::string title;
-    std::string ext;
-    parseFileName(input, dir, title, ext);
 
     std::string matrix = "_3x3";
     if(is_five) {
@@ -229,7 +229,8 @@ int main(int argc, char** argv)
     programfile = "gaussian_filter" + matrix  + ".cl";
 
     // extension must be PNG 
-    output = title + matrix + ".png";
+    std::string fname = getFileNameWithoutExt(input);
+    output = fname + matrix + ".png";
 
     return ImageFilter2D(programfile, input, output);
 
