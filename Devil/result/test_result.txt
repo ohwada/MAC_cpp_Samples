@@ -1,0 +1,8 @@
+sample when run test
+-----------
+Devil : read write image file
+Devil Version: 180
+load Image: ./images/uparrow.png
+Width: 512  Height: 512  Depth: 1  Bpp: 32
+saved Image: uparrow_copy.png
+

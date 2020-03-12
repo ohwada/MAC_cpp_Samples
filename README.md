@@ -22,6 +22,12 @@ open GTK window and show image <br/>
 read and write Image File using FreeImage <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/result/vegetables_gray.jpg" width="300" /><br/>
 
+
+### Devil
+read and write Image File using Devil <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/result/screenshot_gtk_uparrow.png" width="300" /><br/>
+
+
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
