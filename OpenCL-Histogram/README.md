@@ -41,10 +41,11 @@ calculate histogram  by GPU <br/>
 requires  <br/>
 - macOS  OpenCL framework <br/>
 https://developer.apple.com/opencl/ <br/>
-- FreeImage <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/FreeImage <br/>
+- Devil <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/Devil <br/>
 
-% g++ image_histogram.cpp  histogram_util.cpp parse_filename.cpp -o image_histogram -std=c++11 -framework OpenCL  -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage <br/>
+
+% g++ image_histogram.cpp  histogram_util.cpp devil_util.cpp parse_filename.cpp -o image_histogram -std=c++11 -framework OpenCL  `pkg-config --cflags --libs il`  <br/>
 
 display following warning  <br/>
 but don't mind <br/>
@@ -68,9 +69,6 @@ save to text file <br/>
 show graph  <br/>
 created by python script <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
-
-### Docement
-- https://qiita.com/ohwada/items/6435fdd34b1d8a52f6f8
 
 ### Reference 
 - https://www.khronos.org/opencl/

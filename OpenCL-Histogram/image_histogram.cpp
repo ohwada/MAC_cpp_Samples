@@ -5,9 +5,10 @@
  */
 
 
-#include <FreeImage.h>
-
 #include "histogram_util.hpp"
+
+#include "devil_util.hpp"
+
 #include "parse_filename.hpp"
 
 
@@ -16,21 +17,8 @@
  */
 cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &height)
 {
-    FREE_IMAGE_FORMAT format = FreeImage_GetFileType(fileName.c_str(), 0);
-    FIBITMAP* image = FreeImage_Load(format, fileName.c_str());
 
-    // Convert to 32-bit image
-    FIBITMAP* temp = image;
-    image = FreeImage_ConvertTo32Bits(image);
-    FreeImage_Unload(temp);
-
-    width = FreeImage_GetWidth(image);
-    height = FreeImage_GetHeight(image);
-
-    char *buffer = new char[width * height * 4];
-    memcpy(buffer, FreeImage_GetBits(image), width * height * 4);
-
-    FreeImage_Unload(image);
+    char* image = devil_loadImage(fileName, width, height);
 
     // Create OpenCL image
     cl_image_format clImageFormat;
@@ -45,7 +33,7 @@ cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &heig
                             width,
                             height,
                             0,
-                            buffer,
+                            image,
                             &errNum);
 
     if (errNum != CL_SUCCESS)
@@ -278,22 +266,6 @@ image_histogram(std::string input, std::string output)
 
 
 /**
- * createOutputFileName
- */
-std::string createOutputFileName(std::string input)
-{
-
-    std::string dir;
-    std::string title;
-    std::string ext;
-    parseFileName(input, dir, title, ext);
-
-    std::string output = title + "_hist.txt";
-    return output;
-}
-
-
-/**
  * main
  */
 int 
@@ -307,7 +279,12 @@ main(int argc, char **argv)
 
     std::string input = argv[1];
 
-    std::string output = createOutputFileName(input);
+
+    std::string fname  = getFileNameWithoutExt(input);
+    std::string output = fname + "_hist.txt";
+
+	// Initialize DevIL.
+	ilInit();
 
     int ret = image_histogram(input, output);
     if(ret != EXIT_SUCCESS) {
