@@ -30,7 +30,8 @@ ex ) lena.jpg <br/>
 and detect edge with SobelFilter <br/>
 and write to output file  <br/>
  ex ) lena_gray_edge.png <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OPenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
+
 
 ### Reference 
 - https://www.khronos.org/opencl/
