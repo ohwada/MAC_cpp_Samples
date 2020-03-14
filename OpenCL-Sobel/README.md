@@ -1,4 +1,4 @@
-OpenCL-Sobel
+OPenCL-Sobel
 ===============
 
 OpenCL Sample <br/>
@@ -12,7 +12,8 @@ https://developer.apple.com/opencl/ <br/>
 - FreeImage <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/FreeImage <br/>
 
-% g++ sobel.cpp OpenCLUtil.cpp parse_filename.cpp gaussian_kernel.cpp -o sobel -std=c++11 -framework OpenCL -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage <br/>
+% g++ sobel.cpp OpenCLFreeImageUtil.cpp freeimage_util.cpp  parse_filename.cpp -o sobel -std=c++11 -framework OpenCL -I/usr/local/Cellar/freeimage/3.18.0/include/ -L/usr/local/Cellar/freeimage/3.18.0/lib/ -lfreeimage <br/>
+
 
 display following warning  <br/>
 but don't mind <br/>
@@ -29,7 +30,7 @@ ex ) lena.jpg <br/>
 and detect edge with SobelFilter <br/>
 and write to output file  <br/>
  ex ) lena_gray_edge.png <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OPenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
 
 ### Reference 
 - https://www.khronos.org/opencl/

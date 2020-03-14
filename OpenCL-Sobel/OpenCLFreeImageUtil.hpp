@@ -1,6 +1,6 @@
 /**
  * OpenCL Sample
- * 2020-01-01 K.OHWADA
+ * 2020-02-01 K.OHWADA
  */
 
 #include <iostream>
@@ -14,7 +14,10 @@
 #include <CL/cl.h>
 #endif
 
-#include <FreeImage.h>
+
+//    Requires FreeImage library for image I/O:
+//      http://freeimage.sourceforge.net/
+#include "freeimage_util.hpp"
 
 
 cl_context CreateContext();
@@ -37,8 +40,7 @@ size_t RoundUp(int groupSize, int globalSize);
 
 cl_mem CreateOutputImage(cl_context context, int width, int height);
 
-cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &height, bool is_gray);
+cl_mem LoadImage(cl_context context, std::string fileName, int &width, int &height);
 
-bool SaveImage(std::string fileName, char *buffer, int width, int height);
-
+bool SaveImage(std::string fileName, char *data, int width, int height);
 

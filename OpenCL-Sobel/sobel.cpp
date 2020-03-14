@@ -4,8 +4,84 @@
  * 2020-01-01 K.OHWADA
  */
 
-#include "OpenCLUtil.hpp"
+// Reference :
+// OpenCL Programming Guide
+// Chapter 15. Sobel Edge Detection Filter
+//http://www.heterogeneouscompute.org/?page_id=5
+
+
+#include "OpenCLFreeImageUtil.hpp"
 #include "parse_filename.hpp"
+
+
+
+/**
+ * LoadImage
+ */
+cl_mem sobel_LoadImage(cl_context context, std::string fileName, int &width, int &height, bool is_gray)
+{
+
+//    Requires FreeImage library for image I/O:
+//      http://freeimage.sourceforge.net/
+
+    FREE_IMAGE_FORMAT format = FreeImage_GetFileType(fileName.c_str(), 0);
+    FIBITMAP* image = FreeImage_Load(format, fileName.c_str());
+
+    FIBITMAP* temp = image;
+
+    if(is_gray) {
+        // convert to black and white
+        FIBITMAP * gray = 
+            FreeImage_ConvertToGreyscale(image);
+            if(!gray) {
+                std::cerr << "Convert Failed " << std::endl;
+                return 0;
+            }
+
+        image = FreeImage_ConvertTo32Bits(gray);
+
+    } else {
+        image = FreeImage_ConvertTo32Bits(image);
+    }
+
+    FreeImage_Unload(temp);
+
+    width = FreeImage_GetWidth(image);
+    height = FreeImage_GetHeight(image);
+
+    char *buffer = new char[width * height * 4];
+    memcpy(buffer, FreeImage_GetBits(image), width * height * 4);
+
+    FreeImage_Unload(image);
+
+    char* data = reverseAndSwap(buffer, width, height);
+
+
+    // Create OpenCL image
+    cl_image_format clImageFormat;
+    clImageFormat.image_channel_order = CL_RGBA;
+    clImageFormat.image_channel_data_type = CL_UNORM_INT8;
+
+    cl_int errNum;
+    cl_mem clImage;
+    clImage = clCreateImage2D(context,
+                            CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
+                            &clImageFormat,
+                            width,
+                            height,
+                            0,
+                            data,
+                            &errNum);
+
+    if (errNum != CL_SUCCESS)
+    {
+        std::cerr << "Error creating CL image object: " << errNum << std::endl;
+        return 0;
+    }
+
+    return clImage;
+}
+
 
 
 /**
@@ -16,10 +92,8 @@ std::string createOutputFileName(std::string input, bool is_gray )
 
     char UNDER_BAR = '_';
 
-    std::string dir;
-    std::string title;
-    std::string ext;
-    parseFileName(input, dir, title, ext);
+
+    std::string fname = getFileNameWithoutExt(input);
 
     std::string mode = "rgb";
     if(is_gray) {
@@ -27,7 +101,7 @@ std::string createOutputFileName(std::string input, bool is_gray )
     }
 
     // extension must be PNG 
-    std::string output = title + UNDER_BAR + mode  + UNDER_BAR + "edge.png";
+    std::string output = fname + UNDER_BAR + mode  + UNDER_BAR + "edge.png";
 
     return output;
 }
@@ -87,8 +161,9 @@ std::string createOutputFileName(std::string input, bool is_gray )
 
     // Load input image from file and load it into
     // an OpenCL image object
-    int width, height;
-    memObjects[0] = LoadImage(context, input, width, height, is_gray);
+    int width;
+    int height;
+    memObjects[0] = sobel_LoadImage(context, input, width, height, is_gray);
     if (memObjects[0] == 0)
     {
         std::cerr << "Error loading: " << input << std::endl;
