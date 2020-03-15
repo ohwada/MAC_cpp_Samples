@@ -94,6 +94,11 @@ because the OpenGL coordinates are reversed  <br/>
 load Image in the correct orientation  <br/>
 
 
+how to display in the correct orientation  <br/>
+See:  <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenGL-GLFW-Texture  <br/>
+
+
 ## test_write.cpp
 write test pattern to image file <br/>
 
