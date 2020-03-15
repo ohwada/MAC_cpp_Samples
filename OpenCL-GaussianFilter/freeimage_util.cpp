@@ -5,10 +5,13 @@
 
 
 // Caution
-//FreeImage macOS Version has 
-// the BUG that swwaps between Red ch and Blue ch 
-// and reverse upside down
-// https://sourceforge.net/p/freeimage/discussion/36110/thread/28c0cdfd/
+// FreeImage macOS Version has <br/>
+// the BUG that swwaps between Red ch and Blue ch <br/>
+// https://sourceforge.net/p/freeimage/bugs/117/
+
+// Note
+// FreeImage FIBITMAP are based on a coordinate system that is upside down
+
 
 #include "freeimage_util.hpp"
 
@@ -139,10 +142,13 @@ FIBITMAP * fi_convertFromRawBits(char *data, int width, int height)
 char* reverseAndSwap(char *src, int width, int height)
 {
 
-
-// https://sourceforge.net/p/freeimage/discussion/36110/thread/28c0cdfd/
-
+// Note
+// FreeImage FIBITMAP are based on a coordinate system that is upside down
 // https://stackoverflow.com/questions/56727077/bitmap-is-loaded-mirrored-and-inverted
+
+// FreeImage macOS Version has 
+// the BUG that swwaps between Red ch and Blue ch 
+// https://sourceforge.net/p/freeimage/bugs/117/
 
 
     int bufsize = 4 * width * height;
