@@ -1,0 +1,9 @@
+sample when run test
+-----------
+OpenGL/glfw Texture
+readImage: ./images/uparrow.png ( 512 x 512 ) 
+OpenGL Vender: Intel Inc.
+OpenGL Renderer: Intel(R) HD Graphics 6000
+OpenGL Version: 2.1 INTEL-14.4.23
+glfw Version: 3.3.2 Cocoa NSGL EGL OSMesa dynamic
+OpenGL Successfuly

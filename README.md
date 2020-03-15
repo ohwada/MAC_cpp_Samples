@@ -85,6 +85,11 @@ load Texture from TGA format image file <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-TGALoader/result/screenshot_sample.png" width="300" /><br/>
 
 ### OpenGL-GLUT-Texture
-dwaw Texture with image <br/>
+dwaw Texture with image using GLUT <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_upsidedown.png" width="300" /><br/>
+
+### OpenGL-GLFW-Texture
+dwaw Texture with image using GLFW  <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW-Texture/result/screenshot_uparrow.png" width="300" /><br/>
+
 
