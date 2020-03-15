@@ -5,7 +5,7 @@ FreeImage Sample <br/>
 read and write Image File <br/>
 
 
-###　Caution
+###　Caution <br/>
 FreeImage macOS Version has <br/>
 the BUG that swwaps between Red ch and Blue ch <br/>
 - https://sourceforge.net/p/freeimage/discussion/36110/thread/28c0cdfd/
