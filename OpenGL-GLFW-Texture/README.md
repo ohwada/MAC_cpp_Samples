@@ -11,7 +11,7 @@ https://developer.apple.com/library/archive/documentation/GraphicsImaging/Concep
 - glfw <br/>
 https://www.glfw.org/ <br/>
 % brew install glfw <br/>
-- Devil
+- Devil <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/Devil
 
 
