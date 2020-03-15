@@ -48,6 +48,6 @@ draw  Texture with image <br/>
 ### Reference <br/>
 - https://www.opengl.org/
 - https://www.glfw.org/
-- https://github.com/DentonW/DevIL/tree/master/DevIL/examples/simple_example
+- http://openil.sourceforge.net/
 - http://nn-hokuson.hatenablog.com/entry/2017/02/24/171230
 
