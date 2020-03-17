@@ -32,6 +32,11 @@ read and write Image File using Devil <br/>
 read and write Image File using OpenCV <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
 
+###　libjpeg
+read and write jpeg format Image File <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/screenshot_uparrow.jpg" width="300" /><br/>
+
+
 ### OpenCV-GaussianBlur
 process Image with OpenCV GaussianBlur API <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-GaussianBlur/result/opencv_logo_11x11_3.0_.png" width="300" /><br/>

@@ -1,0 +1,6 @@
+sample when run copy
+----------
+libjpeg : copy 
+libjpeg version:  9.4
+saved Image: uparrow_copy.jpg
+
