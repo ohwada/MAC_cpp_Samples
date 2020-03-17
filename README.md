@@ -27,7 +27,7 @@ read and write Image File using FreeImage <br/>
 read and write Image File using Devil <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/result/screenshot_gtk_uparrow.png" width="300" /><br/>
 
-###　libjpeg <br/>
+### libjpeg 
 read and write jpeg format Image File <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/screenshot_uparrow.jpg" width="300" /><br/>
 
