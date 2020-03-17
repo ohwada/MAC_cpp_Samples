@@ -72,7 +72,7 @@ libjpeg : write <br/>
 saved Image : test_2_256.jpg <br/>
 
 write test pattern to image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/test_2_256.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/test_2_256.jpg" width="300" /><br/>
 
 
 ### Reference <br/>
