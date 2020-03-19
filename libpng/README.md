@@ -54,7 +54,7 @@ loadImage: ./images/uparrow.png ( 512 x 512 ) <br/>
 
 read image file <br/>
 show image in GTK window <br/>  
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
 
 ## test_write.cpp

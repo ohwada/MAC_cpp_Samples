@@ -16,7 +16,7 @@ https://brew.sh/ <br/>
 
 ### GTK
 open GTK window and show image <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/GTK/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
 ### FreeImage
 read and write Image File using FreeImage <br/>
