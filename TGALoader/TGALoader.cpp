@@ -1,8 +1,11 @@
 /*
- * OpenGL Sample
+ * TGALoader Sample
  * 2020-02-01 K.OHWADA
  * reference : http://asura.iaigiri.com/OpenGL/gl5.html
  */
+
+// this sample support fullcolor  uncompressed tga format
+// support origin left bottom and left top
 
 /*************************************************************************
 　　TGALoader.cpp
@@ -18,8 +21,9 @@
 //
 //　include
 //
-#include <fstream>
+#include <stdio.h>
 #include "TGALoader.hpp"
+
 
 //////////////////////////////////////////////////////////////////////////
 //　　TGAImage class
@@ -31,14 +35,9 @@
 //-----------------------------------------------------------------------------------------------------
 TGAImage::TGAImage()
 {
-	imageSize = 0;
 	imageData = NULL;
-	format = GL_RGB;
-	internalFormat = GL_RGB;
 	width = 0;
 	height = 0;
-	bpp = 0;
-	ID = 0;
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -59,25 +58,19 @@ TGAImage::~TGAImage()
 //　　‾TGAImage
 //　　Desc : getter
 //---------------------------------------------------------------------------------------------------
+
 /** 
  * getImageData
  */
-GLubyte* TGAImage::getImageData() {
+char* TGAImage::getImageData() {
 	return imageData;
-}
-
-/** 
- * getImageSize
- */
-GLuint TGAImage::getImageSize() {
-	return imageSize;
 }
 
 
 /** 
  * getWidth
  */
-GLuint TGAImage::getWidth() {
+int TGAImage::getWidth() {
 	return width;
 }
 
@@ -85,52 +78,21 @@ GLuint TGAImage::getWidth() {
 /** 
  * getHeight
  */
-GLuint TGAImage::getHeight() {
+int TGAImage::getHeight() {
 	return height;
 }
 
-
-/** 
- * getFormat
- */
-GLenum TGAImage::getFormat() {
-	return format;
-}
-
-
-/** 
- * getInternalFormat
- */
-GLuint TGAImage::getInternalFormat() {
-	return internalFormat;
-}
-
-
-/** 
- * getBitDepth
- */
-GLuint TGAImage::getBitDepth() {
-	return bpp;
-}
 
 //---------------------------------------------------------------------------------------------------
 //　　ReadTGA
 //　　Desc :  Read TGA file
 //---------------------------------------------------------------------------------------------------
-//bool TGAImage::ReadTGA(const char *filename)
 bool TGAImage::ReadTGA(std::string filename)
 {
 
-// TGA format
-// http://www.openspc2.org/format/TGA/index.html
-
-	//FILE *fp;
-	GLubyte header[18]; 
-	GLubyte bytePerPixel;
-	GLuint temp;
+	char header[18]; 
 
 	//　Open file
-	//if ( (fp = fopen(filename,"rb")) == NULL )
 	FILE* fp = fopen(filename.c_str(),"rb");
 	if (fp == NULL )
 	{
@@ -149,69 +111,140 @@ bool TGAImage::ReadTGA(std::string filename)
 
 	std::cout << "read : " << filename << std::endl;
 
+// TGA format
+// http://www.openspc2.org/format/TGA/index.html
+
     // image format
 	int image_format = header[2];
     std::string format_label = getImageFormatLabel(image_format);
-	if( image_format !=FORMAT_FULLCOLOR ) {
+	if( image_format != FORMAT_FULLCOLOR ) {
 		std::cout << "unsuported TGA image format: " << format_label << std::endl;
 		return false;
 	}
 
-	std::cout << "TGA image format: " << format_label << std::endl;
-
 	//　Determine width and height
 	width = header[13] * 256 + header[12];
 	height = header[15] * 256 + header[14];
-	
+
 	std::cout << "TGA size: " << width << " x " << height << std::endl;
 
+
 	//　bit depth
-	GLuint bpp = header[16];
+	int bpp = header[16];
 
 	std::cout << "TGA bit depth: " << bpp << std::endl;
 
-	//　24 bit
-	if ( bpp == 24 )
-	{
-		format = GL_RGB;
-		internalFormat = GL_RGB;
-	}
-	//　32 bit
-	else if ( bpp == 32 )
-	{
-		format = GL_RGBA;
-		internalFormat = GL_RGBA;
-	}
+
+    // image descriptor
+	char descriptor = header[17];
+    int bit_attribute = (0x0f & descriptor);
+	int bit_horizontal = (0x10 & descriptor)? 1: 0;
+	int bit_vertical = (0x20 & descriptor)? 1: 0;
+
+    printf("TGA descriptor: %x \n", descriptor);
+
+	std::cout << "TGA attribute: " << bit_attribute << std::endl;
+
+    std::string origin_label = getOriginLabel(bit_horizontal, bit_vertical);
+
+	std::cout << "TGA origin: " << origin_label << std::endl;
 
 	// Determine the number of bytes per pixel
-	bytePerPixel = bpp/8;
+	int bytePerPixel = bpp/8;
 
 	// Determination of data size
-	imageSize = width * height * bytePerPixel;
+	int imageRawSize = width * height * bytePerPixel;
 
 	// Allocate memory
-	imageData = new GLubyte[imageSize];
+	char * imageRawData = new char[imageRawSize];
 
 	// Read pixel data at once
-	size_t ret2 = fread(imageData, 1, imageSize, fp);
-    if(ret2 < imageSize){
+	size_t ret2 = fread(imageRawData, 1, imageRawSize, fp);
+    if(ret2 < imageRawSize){
 		std::cout << "Could not read image : " << filename << std::endl;
 		return false;
     }
 
-	//　Convert BGR (A) to RGB (A)
-	for ( int i=0; i<(int)imageSize; i+=bytePerPixel )
-	{
-		temp = imageData[i];
-		imageData[i+0] = imageData[i+2];
-		imageData[i+2] = temp;
-	}
-
 	//　Close file
 	fclose(fp);
 
+    // get imageData
+    imageData =
+        alignmentImage(imageRawData, width, height, bpp, bit_vertical);
+
+
+	delete [] imageRawData;
+
 	return true;
 }
+
+
+/**
+ * alignmentImage
+ */
+char* 
+TGAImage::alignmentImage(char *src, int width, int height, int bpp, int bit_vertical)
+{
+
+	// convert BGR (A) to RGBA
+    // reversr upside down, if origin is bottom
+
+    int bufsize = 4 * width * height;
+    char* buff = new char[bufsize];
+
+    int src_index;
+    int buf_index;
+    char a;
+
+    for(int y = 0;  y<height; y++)
+    {
+        for(int x = 0; x<width; x++)
+        {
+
+            int col     = x;
+            int row     = height - y - 1;
+
+            if(bit_vertical==0){
+                // origin bottom
+                // reverse upside down
+                int index_rev  = (row * width + (width - col)) * 4;
+                buf_index = bufsize - index_rev;
+                if( bpp== 24){
+                    src_index   = (row * width + col) * 3;
+                }else if( bpp== 32){
+                    src_index   = (row * width + col) * 4;
+                }
+            }else if(bit_vertical==1){
+                // origin top
+                buf_index   = 4*width*y + 4*x;
+                if( bpp== 24){
+                    src_index   =  3*width*y + 3*x;
+                }else if( bpp== 32){
+                    src_index   =  buf_index;
+                }
+            }
+
+            char b = src[src_index + 0]; // B
+            char g = src[src_index + 1]; // G
+            char r = src[src_index + 2]; // R
+
+            if( bpp== 24){
+                a = (char)255;
+            }else if( bpp== 32){
+                a= src[src_index + 3]; // A
+            }
+
+            buff[buf_index + 0] = r; // R
+            buff[buf_index + 1] = g; // G
+            buff[buf_index + 2] = b; // B
+            buff[buf_index + 3] = a; // A
+
+        } // x
+    } // y
+
+    return buff;
+}
+
 
 /**
  * getImageFormatLabel
@@ -245,42 +278,32 @@ std::string TGAImage::getImageFormatLabel(int format)
     return label;
 }
 
-//---------------------------------------------------------------------------------------------------
-//　　Load
-//　　Desc : Read TGA file and generate texture
-//---------------------------------------------------------------------------------------------------
-//GLuint TGAImage::Load(const char *filename)
-GLuint TGAImage::Load(std::string filename)
+
+/**
+ * getOriginLabel
+ */
+    std::string TGAImage::getOriginLabel(int bit_horizontal, int bit_vertical)
 {
-	//　Read file
-	if ( !ReadTGA(filename) )
-		return false;
 
-	//　generate Texture
-	glGenTextures(1, &ID);
+    std::string label = "";
 
-	//　Bind Texture
-	glBindTexture(GL_TEXTURE_2D, ID);
+    switch(bit_horizontal){
+    case 0:
+        label += "left ";
+        break;
+    case 1:
+        label += "right ";
+        break;
+    }
 
-	//　
-	if ( bpp == 24 ) glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-	else if ( bpp == 32 ) glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    switch(bit_vertical){
+    case 0:
+        label += "bottom";
+        break;
+    case 1:
+        label +=  "top";
+        break;
+    }
 
-	//　Texture assignment
-	gluBuild2DMipmaps(GL_TEXTURE_2D, internalFormat, width, height, format, GL_UNSIGNED_BYTE, imageData);
-
-	//　Specifying how to scale the texture
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-	//　Texture environment
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-
-	//　Release memory
-	if ( imageData )
-	{
-		delete [] imageData;
-		imageData = NULL;
-	}
-	return ID;
+    return label;
 }

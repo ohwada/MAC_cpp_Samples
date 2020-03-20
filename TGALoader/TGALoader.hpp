@@ -1,5 +1,5 @@
 /*
- * OpenGL Sample
+ * TGALoader Sample
  * 2020-02-01 K.OHWADA
  * reference : http://asura.iaigiri.com/OpenGL/gl5.html
  */
@@ -25,11 +25,7 @@
 #include <stdlib.h>
 #include <string>  
 #include <iostream>
-
-// macOS
-#include <OpenGL/OpenGL.h>
-#include <GLUT/glut.h>
-
+#include <fstream>
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -38,29 +34,29 @@
 class TGAImage
 {
 protected:
-	GLuint imageSize;
-	GLubyte *imageData;
-	GLenum format;
-	GLuint internalFormat;
-	GLuint width;
-	GLuint height;
-	GLuint bpp;
+	char *imageData;
+	int width;
+	int height;
+
 	const int FORMAT_FULLCOLOR = 2;
 
+	char* 
+	alignmentImage(char *src, int width, int height, int bpp, int bit_vertical);
+
+	std::string getImageFormatLabel(int format);
+    std::string getOriginLabel(int bit_horizontal, int bit_vertical);
+
 public:
-	GLuint ID;
 	TGAImage();
 	~TGAImage();
-	GLubyte* getImageData();
-	GLuint getImageSize();
-	GLuint getWidth();
-	GLuint getHeight();
-	GLenum getFormat();
-	GLuint getInternalFormat();
-	GLuint getBitDepth();
+
+	char* getImageData();
+	int getWidth();
+	int getHeight();
 	bool ReadTGA(std::string filename);
-	std::string getImageFormatLabel(int format);
-	GLuint Load(std::string filename);
+
 };
 
 #endif		//Å@_TGA_LOADER_H_INCLUDED_
+
+

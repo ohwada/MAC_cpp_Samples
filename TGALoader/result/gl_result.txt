@@ -1,0 +1,11 @@
+sample when run gl
+----------
+TGALoader: gl
+read : ./images/uparrow.tga
+TGA size: 512 x 512
+TGA bit depth: 32
+TGA descriptor: 28 
+TGA attribute: 8
+TGA origin: left top
+loadImage: ./images/uparrow.tga ( 512 x 512 )
+
