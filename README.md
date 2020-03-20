@@ -19,7 +19,8 @@ open GTK window and show image <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
 ## ImageLoader Samples
-ImageLoader.md <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/ImageLoader.md <br/>
+
 
 ### FreeImage
 read and write Image File using FreeImage <br/>
