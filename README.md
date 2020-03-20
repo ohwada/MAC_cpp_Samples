@@ -39,6 +39,9 @@ read and write oNG format Image File <br/>
 read and write bmp format Image File <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_uparrow.png" width="300" /><br/>
 
+### TGALoader
+load Texture from TGA format image file <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/TGALoader/result/screenshot_gtk_uparrow.png" width="300" /><br/>
 
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>
@@ -92,9 +95,6 @@ open OpenGL window with glfw and glad  <br/>
 and draw Triangle with GLSL <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLSL/result/screenshot_basic.png" width="300" /><br/>
 
-### OpenGL-TGALoader
-load Texture from TGA format image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-TGALoader/result/screenshot_sample.png" width="300" /><br/>
 
 ### OpenGL-GLUT-Texture
 dwaw Texture with image using GLUT <br/>
