@@ -58,12 +58,14 @@ void Display()
 	glColor4f(1.0, 1.0, 1.0, 1.0);
 
 	// Draw a rectangle with texture coordinates
+    // OpenGL coordinates are upside down.
+    //mapping texure
+    // to display in the correct orientation
 	glBegin(GL_QUADS);
-
-	glTexCoord2d(0.0, 0.0);	glVertex3d(-size, -size, 0.0);
-	glTexCoord2d(0.0, 1.0);	glVertex3d(-size, size, 0.0);
-	glTexCoord2d(1.0, 1.0);		glVertex3d(size, size, 0.0);
-	glTexCoord2d(1.0, 0.0);	glVertex3d(size, -size, 0.0);
+	   glTexCoord2d(-1.0, 1.0);	glVertex3d(-size, -size, 0.0);
+	   glTexCoord2d(-1.0, 0.0);	glVertex3d(-size, size, 0.0);
+	   glTexCoord2d(0.0, 0.0);	glVertex3d(size, size, 0.0);
+	   glTexCoord2d(0.0, 1.0);	glVertex3d(size, -size, 0.0);
 	glEnd();
 	//　
 	glBindTexture(GL_TEXTURE_2D, 0);

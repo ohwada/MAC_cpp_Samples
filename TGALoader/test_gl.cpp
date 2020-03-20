@@ -230,8 +230,8 @@ void Display()
 
 	// Draw a rectangle with texture coordinates
     // OpenGL coordinates are upside down.
-    //mapping texure upside down
-    // tp display in the correct orientation,
+    //mapping texure
+    // to display in the correct orientation
 	glBegin(GL_QUADS);
 	   glTexCoord2d(-1.0, 1.0);	glVertex3d(-size, -size, 0.0);
 	   glTexCoord2d(-1.0, 0.0);	glVertex3d(-size, size, 0.0);

@@ -1,8 +1,8 @@
-Devil
+Devi
 ===============
 
 Devil Sample <br/>
-read and write Image File using Devil <br/>
+read and write Image File <br/>
 
 ### Caution
 Devil saving images upside-down
@@ -87,16 +87,6 @@ loadImage: ./images/uparrow.png ( 512 x 512 ) <br/>
 read image file <br/>
 show image in OpenGL window <br/>  
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/result/screenshot_gl_uparrow.png" width="300" /><br/>
-
-Note: <br/>
-display upside down <br/>
-because the OpenGL coordinates are reversed  <br/>
-load Image in the correct orientation  <br/>
-
-
-how to display in the correct orientation  <br/>
-See:  <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenGL-GLFW-Texture  <br/>
 
 
 ## test_write.cpp
