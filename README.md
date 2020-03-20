@@ -102,7 +102,7 @@ and draw Triangle with GLSL <br/>
 
 ### OpenGL-GLUT-Texture
 dwaw Texture with image using GLUT <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_upsidedown.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" /><br/>
 
 ### OpenGL-GLFW-Texture
 dwaw Texture with image using GLFW  <br/>
