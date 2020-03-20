@@ -35,6 +35,10 @@ read and write JPEG format Image File <br/>
 read and write oNG format Image File <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
+### bmp 
+read and write bmp format Image File <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_uparrow.bmp" width="300" /><br/>
+
 
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>

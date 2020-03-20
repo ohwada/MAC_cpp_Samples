@@ -1,0 +1,6 @@
+sample when run copy
+---------
+bmp : copy
+loadImage: ./images/uparrow.bmp ( 512 x 512 )
+saved Image : uparrow_copy.bmp
+
