@@ -16,6 +16,7 @@ so-called Solid Image. </br>
 You can convert with GIMP. </br>
 Select "Raw image data" as the file format to be saved by exporting. </br>
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/gimp_export_raw.png" width="300" /><br/>
 
 ### File Name
 Raw Image format  do not have the size of the image </br>
