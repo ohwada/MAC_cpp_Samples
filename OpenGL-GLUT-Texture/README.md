@@ -47,13 +47,13 @@ open OpenGL window <br/>
 and draw  Texture with color array pattern <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_test_1_2.png" width="300" /><br/>
 
-% ./test 2 16 <br/>
-and draw  Texture with CheckerBoard pattern <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_test_2_16.png" width="300" /><br/>
-
 Note: <br/>
 displayed upside down <br/>
 because OpenGL coordinates are upside down <br/>
+
+% ./test 2 16 <br/>
+and draw  Texture with CheckerBoard pattern <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_test_2_16.png" width="300" /><br/>
 
 ## image_texture.cpp <br/>
   % g++ image_texture.cpp texture_util.cpp parse_filename.cpp -o image -std=c++11 -framework OpenGL -framework GLUT 
@@ -67,10 +67,6 @@ ex) <br/>
 display as below <br/>
 OpenGL/GLUT Texture <br/>
 loadImage: ./images/park.tga ( 512 x 512 ) <br/>
-
-Note: <br/>
-displayed upside down <br/>
-because OpenGL coordinates are upside down <br/>
 
 open OpenGL window <br/>
 and read TGA file <br/>
