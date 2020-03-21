@@ -42,6 +42,12 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/TGALoader <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/TGALoader/result/screenshot_gtk_uparrow.png" width="300" /><br/>
 
+### RawLoader
+read Raw format image file <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/RawLoader <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparrow.png" width="300" /><br/>
+
 ### GTK
 open GTK window and show image <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK <br/>

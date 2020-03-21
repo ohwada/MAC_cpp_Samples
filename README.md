@@ -47,6 +47,10 @@ read and write bmp format Image File <br/>
 load Texture from TGA format image file <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/TGALoader/result/screenshot_gtk_uparrow.png" width="300" /><br/>
 
+### RawLoader
+read Raw format image file <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparrow.png" width="300" /><br/>
+
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
