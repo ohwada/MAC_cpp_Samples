@@ -1,7 +1,6 @@
 /*
  * OpenGL Sample
  * 2020-02-01 K.OHWADA
- * reference : http://www.oit.ac.jp/is/L231/pukiwiki/index.php?%E6%84%9F%E8%A6%9A%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E7%A0%94%E7%A9%B6%E5%AE%A4/OpenGL/%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0#s205ba9e
  */
 
 
@@ -18,6 +17,11 @@ using namespace std;
 char* readImage(string input, int &width, int &height)  
 {
 
+// TGA format
+// http://www.openspc2.org/format/TGA/index.html
+
+	const int FORMAT_FULLCOLOR = 2;
+
     char header[18]; 
 
   /* texture file open */  
@@ -28,6 +32,7 @@ char* readImage(string input, int &width, int &height)
     } 
 
 
+
 	// read header information
     int num = sizeof(header);
 	int ret = fread(header, 1, num, fp);
@@ -36,6 +41,18 @@ char* readImage(string input, int &width, int &height)
 		return NULL;
     }
 
+	int format = header[2];
+    cout << "TGA format: " << format << endl;
+
+
+	int bpp = header[16];
+	cout << "TGA bit depth: " << bpp << endl;
+
+
+    // use the read pixel data as is
+    // NOT correct based on the origin of the image
+	int descriptor = header[17];
+    printf("TGA descriptor: %x \n", descriptor);
 
 	// determine width and height
 	width = header[13] * 256 + header[12];

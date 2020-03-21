@@ -51,6 +51,9 @@ and draw  Texture with color array pattern <br/>
 and draw  Texture with CheckerBoard pattern <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_test_2_16.png" width="300" /><br/>
 
+Note: <br/>
+displayed upside down <br/>
+because OpenGL coordinates are upside down <br/>
 
 ## image_texture.cpp <br/>
   % g++ image_texture.cpp texture_util.cpp parse_filename.cpp -o image -std=c++11 -framework OpenGL -framework GLUT 
@@ -65,15 +68,22 @@ display as below <br/>
 OpenGL/GLUT Texture <br/>
 loadImage: ./images/park.tga ( 512 x 512 ) <br/>
 
+Note: <br/>
+displayed upside down <br/>
+because OpenGL coordinates are upside down <br/>
 
 open OpenGL window <br/>
 and read TGA file <br/>
 and draw  Texture <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" /><br/>
 
+Note: <br/>
+displayed in original orientation <br/>
+OpenGL coordinates are upside down <br/>
+the origin of the image is the left bottom <br/>
 
 ### Reference <br/>
 - https://www.opengl.org/
 - http://www.openspc2.org/format/TGA/index.html
-- http://www.oit.ac.jp/is/L231/pukiwiki/index.php?%E6%84%9F%E8%A6%9A%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E7%A0%94%E7%A9%B6%E5%AE%A4/OpenGL/%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0#s205ba9e
+- http://asura.iaigiri.com/OpenGL/gl5.html
 

@@ -33,6 +33,9 @@ void displayTexPolygon()
 {  
   glEnable(GL_TEXTURE_2D);  
   glBegin(GL_QUADS);  
+
+// displayed upside down
+// becasuse the coordinates of OpenGL are upside down,
   glTexCoord2f(0.0, 0.0); glVertex3f(-5.0,-5.0, 0.0);  
   glTexCoord2f(0.0, 1.0); glVertex3f(-5.0, 5.0, 0.0); 
  
