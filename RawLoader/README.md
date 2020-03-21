@@ -42,7 +42,7 @@ loadImage: ./images/uparrow_512_512_1.raw ( 512 x 512 ) <br/>
 open OpenGL window <br/>
 read Raw format image file  <br/>
 draw  Texture <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparraow.png" width="300" /><br/>
 
 
 ## test_gtk.cpp 
