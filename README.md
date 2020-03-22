@@ -51,6 +51,10 @@ load Texture from TGA format image file <br/>
 read Raw format image file <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparraow.png" width="300" /><br/>
 
+### DDSLoader
+read DDS format image file <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/DDSLoader/result/screenshot_uparrow.png" width="300" /><br/>
+
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>

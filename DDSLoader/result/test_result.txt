@@ -1,0 +1,6 @@
+sample when run test
+----------
+dds: OpenGL
+loadImage: ./images/uparrow.dds ( 512 x 512 )
+DDS format: DXT5
+
