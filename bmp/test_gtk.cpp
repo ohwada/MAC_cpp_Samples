@@ -18,6 +18,7 @@ using namespace std;
 
 /**
  * loadImage
+ * @return  R G B without alpha
  */
 char* loadImage(string input, int &width, int &height)
 {
@@ -31,7 +32,7 @@ char* loadImage(string input, int &width, int &height)
     width = img->width;
     height = img->height;
 
-    int bufsize = 4*width*height;
+    int bufsize = 3*width*height;
     char* buf = new char[bufsize]; 
 
     for(int y=0; y<height; y++) {
@@ -43,11 +44,10 @@ char* loadImage(string input, int &width, int &height)
             char g = pix.g;
             char b = pix.b;
 
-            int buf_index = 4*width*y + 4*x;
+            int buf_index = 3*width*y + 3*x;
             buf[buf_index+0] = r;
             buf[buf_index+1] = g;
             buf[buf_index+2] = b;
-            buf[buf_index+3] = (char)255;
 
         } // x
     } // y
@@ -86,17 +86,17 @@ int main(int argc, char** argv)
 
 // load image
     int width;
-    int height;
+   int height;
     char* data = loadImage(input, width, height);
     if(!data){
         cerr << "load Image Faild: " << input << endl;
         return EXIT_FAILURE;
     }
 
+
     // file info
     string str_size = " ( " + to_string(width)  + " x " + to_string(height) + " )";
     cout << "loadImage: " << input  << str_size << endl;
-
 
 // open window
 	gtk_init (&argc, &argv);
@@ -112,11 +112,11 @@ int main(int argc, char** argv)
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_data(
             (const guchar *)data, 
             GDK_COLORSPACE_RGB, 
-            TRUE, 
+            FALSE, 
             8, 
             width, 
             height, 
-            (4*width), 
+            (3*width), 
             NULL, 
             NULL);
 
