@@ -64,7 +64,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK <br/>
 dwaw Texture with image in openGL window <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenGL-GLUT-Texture <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT-Texture/result/screenshot_upsidedown.png" width="300" /><br/>
+<image src="https://github.com/ohwada/MAC_cpp_Samples/blob/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" /><br/>
 
 
 
