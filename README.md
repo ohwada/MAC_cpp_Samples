@@ -41,7 +41,7 @@ read and write oNG format Image File <br/>
 
 ### bmp 
 read and write bmp format Image File <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_door.png" width="300" /><br/>
 
 ### TGALoader
 load Texture from TGA format image file <br/>

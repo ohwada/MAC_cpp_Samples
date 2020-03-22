@@ -38,17 +38,17 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK
 ### run sample code 
 Usage: gtk \< inputImageFilename \>  <br/>
 ex)
-% ./gtk ./images/uparrow.bmp <br/>
+% ./gtk ./images/door.bmp <br/>
 
 ### result 
 display as below <br/>
 bmp : gtk  <br/>
-loadImage: ./images/uparrow.bmp ( 512 x 512 )  <br/>
+loadImage: ./images/door.bmp ( 480 x 640 )  <br/>
 
 
 read image file <br/>
 show image in GTK window <br/>  
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_door.png" width="300" /><br/>
 
 
 ## test_write.cpp
