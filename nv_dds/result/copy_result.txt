@@ -1,0 +1,6 @@
+sample when run copy
+----------
+dds : copy 
+loadImage: ./images/uparrow.dds ( 512 x 512 )
+saved image: uparrow_copy.dds
+
