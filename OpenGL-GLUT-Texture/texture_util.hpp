@@ -13,17 +13,24 @@
 #include <OpenGL/OpenGL.h>
 #include <GLUT/glut.h>
 
-void setupWindow(std::string title, int width, int height, int x, int y);
 
-void setupTexture(GLubyte* image, int width, int height, GLint internalformat, GLenum format); 
+bool loadTexture(std::string filename, bool isReverse = false);
+
+void stupTextureReverse(char *data, int width, int height);
 
 void displayTexPolygon();
 
-void display(void);
+void setupFunc();
 
-void reshape(int w, int h);
+void display_quads(void);
 
-void keyboard(unsigned char key, int x, int y);
+void idle_quads(void);
 
-void dumpGLInfo();
+void reshape_quads(int w, int h);
+
+void keyboard_quads(unsigned char key, int x, int y);
+
+void setTwice(bool flag);
+
+char* reverseUpsideDown(char *src, int width, int height);
 

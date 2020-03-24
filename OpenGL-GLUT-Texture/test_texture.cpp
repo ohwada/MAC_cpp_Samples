@@ -1,8 +1,12 @@
 /*
  * OpenGL Sample
  * 2020-02-01 K.OHWADA
- * reference : http://www.oit.ac.jp/is/L231/pukiwiki/index.php?%E6%84%9F%E8%A6%9A%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E7%A0%94%E7%A9%B6%E5%AE%A4/OpenGL/%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0#s205ba9e
  */
+
+// reference : http://www.oit.ac.jp/is/L231/pukiwiki/index.php?%E6%84%9F%E8%A6%9A%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E7%A0%94%E7%A9%B6%E5%AE%A4/OpenGL/%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0#s205ba9e
+
+#include <string> 
+#include <iostream>
 
 #include "texture_util.hpp"
 
@@ -64,7 +68,7 @@ int main(int argc , char ** argv)
 
 
     // ColorMatrixPixel
-    const int SCALE = 1;
+    const int SCALE = 128;
     int width = SCALE * size;
     int height = SCALE * size;
     char* pixel = createColorMatrixPixel(size, SCALE);
@@ -77,23 +81,20 @@ int main(int argc , char ** argv)
         pixel = createCheckerBoardPixel(width, height);             
     }
 
-
+    // open window  
   glutInit(&argc, argv); 
+    glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);  
+    glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);          
+    glutInitWindowPosition(WIN_POS_X, WIN_POS_Y);      
+    glutCreateWindow(win_title.c_str());
+    setupFunc();
 
-    setupWindow(win_title,
-        WIN_WIDTH, 
-        WIN_HEIGHT, 
-        WIN_POS_X, 
-        WIN_POS_Y );
-
-    setupTexture((GLubyte* )pixel, width, height, GL_RGBA, GL_RGBA);
+    stupTextureReverse(pixel, width, height);
 
     cout << "Texture Successfully" << endl;
 
 // you can operate by key input
 // 'q' : quit this program
-// 't' : toggle to draw image twice horizontally or not 
-// for an Exercise of how to use Texture
 // Space bar : toggle to spin or not 
 
   glutMainLoop();

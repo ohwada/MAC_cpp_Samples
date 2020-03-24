@@ -3,84 +3,14 @@
  * 2020-02-01 K.OHWADA
  */
 
+#include <string> 
+#include <iostream>
 
 #include "texture_util.hpp"
 
 #include "parse_filename.hpp"
 
 using namespace std;
-
-
-/*
- * readImage
- */
-char* readImage(string input, int &width, int &height)  
-{
-
-// TGA format
-// http://www.openspc2.org/format/TGA/index.html
-
-	const int FORMAT_FULLCOLOR = 2;
-
-    char header[18]; 
-
-  /* texture file open */  
-    FILE *fp = fopen(input.c_str(), "rb");
-    if(fp==NULL){  
-	    cerr << "Could not open file : " << input << endl;
-        return NULL;  
-    } 
-
-
-
-	// read header information
-    int num = sizeof(header);
-	int ret = fread(header, 1, num, fp);
-    if(ret < num){
-		cerr << "Could not read header : " << input << endl;
-		return NULL;
-    }
-
-	int format = header[2];
-    cout << "TGA format: " << format << endl;
-
-
-	int bpp = header[16];
-	cout << "TGA bit depth: " << bpp << endl;
-
-
-    // use the read pixel data as is
-    // NOT correct based on the origin of the image
-	int descriptor = header[17];
-    printf("TGA descriptor: %x \n", descriptor);
-
-	// determine width and height
-	width = header[13] * 256 + header[12];
-	height = header[15] * 256 + header[14];
-
-
-	// create image buffer
-    int bufsize = 4*width*height;
-    char *image = new char[bufsize];
-
-    // tga order B G R A
-    // image order R G B A
-
-  for(int y=0;y<height;y++){  
-    for(int x=0;x<width;x++){ 
-        int index = 4*width*y + 4*x; 
-      image[index+2] = fgetc(fp); /* B */  
-      image[index+1] = fgetc(fp); /* G */  
-      image[index+0] = fgetc(fp); /* R */  
-      image[index+3] = fgetc(fp); /* alpha */  
-    } // x 
-  } //y
-
-
-  fclose(fp); 
-
-    return image; 
-}
 
 
 /*
@@ -94,7 +24,7 @@ int main(int argc , char ** argv)
     const int WIN_POS_X = 100;
     const int WIN_POS_Y = 100;
 
-    cout << "OpenGL/GLUT Texture" << endl;
+    cout << "Image Texture" << endl;
 
     if (argc < 2) {
         cerr << "Usage: " << argv[0] << " <inputImageFile> "  << endl;
@@ -110,30 +40,20 @@ int main(int argc , char ** argv)
  
     // open window           
   glutInit(&argc, argv); 
+    glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);  
+    glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);          
+    glutInitWindowPosition(WIN_POS_X, WIN_POS_Y);      
+    glutCreateWindow(win_title.c_str());
+    setupFunc();
 
-    setupWindow(win_title,
-        WIN_WIDTH, 
-        WIN_HEIGHT, 
-        WIN_POS_X, 
-        WIN_POS_Y );
-
-// read Image
-    int width;
-    int height;
-	char* image = readImage(input, width, height);
-    if(!image){
-        cerr <<  "readImage Faild "  << input << endl;
+    // load Texture
+    bool ret = loadTexture(input, true);
+    if(!ret){
+        cerr << "loadTexture Faild: " << input << endl;
         return EXIT_FAILURE;
     }
 
-    // file info
-    string str_size = " ( " + to_string(width)  + " x " + to_string(height) + " )";
-    cout << "loadImage: " << input  << str_size << endl;
-
-    // show in window
-    setupTexture((GLubyte*)image, width, height, GL_RGBA, GL_RGBA);
-
-    cout << "Texture Successfully" << endl;
+    cout << "loadTexture: " << input << endl;
 
   glutMainLoop();
                  
