@@ -98,8 +98,8 @@ calculate Histogram in RGB values <br/>
 
 ### OpenGL-GLUT
 open OpenGL window with GLUT <br/>
-and draw triangle <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_triangle.png" width="300" /><br/>
+and draw teapot <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_ads.png" width="300" /><br/>
 
 ### OpenGL-GLFW
 open OpenGL window with glfw <br/>

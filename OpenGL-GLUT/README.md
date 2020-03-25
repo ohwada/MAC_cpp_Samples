@@ -76,9 +76,6 @@ mode 1 : solid white <br/>
 mode 2 : solid ads <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_ads.png" width="300" /><br/>
 
-### result 
-draw teapot <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_teapot.png" width="300" /><br/>
 
 ### Reference <br/>
 - https://www.opengl.org/
