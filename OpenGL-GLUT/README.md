@@ -56,8 +56,25 @@ draw teapot <br/>
 ### build asample code 
 % g++ teapot.cpp  -o teapot -std=c++11  -framework OpenGL  -framework GLUT
 
-### run sample code 
-% ./teapot <br/>
+### run sample code
+Usage teapot [mode]
+ex) 
+% ./teapot 2 <br/>
+
+mode  <br/>
+- 0 : wireframe <br/>
+- 1 : solid white <br/>
+- 2 : solid ads (Ambient, Diffuse, and Specular) <br/>
+
+### result 
+mode 0 : wireframe <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_wireteapot.png" width="300" /><br/>
+
+mode 1 : solid white <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_white.png" width="300" /><br/>
+
+mode 2 : solid ads <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_ads.png" width="300" /><br/>
 
 ### result 
 draw teapot <br/>
