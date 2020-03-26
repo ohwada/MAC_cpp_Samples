@@ -29,7 +29,7 @@ write gray to output file  <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/vegetables_gray.jpg" width="300" /><br/>
 
 and show image  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow_vegitables.png" width="300" /><br/>
 
 ## test_gtk.cpp
 read image file <br/>
@@ -44,16 +44,16 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK
 ### run sample code 
 Usage: gtk \< inputImageFilename \>  <br/>
 ex)
-% ./gtk ./images/uparrow.png <br/>
+% ./gtk ./images/baboon.tiff <br/>
 
 ### result 
 display as below <br/>
 OpenCV with GTK:  <br/>
-loadImage: ./images/uparrow.png ( 512 x 512 ) <br/>
+loadImage: ./images/baboon.tiff ( 512 x 512 ) <br/>
 
 read image file <br/>
 show image in GTK window <br/> 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_gtk_baboon.png" width="300" /><br/>
 
 ## test_write.cpp
 write test pattern to image file <br/>
