@@ -67,7 +67,7 @@ read and write dds format Image File using nv_dds<br/>
 
 ### OpenCV-ImageReadWrite
 read and write Image File using OpenCV <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow_vegitables.png" width="300" /><br/>
 
 ### OpenCV-GaussianBlur
 process Image with OpenCV GaussianBlur API <br/>

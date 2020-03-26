@@ -69,25 +69,17 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/nv_dds <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/nv_dds/result/screenshot_woman.png" width="300" /><br/>
 
+### OpenCV-ImageReadWrite
+read and write Image File using OpenCV <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCV-ImageReadWrite <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow_vegitables.png" width="300" /><br/>
+
 ### GTK
 open GTK window and show image <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
-
-### OpenGL-GLUT-Texture
-dwaw Texture with image in openGL window <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenGL-GLUT-Texture <br/>
-
-<image src="https://github.com/ohwada/MAC_cpp_Samples/blob/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" /><br/>
-
-
-
-### OpenCV-ImageReadWrite
-read and write Image File using OpenCV <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCV-ImageReadWrite <br/>
-
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow.png" width="300" /><br/>
 
 ### Reference <br/>
 - https://www.gtk.org/
