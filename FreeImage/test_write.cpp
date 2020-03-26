@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 
     // create Pixel
     char *data = 
-        createColorMatrixPixel(size, scale);
+        createColorMatrixPixel32(size, scale);
 
     // save Image
     bool ret = fi_saveImage(output, data, width, height);

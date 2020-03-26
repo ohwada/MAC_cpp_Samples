@@ -55,11 +55,28 @@ char COLOR_MATRIX_PIXEL_4x4[] =
     (char)255, (char)255,   (char)0 // Yellow
 };
 
+/**
+ * createColorMatrixPixel24
+ */
+char* createColorMatrixPixel24(int size, int scale)
+{
+    return createColorMatrixPixel(size, scale, false);
+}
+
 
 /**
- * createColorMatrixPixe
+ * createColorMatrixPixel32
  */
-char* createColorMatrixPixel(int size, int scale)
+char* createColorMatrixPixel32(int size, int scale)
+{
+    return createColorMatrixPixel(size, scale, true);
+}
+
+
+/**
+ * createColorMatrixPixel
+ */
+char* createColorMatrixPixel(int size, int scale, bool is_alpha)
 {
 
     char *matrix = COLOR_MATRIX_PIXEL_2x2;
@@ -73,23 +90,25 @@ char* createColorMatrixPixel(int size, int scale)
             break;
     }
 
-    return scalePixel(matrix, size, size, scale);
+    return scalePixel(matrix, size, size, scale, is_alpha);
 }
 
 
 /**
  * scalePixel
  */
-char* scalePixel(char *src, int src_width, int src_height, int scale)
+char* scalePixel(char *src, int src_width, int src_height, int scale, bool is_alpha)
 {
 
-    int src_pitch = 3 * src_width;
+const int SRC_BYTES = 3;
+    int src_pitch = SRC_BYTES * src_width;
 
     int buf_width = scale * src_width;
     int buf_height = scale * src_height;
-    int buf_pitch = 4 * buf_width;
 
-    int bufsize = 4 *  buf_width * buf_height;
+    int buf_bytes = is_alpha ? 4 : 3;
+    int buf_pitch = buf_bytes * buf_width;
+    int bufsize = buf_bytes *  buf_width * buf_height;
 
     char* buf = new char[bufsize];
 
@@ -98,31 +117,33 @@ char* scalePixel(char *src, int src_width, int src_height, int scale)
         buf[k] = (char)255;
     }
 
-int x_step = 4 * scale;
+int x_step = buf_bytes * scale;
 int y_step = buf_pitch * scale;
 
     for(int y = 0;  y<src_height; y++)
     {
         for(int x = 0; x<src_width; x++)
         {
-                int src_index = src_pitch * y + 3 * x;
+                int src_index = src_pitch * y + SRC_BYTES * x;
                 int  index_xy = y_step  * y + x_step * x;
 
             char r =  src[src_index + 0]; // R
             char g =  src[src_index + 1]; // G
             char b =  src[src_index + 2]; // B
+            char a = (char)255; // A
 
     for(int j=0; j<scale; j++)
     {
         for(int i=0; i<scale; i++)
         {
-                    int buf_index = index_xy + buf_pitch * j +   4 * i;
+                    int buf_index = index_xy + buf_pitch * j +   buf_bytes * i;
 
                     buf[buf_index + 0] = r; // R
                     buf[buf_index + 1] = g; // G
                     buf[buf_index + 2] = b; // B
-                    buf[buf_index + 3] = (char)255; // A
-
+                    if(is_alpha){
+                        buf[buf_index + 3] = a; // A
+                    }
                 } // for i
             } // for i 
         } // for x
@@ -135,16 +156,33 @@ int y_step = buf_pitch * scale;
 }
 
 
+/*
+ * createCheckerBoardPixel24
+ */
+char* createCheckerBoardPixel24(int width, int height)  
+{
+    return createCheckerBoardPixel(width, height, false);
+}
+
+/*
+ * createCheckerBoardPixel32
+ */
+char* createCheckerBoardPixel32(int width, int height)
+{  
+    return createCheckerBoardPixel(width, height, true);
+}
 
 /*
  * createCheckerBoardPixel
  */
-char* createCheckerBoardPixel(int width, int height)  
+char* createCheckerBoardPixel(int width, int height, bool is_alpha)  
 { 
 
-    int pitch = 4 * width;
+    int bytes = is_alpha ? 4 : 3;
 
-	int bufsize = 4 * width * height;
+    int pitch = bytes * width;
+
+	int bufsize = bytes * width * height;
 
 	char* buf = new char[bufsize];
 
@@ -153,11 +191,13 @@ char* createCheckerBoardPixel(int width, int height)
 // White when the height or width is even 
         int flag = (((x&0x01)==0)^((y&0x01)==0));
         char c = (char)( 255 * flag );
-        int index = (pitch * y) + (4 * x); 
+        int index = (pitch * y) + ( bytes * x); 
         buf[index + 0] = c; // R
         buf[index + 1] = c; // G
         buf[index + 2] = c; // B
-        buf[index + 3] = (char)255;  // A 
+        if(is_alpha){
+            buf[index + 3] = (char)255;  // A
+        } 
     }  
   }
 
@@ -166,7 +206,7 @@ char* createCheckerBoardPixel(int width, int height)
 
 
 /*
- * dumpPixe
+ * dumpPixel
  */
 void dumpPixel(char* pixel, int size, int byte_per_pixel)
 {
