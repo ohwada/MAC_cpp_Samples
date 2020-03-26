@@ -61,6 +61,18 @@ write test pattern to image file <br/>
 ### build sample code
 % g++ test_write.cpp pixels.c  -o write -std=c++11 `pkg-config --cflags --libs opencv4`
 
+### run sample code 
+Usage: ./write [size] [scale] [outputFileExtension] <br/>
+ex) <br/>
+./write 2 256 png <br/>
+
+### result 
+display as below <br/>
+penCV : write <br/>
+saved Image: test_2_256.png <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/test_2_256.png" width="300" /><br/>
+
 ### Reference <br/>
 - https://opencv.org/  <br/>
 
