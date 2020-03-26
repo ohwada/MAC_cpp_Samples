@@ -1,0 +1,7 @@
+sample when run copy
+----------
+bmp : copy
+bmp header: biBitCount = 32 , biCompression= 0 
+read_bmp_file: ./images/vegitables.bmp
+saved Image : vegitables_copy.bmp
+saved Image : vegitables_gray.bmp

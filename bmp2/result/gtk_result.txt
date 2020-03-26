@@ -1,0 +1,6 @@
+sample when run gtk
+----------
+bmp : gtk
+bmp header: biBitCount = 32 , biCompression= 0 
+color type: RGB 
+loadImage: ./images/vegitables.bmp ( 512 x 512 )

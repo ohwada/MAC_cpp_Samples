@@ -1,0 +1,200 @@
+cd /Users/ohwada/C++/bmp-full
+
+g++ test_copy.cpp bmp.c image.c parse_filename.cpp  -o copy -std=c++11
+
+
+g++ test_write.cpp bmp.c image.c  pixels.c  -o write -std=c++11
+
+====
+g++ test_gtk.cpp bmp.c image.c -o gtk -std=c++11  `pkg-config --cflags --libs gtk+-2.0`
+
+
+
+
+g++ test.cpp bmp.cpp image.cpp
+
+
+
+gcc *.c
+
+
+
+===
+g++ test_gtk32.cpp bitmap32.c  parse_filename.cpp -o gtk32  `pkg-config --cflags --libs gtk+-2.0`
+
+
+===
+g++ test_gtk.cpp bitmap.c  parse_filename.cpp -o gtk  `pkg-config --cflags --libs gtk+-2.0`
+
+
+
+===
+header0=66  B
+header1=77  M
+header2=54  6
+header3=0 
+===
+
+==
+b24
+header14=40 : wimdows
+header15=0 
+header16=0 
+header17=0 
+
+header18=0 
+header19=2 : 2  x 256 = 512
+header20=0 
+header21=0 
+
+header22=0 
+header23=2  : 2  x 256 = 512
+header24=0 
+header25=0
+==
+b32
+header14=40 : wimdows 
+header15=0 
+header16=0 
+header17=0
+
+header18=0 
+header19=2   : 2  x 256 = 512
+header20=0 
+header21=0 
+
+header22=0 
+header23=254  fe
+header24=255  ff
+header25=255  ff
+==
+marble
+header18=139 
+header19=5 ; 1419
+header20=0 
+header21=0 
+header22=233 
+header23=3 : 1001
+header24=0 
+header25=0 
+
+
+
+exercise
+
+g++ exercise_thermo.cpp bitmap.c parse_filename.cpp  -o thermo
+
+g++ exercise_sobel_binary.cpp bitmap.c sobel.c parse_filename.cpp  -o binary
+
+
+
+g++ exercise_sobel.cpp bitmap.c sobel.c parse_filename.cpp  -o binary
+
+
+
+
+g++ exercise_post.cpp bitmap.c  parse_filename.cpp  -o post
+
+
+
+
+g++ exercise_gray.cpp bitmap.c  parse_filename.cpp  -o gray 
+
+
+
+g++ test_write.cpp bitmap.c  pixels.c  -o write -std=c++11  
+
+
+
+gcc test_gtk.c bitmap.c  c_parse_filename.c -o gtk  `pkg-config --cflags --libs gtk+-2.0`
+
+
+g++ test_gtk.cpp bitmap.c  parse_filename.cpp -o gtk  `pkg-config --cflags --libs gtk+-2.0`
+
+
+
+g++ test_copy.cpp bitmap.c  parse_filename.cpp -o copy  -std=c++11
+
+
+
+
+
+gcc test_copy.c bitmap.c  -o copy
+
+
+g++ test_c_parse_filename.c parse_filename.cpp
+
+
+
+gcc main.c bitmap.c 
+
+
+
+=====
+ImageMagick Convert BMP from 24 bit to 16 bit Mode?
+https://stackoverflow.com/questions/34298196/imagemagick-convert-bmp-from-24-bit-to-16-bit-mode
+
+convert im.bmp -colors 256 -compress none out.bmp
+
+convert sample.png -colors 256  uparrow_im.bmp
+
+
+convert sample.png -compress None -depth 24  uparrow_im.bmp
+
+===
+画像形式の変換
+https://www.petitmonte.com/labo/imageconvert/
+
+ここで２４女にする
+
+
+===
+ImageMagickによるbitmap画像の24bit変換
+http://www.natural-science.or.jp/article/20111122232436.php
+   convert input.gif -type truecolor output.bmp
+
+   convert sample.png -type truecolor -intent Undefined sample2.bmp
+=====
+
+
+
+Bitmapファイルを入出力してみる
+http://hooktail.org/computer/index.php?Bitmap%A5%D5%A5%A1%A5%A4%A5%EB%A4%F2%C6%FE%BD%D0%CE%CF%A4%B7%A4%C6%A4%DF%A4%EB
+
+
+
+
+cd /Users/ohwada/C++/bmp
+
+gcc test.c bmp_simple.c image.c
+
+
+
+
+
+
+
+BMP画像の読み込み（簡易版）
+
+https://www.mm2d.net/main/prog/c/image_io-05.html
+
+
+画像の入出力を勉強するために作成したプログラムです
+https://github.com/ohmae/ImageIO
+
+
+
+
+
+BMP画像を読み込む
+http://mcn-www.jwu.ac.jp/~toriumi/06p2-3.htm
+
+
+画像などのファイルの読み込みにはC言語の標準ライブラリ関数を使用する。 
+BMP画像はペイントやPhotoShopなどラスター画像処理ソフトを使用して作成するとよい
+
+この授業では前半にMicrosoftVisualStudio.NETを使って
+
+gpoint()関数のような
+
+Processingを使用して

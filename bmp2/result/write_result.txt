@@ -1,0 +1,4 @@
+sample when run write
+----------
+bmp : write
+saved Image : test_2_256_b24.bmp
