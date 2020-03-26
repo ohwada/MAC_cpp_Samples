@@ -97,6 +97,9 @@ binarization <br/>
 generate thermography <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/door_thermo.bmp" width="300" /><br/>
 
+### online ervice <br/>
+convert to 24 bit bmp <br/>
+https://www.petitmonte.com/labo/imageconvert/ <br/>
 
 ### Reference <br/>
 - https://github.com/kawasin73/todai-bmp
