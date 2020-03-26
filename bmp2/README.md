@@ -84,7 +84,7 @@ bmp : write <br/>
 saved Image : test_2_256_b24.bmp <br/>
 
 write test pattern to image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/test_2_256_b24.bmp" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp2/result/test_2_256_b24.bmp" width="300" /><br/>
 
 ### Reference <br/>
 - https://github.com/ohmae/ImageIO
