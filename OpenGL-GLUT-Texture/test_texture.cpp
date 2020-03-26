@@ -71,14 +71,14 @@ int main(int argc , char ** argv)
     const int SCALE = 128;
     int width = SCALE * size;
     int height = SCALE * size;
-    char* pixel = createColorMatrixPixel(size, SCALE);
+    char* pixel = createColorMatrixPixel24(size, SCALE);
 
 
     if(mode == MODE_CHECKER) {
         // CheckerBoard
         width = size;
         height = size;
-        pixel = createCheckerBoardPixel(width, height);             
+        pixel = createCheckerBoardPixel24(width, height);             
     }
 
     // open window  
@@ -89,7 +89,7 @@ int main(int argc , char ** argv)
     glutCreateWindow(win_title.c_str());
     setupFunc();
 
-    stupTextureReverse(pixel, width, height);
+    stupTexture_RGB_Reverse(pixel, width, height);
 
     cout << "Texture Successfully" << endl;
 

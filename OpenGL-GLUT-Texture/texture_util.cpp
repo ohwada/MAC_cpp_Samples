@@ -19,12 +19,28 @@ float g_spin = 0.0;
 bool g_is_spin = true; 
 bool g_is_twice = false;
 
+/**
+ * loadTexture_RGBA
+ */
+bool loadTexture_RGBA(string filename)
+{
+    return loadTexture(filename, false, true);
+}
+
+
+/**
+ * loadTexture_RGBA_Reverse
+ */
+bool loadTexture_RGBA_Reverse(string filename)
+{
+    return loadTexture(filename, true, true);
+}
 
 
 /**
  * loadTexture
  */
-bool loadTexture(string filename, bool isReverse)
+bool loadTexture(string filename, bool isReverse, bool is_alpha)
 {
 
 	char *image;
@@ -53,11 +69,12 @@ bool loadTexture(string filename, bool isReverse)
 
 
     if(isReverse){
-        data = reverseUpsideDown(image, width, height);
+        data = reverseUpsideDown(image, width, height, is_alpha);
     }
 
 	// assign Texture
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data); 
+    GLenum format = is_alpha? GL_RGBA: GL_RGB;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data); 
 
     // Texture param
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -79,15 +96,15 @@ bool loadTexture(string filename, bool isReverse)
 
 
 /*
- * stupTexture
+ * stupTexture_RGB_Reverse
  */
-void stupTextureReverse(char *image, int width, int height)  
+void stupTexture_RGB_Reverse(char *image, int width, int height)  
 {
 
-    char *data = reverseUpsideDown(image, width, height);
+    char *data = reverseUpsideDown(image, width, height, false);
 
-	// assign Texture
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, (GLubyte* )data); 
+	// assign Texture RGB
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, (GLubyte* )data); 
 
     // Texture param
     glDepthFunc(GL_LEQUAL);  
@@ -266,10 +283,11 @@ void keyboard_quads(unsigned char key, int x, int y)
 /**
  * reverse UpsideDown
  */
-char* reverseUpsideDown(char *src, int width, int height)
+char* reverseUpsideDown(char *src, int width, int height, bool is_alpha)
 {
 
-    int bufsize = 4 * width * height;
+    int bytes = is_alpha ? 4 : 3;
+    int bufsize = bytes * width * height;
     char* buff = new char[bufsize];
 
     for(int y = 0;  y<height; y++)
@@ -278,13 +296,15 @@ char* reverseUpsideDown(char *src, int width, int height)
         {
             int col     = x;
             int row     = height - y - 1;
-            int src_index   = (row * width + col) * 4;
-            int index_rev  = (row * width + (width - col)) * 4;
+            int src_index   = (row * width + col) * bytes;
+            int index_rev  = (row * width + (width - col)) * bytes;
             int buf_index = bufsize - index_rev;
             buff[buf_index + 0] = src[src_index + 0]; // R
             buff[buf_index + 1] = src[src_index + 1]; // G
             buff[buf_index + 2] = src[src_index + 2]; // B
-            buff[buf_index + 3] = src[src_index + 3]; // A
+            if(is_alpha){
+                buff[buf_index + 3] = src[src_index + 3]; // A
+            }
         }
     }
 

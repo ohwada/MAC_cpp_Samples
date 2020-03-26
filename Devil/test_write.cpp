@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
     // create Pixel
     char *data = 
-        createColorMatrixPixel(size, scale);
+        createColorMatrixPixel32(size, scale);
 
 	// Initialize DevIL.
 	ilInit();

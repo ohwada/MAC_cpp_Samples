@@ -28,10 +28,11 @@ using namespace std;
 	img->width = width;
 	img->height = height;
 
+    // 24 bit : no alpha
 	for(int y=0; y<height; y++){
 		for(int x=0; x<width; x++){
             int dst_index = width*y + x;
-            int src_index = 4*width*y + 4*x;
+            int src_index = 3*width*y + 3*x;
 			img->data[dst_index].r = data[src_index + 0];
 			img->data[dst_index].g = data[src_index + 1];
 			img->data[dst_index].b = data[src_index + 2];
@@ -97,7 +98,7 @@ int main(int argc, char** argv)
 
     // create Pixel
     char *data = 
-        createColorMatrixPixel(size, scale);
+        createColorMatrixPixel24(size, scale);
 
 
 

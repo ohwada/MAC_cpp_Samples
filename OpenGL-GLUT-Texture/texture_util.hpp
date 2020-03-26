@@ -13,10 +13,13 @@
 #include <OpenGL/OpenGL.h>
 #include <GLUT/glut.h>
 
+bool loadTexture_RGBA(std::string filename);
 
-bool loadTexture(std::string filename, bool isReverse = false);
+bool loadTexture_RGBA_Reverse(std::string filename);
 
-void stupTextureReverse(char *data, int width, int height);
+bool loadTexture(std::string filename, bool isReverse, bool is_alpha);
+
+void stupTexture_RGB_Reverse(char *data, int width, int height);
 
 void displayTexPolygon();
 
@@ -32,5 +35,5 @@ void keyboard_quads(unsigned char key, int x, int y);
 
 void setTwice(bool flag);
 
-char* reverseUpsideDown(char *src, int width, int height);
+char* reverseUpsideDown(char *src, int width, int height, bool is_alpha);
 

@@ -153,7 +153,7 @@ int main(int argc, char** argv)
    initShadeModel();
 
     // load Texture
-    bool ret = loadTexture(input, false);
+    bool ret = loadTexture_RGBA(input);
     if(!ret){
         cerr << "loadTexture Faild: " << input << endl;
         return EXIT_FAILURE;

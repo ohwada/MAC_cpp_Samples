@@ -47,7 +47,7 @@ int main(int argc , char ** argv)
     setupFunc();
 
     // load Texture
-    bool ret = loadTexture(input, true);
+    bool ret = loadTexture_RGBA_Reverse(input);
     if(!ret){
         cerr << "loadTexture Faild: " << input << endl;
         return EXIT_FAILURE;
