@@ -1,6 +1,8 @@
 Devi
 ===============
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/images/devil_logo.jpg" width="300" /><br/>
+
 Devil Sample <br/>
 read and write Image File <br/>
 

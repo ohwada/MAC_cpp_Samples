@@ -1,6 +1,8 @@
 FreeImage
 ===============
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/images/free_image_logo.jpg" /><br/>
+
 FreeImage Sample <br/>
 read and write Image File <br/>
 
