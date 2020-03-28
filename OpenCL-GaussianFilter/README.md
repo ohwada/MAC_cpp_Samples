@@ -32,6 +32,9 @@ and write to output file  <br/>
  ex ) OpenCL_Logo_11x11_3.0_.png <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/OpenCL_Logo_11x11_3.0_.png" width="300" /><br/>
 
+### Docement
+- https://qiita.com/ohwada/items/435afc3df419d29439f3
+
 ### Reference 
 - https://www.khronos.org/opencl/
 - https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCL-ImageFilter2D
