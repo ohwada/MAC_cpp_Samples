@@ -1,7 +1,7 @@
 libpng
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/images/libpng_logo.png" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/images/libpng_logo.png" width="100" /><br/>
 
 libpng Sample <br/>
 read and write png format Image File <br/>
