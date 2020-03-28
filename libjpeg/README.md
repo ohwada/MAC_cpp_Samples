@@ -1,6 +1,8 @@
 libjpeg
 ===============
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/images/libjpeg_logo.jpg" /><br/>
+
 libjpeg Sample <br/>
 read and write jpeg format Image File <br/>
 
