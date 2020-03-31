@@ -53,12 +53,11 @@ saved Image : test_2_256.tif <br/>
 
 
 write test pattern to image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/test_2_256.tif" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/test_2_256.tif.png" width="300" /><br/>
 
 
 ### Reference <br/>
 - http://www.simplesystems.org/libtiff/
 - http://maptools-org.996276.n3.nabble.com/reading-rgb-values-from-16-bits-tif-images-td3390.html
 - http://mf-atelier.sakura.ne.jp/mf-atelier/modules/tips/libs/libtiff/libtiff_write_8bit.html
-
 
