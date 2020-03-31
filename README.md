@@ -39,6 +39,10 @@ read and write JPEG format Image File <br/>
 read and write oNG format Image File <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
+### libtiff 
+read and write tiff format Image File <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/screenshot_uparrow.png" width="300" /><br/>
+
 ### bmp 
 read and write bmp format Image File <br/>
 supported format: 24 bit  bmp <br/>

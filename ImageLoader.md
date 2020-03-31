@@ -30,6 +30,12 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/libpng <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
+### libtiff 
+read and write tiff format Image File <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libtiff <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/screenshot_uparrow.png" width="300" /><br/>
+
 ### bmp 
 read and write bmp format Image File <br/>
 supported format: 24 bit  bmp <br/>
