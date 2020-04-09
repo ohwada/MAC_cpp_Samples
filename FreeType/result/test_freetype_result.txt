@@ -1,0 +1,7 @@
+sample when run test_freetype
+----------
+Render letter of given font as a TGA image. 
+writeTGA: test_a.tga ( 90 x 92 ) 
+writeTGA: test_b.tga ( 73 x 92 ) 
+writeTGA: test_c.tga ( 86 x 94 ) 
+writeTGA: test_d.tga ( 81 x 92 ) 
