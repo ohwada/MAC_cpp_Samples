@@ -4,6 +4,9 @@ OpenAL
 OpenAL Sample <br/>
 play tone, wav file <br/>
 
+OpenAL is a cross-platform 3D audio API <br/>
+https://www.openal.org/ <br/>
+
 ###  requires
 - macOS OpenAL.framework <br/>
 https://developer.apple.com/library/archive/documentation/MusicAudio/Conceptual/CoreAudioOverview/CoreAudioFrameworks/CoreAudioFrameworks.html <br/>
@@ -23,8 +26,8 @@ play wav file <br/>
 % g++ test_wav.cpp  -framework OpenAL -I/usr/local/Cellar/alure/1.2_1/include/  -L/usr/local/Cellar/alure/1.2_1/lib/ -lalure-static
 
 ### Reference <br/>
-- https://openal-soft.org/
-- https://kcat.strangesoft.net/alure.html
+- https://www.openal.org/ <br/>
+- https://kcat.strangesoft.net/alure.html<br/>
 
 
 
