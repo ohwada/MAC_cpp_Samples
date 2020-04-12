@@ -19,6 +19,13 @@ display SDL window <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_hello.png" width="300" /><br/>
 
+## test_drawchessboard.c
+// draw chessboard pattern in SDL window <br/>
+
+% gcc test_drawchessboard.c -o chess `pkg-config --cflags --libs sdl2`
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_chess.png" width="300" /><br/>
+
 ## test_bmp.cpp
 // read bmp image file <br/>
 // show in SDL window <br/>
