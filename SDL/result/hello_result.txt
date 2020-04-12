@@ -1,0 +1,4 @@
+
+SDL compiled Version 2.0.12 
+SDL linked Version 2.0.12 
+
