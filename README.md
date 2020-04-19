@@ -20,6 +20,9 @@ play tone, wav file <br/>
 ### irrKlang
 play audio file <br/>
 
+### libmad
+convert mp3 to wav <br/>
+
 ### FreeType
 read font file <br/>
 show text in OpenGL window <br/>
