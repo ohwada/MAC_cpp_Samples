@@ -17,6 +17,9 @@ https://brew.sh/ <br/>
 ### OpenAL
 play tone, wav file <br/>
 
+### PulseAudio
+play audio file <br/>
+
 ### irrKlang
 play audio file <br/>
 
