@@ -1,5 +1,5 @@
 /**
- * libvorbis Sample
+ * libmad Sample
  * 2020-03-01 K.OHWADA
  */
 

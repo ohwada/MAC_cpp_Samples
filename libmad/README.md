@@ -8,8 +8,8 @@ MPEG Audio Decoder <br/>
 https://www.underbit.com/products/mad/
 
 ## install libmad
-% brew  install libmad
-https://formulae.brew.sh/formula/mad
+% brew  install libmad <br/>
+https://formulae.brew.sh/formula/mad <br/>
 
 ## minimad.c
 this is perhaps the simplest example use of the MAD high-level API. <br/>
@@ -23,11 +23,11 @@ stdout : decoded pcm data <br/>
 ex) <br/>
 % ./test < ./media/bell.mp3  <br/>
 
-## conv_wav
+## conv_wav.cpp
 convert mp3 to wav <br/>
 
 ### build sample code 
-g++ ./conv_wav/*.cpp -fdeclspec -o conv `pkg-config --cflags --libs mad`
+%g++ conv_wav.cpp  wav_header.c parse_filename.cpp -o conv `pkg-config --cflags --libs mad`
 
 ### run sample code 
 Usage: ./conv \< mp3File \> <br/> 
