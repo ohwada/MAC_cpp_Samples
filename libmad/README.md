@@ -8,8 +8,8 @@ MPEG Audio Decoder <br/>
 https://www.underbit.com/products/mad/
 
 ## install libmad
-% brew  install libmad <br/>
-https://formulae.brew.sh/formula/mad <br/>
+% brew  install libmad
+https://formulae.brew.sh/formula/mad
 
 ## minimad.c
 this is perhaps the simplest example use of the MAD high-level API. <br/>

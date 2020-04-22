@@ -1,4 +1,4 @@
-media - minimp3
+media - libmad
 ===============
 
 Classical Music Sound Library <br/>

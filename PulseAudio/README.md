@@ -9,8 +9,8 @@ PulseAudio is a sound system for POSIX OSes <br/>
 https://wiki.freedesktop.org/www/Software/PulseAudio/ <br/>
 
 ### install PulseAudio
-% brew install pulseaudio
-https://formulae.brew.sh/formula/pulseaudio
+% brew install pulseaudio <br/>
+https://formulae.brew.sh/formula/pulseaudio <br/>
 
 ## test_beep.c <br/>
 play beep <br/>
