@@ -5,7 +5,7 @@ PulseAudio Sample <br/>
 play wav file <br/>
 
 ### build sample code 
-%  g++ *.cpp -o wav `pkg-config --cflags --libs libpulse` <br/>
+ g++ *.cpp -o wav `pkg-config --cflags --libs libpulse`
 
 ### run sample code 
 Usage: ./wav \< wavFile \> <br/> 

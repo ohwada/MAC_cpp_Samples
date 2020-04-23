@@ -1,3 +1,10 @@
+/**
+ * PulseAudio Sample
+ * 2020-03-01 K.OHWADA
+ * original : ttp://ysflight.in.coocan.jp/programming/audio/pulseAudioSample/j.html
+ */
+
+
 #ifndef YSWAVFILE_IS_INCLUDED
 #define YSWAVFILE_IS_INCLUDED
 /* { */

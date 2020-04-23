@@ -9,8 +9,8 @@ PulseAudio is a sound system for POSIX OSes <br/>
 https://wiki.freedesktop.org/www/Software/PulseAudio/ <br/>
 
 ### install PulseAudio
-% brew install pulseaudio <br/>
-https://formulae.brew.sh/formula/pulseaudio <br/>
+% brew install pulseaudio
+https://formulae.brew.sh/formula/pulseaudio
 
 ## test_beep.c <br/>
 play beep <br/>
@@ -37,6 +37,7 @@ play mp3 file <br/>
 
 ### build sample code 
 require libmad <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmad <br/>
 
 % gcc play_mp3.c -o mp3 `pkg-config --cflags --libs libpulse` `pkg-config --cflags --libs mad` -lpulse-simple  <br/>
 
@@ -49,5 +50,4 @@ ex)
 - https://wiki.freedesktop.org/www/Software/PulseAudio/
 - http://ysflight.in.coocan.jp/programming/audio/pulseAudioSample/j.html
 - https://lauri.xn--vsandi-pxa.com/2013/12/implementing-mp3-player.en.html
-
 
