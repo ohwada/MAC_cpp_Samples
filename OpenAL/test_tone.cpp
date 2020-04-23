@@ -66,6 +66,17 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
+	// version
+	ALCint major_version;
+	ALCint minor_version;
+	alcGetIntegerv(
+    	device, ALC_MAJOR_VERSION, 256, &major_version);
+	alcGetIntegerv(
+    	device, ALC_MINOR_VERSION, 256, &minor_version);
+
+	printf("OpenAL Version: %d.%d \n", major_version, minor_version);
+
+
 	ALCcontext *context = alcCreateContext(device, NULL);
 	if (!context){
 		cout << "alcCreateContext Faild" << endl;
@@ -74,11 +85,14 @@ int main(int argc, char** argv)
 
 	alcMakeContextCurrent(context);
 
+
 // generate Buffer and Source
 	ALuint buffer;
 	ALuint source;
 	alGenBuffers(1, &buffer);
 	alGenSources(1, &source);
+
+
 
 // generate audio data : 440Hz Sin wave for One second
 	int16_t* wav_data = crateToneWav(TONE_FREQ);
