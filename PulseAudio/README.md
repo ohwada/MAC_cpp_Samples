@@ -25,7 +25,7 @@ play beep <br/>
 play wav file <br/>
 
 ### build sample code 
- g++ ./play_wav/*.cpp -o wav `pkg-config --cflags --libs libpulse`
+% g++ ./play_wav/*.cpp -o wav `pkg-config --cflags --libs libpulse`
 
 ### run sample code 
 Usage: ./wav \ <wavFile \> <br/> 
@@ -39,7 +39,7 @@ play mp3 file <br/>
 require libmad <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmad <br/>
 
-% gcc play_mp3.c -o mp3 `pkg-config --cflags --libs libpulse` `pkg-config --cflags --libs mad` -lpulse-simple  <br/>
+% g++ play_mp3.cpp -o mp3 `pkg-config --cflags --libs libpulse` `pkg-config --cflags --libs mad` -lpulse-simple  <br/>
 
 ### run sample code 
 Usage: ./mp3 \< mp3File \> <br/>
