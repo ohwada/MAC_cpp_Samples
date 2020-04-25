@@ -200,7 +200,7 @@ int main(int argc, char **argv)
 
 
 	// write wav header
-    writeWavHeader(output, CHANNELS_STEREO, SAMPLINGRATE);
+    overwriteWavHeader(output, CHANNELS_STEREO, SAMPLINGRATE);
 
     printf("saved: %s \n", output);
 

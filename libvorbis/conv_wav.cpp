@@ -138,7 +138,7 @@ int main(int argc, char** argv)
     ov_clear(&ovf);
 
 	// write wav header
-    writeWavHeader(output, ov_channels, ov_rate);
+    overwriteWavHeader(output, ov_channels, ov_rate);
 
     printf("saved: %s \n", output);
 

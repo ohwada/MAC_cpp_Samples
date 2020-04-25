@@ -27,12 +27,12 @@ ex) <br/>
 convert mp3 to wav <br/>
 
 ### build sample code 
-%g++ conv_wav.cpp  wav_header.c parse_filename.cpp -o conv `pkg-config --cflags --libs mad`
+% g++ conv_wav.cpp  wav_header.c parse_filename.cpp -o conv `pkg-config --cflags --libs mad`
 
 ### run sample code 
 Usage: ./conv \< mp3File \> <br/> 
 ex) <br/>
-./conv ./media/Mozart-EineKleine-1st.mp3 <br/> 
+%  ./conv ./media/Mozart-EineKleine-1st.mp3 <br/> 
 
 ### result <br/>
 create Mozart-EineKleine-1st.mp3.wav <br/>

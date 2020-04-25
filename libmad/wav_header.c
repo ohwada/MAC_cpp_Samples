@@ -1,5 +1,5 @@
 /**
- * libmad Sample
+ * wavheader
  * 2020-03-01 K.OHWADA
  */
 
@@ -28,49 +28,77 @@ typedef struct tag_wav_header {
 		int   ov_datasize;               // size of ov_data from here on              
 } wav_header ;
 
+const int WAVH_RIFF = 0x46464952; // "RIFF"
+const int 	WAVH_WAVE =  0x45564157; // "WAVE"
+const int WAVH_FMT = 0x20746D66; // "'fmt"
+const int WAVH_OV_DATA = 0x61746164;	 // "ov_data"
+const int WAVH_WFORMATLENGTH = 16;
+const short WAVH_WBITSPERSAMPLE = 16;
+const short WAVH_WFORMATTAG_PCM = 1;
 
 /**
  * writeDummyWavHeader
  */
-void writeDummyWavHeader(FILE *fp) 
+bool writeDummyWavHeader(FILE *fp) 
 {
 	char dummy_header[WAV_HEADER_SIZE] = "";	
-    fwrite(dummy_header, 1, WAV_HEADER_SIZE, fp);
+    int wsize = fwrite(dummy_header, 1, WAV_HEADER_SIZE, fp);
+    bool ret = (wsize == WAV_HEADER_SIZE)? true: false;
+    return ret;
 }
 
 
 /**
- * writeHeader
+ * overwriteWavHeader
  */
-void writeWavHeader(char *filename, int channels, int sampling_rate)
+bool overwriteWavHeader(char *filename, int channels, int sampling_rate)
 {
     int filesize = getFileSize(filename);
+    if(filesize==0){
+        return false;
+    }
+
+	// write wav header
+	FILE *fp = fopen(filename, "rb+");
+    bool ret = writeWavHeaderFp(fp, channels, sampling_rate, filesize);
+	fclose(fp);
+    return ret;
+}
+
+
+/**
+ * writeHeaderFp
+ */
+bool writeWavHeaderFp(FILE *fp, int channels, int sampling_rate, int filesize)
+{
 
     int wavsize = filesize - 8;
     int datasize = filesize - WAV_HEADER_SIZE;
+    short nBlockAlign = (short)(WAVH_WBITSPERSAMPLE / 8 * channels);
+	int nAvgBytesPerSec = sampling_rate * nBlockAlign;
 
 	// setup header 
 	wav_header wavh;
-	wavh.RIFF = 0x46464952;						// "RIFF"
-	wavh.WAVE =  0x45564157;					// "WAVE"
-	wavh.fmt = 0x20746D66;						// "'fmt"
-    wavh.ov_data = 0x61746164;						// "ov_data"
-	wavh.wFormatTag = 1; // PCM
-	wavh.wBitsPerSample = 16;
-	wavh.wFormatLength = 16;
-	
+	wavh.RIFF = WAVH_RIFF;
+	wavh.WAVE =  WAVH_WAVE;
+	wavh.fmt = WAVH_FMT;
+    wavh.ov_data = WAVH_OV_DATA;
+	wavh.wFormatTag = WAVH_WFORMATTAG_PCM;
+	wavh.wFormatLength = WAVH_WFORMATLENGTH;
+	wavh.wBitsPerSample = WAVH_WBITSPERSAMPLE;
+
     wavh.nChannels = channels; // maybe stereo
     wavh.nSamplesPerSec = sampling_rate; // may be 44100
 	wavh.size = wavsize;	// total size of wav file
 	wavh.ov_datasize = datasize; // size of ov_data
 
-	wavh.nBlockAlign = (short)(wavh.wBitsPerSample / 8 * wavh.nChannels);
-	wavh.nAvgBytesPerSec = wavh.nSamplesPerSec * wavh.nBlockAlign;
+    wavh.nBlockAlign = nBlockAlign;
+	wavh.nAvgBytesPerSec = nAvgBytesPerSec;
 
 	// write wav header
-	FILE *fp = fopen(filename, "rb+");
-	fwrite(&wavh, 1, WAV_HEADER_SIZE, fp);
-	fclose(fp);
+	int wsize = fwrite(&wavh, 1, WAV_HEADER_SIZE, fp);
+    bool ret = (wsize == WAV_HEADER_SIZE)? true: false;
+    return ret;
 }
 
 
@@ -81,6 +109,10 @@ int getFileSize(char *filename)
 {
 	struct stat file_stat;
 	FILE *fp = fopen(filename, "rb");
+    if(!fp){
+        return 0;
+    }
+
     int iflde = fileno(fp);
 	fstat(iflde, &file_stat);
 	fclose(fp);

@@ -49,7 +49,7 @@ convert ogg to wav <br/>
 ### run sample code 
 Usage: ./conv <oggFile> <br/> 
 ex) <br/>
-./conv ./media/m-art_Shine.ogg <br/> 
+%  ./conv ./media/m-art_Shine.ogg <br/> 
 
 ### result <br/>
 create m-art_Shine.ogg.wav <br/>
