@@ -14,6 +14,10 @@ https://brew.sh/ <br/>
 - read and write Text File <br/>
 - parse file fullpath to dir name, file name, file extension <br/>
 
+### Class
+C++ Class Sample <br/>
+display exam score of each students <br/>
+
 ### OpenAL
 play tone, wav file <br/>
 
