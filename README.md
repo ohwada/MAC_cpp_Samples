@@ -27,6 +27,11 @@ play audio file <br/>
 ### irrKlang
 play audio file <br/>
 
+### beep
+play beep sound  <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/beep/result/screenshot_piano.png" width="300" /><br/>
+
 ### wav
 play wav file  <br/>
 
