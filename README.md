@@ -27,6 +27,9 @@ play audio file <br/>
 ### irrKlang
 play audio file <br/>
 
+### wav
+play wav file  <br/>
+
 ### libmad
 convert mp3 to wav <br/>
 
