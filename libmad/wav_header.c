@@ -3,6 +3,8 @@
  * 2020-03-01 K.OHWADA
  */
 
+
+// reference : http://www-fps.nifs.ac.jp/ito/memo/openal02.html
 // reference : https://www.codeproject.com/Articles/7667/DLL-To-Decode-MP3-To-WAV-PCM
 
 #include "wav_header.h"
@@ -36,14 +38,109 @@ const int WAVH_WFORMATLENGTH = 16;
 const short WAVH_WBITSPERSAMPLE = 16;
 const short WAVH_WFORMATTAG_PCM = 1;
 
+
+/**
+ * readWavHeader
+ */
+int readWavHeader(FILE* fp, int *channels, int* bit, int *size, int* samplingrate)
+{
+
+	unsigned char header[WAVH_HEADER_SIZE];	
+
+    // read header
+	int rsize = fread(header, 1, WAVH_HEADER_SIZE, fp);
+	if(rsize != WAVH_HEADER_SIZE){
+		return 1;
+	}
+
+	int riff = convInt(header, 0);
+	if(riff != WAVH_RIFF){
+		printf("NOT match riff \n");
+		return 2;
+	}
+
+	int dataSize = convInt(header, 4);
+	//printf("dataSize: %d \n", dataSize);
+
+	int wave = convInt(header, 8);
+	if(wave != WAVH_WAVE){
+		printf("NOT match wave \n");
+		return 3;
+	}
+
+
+
+	int fmt = convInt(header, 12);
+	if(fmt != WAVH_FMT){
+		printf("NOT match fmt \n");
+		return 4;
+	}
+
+    int wFormatLength = convInt(header, 16);
+	//printf("wFormatLength: %d \n", wFormatLength);
+
+    short pcm = convShort(header, 20);
+	if(pcm != WAVH_WFORMATTAG_PCM){
+			return 5;
+	}
+
+	short wavchannels = (int)convShort(header, 22);
+
+	int samplesPerSec = convInt(header, 24);
+
+    int byteParSec = convInt(header, 28);
+	// printf("byteParSec: %d \n", byteParSec);
+
+    short blockAlign = (int)convShort(header, 32);
+	// printf("blockAlign: %d \n", blockAlign);
+
+    short bitsParSample = (int)convShort(header, 34);
+
+    int ov_data = convInt(header, 36);
+    if(ov_data != WAVH_OV_DATA){
+		printf("NOT match data \n");
+	    return 6;
+    }
+
+    int ov_datasize = convInt(header, 40);
+
+		*channels = (int)wavchannels;
+		*bit = (int)bitsParSample;
+		*samplingrate = samplesPerSec;
+		*size = ov_datasize;
+
+	return 0;
+}
+
+
+/**
+ * convInt
+ */
+int convInt(unsigned char* header, int start)
+{
+	int ret = (header[start+3] << 24) | (header[start+2] << 16) | (header[start+1] << 8) | (header[start+0]);
+	return ret;
+}
+
+
+/**
+ * convShort
+ */
+short convShort(unsigned char* header, int start)
+{
+	int ret = (header[start+1] << 8) | (header[start+0]);
+	return ret;
+}
+
+
 /**
  * writeDummyWavHeader
  */
 bool writeDummyWavHeader(FILE *fp) 
 {
-	char dummy_header[WAV_HEADER_SIZE] = "";	
-    int wsize = fwrite(dummy_header, 1, WAV_HEADER_SIZE, fp);
-    bool ret = (wsize == WAV_HEADER_SIZE)? true: false;
+	char dummy_header[WAVH_HEADER_SIZE] = "";	
+    int wsize = fwrite(dummy_header, 1, WAVH_HEADER_SIZE, fp);
+    bool ret = (wsize == WAVH_HEADER_SIZE)? true: false;
     return ret;
 }
 
@@ -51,7 +148,7 @@ bool writeDummyWavHeader(FILE *fp)
 /**
  * overwriteWavHeader
  */
-bool overwriteWavHeader(char *filename, int channels, int sampling_rate)
+bool overwriteWavHeader(char *filename, int channels, int samplingrate)
 {
     int filesize = getFileSize(filename);
     if(filesize==0){
@@ -60,7 +157,7 @@ bool overwriteWavHeader(char *filename, int channels, int sampling_rate)
 
 	// write wav header
 	FILE *fp = fopen(filename, "rb+");
-    bool ret = writeWavHeaderFp(fp, channels, sampling_rate, filesize);
+    bool ret = writeWavHeaderFp(fp, channels, samplingrate, filesize);
 	fclose(fp);
     return ret;
 }
@@ -69,13 +166,13 @@ bool overwriteWavHeader(char *filename, int channels, int sampling_rate)
 /**
  * writeHeaderFp
  */
-bool writeWavHeaderFp(FILE *fp, int channels, int sampling_rate, int filesize)
+bool writeWavHeaderFp(FILE *fp, int channels, int samplingrate, int filesize)
 {
 
     int wavsize = filesize - 8;
-    int datasize = filesize - WAV_HEADER_SIZE;
+    int datasize = filesize - WAVH_HEADER_SIZE;
     short nBlockAlign = (short)(WAVH_WBITSPERSAMPLE / 8 * channels);
-	int nAvgBytesPerSec = sampling_rate * nBlockAlign;
+	int nAvgBytesPerSec = samplingrate * nBlockAlign;
 
 	// setup header 
 	wav_header wavh;
@@ -88,7 +185,7 @@ bool writeWavHeaderFp(FILE *fp, int channels, int sampling_rate, int filesize)
 	wavh.wBitsPerSample = WAVH_WBITSPERSAMPLE;
 
     wavh.nChannels = channels; // maybe stereo
-    wavh.nSamplesPerSec = sampling_rate; // may be 44100
+    wavh.nSamplesPerSec = samplingrate; // may be 44100
 	wavh.size = wavsize;	// total size of wav file
 	wavh.ov_datasize = datasize; // size of ov_data
 
