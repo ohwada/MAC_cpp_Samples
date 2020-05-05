@@ -10,7 +10,7 @@
 #include <string> 
 #include<iostream>
 
-#include "vorbis/vorbisfile.h"
+#include "OggReader.hpp"
 
 #include "wav_header.h"
 
@@ -19,8 +19,6 @@
 using namespace std;
 
 
-#define OV_BUFFER_SIZE 4096
-
 
 /**
  * main
@@ -28,20 +26,11 @@ using namespace std;
 int main(int argc, char** argv) 
 {
 
-    char ov_buffer[OV_BUFFER_SIZE];
-    int ov_current = 0;
-
-
-    FILE *fp_output;
-    FILE *fp_input;
-    OggVorbis_File ovf;
-    int ov_channels;
-    int ov_rate;
-
+OggReader reader;
 
     if(argc < 2) {
-        printf( "Usage: %s <oggFile> \n",  argv[0]);
-        return 1;
+        cout << "Usage: " << argv[0]  << " <oggFile> " << endl;
+        return EXIT_FAILURE;
     }
 
    char* input = argv[1];	
@@ -52,21 +41,19 @@ int main(int argc, char** argv)
     string outfile = fname + ".wav";
     char* output = (char*)outfile.c_str();
 
+    int ret1 = reader.open(input);
+    if(ret1 != 0){
+        cout << "open Faild: " << input << endl;
+        return EXIT_FAILURE;
+    }
 
-    // open input
-    fp_input = fopen(input, "rb");
-	if (!fp_input){
-        printf( "fopen Faild: %s \n", input);
-		return 1;
-	}
-    printf( "open input: %s \n", input);
-
+    reader.printFileInfo();
 
     // open output
-    fp_output = fopen(output, "wb");
+    FILE *fp_output = fopen(output, "wb");
 	if ( !fp_output ) { 
-        printf( "fopen Faild: %s \n", output);
-		return 1;
+        cout << "fopen Faild: " << output << endl;
+        return EXIT_FAILURE;
 	}
 
 
@@ -75,57 +62,29 @@ int main(int argc, char** argv)
 
 
 
-    // open ogg Vorbis
-    int ret = ov_open(fp_input, &ovf, NULL, 0);
-	if (ret != 0){
-        printf( "ov_open Faild: %s \n", input);
-        fclose(fp_input);
-		return 1;
-	}
 
-
-	size_t total = ov_pcm_total(&ovf, -1);
-    printf("pcm_total = %ld \n", total);
-
-    int num_buffers = total / OV_BUFFER_SIZE;
 
 // endless loop
 // exit the loop, when read all the ov_data
     int isFirst = 1; // show debug message at once 
-    while(1) {
+    while(1) 
+    {
 
-// if the passed in buffer is large, ov_read() will not fill it
-// the passed in buffer size is treated as a limit and not a request. 
-        long read_size = ov_read(
-            &ovf, ov_buffer, 
-            OV_BUFFER_SIZE, 
-            0,  //  little endian
-            2,  // 16-bit samples
-            1, // signed
-            &ov_current );
-
-        if (read_size == 0) {
-            //  read all the ov_data
+        int ret2 = reader.read();
+        if(ret2 == OGG_READER_END){
             break;
         }
 
-// ov_info
-        vorbis_info *info = ov_info(&ovf, -1);
-
         if(isFirst){
             isFirst = 0;
-            ov_channels = info->channels;
-            ov_rate = info->rate;
-            printf("vorbis_info version = %d \n", info->version);
-            printf("vorbis_info channels = %d \n", ov_channels);
-            printf("vorbis_info rate = %d \n", ov_rate);
+            reader.printOvInfo();
         }
 
-// write pcm
-        int size_buffer = sizeof(ov_buffer);
-		int num_write = fwrite(ov_buffer, 1, size_buffer, fp_output);
-		if(num_write != size_buffer) {
-					printf("pcm write error \n");
+        // write pcm
+        char *data = reader.getBuffer();
+		int num_write = fwrite(data, 1, OGG_READER_BUFF_SIZE, fp_output);
+		if(num_write != OGG_READER_BUFF_SIZE) {
+					cout << "pcm write error" << endl;
 					//break;
 		}
 
@@ -133,15 +92,14 @@ int main(int argc, char** argv)
 
 
 // close
-    fclose(fp_input);
+    reader.close();
     fclose(fp_output);
-    ov_clear(&ovf);
 
 	// write wav header
-    overwriteWavHeader(output, ov_channels, ov_rate);
+    overwriteWavHeader(output, OGG_READER_CHANNELS_STEREO, OGG_READER_SAMPLINGRATE);
 
-    printf("saved: %s \n", output);
+   cout << "saved: " << output << endl;
 
-    return 0;
+	return EXIT_SUCCESS;
 }
 
