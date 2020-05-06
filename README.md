@@ -36,10 +36,13 @@ play beep sound  <br/>
 play wav file  <br/>
 
 ### libmad
-convert mp3 to wav <br/>
+play mp3 <br/>
 
 ### libvorbis
-convert ogg to wav <br/>
+play ogg <br/>
+
+### libflac
+play flac <br/>
 
 ### FreeType
 read font file <br/>
