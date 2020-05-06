@@ -2,8 +2,8 @@ media - libfloac
 ===============
 
 ### flac file
-About audio formats FLAC and MP3
-https://www.eclassical.com/pages/24-bit-faq.html
+About audio formats FLAC and MP3 <br/>
+https://www.eclassical.com/pages/24-bit-faq.html <br/>
 - BIS1447-002-flac_16.flac
 - BIS1536-001-flac_16.flac
 
