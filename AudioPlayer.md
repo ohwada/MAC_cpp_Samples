@@ -1,4 +1,4 @@
-AudioPlayer.
+AudioPlayer
 ===============
 
 play audio file <br/>
