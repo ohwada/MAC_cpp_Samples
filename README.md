@@ -44,6 +44,9 @@ play ogg <br/>
 ### libflac
 play flac <br/>
 
+### fdk_aac
+play aac  <br/>
+
 ### FreeType
 read font file <br/>
 show text in OpenGL window <br/>
