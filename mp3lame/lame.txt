@@ -1,0 +1,41 @@
+cd /Users/ohwada/C++/mp3lame
+
+g++ encode_from_wav.cpp wav_header.c parse_filename.cpp -o encode   -I/usr/local/Cellar/lame/3.100/include/ -L/usr/local/Cellar/lame/3.100/lib -lmp3lame
+
+ ./encode ./media/Mozart-EineKleine-1st.mp3.wav
+
+
+cd /Users/ohwada/C++/liblame
+
+gcc test_lame.c -I/usr/local/Cellar/lame/3.100/include/ -L/usr/local/Cellar/lame/3.100/lib -lmp3lame
+
+
+brew install lame
+https://formulae.brew.sh/formula/lame
+
+High quality MPEG Audio Layer III (MP3) encoder
+
+https://lame.sourceforge.io/
+
+brew install lame
+  /usr/local/Cellar/lame/3.100
+
+% ls  /usr/local/Cellar/lame/3.100/include/lame 
+lame.h
+
+ % ls  /usr/local/Cellar/lame/3.100/lib         
+libmp3lame.0.dylib	libmp3lame.a		libmp3lame.dylib
+
+
+LAME C ++ wrapper \ simplifier（純粋なコードからLinux MacとWinで動作）はありますか？
+https://stackoverflow.com/questions/2495420/is-there-any-lame-c-wrapper-simplifier-working-on-linux-mac-and-win-from-pure
+
+
+LAMEライブラリ用の非常に薄いC ++ラッパー。
+https://github.com/trodevel/lameplus
+
+
+lame -b 128 sample.wav sample.mp3
+
+
+sox church-chime-daniel_simon.wav -t raw - 

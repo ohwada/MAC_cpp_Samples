@@ -47,6 +47,9 @@ play flac <br/>
 ### fdk_aac
 play aac  <br/>
 
+### mp3lame
+encode mp3 <br/>
+
 ### FreeType
 read font file <br/>
 show text in OpenGL window <br/>
