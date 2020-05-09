@@ -1,4 +1,4 @@
-result - libmp3lame
+result - mp3lame
 ===============
 
 

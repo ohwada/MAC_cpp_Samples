@@ -1,4 +1,4 @@
-media - libmp3lame
+media - mp3lame
 ===============
 
 ### wav file
