@@ -149,7 +149,7 @@ int main(int argc, char **argv)
 	{
 		if(time(NULL)!=prevT)
 		{
-			printf("Ping...\n");
+			// printf("Ping...\n");
 			prevT=time(NULL);
 		}
 
@@ -159,11 +159,13 @@ int main(int argc, char **argv)
 			const size_t sizeRemain=wavFile.SizeInByte()-playBackPtr;
 			const size_t writeSize=(sizeRemain<writableSize ? sizeRemain : writableSize);
 
-			if(0<writeSize)
+			if(0 < writeSize)
 			{
-				printf("Write %d\n",(int)writeSize);
+				// printf("Write %d\n",(int)writeSize);
 				pa_stream_write(paStream,wavFile.DataPointer()+playBackPtr,writeSize,NULL,0,PA_SEEK_RELATIVE);
-				playBackPtr+=writeSize;
+				playBackPtr += writeSize;
+    
+    			fprintf(stderr, "\r [ %3d ] ", playBackPtr);
 			}
 		}
 
@@ -189,6 +191,7 @@ int main(int argc, char **argv)
 	pa_context_unref(paContext);
 	pa_mainloop_free(paMainLoop);
 
+    fprintf(stderr, " \n ");
 	printf("End of program.\n");
 
 	return 0;

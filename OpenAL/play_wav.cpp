@@ -1,18 +1,18 @@
 /**
  * OpenAL Sample
  * 2020-03-01 K.OHWADA
- * oroginal : https://gist.github.com/skitaoka/d44d08be9ca1ed690918
  */
 
-
-#include <string> 
-#include <iostream>
+// play wav file with alure
+// oroginal : https://gist.github.com/skitaoka/d44d08be9ca1ed690918
 
 // macOS
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 
 #include <OpenAL/alure.h>
+#include <string> 
+#include <iostream>
 
 using namespace std;
 

@@ -3,7 +3,6 @@ PulseAudio
 
 PulseAudio Sample <br/>
 play audio file <br/>
-wav, mp3 <br/>
 
 PulseAudio is a sound system for POSIX OSes <br/>
 https://wiki.freedesktop.org/www/Software/PulseAudio/ <br/>
@@ -12,42 +11,31 @@ https://wiki.freedesktop.org/www/Software/PulseAudio/ <br/>
 % brew install pulseaudio
 https://formulae.brew.sh/formula/pulseaudio
 
-## test_beep.c <br/>
-play beep <br/>
+##  play_tone.cpp <br/>
+play tone <br/>
 
 ### build sample code 
-% gcc test_beep.c -o beep `pkg-config --cflags --libs libpulse` <br/>
+% g++ play_tone.cpp -o tone `pkg-config --cflags --libs libpulse`  -lpulse-simple <br/>
 
 ### run sample code 
-% ./beep  <br/>
+% ./tone  <br/>
 
 ## play_wav <br/>
 play wav file <br/>
 
 ### build sample code 
-% g++ ./play_wav/*.cpp -o wav `pkg-config --cflags --libs libpulse`
+% g++ ./play_wav/*.cpp -o play `pkg-config --cflags --libs libpulse`
 
 ### run sample code 
-Usage: ./wav \ <wavFile \> <br/> 
+Usage: ./play \ <wavFile \> <br/> 
 ex) <br/>
-% ./wav ./media/Japanese_Temple_Bell_Small.wav <br/>
+% ./play ./media/church-chime-daniel_simon.wav <br/>
 
-## play_mp3.cpp <br/>
-play mp3 file <br/>
-
-### build sample code 
-require libmad <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmad <br/>
-
-% g++ play_mp3.cpp -o mp3 `pkg-config --cflags --libs libpulse` `pkg-config --cflags --libs mad` -lpulse-simple  <br/>
-
-### run sample code 
-Usage: ./mp3 \< mp3File \> <br/>
-ex)
-% ./mp3 ./media/Mozart-EineKleine-1st.mp3 <br/>
+## play mp3 file
+see libmsd <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmsd <br/>
 
 ### Reference <br/>
 - https://wiki.freedesktop.org/www/Software/PulseAudio/
 - http://ysflight.in.coocan.jp/programming/audio/pulseAudioSample/j.html
-- https://lauri.xn--vsandi-pxa.com/2013/12/implementing-mp3-player.en.html
 
