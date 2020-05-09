@@ -19,7 +19,7 @@ C++ Class Sample <br/>
 display exam score of each students <br/>
 
 
-## AudioPlayer.md
+## AudioPlayer
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/AudioPlayer.md <br/>
 
 
