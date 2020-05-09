@@ -1,7 +1,7 @@
 result - fdk_aac
 ===============
 
-## acc file
+## aac file
 - song.wav.aac </br>
 created by encode_from_wav.cpp </br>
 
