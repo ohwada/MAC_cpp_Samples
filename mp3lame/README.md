@@ -8,7 +8,7 @@ MPEG Audio Layer III (MP3) encoder <br/>
 https://lame.sourceforge.io/ <br/>
 
 
-### install libmp3lame
+### install mp3lame
 % brew install lame <br/>
 https://formulae.brew.sh/formula/lame <br/>
 
