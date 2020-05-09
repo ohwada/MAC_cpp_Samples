@@ -32,8 +32,8 @@ ex) <br/>
 % ./play ./media/church-chime-daniel_simon.wav <br/>
 
 ## play mp3 file
-see libmsd <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmsd <br/>
+see libmad <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmad <br/>
 
 ### Reference <br/>
 - https://wiki.freedesktop.org/www/Software/PulseAudio/
