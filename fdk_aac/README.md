@@ -15,7 +15,7 @@ https://formulae.brew.sh/formula/fdk-aac <br/>
 convert aac to wav <br/>
 
 ### build sample code 
-% g++ cov_wav.cpp fdkaac_dec.cpp wavwriter.c parse_filename.cpp -o conv `pkg-config --cflags --libs fdk-aac`  <br/>
+% g++ cov_wav.cpp AacReader.cpp  wav_header.c parse_filename.cpp -o conv `pkg-config --cflags --libs fdk-aac`  <br/>
 
 ### run sample code 
 Usage: ./conv \< aacFile \> <br/> 
@@ -41,11 +41,11 @@ ex)
 
 
 
-## encode_from_aac.cpp
-encode from aac <br/>
+## encode_from_wav.cpp
+encode from wav <br/>
 
 ### build sample code 
-% g++  encode_from_aac.cpp AacEncoder.cpp  wav_header.c parse_filename.cpp  -o encode `pkg-config --cflags --libs fdk-aac`  <br/> 
+% g++  encode_from_wav.cpp AacEncoder.cpp  wav_header.c parse_filename.cpp  -o encode `pkg-config --cflags --libs fdk-aac`  <br/> 
 
 
 ### run sample code 
