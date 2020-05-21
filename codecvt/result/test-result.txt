@@ -1,0 +1,4 @@
+test_wstring_convert.cpp
+utf16 to utf8: あいうえお
+utf8 to utf16: 
+0x3042 0x3044 0x3046 0x3048 0x304a 
