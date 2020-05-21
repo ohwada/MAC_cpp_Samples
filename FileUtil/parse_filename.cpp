@@ -35,7 +35,7 @@ bool parseBaseName(string basename, string &title, string &ext)
 {
 
 
-    int pos = basename.find('.');
+    int pos = basename.find_last_of('.');
     if (pos == std::string::npos) {
         return false;
     }
