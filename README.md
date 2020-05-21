@@ -21,6 +21,9 @@ display exam score of each students <br/>
 ### codecvt
 convert UTF-8 to/from UTF-16 <br/>
 
+### libiconv
+convert text file codeset to UTF8 <br/>
+
 ## AudioPlayer
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/AudioPlayer.md <br/>
 

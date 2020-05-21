@@ -1,0 +1,5 @@
+libiconv Version: 1.16
+sjis: あいうえお
+euc: あいうえお
+utf16: あいうえお
+convert end
