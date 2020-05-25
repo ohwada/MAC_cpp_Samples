@@ -49,6 +49,7 @@ ex)  <br/>
 %  ./get ./media/Mozart-EineKleine-1st.mp3 <br/>  
 
 saved: Mozart-EineKleine-1st.jpg  <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/id3lib/result/Mozart-EineKleine-1st.jpg" width="300" /> <br/>
 
 ### Reference <br/>
 - http://id3lib.sourceforge.net/

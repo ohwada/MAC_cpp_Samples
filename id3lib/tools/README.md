@@ -17,10 +17,12 @@ https://pypi.org/project/mutagen/ <br/>
 https://pypi.org/project/eyeD3/ <br/>
 
 ### script files
-- show_id3tags.py  <br/>
-show id3 tags in mp3 file <br/>
 - show_picture.py <br/>
 show album picture in mp3 file <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/id3lib/result/screenshot_tools_show_picture.png" width="300" /> <br/>
+
+- show_id3tags.py  <br/>
+show id3 tags in mp3 file <br/>
 - conv_id3tags_enc.py <br/>
 convert id3tags encoding sjis to utf16 <br/>
 - recover_picture.py <br/>
