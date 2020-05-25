@@ -1,9 +1,13 @@
  /**
- * utf_converter Sample
+ * C++ Sample
  * 2020-03-01 K.OHWADA
  */
 
+
+// substitute for codecvt <br/>
+// convert codeset between UTF-8  UTF-16 UTF-32
 // reference : https://qiita.com/benikabocha/items/e943deb299d0f816f161
+
 
 #include "utf_converter.hpp"
 

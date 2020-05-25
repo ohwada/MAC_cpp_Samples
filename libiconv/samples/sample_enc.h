@@ -3,6 +3,7 @@
  * 2020-03-01 K.OHWADA
  */
 
+// sample for test_convChars.cpp
 // reference : http://ash.jp/code/unitbl21.htm
 
     const char EXPECT_UTF8[] = 
@@ -63,18 +64,18 @@
 
 // sample : include 0
  const char SAMPLE_UTF16BE_2[] = 
-    { (char) 0 , (char) 75 ,  //  u
-    (char) 0 , (char) 74 ,  //  t
-    (char) 0 , (char) 66 ,  //  f
-    (char) 0 , (char) 31 ,  //  1
-    (char) 0 , (char) 36 }; //  6
+    { (char) 0 , (char)0x75 ,  //  u
+    (char) 0 , (char) 0x74 ,  //  t
+    (char) 0 , (char)0x66 ,  //  f
+    (char) 0 , (char)0x31 ,  //  1
+    (char) 0 , (char)0x36 }; //  6
 const int SAMPLE_UTF16BE_2_SIZE = 10;
 
 // sample : include 0
  const char SAMPLE_UTF16LE_2[] = 
-    { (char) 75 , (char) 0 ,  //  u
-    (char) 74 , (char) 0 ,  //  t
-    (char) 66 , (char) 0 ,  //  f
-    (char) 31 , (char) 0 ,  //  1
-    (char) 36 , (char) 0  };  //  6
+    { (char)0x75 , (char) 0 ,  //  u
+    (char) 0x74 , (char) 0 ,  //  t
+    (char) 0x66 , (char) 0 ,  //  f
+    (char) 0x31 , (char) 0 ,  //  1
+    (char) 0x36 , (char) 0  };  //  6
   const int SAMPLE_UTF16LE_2_SIZE = 10;

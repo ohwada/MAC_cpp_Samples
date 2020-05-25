@@ -3,7 +3,7 @@
  * 2020-03-01 K.OHWADA
  */
 
- 
+ // header file for test_wstring_convert.cpp
 // reference : http://ash.jp/code/unitbl21.htm
 
     const char SAMPLE_UTF8[] = 

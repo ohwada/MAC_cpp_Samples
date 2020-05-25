@@ -6,14 +6,13 @@
 // convert text file codeset to UTF8
 // reference : https://www.mk-mode.com/blog/2014/08/24/cpp-convert-sjis-to-utf8/
 
-// TODO:
-// sjis, eucjp, utf16be, utf32be : good
-// utf16le, utf16, utf32le, utf32 : not working properly
-// sample_utf16le.txt :
-//[Err] iconv :  EINVAL ( 22 ) left( 1 , 1017 ) 
+// TODO :
+// suport utf16, utf32
 
 #include <iostream>
 #include <string>
+
+#include "TextReader.hpp"
 
 #include "TextEncodeConverter.hpp"
 
@@ -25,36 +24,27 @@ using namespace std;
 /**
  * getInputEncode
  */
-string getInputEncode(string filename, int *flag_utf)
+string getInputEncode(int enc)
 {
     string encode = "";
-    string parse_encode = "";
-    int pos  = filename.find_last_of('_');
-    if (pos != std::string::npos) {
-        parse_encode = filename.substr(pos+1, filename.size()-pos);
-    }
 
-int utf = 0;
-    if(parse_encode == "sjis"){
+    if(enc == TEXT_READER_SJIS){
         encode = TEXT_ENC_SJIS;
-    }else if(parse_encode == "eucjp"){
+    }else if(enc == TEXT_READER_EUCJP){
         encode = TEXT_ENC_EUCJP;
-    }else if(parse_encode == "utf16"){
+    }else if(enc == TEXT_READER_UTF16){
         encode = TEXT_ENC_UTF16;
-    }else if(parse_encode == "utf16be"){
+    }else if(enc == TEXT_READER_UTF16BE){
         encode = TEXT_ENC_UTF16BE;
-        utf = 1;
-    }else if(parse_encode == "utf16le"){
+    }else if(enc == TEXT_READER_UTF16LE){
         encode = TEXT_ENC_UTF16LE;
-    }else if(parse_encode == "utf32"){
+    }else if(enc == TEXT_READER_UTF32){
         encode = TEXT_ENC_UTF32;
-    }else if(parse_encode == "utf32be"){
+    }else if(enc == TEXT_READER_UTF32BE){
         encode = TEXT_ENC_UTF32BE;
-        utf = 2;
-    }else if(parse_encode == "utf32le"){
+    }else if(enc == TEXT_READER_UTF32LE){
         encode = TEXT_ENC_UTF32LE;
     }
-    *flag_utf = utf; 
     return encode;
 }
 
@@ -65,6 +55,11 @@ int utf = 0;
  */
 int main(int argc, char** argv)
 {
+
+    const int BUF_SIZE  = 1024;
+    char* buf = new char[BUF_SIZE];
+
+    TextReader reader;
 
     TextEncodeConverter converter;
 
@@ -87,25 +82,68 @@ int main(int argc, char** argv)
 
     string output = fname + "_utf8.txt";
 
-    int flag_utf;
-    string enc_in = getInputEncode(fname, &flag_utf);
-    if(enc_in.empty()){
+    int enc_code = reader.getEnc(fname);
+    if(enc_code == TEXT_READER_NONE){
+            cout << "NOT find input encode code" << endl;
+            return EXIT_FAILURE;
+    }
+
+    string enc = getInputEncode(enc_code);
+    if(enc.empty()){
             cout << "NOT find input encode" << endl;
             return EXIT_FAILURE;
     }
 
-    cout << " input encode: " << enc_in << endl;
-
     converter.setDebugPrint(flag_debug);
 
-   int ret = converter.convFile(input, enc_in, output, flag_utf);
-    if (ret == TEXT_ENC_RET_SUCCESS) {
-            cout << "conv SUCCESS!" << endl;
-    } else if (ret == TEXT_ENC_RET_ERR) {
-            cout << "conv error"  << endl;
-    } else {
-            cout << "conv FAILED!"  << endl;
+    ofstream ofs;
+
+    try {
+
+        int ret1 = reader.open(input);
+        if(ret1 != 0){
+            cerr << "[FAILED] Could not open " << input << endl;
             return EXIT_FAILURE;
+        }
+
+        ofs.open(output);
+        if (ofs.fail()) {
+            cerr << "[FAILED] Could not open " << output << endl;
+            return EXIT_FAILURE;
+        }
+
+        string text;
+        int line_count = 0;
+        bool flag_loop = true;
+
+        while(flag_loop){
+
+            line_count++;
+            int len = reader.getLine(buf, BUF_SIZE);
+            if(len == TEXT_READER_EOF){
+                flag_loop = false;
+                break;
+            }
+
+            bool ret2 = converter.convChars(buf, len, enc, text);
+            if (ret2) {
+                cout <<  line_count << " : " << text << endl;
+                ofs << text << endl;
+            } else {
+                    cout <<  line_count << " : [err]" << endl;
+                    if(flag_debug){
+                        converter.dumpChars(buf, len);
+                    }
+            }
+
+        } // while
+
+        reader.close();
+        ofs.close();
+
+    } catch (char *e) {
+            cerr << "EXCEPTION : " << e << endl;
+                return EXIT_FAILURE;
     }
 
     cout << "saved: " << output << endl;

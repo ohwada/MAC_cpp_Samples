@@ -1,5 +1,11 @@
 libiconv Version: 1.16
+expect: あいうえお
 sjis: あいうえお
 euc: あいうえお
-utf16: あいうえお
+utf16be: あいうえお
+utf16be: あいうえお
+utf16bom: あいうえお
+utf32be: あいうえお
+utf16be 2: utf16
+utf16le 2: utf16
 convert end

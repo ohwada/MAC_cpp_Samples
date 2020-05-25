@@ -30,14 +30,17 @@ utf16 to utf8: あいうえお
 convert text file codeset to UTF8 <br/>
 
 ### build sample code
-% g++ conv_file.cpp parse_filename.cpp -o conv -std=c++11 <br/>
+% g++ conv_file.cpp TextReader.cpp parse_filename.cpp -o conv -std=c++11 <br/>
 
 ### run sample code 
-Usage: ./conv \< textFile \> <br/>
+Usage: ./conv \< textFile \> [debug] <br/>
 ex)
 % ./conv ./samples/sample_utf16be.txt <br/>
 
 saved: sample_utf16be_utf8.txt <br/>
+
+## utf_converter <br/>
+substitute for codecvt <br/>
 
 ### Reference <br/>
 - http://www.cplusplus.com/reference/locale/codecvt/

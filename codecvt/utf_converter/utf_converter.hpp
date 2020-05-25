@@ -1,5 +1,5 @@
  /**
- * utf_converter Sample
+ * C++ Sample
  * 2020-03-01 K.OHWADA
  */
 

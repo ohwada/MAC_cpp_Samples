@@ -1,5 +1,5 @@
  /**
- * utf_converter Sample
+ * utf converter Sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -11,7 +11,7 @@
 
 #include "utf_converter.hpp"
 
-#include "../sample_utf.h"
+#include "../samples/sample_utf.h"
 
 using namespace std;
 

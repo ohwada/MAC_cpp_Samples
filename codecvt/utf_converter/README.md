@@ -1,7 +1,8 @@
 utf_converter. - codecvt
 ===============
 
-UTF codeset Sample <br/>
+UTF codeset converter Sample <br/>
+substitute for codecvt <br/>
 convert codeset between UTF-8  UTF-16 UTF-32 <br/>
 
 
@@ -24,10 +25,10 @@ utf32 to utf8: あいうえお
 convert text file codeset to UTF8 <br/>
 
 ### build sample code
-% g++ conv_file.cpp utf_converter.cpp  ../parse_filename.cpp -o conv -std=c++11 <br/>
+% g++ conv_file.cpp utf_converter.cpp  ../TextReader.cpp ../parse_filename.cpp -o conv -std=c++11 <br/>
 
 ### run sample code 
-Usage: ./conv \< textFile \> <br/>
+Usage: ./conv \< textFile \>[debug] <br/>
 ex)
 % ./conv ../samples/sample_utf16be.txt <br/>
 

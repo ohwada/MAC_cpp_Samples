@@ -11,7 +11,7 @@ import sys
 def print_byte_list(byte_list):
     for i in  range(len(byte_list)):
         byte = byte_list[i]
-        print('(char) %X , ' % byte, end='' )
+        print('(char)0x%0X , ' % byte, end='' )
     #---
 #---
 

@@ -17,20 +17,22 @@
 #include <fstream>
 #include <stdio.h>
 
-#include "line.h"
+#include "TextReader.hpp"
 
 #include "parse_filename.hpp"
 
 using namespace std;
 
+// global
+TextReader reader;
 
 /**
  * convLineToU8
  */
-string convLineToU8(string str, int debug)
+string convLineToU8(char* buf, int len, int debug)
 {
 
-    u16string u16 = convLineToU16(str, debug);
+    u16string u16 = reader.convLineToU16(buf, len, debug);
 
     string u8 = wstring_convert<
                 codecvt_utf8_utf16<char16_t>, char16_t>{}.to_bytes(u16);
@@ -46,10 +48,12 @@ string convLineToU8(string str, int debug)
 int main( int argc, char **argv )
 {
 
+    const int BUF_SIZE  = 1024;
+    char* buf = new char[BUF_SIZE];
+
     string input;
     int flag_debug = 0;
 
-    ifstream ifs;
     ofstream ofs;
 
     if (argc == 3) {
@@ -66,11 +70,17 @@ int main( int argc, char **argv )
     string fname = getFileNameWithoutExt(input);
     string output = fname + "_utf8.txt";
 
+    int enc_code = reader.getEnc(fname);
+    if(enc_code == TEXT_READER_NONE){
+            cout << "NOT find input encode code" << endl;
+            return EXIT_FAILURE;
+    }
+
     try {
 
-        ifs.open(input);
-        if (ifs.fail()) {
-            cerr << "[FAILED] Could not open: " << input << endl;
+        int ret1 = reader.open(input);
+        if(ret1 != 0){
+            cerr << "[FAILED] Could not open " << input << endl;
             return EXIT_FAILURE;
         }
 
@@ -81,18 +91,23 @@ int main( int argc, char **argv )
         }
 
 
-         string line;
+        bool flag_loop = true;
+        while(flag_loop){
 
-        while (getline(ifs, line)) {
+            int len = reader.getLine(buf, BUF_SIZE);
+            if(len == TEXT_READER_EOF){
+                flag_loop = false;
+                break;
+            }
 
-                string u8 = convLineToU8(line, flag_debug);
+                string u8 = convLineToU8(buf, len, flag_debug);
 
                 cout << " : " << u8 << endl;
                 ofs << u8 << endl;
 
         } // while
 
-        ifs.close();
+        reader.close();
         ofs.close();
 
     } catch (char *e) {
