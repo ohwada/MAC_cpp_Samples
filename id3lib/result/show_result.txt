@@ -1,0 +1,8 @@
+id3lib Version: 3.8.3
+Title: ベートーヴェン：交響曲第5番 ハ短調 Op.67 「運命」 第1楽章 [ 新録音2012 ]
+Artist: クラシック名曲サウンドライブラリー
+Composer: Ludwig van Beethoven
+Album: http://classical-sound.seesaa.net/
+Year: 2012
+Comment: Ludwig van Beethoven：Symphony No.5 in C minor, Op.67　1. Allegro con brio
+

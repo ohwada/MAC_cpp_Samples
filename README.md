@@ -60,6 +60,9 @@ play aac  <br/>
 ### mp3lame
 encode mp3 <br/>
 
+## id3lib
+show id3tag in mp3 file <br/>
+
 ### FreeType
 read font file <br/>
 show text in OpenGL window <br/>
