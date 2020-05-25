@@ -60,7 +60,7 @@ play aac  <br/>
 ### mp3lame
 encode mp3 <br/>
 
-## id3lib
+### id3lib
 show id3tag in mp3 file <br/>
 
 ### FreeType

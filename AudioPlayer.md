@@ -61,4 +61,10 @@ File Reader  for wav <br/>
 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/wav <br/>
 
+## others
+
+### id3lib
+show id3tag in mp3 file <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/id3lib <br/>
 
