@@ -26,7 +26,7 @@ show id3 tags of mp3 file with libiconv <br/>
 - reqire libiconv  <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libiconv <br/>
 
-% g++ show_id3tags.cpp id3tags.cpp ./src/c_wrapper.cpp  TextEncodeConverter.cpp -o show   -std=c++11 -I/usr/local/Cellar/id3lib/3.8.3_1/include -L/usr/local/Cellar/id3lib/3.8.3_1/lib  -lid3 -I/usr/local/Cellar/libiconv/1.16/include -L/usr/local/Cellar/libiconv/1.16/lib -liconv  <br/>
+% g++ show_id3tags.cpp id3tags.cpp c_wrapper.cpp  TextEncodeConverter.cpp -o show   -std=c++11 -I/usr/local/Cellar/id3lib/3.8.3_1/include -L/usr/local/Cellar/id3lib/3.8.3_1/lib  -lid3 -I/usr/local/Cellar/libiconv/1.16/include -L/usr/local/Cellar/libiconv/1.16/lib -liconv  <br/>
 
 ### run sample code 
 Usage: " <<  ./show  << " \< mp3File \>  [debug] <br/>
@@ -41,7 +41,7 @@ Title: ベートーヴェン：交響曲第5番 ハ短調 Op.67 「運命」 第
 get album picture in mp3 file <br/>
 
 ### build sample code
-% g++ get_picture.cpp  id3tags.cpp ./src/c_wrapper.cpp parse_filename.cpp   -o get   -std=c++11 -I/usr/local/Cellar/id3lib/3.8.3_1/include -L/usr/local/Cellar/id3lib/3.8.3_1/lib  -lid3
+% g++ get_picture.cpp  id3tags.cpp c_wrapper.cpp parse_filename.cpp   -o get   -std=c++11 -I/usr/local/Cellar/id3lib/3.8.3_1/include -L/usr/local/Cellar/id3lib/3.8.3_1/lib  -lid3
 
 ### run sample code 
 Usage: " <<  ./get  << " \< mp3File \> <br/>

@@ -1,3 +1,6 @@
+// C++ wrapper for id3lib
+// original : https://github.com/jmckaskill/qsmp/blob/master/id3lib/src/c_wrapper.cpp
+
 // $Id: c_wrapper.cpp,v 1.22 2002/09/21 17:23:32 t1mpy Exp $
 
 // id3lib: a C++ library for creating and manipulating id3v1/v2 tags
@@ -25,7 +28,6 @@
 // id3lib.  These files are distributed with id3lib at
 // http://download.sourceforge.net/id3lib/
 
-//#include <string.h>
 #include "id3.h"
 #include "id3/tag.h"
 #include "id3/field.h"
