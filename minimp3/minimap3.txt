@@ -1,0 +1,168 @@
+cd /Users/ohwada/C++/minimp3
+
+
+g++  ./player/player.cpp ./player/*.c -o mp3player --std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3` `pkg-config --cflags --libs sdl2`
+
+
+
+
+g++  mp3_player.cpp ./player/*.c -o mp3player --std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3` `pkg-config --cflags --libs sdl2` 
+
+g++  gui_player.cpp ./src/*.c -o player --std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3` `pkg-config --cflags --libs sdl2`  
+
+
+
+
+
+
+
+
+
+
+
+cd /Users/ohwada/C++/minimp3/
+
+
+g++ play_mp3_with_openal.cpp    -o play -std=c++11  -framework OpenAL 
+
+
+
+g conv_wav.c   -o conv
+
+
+g++ conv_wav.cpp wav_header.c parse_filename.cpp  -o conv
+
+
+
+gcc minimp3_test.c -o test
+
+
+g++  mp3_player.cpp ./src/*.c  -o player --std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3` `pkg-config --cflags --libs sdl2`
+
+
+g++ play_mp3.cpp  ./src/audio_sdl.c  ./src/decode.c  -o play -std=c++11  `pkg-config --cflags --libs sdl2`
+
+
+
+g++  ./minimp3_player/*.cpp  ./minimp3_player/*.c  -o player --std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3` `pkg-config --cflags --libs sdl2`
+
+a-MacBook-Air minimp3 % ./player ./media/*.mp3
+
+
+
+
+d: can't open output file for writing: player, errno=21 for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ohwada@ohwada-MacBook-Air minimp3 % 
+
+
+
+
+
+  
+
+./player ./media/*.mp3
+
+====
+gcc minimp3_test.c -o test
+
+ % ./a.out eine.mp3 
+rate=44100 samples=23397120 max_diff=0 PSNR=99.000000
+
+======
+
+
+
+
+cd /Users/ohwada/C++/minimp3/player
+
+
+
+
+
+
+g++  player.cpp -std=c++11  -framework OpenGL `pkg-config --cflags --libs glfw3`
+
+
+
+
+
+
+
+
+  "_sdl_audio_set_dec", referenced from:
+
+
+
+
+player.cpp:35:32: error: static declaration of 'glad_glGenerateMipmap' follows
+      non-static declaration
+
+
+
+
+player.cpp:35:32: error: static declaration of 'glad_glGenerateMipmap' follows
+      non-static declaration
+static PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
+
+
+
+% ./a.out eine.mp3 
+rate=44100 samples=23397120 max_diff=0 PSNR=99.000000
+
+
+
+cd /Users/ohwada/C++/libmad
+
+gcc minimad.c`pkg-config --cflags --libs mad`
+
+
+
+mad 
+
+`pkg-config --cflags --libs mad`
+-I/usr/local/opt/mad/include
+ -L/usr/local/opt/mad/lib
+
+% ls /usr/local/opt/mad/include
+mad.h
+
+% ls /usr/local/opt/mad/lib
+libmad.0.2.1.dylib	libmad.a		pkgconfig
+libmad.0.dylib		libmad.dylib
+
+
+pkg-config --list-all | grep libmad
+
+C++ Cross Platform MP3 Decoder?
+https://stackoverflow.com/questions/6209940/c-cross-platform-mp3-decoder
+
+
+Mp3デコーダー
+https://sourceforge.net/projects/mp3decoder/
+Mp3デコーダー。mp3ファイルをwavファイルに変換します。
+
+/Users/ohwada/C++/libmad
+
+
+
+MAD: MPEG Audio Decoder
+https://www.underbit.com/products/mad/
+
+ libmad
+https://sourceforge.net/projects/mad/files/
+
+.brew MPEG audio decoder
+https://formulae.brew.sh/formula/mad
+
+minimad.c File Reference
+http://m.baert.free.fr/contrib/docs/libmad/doxy/html/minimad_8c.html
+
+% brew install libmad
+/usr/local/Cellar/mad/0.15.1b:
+
+Unexpected dylibs:
+  /usr/local/lib/ikpFLAC.dylib
+  /usr/local/lib/ikpMP3.dylib
+  /usr/local/lib/libirrklang.dylib
+

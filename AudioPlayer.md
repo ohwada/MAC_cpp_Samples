@@ -55,6 +55,10 @@ Audio Encoder for mp3 <br/>
 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/mp3lame <br/>
 
+### minimp3
+play mp3 <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/minimp3 <br/>
 
 ### wav
 File Reader  for wav <br/>
