@@ -60,11 +60,15 @@ play aac  <br/>
 ### mp3lame
 encode mp3 <br/>
 
-### minimp3
-play mp3 <br/>
-
 ### id3lib
 show id3tag in mp3 file <br/>
+
+### minimp3
+mp3 player with OpenGL and SDL <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/minimp3/result/screenshot_player.png" width="300" /><br/>
+
+
 
 ### FreeType
 read font file <br/>

@@ -55,10 +55,7 @@ Audio Encoder for mp3 <br/>
 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/mp3lame <br/>
 
-### minimp3
-play mp3 <br/>
 
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/minimp3 <br/>
 
 ### wav
 File Reader  for wav <br/>
@@ -66,6 +63,13 @@ File Reader  for wav <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/wav <br/>
 
 ## others
+
+### minimp3
+mp3 player with OpenGL and SDL <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/minimp3 <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/minimp3/result/screenshot_player.png" width="300" /><br/>
 
 ### id3lib
 show id3tag in mp3 file <br/>
