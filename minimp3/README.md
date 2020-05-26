@@ -48,8 +48,8 @@ ex) <br/>
 %  ./sdl ./media/Mozart-EineKleine-1st.mp3 <br/> 
 
 
-## gui_player.cpp
-gui player with OpenGL and SDL <br/>
+## player.cpp
+mp3 player with OpenGL and SDL <br/>
 
 ### requires  
 - macOS  OpenGL framework <br/>
