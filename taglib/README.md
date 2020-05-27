@@ -40,7 +40,7 @@ ex)  <br/>
  <br/>  
 
 saved: Nathaniel_Wyvern_Infiltrators.jpg  <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/id3lib/result/saved: Nathaniel_Wyvern_Infiltrators.jpg" width="300" /> <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/taglib/result/Nathaniel_Wyvern_Infiltrators.jpg" width="300" /> <br/>
 
 ### Reference <br/>
 - https://taglib.org/
