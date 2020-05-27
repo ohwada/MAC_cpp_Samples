@@ -76,3 +76,8 @@ show id3tag in mp3 file <br/>
 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/id3lib <br/>
 
+### taglib
+show id3tag in mp3 file <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/taglib <br/>
+

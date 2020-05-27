@@ -63,6 +63,9 @@ encode mp3 <br/>
 ### id3lib
 show id3tag in mp3 file <br/>
 
+### taglib
+show id3tag in mp3 file <br/>
+
 ### minimp3
 mp3 player with OpenGL and SDL <br/>
 
