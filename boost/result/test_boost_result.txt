@@ -1,0 +1,5 @@
+original :  hello world! 
+to_upper :  HELLO WORLD! 
+trim : HELLO WORLD!
+ireplace_first_copy : GOODBYE WORLD!
+to_lower_copy : goodbye world!

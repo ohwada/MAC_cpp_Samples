@@ -1,0 +1,41 @@
+cd /Users/ohwada/C++/boost
+
+c++ test_split2.cpp -I/usr/local/Cellar/boost/1.72.0_2/include/ -L/usr/local/Cellar/boost/1.72.0_2/lib -lboost_system
+
+c++ test_boost_exsample.cpp -I/usr/local/Cellar/boost/1.72.0_2/include/ -L/usr/local/Cellar/boost/1.72.0_2/lib -lboost_system
+
+
+
+ % brew upgrade boost
+/usr/local/Cellar/boost/1.72.0_2
+
+ls /usr/local/Cellar/boost/1.72.0_2/include/
+boost
+
+ls /usr/local/Cellar/boost/1.72.0_2/lib    
+cmake					libboost_math_tr1f-mt.dylib
+
+
+
+boost::split
+https://kaworu.jpn.org/cpp/boost::split
+
+
+boost::splitで文字列を分割する
+https://www.gesource.jp/weblog/?p=4531
+
+https://www.boost.org/doc/libs/1_57_0/doc/html/string_algo/usage.html
+
+boost First Example
+https://www.boost.org/doc/libs/1_57_0/doc/html/string_algo/usage.html
+
+brew install boost
+https://formulae.brew.sh/formula/boost
+
+SamurAI Coding Japan
+情報処理学会主催
+プログラミングコンテストです
+https://sites.google.com/site/samuraicodingjapan/aboutsamuraicoding
+
+
+
