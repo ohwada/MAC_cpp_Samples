@@ -53,6 +53,9 @@ Usage: ./pa \< mp3File \> <br/>
 ex)
 % ./pa ./media/Mozart-EineKleine-1st.mp3 <br/>
 
+### Docement
+- https://qiita.com/ohwada/items/f1f171908f8af769c56b
+
 ### Reference <br/>
 - https://www.underbit.com/products/mad/
 - https://www.codeproject.com/Articles/7667/DLL-To-Decode-MP3-To-WAV-PCM

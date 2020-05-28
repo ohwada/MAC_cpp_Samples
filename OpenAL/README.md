@@ -67,6 +67,9 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/libflac <br/>
 see fdk_aac <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/fdk_aac <br/>
 
+### Docement
+- https://qiita.com/ohwada/items/f1f171908f8af769c56b
+
 ### Reference <br/>
 - http://openal.org/
 - https://kcat.strangesoft.net/alure.html
