@@ -55,7 +55,7 @@ show image in GTK window <br/>
 write test pattern to image file <br/>
 
 ### build sample code
-% g++ test_write.cpp bitmap.c  pixels.c  -o write -std=c++11
+% g++ test_write.cpp bitmap.c pixels.c  -o write -std=c++11
 
 
 ### run sample code 

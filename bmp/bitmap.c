@@ -1,29 +1,46 @@
 /**
- * bmp Sample
- * 2020-02-01 K.OHWADA
- * original : https://github.com/kawasin73/todai-bmp
+ * C++ Sample
+ * 2020-03-01 K.OHWADA
  */
 
 // this sample support 24 bit uncompressed bmp format
-
+// original : https://github.com/kawasin73/todai-bmp
 //  Copied from http://hooktail.org/computer/index.php?Bitmap%A5%D5%A5%A1%A5%A4%A5%EB%A4%F2%C6%FE%BD%D0%CE%CF%A4%B7%A4%C6%A4%DF%A4%EB
 
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
+
 #include"bitmap.h"
 
-//filenameのBitmapファイルを読み込み、高さと幅、RGB情報をimg構造体に入れる
+
+/**
+ * Read_Bmp
+ *  read Bitmap file
+ *  and put height, width and RGB btmap in img structure
+ */
 Image *Read_Bmp(char *filename)
 {
     int i, j;
-    int real_width;                    //データ上の1行分のバイト数
-    unsigned int width, height;            //画像の横と縦のピクセル数
-    unsigned int color;            //何bitのBitmapファイルであるか
+
+    // number of bytes for one line on File data
+    int real_width;
+
+    // horizontal and vertical number of pixels
+    unsigned int width, height;
+ 
+    // number of imsge bits           
+    unsigned int color;
+
+    // header information
+    unsigned char header_buf[HEADERSIZE]; 
+   
+    // one line image data
+    unsigned char *bmp_line_data;  
+
     FILE *fp;
-    unsigned char header_buf[HEADERSIZE];    //ヘッダ情報を取り込む
-    unsigned char *bmp_line_data;  //画像データ1行分
+
     Image *img;
 
     if((fp = fopen(filename, "rb")) == NULL){
@@ -31,41 +48,50 @@ Image *Read_Bmp(char *filename)
         return NULL;
     }
 
-    fread(header_buf, sizeof(unsigned char), HEADERSIZE, fp); //ヘッダ部分全てを取り込む
 
-    //最初の2バイトがBM(Bitmapファイルの印)であるか
+        // read all header parts
+    fread(header_buf, sizeof(unsigned char), HEADERSIZE, fp); //
+
+    // check the first 2 bytes BM (Bitmap file)
     if(strncmp((const char *)header_buf, (const char *)"BM", 2)){
         fprintf(stderr, "Error: %s is not Bitmap file.", filename);
         return NULL;
     }
 
-    memcpy(&width, header_buf + 18, sizeof(width)); //画像の見た目上の幅を取得
-    memcpy(&height, header_buf + 22, sizeof(height)); //画像の高さを取得
-    memcpy(&color, header_buf + 28, sizeof(unsigned int)); //何bitのBitmapであるかを取得
+    // the apparent width of the image
+    memcpy(&width, header_buf + 18, sizeof(width));
 
-    //24bitで無ければ終了
+    // image height
+    memcpy(&height, header_buf + 22, sizeof(height));
+
+    // imsge bits
+    memcpy(&color, header_buf + 28, sizeof(unsigned int));
+
+    // finish if not 24bit
     if(color != 24){
         fprintf(stderr, "Not support %d bit : %s ", color, filename);
         return NULL;
     }
 
-    //RGB情報は画像の1行分が4byteの倍数で無ければならないためそれに合わせている
+// match RGB bitmap to one line
+// because it must be a multiple of 4 bytes
     real_width = width*3 + width%4;
 
-    //画像の1行分のRGB情報を取ってくるためのバッファを動的に取得
+    // Buffer to fetch RGB bitmap for one line 
     if((bmp_line_data = (unsigned char *)malloc(sizeof(unsigned char)*real_width)) == NULL){
         fprintf(stderr, "Error: Allocation error.\n");
         return NULL;
     }
 
-    //RGB情報を取り込むためのバッファを動的に取得
+    // Buffer for capturing RGB bitmap
     if((img = Create_Image(width, height)) == NULL){
         free(bmp_line_data);
         fclose(fp);
         return NULL;
     }
 
-    //BitmapファイルのRGB情報は左下から右へ、下から上に並んでいる
+    // the RGB bitmap of the bmp file 
+    // is arranged from bottom left to right, bottom to top
     for(i=0; i<height; i++){
         fread(bmp_line_data, 1, real_width, fp);
         for(j=0; j<width; j++){
@@ -82,13 +108,23 @@ Image *Read_Bmp(char *filename)
     return img;
 }
 
+
+/**
+ * Write_Bmp
+ */
 int Write_Bmp(char *filename, Image *img)
 {
     int i, j;
     FILE *fp;
     int real_width;
-    unsigned char *bmp_line_data; //画像1行分のRGB情報を格納する
-    unsigned char header_buf[HEADERSIZE]; //ヘッダを格納する
+
+
+    // stores RGB bitmap for one line
+    unsigned char *bmp_line_data;
+
+    // store header
+    unsigned char header_buf[HEADERSIZE];
+
     unsigned int file_size;
     unsigned int offset_to_data;
     unsigned long info_header_size;
@@ -106,7 +142,7 @@ int Write_Bmp(char *filename, Image *img)
 
     real_width = img->width*3 + img->width%4;
 
-    //ここからヘッダ作成
+    // create header from here
     file_size = img->height * real_width + HEADERSIZE;
     offset_to_data = HEADERSIZE;
     info_header_size = INFOHEADERSIZE;
@@ -150,7 +186,7 @@ int Write_Bmp(char *filename, Image *img)
     header_buf[52] = 0;
     header_buf[53] = 0;
 
-    //ヘッダの書き込み
+    // write header
     fwrite(header_buf, sizeof(unsigned char), HEADERSIZE, fp);
 
     if((bmp_line_data = (unsigned char *)malloc(sizeof(unsigned char)*real_width)) == NULL){
@@ -159,14 +195,15 @@ int Write_Bmp(char *filename, Image *img)
         return 1;
     }
 
-    //RGB情報の書き込み
+    //Write RGB bitmap
     for(i=0; i<img->height; i++){
         for(j=0; j<img->width; j++){
             bmp_line_data[j*3]            =    img->data[(img->height - i - 1)*img->width + j].b;
             bmp_line_data[j*3 + 1]    =    img->data[(img->height - i - 1)*img->width + j].g;
             bmp_line_data[j*3 + 2]            =    img->data[(img->height - i - 1)*img->width + j].r;
         }
-        //RGB情報を4バイトの倍数に合わせている
+
+    // adjust RGB ibitmap to a multiple of 4 bytes
         for(j=img->width*3; j<real_width; j++){
             bmp_line_data[j] = 0;
         }
@@ -180,6 +217,10 @@ int Write_Bmp(char *filename, Image *img)
     return 0;
 }
 
+
+/**
+ * Create_Image
+ */
 Image *Create_Image(int width, int height)
 {
     Image *img;
@@ -201,7 +242,7 @@ Image *Create_Image(int width, int height)
     return img;
 }
 
-//動的に取得したRGB情報の開放
+//release RGB bitmap
 void Free_Image(Image *img)
 {
     free(img->data);
