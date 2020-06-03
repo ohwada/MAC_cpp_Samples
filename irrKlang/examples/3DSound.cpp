@@ -1,9 +1,10 @@
 /**
  * irrKlang Sample
  * 2020-03-01 K.OHWADA
- * original : https://www.ambiera.com/irrklang/downloads.html
  */
 
+// play bell.wav and explosion.wav with 3d sound
+// original : http://www.ambiera.at/downloads/irrKlang-64bit-1.6.0.zip
 
 // This example will show how to play sounds in 3D space using irrKlang.
 // An mp3 file file be played in 3D space and moved around the user and a
@@ -19,6 +20,7 @@
 #include <conio.h>
 inline void sleepSomeTime() { Sleep(100); }
 #else
+//#include "../common/conio.h"
 #include "conio.h"
 #endif
 
@@ -28,6 +30,7 @@ inline void sleepSomeTime() { Sleep(100); }
 // link to the irrKlang.dll file.
 #include <stdio.h>
 #include <irrKlang.h>
+
 using namespace irrklang;
 
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
@@ -51,8 +54,13 @@ int main(int argc, const char** argv)
 	// MUST call ->drop to the returned pointer if you don't need it any longer and
 	// don't want to waste any memory. This is done in the end of the program.
 
-	ISound* music = engine->play3D("./media/ophelia.mp3",
+	//ISound* music = engine->play3D("../../media/ophelia.mp3",
+	                               //vec3df(0,0,0), true, false, true);
+
+	ISound* music = engine->play3D("media/bell.wav",
 	                               vec3df(0,0,0), true, false, true);
+
+	music->setIsPaused(true	);
 
 	// the following step isn't necessary, but to adjust the distance where
 	// the 3D sound can be heard, we set some nicer minimum distance
@@ -66,10 +74,10 @@ int main(int argc, const char** argv)
 	// Print some help text and start the display loop
 
 	printf("\nPlaying streamed sound in 3D.");
-	printf("\nPress ESCAPE to quit, any other key to play sound at random position.\n\n");
+	printf("\nPress ESCAPE to quit, any other key to play sound at random position .\n \n");
 
-	printf("+ = Listener position\n");
-	printf("o = Playing sound\n");
+	printf("+ = Listener position \n");
+	printf("o = Playing sound \n");
 
 	float posOnCircle = 0;
 	const float radius = 5;
@@ -129,9 +137,11 @@ int main(int argc, const char** argv)
 				const char* filename;
 
 				if (rand()%2)
-					filename = "./media/bell.wav";
+					//filename = "../../media/bell.wav";
+					filename = "media/bell.wav";
 				else
-					filename = "../../media/explosion.wav";
+					//filename = "../../media/explosion.wav";
+					filename = "media/explosion.wav";
 
 				engine->play3D(filename, pos);
 

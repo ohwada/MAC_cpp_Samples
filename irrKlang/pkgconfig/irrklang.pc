@@ -1,0 +1,9 @@
+prefix=/usr/local/opt/irrklang
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: irrKlang
+Description: a cross platform sound library for C++, C# and all .NET languages.
+Version: 1.6.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lirrklang

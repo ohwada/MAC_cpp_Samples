@@ -1,9 +1,11 @@
 /**
  * irrKlang Sample
  * 2020-03-01 K.OHWADA
- * original : https://www.ambiera.com/irrklang/downloads.html
  */
 
+// play from memory
+// say okay
+// original : http://www.ambiera.at/downloads/irrKlang-64bit-1.6.0.zip
 
 // This example will show how to play sounds directly from memory using irrKlang.
 // This is useful for embedding sounds directly in executables as well for
@@ -21,11 +23,11 @@ using namespace irrklang;
 #if defined(WIN32)
 #include <conio.h>
 #else
+//#include "../common/conio.h"
 #include "conio.h"
 #endif
 
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
-
 
 // the following huge array simply represents the plain sound data we
 // want to play back. It is just the content of a .wav file from the

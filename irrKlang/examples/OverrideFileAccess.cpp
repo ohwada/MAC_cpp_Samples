@@ -1,9 +1,11 @@
 /**
  * irrKlang Sample
  * 2020-03-01 K.OHWADA
- * original : https://www.ambiera.com/irrklang/downloads.html
  */
 
+// play getout.ogg
+// and play explosion.wav over getout.ogg, when hit any key
+// original : http://www.ambiera.at/downloads/irrKlang-64bit-1.6.0.zip
 
 // This example will show how to override file access with irrKlang.
 // This is useful if you want to read sounds from other sources than
@@ -15,12 +17,14 @@
 #if defined(WIN32)
 #include <conio.h>
 #else
+//#include "../common/conio.h"
 #include "conio.h"
 #endif
 
 #include <string.h>
 #include <stdio.h>
 #include <irrKlang.h>
+
 using namespace irrklang;
 
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
@@ -38,7 +42,7 @@ public:
 	//! Opens a file for read access. Simply return 0 if file not found.
 	virtual IFileReader* createFileReader(const ik_c8* filename)
 	{
-		printf("MyFileFactory: open file %s\n", filename);
+		printf("MyFileFactory: open file %s \n", filename);
 
 		FILE* file = fopen(filename, "rb");
 		if (!file)
@@ -80,14 +84,14 @@ protected:
 		//! reads data, returns how much was read
 		ik_s32 read(void* buffer, ik_u32 sizeToRead)
 		{
-			printf("CMyReadFile: read %d bytes\n", sizeToRead);
+			printf("CMyReadFile: read %d bytes \n", sizeToRead);
 			return (ik_s32)fread(buffer, 1, sizeToRead, File);
 		}
 
 		//! changes position in file, returns true if successful
 		bool seek(ik_s32 finalPos, bool relativeMovement)
 		{
-			printf("CMyReadFile: seek to position %d\n", finalPos);
+			printf("CMyReadFile: seek to position %d \n", finalPos);
 			return fseek(File, finalPos, relativeMovement ? SEEK_CUR : SEEK_SET) == 0;
 		}
 
@@ -143,17 +147,19 @@ int main(int argc, const char** argv)
 	// that's it, play some sounds with our overriden
 	// file access methods:
 
-	printf("\nDemonstrating file access overriding.\n");
-	printf("Press any key to start playing sounds, then press escape to cancel\n");
+	printf("\n Demonstrating file access overriding. \n");
+	printf("Press any key to start playing sounds, then press escape to cancel \n");
 
 	getch();
 	
-	engine->play2D("./media/getout.ogg", true);
+	//engine->play2D("../../media/getout.ogg", true);
+	engine->play2D("media/getout.ogg", true);
 
 	while(true) // endless loop until user exits
 	{
 		// play some wave sound
-		engine->play2D("./media/explosion.wav");
+		//engine->play2D("../../media/explosion.wav");
+		engine->play2D("media/explosion.wav");
 		
 		if (getch() == 27)
 			break; // user pressed ESCAPE key, cancel

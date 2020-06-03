@@ -1,9 +1,10 @@
 /**
  * irrKlang Sample
  * 2020-03-01 K.OHWADA
- * original : https://www.ambiera.com/irrklang/downloads.html
  */
 
+// play getout.ogg
+// original : http://www.ambiera.at/downloads/irrKlang-64bit-1.6.0.zip
 
 // This example will show how to play sounds using irrKlang.
 // It will play a looped background music and a sound every
@@ -19,6 +20,7 @@
 #if defined(WIN32)
 #include <conio.h>
 #else
+//#include "../common/conio.h"
 #include "conio.h"
 #endif
 
@@ -36,7 +38,7 @@ using namespace irrklang;
 // We could set this option in the project settings, but to make it easy we use
 // a pragma comment:
 
-//#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
+// #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
 // Now lets start with irrKlang 3D sound engine example 01, demonstrating simple 2D sound.
 // Start up the sound engine using createIrrKlangDevice(). You can specify several
@@ -57,21 +59,25 @@ int main(int argc, const char** argv)
 	// tells the engine to play it looped.
 
 	// play some sound stream, looped
-	engine->play2D("./media/getout.ogg", true);
+	//engine->play2D("../../media/getout.ogg", true);
+	engine->play2D("media/getout.ogg", true);
 
 	// In a loop, wait until user presses 'q' to exit or another key to
 	// play another sound.
 
-	printf("\nHello World!\n");
+	printf("\nHello World! \n");
+	printf("play getout.ogg \n");
+	printf("press 'q' to quit. \n");
 
 	do
 	{
-		printf("Press any key to play some sound, press 'q' to quit.\n");
+		//printf("Press any key to play some sound, press 'q' to quit.\n");
 
 		// play a single sound
-		engine->play2D("./media/bell.wav");
+		//engine->play2D("../../media/bell.wav");
 	}
 	while(getch() != 'q');
+
 
 	// After we are finished, we have to delete the irrKlang Device created earlier
 	// with createIrrKlangDevice(). Use ::drop() to do that. In irrKlang, you should

@@ -3,57 +3,81 @@ irrKlang
 
 irrKlange Sample <br/>
 
-play audio file <br/>
-
 irrKlang is a cross platform sound library for C++, C# and all .NET languages. <br/>
 https://www.ambiera.com/irrklang/ <br/>
 
 
 ###  setup irrKlang <br/>
-(1) download irrKlang 1.6 (64 bit) <br/>
-https://www.ambiera.com/irrklang/downloads.html <br/>
-(2) unzip <br/>
-(3) copy liblary to system area <br/>
-% cp ./bin/macosx-gcc ./lib/libirrklang.dylib /usr/local/lib/ <br/>
-(4) unlock Security check <br/>
-https://support.apple.com/ja-jp/guide/mac-help/mh40617/10.15/mac/10.15 <br/>
+setup.md  <br/>
 
+
+## play_file.cpp <br/>
+play audio file
+
+if You want to play mp3 <br/>
+copy ikpMP3.dylib to same directory as the executable file <br/>
 
 ### build sample code
-% g++ sample.cpp -I./include -lirrklang
+% g++ play_file.cpp -o play `pkg-config --cflags --libs irrklang` <br/>
+
+### run sample code
+Usage: ./play \< audioFile \>  <br/>
+ex) <br/>
+% ./play ./media/bell.wav <br/>
+
+display as below  <br/>
+irrKlang sound library version 1.6.0 <br/>
+Loaded plugin: ikpMP3.dylib <br/>
+Using CoreAudio driver <br/>
+press 'q' to quit <br/>
 
 ## HelloWorld.cpp <br/>
 This example will show how to play sounds using irrKlang. <br/>
-It will play a looped background music and a sound every
-time the user presses a key. <br/>
-Press any key to play some sound,  <br/>
-press 'q' to quit.  <br/>
 
-% g++ HelloWorld.cpp -I./include -lirrklang
+build sample code<br/>
+% g++ examples/HelloWorld.cpp -o hello  `pkg-config --cflags --libs irrklang` <br/>
+
 
 ## 3DSound.cpp <br/>
 This example will show how to play sounds in 3D space using irrKlang. <br/>
-An mp3 file file be played in 3D space and moved around the user  <br/>
-and a sound will be played at a random 3D position every time 
-the user presses a key. <br/>
 
-require MP3 plugin <br/>
-copy ikpMP3.dylib to same directory as the executable file <br/>
-https://ambiera.com/forum.php?t=847<br/>
-
-% g++ 3DSound.cpp -I./include -lirrklang
+build sample code<br/>
+% g++ examples/3DSound.cpp  -o 3dsound  `pkg-config --cflags --libs irrklang`
 
 ## MemoryPlayback.cpp <br/>
 This example will show how to play sounds directly from memory using irrKlang. <br/>
-This is useful for embedding sounds directly in executables as well for making irrKlang work together with different APIs like advanced decoders or middleware such as Shockwave. <br/>
+
+build sample code<br/>
+% g++ examples/MemoryPlayback.cpp  -o memory  `pkg-config --cflags --libs irrklang ` <br/>
+
 
 ## OverrideFileAccess.cpp <br/>
-This example will show how to override file access with irrKlang. <br/>
-This is useful if you want to read sounds from other sources than
-just files,  <br/>
-for example from custom internet streams or 
-an own encypted archive format. <br/>
+this example will show how to override file access with irrKlang. <br/>
+
+build sample code<br/>
+% g++ examples/OverrideFileAccess.cpp  -o override  `pkg-config --cflags --libs irrklang ` <br/>
+
+## Effects.cpp <br/>
+this example will show how to use sound effects such as echo, reverb and distortion.
+this program does not work on MAC
+
+build sample code<br/>
+% g++ examples/Effects.cpp  -o effects  `pkg-config --cflags --libs irrklang ` <br/>
+
+display as below, when run code <br/>
+this device or sound does not support sound effects. <br/>
+
+## Recording.cpp <br/>
+this example will show how to record and play back audio. 
+this program does not work on MAC
+
+build sample code<br/>
+% g++ examples/Recording.cpp  -o recording  `pkg-config --cflags --libs irrklang` <br/>
+
+display as below, when run code <br/>
+Could not create audio engine or audio recoder <br/>
 
 ### Reference <br/>
 - https://www.ambiera.com/irrklang/
+- https://ambiera.com/forum.php?t=847<br/>
 
