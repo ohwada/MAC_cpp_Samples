@@ -17,7 +17,7 @@ license: Creative Commons Attribution 2.5  <br/>
 - MF-3DAYS.S3M  <br/>
 - MF-PANTS.MOD  <br/>
 - MF-W-90.XM  <br/>
-Fred Scalliet also known as MAGIC FRED
+Fred Scalliet also known as MAGIC FRED  <br/>
 http://www.commoncontent.org/catalog/audio/music/3083/ <br/>
 license: Attribution-NonCommercial-ShareAlike 2.0 <br/>
 

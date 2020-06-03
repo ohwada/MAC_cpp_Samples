@@ -8,7 +8,7 @@ https://www.ambiera.com/irrklang/ <br/>
 
 
 ###  setup irrKlang <br/>
-setup.md  <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/irrKlang/setup.md  <br/>
 
 
 ## play_file.cpp <br/>
