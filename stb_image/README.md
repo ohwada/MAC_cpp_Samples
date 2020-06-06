@@ -28,7 +28,7 @@ channels = 4  <br/>
 loadImage: ./images/uparrow.png ( 510 x 510 )  <br/>
 
 show image in GTK window <br/>  
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/screenshot_uparrow.png" width="300" /><br/>
 
 
 ## test_write.cpp
@@ -49,7 +49,7 @@ saved Image : test_2_256.png <br/>
 
 
 write test bitmap pattern to image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb/result/test_2_256.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/test_2_256.png" width="300" /><br/>
 
 
 ### Reference <br/>
