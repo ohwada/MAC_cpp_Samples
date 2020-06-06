@@ -58,6 +58,10 @@ copy ikpMP3.dylib to same directory as the executable file <br/>
 allow to use ikpMP3.dylib <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/irrKlang/screenshots/screenshot_ikpmp3_security_setting.png" width="300" /><br/>
 
+
+### Documents
+- https://qiita.com/ohwada/items/d91ada1d4c3f0ded24f2
+
 ### Reference <br/>
 - https://www.ambiera.com/irrklang/
 - https://forums.developer.apple.com/thread/128380

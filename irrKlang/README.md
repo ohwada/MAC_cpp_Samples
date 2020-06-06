@@ -77,7 +77,11 @@ build sample code<br/>
 display as below, when run code <br/>
 Could not create audio engine or audio recoder <br/>
 
-### Reference <br/>
+
+### Documents
+- https://qiita.com/ohwada/items/d91ada1d4c3f0ded24f2
+
+### Reference 
 - https://www.ambiera.com/irrklang/
 - https://ambiera.com/forum.php?t=847<br/>
 
