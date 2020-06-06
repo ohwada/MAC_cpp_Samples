@@ -42,7 +42,7 @@ const short WAVH_WFORMATTAG_PCM = 1;
 /**
  * readWavHeader
  */
-int readWavHeader(FILE* fp, int *channels, int* bit, int *size, int* samplingrate)
+int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingrate)
 {
 
 	unsigned char header[WAVH_HEADER_SIZE];	
@@ -105,7 +105,7 @@ int readWavHeader(FILE* fp, int *channels, int* bit, int *size, int* samplingrat
     int ov_datasize = convInt(header, 40);
 
 		*channels = (int)wavchannels;
-		*bit = (int)bitsParSample;
+		*bits = (int)bitsParSample;
 		*samplingrate = samplesPerSec;
 		*size = ov_datasize;
 
@@ -148,7 +148,7 @@ bool writeDummyWavHeader(FILE *fp)
 /**
  * overwriteWavHeader
  */
-bool overwriteWavHeader(char *filename, int channels, int samplingrate)
+bool overwriteWavHeader(char *filename, int channels, int bits, int samplingrate)
 {
     int filesize = getFileSize(filename);
     if(filesize==0){
@@ -157,7 +157,7 @@ bool overwriteWavHeader(char *filename, int channels, int samplingrate)
 
 	// write wav header
 	FILE *fp = fopen(filename, "rb+");
-    bool ret = writeWavHeaderFp(fp, channels, samplingrate, filesize);
+    bool ret = writeWavHeaderFp(fp, channels, bits, samplingrate, filesize);
 	fclose(fp);
     return ret;
 }
@@ -166,7 +166,7 @@ bool overwriteWavHeader(char *filename, int channels, int samplingrate)
 /**
  * writeHeaderFp
  */
-bool writeWavHeaderFp(FILE *fp, int channels, int samplingrate, int filesize)
+bool writeWavHeaderFp(FILE *fp, int channels, int bits, int samplingrate, int filesize)
 {
 
     int wavsize = filesize - 8;
@@ -182,7 +182,7 @@ bool writeWavHeaderFp(FILE *fp, int channels, int samplingrate, int filesize)
     wavh.ov_data = WAVH_OV_DATA;
 	wavh.wFormatTag = WAVH_WFORMATTAG_PCM;
 	wavh.wFormatLength = WAVH_WFORMATLENGTH;
-	wavh.wBitsPerSample = WAVH_WBITSPERSAMPLE;
+	wavh.wBitsPerSample = bits;
 
     wavh.nChannels = channels; // maybe stereo
     wavh.nSamplesPerSec = samplingrate; // may be 44100

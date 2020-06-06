@@ -30,7 +30,7 @@ int main(int argc, char** argv)
     FILE *fp_output = fopen(output, "wb");
 	if ( !fp_output ) { 
         printf( "fopen Faild: %s \n", output);
-		return 1;
+        return EXIT_FAILURE;
 	}
 
 
@@ -63,10 +63,10 @@ int main(int argc, char** argv)
     fclose(fp_output);
 
 	// write wav header
-    overwriteWavHeader(output, (int)FLOG_CHANNELS, (int)FLOG_SAMPLINGRATE);
+    overwriteWavHeader(output, (int)FLOG_CHANNELS, (int)FLOG_BITS, (int)FLOG_SAMPLINGRATE);
 
     printf("saved: %s \n", output);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 

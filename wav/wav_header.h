@@ -17,8 +17,10 @@
 #define WAVH_CHANNELS_MONO 1
 #define WAVH_CHANNELS_STEREO 2
 #define WAVH_SAMPLINGRATE_CD 44100
+#define  WAVH_BITSPERSAMPLE8 8
+#define  WAVH_BITSPERSAMPLE1616
 
-int readWavHeader(FILE* fp, int *channels, int* bit, int *size, int* samplingrate);
+int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingrate);
 
 int convInt(unsigned char* header, int start);
 
@@ -26,9 +28,9 @@ short convShort(unsigned char* header, int start);
 
 bool writeDummyWavHeader(FILE *fp);
  
-bool overwriteWavHeader(char *filename, int channels, int samplingrate);
+bool overwriteWavHeader(char *filename, int channels, int bits, int samplingrate);
 
-bool writeWavHeaderFp(FILE *fp, int channels, int samplingrate, int filesize);
+bool writeWavHeaderFp(FILE *fp, int channels, int bits, int samplingrate, int filesize);
 
 int getFileSize(char *filename);
 

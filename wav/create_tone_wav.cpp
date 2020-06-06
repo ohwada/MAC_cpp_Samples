@@ -16,6 +16,7 @@ using namespace std;
 // global
 const int TONE_SAMPLINGRATE = 44100;
 const int TONE_CHANNELS = 1;
+const int TONE_BITS = 16;
 
 /**
  * createTone
@@ -63,17 +64,16 @@ int main(int argc, char** argv)
     int freq = 440; // Hz
     int duration = 1; // sec
 
-    if(argc < 2) {
-        cerr << "Usage: " << argv[0] << " [freq] [duration] "  << endl;
-
-    } else if(argc == 3) {
+    if(argc == 3) {
         freq = atoi(argv[1]);
         duration = atoi(argv[2]);
 
     } else if(argc == 2) {
         freq = atoi(argv[1]);
+    } else {
+        cerr << "Usage: " << argv[0] << " [freq] [duration] "  << endl;
+        return EXIT_FAILURE;
     }
-
 
     string output = createOutputFileName(freq, duration);	
 
@@ -105,7 +105,7 @@ int main(int argc, char** argv)
     fclose(fp_output);
 
 	// write wav header
-    overwriteWavHeader((char *)output.c_str(), TONE_CHANNELS, TONE_SAMPLINGRATE);
+    overwriteWavHeader((char *)output.c_str(), TONE_CHANNELS, TONE_BITS, TONE_SAMPLINGRATE);
 
     cout << "saved: " << output << endl;
 

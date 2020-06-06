@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #define FLOG_SAMPLINGRATE 44100
 #define FLOG_CHANNELS 1
+#define FLOG_BITS 16
 #define FLOG_BYTES_PER_SAMPLE 2
 
 std::vector<std::string> getFlogScore();
