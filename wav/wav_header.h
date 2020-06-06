@@ -18,7 +18,7 @@
 #define WAVH_CHANNELS_STEREO 2
 #define WAVH_SAMPLINGRATE_CD 44100
 #define  WAVH_BITSPERSAMPLE8 8
-#define  WAVH_BITSPERSAMPLE1616
+#define  WAVH_BITSPERSAMPLE16 16
 
 int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingrate);
 
