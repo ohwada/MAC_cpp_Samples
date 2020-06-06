@@ -35,7 +35,6 @@ const int 	WAVH_WAVE =  0x45564157; // "WAVE"
 const int WAVH_FMT = 0x20746D66; // "'fmt"
 const int WAVH_OV_DATA = 0x61746164;	 // "ov_data"
 const int WAVH_WFORMATLENGTH = 16;
-const short WAVH_WBITSPERSAMPLE = 16;
 const short WAVH_WFORMATTAG_PCM = 1;
 
 
@@ -171,7 +170,7 @@ bool writeWavHeaderFp(FILE *fp, int channels, int bits, int samplingrate, int fi
 
     int wavsize = filesize - 8;
     int datasize = filesize - WAVH_HEADER_SIZE;
-    short nBlockAlign = (short)(WAVH_WBITSPERSAMPLE / 8 * channels);
+    short nBlockAlign = (short)(bits / 8 * channels);
 	int nAvgBytesPerSec = samplingrate * nBlockAlign;
 
 	// setup header 
