@@ -1,5 +1,3 @@
-// original : https://github.com/nothings/stb
-
 /* stb_image - v2.25 - public domain image loader - http://nothings.org/stb
                                   no warranty implied; use at your own risk
 

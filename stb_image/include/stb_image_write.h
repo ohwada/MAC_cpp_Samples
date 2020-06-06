@@ -1,5 +1,3 @@
-// original : https://github.com/nothings/stb
-
 /* stb_image_write - v1.14 - public domain - http://nothings.org/stb
    writes out PNG/BMP/TGA/JPEG/HDR images to C stdio - Sean Barrett 2010-2015
                                      no warranty implied; use at your own risk
