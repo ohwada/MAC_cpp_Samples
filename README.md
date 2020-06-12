@@ -27,6 +27,13 @@ convert UTF-8 to/from UTF-16 <br/>
 ### libiconv
 convert text file codeset to UTF8 <br/>
 
+
+### glad
+Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator <br/>
+
+### glm
+header only C++ mathematics library <br/>
+
 ## AudioPlayer
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/AudioPlayer.md <br/>
 
