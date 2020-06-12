@@ -56,6 +56,7 @@ run sample code <br/>
 
 saved: simplex.pgm <br/>
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/glm/result/simplex.pgm.png" /><br/>
 
 ## perlin_noise.cpp <br/>
 perlin noise <br/>
