@@ -21,8 +21,14 @@ display exam score of each students <br/>
 ### boost
 split string <br/>
 
+
 ### codecvt
 convert UTF-8 to/from UTF-16 <br/>
+
+
+### assimp
+draw 3D model from file <br/>
+
 
 ### libiconv
 convert text file codeset to UTF8 <br/>

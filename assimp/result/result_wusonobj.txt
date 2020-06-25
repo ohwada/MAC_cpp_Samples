@@ -1,0 +1,14 @@
+AssimpVersion: 5.0.0 
+extension: .obj 
+win_title: Assimp: WusonOBJ.obj 
+Info,  T0: Load models/OBJ/WusonOBJ.obj
+Info,  T0: Found a matching importer for this file format: Wavefront Object Importer.
+Info,  T0: Import root directory is 'models/OBJ/'
+Info,  T0: Entering post processing pipeline
+Info,  T0: Points: 0, Lines: 0, Triangles: 1, Polygons: 0 (Meshes, X = removed)
+Error, T0: FindInvalidDataProcess fails on mesh uvcoords: All vectors are identical
+Info,  T0: FindInvalidDataProcess finished. Found issues ...
+Error, T0: Failed to compute tangents; need UV data in channel0
+Info,  T0: JoinVerticesProcess finished | Verts in: 11196 out: 2117 | ~81.0915
+Info,  T0: Cache relevant are 1 meshes (3732 faces). Average output ACMR is 0.776259
+Info,  T0: Leaving post processing pipeline
