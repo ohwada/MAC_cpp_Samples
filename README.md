@@ -28,9 +28,11 @@ convert UTF-8 to/from UTF-16 <br/>
 
 ### assimp
 draw 3D model from file <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/assimp/result/screenshot_wusonobj.png" width="300" /><br/>
 
 ### cairo
 draw arc to png file <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cairo/result/arc.png" width="300" /><br/>
 
 ### libiconv
 convert text file codeset to UTF8 <br/>
