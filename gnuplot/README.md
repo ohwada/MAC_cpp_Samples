@@ -3,7 +3,7 @@ gnuplot
 
 gnuplot sample <br/>
 
-plot sne wave <br/>
+plot sin wave <br/>
 
 gnuplot is a portable command-line driven graphing utility <br/>
 http://www.gnuplot.info/ <br/>
@@ -74,6 +74,7 @@ output only the first 5000 points <br/>
 created singen.png <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/gnuplot/result/singen.png" width="300" /><br/>
 
+
 ### Reference <br/>
-- https://github.com/FFTW/fftw3
+- https://github.com/gnuplot/gnuplot
 
