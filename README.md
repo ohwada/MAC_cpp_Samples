@@ -38,6 +38,10 @@ draw 3D model from file <br/>
 draw arc to png file <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cairo/result/arc.png" width="300" /><br/>
 
+### gnuplot
+plot sin wave <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/gnuplot/result/screenshot_plot_sin.png" width="300" /><br/>
+
 ### libiconv
 convert text file codeset to UTF8 <br/>
 
