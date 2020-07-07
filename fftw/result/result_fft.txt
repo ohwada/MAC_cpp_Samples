@@ -1,0 +1,5 @@
+createSin: 440
+index 10
+max 222778
+freq 430.664
+saved: fft_sin_440.txt
