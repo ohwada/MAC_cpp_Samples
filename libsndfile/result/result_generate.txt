@@ -1,0 +1,8 @@
+    result/sine_344_466.wav -> pcmu8.wav ....... ok
+    result/sine_344_466.wav -> pcm16.wav ....... ok
+    result/sine_344_466.wav -> imaadpcm.wav .... ok
+    result/sine_344_466.wav -> msadpcm.wav ..... ok
+    result/sine_344_466.wav -> pcmu8.w64 ....... ok
+    result/sine_344_466.wav -> pcm16.w64 ....... ok
+    result/sine_344_466.wav -> imaadpcm.w64 .... ok
+    result/sine_344_466.wav -> msadpcm.w64 ..... ok

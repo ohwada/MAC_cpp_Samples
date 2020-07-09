@@ -68,6 +68,9 @@ play audio file <br/>
 ### irrKlang
 play audio file <br/>
 
+### libsndfile
+play audio file <br/>
+
 ### beep
 play beep sound  <br/>
 

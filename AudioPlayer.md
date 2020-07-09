@@ -25,6 +25,10 @@ Sound library <br/>
 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/irrKlang <br/>
 
+### libsndfile
+play audio file <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libsndfile <br/>
 
 ## Audio CODEC
 

@@ -1,0 +1,193 @@
+Version : libsndfile-1.0.28
+
+AIFF (Apple/SGI)  (extension "aiff")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   IMA ADPCM
+   GSM 6.10
+   12 bit DWVW
+   16 bit DWVW
+   24 bit DWVW
+
+AU (Sun/NeXT)  (extension "au")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   32kbs G721 ADPCM
+   24kbs G723 ADPCM
+
+AVR (Audio Visual Research)  (extension "avr")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Unsigned 8 bit PCM
+
+CAF (Apple Core Audio File)  (extension "caf")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   16 bit ALAC
+   20 bit ALAC
+   24 bit ALAC
+   32 bit ALAC
+
+FLAC (Free Lossless Audio Codec)  (extension "flac")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+
+HTK (HMM Tool Kit)  (extension "htk")
+   Signed 16 bit PCM
+
+IFF (Amiga IFF/SVX8/SV16)  (extension "iff")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+
+MAT4 (GNU Octave 2.0 / Matlab 4.2)  (extension "mat")
+   Signed 16 bit PCM
+   Signed 32 bit PCM
+   32 bit float
+   64 bit float
+
+MAT5 (GNU Octave 2.1 / Matlab 5.0)  (extension "mat")
+   Signed 16 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+
+MPC (Akai MPC 2k)  (extension "mpc")
+   Signed 16 bit PCM
+
+OGG (OGG Container format)  (extension "oga")
+   Vorbis
+
+PAF (Ensoniq PARIS)  (extension "paf")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+
+PVF (Portable Voice Format)  (extension "pvf")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 32 bit PCM
+
+RAW (header-less)  (extension "raw")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   GSM 6.10
+   12 bit DWVW
+   16 bit DWVW
+   24 bit DWVW
+   VOX ADPCM
+
+RF64 (RIFF 64)  (extension "rf64")
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+
+SD2 (Sound Designer II)  (extension "sd2")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+
+SDS (Midi Sample Dump Standard)  (extension "sds")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+
+SF (Berkeley/IRCAM/CARL)  (extension "sf")
+   Signed 16 bit PCM
+   Signed 32 bit PCM
+   32 bit float
+   U-Law
+   A-Law
+
+VOC (Creative Labs)  (extension "voc")
+   Signed 16 bit PCM
+   Unsigned 8 bit PCM
+   U-Law
+   A-Law
+
+W64 (SoundFoundry WAVE 64)  (extension "w64")
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   IMA ADPCM
+   Microsoft ADPCM
+   GSM 6.10
+
+WAV (Microsoft)  (extension "wav")
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+   IMA ADPCM
+   Microsoft ADPCM
+   GSM 6.10
+   32kbs G721 ADPCM
+
+WAV (NIST Sphere)  (extension "wav")
+   Signed 8 bit PCM
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   U-Law
+   A-Law
+
+WAVEX (Microsoft)  (extension "wav")
+   Signed 16 bit PCM
+   Signed 24 bit PCM
+   Signed 32 bit PCM
+   Unsigned 8 bit PCM
+   32 bit float
+   64 bit float
+   U-Law
+   A-Law
+
+WVE (Psion Series 3)  (extension "wve")
+   A-Law
+
+XI (FastTracker 2)  (extension "xi")
+   16 bit DPCM
+   8 bit DPCM
+
+
