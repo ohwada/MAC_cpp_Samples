@@ -1,14 +1,14 @@
-libflac
+flac
 ===============
 
-libflac Sample <br/>
+flac Sample <br/>
 
 play flac <br/>
 
 Free Lossless Audio Codec <br/>
 https://xiph.org/flac/ <br/>
 
-### install libflac
+### install flac
 % brew  install flac <br/>
 https://formulae.brew.sh/formula/flac <br/>
 

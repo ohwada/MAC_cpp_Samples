@@ -85,7 +85,7 @@ play mp3 <br/>
 ### libvorbis
 play ogg <br/>
 
-### libflac
+### flac
 play flac <br/>
 
 ### fdk_aac

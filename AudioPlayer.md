@@ -44,10 +44,10 @@ Audio Decoder for ogg <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libvorbis <br/>
 
 
-### libflac
+### flac
 Audio Decoder for flac <br/>
 
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/libflac <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/flac <br/>
 
 ### fdk_aac
 Audio Decoder for aac <br/>
