@@ -99,6 +99,16 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/SDL <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_uparrow.png" width="300" /><br/>
 
+
+### sfml
+open sfml window and show image  from file <br/>
+
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/sfml <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/sfml/result/screenshot_uparrow.png" width="300" /><br/>
+## ImageLoader Samples
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/ImageLoader.md <br/>
+
 ### Docement
 - https://qiita.com/ohwada/items/8703ede811476dd9c47f
 
