@@ -133,7 +133,7 @@ open sfml window and show image  from file <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/sfml/result/screenshot_uparrow.png" width="300" /><br/>
 
-## sfml_audio
+### sfml_audio
 play audio fie <br/>
 
 ## ImageLoader Samples

@@ -1,4 +1,4 @@
-AudioPlayer.
+AudioPlayer
 ===============
 
 play audio file <br/>
@@ -23,7 +23,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/SDL_audio <br/>
 ## sfml 
 Simple and Fast Multimedia Library <br/>
 
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/SDL_sfml <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/sfml_audio <br/>
 
 ### irrKlang
 Sound library <br/>
