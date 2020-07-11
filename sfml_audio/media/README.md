@@ -1,4 +1,4 @@
-media - libsndfile
+media - sfml audio
 ===============
 
 ### wav file
