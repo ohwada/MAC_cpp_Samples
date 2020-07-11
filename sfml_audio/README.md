@@ -2,8 +2,10 @@ sfml audio
 ===============
 
 sfml sample <br/>
-play audio fie <br/>
+play audio file <br/>
 
+Simple and Fast Multimedia Library <br/>
+https://www.sfml-dev.org/ <br />
 
 ## install sfml
 % brew install sfml <br/>
