@@ -2,7 +2,7 @@ network
 ===============
 
 C network sample <br/>
-tcp server client <br/>
+tcp server and client <br/>
 
 ## server.c
 start the server <br/>
@@ -17,6 +17,7 @@ run code <br/>
 display as below <br/>
 waiting for connection port: 9876 <br/>
 please run client program <br/>
+or quit with ctrl-c <br/>
 
  
 ## client.c
@@ -30,9 +31,9 @@ run code  <br/>
 % ./client <br/>
 
 display as below <br/>
-connected : 127.0.0.1 : 9876 <br/> 
+connected : 127.0.0.1 : 9876 <br/>
 please enter the alphabets <br/>
-
+\> <br/>
 ### Reference <br/>
 - http://onishi-lab.jp/programming/tcp_linux.html
 

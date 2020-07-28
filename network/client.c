@@ -4,8 +4,10 @@
  */
 
 // send the input data to the server
-// display the received data
+// and display the received data
 // reference : http://onishi-lab.jp/programming/tcp_linux.html
+
+// TODO: quit with ESC key
 
 #include <stdio.h>
 #include <string.h>
@@ -13,6 +15,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
+#include <errno.h>
 #include "host.h"
 
 
@@ -42,27 +45,40 @@ int main()
   dstSocket = socket(AF_INET, SOCK_STREAM, 0);
   
   // connect server
-  if (connect(dstSocket, (struct sockaddr *)&dstAddr, sizeof(dstAddr)) < 0){
-        printf("cannot connect: %s \n", LOCALHOST);
+  int ret = connect(dstSocket, (struct sockaddr *)&dstAddr, sizeof(dstAddr));
+  if(ret == -1){
+        printf("cannot connect: %s : %d \n", LOCALHOST, PORT);
+        printf("ERR: %d %s \n", errno,  strerror(errno));
         return(-1);
   }
 
   printf("connected : %s : %d \n", LOCALHOST, PORT);
-
-  printf("please enter the alphabets \n");
   
   while (1){
-        scanf("%s",buf);
+        printf("please enter the alphabets \n>");
+        fgets(buf, BUFSIZE, stdin);
+
+        // quit when only return key
+        // TODO: quit with ESC key
+        int len = strlen(buf);
+        if(len == 1){
+            break;
+        }
+
+        // delete return code
+        buf[len - 1] = '\0';
         // send packet
         write(dstSocket, buf, BUFSIZE);
         printf("send: %s \n", buf);
         // recieve packet
         numrcv = read(dstSocket, buf, BUFSIZE);
         printf("recv: %s \n\n", buf);
+
   } // while
 
-  close(dstSocket);
+    close(dstSocket);
+    printf("quit \n");
 
-  return(0);
+    return(0);
 }
 
