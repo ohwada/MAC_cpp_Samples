@@ -31,6 +31,9 @@ catch and handle POSIX signals <br/>
 ### codecvt
 convert UTF-8 to/from UTF-16 <br/>
 
+### json
+parse json using json-c <br/>
+
 ### boost
 split string <br/>
 
