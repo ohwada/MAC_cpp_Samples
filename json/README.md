@@ -4,12 +4,12 @@ json
 C json sample <br/>
 parse json using json-c <br/>
 
-json-c : JSON parser for C
-https://github.com/json-c/json-c/wiki
+json-c : JSON parser for C <br/>
+https://github.com/json-c/json-c/wiki <br/>
 
 ### install json-c
-% brew install json-c
-https://formulae.brew.sh/formula/json-c
+% brew install json-c <br/>
+https://formulae.brew.sh/formula/json-c <br/>
 
 ### test2.c
 simple test <br/>
