@@ -34,7 +34,7 @@ convert UTF-8 to/from UTF-16 <br/>
 ### string
 string to uppercase / lowercase <br/>
 
-###bind
+### bind
 bind function <br/>
 
 ### json
