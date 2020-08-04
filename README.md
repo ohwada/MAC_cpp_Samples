@@ -37,6 +37,9 @@ string to uppercase / lowercase <br/>
 ### bind
 bind function <br/>
 
+### map
+map with int or string key <br/>
+
 ### json
 parse json using json-c <br/>
 
