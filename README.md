@@ -40,6 +40,9 @@ bind function <br/>
 ### map
 map with int or string key <br/>
 
+### unordered_map
+unordered map with string key or vector / class / enum <br/>
+
 ### json
 parse json using json-c <br/>
 
