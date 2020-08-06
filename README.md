@@ -43,6 +43,9 @@ map with int or string key <br/>
 ### unordered_map
 unordered map with string key or vector / class / enum <br/>
 
+### shuffle
+shaffle  vector / string <br/>
+
 ### json
 parse json using json-c <br/>
 
