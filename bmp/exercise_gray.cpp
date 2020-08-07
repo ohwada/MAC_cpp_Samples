@@ -13,7 +13,7 @@
 
 using namespace std;
 
-
+// prototype
 void GrayScale(Image *img);
 
 
@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 
 
 /**
- * GrayScale
+ *  GrayScale
  */
 void GrayScale(Image *img)
 {
@@ -81,6 +81,6 @@ void GrayScale(Image *img)
             index = img->width * i + j;
             color = img->data[index].r * 0.299 + img->data[index].g * 0.587 + img->data[index].b * 0.114;
             img->data[index].r = img->data[index].g = img->data[index].b = color;
-        }
-    }
+        } // forj
+    }// for i
 }
