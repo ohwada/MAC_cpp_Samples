@@ -15,7 +15,7 @@ show image in GTK window <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/GTK
 
 build sample code <br/>
- % g++ test_gtk.cpp parse_filename.cpp -o gtk -std=c++11  `pkg-config --cflags --libs gtk+-2.0` -I./include
+ % g++ test_gtk.cpp -o gtk -std=c++11  `pkg-config --cflags --libs gtk+-2.0` -I./include
 
 run sample code <br/> 
 Usage: gtk \< inputImageFilename \>  <br/>
@@ -51,6 +51,23 @@ saved Image : test_2_256.png <br/>
 write test bitmap pattern to image file <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/test_2_256.png" width="300" /><br/>
 
+## conv_gray.cpp
+convert to gray scall  <br/>
+
+build sample code <br/>
+% g++ conv_gray.cpp -o gray -std=c++11 -I./include
+
+run sample code <br/> 
+Usage: ./gray \< inputImageFile \> <br/>
+ex) <br/>
+% ./gray images/lena.bmp <br/>
+
+display as below <br/>
+stb : gray<br/>
+loaded: images/lena.bmp (512 x 512 )<br/>
+saved : lena_gray.bmp <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/lena_gray.bmp" width="300" /><br/>
 
 ### Reference <br/>
 - https://github.com/nothings/stb
