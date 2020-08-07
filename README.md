@@ -46,6 +46,9 @@ unordered map with string key or vector / class / enum <br/>
 ### shuffle
 shaffle  vector / string <br/>
 
+### random
+generate random number / string <br/>
+
 ### json
 parse json using json-c <br/>
 
