@@ -24,7 +24,7 @@ bool saveImage(string output , char *data, int width, int height, string ext)
 {
 
     const int COMP = 4;
-
+    const int JPEG_QUALITY = 100;
     const char * filename = (const char * )output.c_str();
 
     int out;
@@ -36,6 +36,8 @@ bool saveImage(string output , char *data, int width, int height, string ext)
         out = stbi_write_bmp(filename, width, height, COMP, data);
     }else if(ext == "tga"){
         out = stbi_write_tga(filename,  width, height, COMP, data);
+    }else if(ext == "jpg"){
+        out = stbi_write_jpg(filename,  width, height, COMP, data,   JPEG_QUALITY);
     }else{
         cout << "NOT support extension: "<< ext << endl;
         return false;

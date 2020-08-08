@@ -55,7 +55,7 @@ write test bitmap pattern to image file <br/>
 convert to gray scall  <br/>
 
 build sample code <br/>
-% g++ conv_gray.cpp -o gray -std=c++11 -I./include
+% g++ conv_gray.cpp -o gray -std=c++11 -I./include <br/>
 
 run sample code <br/> 
 Usage: ./gray \< inputImageFile \> <br/>

@@ -126,17 +126,22 @@ char* loadImage(string input, int *w, int *h)
 bool saveImage(string output , char *data, int width, int height, string ext)
 {
 
+    const int COMP = 3;
+    const int JPEG_QUALITY = 100;
+
     char * filepath = (char * )output.c_str();
 
     int out;
 
     if(ext == "png"){
         int stride_in_bytes = 3*width;
-        out = stbi_write_png(filepath, width, height, 3, data, stride_in_bytes);
+        out = stbi_write_png(filepath, width, height, COMP, data, stride_in_bytes);
     }else if(ext == "bmp"){
-        out = stbi_write_bmp(filepath, width, height, 3, data);
+        out = stbi_write_bmp(filepath, width, height, COMP, data);
     }else if(ext == "tga"){
-        out = stbi_write_tga(filepath,  width, height, 3, data);
+        out = stbi_write_tga(filepath,  width, height, COMP, data);
+    }else if(ext == "jpg"){
+        out = stbi_write_jpg(filepath,  width, height, COMP, data, JPEG_QUALITY );
     }else{
         cout << "NOT support extension: "<< ext << endl;
         return false;
@@ -164,7 +169,8 @@ void convGrayScale(char *data, int width, int height)
                 unsigned char g = data[index+1];
                 unsigned char b = data[index+2];
 
-                unsigned char gray  = ( 0.299 * r + 0.587 * g + 0.114 * b ) ;
+// https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm
+                unsigned char gray  = ( 0.30 * r + 0.59 * g + 0.11 * b ) ;
 
             data[index+0] = gray;
             data[index+1] = gray;
