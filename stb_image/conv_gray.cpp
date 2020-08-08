@@ -170,7 +170,7 @@ void convGrayScale(char *data, int width, int height)
                 unsigned char b = data[index+2];
 
 // https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm
-                unsigned char gray  = ( 0.30 * r + 0.59 * g + 0.11 * b ) ;
+                unsigned char gray  = 0.30 * r + 0.59 * g + 0.11 * b ;
 
             data[index+0] = gray;
             data[index+1] = gray;
