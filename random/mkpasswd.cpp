@@ -1,5 +1,5 @@
 /**
- * C++ sample
+ * random sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -17,11 +17,9 @@ using namespace std;
 
 
 #ifdef DEBUG
-    const int FLAG_DEBUG = 1;
-    const bool FLAG_HELP_VERSION = true;
+    const bool FLAG_DEBUG = true;
 #else
-    const int FLAG_DEBUG = 0;
-    const bool FLAG_HELP_VERSION = false;
+    const bool FLAG_DEBUG = false;
 #endif
 
 /**
@@ -37,7 +35,8 @@ int main(int argc, char *argv[])
 	int min_special = 0;
 
 	try {  
-	TCLAP::CmdLine cmd("mkpasswd", ' ', "0.1", FLAG_HELP_VERSION);
+
+	TCLAP::CmdLine cmd("mkpasswd", ' ', "0.1");
 
 // mkpasspwd command line option
 // https://linux.die.net/man/1/mkpasswd
@@ -61,14 +60,6 @@ int main(int argc, char *argv[])
 	min_upper = uArg.getValue();
 	min_degit = dArg.getValue();
 	min_special = sArg.getValue();
-
-
-
-
-
-
-
-
 	
 	} 
     catch (TCLAP::ArgException &e) 

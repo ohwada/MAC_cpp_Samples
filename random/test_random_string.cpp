@@ -1,5 +1,5 @@
 /**
- * C++ sample
+ * random sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -11,6 +11,32 @@
 #include "random_string.hpp"
  
 using namespace std;
+
+
+/**
+ *  genRandomString
+ */
+string genRandomString(int mode, int length)
+{
+    string str;
+    switch(mode)
+    {   
+        case  1:
+            str = genRandomStringMix(length);
+            break;
+        case 2:
+            str = genRandomStringLower(length);
+            break;
+        case 3: 
+           str = genRandomStringUpper(length);
+            break;
+       case 4: 
+           str = genRandomStringDegit(length);
+            break;
+        }
+
+    return str;
+}
 
 
 /**
@@ -29,33 +55,32 @@ int main(int argc, char *argv[])
             cout <<  "Usage: " << argv[0] << " [mode]" << endl;
     }
 
-        if(mode == 1){
+    switch(mode)
+    {
+        case 1:
             cout << "mode 1: mix lowercase upercase degit" << endl;
-        } else if (mode == 2){
+            break;
+        case 2:
             cout << "mode 2: lowercase" << endl;
-        } else if (mode == 3){ 
+            break;
+        case 3:
             cout << "mode 3: uppercase" << endl;
-       } else if (mode == 4){ 
+            break;
+       case 4:
             cout << "mode 4: degit" << endl;
-        } else {
+            break;
+        defualt:
             cout << "mode must be from 1 to 4" << endl;
             return EXIT_FAILURE;
-        }
+    }
 
-    string str;
+
     for(int i=0; i<NUM; i++)
     {
-        if(mode == 1){
-            str = genRandomStringMix(LENGTH);
-        } else if (mode == 2){
-            str = genRandomStringLower(LENGTH);
-        } else if (mode == 3){ 
-           str = genRandomStringUpper(LENGTH);
-       } else if (mode == 4){ 
-           str = genRandomStringDegit(LENGTH);
-        }
-        cout << str << endl;
+            string str = genRandomString(mode, LENGTH);
+            cout << str << endl;
     }
+
 
     return EXIT_SUCCESS;
 }

@@ -41,13 +41,33 @@ random: 0 -> 999 <br/>
  676 <br/> 
  959 <br/>
 
+### random_char.h
+generate random char with rand.h <br/>
 
-### random_number.hpp
+- genRandomCharMix()
+- genRandomCharLower()
+- genRandomCharUpper()
+- genRandomCharDegit()
+- genRandomCharSpecial()
+
+build test code <br/>
+% gcc  test_random_char.c <br/>
+
+run test code <br/>
+Usage: ./a.out [mode] <br/>
+ex) <br/>
+./a.out <br/>
+
+display as below <br/>
+ mode 1: mix lowercase upercase degit <br/>
+JGMNPegUgr <br/>
+VFHA5CIrPe <br/>
+
+### gen_random_number.cpp
 generate random number vusing mt19937 <br/>
-- gen_random_vector()
 
-build  test_random_vector <br/>
-% g++  test_random_vector.cpp <br/>
+build  coode <br/>
+% g++  gen_random_number.cpp <br/>
 
 run test code <br/>
 Usage: ./a.out [min] [max] <br/>
@@ -55,7 +75,7 @@ ex) <br/>
 ./a.out <br/>
 
 display as below <br/>
-random: 0 -> 999 <br/>
+ random: 0 -> 999 <br/>
 738 <br/>
 461 <br/>
 
@@ -84,7 +104,7 @@ jLhG7zOWe0 <br/>
 
 ### mkpasswd.cpp
 generate password <br/>
-resemble like LINUX mkpasswd
+resemble like LINUX mkpasswd <br/>
 - https://linux.die.net/man/1/mkpasswd
 
 build  code <br/>

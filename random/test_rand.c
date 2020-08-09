@@ -1,5 +1,5 @@
 /**
- * C sample
+ * random sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 
     for(int i=0; i<NUM; i++) {
-        int num = genRandom(min, max);
+        int num = genRand(min, max);
         printf(" %d \n", num);
     }
 
