@@ -9,7 +9,7 @@ random header is part of the pseudo-random number generation library <br/>
 
 ### rand.h
 generate random number using C rand() <br/>
-- getRandom()
+- getRand()
 
 build  code <br/>
 % gcc  test_rand.c <br/>
@@ -23,6 +23,24 @@ display as below <br/>
 rand: 0 -> 999 <br/>
 738 <br/>
 461 <br/>
+
+### random.h
+generate random number using C random() <br/>
+- getRandom()
+
+build  code <br/>
+% gcc  test_random.c <br/>
+
+run test code <br/>
+Usage: ./a.out [min] [max] <br/>
+ex) <br/>
+./a.out <br/>
+
+display as below <br/>
+random: 0 -> 999 <br/>
+ 676 <br/> 
+ 959 <br/>
+
 
 ### random_number.hpp
 generate random number vusing mt19937 <br/>

@@ -18,14 +18,14 @@
 #ifndef _H_RAND_H_
 #define _H_RAND_H_
 
-// prototype 
-int genRandom(int min, int max);
+// prototype
+int genRand(int min, int max);
 
 
 /**
- * genRandom
+ * genRand
  */
-int genRandom(int min, int max)
+int genRand(int min, int max)
 {
 
 	static int flag;
@@ -36,7 +36,8 @@ int genRandom(int min, int max)
 		flag = 1;
 	}
 
-	int ret = min + (int)(rand()*(max-min+1.0)/(1.0+RAND_MAX));
+    double d = (double)rand() /( (double)RAND_MAX + 1.0);
+    int ret = (int)((max - min + 1)*d) + min;
 
     return ret;
 }
