@@ -7,7 +7,6 @@
 // shufle char in string with C random 
 // reference : http://www5.airnet.ne.jp/tomy/cpro/ra4.htm
 
-#include <stdio.h>
 
 #include <stdlib.h>
 #include <string.h>
