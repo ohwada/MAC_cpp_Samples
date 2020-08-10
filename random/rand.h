@@ -1,3 +1,4 @@
+#pragma once
  /**
  * random sample
  * 2020-03-01 K.OHWADA
@@ -14,9 +15,6 @@
 
 #include <stdlib.h>
 #include <time.h>
-
-#ifndef _H_RAND_H_
-#define _H_RAND_H_
 
 // prototype
 int genRand(int min, int max);
@@ -41,5 +39,3 @@ int genRand(int min, int max)
 
     return ret;
 }
-
-#endif // _H_RAND_H_
