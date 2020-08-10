@@ -50,6 +50,18 @@ display as below <br/>
 after: 5641390278 <br/>
 
 
+### shuffle.h
+shufle char in string with C random <br/>
+
+build  code <br/>
+% gcc  test_shuffle.c  <br/>
+
+run test code <br/>
+% ./a.out <br/>
+
+display as below <br/>
+ after: 0458163792 <br/>
+
 ### Reference
 - https://en.cppreference.com/w/cpp/algorithm/random_shuffle
 

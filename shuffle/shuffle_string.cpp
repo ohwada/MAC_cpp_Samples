@@ -1,5 +1,5 @@
 /**
- * C++ sample
+ * shuffle sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
 //
 // before: abcdefghij
 //    after: hbgejdicaf
-
 
     return 0;
 }

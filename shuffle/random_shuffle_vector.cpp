@@ -1,5 +1,5 @@
 /**
- * C++ sample
+ * sshuffle sample
  * 2020-03-01 K.OHWADA
  */
 
