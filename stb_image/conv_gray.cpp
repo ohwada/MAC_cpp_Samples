@@ -20,9 +20,9 @@
 using namespace std;
 
 // prototype
-char* loadImage(string input, int *w, int *h);
-bool saveImage(string output , char *data, int width, int height, string ext);
-void convGrayScale(char *data, int width, int height);
+uint8_t* loadImage(string input, int *w, int *h);
+bool saveImage(string output , uint8_t *data, int width, int height, string ext);
+void convGrayScale(uint8_t *data, int width, int height);
 
 
 /**
@@ -48,7 +48,7 @@ int main(int argc, char** argv)
     int width;
     int height;
 
-    char* data = loadImage(input, &width, &height);
+    uint8_t* data = loadImage(input, &width, &height);
     if(!data){
         cout << "load faild: " << input << endl;
         return EXIT_FAILURE;
@@ -76,7 +76,7 @@ int main(int argc, char** argv)
 /**
  * loadImage
  */
-char* loadImage(string input, int *w, int *h)
+uint8_t* loadImage(string input, int *w, int *h)
 {
 
     char *filepath = (char *)input.c_str();
@@ -86,7 +86,7 @@ char* loadImage(string input, int *w, int *h)
     int height ;
 
 // read image
-    char* pixels = (char*)stbi_load(filepath, &width, &height, &channels, 0);
+    uint8_t* pixels = (uint8_t*)stbi_load(filepath, &width, &height, &channels, 0);
 
     if(!pixels){
         return NULL;
@@ -94,7 +94,7 @@ char* loadImage(string input, int *w, int *h)
 
     int bufsize =  3*width*height;
     
-    char *buf = new char(bufsize);
+    uint8_t *buf = new uint8_t(bufsize);
 
     for(int y=0; y<height; y++) {
         for(int x=0; x<width; x++) {
@@ -102,9 +102,9 @@ char* loadImage(string input, int *w, int *h)
             int src_index = channels*width*y + channels*x;
             int buf_index = 3*width*y + 3*x;
 
-	        char r = pixels[src_index+0];
-	        char g = pixels[src_index+1];
-	        char b = pixels[src_index+2];
+	        uint8_t r = pixels[src_index+0];
+	        uint8_t g = pixels[src_index+1];
+	        uint8_t b = pixels[src_index+2];
 
             buf[buf_index + 0] = r;
            buf[buf_index + 1] = g;
@@ -123,7 +123,7 @@ char* loadImage(string input, int *w, int *h)
 /**
  * saveImage
  */
-bool saveImage(string output , char *data, int width, int height, string ext)
+bool saveImage(string output , uint8_t *data, int width, int height, string ext)
 {
 
     const int COMP = 3;
@@ -156,7 +156,7 @@ bool saveImage(string output , char *data, int width, int height, string ext)
 /**
  *  convGrayScale
  */
-void convGrayScale(char *data, int width, int height)
+void convGrayScale(uint8_t *data, int width, int height)
 {
 
     for (int  y= 0; y < height; y++)
@@ -165,12 +165,12 @@ void convGrayScale(char *data, int width, int height)
         {
             int index = 3*width*y + 3*x;
 
-                unsigned char r = data[index+0];
-                unsigned char g = data[index+1];
-                unsigned char b = data[index+2];
+                 uint8_t r = data[index+0];
+                 uint8_t g = data[index+1];
+                 uint8_t b = data[index+2];
 
 // https://www.tutorialspoint.com/dip/grayscale_to_rgb_conversion.htm
-                unsigned char gray  = 0.30 * r + 0.59 * g + 0.11 * b ;
+                uint8_t gray  = ( 0.30 * r + 0.59 * g + 0.11 * b ) ;
 
             data[index+0] = gray;
             data[index+1] = gray;

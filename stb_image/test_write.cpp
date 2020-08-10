@@ -20,7 +20,7 @@ using namespace std;
 /**
  * saveImage
  */
-bool saveImage(string output , char *data, int width, int height, string ext)
+bool saveImage(string output , uint8_t *data, int width, int height, string ext)
 {
 
     const int COMP = 4;
@@ -96,8 +96,8 @@ string ext = "png";
     string output = createOutputFileName(size, scale, ext);
 
     // create Pixel
-    char *data = 
-        createColorMatrixPixel32(size, scale);
+    uint8_t *data = 
+        (uint8_t *)createColorMatrixPixel32(size, scale);
 
 
     // save image

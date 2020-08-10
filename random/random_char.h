@@ -1,3 +1,4 @@
+ #pragma once
 /**
  * random sample
  * 2020-03-01 K.OHWADA
@@ -10,9 +11,6 @@
 
 #include "rand.h"
 
-#ifndef _H_RANDOM_CHAR_H_
-#define _H_RANDOM_CHAR_H_
- 
 
 // prototype
 char choseRandomChar(const char* chars);
@@ -100,6 +98,4 @@ char getRandomCharSpecial(void)
 
     return c;
 }
- 
 
-#endif // _H_RANDOM_CHAR_H_

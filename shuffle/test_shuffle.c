@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include "shuffle.h"
 
+
+/**
+ * main
+ */
 int main(void)
 {
 

@@ -23,13 +23,13 @@ using namespace std;
 /**
  * loadImage
  */
-char* loadImage(string input, int &width, int &height)
+uint8_t* loadImage(string input, int &width, int &height)
 {
 
      int channels;
 
 // read image
-    char* pixels = (char*)stbi_load(input.c_str(), &width, &height, &channels, 0);
+    uint8_t* pixels = (uint8_t*)stbi_load(input.c_str(), &width, &height, &channels, 0);
 
     if(!pixels){
         return NULL;
@@ -38,17 +38,17 @@ char* loadImage(string input, int &width, int &height)
     cout << "channels = " << channels << endl;
 
     int bufsize = 4*width*height;
-    char* buf = new char[bufsize]; 
+    uint8_t* buf = new uint8_t[bufsize]; 
 
     for(int y=0; y<height; y++) {
         for(int x=0; x<width; x++) {
 
             int src_index = channels*width*y + channels*x;
 
-	        char r = pixels[src_index+0];
-	        char g = pixels[src_index+1];
-	        char b = pixels[src_index+2];
-	        char a = (char)255;
+	        uint8_t r = pixels[src_index+0];
+	        uint8_t g = pixels[src_index+1];
+	        uint8_t b = pixels[src_index+2];
+	        uint8_t a = (uint8_t)255;
 
             if(channels == 4){
 	            a = pixels[src_index+3];
@@ -96,7 +96,7 @@ int main(int argc, char** argv)
 // load image
     int width;
    int height;
-    char* data = loadImage(input, width, height);
+    uint8_t* data = loadImage(input, width, height);
     if(!data){
         cerr << "load Image Faild: " << input << endl;
         return EXIT_FAILURE;

@@ -1,3 +1,4 @@
+#pragma once
 /**
  * random sample
  * 2020-03-01 K.OHWADA
@@ -13,9 +14,6 @@
 
 #include "random_char.h"
 
-#ifndef _H_RANDOM_STRING_H_
-#define _H_RANDOM_STRING_H_
- 
 
 // prototype
 std::string genRandomStringMix(int length);
@@ -107,5 +105,3 @@ std::string genPasswd(int len_lower, int len_upper, int len_number, int len_spec
     return text;
 }
 
-
-#endif // _H_RANDOM_STRING_H_

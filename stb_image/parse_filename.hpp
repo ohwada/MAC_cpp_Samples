@@ -1,3 +1,4 @@
+#pragma once
 /**
  * C++ Sample
  * 2020-02-01 K.OHWADA
@@ -7,9 +8,6 @@
 
 #include <string> 
 
-
-#ifndef _H_PARSE_FILENAME_H_
-#define _H_PARSE_FILENAME_H_
 
 bool parseFileName(std::string fullpath, std::string &dir, std::string &title, std::string &ext);
 
@@ -127,5 +125,3 @@ std::string getFileNameExt(std::string fullpath)
     return ext;
 }
 
-
-#endif // _H_PARSE_FILENAME_H_

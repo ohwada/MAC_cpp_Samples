@@ -1,8 +1,8 @@
+#pragma once
 /**
  * sshuffle sample
  * 2020-03-01 K.OHWADA
  */
-
 
 // shufle char in string with C random 
 // reference : http://www5.airnet.ne.jp/tomy/cpro/ra4.htm
@@ -12,9 +12,6 @@
 #include <string.h>
 #include <time.h>
 
-
-#ifndef _H_SHUFFLE_H_
-#define _H_SHUFFLE_H_
 
 // prototype
 int genRandom(int min, int max);
@@ -71,4 +68,3 @@ void shuffleChars(char* chars)
 
 }
 
-#endif // _H_SHUFFLE_H_
