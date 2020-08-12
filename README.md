@@ -1,4 +1,4 @@
-MAC C++ Samples
+MAC C/C++ Samples
 ===============
 
 C++ sample codes for MAC <br/>
@@ -48,6 +48,10 @@ shaffle  vector / string <br/>
 
 ### random
 generate random number / string <br/>
+
+### c11
+C Sample since std C11 <br/>
+generate random number using random()<br/>
 
 ### json
 parse json using json-c <br/>
