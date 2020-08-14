@@ -47,7 +47,7 @@ generate random char with rand.h <br/>
 - genRandomCharMix()
 - genRandomCharLower()
 - genRandomCharUpper()
-- genRandomCharDegit()
+- genRandomCharDigit()
 - genRandomCharSpecial()
 
 build test code <br/>
@@ -86,7 +86,7 @@ generate random string with rand.h <br/>
 - genRandomStringMix()
 - genRandomStringLower()
 - genRandomStringUpper()
-- genRandomStringDegit()
+- genRandomStringDigit()
 
 build test code <br/>
 % g++  test_random_string.cpp <br/>
@@ -125,6 +125,21 @@ min degit: 2 <br/>
 min special: 1 <br/>
 len lower: 4 <br/>
 rBS5mi/n <br/>
+
+
+### gen_random_char_no_duplicate.c
+generate random chars 
+that not duplicate character <br/>
+
+build  code <br/>
+% gcc gen_random_char_no_duplicate.c <br/>
+
+run  code <br/>
+Usage: ./a.out [flag] <br/>
+
+display as below <br/>
+ 8SWATzOgcV (0) <br/>
+PSdkc7BrGt (7) <br/>
 
 
 ### Reference

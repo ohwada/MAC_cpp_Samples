@@ -31,7 +31,7 @@ string genRandomString(int mode, int length)
            str = genRandomStringUpper(length);
             break;
        case 4: 
-           str = genRandomStringDegit(length);
+           str = genRandomStringDigit(length);
             break;
         }
 
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
        case 4:
             cout << "mode 4: degit" << endl;
             break;
-        defualt:
+        default:
             cout << "mode must be from 1 to 4" << endl;
             return EXIT_FAILURE;
     }

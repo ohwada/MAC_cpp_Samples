@@ -22,6 +22,7 @@ using namespace std;
     const bool FLAG_DEBUG = false;
 #endif
 
+
 /**
  * main
  */
@@ -69,10 +70,26 @@ int main(int argc, char *argv[])
         }
     }
 
-    int len_lower = len_passwd - ( min_upper + min_degit + min_special );
-    if (len_lower < min_lower) {
-	    len_lower = min_lower;
+    int sum =  min_lower + min_upper + min_degit + min_special;
+
+    char FORMAT [] = "impossible to generate" 
+    " %d-character password"
+    " with %d numbers,"
+    " %d lowercase letters,"
+    " %d uppercase letters"
+    " and %d special characters. \n";
+
+    if ( sum > len_passwd) {
+        printf( FORMAT,  
+        len_passwd, 
+        min_degit,
+        min_lower, 
+        min_upper,
+        min_special );
+                return EXIT_FAILURE;
     }
+
+    int len_mix = len_passwd - sum;
 
     if(FLAG_DEBUG) {
         cout << "len pass: " << len_passwd << endl;
@@ -80,11 +97,12 @@ int main(int argc, char *argv[])
         cout << "min upper: " << min_upper << endl;
         cout << "min degit: " << min_degit << endl;
         cout << "min special: " << min_special << endl;
-        cout << "len lower: " << len_lower << endl;
+    cout << "len mix: " << len_mix << endl;
        cout << endl; // line feed
     }
 
-    string passwd = genPasswd(len_lower, min_upper, min_degit, min_special);
+    string passwd = genPasswd(min_lower, min_upper, min_degit, min_special )
+    + genRandomStringMix(len_mix);
 
       random_device rd;
     mt19937 mt(rd());

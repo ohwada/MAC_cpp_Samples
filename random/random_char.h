@@ -17,7 +17,7 @@ char choseRandomChar(const char* chars);
 char getRandomCharMix(void);
 char getRandomCharLower(void);
 char getRandomCharUpper(void);
-char getRandomCharDegit(void);
+char getRandomCharDigit(void);
 char getRandomCharSpecial(void) ;
 
 
@@ -74,9 +74,9 @@ char getRandomCharUpper(void)
 
 
 /**
- * getRandomCharDegit
+ * getRandomCharDigit
  */
-char getRandomCharDegit(void)
+char getRandomCharDigit(void)
 {
     const char CHARS[] = "01234567890123456789";
 

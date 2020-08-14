@@ -19,8 +19,8 @@
 std::string genRandomStringMix(int length);
 std::string genRandomStringLower(int length);
 std::string genRandomStringUpper(int length);
-std::string genRandomStringDegit(int length);
-std::string genPasswd(int len_lower, int len_upper, int len_number, int len_special);
+std::string genRandomStringDigit(int length);
+std::string genPasswd(int len_lower, int len_upper, int  len_digit, int len_special);
 
 
 /**
@@ -64,14 +64,13 @@ std::string genRandomStringLower(int length)
 
 
 /**
- * genRandomStringDegit
- * mix lower upper number
+ * genRandomStringDigit
  */
-std::string genRandomStringDegit(int length) 
+std::string genRandomStringDigit(int length) 
 {
     std::string text(length, '.');
  
-    generate_n(text.begin(), length,  getRandomCharDegit );
+    generate_n(text.begin(), length,  getRandomCharDigit );
  
     return text;
 }
@@ -81,26 +80,18 @@ std::string genRandomStringDegit(int length)
  * genPasswd
  * mix lowercase uppercase degit specialchar
  */
-std::string genPasswd(int len_lower, int len_upper, int len_number, int len_special) 
+std::string genPasswd(int len_lower, int len_upper, int  len_digit, int len_special) 
 {
 
-    std::string str_lower(len_lower, '.');
-    std::string str_upper(len_upper, '.');
-    std::string str_number(len_number, '.');
     std::string str_special(len_special, '.');
-
-    generate_n(str_lower.begin(), len_lower,  getRandomCharLower );
- 
-    generate_n(str_upper.begin(), len_upper,  getRandomCharUpper );
-
-    generate_n(str_number.begin(), len_number,  getRandomCharDegit );
 
     generate_n(str_special.begin(), len_special,  getRandomCharSpecial );
 
-    std::string text = str_upper 
-    + str_lower
-    + str_special
-    + str_number;
+    std::string text = 
+    genRandomStringLower(len_lower)
+    + genRandomStringUpper(len_upper)
+    + genRandomStringDigit(len_digit)
+    + str_special ;
 
     return text;
 }

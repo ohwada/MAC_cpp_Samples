@@ -30,7 +30,7 @@ char getRandomChar(int mode)
            c = getRandomCharUpper();
             break;
     case 4:
-           c = getRandomCharDegit();
+           c = getRandomCharDigit();
             break;
     case 5:
            c = getRandomCharSpecial();
