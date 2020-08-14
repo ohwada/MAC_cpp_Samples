@@ -5,10 +5,9 @@
 
 // generate random chars
 // that not duplicate character
+
 #include<stdio.h>
-
 #include "random_char.h"
-
 
 
 /**
