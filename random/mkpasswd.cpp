@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	int len_passwd = 0;
 	int min_lower = 0;
 	int min_upper = 0;
-	int min_degit = 0;
+	int min_digit = 0;
 	int min_special = 0;
 
 	try {  
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 	len_passwd = lArg.getValue();
 	min_lower = cArg.getValue();
 	min_upper = uArg.getValue();
-	min_degit = dArg.getValue();
+	min_digit = dArg.getValue();
 	min_special = sArg.getValue();
 	
 	} 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    int sum =  min_lower + min_upper + min_degit + min_special;
+    int sum =  min_lower + min_upper + min_digit + min_special;
 
     char FORMAT [] = "impossible to generate" 
     " %d-character password"
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     if ( sum > len_passwd) {
         printf( FORMAT,  
         len_passwd, 
-        min_degit,
+        min_digit,
         min_lower, 
         min_upper,
         min_special );
@@ -95,13 +95,13 @@ int main(int argc, char *argv[])
         cout << "len pass: " << len_passwd << endl;
         cout << "min lower: " << min_lower << endl;
         cout << "min upper: " << min_upper << endl;
-        cout << "min degit: " << min_degit << endl;
+        cout << "min digit: " << min_digit << endl;
         cout << "min special: " << min_special << endl;
     cout << "len mix: " << len_mix << endl;
        cout << endl; // line feed
     }
 
-    string passwd = genPasswd(min_lower, min_upper, min_degit, min_special )
+    string passwd = genPasswd(min_lower, min_upper, min_digit, min_special )
     + genRandomStringMix(len_mix);
 
       random_device rd;
