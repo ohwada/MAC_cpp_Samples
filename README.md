@@ -49,6 +49,9 @@ shaffle  vector / string <br/>
 ### random
 generate random number / string <br/>
 
+### input
+input string from std::cin <br/>
+
 ### c11
 C Sample since std C11 <br/>
 generate random number using random()<br/>
