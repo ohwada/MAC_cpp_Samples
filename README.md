@@ -52,6 +52,9 @@ generate random number / string <br/>
 ### search
  find first matched element in int vector <br/>
 
+### sort
+sort int vector using std::sort <br/>
+
 ### input
 input string from std::cin <br/>
 
