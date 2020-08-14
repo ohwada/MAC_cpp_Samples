@@ -49,6 +49,9 @@ shaffle  vector / string <br/>
 ### random
 generate random number / string <br/>
 
+###search
+ find first matched element in int vector <br/>
+
 ### input
 input string from std::cin <br/>
 
