@@ -6,10 +6,11 @@ ghi
 jkl
 
 split by white space
-More Effective C++
-More
-Effective
-C++
+hello goodbye boost split
+hello
+goodbye
+boost
+split
 
 split by slash, space, colon
 2011/02/09 20:19:33

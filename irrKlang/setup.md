@@ -50,7 +50,13 @@ show dialog when run app again <br/>
 
 ###  setup for pkg-config
 % sudo cp pkgconfig/irrklang.pc /usr/local/opt/irrklang/pkgconfig
-% export PKG_CONFIG_PATH=/usr/local/opt/irrklang/pkgconfig
+% sudo ln -s /usr/local/opt/irrklang/pkgconfig/irrklang.pc /usr/local/lib/pkgconfig/irrklang.pc <br/>
+
+check for pkg-config <br/>
+% pkg-config --cflags --libs irrklang <br/>
+display as below <br/>
+-I/usr/local/opt/irrklang/include -L/usr/local/opt/irrklang/lib -lirrklang
+
 
 ###  setup for mp3
 copy ikpMP3.dylib to same directory as the executable file <br/>
@@ -58,12 +64,8 @@ copy ikpMP3.dylib to same directory as the executable file <br/>
 allow to use ikpMP3.dylib <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/irrKlang/screenshots/screenshot_ikpmp3_security_setting.png" width="300" /><br/>
 
-
-### Documents
-- https://qiita.com/ohwada/items/d91ada1d4c3f0ded24f2
-
 ### Reference <br/>
 - https://www.ambiera.com/irrklang/
 - https://forums.developer.apple.com/thread/128380
 - https://support.apple.com/ja-jp/guide/mac-help/mh40617/10.15/mac/10.15
-- https://ambiera.com/forum.php?t=847<br/>
+- https://ambiera.com/forum.php?t=847

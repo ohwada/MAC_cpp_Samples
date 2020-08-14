@@ -1,0 +1,10 @@
+# 2020-03-01 K.OHWADA
+prefix=/usr/local/Cellar/boost/1.73.0
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: boost
+Description: free peer-reviewed portable C++ source libraries.
+Version: 1.73.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lboost_system

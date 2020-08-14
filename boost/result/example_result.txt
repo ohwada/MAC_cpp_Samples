@@ -1,0 +1,15 @@
+boost version: 1_73
+original :  hello world! 
+to_upper :  HELLO WORLD! 
+to_lower_copy :  hello world! 
+
+original : ' hello world! '
+trim : 'hello world!'
+
+original :  HELLO WORLD! 
+try to replace hello to GOODBYE
+replace_first_copy :  HELLO WORLD! 
+ireplace_first_copy :  GOODBYE WORLD! 
+
+try to replace HELLO to GOODBYE
+replace_first_copy :  GOODBYE WORLD! 

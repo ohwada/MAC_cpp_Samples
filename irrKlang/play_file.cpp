@@ -22,6 +22,8 @@ using namespace irrklang;
 int main(int argc, const char** argv)
 {
 
+    const int ESC = 27;
+
     if (argc != 2) {
         cout << "Usage: " << argv[0]  << " <audioFile> " << endl;
         return EXIT_FAILURE;
@@ -39,13 +41,16 @@ int main(int argc, const char** argv)
 
 	engine->play2D(input, true);
 
-	cout << "press 'q' to quit" << endl;
+    cout << "play a sound looped" << endl;
+    cout << endl;
+	cout << "press ESC to quit" << endl;
 
-	do
+    while(1)
 	{
-		// nop
+		if(getch() == ESC){
+            break;
+        }
 	}
-	while(getch() != 'q');
 
 	engine->drop(); // delete engine
 

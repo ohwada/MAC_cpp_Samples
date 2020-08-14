@@ -1,0 +1,4 @@
+classical print stlye
+writing toto,  x=40.25 : 50-th step 
+boost stlye with reordering
+11 22 33 22 11 
