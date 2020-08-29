@@ -3,7 +3,7 @@
  * 2020-03-01 K.OHWADA
  */
 
-// convert string to uppercase / lowercase
+// test for string_upper.hpp
 
 
 #include<iostream>
@@ -16,9 +16,9 @@ using namespace std;
 
 
 /**
- * main
+ *  main
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 
     int mode = 1; // upper
@@ -60,10 +60,11 @@ int main(int argc, char **argv)
             break;
         }
 
+        string str;
         if(mode == 1){
-            str = str2upper(line);
+            str2upper(line, str);
         } else if(mode == 2){
-            str = str2lower(line);
+            str2lower(line, str);
         }
 
         cout << str << endl;
