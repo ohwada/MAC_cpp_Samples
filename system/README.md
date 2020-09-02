@@ -5,6 +5,8 @@ C++ Sample <br/>
 get the path of the main executable for macOS  <br/>
 
 ### executable_path.hpp
+get the path of the main executable for macOS  <br/>
+
 - replaceString()
 - getExecutablePath()
 - getExecutablePathDir()
@@ -21,7 +23,9 @@ executable path: /Users/taro/hoge/ <br/>
 
 
 ### system_time.hpp
-- getNow();
+get formated local time <br/>
+
+- getNow()
 - formatGmTime()
 - formatJstTime()
 
