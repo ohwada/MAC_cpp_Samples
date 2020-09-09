@@ -1,0 +1,9 @@
+// comment head
+{
+    // comment before
+    "key1" : "value",
+    "key2" : "python",
+    "key3" : "c++",
+    "key4" : "ruby"
+    // comment after
+}// comment tail
