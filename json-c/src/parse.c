@@ -3,11 +3,10 @@
  * 2020-03-01 K.OHWADA
  */
 
-// psrse json from file
+// psrse JSON from file
 // reference : https://github.com/koara-local/json-test/blob/master/json.cpp
 
 #include <stdio.h>
-
 #include <json.h>
 
 

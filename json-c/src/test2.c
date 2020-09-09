@@ -1,10 +1,9 @@
 /**
- * json Sample
+ * json-c Sample
  * 2020-03-01 K.OHWADA
  */
 
-// simple test
-// parse json from string
+// parse JSON from string
 // and convert to string
 // original : https://github.com/json-c/json-c/blob/json-c-0.15-20200726/tests/test2.c
 
