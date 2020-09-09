@@ -65,7 +65,7 @@ get the path of the main executable for macOS  <br/>
 C Sample since std C11 <br/>
 generate random number using random()<br/>
 
-### json
+### json-c
 parse json using json-c <br/>
 
 ### jsoncpp
