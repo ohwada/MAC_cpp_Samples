@@ -8,7 +8,6 @@ jsoncpp : <br/>
 C++ library for interacting with JSON. <br/>
 https://github.com/open-source-parsers/jsoncpp <br/>
 
-
 ### install jsoncpp
 % brew install jsoncpp <br/>
 https://formulae.brew.sh/formula/jsoncpp <br/>
