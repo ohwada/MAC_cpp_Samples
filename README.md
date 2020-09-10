@@ -77,6 +77,9 @@ split string <br/>
 ### gflags
 parse commandline flags <br/>
 
+### glog
+write log to file <br/>
+
 ### tclap
 test for command line parser <br/>
 
