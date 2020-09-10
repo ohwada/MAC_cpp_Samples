@@ -71,11 +71,14 @@ parse json using json-c <br/>
 ### jsoncpp
 parse json using jsoncpp <br/>
 
-### tclap
-test for command line parser <br/>
-
 ### boost
 split string <br/>
+
+### gflags
+parse commandline flags <br/>
+
+### tclap
+test for command line parser <br/>
 
 ### fftw
 calc FFT <br/>
