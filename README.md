@@ -61,6 +61,10 @@ input string from std::cin <br/>
 ### system
 get the path of the main executable for macOS  <br/>
 
+### time
+get formated local time <br/>
+
+
 ### c11
 C Sample since std C11 <br/>
 generate random number using random()<br/>
