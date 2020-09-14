@@ -84,6 +84,9 @@ parse commandline flags <br/>
 ### glog
 write log to file <br/>
 
+### cctz
+display local time <br/>
+
 ### tclap
 test for command line parser <br/>
 

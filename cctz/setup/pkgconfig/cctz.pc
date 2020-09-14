@@ -1,0 +1,13 @@
+# 2020-03-01 K.OHWADA
+
+prefix=/usr/local/Cellar/cctz/2.3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: cctz
+Description: C++ library for translating between absolute and civil times
+Version: 2.3 
+Cflags: -I${includedir} -std=c++11
+Libs: -L${libdir} -lcctz
+
