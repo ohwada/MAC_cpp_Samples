@@ -27,7 +27,7 @@ string getJstTimeNowWday()
     jst = localtime(&now);
 
     string format;
-    formatJstTime( FORMAT, now, format );
+    formatLocalime( FORMAT, now, format );
 
     string week; 
     getWeekJp( jst->tm_wday, week );
@@ -49,15 +49,15 @@ int main(void)
     string gmformat_wday = "%Y-%m-%d (%a) %T %Z";
 
     string gmtime_wday;
-    formatGmTimeNow(gmformat_wday, gmtime_wday);
+    formatGmtimeNow(gmformat_wday, gmtime_wday);
 
     string jsttime_wday = getJstTimeNowWday();
 
     string str_gmtime;
-    formatGmTimeNow(format, str_gmtime );
+    formatGmtimeNow(format, str_gmtime );
 
     string str_jsttime; 
-    formatJstTimeNow(format, str_jsttime);
+    formatLocalimeNow(format, str_jsttime);
 
     cout << gmtime_wday << endl;
     cout << jsttime_wday << endl;

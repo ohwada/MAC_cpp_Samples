@@ -10,17 +10,16 @@
 
 #include <string>
 #include <vector>
-#include <sstream>
-#include <iomanip>
 #include <ctime>
 
 
 // prototype
 std::time_t getNow(void);
-void formatGmTimeNow(std::string format, std::string &str );
-void formatJstTimeNow(std::string format, std::string &str );
-void formatGmTime( std::string format, std::time_t, std::string &str );
-void formatJstTime(std::string  format, std::time_t t, std::string &str );
+void formatTime(std::string format , std::tm* tm, std::string &str );
+void formatGmtimeNow(std::string format, std::string &str );
+void formatLocalimeNow(std::string format, std::string &str );
+void formatGmtime( std::string format, std::time_t, std::string &str );
+void formatLocalime(std::string  format, std::time_t t, std::string &str );
 bool getWeekJp(int wday, std::string &str);
 
 
@@ -34,53 +33,66 @@ std::time_t getNow(void)
 
 
 /**
- *   formatGmTimenow
+ * formatTime
  */
-void formatGmTimeNow( std::string format, std::string &str1 )
+void formatTime(std::string format , std::tm* tm, std::string &str ) 
+{
+    size_t BUFSIZE = 100;
+    char buf[BUFSIZE];
+    std::strftime(buf, BUFSIZE, (char *)format.c_str(), tm);
+    str = buf;
+  return ;
+}
+
+
+/**
+ *   formatGmtimenow
+ */
+void formatGmtimeNow( std::string format, std::string &str1 )
 {
     std::string str2;
-    formatGmTime( format,  getNow(), str2 );
+    formatGmtime( format,  getNow(), str2 );
     str1 = str2;
     return;
 }
 
 
 /**
- *   formatJstTimeNow
+ *   formatLocalimeNow
  */
-void formatJstTimeNow(std::string format, std::string &str1 )
+void formatLocalimeNow(std::string format, std::string &str1 )
 {
     std::string str2;
-    formatJstTime( format,  getNow(), str2 );
+    formatLocalime( format,  getNow(), str2 );
     str1 = str2;
     return;
 }
 
 
 /**
- *   formatGmTime
+ *   formatGmtime
  */
-void formatGmTime( std::string  format, std::time_t t, std::string &str )
+void formatGmtime( std::string  format, std::time_t t, std::string &str1 )
 {
 
-    std::ostringstream oss;
-    oss <<  std::put_time( gmtime(&t), (char *)format.c_str() );
+    std::string str2;
+    formatTime(format , std::gmtime(&t), str2 ); 
 
-    str = oss.str();
+    str1 = str2;
     return;
 }
 
 
 /**
- *   formatJstTime
+ *   formatLocalime
  */
-void  formatJstTime( std::string  format, std::time_t t, std::string &str )
+void  formatLocalime( std::string  format, std::time_t t, std::string &str1)
 {
 
-    std::ostringstream oss;
-    oss <<  std::put_time( localtime(&t), (char *)format.c_str() );
+    std::string str2;
+    formatTime(format , std::localtime(&t), str2 ); 
 
-    str = oss.str();
+    str1 = str2;
     return;
 }
  
