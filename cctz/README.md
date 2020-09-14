@@ -11,7 +11,7 @@ https://github.com/google/cctz <br/>
 
 ###  install cctz
 see below <br/>
-https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cctz/setup <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/cctz/setup <br/>
 
 
 ### localtime.cpp
