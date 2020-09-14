@@ -9,6 +9,7 @@ get formated local time <br/>
 get formated local time <br/>
 
 - getNow()
+- void formatTime()
 - formatGmTimeNow()
 - formatJstTimeNow()
 - formatGmTime()
