@@ -64,6 +64,8 @@ get the path of the main executable for macOS  <br/>
 ### time
 get formated local time <br/>
 
+### openssl
+get web page from Google with HTTPS  <br/>
 
 ### c11
 C Sample since std C11 <br/>
