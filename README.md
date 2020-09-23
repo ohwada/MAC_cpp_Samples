@@ -71,6 +71,9 @@ get web page from Google with HTTPS  <br/>
 C Sample since std C11 <br/>
 generate random number using random()<br/>
 
+### get_opt
+parse commandline options <br/>
+
 ### json-c
 parse json using json-c <br/>
 
