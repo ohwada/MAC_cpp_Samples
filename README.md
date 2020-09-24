@@ -64,6 +64,9 @@ get the path of the main executable for macOS  <br/>
 ### time
 get formated local time <br/>
 
+### thread
+run two threads <br/>
+
 ### openssl
 get web page from Google with HTTPS  <br/>
 
