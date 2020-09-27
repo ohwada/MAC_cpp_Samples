@@ -1,7 +1,10 @@
 /**
  * C++ Sample
- * 2020-01-01 K.OHWADA
+ * 2020-03-01 K.OHWADA
  */
+
+// parse file fullpath
+// test for parse_filename.hpp
 
 #include <string> 
 #include <iostream>
@@ -32,5 +35,23 @@ int main(int argc, char** argv)
     cout << filename  << endl;
     cout << dir <<  " , " << title   << " , " << ext  << endl;
 
+    string basename = getFileNameWithExt(filename);
+    string fname = getFileNameWithoutExt(filename);
+    string fext = getFileNameExt(filename);
+
+    cout <<  "FileNameWithExt: " << basename << endl;
+    cout <<  "FileNameWithoutExt: " << fname << endl;
+    cout <<  "FileNameExt: " << fext << endl;
+
     return 0;
 }
+
+
+// % ./a.out  /etc/sample.txt 
+/ /etc/sample.txt
+// /etc/ , sample , txt
+// FileNameWithExt: sample.txt
+// FileNameWithoutExt: sample
+// FileNameExt: txt
+
+

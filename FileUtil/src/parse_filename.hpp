@@ -1,7 +1,7 @@
 #pragma once
 /**
  * C++ Sample
- * 2020-02-01 K.OHWADA
+ * 2020-03-01 K.OHWADA
  */
 
 // parse file fullpath to dir name, file name, file extension 
