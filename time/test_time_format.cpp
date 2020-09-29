@@ -1,5 +1,5 @@
 /**
- * C++ system sample
+ * C++ time sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -27,7 +27,7 @@ string getJstTimeNowWday()
     jst = localtime(&now);
 
     string format;
-    formatLocalime( FORMAT, now, format );
+    formatLocaltime( FORMAT, now, format );
 
     string week; 
     getWeekJp( jst->tm_wday, week );
@@ -57,7 +57,7 @@ int main(void)
     formatGmtimeNow(format, str_gmtime );
 
     string str_jsttime; 
-    formatLocalimeNow(format, str_jsttime);
+    formatLocaltimeNow(format, str_jsttime);
 
     cout << gmtime_wday << endl;
     cout << jsttime_wday << endl;
