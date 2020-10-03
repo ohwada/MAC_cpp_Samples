@@ -15,20 +15,60 @@
 
 
 // prototype
-int file_exists (char *filename);
+int file_exists (char* path);
+int is_file(char* path);
+int is_dir(char* path)
 int file_rename(char* oldpath, char* newpath, char* error);
 int file_copy(char *from, char *to, char* error);
 
 
 /**
  * file_exists
- * @ return 0 : exists, 1 : stat failed
+ * @return 1 : exists 0 : not found
 * https://stackoverflow.com/questions/230062/whats-the-best-way-to-check-if-a-file-exists-in-c
  */
-int file_exists (char *filename) 
+int file_exists (char *path) 
 {
-  struct stat   buffer;   
-  return stat (filename, &buffer);
+    struct stat   sb;   
+    int ret = stat(path, &sb);
+    int res = ( ret == 0 )?1:0;
+    return res;
+}
+
+
+/**
+ * is_file
+ * @return 1 : is_file -1 : not found
+ */
+int is_file(char* path)
+{
+    struct stat sb;
+    int ret = stat(path, &sb);
+    if(ret != 0){
+        return -1;
+    }
+
+    mode_t m = sb.st_mode;
+    int res = ( S_ISREG(m) )?1:0;
+    return res;        
+}
+
+
+/**
+ * is_dir
+ * @return 1 : is_dir -1 : not found
+ */
+int is_dir(char* path)
+{
+    struct stat sb;
+    int ret = stat(path, &sb);
+    if(ret != 0){
+        return -1;
+    }
+
+    mode_t m = sb.st_mode;
+    int res = ( S_ISDIR(m) )?1:0;
+    return res;        
 }
 
 
