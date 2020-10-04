@@ -1,0 +1,15 @@
+# 2020-03-01 K.OHWADA
+
+prefix=/usr/local/Cellar/abseil/20200225.2 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: abseil status
+Description: collection of C++ libraries
+Version: 20200225.2 
+Requires: abseil_strings
+Cflags: -I${includedir} -std=c++11
+Libs: -L${libdir} \
+ -labsl_cord \
+ -labsl_status 

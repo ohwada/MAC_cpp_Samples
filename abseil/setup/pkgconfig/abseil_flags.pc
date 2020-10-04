@@ -1,0 +1,27 @@
+# 2020-03-01 K.OHWADA
+
+prefix=/usr/local/Cellar/abseil/20200225.2 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: abseil flags
+Description: collection of C++ libraries
+Version: 20200225.2 
+Requires: abseil_str_format abseil_time
+Cflags: -I${includedir}
+Libs: -L${libdir} \
+ -labsl_spinlock_wait \
+ -labsl_synchronization \
+ -labsl_stacktrace \
+ -labsl_malloc_internal \
+  -labsl_symbolize \
+ -labsl_flags \
+ -labsl_flags_config \
+ -labsl_flags_internal \
+ -labsl_flags_marshalling \
+ -labsl_flags_parse \
+ -labsl_flags_program_name \
+ -labsl_flags_registry \
+ -labsl_flags_usage \
+ -labsl_flags_usage_internal \

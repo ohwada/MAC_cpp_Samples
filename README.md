@@ -95,6 +95,9 @@ write log to file <br/>
 ### cctz
 display local time <br/>
 
+### abseil
+open source collection of C++ libraries <br/>
+
 ### tclap
 test for command line parser <br/>
 

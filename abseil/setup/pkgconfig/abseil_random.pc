@@ -1,0 +1,24 @@
+# 2020-03-01 K.OHWADA
+
+prefix=/usr/local/Cellar/abseil/20200225.2 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: abseil random
+Description: collection of C++ libraries
+Version: 20200225.2 
+Cflags: -I${includedir} -std=c++11
+Libs: -L${libdir} -labsl_base \
+ -labsl_spinlock_wait \
+ -labsl_random_distributions \
+ -labsl_random_internal_distribution_test_util \
+ -labsl_random_internal_pool_urbg \
+ -labsl_random_internal_randen \
+ -labsl_random_internal_randen_hwaes \
+ -labsl_random_internal_randen_hwaes_impl \
+ -labsl_random_internal_randen_slow \
+ -labsl_random_internal_seed_material \
+ -labsl_random_seed_gen_exception \
+ -labsl_random_seed_sequences 
+

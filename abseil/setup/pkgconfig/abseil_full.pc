@@ -1,0 +1,67 @@
+# 2020-03-01 K.OHWADA
+
+prefix=/usr/local/Cellar/abseil/20200225.2 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: abseil full
+Description: collection of C++ libraries
+Version: 20200225.2 
+Cflags: -I${includedir} -std=c++11
+Libs: -L${libdir} -labsl_base \
+ -labsl_bad_any_cast_impl \
+ -labsl_bad_optional_access \
+ -labsl_bad_variant_access \
+ -labsl_city \
+ -labsl_civil_time \
+ -labsl_cord \
+ -labsl_debugging_internal \
+ -labsl_demangle_internal \
+ -labsl_dynamic_annotations \
+ -labsl_examine_stack \
+ -labsl_exponential_biased \
+ -labsl_failure_signal_handler \
+ -labsl_flags \
+ -labsl_flags_config \
+ -labsl_flags_internal \
+ -labsl_flags_marshalling \
+ -labsl_flags_parse \
+ -labsl_flags_program_name \
+ -labsl_flags_registry \
+ -labsl_flags_usage \
+ -labsl_flags_usage_internal \
+ -labsl_graphcycles_internal \
+ -labsl_hash \
+ -labsl_hashtablez_sampler \
+ -labsl_int128 \
+ -labsl_leak_check \
+ -labsl_leak_check_disable \
+ -labsl_log_severity \
+ -labsl_malloc_internal \
+ -labsl_periodic_sampler \
+ -labsl_random_distributions \
+ -labsl_random_internal_distribution_test_util \
+ -labsl_random_internal_pool_urbg \
+ -labsl_random_internal_randen \
+ -labsl_random_internal_randen_hwaes \
+ -labsl_random_internal_randen_hwaes_impl \
+ -labsl_random_internal_randen_slow \
+ -labsl_random_internal_seed_material \
+ -labsl_random_seed_gen_exception \
+ -labsl_random_seed_sequences \
+ -labsl_raw_hash_set \
+ -labsl_raw_logging_internal \
+ -labsl_scoped_set_env \
+ -labsl_spinlock_wait \
+ -labsl_stacktrace \
+ -labsl_status \
+ -labsl_str_format_internal \
+ -labsl_strings \
+ -labsl_strings_internal \
+ -labsl_symbolize \
+ -labsl_synchronization \
+ -labsl_throw_delegate \
+ -labsl_time_zone \
+ -labsl_time \
+ -framework CoreServices
