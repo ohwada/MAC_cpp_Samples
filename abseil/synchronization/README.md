@@ -21,10 +21,10 @@ run code <br/>
 ./a.out <br/>
 
 display as below <br/>
-> main start: 0
-> countup: 0x70000c454000 : 1
-> countup: 0x70000c4d7000 : 2
-> main end: 2
+> main start: 0 <br/>
+> countup: 0x70000c454000 : 1 <br/>
+> countup: 0x70000c4d7000 : 2 <br/>
+> main end: 2 <br/>
 
 ### Reference <br/>
 - https://abseil.io/docs/cpp/guides/

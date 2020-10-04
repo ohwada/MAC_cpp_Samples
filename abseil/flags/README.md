@@ -21,15 +21,15 @@ run code <br/>
 % ./a.out <br/>
 
 display as below <br/>
-> big menu: true 
-> output dir: foo/bar/baz/ 
-> timeout: 30s 
-> languages: english, french, german,  
+> big menu: true  <br/>
+> output dir: foo/bar/baz/  <br/>
+> timeout: 30s  <br/>
+> languages: english, french, german,   <br/>
 
 
 % ./a.out -big_menu -output_dir abc -timeout 10s  -languages jpanese,chinese <br/>
-> big menu: true
-> output dir: abc
->  timeout: 10s
-> languages: jpanese, chinese, 
+> big menu: true  <br/>
+> output dir: abc  <br/>
+>  timeout: 10s  <br/>
+> languages: jpanese, chinese,  <br/>
 

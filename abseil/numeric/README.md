@@ -22,9 +22,9 @@ run code <br/>
 % ./a.out <br/>
 
 display as below <br/>
-> big : 10000000000000000
-> high :0
-> low : ffffffffffffffff
+> big : 10000000000000000 <br/>
+> high :0 <br/>
+> low : ffffffffffffffff <br/>
 
 
 ### Reference <br/>

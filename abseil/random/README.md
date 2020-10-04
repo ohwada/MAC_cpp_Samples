@@ -19,10 +19,10 @@ run code <br/>
 % ./a.out <br/>
 
 display as below <br/>
-> random: 100 -> 999 
-> 138
-> 474
-> 612
+> random: 100 -> 999  <br/>
+> 138 <br/>
+> 474 <br/>
+> 612 <br/>
 
 ### Reference <br/>
 - https://abseil.io/docs/cpp/guides/
