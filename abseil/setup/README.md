@@ -14,10 +14,11 @@ https://formulae.brew.sh/formula/abseil <br/>
 
 check for pkg-config <br/>
 % pkg-config --cflags --libs abseil <br/>
-> -I/usr/local/Cellar/abseil/20200225.2/include 
-> -L/usr/local/Cellar/abseil/20200225.2/lib -labsl_base 
-> ...
-> -labsl_time -labsl_time_zone
+> -I/usr/local/Cellar/abseil/20200225.2/include  <br/>
+> -L/usr/local/Cellar/abseil/20200225.2/lib  <br/>
+ -labsl_base  <br/>
+> ...  <br/>
+> -labsl_time_zone  <br/>
 
 
 ### Reference <br/>
