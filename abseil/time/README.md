@@ -22,9 +22,9 @@ run code <br/>
 % ./a.out <br/>
 
 display as below <br/>
-> London: 2020-09-09 10:02:24 UTC
-> Tokyo: 2020-09-09 19:02:24 JST
-> NewYork: 2020-09-09 06:02:24 EDT
+> London: 2020-09-09 10:02:24 UTC <br/>
+> Tokyo: 2020-09-09 19:02:24 JST <br/>
+> NewYork: 2020-09-09 06:02:24 EDT <br/>
 
 ### Reference <br/>
 - https://abseil.io/docs/cpp/guides/
