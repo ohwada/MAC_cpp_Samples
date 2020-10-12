@@ -1,12 +1,13 @@
 #pragma once
 /**
- * Sample
+ * C Sample
  * 2020-02-01 K.OHWADA
  */
 
 // file utility
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <errno.h> 
 #include  <string.h>
 #include <fcntl.h>
@@ -16,10 +17,12 @@
 
 // prototype
 int file_exists (char* path);
-int is_file(char* path);
-int is_dir(char* path)
+int is_file(char* path);;
+int is_dir(char* path);
 int file_rename(char* oldpath, char* newpath, char* error);
 int file_copy(char *from, char *to, char* error);
+int file_text_write(char* file, char* data, char *error);
+char* file_text_read(char *file, char *error);
 
 
 /**
@@ -161,4 +164,89 @@ int file_copy(char *from, char *to, char* error)
         close(fd_to);
     }
     return 1;
+}
+
+
+/**
+ * file_text_write
+ * refrence ; https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_72/rtref/fputs.htm
+ */
+int file_text_write(char* file, char* data, char *error)
+{
+
+    FILE *fp;
+    int saved_errno;
+    int res;
+
+    fp = fopen(file, "w");
+    if(!fp) {
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+        return 1;
+    }
+
+    int ret = fputs( data , fp );
+    if( ret == EOF ) {
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+        res = -1;
+    } else {
+        res = 0;
+    }
+
+    fclose(fp);
+    return res;
+}
+
+
+/**
+ * file_text_read
+ * refrence ; https://stackoverflow.com/questions/3463426/in-c-how-should-i-read-a-text-file-and-print-all-strings
+ */
+char* file_text_read(char *file, char *error)
+{
+
+   FILE *fp;
+    int saved_errno;
+
+    fp = fopen(file, "r");
+    if(!fp){
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+        return NULL;
+    }
+
+    // Seek the last byte of the file
+    fseek(fp, 0, SEEK_END);
+     
+    // Offset from the first to the last byte, or in other words, filesize
+    int string_size = ftell(fp);
+
+    // go back to the start of the file
+    rewind(fp);
+
+    // Allocate a string that can hold it all
+    char* buffer = (char*) malloc(sizeof(char) * (string_size + 1) );
+
+    // Read it all in one operation
+    int read_size = fread(buffer, sizeof(char), string_size, fp);
+
+    // fread doesn't set it so put a \0 in the last position
+    // and buffer is now officially a string
+    buffer[string_size] = '\0';
+
+    if (string_size != read_size){
+           // Something went wrong, throw away the memory and set
+           // the buffer to NULL
+           free(buffer);
+           buffer = NULL;
+
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+    }
+
+    // Always remember to close the file.
+    fclose(fp);
+
+    return buffer;
 }

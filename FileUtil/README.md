@@ -31,6 +31,8 @@ check file exists <br/>
 copy file <br/>
 - rename_file.c <br/>
 rename file <br/>
+read_write_text_file.c <br/>
+read and write text file <br/>
 
 
 build sample code <br/>
