@@ -41,7 +41,7 @@ if you use this method with Gmail, <br/>
 Allow less secure apps to access your Gmail account <br/>
 - https://devanswers.co/allow-less-secure-apps-access-gmail-account/ <br/>
 
-google_acount.png
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_acount.png">
 
 ### Gmail with oauth2
 obtain OAuth 2.0 client credentials from the Google API Console. <br/>
@@ -50,4 +50,4 @@ and place on Your home directory <br/>
 Using OAuth 2.0 to Access Google APIs <br/> 
 - https://developers.google.com/identity/protocols/oauth2 <br/>
 
-google_api-console.png
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_api-console.png">
