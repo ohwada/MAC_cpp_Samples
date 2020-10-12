@@ -98,6 +98,9 @@ display local time <br/>
 ### abseil
 open source collection of C++ libraries <br/>
 
+### libcurl
+get web page from http server <br/>
+
 ### tclap
 test for command line parser <br/>
 

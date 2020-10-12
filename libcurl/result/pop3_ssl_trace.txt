@@ -1,0 +1,36 @@
+*   Trying 192.168.99.100...
+* TCP_NODELAY set
+* Connected to ubuntu (192.168.99.100) port 995 (#0)
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* Server certificate:
+*  subject: CN=ubuntu
+*  start date: Apr 24 15:21:30 2016 GMT
+*  expire date: Apr 22 15:21:30 2026 GMT
+*  common name: ubuntu (matched)
+*  issuer: CN=ubuntu
+*  SSL certificate verify result: self signed certificate (18), continuing anyway.
+< +OK Dovecot (Ubuntu) ready.
+> CAPA
+< +OK
+< CAPA
+< TOP
+< UIDL
+< RESP-CODES
+< PIPELINING
+< AUTH-RESP-CODE
+< USER
+< SASL PLAIN
+< .
+> AUTH PLAIN
+< + 
+> dGFyMjM0
+< +OK Logged in.
+> RETR 1
+< +OK 582 octets
+* Connection #0 to host ubuntu left intact
+> QUIT
+< +OK Logging out.
+* Closing connection 0

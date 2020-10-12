@@ -1,0 +1,30 @@
+*   Trying 192.168.99.100...
+* TCP_NODELAY set
+* Connected to ubuntu (192.168.99.100) port 993 (#0)
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* Server certificate:
+*  subject: CN=ubuntu
+*  start date: Apr 24 15:21:30 2016 GMT
+*  expire date: Apr 22 15:21:30 2026 GMT
+*  common name: ubuntu (matched)
+*  issuer: CN=ubuntu
+*  SSL certificate verify result: self signed certificate (18), continuing anyway.
+< * OK [CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE AUTH=PLAIN] Dovecot (Ubuntu) ready.
+> A001 CAPABILITY
+< * CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE AUTH=PLAIN
+< A001 OK Pre-login capabilities listed, post-login capabilities have more.
+> A002 AUTHENTICATE PLAIN dGFybwB0YXJvAHRhcm8xMjM0
+< * CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE
+< A002 OK Logged in
+> A003 LIST "" *
+< * LIST (\HasNoChildren) "/" INBOX
+< A003 OK List completed (0.001 + 0.000 secs).
+* Connection #0 to host ubuntu left intact
+> A004 LOGOUT
+< * BYE Logging out
+< A004 OK Logout completed (0.001 + 0.000 secs).
+* Closing connection 0
+* LIST (\HasNoChildren) "/" INBOX
