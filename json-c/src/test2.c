@@ -7,13 +7,13 @@
 // and convert to string
 // original : https://github.com/json-c/json-c/blob/json-c-0.15-20200726/tests/test2.c
 
-#include <stddef.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "json.h"
+#include <json.h>
 #include "parse_flags.h"
+
 
 #ifdef TEST_FORMATTED
 #define json_object_to_json_string(obj) json_object_to_json_string_ext(obj, sflags)
@@ -21,6 +21,10 @@
 /* no special define */
 #endif
 
+
+/**
+ * main
+ */
 int main(int argc, char **argv)
 {
 	json_object *new_obj;

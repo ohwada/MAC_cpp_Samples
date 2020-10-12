@@ -1,11 +1,11 @@
 // https://github.com/json-c/json-c/blob/json-c-0.15-20200726/tests/parse_flags.c
 
-#include "config.h"
+
 
 #include <stdio.h>
 #include <string.h>
-
-#include "json.h"
+#include <config.h>
+#include <json.h>
 #include "parse_flags.h"
 
 #if !defined(HAVE_STRCASECMP) && defined(_MSC_VER)
@@ -14,6 +14,10 @@
 #error You do not have strcasecmp on your system.
 #endif /* HAVE_STRNCASECMP */
 
+
+/**
+ *  struct
+ */
 static struct
 {
 	const char *arg;
@@ -25,10 +29,15 @@ static struct
     {"pretty_tab", JSON_C_TO_STRING_PRETTY_TAB},
 };
 
+
 #ifndef NELEM
 #define NELEM(x) (sizeof(x) / sizeof(x[0]))
 #endif
 
+
+/**
+ *  parse_flags
+ */
 int parse_flags(int argc, char **argv)
 {
 	int arg_idx;

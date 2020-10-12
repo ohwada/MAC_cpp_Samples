@@ -1,0 +1,8 @@
+{
+"server" : "ubuntu",
+"port" : 25,
+"user" : "taro",
+"passwd" : "123456789",
+"to" : "taro@ubuntu",
+"from" : "hoge@example.org"
+}
