@@ -28,7 +28,7 @@ confirm for pkgconfig <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/json-c<br/>
 
 ### gmail.json
-create gmail.json include Your account and Your password <br/>
+create gmail.json including Your account and Your password <br/>
 and place on Your home directory <br/>
 
 template <br/>
