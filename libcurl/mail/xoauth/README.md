@@ -43,9 +43,9 @@ this app display message as below
 > Enter the following URL into a browser:
 > Enter the browser's response to confirm authorization:
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_user_consent.png">
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_user_consent.png" width="300" />
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_authorization_code.png">
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/setup/images/google_authorization_code.png" width="300" />
 
 2. get Refresh Token using Authorization Code
 
