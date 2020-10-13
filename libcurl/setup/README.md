@@ -15,15 +15,15 @@ curl 7.64.1  <br/>
 https://formulae.brew.sh/formula/curl <br/>
 
 ### setup for pkgconfig
-% ln -s /usr/local/opt/curl/lib/pkgconfig/libcurl.pc /usr/local/lib/pkgconfig/libcurl.pc
+% ln -s /usr/local/opt/curl/lib/pkgconfig/libcurl.pc /usr/local/lib/pkgconfig/libcurl.pc <br/>
 
-confirm for pkgconfig
-% pkg-config --cflags --libs libcurl
-> -I/usr/local/Cellar/curl/7.72.0/include 
-> -L/usr/local/Cellar/curl/7.72.0/lib -lcurl
+confirm for pkgconfig <br/>
+% pkg-config --cflags --libs libcurl <br/>
+> -I/usr/local/Cellar/curl/7.72.0/include <br/>
+> -L/usr/local/Cellar/curl/7.72.0/lib -lcurl <br/>
 
 
-### requires for mail
+### Library required for mail
 - json-c <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/json-c<br/>
 
