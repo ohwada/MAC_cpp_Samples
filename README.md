@@ -67,6 +67,9 @@ get formated local time <br/>
 ### thread
 run two threads <br/>
 
+### base64
+base64 encoder decoder <br/>
+
 ### openssl
 get web page from Google with HTTPS  <br/>
 
