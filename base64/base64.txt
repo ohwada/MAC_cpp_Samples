@@ -1,0 +1,6 @@
+base64
+
+cd /Users/ohwada/C++/base64
+
+
+gcc main.c base64.c
