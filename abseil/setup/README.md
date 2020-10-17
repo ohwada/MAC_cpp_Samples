@@ -10,7 +10,7 @@ https://formulae.brew.sh/formula/abseil <br/>
 
 
 ###  set up for pkg-config
-% bash copy_pkgconfig.sh <br/>
+% bash seutp.sh <br/>
 
 check for pkg-config <br/>
 % pkg-config --cflags --libs abseil <br/>

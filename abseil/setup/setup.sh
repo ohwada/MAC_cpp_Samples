@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# 2020-03-01 K.OHWADA
+# 2020-07-01 K.OHWADA
 # copy pkgconfig flies to system area
 
-dir_pkgconfig=/usr/local/Cellar/abseil/20200225.2/pkgconfig
+dir_pkgconfig=/usr/local/Cellar/abseil/20200923.1/pkgconfig
 
 mkdir ${dir_pkgconfig}
 

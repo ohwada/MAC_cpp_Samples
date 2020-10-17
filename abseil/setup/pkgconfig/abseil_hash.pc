@@ -1,13 +1,13 @@
-# 2020-03-01 K.OHWADA
+# 2020-07-01 K.OHWADA
 
-prefix=/usr/local/Cellar/abseil/20200225.2 
+prefix=/usr/local/Cellar/abseil/20200923.1 
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
 Name: abseil hash
 Description: collection of C++ libraries
-Version: 20200225.2 
+Version: 20200923.1 
 Cflags: -I${includedir} -std=c++11
 Libs: -L${libdir} \
  -labsl_city \
