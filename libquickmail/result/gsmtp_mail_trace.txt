@@ -1,0 +1,49 @@
+*   Trying 2404:6800:4008:c02::6c...
+* TCP_NODELAY set
+* Connected to smtp.gmail.com (2404:6800:4008:c02::6c) port 587 (#0)
+< 220 smtp.gmail.com ESMTP t20sm3280819pgj.27 - gsmtp
+> EHLO MacBook-Air
+< 250-smtp.gmail.com at your service, [2400:4051:4084:2c00:a5f0:d6c:fb82:53ce]
+< 250-SIZE 35882577
+< 250-8BITMIME
+< 250-STARTTLS
+< 250-ENHANCEDSTATUSCODES
+< 250-PIPELINING
+< 250-CHUNKING
+< 250 SMTPUTF8
+> STARTTLS
+< 220 2.0.0 Ready to start TLS
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-ECDSA-CHACHA20-POLY1305
+* Server certificate:
+*  subject: C=US; ST=California; L=Mountain View; O=Google LLC; CN=smtp.gmail.com
+*  start date: Jul 15 08:33:08 2020 GMT
+*  expire date: Oct  7 08:33:08 2020 GMT
+*  issuer: C=US; O=Google Trust Services; CN=GTS CA 1O1
+*  SSL certificate verify ok.
+> EHLO MacBook-Air
+< 250-smtp.gmail.com at your service, [2400:4051:4084:2c00:a5f0:d6c:fb82:53ce]
+< 250-SIZE 35882577
+< 250-8BITMIME
+< 250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+< 250-ENHANCEDSTATUSCODES
+< 250-PIPELINING
+< 250-CHUNKING
+< 250 SMTPUTF8
+> AUTH PLAIN
+< 334 
+> aW90Lm9od2aTM4NjA=
+< 235 2.7.0 Accepted
+> MAIL FROM:<hoge@gmail.com>
+< 250 2.1.0 OK t20sm3280819pgj.27 - gsmtp
+> RCPT TO:<hoge@gmail.com>
+< 250 2.1.5 OK t20sm3280819pgj.27 - gsmtp
+> DATA
+< 354  Go ahead t20sm3280819pgj.27 - gsmtp
+< 250 2.0.0 OK  1597842412 t20sm3280819pgj.27 - gsmtp
+* Connection #0 to host smtp.gmail.com left intact
+> QUIT
+< 221 2.0.0 closing connection t20sm3280819pgj.27 - gsmtp
+* Closing connection 0

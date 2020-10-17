@@ -104,6 +104,9 @@ open source collection of C++ libraries <br/>
 ### libcurl
 get web page from http server <br/>
 
+### libquickmail
+C library for sending e-mail
+
 ### tclap
 test for command line parser <br/>
 

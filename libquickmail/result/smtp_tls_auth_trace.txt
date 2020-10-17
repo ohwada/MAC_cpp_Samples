@@ -1,0 +1,52 @@
+*   Trying 192.168.99.100...
+* TCP_NODELAY set
+* Connected to ubuntu (192.168.99.100) port 25 (#0)
+< 220 VirtualBox ESMTP Postfix (Ubuntu)
+> EHLO MacBook-Air.local
+< 250-VirtualBox
+< 250-PIPELINING
+< 250-SIZE 10240000
+< 250-VRFY
+< 250-ETRN
+< 250-STARTTLS
+< 250-AUTH PLAIN
+< 250-ENHANCEDSTATUSCODES
+< 250-8BITMIME
+< 250 DSN
+> STARTTLS
+< 220 2.0.0 Ready to start TLS
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* Server certificate:
+*  subject: CN=ubuntu
+*  start date: Apr 24 15:21:30 2016 GMT
+*  expire date: Apr 22 15:21:30 2026 GMT
+*  issuer: CN=ubuntu
+*  SSL certificate verify result: self signed certificate (18), continuing anyway.
+> EHLO MacBook-Air.local
+< 250-VirtualBox
+< 250-PIPELINING
+< 250-SIZE 10240000
+< 250-VRFY
+< 250-ETRN
+< 250-AUTH PLAIN
+< 250-ENHANCEDSTATUSCODES
+< 250-8BITMIME
+< 250 DSN
+> AUTH PLAIN
+< 334 
+> dGFybwB0YXJv8xMjM0
+< 235 2.7.0 Authentication successful
+> MAIL FROM:<hoge@example.com>
+< 250 2.1.0 Ok
+> RCPT TO:<taro>
+< 250 2.1.5 Ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+< 250 2.0.0 Ok: queued as 3AB4F281F65
+* Connection #0 to host ubuntu left intact
+> QUIT
+< 221 2.0.0 Bye
+* Closing connection 0
