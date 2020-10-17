@@ -23,7 +23,7 @@ and place on Your home directory <br/>
 
 template <br/>
 gmail.json <br/>
-- https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ libquickmail/setup/gmail.json <br/>
+- https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libquickmail/setup/gmail.json <br/>
 
 
 ### Gmail setting
