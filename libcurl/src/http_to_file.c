@@ -6,46 +6,50 @@
 // get HTTP page
 // save into a local file
 
-
-#include "url_to_file.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "url_write.h"
 
 
 /**
  * main
  */
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
 
-    int const BUFSIZE = 100;
-    char url[BUFSIZE];
-    char file[BUFSIZE];
+   char  *url = "http://example.com";
+    char *file = "example_com.html";
 
-    char* host = "localhost";
 
-    if(argc == 2) {
-        host = argv[1];
+    if(argc == 3) {
+        url = argv[1];
+        file = argv[2];
     } else {
-        printf("Usage: %s <host>\n", argv[0]);
+        printf("Usage: %s [url] [file] \n", argv[0]);
     }
 
-    snprintf(url, BUFSIZE, "http://%s", host);
     printf("url: %s \n", url);
 
-    snprintf(file, BUFSIZE, "%s_response.txt", host);
     printf("file: %s \n", file);
 
-    int ret = url_to_file(url,  file);
-    if(ret != 0){
-        return 1;
+    char error[100];
+    bool is_verbose = true;
+
+    bool ret = url_to_file(url,  file, error, is_verbose);
+
+    int exit;
+    if(ret){
+        printf("saved to: %s \n", file);
+        exit = EXIT_SUCCESS;
+} else {
+        printf("url_to_file: %s \n", error);
+        exit = EXIT_FAILURE;
     }
 
-    printf("saved to: %s \n", file);
-    return 0;
+    return exit;
 }
 
-
-
-// * Connected to localhost (::1) port 80 (#0)
-// save to: localhost.txt 
-
+// Connected to example.com 
+// saved to: example_com.html 
 

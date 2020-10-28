@@ -35,33 +35,17 @@
  * </DESC>
  */
 
-
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <curl/curl.h>
+#include "curl_write_file_memory.h"
 
 
 // prototype
-int url_to_file(char* url,  char* file);
-size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream);
-
-
-/**
- * write_data
- */
-size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream)
-{
-  size_t written = fwrite(ptr, size, nmemb, (FILE *)stream);
-  return written;
-}
+bool url_to_file(char* url,  char* file);
 
 
 /**
  * url_to_file
  */
-int url_to_file(char* url,  char* file)
+bool url_to_file(char* url,  char* file)
 {
 
     FILE* fp;
@@ -70,7 +54,7 @@ int url_to_file(char* url,  char* file)
     fp = fopen(file, "wb");
     if(!fp) {
         printf("fopen faild: %s \n", file);
-        return 1;
+        return false;
     }
 
     printf("fopen: %s \n", file);
@@ -93,7 +77,7 @@ int url_to_file(char* url,  char* file)
   curl_easy_setopt(curl_handle, CURLOPT_NOPROGRESS, 1L);
 
   /* send all data to this function  */
-  curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_data);
+  curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, curl_file_write_data);
 
     /* write the page body to this file handle */
     curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, fp);
@@ -103,7 +87,7 @@ int url_to_file(char* url,  char* file)
     if(res != CURLE_OK) {
       fprintf(stderr, "curl_easy_perform() failed: %s\n", 
               curl_easy_strerror(res));
-        return 1;
+        return false;
     }
 
     /* close the header file */
@@ -114,5 +98,5 @@ int url_to_file(char* url,  char* file)
 
   curl_global_cleanup();
 
-  return 0;
+  return true;
 }

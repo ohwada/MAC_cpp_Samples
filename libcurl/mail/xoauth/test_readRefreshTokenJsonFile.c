@@ -7,6 +7,7 @@
 // gcc test_readRefreshTokenJsonFile.c `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "auth_json.h"
 
 
@@ -16,13 +17,10 @@
 int main(int argc, char* argv[])
 {
 
-    const size_t BUFSIZE = 100;
-    char file[BUFSIZE];
-
-    strcpy( file, "refresh_token.json" );
+    char* file = "refresh_token_mail.json";
 
     if(argc == 2){
-        strcpy(file, argv[1]);
+        file = argv[1];
     } else {
         printf( "usage: %s [refreshTokenJsonFile]" ,  argv[0] );
     }
@@ -33,14 +31,14 @@ int main(int argc, char* argv[])
 
     char refresh_token[100];
     char error[100];
-    int ret = readRefreshTokenJsonFile( file, refresh_token, error);
-    if(ret == 0){
+    bool ret = readRefreshTokenJsonFile( file, refresh_token, error);
+    if(ret){
         printf( "refresh_token: %s \n", refresh_token );
     } else {
         printf("error: %s \n", error);
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

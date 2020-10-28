@@ -6,11 +6,16 @@
 
 // common function for SMTP client
 
+// original : https://curl.haxx.se/libcurl/c/smtp-tls.html
+
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
 #include <curl/curl.h>
 #include "mail_json.h"
+#include "msg_func.h"
+
 
 /**
  * struct
@@ -20,38 +25,23 @@ struct upload_status { int lines_read; char to[256], from[256], subject[256], bo
 
 // constant
 const char *payload_style[] = {"[DATE]", "[TO]", "[FROM]", "[MAILER]", "[SUBJECT]", "[MESSAGEID]", "\r\n", 
-"[BODY1]", "[BODY2]", "[BODY3]", NULL};
+"[BODY1]", "[BODY2]", NULL};
 
 const char BODY1[] = "This is a test e-mail.";
- const char BODY2[] = "This mail was sent using libcurl";
+ const char BODY2[] = "This mail was sent using";
+
 
 // prototype
-char* getGMTTime(void);
-char* getMessageID(void);
-size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, int verbose);
+size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, bool is_verbose);
  struct upload_status buildUploadStatus(char* subject , char* from,  char* to);
-CURLcode sendMail( CURL *curl, char* url, char* user, 
-char* passwd, char *from, char* to,     long ssl_verify, 
-int verbose );
-char* getMailer(void);
-
-
-/**
- * getMailer
- */
-char* getMailer(void)
-{
-    const size_t bufsize = 100;
-    static char buff[bufsize];
-    snprintf( buff, bufsize, "libcurl %s",  LIBCURL_VERSION );
-    return buff;
-}
+ bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     long ssl_verify, bool is_verbose );
+ bool sendMail( CURL *curl, char* url, char* from, char* to,     long ssl_verify, bool is_verbose );
 
 
 /**
  * payload_source_base
  */
-size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, int verbose)
+size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, bool is_verbose)
 {
     struct upload_status* upload_ctx = (struct upload_status*)userp;
     if ( (size == 0) || (nmemb == 0) || ((size*nmemb) < 1) ) return 0;
@@ -65,7 +55,7 @@ size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, in
     char buffer[bufsize];
 
     if ( strstr(data,"[DATE]") != NULL ) {
-        snprintf(buffer, bufsize, "Date: %s\r\n",getGMTTime());
+        snprintf(buffer, bufsize, "Date: %s\r\n",getDate());
     } else if ( strstr(data,"[TO]") != NULL ) {
         snprintf(buffer, bufsize, "To: %s\r\n",  upload_ctx->to);
     } else if ( strstr(data,"[FROM]") != NULL ) {
@@ -75,18 +65,17 @@ size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, in
     } else if ( strstr(data,"[SUBJECT]") != NULL ) {
         snprintf(buffer, bufsize, "Subject: %s\r\n", upload_ctx->subject);
     } else if ( strstr(data,"[BODY1]") != NULL ) {
-        snprintf(buffer, bufsize, "%s\r\n", BODY1);
+        snprintf(buffer, bufsize, "%s \r\n", BODY1);
     } else if ( strstr(data,"[BODY2]") != NULL ) {
-        snprintf(buffer, bufsize, "%s\r\n", BODY2);
-} else if ( strstr(data,"[BODY3]") != NULL ) {
-        snprintf(buffer, bufsize, "%s\r\n",  curl_version() );
+        snprintf(buffer, bufsize, "%s %s \r\n", BODY2, getMailer() );
+
     } else if ( strstr(data,"[MESSAGEID]") != NULL ) {
         snprintf(buffer, bufsize, "Message-ID: <%s>\r\n",getMessageID());
     } else {
         strcpy(buffer, data);
     }
 
-    if(verbose) {
+    if(is_verbose) {
         printf("%s \n", buffer);
     }
 
@@ -94,52 +83,6 @@ size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, in
     memcpy(ptr,buffer,len);
     upload_ctx->lines_read ++;
     return len;
-}
-
-
-/**
- * getGMTTime
- */
-char* getGMTTime(void)
-{
-    static const char* MONTH[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    static const char* WEEK[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-
-    const size_t bufsize = 256;
-    static char gmtBuffer[bufsize];
-
-    struct timeval tv; gettimeofday(&tv,NULL);
-    time_t sec = (time_t)(tv.tv_sec + tv.tv_usec * 1e-6);
-    struct tm tm; localtime_r(&sec,&tm);
-    snprintf(gmtBuffer, bufsize, "%s, %d %s %d %02d:%02d:%02d +0900",
-            WEEK[tm.tm_wday],tm.tm_mday,MONTH[tm.tm_mon],tm.tm_year+1900,
-            tm.tm_hour,tm.tm_min,tm.tm_sec);
-
-    return gmtBuffer;
-}
-
-
-/**
- * getMessageID
- */
-char* getMessageID(void)
-{
-    const size_t bufsize = 256;
-    static char msgID[bufsize];
-    struct timeval tv; gettimeofday(&tv,NULL);
-    time_t sec = (time_t)(tv.tv_sec + tv.tv_usec * 1e-6);
-    struct tm tm; localtime_r(&sec,&tm);
-
-// function 'gethostname' is invalid in C99
-    const size_t hostnamesize = 256;
-    char hostname[hostnamesize]; 
-    gethostname(hostname,  hostnamesize);
-
-    snprintf(msgID, bufsize, "%d%02d%02d%02d%02d%02d.%s",
-            tm.tm_year+1900,tm.tm_mon+1,tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec,
-            hostname);
-
-    return msgID;
 }
 
 
@@ -159,27 +102,28 @@ char* getMessageID(void)
 
 
 /**
+ * sendMailUserPassword(
+ */
+ bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     long ssl_verify, bool is_verbose )
+{
+    curl_easy_setopt(curl, CURLOPT_USERNAME, user);
+
+    curl_easy_setopt(curl, CURLOPT_PASSWORD, passwd);
+
+    return sendMail( curl, url, from, to,  ssl_verify, is_verbose );
+}
+
+
+/**
  * sendMail
  */
- CURLcode sendMail( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     long ssl_verify, int verbose )
+ bool sendMail( CURL *curl, char* url, char* from, char* to,     long ssl_verify, bool is_verbose )
 {
 
-  //CURL *curl;
+    bool ret;
+
   CURLcode res = CURLE_OK;
   struct curl_slist *recipients = NULL;
-  //struct upload_status upload_ctx;
-
-  //upload_ctx.lines_read = 0;
-
-  //curl = curl_easy_init();
-  //if(curl) {
-    /* Set username and password */
-    if(user && *user){
-        curl_easy_setopt(curl, CURLOPT_USERNAME, user);
-    }
-    if(passwd && *passwd){
-        curl_easy_setopt(curl, CURLOPT_PASSWORD, passwd);
-    }
 
     /* This is the URL for your mailserver. Note the use of port 587 here,
      * instead of the normal SMTP port (25). Port 587 is commonly used for
@@ -238,7 +182,7 @@ char* getMessageID(void)
     /* Since the traffic will be encrypted, it is very useful to turn on debug
      * information within libcurl to see what is happening during the transfer.
      */
-    if (verbose){
+    if (is_verbose){
         curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
     }
 
@@ -246,9 +190,13 @@ char* getMessageID(void)
     res = curl_easy_perform(curl);
 
     /* Check for errors */
-    if(res != CURLE_OK)
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+    if(res == CURLE_OK){
+        ret = true;
+    } else {
+        fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
+        ret = false;
+    }
 
     /* Free the list of recipients */
     curl_slist_free_all(recipients);
@@ -256,6 +204,6 @@ char* getMessageID(void)
     /* Always cleanup */
     curl_easy_cleanup(curl);
   
-  return res;
+  return ret;
 }
 

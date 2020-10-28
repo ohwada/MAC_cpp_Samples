@@ -9,7 +9,7 @@ the multiprotocol file transfer library <br/>
 https://curl.haxx.se/libcurl/ <br/>
 
 
-###  install libcurl
+###  install libcurl and setup
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/setup <br/>
 
@@ -29,6 +29,8 @@ get HTTP page, copy into memory <br/>
 post to postman echo server,  save response to local file <br/>
 - http_post_to_memory.c <br/>
 post to postman echo server,  copy response to memory <br/>
+- http_customheader.c <br/>
+http request to postman echo server with custom headers <br/>
 - verson.c <br/>
 display curl version <br/>
 

@@ -6,16 +6,16 @@ send mail to SMTP server <br/>
 
 
 ### sample codes
-- smtp-auth.c <br/>
+- smtp_tls_auth.c <br/>
  send mail to SMTP server with TLS and AUTH <br/>
-- smtp-gmail.c <br/>
+- smtp_gmail.c <br/>
 send mail to Gmail SMTP server  <br/>
 - test_mail_json.c <br/>
 test for getGmailParam <br/>
 
 
 build code <br/>
-% gcc smtp/smtp-tls-auth.c `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs json-c` <br/> 
+% gcc smtp/smtp_tls_auth.c `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs json-c` <br/> 
 
 run code <br/>
 % ./a.out

@@ -5,6 +5,9 @@
 
 // display curl version
 
+
+#include <stdio.h>
+#include <stdlib.h>
 #include <curl/curl.h>
 
 
@@ -14,6 +17,8 @@
 int main(void)
 {
     printf("curl version: %s \n", curl_version() );
+
+    return EXIT_SUCCESS;
 }
 
 

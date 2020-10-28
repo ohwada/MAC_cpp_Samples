@@ -1,6 +1,6 @@
 #pragma once
 /**
- * libcurl Sample
+ * libcurl sample
  * 2020-07-01 K.OHWADA
  */
 
@@ -10,10 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <pwd.h>
-#include <sys/types.h>
 #include <json.h>
+#include "mail_directory.h"
 
 
 /**
@@ -33,48 +31,12 @@ char* from;
 
 
 // prototype
-char* getHomeDir(void);
-char* getMailDir(void);
  struct MailParam getGmailParam(void);
 struct MailParam getUbuntuMailParam(void);
 struct MailParam getMailParam(char* filepath);
 void parseMailJson(struct json_object* const obj, 
 char* smtp_url, char* smtp_server, int* smtp_port, char* pop_url, char* imap_url, char* user, char* passwd, char* to, char* from) ;
 void printMailParam(struct MailParam p);
-
-
-/**
- *  getHomeDir
- */
-char* getHomeDir(void)
-{
-    const size_t BUFSIZE = 100;
-    static char buf[BUFSIZE];
-
-    char *homedir;
-
-    if ((homedir = getenv("HOME")) == NULL) {
-        homedir = getpwuid(getuid())->pw_dir;
-    }
-
-    strcpy(buf,  homedir );
-    return buf;
-}
-
-
-/**
- *  getMailDir
- */
-char* getMailDir(void)
-{
-    const size_t BUFSIZE = 100;
-    static char buf[BUFSIZE];
-
-    strcpy( buf, getHomeDir() );
-    strcat( buf, "/mail");
-
-    return buf;
-}
 
 
 /**
@@ -152,33 +114,56 @@ struct MailParam getMailParam(char* filepath)
 /**
  * parseMailJson
  */
-void parseMailJson(struct json_object* const obj, 
+void parseMailJson(struct json_object* const jobj, 
 char* smtp_url,  char* smtp_server, int* smtp_port, char* pop_url, char* imap_url, char* user, char* passwd, char* to, char* from) 
 {
 
-    json_object_object_foreach(obj, key, val) {
-  
-            if (strcmp(key, "smtp_url") == 0) { 
-                strcpy(smtp_url, json_object_get_string(val) );
-            } else if (strcmp(key, "smtp_server") == 0) { 
-                strcpy(smtp_server, json_object_get_string(val) );
-            } else if (strcmp(key, "smtp_port") == 0) { 
-                *smtp_port = json_object_get_int(val) ;
-            } else if (strcmp(key, "pop_url") == 0) { 
-                strcpy(pop_url, json_object_get_string(val) );
-            } else if (strcmp(key, "imap_url") == 0) { 
-                strcpy(imap_url, json_object_get_string(val) );
-            } else if (strcmp(key, "user") == 0) { 
-                strcpy(user, json_object_get_string(val) );
-            } else if (strcmp(key, "passwd") == 0) { 
-                strcpy(passwd, json_object_get_string(val) );
-            } else if (strcmp(key, "to") == 0) { 
-                strcpy(to, json_object_get_string(val) );
-            } else if (strcmp(key, "from") == 0) { 
-                strcpy(from, json_object_get_string(val) );
-            }
+    json_object *jobj_smtp_url = 
+    json_object_object_get(jobj, "smtp_url");
+    strcpy( smtp_url, 
+    json_object_get_string(jobj_smtp_url) );
 
-    } // foreach
+
+    json_object *jobj_smtp_server = 
+    json_object_object_get(jobj, "smtp_server");
+    strcpy( smtp_server, json_object_get_string(jobj_smtp_server) );
+
+
+    json_object *jobj_smtp_port = json_object_object_get(jobj, "smtp_port");
+    *smtp_port = json_object_get_int(jobj_smtp_port);
+
+
+    json_object *jobj_pop_url = 
+    json_object_object_get(jobj, "pop_url");
+    strcpy( pop_url, 
+    json_object_get_string(jobj_pop_url) );
+
+    json_object *jobj_imap_url = 
+    json_object_object_get(jobj, "imap_url");
+    strcpy( imap_url, 
+    json_object_get_string(jobj_imap_url) );
+
+
+    json_object *jobj_user = 
+    json_object_object_get(jobj, "user");
+    strcpy( user, 
+    json_object_get_string(jobj_user) );
+
+
+    json_object *jobj_passwd = 
+    json_object_object_get(jobj, "passwd");
+    strcpy( passwd, 
+    json_object_get_string(jobj_passwd) );
+
+    json_object *jobj_to = 
+    json_object_object_get(jobj, "to");
+    strcpy( to, 
+    json_object_get_string(jobj_to) );
+
+    json_object *jobj_from = 
+    json_object_object_get(jobj, "from");
+    strcpy( from, 
+    json_object_get_string(jobj_from) );
 
 }
 

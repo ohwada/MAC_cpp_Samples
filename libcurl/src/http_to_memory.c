@@ -6,8 +6,9 @@
 // get HTTP page
 // copy into memory
 
-
-#include "url_to_memory.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "url_write.h"
 
 
 /**
@@ -16,35 +17,36 @@
 int main(int argc, char *argv[])
 {
 
-    int const BUFSIZE = 100;
-    char url[BUFSIZE];
-
-    struct Memory mem;
-
-    char* host = "localhost";
+    char* url = "http://example.com";
 
     if(argc == 2) {
-        host = argv[1];
+        url = argv[1];
     } else {
-        printf("Usage: %s <host>\n", argv[0]);
+        printf("Usage: %s [url] \n", argv[0]);
     }
 
-    snprintf(url, BUFSIZE, "http://%s", host);
     printf("url: %s \n", url);
 
-    int ret = url_to_memory(url, &mem);
-    if(ret != 0){
-        return 1;
+    struct CurlMemory mem;
+    char error[100];
+  bool is_verbose = true;
+
+    bool ret = url_to_memory(url, &mem, error, is_verbose );
+
+    int exit;
+    if(ret){
+        printCurlMemory(mem);
+        exit = EXIT_SUCCESS;
+    } else {
+        printf("url_to_memory: %s \n", error);
+        exit =  EXIT_FAILURE;
     }
 
-    printMemory(mem);
-    return 0;
+    return exit;
 }
 
 
-// url: http://localhost 
-// ---------- 
-// <html><body><h1>It works!</h1></body></html>
-// ---------- 
+// Connected to example.com
+// <title>Example Domain</title>
 
 

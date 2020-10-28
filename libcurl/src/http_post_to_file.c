@@ -7,7 +7,8 @@
 // test for http_post_to_file
 
 #include <stdio.h>
-#include "http_post.h"
+#include <stdlib.h>
+#include "http_post_write.h"
 
 
 /**
@@ -21,18 +22,22 @@ int main(void)
 
     const char POSTFILEDS[] = "project=curl_file&name=michael&age=30";
 
-    int verbose = 1;
+    char error[100];
+    bool is_verbose = true;
 
-    int ret = http_post_to_file( (char *)URL, (char *)POSTFILEDS, (char *)OUTPUT, verbose);
-    if(ret == 0){
+    bool ret = http_post_to_file( (char *)URL, (char *)POSTFILEDS, (char *)OUTPUT, error, is_verbose);
+    if(ret){
         printf("saved to: %s \n", OUTPUT);
     } else {
-        printf("http_post_to_file faild \n");
+        printf("http_post_to_file: %s \n", error);
+        return EXIT_FAILURE;
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-// Connected to postman-echo.com (3.233.236.182) port 443 (#0)
+
+// Connected to postman-echo.com
 // saved to: http_post_to_file_result.txt 
+
 

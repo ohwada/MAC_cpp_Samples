@@ -6,9 +6,10 @@
 // parse mail json file
 // test for getGmailParam
 
-// gcc src/test_mail_json.c  `pkg-config --cflags --libs json-c`
+// gcc pop3/test_mail_json.c  `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "mail_json.h"
 
 
@@ -25,7 +26,7 @@ int main(void)
     struct MailParam p2 = getUbuntuMailParam();
     printMailParam(p2);
 
-    return 0;
+    return EXIT_SUCCESS;;
 }
 
 

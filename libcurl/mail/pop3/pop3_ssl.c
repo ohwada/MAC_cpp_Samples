@@ -36,6 +36,8 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include <curl/curl.h>
 #include "mail_json.h"
 
@@ -49,7 +51,7 @@
 
 int main(void)
 {
-    const int verbose = 1;
+    const bool is_verbose = true;
 
 // skip SSL verification 
 // because ubuntu server is self-certified
@@ -71,6 +73,7 @@ int main(void)
 
     CURL *curl;
     CURLcode res = CURLE_OK;
+    int ret;
 
   curl = curl_easy_init();
   if(curl) {
@@ -105,7 +108,7 @@ int main(void)
     /* Since the traffic will be encrypted, it is very useful to turn on debug
      * information within libcurl to see what is happening during the
      * transfer */
-    if (verbose){
+    if (is_verbose){
         curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
     }
 
@@ -113,15 +116,19 @@ int main(void)
     res = curl_easy_perform(curl);
 
     /* Check for errors */
-    if(res != CURLE_OK)
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+        if(res == CURLE_OK) {
+            ret = EXIT_SUCCESS;
+        } else {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
+            ret = EXIT_FAILURE;
+        }
 
     /* Always cleanup */
     curl_easy_cleanup(curl);
   }
 
-  return (int)res;
+  return ret;
 }
 
 

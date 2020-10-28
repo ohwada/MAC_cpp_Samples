@@ -30,6 +30,9 @@ get list from IMAP server  <br/>
 ### xoauth
 send mail to Gmail server with xoauth2 <br/>
 
+### curlsmtp
+C++ wraper for libcurl smtp <br/>
+
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/

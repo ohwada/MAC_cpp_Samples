@@ -37,66 +37,15 @@
  */
 
 
+#include "curl_write_file_memory.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <curl/curl.h>
-
-
-/**
- * struct Memory
- */
-struct Memory {
-  char *memory;
-  size_t size;
-};
 
 
 // prototype
 int url_to_memory(char *url, struct Memory* mem);
- size_t write_cb(void *contents, size_t size, size_t nmemb, void *userp);
-void init_memory(struct Memory *chunk);
-void printMemory(struct Memory mem);
 
 
-
-/**
- * write_cb
- */
- size_t write_cb(void *contents, size_t size, size_t nmemb, void *userp)
-{
-  size_t realsize = size * nmemb;
-  struct Memory *mem = (struct Memory *)userp;
-  char *ptr = realloc(mem->memory, mem->size + realsize + 1);
-  if(!ptr) {
-    /* out of memory! */
-    printf("not enough memory (realloc returned NULL)\n");
-    return 0;
-  }
-
-  mem->memory = ptr;
-  memcpy(&(mem->memory[mem->size]), contents, realsize);
-  mem->size += realsize;
-  mem->memory[mem->size] = 0;
-
-  return realsize;
-}
-
-
-/**
- * init_memory
- */
-void init_memory(struct Memory *chunk)
-{
-  chunk->memory = malloc(1);  /* grown as needed with realloc */
-  chunk->size = 0;            /* no data at this point */
-}
-
-
-
-/**
+]/**
  * url_to_memory
  */
 int url_to_memory(char *url, struct Memory* mem)
@@ -120,8 +69,8 @@ int url_to_memory(char *url, struct Memory* mem)
 
 
   /* write data to a struct  */
-  curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_cb);
-  init_memory(mem);
+  curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, curl_mem_write_cb);
+  initMemory(mem);
   curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, mem);
 
     /* get it! */
@@ -138,17 +87,5 @@ int url_to_memory(char *url, struct Memory* mem)
   curl_global_cleanup();
 
   return 0;
-}
-
-
-/**
- * printMemory
- */
-void printMemory(struct Memory mem)
-{
-    printf("\n" );
-    printf("---------- \n" );
-    printf("%s \n",  (char *)mem.memory);
-    printf("---------- \n" );
 }
 

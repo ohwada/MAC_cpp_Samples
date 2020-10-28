@@ -31,7 +31,9 @@
  * Simple HTTPS GET
  * </DESC>
  */
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <curl/curl.h>
 
 
@@ -90,5 +92,5 @@ int main(void)
 
   curl_global_cleanup();
 
-  return 0;
+    return EXIT_SUCCESS;
 }

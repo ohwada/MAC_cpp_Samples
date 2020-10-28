@@ -7,7 +7,8 @@
 // test for http_post_to_memory
 
 #include <stdio.h>
-#include "http_post.h"
+#include <stdlib.h>
+#include "http_post_write.h"
 
 
 /**
@@ -21,22 +22,25 @@ int main(void)
 
     struct CurlMemory mem;
 
-    int verbose = 1;
+    char error[100];
+    bool is_verbose = true;
 
 // to memory
 
 
-    int ret = http_post_to_memory( (char *)URL, (char *)POSTFILEDS, &mem, verbose);
-    if(ret == 0){
+    bool ret = http_post_to_memory( (char *)URL, (char *)POSTFILEDS, &mem, error, is_verbose);
+    if(ret){
         printCurlMemory(mem);
     } else {
-        printf("http_post_to_memory faild");
+        printf("http_post_to_memory: %s \n", error);
+        return EXIT_FAILURE;
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
+// Connected to postman-echo.com
 // {"project":"curl_mem","name":"daniel","age":"20"}
-// saved to: http_post_result.txt 
+
 

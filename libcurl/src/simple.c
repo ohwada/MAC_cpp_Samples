@@ -31,14 +31,18 @@
  * Very simple HTTP GET
  * </DESC>
  */
+
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <curl/curl.h>
 
 int main(void)
 {
 
-  CURL *curl;
-  CURLcode res;
+    CURL *curl;
+    CURLcode res;
+    int ret;
 
   curl = curl_easy_init();
   if(curl) {
@@ -48,13 +52,19 @@ int main(void)
 
     /* Perform the request, res will get the return code */
     res = curl_easy_perform(curl);
+
     /* Check for errors */
-    if(res != CURLE_OK)
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+     if(res == CURLE_OK){
+            ret = EXIT_SUCCESS;
+     } else{
+            fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
+            ret = EXIT_FAILURE;
+    }
 
     /* always cleanup */
     curl_easy_cleanup(curl);
   }
-  return 0;
+
+    return ret;
 }

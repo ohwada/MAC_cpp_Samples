@@ -6,16 +6,25 @@ setup for libcurl <br/>
 
 ### Note: 
 curl (libcurl) is preinstalled on macOS <br/>
+excutable binary <br/>
 % curl --version <br/>
 curl 7.64.1  <br/>
 
+header files <br/>
+% ls /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/curl <br/>
+
+librariy files <br/>
+% ls /usr/lib/libcurl* <br/>
+
+can not remove /usr/lib/libcurl.4.dylib <br/>
+because this is restricted file <br/>
 
 ###  install latest libcurl
 % brew install curl <br/>
 https://formulae.brew.sh/formula/curl <br/>
 
 ### setup for pkgconfig
-% ln -s /usr/local/opt/curl/lib/pkgconfig/libcurl.pc /usr/local/lib/pkgconfig/libcurl.pc <br/>
+% bash setup.sh <br/>
 
 confirm for pkgconfig <br/>
 % pkg-config --cflags --libs libcurl <br/>
@@ -25,7 +34,8 @@ confirm for pkgconfig <br/>
 
 ### Library required for mail
 - json-c <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/json-c<br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/json-c <br/>
+
 
 ### gmail.json
 create gmail.json including Your account and Your password <br/>

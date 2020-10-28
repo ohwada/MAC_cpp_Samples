@@ -7,6 +7,7 @@
 // gcc test_readClientJsonFile.c `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "auth_json.h"
 #include "mail_json.h"
 
@@ -35,15 +36,15 @@ int main(int argc, char* argv[])
     char client_id[100];
     char client_secret[100];
     char error[100];
-    int ret = readClientJsonFile(file, client_id, client_secret, error);
-    if(ret == 0){
+    bool ret = readClientJsonFile(file, client_id, client_secret, error);
+    if(ret){
         printf( "client_id: %s \n", client_id );
         printf( "client_secret: %s \n",client_secret);
     } else {
         printf("error: %s \n", error);
     }
 
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 
