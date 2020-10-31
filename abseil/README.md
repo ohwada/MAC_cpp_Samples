@@ -46,6 +46,10 @@ This library includes abstractions and primitives for managing tasks across diff
 ### Time Library
 This Abseil time library contains abstractions for holding time values, both in terms of absolute time and civil time. <br/>
 
+
+### Documents <br/>
+- https://ken-ohwada.hatenadiary.org/entry/2020/10/31/162402
+
 ### Reference <br/>
 - https://abseil.io/docs/cpp/guides/
 - https://github.com/abseil/abseil-cpp
