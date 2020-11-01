@@ -4,6 +4,8 @@
  */
 
 // read filenames with spcified extension in directory
+// using C++11
+
 // test for getFileList
 
 #include "file_list_ext.hpp"
@@ -45,7 +47,7 @@ int main(int argc, char** argv)
         std::cout << vec[i] << std::endl;
     }
 
-    return 0;
+	return EXIT_SUCCESS;
 }
 
 

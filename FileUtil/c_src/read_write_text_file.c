@@ -29,22 +29,22 @@ int main(int argc, char** argv)
     char* data = file_text_read(input, (char *)error);
     if (!data){ 
         printf("error %s: %s \n", error, input );
-         return 1;
+        return EXIT_FAILURE;
     }  
 
     printf("---------- \n");
     printf("%s \n", data);
     printf("---------- \n");
 
-    int ret = file_text_write(output, data, error);
-    if (ret != 0){ 
+    bool ret = file_text_write(output, data, error);
+    if ( !ret ){ 
        printf("error %s: %s \n", error, output );
-        return 1;
+                return EXIT_FAILURE;;
     } 
 
     printf("write to: %s \n", output);
 
-    return 0;
+    return EXIT_SUCCESS;;
 }
 
 

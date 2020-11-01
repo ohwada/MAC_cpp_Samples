@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <errno.h> 
 #include  <string.h>
 #include <fcntl.h>
@@ -16,90 +17,86 @@
 
 
 // prototype
-int file_exists (char* path);
-int is_file(char* path);;
-int is_dir(char* path);
-int file_rename(char* oldpath, char* newpath, char* error);
-int file_copy(char *from, char *to, char* error);
-int file_text_write(char* file, char* data, char *error);
+bool file_exists (char* path);
+bool is_file(char* path);;
+bool is_dir(char* path);
+bool file_rename(char* oldpath, char* newpath, char* error);
+bool file_text_copy(char *from, char *to, char* error);
+bool file_text_write(char* file, char* data, char *error);
 char* file_text_read(char *file, char *error);
+ uint8_t* file_binary_read(char *file, size_t *size, char *error);
+ bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error);
+void dump_binary(uint8_t *data, size_t size);
+
 
 
 /**
  * file_exists
- * @return 1 : exists 0 : not found
-* https://stackoverflow.com/questions/230062/whats-the-best-way-to-check-if-a-file-exists-in-c
  */
-int file_exists (char *path) 
+bool file_exists (char *path) 
 {
     struct stat   sb;   
     int ret = stat(path, &sb);
-    int res = ( ret == 0 )?1:0;
+    bool res = ( ret == 0 )? true: false;
     return res;
 }
 
 
 /**
  * is_file
- * @return 1 : is_file -1 : not found
  */
-int is_file(char* path)
+bool is_file(char* path)
 {
     struct stat sb;
     int ret = stat(path, &sb);
     if(ret != 0){
-        return -1;
+        return false;
     }
 
     mode_t m = sb.st_mode;
-    int res = ( S_ISREG(m) )?1:0;
+    bool res = ( S_ISREG(m) )? true: false;
     return res;        
 }
 
 
 /**
  * is_dir
- * @return 1 : is_dir -1 : not found
  */
-int is_dir(char* path)
+bool is_dir(char* path)
 {
     struct stat sb;
     int ret = stat(path, &sb);
     if(ret != 0){
-        return -1;
+        return false;
     }
 
     mode_t m = sb.st_mode;
-    int res = ( S_ISDIR(m) )?1:0;
+    bool res = ( S_ISDIR(m) )? true: false;
     return res;        
 }
 
 
 /**
  * file_rename
- * @ return 0 : successful, 1 : failed
- * https://linuxjm.osdn.jp/html/LDP_man-pages/man2/rename.2.html
  */
-int file_rename(char* oldpath, char* newpath, char* error)
+bool file_rename(char* oldpath, char* newpath, char* error)
 {
     int ret = rename( oldpath, newpath );
 
     if(ret != 0){
         int errnum = errno;
         strcpy(error, strerror(errnum) );
-        return 1;
+        return false;
     }
 
-    return 0;
+    return true;
 }
 
 
 /**
- * file_copy
- * @ return 0 : successful, 1 : failed
- * https://stackoverflow.com/questions/2180079/how-can-i-copy-a-file-on-unix-using-c
+ * file_text_copy
  */
-int file_copy(char *from, char *to, char* error)
+bool file_text_copy(char *from, char *to, char* error)
 {
    const  ssize_t BUFSIZE = 4096;
     char buf[BUFSIZE];
@@ -116,7 +113,7 @@ int file_copy(char *from, char *to, char* error)
         saved_errno = errno;
         snprintf(errbuf, ERRSIZE, "%s : %s", strerror(saved_errno), from);
         strcpy(error, errbuf);
-        return 1;
+        return false;
     }
 
     fd_to = open(to, O_WRONLY | O_CREAT | O_EXCL, 0666);
@@ -125,7 +122,7 @@ int file_copy(char *from, char *to, char* error)
         snprintf(errbuf, ERRSIZE, "%s : %s", strerror(saved_errno), to);
         strcpy(error, errbuf);
         close(fd_from);
-        return 1;
+        return false;
     }
 
     while (nread = read(fd_from, buf, BUFSIZE), nread > 0)
@@ -152,7 +149,7 @@ int file_copy(char *from, char *to, char* error)
             close(fd_from);
 
             /* Success! */
-            return 0;
+            return true;
         }
     } // while
 
@@ -163,35 +160,34 @@ int file_copy(char *from, char *to, char* error)
     if (fd_to >= 0){
         close(fd_to);
     }
-    return 1;
+    return false;
 }
 
 
 /**
  * file_text_write
- * refrence ; https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_72/rtref/fputs.htm
  */
-int file_text_write(char* file, char* data, char *error)
+bool file_text_write(char* file, char* data, char *error)
 {
 
     FILE *fp;
     int saved_errno;
-    int res;
+    bool res;
 
     fp = fopen(file, "w");
     if(!fp) {
         saved_errno = errno;
         strcpy( error, strerror(saved_errno) );
-        return 1;
+        return false;
     }
 
     int ret = fputs( data , fp );
     if( ret == EOF ) {
         saved_errno = errno;
         strcpy( error, strerror(saved_errno) );
-        res = -1;
+        res = false;
     } else {
-        res = 0;
+        res = true;
     }
 
     fclose(fp);
@@ -201,10 +197,11 @@ int file_text_write(char* file, char* data, char *error)
 
 /**
  * file_text_read
- * refrence ; https://stackoverflow.com/questions/3463426/in-c-how-should-i-read-a-text-file-and-print-all-strings
  */
 char* file_text_read(char *file, char *error)
 {
+
+    const char CHAR_NULL = '\0';
 
    FILE *fp;
     int saved_errno;
@@ -216,28 +213,23 @@ char* file_text_read(char *file, char *error)
         return NULL;
     }
 
-    // Seek the last byte of the file
     fseek(fp, 0, SEEK_END);
      
-    // Offset from the first to the last byte, or in other words, filesize
-    int string_size = ftell(fp);
+    int file_size = ftell(fp);
 
-    // go back to the start of the file
     rewind(fp);
 
-    // Allocate a string that can hold it all
-    char* buffer = (char*) malloc(sizeof(char) * (string_size + 1) );
+// one big size for the null end than file size
+    char* buffer = (char*) malloc(sizeof(char) * (file_size + 1) );
 
-    // Read it all in one operation
-    int read_size = fread(buffer, sizeof(char), string_size, fp);
+    int read_size = fread(buffer, sizeof(char), file_size, fp);
 
     // fread doesn't set it so put a \0 in the last position
     // and buffer is now officially a string
-    buffer[string_size] = '\0';
+    buffer[file_size] = CHAR_NULL;
 
-    if (string_size != read_size){
-           // Something went wrong, throw away the memory and set
-           // the buffer to NULL
+    if (file_size != read_size){
+
            free(buffer);
            buffer = NULL;
 
@@ -245,8 +237,97 @@ char* file_text_read(char *file, char *error)
         strcpy( error, strerror(saved_errno) );
     }
 
-    // Always remember to close the file.
     fclose(fp);
 
     return buffer;
 }
+
+
+/**
+ * file_binary_read
+ */
+ uint8_t* file_binary_read(char *file, size_t *size, char *error)
+{
+
+   FILE *fp;
+    int saved_errno;
+
+    fp = fopen(file, "rb");
+    if(!fp){
+
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+
+        *size = 0;
+        return NULL;
+    }
+
+    fseek(fp, 0, SEEK_END);
+     
+    size_t file_size = ftell(fp);
+
+    rewind(fp);
+
+    uint8_t* buffer = ( uint8_t *) malloc(sizeof( uint8_t) * file_size );
+
+    int read_size = fread(buffer, sizeof( uint8_t), file_size, fp);
+
+    if (file_size == read_size){
+            *size = read_size;
+    } else {
+
+            free(buffer);
+
+            saved_errno = errno;
+            strcpy( error, strerror(saved_errno) );
+
+            *size = 0;
+            buffer = NULL;
+    }
+
+    fclose(fp);
+
+    return buffer;
+}
+
+
+/**
+ * file_binary_write
+ */
+ bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error)
+{
+
+   FILE *fp;
+    int saved_errno;
+
+    fp = fopen(file, "wb");
+    if(!fp){
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+        return false;
+    }
+
+    size_t write_size = fwrite(data, sizeof(uint8_t),  size, fp);
+
+     if (size != write_size){
+        saved_errno = errno;
+        strcpy( error, strerror(saved_errno) );
+        return false;
+    }
+
+    return true;
+}
+
+
+/**
+ * dump_binary
+ */
+void dump_binary(uint8_t *data, size_t size)
+{
+    for(int i=0; i<size; i++){
+        printf("%x, ", data[i] );
+    }
+    printf( "\n" );
+}
+
+

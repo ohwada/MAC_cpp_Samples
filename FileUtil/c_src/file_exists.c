@@ -14,20 +14,24 @@
  */
 int main(int argc, char *argv[]) 
 {
-    if (argc != 2) {
+    char * file = "data/sample.txt";
+
+    if (argc == 2) {
+        file = argv[1];
         printf("Usage: %s <filepath> \n", argv[0] );
-        return 1;
     }
 
-    char * file = argv[1];
-
-    int ret =file_exists(file);
-    if (ret == 0){
+    bool ret =file_exists(file);
+    if ( ret ){
         printf("%s exists\n", file);
    } else{
         printf("%s does not exist \n", file);
     }
 
-    return 0;
+        return EXIT_SUCCESS;
 }
+
+
+// data/sample.txt exists
+
 

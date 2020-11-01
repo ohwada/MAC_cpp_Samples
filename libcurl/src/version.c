@@ -16,15 +16,18 @@
  */
 int main(void)
 {
-    printf("curl version: %s \n", curl_version() );
+    printf( "LIBCURL_VERSION: %s \n",  LIBCURL_VERSION );
+    printf("curl_version: %s \n", curl_version() );
 
     return EXIT_SUCCESS;
 }
 
 
 // gcc version.c -lcurl
- // libcurl/7.64.1
+// LIBCURL_VERSION: 7.64.1 
+// curl_version: libcurl/7.64.1 SecureTransport (LibreSSL/2.8.3) zlib/1.2.11 nghttp2/1.39.2 
 
 // gcc version.c `pkg-config --cflags --libs libcurl`
-// libcurl/7.72.0
+// LIBCURL_VERSION: 7.73.0 
+// curl_version: libcurl/7.73.0 SecureTransport zlib/1.2.11 
 

@@ -4,6 +4,8 @@
  */
 
 // read filenames with spcified extension in directory
+// using C++11
+
 // reference : https://linuxjm.osdn.jp/html/LDP_man-pages/man3/readdir.3.html
 
 

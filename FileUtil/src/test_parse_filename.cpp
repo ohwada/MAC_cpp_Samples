@@ -43,15 +43,14 @@ int main(int argc, char** argv)
     cout <<  "FileNameWithoutExt: " << fname << endl;
     cout <<  "FileNameExt: " << fext << endl;
 
-    return 0;
+	return EXIT_SUCCESS;
 }
 
 
-// % ./a.out  /etc/sample.txt 
-/ /etc/sample.txt
-// /etc/ , sample , txt
+// % ./a.out data/sample.txt
+// data/sample.txt
+// data/ , sample , txt
 // FileNameWithExt: sample.txt
 // FileNameWithoutExt: sample
 // FileNameExt: txt
-
 

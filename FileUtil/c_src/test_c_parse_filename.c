@@ -6,8 +6,9 @@
 // parse filepath
 // test for c_parse_filename.h
 
-#include<stdlib.h>
+
 #include<stdio.h>
+#include<stdlib.h>
 
 #include "c_parse_filename.h"
 
@@ -18,9 +19,9 @@
 int main(int argc, char **argv)
 {
 
-    if(argc < 2) {
+    if(argc != 2) {
         printf( "Usage: %s <filepath> \n", argv[0] );
-        return 1;
+        return EXIT_FAILURE;
     }
 
     char* filepath = argv[1];
@@ -37,7 +38,7 @@ int main(int argc, char **argv)
     char *ext = get_file_ext(filepath); 
     printf("ext: %s \n", ext);
 
-	return 0;
+    return EXIT_SUCCESS;
 
 }
 

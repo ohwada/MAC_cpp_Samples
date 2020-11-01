@@ -14,24 +14,26 @@
  */
 int main(int argc, char** argv)
 {
+    char* path = "data/sample.txt";
 
-    if(argc < 2) {
+    if(argc == 2) {
+        path = argv[1];
+    } else {
         printf( "Usage: %s <filepath>  \n" , argv[0] );
-        return 1;
     }
 
-    char* path = argv[1];
+    bool ret1 = is_file(path);
+    bool ret2 = is_dir(path);
 
-    int ret1 = is_file(path);
-    int ret2 = is_dir(path);
-
-    if(ret1 == -1) {
-            printf("not found: %s \n", path);
-    } else if (ret1 == 1) {
+    if ( ret1 ) {
         printf("%s : is file \n", path);
-    } else if (ret2 == 1) {
+    } else if ( ret2 ) {
             printf("%s : is directory \n", path);
     } 
 
-    return 0;
+    return EXIT_SUCCESS;
 }
+
+
+// data/sample.txt : is file
+

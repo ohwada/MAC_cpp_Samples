@@ -3,7 +3,7 @@
  * 2020-03-01 K.OHWADA
  */
 
-// read filenames in directory
+// read filenames in directory using C++17
 // https://en.cppreference.com/w/cpp/filesystem/directory_iterator
 
 // require option c++17
@@ -60,6 +60,6 @@ int main(int argc, char** argv)
         std::cout << x << std::endl;
     }
 
-    return 0;
+	return EXIT_SUCCESS;
 }
 

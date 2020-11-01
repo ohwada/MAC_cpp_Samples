@@ -8,6 +8,7 @@
 // reference : https://linuxjm.osdn.jp/html/LDP_man-pages/man3/readdir.3.html
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
 #include <errno.h>  
@@ -35,7 +36,7 @@ int main(int argc, char** argv)
     dir = opendir (path);
     if (!dir) {
         printf ("%s : %s \n", strerror(errno), path);
-        return 1;
+               return EXIT_FAILURE;;
     }
 
     struct dirent * ent;
@@ -55,7 +56,7 @@ int main(int argc, char** argv)
         printf ("%s \n", buf[i]);
     } 
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

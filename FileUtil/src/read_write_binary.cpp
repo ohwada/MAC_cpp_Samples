@@ -3,11 +3,13 @@
  * 2020-03-01 K.OHWADA
  */
 
-// read write text file 
+// read write binary file 
 // test for file_util.hpp
 
 #include <iostream>
+#include <vector>
 #include "file_util.hpp"
+
 
 using namespace std;
 
@@ -18,28 +20,29 @@ using namespace std;
 int main(int argc, char** argv)
 { 
 
-    string input( "data/sample.txt" );
-    string output( "sample_out.txt" );
+    string input( "data/baboon.png" );
+    string output( "baboon_out.png" );
 
     if(argc == 3) {
         input = argv[1];
         output = argv[2];
-    } else {
+   } else {
         cout << "Usage:  " << argv[0] <<   " <Input filename> <Output filename>"  << endl;
     }
 
-    string text;
-    bool ret1 = readTextFile( input, text );
+    vector<char> data;
+    bool ret1 = readBinaryFile( input, data );
     if (!ret1){ 
         cerr << "open input file failed: " << input << endl;
         return 1;
     }  
 
-    cout<< "----------" << endl;
-    cout<< text << endl;
-    cout<< "----------" << endl;
+    cout << "size: " << data.size() << endl;
 
-    bool ret2 = writeTextFile( output, text );
+    dumpBinary(data, 100);
+
+
+    bool ret2 = writeBinaryFile( output, data );
     if (!ret2){ 
         cerr << "open output file failed: " << output << endl;
         return 1;
@@ -50,10 +53,4 @@ int main(int argc, char** argv)
 	return EXIT_SUCCESS;
 }
 
-
-// ----------
-// Mac
-// ...
-// ----------
-// write to: output.txt
 

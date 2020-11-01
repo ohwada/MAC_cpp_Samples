@@ -3,7 +3,8 @@
  * 2020-03-01 K.OHWADA
  */
 
-// read filenames in directory
+// read filenames in directory using C++11
+
 // reference : https://linuxjm.osdn.jp/html/LDP_man-pages/man3/readdir.3.html
 
 
@@ -99,6 +100,6 @@ int main(int argc, char** argv)
         std::cout << vec[i] << std::endl;
     }
 
-    return 0;
+	return EXIT_SUCCESS;
 }
 

@@ -18,19 +18,19 @@ int main(int argc, char* argv[])
 
     if(argc < 3) {
         printf( "Usage:  %s <oldpath> <newpath> \n",  argv[0] );
-        return 1;
+        return EXIT_FAILURE;
     }
 
     char* oldpath = argv[1];
     char* newpath = argv[2];
     char error[100];
 
-    int ret = file_rename(oldpath, newpath, (char *)error);
-    if(ret != 0){
+    bool ret = file_rename(oldpath, newpath, (char *)error);
+    if( !ret ){
         printf( "error: %s \n", error);
-        return 1;
+                return EXIT_FAILURE;
     }
 
     printf( "renamed to %s \n", newpath);
-    return 0;
+    return EXIT_SUCCESS;
 }
