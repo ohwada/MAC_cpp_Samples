@@ -9,7 +9,7 @@ sample for BIO method <br/>
 - bio_new_connect.c <br/>
 connect HTTP server using BIO_new_connect <br/>
 - bio_new_ssl_connect.c <br/>
-// connect HTTPS srver using BIO_new_ssl_connect <br/>
+connect HTTPS srver using BIO_new_ssl_connect <br/>
 
 
 build code <br/>

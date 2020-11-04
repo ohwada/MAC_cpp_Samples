@@ -14,8 +14,12 @@ see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup <br/>
 
 
-### https_client.c <br/>
-// get web page from HTTP server with HTTPS
+### sample code
+- https_client.c <br/>
+get web page from HTTP server with HTTPS
+- version.c <br/>
+display version <br/>
+
 
 build code <br/>
 % gcc https_client.c `pkg-config --cflags --libs libssl` <br/>
@@ -27,7 +31,12 @@ display as below <br/>
 > Conntect to "example.com <br/>
 
 ### bio <br/>
- vconnect HTTP server using BIO_new_connect <br/>
+sample for BIO method <br/>
+- bio_new_connect.c <br/>
+connect HTTP server using BIO_new_connect <br/>
+- bio_new_ssl_connect.c <br/>
+connect HTTPS srver using BIO_new_ssl_connect <br/>
+
 
 ### Reference <br/>
 - https://github.com/openssl/openssl
