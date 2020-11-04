@@ -62,7 +62,7 @@ if you use this method with Gmail, <br/>
 Allow less secure apps to access your Gmail account <br/>
 - https://devanswers.co/allow-less-secure-apps-access-gmail-account/ <br/>
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_acount.png' width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_acount.png" width="300" />
 
 
 ### Gmail with oauth2
@@ -72,7 +72,7 @@ and place on Your home directory <br/>
 Using OAuth 2.0 to Access Google APIs <br/> 
 - https://developers.google.com/identity/protocols/oauth2 <br/>
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_api_console.png' width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_api_console.png" width="300" />
 
 
 ### Reference <br/>
