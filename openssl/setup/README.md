@@ -19,12 +19,13 @@ fix missing openssl files in catalina <br/>
 
 
 ###  set up for pkgconfig
-% bash copy_pkgconfig.sh
+% bash setup.sh
 
 check for pkg-config <br/>
-% pkg-config --cflags --libs libssl <br/>
-display as below <br/>
--I/usr/local/Cellar/openssl@1.1/1.1.1g//include -L/usr/local/Cellar/openssl@1.1/1.1.1g//lib -lssl
+% pkg-config --cflags --libs openssl <br/>
+> -I/usr/local/Cellar/openssl@1.1/1.1.1h/include <br/>
+> -L/usr/local/Cellar/openssl@1.1/1.1.1h/lib <br/>
+> -lssl -lcrypto <br/>
 
 
 ### /usr/lib/libssl.dylib

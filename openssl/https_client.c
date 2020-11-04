@@ -3,13 +3,13 @@
  * 2020-07-01 K.OHWADA
  */
 
-// get web page from Google with HTTPS
-// reference : https://qiita.com/edo_m18/items/41770cba5c166f276a83
-// https://www.geekpage.jp/programming/linux-network/getaddrinfo-1.php
+// get web page from HTTP server with HTTPS
+// reference : https://blog.sarabande.jp/post/82068392478
+
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 #include <netdb.h>
@@ -25,14 +25,22 @@
 /**
  * main
  */
-int main(void) 
+int main(int argc, char **argv)
 {
 
 // param
-    const char* host = "www.google.com";
-    const char *path = "/";
-    const int   port = 443;
-    const char *service = "https";
+    const char *SERVIVCE = "https";
+    const int   PORT = 443;
+    const char *PATH = "/";
+
+    char* host = "example.com";
+
+    if(argc == 2) {
+      	host = argv[1];
+    } else {
+        fprintf(stderr, "Usage: %s  [host] \n",  argv[0] );
+    }
+
 
     int mysocket;
     struct sockaddr_in server;
@@ -42,20 +50,13 @@ int main(void)
     SSL *ssl;
     SSL_CTX *ctx;
 
-    const int MSGLEN = 100;
-    char msg[MSGLEN];
-
-// version
-    fprintf(stderr, "%s \n", (char *)OPENSSL_VERSION_TEXT );
-
-
     // get IP address from host name
     memset(&hints, 0, sizeof(hints));
     hints.ai_family   = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
 
     int err = 0;
-    if ((err = getaddrinfo(host, service, &hints, &res)) != 0) {
+    if ((err = getaddrinfo(host, SERVIVCE, &hints, &res)) != 0) {
         fprintf(stderr, "Fail to resolve ip address - %d\n", err);
         return EXIT_FAILURE;
     }
@@ -85,17 +86,33 @@ int main(void)
 
     fprintf(stderr, "Conntect to %s\n", host);
 
-    snprintf(msg, MSGLEN, "GET %s HTTP/1.0\r\nHost: %s\r\n\r\n", path, host);
 
-    SSL_write(ssl, msg, strlen(msg));
+// create GET request 
+    const size_t BUFSIZE = 100;
+    char buf[100];
+    char request[500];
 
-    const int BUFSIZE = 256;
-    char buf[BUFSIZE];
+  snprintf(buf, BUFSIZE, "GET %s HTTP/1.1\r\n", PATH);
+  strcpy(request, buf);
+
+  strcat(request, "Accept: */* \r\n");
+
+  snprintf(buf, BUFSIZE, "Host: %s\r\n", (char *)host ); 
+  strcat(request, buf); 
+
+   strcat(request, "Connection: close\r\n\r\n"); 
+
+    fprintf(stderr, "%s \n", request);
+
+    SSL_write(ssl, request, strlen(request));
+
+    const int RESPONSE_SIZE = 256;
+    char response[RESPONSE_SIZE];
     int read_size;
 
     do {
-        read_size = SSL_read(ssl, buf, BUFSIZE);
-        write(1, buf, read_size);
+        read_size = SSL_read(ssl, response, RESPONSE_SIZE);
+        printf("%s", response);
     } while(read_size > 0);
 
     SSL_shutdown(ssl);
@@ -107,3 +124,9 @@ int main(void)
 
     return EXIT_SUCCESS;
 }
+
+
+// Conntect to "example.com
+
+
+
