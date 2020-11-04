@@ -1,0 +1,36 @@
+Connection Trace:
+=================
+[smtp:1] C: Connecting to smtp.gmail.com, port 587
+[smtp:1] S: 220 smtp.gmail.com ESMTP kv19sm10128751pjb.22 - gsmtp
+[smtp:1] C: EHLO MacBook-Air.local
+[smtp:1] S: 250-smtp.gmail.com at your service, [2400:4051:4084:2c00:48b1:e082:d351:b71d]
+[smtp:1] S: 250-SIZE 35882577
+[smtp:1] S: 250-8BITMIME
+[smtp:1] S: 250-STARTTLS
+[smtp:1] S: 250-ENHANCEDSTATUSCODES
+[smtp:1] S: 250-PIPELINING
+[smtp:1] S: 250-CHUNKING
+[smtp:1] S: 250 SMTPUTF8
+[smtp:1] C: STARTTLS
+[smtp:1] S: 220 2.0.0 Ready to start TLS
+[smtp:1] C: Beginning SSL/TLS handshake
+[smtp:1] C: Getting peer certificates
+[smtp:1] C: EHLO MacBook-Air.local
+[smtp:1] S: 250-smtp.gmail.com at your service, [2400:4051:4084:2c00:48b1:e082:d351:b71d]
+[smtp:1] S: 250-SIZE 35882577
+[smtp:1] S: 250-8BITMIME
+[smtp:1] S: 250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+[smtp:1] S: 250-ENHANCEDSTATUSCODES
+[smtp:1] S: 250-PIPELINING
+[smtp:1] S: 250-CHUNKING
+[smtp:1] S: 250 SMTPUTF8
+[smtp:1] C: AUTH XOAUTH2 dXNlcj4BAQ==
+[smtp:1] S: 235 2.7.0 Accepted
+[smtp:1] C: MAIL FROM:<user@gmail.com> SIZE=451
+[smtp:1] C: RCPT TO:<user@gmail.com>
+[smtp:1] S: 250 2.1.0 OK kv19sm10128751pjb.22 - gsmtp
+[smtp:1] S: 250 2.1.5 OK kv19sm10128751pjb.22 - gsmtp
+[smtp:1] C: BDAT 383 LAST
+[smtp:1] C: {...383 bytes of data...}
+[smtp:1] S: 250 2.0.0 OK kv19sm10128751pjb.22 - gsmtp
+[smtp:1] C: {...0 bytes of data...}

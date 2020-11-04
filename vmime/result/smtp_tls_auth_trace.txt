@@ -1,0 +1,42 @@
+Connection Trace:
+=================
+[smtp:1] C: Connecting to ubuntu, port 25
+[smtp:1] S: 220 VirtualBox ESMTP Postfix (Ubuntu)
+[smtp:1] C: EHLO MacBook-Air.local
+[smtp:1] S: 250-VirtualBox
+[smtp:1] S: 250-PIPELINING
+[smtp:1] S: 250-SIZE 10240000
+[smtp:1] S: 250-VRFY
+[smtp:1] S: 250-ETRN
+[smtp:1] S: 250-STARTTLS
+[smtp:1] S: 250-AUTH PLAIN
+[smtp:1] S: 250-ENHANCEDSTATUSCODES
+[smtp:1] S: 250-8BITMIME
+[smtp:1] S: 250 DSN
+[smtp:1] C: STARTTLS
+[smtp:1] S: 220 2.0.0 Ready to start TLS
+[smtp:1] C: Beginning SSL/TLS handshake
+[smtp:1] C: Getting peer certificates
+[smtp:1] C: EHLO MacBook-Air.local
+[smtp:1] S: 250-VirtualBox
+[smtp:1] S: 250-PIPELINING
+[smtp:1] S: 250-SIZE 10240000
+[smtp:1] S: 250-VRFY
+[smtp:1] S: 250-ETRN
+[smtp:1] S: 250-AUTH PLAIN
+[smtp:1] S: 250-ENHANCEDSTATUSCODES
+[smtp:1] S: 250-8BITMIME
+[smtp:1] S: 250 DSN
+[smtp:1] C: AUTH PLAIN
+[smtp:1] S: 334 
+[smtp:1] C: {...SASL exchange: 20 bytes of data...}
+[smtp:1] S: 235 2.7.0 Authentication successful
+[smtp:1] C: MAIL FROM:<hoge@example.com> SIZE=375
+[smtp:1] C: RCPT TO:<taro@VirtualBox>
+[smtp:1] C: DATA
+[smtp:1] S: 250 2.1.0 Ok
+[smtp:1] S: 250 2.1.5 Ok
+[smtp:1] S: 354 End data with <CR><LF>.<CR><LF>
+[smtp:1] C: {...375 bytes of data...}
+[smtp:1] C: .
+[smtp:1] S: 250 2.0.0 Ok: queued as 06D1E281F65

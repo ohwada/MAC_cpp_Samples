@@ -107,6 +107,9 @@ get web page from http server <br/>
 ### libquickmail
 C library for sending e-mail
 
+### vmime
+send and recieve mail <br/>
+
 ### tclap
 test for command line parser <br/>
 
@@ -188,9 +191,6 @@ show id3tag in mp3 file <br/>
 mp3 player with OpenGL and SDL <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/minimp3/result/screenshot_player.png" width="300" /><br/>
-
-
-
 
 
 ### FreeType

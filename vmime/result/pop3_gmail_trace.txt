@@ -1,0 +1,21 @@
+Connection Trace:
+=================
+[pop3s:1] C: Connecting to pop.gmail.com, port 995
+[pop3s:1] C: Beginning SSL/TLS handshake
+[pop3s:1] C: Getting peer certificates
+[pop3s:1] S: +OK Gpop ready for requests from 2400:4051:40:2c:39:5a62:2e94:41
+[pop3s:1] C: CAPA
+[pop3s:1] S: +OK Capability list follows
+[pop3s:1] S: USER
+[pop3s:1] S: RESP-CODES
+[pop3s:1] S: EXPIRE 0
+[pop3s:1] S: LOGIN-DELAY 300
+[pop3s:1] S: TOP
+[pop3s:1] S: UIDL
+[pop3s:1] S: X-GOOGLE-RICO
+[pop3s:1] S: SASL PLAIN XOAUTH2 OAUTHBEARER
+[pop3s:1] S: .
+[pop3s:1] C: AUTH PLAIN
+[pop3s:1] S: + 
+[pop3s:1] C: {...SASL exchange: 44 bytes of data...}
+[pop3s:1] S: +OK Welcome.

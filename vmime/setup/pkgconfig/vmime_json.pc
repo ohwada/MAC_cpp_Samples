@@ -1,0 +1,15 @@
+# 2020-07-01 K.OHWADA
+
+prefix=/usr/local/opt/vmime
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: vmime
+Description: VMime C++ Mail Library (http://www.vmime.org)
+Version: 0.9.2
+Requires: jsoncpp
+Requires.private:  libgsasl gnutls
+Cflags: -I${includedir}
+Libs: -L${libdir} -lvmime
+

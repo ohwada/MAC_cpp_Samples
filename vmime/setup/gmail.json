@@ -1,0 +1,8 @@
+{
+"smtp_server" : "smtp.gmail.com",
+"smtp_port" : 587,
+"user" : "Your_account@gmail.com",
+"passwd" : "Your_password",
+"to" : "Your_account@gmail.com",
+"from" : "Your_account@gmail.com"
+}

@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=/usr/local/bin
+libdir=/usr/local/lib
+includedir=/usr/local/include/vmime
+
+Name: vmime
+Description: VMime C++ Mail Library (http://www.vmime.org)
+Version: 0.9.2
+Requires.private:  libgsasl gnutls
+Libs: -L${libdir} -lvmime
+Libs.private:  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libiconv.tbd
+Cflags: -I${includedir}/  -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+
