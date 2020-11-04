@@ -1,15 +1,15 @@
 vmail
 ===============
 
-vmail Sample <br/>
+vmime Sample <br/>
 send and recieve mail <br/>
 
-vmail : <br/>
+vmime : <br/>
 a powerful C++ class library for working with RFC-822 and MIME messages and Internet messaging services like IMAP, POP or SMTP. <br/>
 https://www.vmime.org/ <br/>
 
 
-### install vmail
+### install vmime
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/vmime/setup <br/>
 
