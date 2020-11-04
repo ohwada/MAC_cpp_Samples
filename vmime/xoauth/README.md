@@ -1,7 +1,7 @@
-xoath - vmail
+xoath - vmime
 ===============
 
-vmail Sample <br/>
+vmime Sample <br/>
 send mail to Gmail SMTP server with xoauth2 <br/>
 
 
