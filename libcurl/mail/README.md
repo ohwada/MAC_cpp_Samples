@@ -38,4 +38,4 @@ C++ wraper for libcurl smtp <br/>
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/
-
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md

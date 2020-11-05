@@ -45,14 +45,14 @@ this app display message as below
 > Enter the following URL into a browser:
 > Enter the browser's response to confirm authorization:
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_user_consent.png" width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_userconsent.png" width="300" />
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/smtp/setup/images/google_authorization_code.png" width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_authorization_code.png" width="300" />
 
 2. get Refresh Token using Authorization Code
 
 this app get Refresh Token
-and save it in current directory,  at first tome, 
+https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_userconsent.pngand save it in current directory,  at first tome, 
 reuse Refresh Token, from the second time onwards
 
 3. get a new Access Token using Refresh Token

@@ -33,5 +33,6 @@ send mail to Gmail SMTP server with xoauth <br/>
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/
 - https://github.com/honeyligo/curlsmtp <br/>
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 
 

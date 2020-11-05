@@ -29,4 +29,5 @@ send mail to Gmail SMTP server with xoauth2 <br/>
 
 ### Reference <br/>
 - https://github.com/kisli/vmime
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 

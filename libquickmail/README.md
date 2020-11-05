@@ -45,4 +45,5 @@ display as below <br/>
 
 ### Reference <br/>
 - https://github.com/cdevelop/libquickmail/
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 
