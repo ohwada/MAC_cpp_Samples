@@ -2,10 +2,13 @@ libquickmail
 ===============
 
 libquickmail Sample <br/>
-send mail <br/>
+send mail to SMTP server <br/>
+- support file attachment <br/>
+
 
 libquickmail : <br/>
 C library for sending e-mail (with attachments) from C/C++ <br/>
+wrapper for libcurl smtp <br/>
 https://sourceforge.net/projects/libquickmail/ <br/>
 
 

@@ -2,7 +2,9 @@ mail - libcurl
 ===============
 
 libcurl Sample <br/>
-send recieve mail <br/>
+send mail to SMTP server <br/>
+recoeve mail from POP3 server <br/>
+- support xoauth <br/>
 
 
 ### smtp
