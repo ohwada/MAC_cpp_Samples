@@ -101,15 +101,6 @@ display local time <br/>
 ### abseil
 open source collection of C++ libraries <br/>
 
-### libcurl
-get web page from http server <br/>
-
-### libquickmail
-C library for sending e-mail
-
-### vmime
-send and recieve mail <br/>
-
 ### tclap
 test for command line parser <br/>
 
@@ -138,6 +129,24 @@ Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator <br/>
 
 ### glm
 header only C++ mathematics library <br/>
+
+
+## mail
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
+sample code for mail <br/>
+
+### libcurl
+the multiprotocol file transfer library <br/> 
+
+### libquickmail
+C library for sending e-mail <br/>
+
+### vmime
+C++ class library for working with RFC-822 and MIME messages and Internet messaging services like IMAP, POP or SMTP. <br/>
+
+### curlsmtp
+A mail sending tool <br/>
+
 
 ## AudioPlayer
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/AudioPlayer.md <br/>
