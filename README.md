@@ -73,6 +73,10 @@ base64 encoder decoder <br/>
 ### openssl
 get web page from Google with HTTPS  <br/>
 
+### zlib
+data-compression library <br/>
+compress and decompress file <br/>
+
 ### c11
 C Sample since std C11 <br/>
 generate random number using random()<br/>
