@@ -77,6 +77,10 @@ get web page from Google with HTTPS  <br/>
 data-compression library <br/>
 compress and decompress file <br/>
 
+### icu4c 
+C/C++ libraries for Unicode and globalization <br/>
+read sjis file convrt to UTF-8 <br/>
+
 ### c11
 C Sample since std C11 <br/>
 generate random number using random()<br/>
