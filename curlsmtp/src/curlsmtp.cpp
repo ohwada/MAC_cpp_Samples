@@ -124,7 +124,7 @@ void CurlSmtp::initCurlSmtp(void)
     m_xoauth = false;
 	m_make_send_message_once = false;
     m_verbose = false;
-    m_ssl_verify = 1L;
+    m_ssl_verify = false;
 
 	m_type_map_list.insert(std::make_pair(".gif", "Content-Type: image/gif;"));
 	m_type_map_list.insert(std::make_pair(".jpg", "Content-Type: image/jpg;"));
@@ -364,7 +364,7 @@ void CurlSmtp::set_verbose(bool verbose)
  */
 void CurlSmtp::set_ssl_verify(bool verify)
 { 
-    m_ssl_verify = verify?1L:0L;
+    m_ssl_verify = verify;
 }
 
 
@@ -522,9 +522,13 @@ std::cout <<  "user: " << m_user << std::endl;
 	curl_easy_setopt(m_curl, CURLOPT_MAIL_RCPT, m_rcpt_list);
 	curl_easy_setopt(m_curl, CURLOPT_USE_SSL, (long)CURLUSESSL_ALL);
 
-	curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYPEER, m_ssl_verify);
-
-	curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYHOST, m_ssl_verify);
+    if(m_ssl_verify){
+	    curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYPEER, 1L);
+	    curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYHOST, 1L);
+    } else {
+	    curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYPEER, 0L);
+	    curl_easy_setopt(m_curl, CURLOPT_SSL_VERIFYHOST, 0L);
+    }
 
 	curl_easy_setopt(m_curl, CURLOPT_READDATA, &m_read);
 

@@ -101,7 +101,7 @@ private:
 
 	bool m_make_send_message_once;
 	bool m_verbose;
-	long m_ssl_verify;
+	bool m_ssl_verify;
 
 	CURL *m_curl;
 	struct ReadData m_read;
