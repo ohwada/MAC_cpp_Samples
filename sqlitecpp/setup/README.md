@@ -12,12 +12,12 @@ download sorce files  <br/>
 % git clone https://github.com/SRombauts/SQLiteCpp.git <br/>
 
 build sorce files  <br/>
-% cd SQLiteCpp
-% mkdir build
-% cd build
-% cmake .. 
-% make
-% make install 
+% cd SQLiteCpp <br/>
+% mkdir build <br/>
+% cd build <br/>
+% cmake .. <br/>
+% make <br/>
+% make install <br/>
 
 placed sqlitecpp.a in /usr/local/lib
 
