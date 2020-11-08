@@ -24,6 +24,8 @@ display as below <br/>
 > 220 VirtualBox ESMTP Postfix (Ubuntu) 
 > 235 2.7.0 Authentication successful 
 
+### Document <br/>
+- https://ken-ohwada.hatenadiary.org/entry/2020/11/08/115532
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/

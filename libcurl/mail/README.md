@@ -35,6 +35,8 @@ send mail to Gmail server with xoauth2 <br/>
 ### curlsmtp
 C++ wraper for libcurl smtp <br/>
 
+### Document <br/>
+- https://ken-ohwada.hatenadiary.org/entry/2020/11/08/115532
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/
