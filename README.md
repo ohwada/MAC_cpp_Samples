@@ -73,6 +73,12 @@ base64 encoder decoder <br/>
 ### openssl
 get web page from Google with HTTPS  <br/>
 
+### sqlite
+a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
+
+### sqlitecpp : <br/>
+C++ SQLite3 wrapper. <br/
+
 ### zlib
 data-compression library <br/>
 compress and decompress file <br/>

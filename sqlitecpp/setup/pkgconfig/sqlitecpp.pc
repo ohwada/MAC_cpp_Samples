@@ -1,0 +1,13 @@
+# 2020-07-01 K.OHWADA
+
+prefix=/usr/local/opt/sqlitecpp
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: sqlitecpp
+Description: C++ SQLite3 wrapper
+Version: 3.1.1
+Requires: sqlite3
+Cflags: -I${includedir}
+Libs: -L${libdir} -lsqlitecpp
