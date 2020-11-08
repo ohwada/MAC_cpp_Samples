@@ -25,7 +25,7 @@
 
 
 // global
-const bool g_verbose = true;
+const bool g_verbose = false;
 
 
 /**
@@ -47,7 +47,9 @@ int main(void)
   
     const char REFRESH_FILE[] = "refresh_token_mail.json";
 
-    const long ssl_verify = 1L;
+    const bool is_ssl_verify = true;
+
+    const bool is_verbose = true;
 
     struct MailParam  p = getGmailParam();
     printMailParam( p );
@@ -89,7 +91,7 @@ int main(void)
         curl_easy_setopt(curl, CURLOPT_XOAUTH2_BEARER, access_token);
         curl_easy_setopt(curl, CURLOPT_USERNAME, USER);
 
-        res = sendMail( curl, URL, FROM, TO,  ssl_verify, g_verbose );
+        res = sendMail( curl, URL, FROM, TO,  is_ssl_verify, is_verbose );
     }
 
     int ret = res ? EXIT_SUCCESS : EXIT_FAILURE;

@@ -12,7 +12,7 @@
 #include "smtp.h"
 
 // global
-const int g_verbose = 1;
+const bool g_verbose = false;
 
 
 /**
@@ -32,7 +32,9 @@ int main(void)
 
     const char SUBJECT[] = "libcurl test";
   
-    const long ssl_verify = 1L;
+    const bool is_ssl_verify = true;
+
+    const bool is_verbose = true;
 
     struct MailParam  p = getGmailParam();
     printMailParam( p );
@@ -54,7 +56,7 @@ int main(void)
     curl_easy_setopt(curl, CURLOPT_READFUNCTION, payload_source);
     curl_easy_setopt(curl, CURLOPT_READDATA, &upload_ctx);
 
-    res = sendMailUserPassword(curl,  URL,USER, PASSWD, FROM, TO, ssl_verify,  g_verbose );
+    res = sendMailUserPassword(curl,  URL,USER, PASSWD, FROM, TO, is_ssl_verify,  is_verbose );
 
   }
 

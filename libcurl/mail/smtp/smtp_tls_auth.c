@@ -19,7 +19,7 @@
 
 
 // global
-const bool g_verbose = true;
+const bool g_verbose = false;
 
 
 /**
@@ -41,7 +41,9 @@ int main(void)
 
 // skip SSL verification 
 // because ubuntu server is self-certified
-    const long ssl_verify = 0L;
+    const bool is_ssl_verify = false;
+
+const bool is_verbose = true;
 
     struct MailParam p = getUbuntuMailParam();
     printMailParam( p );
@@ -64,7 +66,7 @@ int main(void)
     curl_easy_setopt(curl, CURLOPT_READFUNCTION, payload_source);
     curl_easy_setopt(curl, CURLOPT_READDATA, &upload_ctx);
 
-    res = sendMailUserPassword(curl, URL, USER, PASSWD, FROM,  TO,  ssl_verify,  g_verbose );
+    res = sendMailUserPassword(curl, URL, USER, PASSWD, FROM,  TO,  is_ssl_verify,  is_verbose );
 
   }
 

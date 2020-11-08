@@ -34,8 +34,8 @@ const char BODY1[] = "This is a test e-mail.";
 // prototype
 size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, bool is_verbose);
  struct upload_status buildUploadStatus(char* subject , char* from,  char* to);
- bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     long ssl_verify, bool is_verbose );
- bool sendMail( CURL *curl, char* url, char* from, char* to,     long ssl_verify, bool is_verbose );
+ bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     bool is_ssl_verify, bool is_verbose );
+ bool sendMail( CURL *curl, char* url, char* from, char* to, bool is_ssl_verify, bool is_verbose );
 
 
 /**
@@ -104,20 +104,21 @@ size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, bo
 /**
  * sendMailUserPassword(
  */
- bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     long ssl_verify, bool is_verbose )
+ bool sendMailUserPassword( CURL *curl, char* url, char* user, char* passwd, char* from, char* to,     bool is_ssl_verify, bool is_verbose )
 {
-    curl_easy_setopt(curl, CURLOPT_USERNAME, user);
 
+    /* Set the username and password */
+    curl_easy_setopt(curl, CURLOPT_USERNAME, user);
     curl_easy_setopt(curl, CURLOPT_PASSWORD, passwd);
 
-    return sendMail( curl, url, from, to,  ssl_verify, is_verbose );
+    return sendMail( curl, url, from, to,  is_ssl_verify, is_verbose );
 }
 
 
 /**
  * sendMail
  */
- bool sendMail( CURL *curl, char* url, char* from, char* to,     long ssl_verify, bool is_verbose )
+ bool sendMail( CURL *curl, char* url, char* from, char* to, bool is_ssl_verify, bool is_verbose )
 {
 
     bool ret;
@@ -159,7 +160,14 @@ size_t payload_source_base(void *ptr, size_t size, size_t nmemb, void *userp, bo
      * they could cause an endless loop. See RFC 5321 Section 4.5.5 for more
      * details.
      */
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, ssl_verify);
+    if (is_ssl_verify ){
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1L);
+    } else {
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+    }
+
 
     curl_easy_setopt(curl, CURLOPT_MAIL_FROM, from);
 
