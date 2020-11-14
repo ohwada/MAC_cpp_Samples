@@ -1,5 +1,5 @@
 /**
- * C++ network sample
+ * C network sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -13,13 +13,16 @@
 
 // TODO: quit with ESC key
 
+
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <unistd.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <errno.h>
-#include "host.h"
+#include "tcp_host.h"
 
 
 // macOS
@@ -50,27 +53,27 @@ int main(void)
     const int BUFSIZE = 1024;
     char buf[BUFSIZE];
 
-  int srcSocket; // this server
-  int dstSocket; // client
-  struct sockaddr_in srcAddr;
-  struct sockaddr_in dstAddr;
-  int dstAddrSize = sizeof(dstAddr);
+  int socket_listen; // this server
+  int socket_client; // client
+  struct sockaddr_in addr_listen;
+  struct sockaddr_in addr_client;
+  socklen_t size_addr_client = sizeof(addr_client);
   int status;
   int numrcv;
 
 
     // sockaddr_in setting
-    bzero((char *)&srcAddr, sizeof(srcAddr));
-    srcAddr.sin_port = htons(PORT);
-    srcAddr.sin_family = AF_INET;
-    srcAddr.sin_addr.s_addr = INADDR_ANY;
+    bzero((char *)&addr_listen, sizeof(addr_listen));
+    addr_listen.sin_port = htons(PORT);
+    addr_listen.sin_family = AF_INET;
+    addr_listen.sin_addr.s_addr = INADDR_ANY;
     
     // create socket
-    srcSocket = socket(AF_INET, SOCK_STREAM, 0);
+    socket_listen = socket(AF_INET, SOCK_STREAM, 0);
     // bind socket
-    bind(srcSocket, (struct sockaddr *)&srcAddr, sizeof(srcAddr));
+    bind(socket_listen, (struct sockaddr *)&addr_listen, sizeof(addr_listen));
     // allow connect
-    listen(srcSocket, 1);
+    listen(socket_listen, 1);
     
     // wait connet
     printf("waiting for connection port: %d \n", PORT);
@@ -84,25 +87,25 @@ int main(void)
         // TODO: quit with ESC key
         printf("or quit with ctrl-c \n");
 
-        dstSocket = accept(srcSocket, (struct sockaddr *)&dstAddr, &dstAddrSize);
+        socket_client = accept(socket_listen, (struct sockaddr *)&addr_client, &size_addr_client);
 
         // Note: inet_ntoa segmentation fault on macOS
-        printf("connected from: %s : %d \n", inet_ntoa(dstAddr.sin_addr), ntohs(dstAddr.sin_port) );
+        printf("connected from: %s : %d \n", inet_ntoa(addr_client.sin_addr), ntohs(addr_client.sin_port) );
 
-        // close(srcSocket);
+        // close(socket_listen);
         
         while(1){
             // recieve packet
-            numrcv = read(dstSocket, buf, BUFSIZE);
+            numrcv = read(socket_client, buf, BUFSIZE);
             if(numrcv == 0){
                     // close
                     printf("client socket closed \n");
-	                close(dstSocket); 
+	                close(socket_client); 
                     break;
             } else if(numrcv == -1){
                     // error
                     printf("ERR: %d %s \n", errno,  strerror(errno));
-	                close(dstSocket); 
+	                close(socket_client); 
                     break;
             } // if
 
@@ -111,15 +114,15 @@ int main(void)
             toUpper(buf, numrcv);
    
             // send packet
-            write(dstSocket, buf, BUFSIZE);
+            write(socket_client, buf, BUFSIZE);
             printf("send: %s \n\n", buf);
 
         } // while
 
     } // while
 
-    close(srcSocket);
-	close(dstSocket); 
+    close(socket_listen);
+	close(socket_client); 
 
     return(0);
 }

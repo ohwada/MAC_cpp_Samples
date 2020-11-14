@@ -1,5 +1,5 @@
 /**
- * C++ network sample
+ * C network sample
  * 2020-03-01 K.OHWADA
  */
 
@@ -12,12 +12,13 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-#include <errno.h>
-#include "host.h"
+#include "tcp_host.h"
 
 
 /**
