@@ -5,17 +5,18 @@
 
 // connect HTTPS srver using BIO_new_ssl_connect
 
-// gcc bio_new_ssl_connect.c  `pkg-config --cflags --libs libcrypto` 
+// gcc bio_new_ssl_connect.c  `pkg-config --cflags --libs openssl` 
 
 // reference : https://www.openssl.org/docs/man1.0.2/man3/BIO_new_ssl_connect.html
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <openssl/bio.h>
  #include <openssl/ssl.h>
- #include <openssl/evp.h>
 #include <openssl/err.h>
+#include "bio_func.h"
+#include "http_build.h"
 
 
 /**
@@ -32,20 +33,26 @@ int main(int argc, char **argv)
         fprintf(stderr, "Usage: %s [host] \n",  argv[0] );
     }
 
-
+// build url
     const size_t URL_SIZE = 100;
     char url[URL_SIZE];
 
-    const int PORT = 443;
+    build_url((char *)host, PORT_HTTPS, (char *)url, URL_SIZE);
 
-    snprintf(url, URL_SIZE, "%s:%d", (char *)host, PORT);
+    fprintf(stderr, "url: %s \n", url);
+
 
 
 BIO *sbio;
  SSL_CTX *ctx;
  SSL *ssl;
 
+sbio = NULL;
+ctx = NULL;
+ssl =NULL;
 
+
+// ssl setting
  ERR_load_crypto_strings();
  ERR_load_SSL_strings();
  OpenSSL_add_all_algorithms();
@@ -54,7 +61,13 @@ BIO *sbio;
   * do it automatically
   */
 
- ctx = SSL_CTX_new(SSLv23_client_method());
+    ctx = SSL_CTX_new( SSLv23_client_method() );
+    if (!ctx) {
+            fprintf(stderr, "SSL_CTX_new failed \n");
+            ERR_print_errors_fp(stderr);
+            goto label_error;
+    }
+
 
  /* We'd normally set some stuff like the verify paths and
   * mode here because as things stand this will connect to
@@ -63,81 +76,105 @@ BIO *sbio;
 
     sbio = BIO_new_ssl_connect(ctx);
     if (!sbio) {
-        // failed
-        fprintf(stderr, "BIO_new_ssl_connect faild: %s \n", url);
-        return EXIT_FAILURE;
+        fprintf(stderr, "BIO_new_ssl_connect failed \n");
+        ERR_print_errors_fp(stderr);
+        goto label_error;
     }
 
-    BIO_get_ssl(sbio, &ssl);
+    long ret1 = BIO_get_ssl(sbio, &ssl);
+
+     if(ret1 != 1) {
+        fprintf(stderr, "BIO_get_ssl failed \n");
+        ERR_print_errors_fp(stderr);
+        goto label_error;
+    }
+
      if(!ssl) {
-        fprintf(stderr, "Can't locate SSL pointer\n");
-        return EXIT_FAILURE;
+        fprintf(stderr, "BIO_get_ssl failed \n");
+        ERR_print_errors_fp(stderr);
+        goto label_error;
     }
 
  /* Don't want any retries */
-    SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
+    long ret2 = SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
+    if( ret2 != SSL_MODE_AUTO_RETRY ){
+            fprintf(stderr, "SSL_set_mode failed \n");
+            ERR_print_errors_fp(stderr);
+            goto label_error;
+    }
 
  /* We might want to do other things with ssl here */
 
-    BIO_set_conn_hostname(sbio, url);
-
-    if(BIO_do_connect(sbio) <= 0) {
-            fprintf(stderr, "Error connecting to server\n");
+    long ret3 = BIO_set_conn_hostname(sbio, url);
+    if(ret3 != 1){            
+            fprintf(stderr, "BIO_set_conn_hostname failed \n");
             ERR_print_errors_fp(stderr);
-            return EXIT_FAILURE;
+            goto label_error;
     }
 
-    if(BIO_do_handshake(sbio) <= 0) {
-        fprintf(stderr, "Error establishing SSL connection\n");
+    int ret4 = BIO_do_connect(sbio);
+    if(ret4 != 1) {
+            fprintf(stderr, "BIO_do_connect failed \n");
+            ERR_print_errors_fp(stderr);
+            goto label_error;
+    }
+
+    long ret5 = BIO_do_handshake(sbio);
+    if(ret5 != 1) {
+        fprintf(stderr, "BIO_do_handshake failed \n");
         ERR_print_errors_fp(stderr);
-        return EXIT_FAILURE;
+        goto label_error;
     }
 
 
 // create GET request 
-    const size_t BUFSIZE = 100;
-    char buf[100];
     char request[500];
 
-    strcpy(request, "GET / HTTP/1.1\r\n");
-
-    strcat(request, "Accept: */* \r\n");
-
-    snprintf(buf, BUFSIZE, "Host: %s\r\n", (char *)host ); 
-    strcat(request, buf); 
-
-   strcat(request, "Connection: close\r\n\r\n"); 
+    build_http_root_path_request( (char *)host, (char *)request);
 
     fprintf(stderr, "%s \n", request);
 
 
-// calculate request length
-  int request_len = strlen(request);
+// send request
+    bool ret6 = send_bio( sbio, (char *)request );
+    if(!ret6){
+        fprintf(stderr, "send_bio failed \n");
+        ERR_print_errors_fp(stderr);
+        goto label_error;
+    }
 
-
-// write request
-  int ret1 = BIO_write(sbio, request, request_len); 
-    fprintf(stderr, "BIO_write: %d \n", ret1);
-
-
-    const size_t RESPONSE_SIZE = 1024;
-    char response[RESPONSE_SIZE ];
-    int read_len = RESPONSE_SIZE -1;
-    int len;
-
-
-// resd response
- while((len = BIO_read(sbio, response, read_len)) > 0)
-{
-        // print response
-        printf("%s \n", (char *)response); 
-
-} // while 
+// recv response
+    bool ret7 = print_recv_bio( sbio );
+    if(!ret7){
+        fprintf(stderr, "print_recv_bio failed \n");
+        ERR_print_errors_fp(stderr);
+        goto label_error;
+    }
 
 
 // close and release BIO
-    BIO_free_all(sbio);
+    if(sbio){
+        BIO_free_all(sbio);
+    }
 
+    ERR_free_strings();
+
+   fprintf(stderr, "sucessful \n");
 
     return EXIT_SUCCESS;
+
+
+//  --- error ---
+label_error:
+
+    if(sbio){
+        BIO_free_all(sbio);
+    }
+
+	ERR_free_strings();
+
+	fprintf(stderr, "failed \n");
+
+	return EXIT_FAILURE;
+
 }

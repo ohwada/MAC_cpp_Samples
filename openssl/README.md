@@ -17,6 +17,12 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup <br/>
 ### sample code
 - https_client.c <br/>
 get web page from HTTP server with HTTPS
+- https_hostname_validation.c <br/>
+verify host name of server certificate <br/>
+- get_server_cert.c <br/>
+obtain server SSL certificate <br/>
+- show_cert_file.cpp <br/>
+ show SSL certificate info from file <br/>
 - version.c <br/>
 display version <br/>
 

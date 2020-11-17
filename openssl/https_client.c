@@ -4,22 +4,16 @@
  */
 
 // get web page from HTTP server with HTTPS
-// reference : https://blog.sarabande.jp/post/82068392478
+// reference : http://x68000.q-e-d.net/~68user/net/ssl-1.html
+
+//  gcc https_client.c `pkg-config --cflags --libs openssl` 
 
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-#include <netdb.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-
-#include <openssl/ssl.h>
-#include <openssl/err.h>
-#include <openssl/opensslv.h>
+#include "ssl_func.h"
+#include "http_socket.h"
+#include "http_build.h"
 
 
 /**
@@ -27,11 +21,6 @@
  */
 int main(int argc, char **argv)
 {
-
-// param
-    const char *SERVIVCE = "https";
-    const int   PORT = 443;
-    const char *PATH = "/";
 
     char* host = "example.com";
 
@@ -41,88 +30,139 @@ int main(int argc, char **argv)
         fprintf(stderr, "Usage: %s  [host] \n",  argv[0] );
     }
 
+    int socketfd;
 
-    int mysocket;
-    struct sockaddr_in server;
-    struct addrinfo hints, *res;
-    struct in_addr addr;
-
-    SSL *ssl;
     SSL_CTX *ctx;
+    SSL *ssl;
+    ctx = NULL;
+    ssl = NULL;
 
-    // get IP address from host name
-    memset(&hints, 0, sizeof(hints));
-    hints.ai_family   = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
+// getaddrinfo
+    struct addrinfo *info;
+    char error[100];
 
-    int err = 0;
-    if ((err = getaddrinfo(host, SERVIVCE, &hints, &res)) != 0) {
-        fprintf(stderr, "Fail to resolve ip address - %d\n", err);
+ bool ret1 = get_addrinfo( (char *)host, (char *)SERVICE_HTTPS,  &info, (char *)error );
+
+   if ( ret1) {
+        print_addrinfo( info );
+    } else {
+        fprintf(stderr, "getaddrinfo: %s \n", error );
         return EXIT_FAILURE;
     }
 
 
-// print IP address
-    addr.s_addr = ((struct sockaddr_in *)(res->ai_addr))->sin_addr.s_addr;
-    fprintf(stderr,"ip address : %s \n", inet_ntoa(addr));
+// print IP addinfos
+    char ipaddr[100];
 
-    if ((mysocket = socket(res->ai_family, res->ai_socktype, res->ai_protocol)) < 0) {
-        fprintf(stderr, "Fail to create a socket.\n");
+    get_ipaddr_from_addrinfo(info, (char *)ipaddr);
+
+    fprintf(stderr, "ipaddr: %s \n", ipaddr);
+
+
+// open socket
+    bool ret2 = open_socket( info, &socketfd, (char *)error );
+
+    if(ret2){
+        fprintf(stderr, "open_socket: %d \n", socketfd);
+    } else {
+        fprintf(stderr, "open_socket: %s \n", error);
         return EXIT_FAILURE;
     }
 
-    if (connect(mysocket, res->ai_addr, res->ai_addrlen) != 0) {
-        fprintf(stderr, "Connection error.\n");
-        return EXIT_FAILURE;
+// connect socket
+    bool ret3 = connect_socket( socketfd, info, (char *)error );
+
+    if(ret3){
+        fprintf(stderr, "connect_socket: %d \n", socketfd);
+    } else {
+        fprintf(stderr, "connect_socket: %s \n", error);
+        goto  label_error;
     }
 
+// SSL connect
     SSL_load_error_strings();
+
     SSL_library_init();
 
-    ctx = SSL_CTX_new(SSLv23_client_method());
-    ssl = SSL_new(ctx);
-    err = SSL_set_fd(ssl, mysocket);
-    SSL_connect(ssl);
+    ctx = SSL_CTX_new( SSLv23_client_method() );
 
-    fprintf(stderr, "Conntect to %s\n", host);
+    if(!ctx){
+        ERR_print_errors_fp(stderr);
+        goto  label_error;
+    }
+
+    ssl = SSL_new(ctx);
+
+    if(!ssl){
+        ERR_print_errors_fp(stderr);
+        goto  label_error;
+    }
+
+    bool ret4 = connect_ssl(ssl, socketfd);
+
+   if(ret4){
+       fprintf(stderr, "connect_ssl: %s \n", host);
+    } else {
+        goto  label_error;
+    }
 
 
 // create GET request 
-    const size_t BUFSIZE = 100;
-    char buf[100];
     char request[500];
 
-  snprintf(buf, BUFSIZE, "GET %s HTTP/1.1\r\n", PATH);
-  strcpy(request, buf);
+    build_http_root_path_request( (char *)host, (char *)request);
 
-  strcat(request, "Accept: */* \r\n");
+    fprintf(stderr, "%s \n", (char *)request );
 
-  snprintf(buf, BUFSIZE, "Host: %s\r\n", (char *)host ); 
-  strcat(request, buf); 
+// send request
+    bool ret5 = send_ssl(ssl, (char *)request );
 
-   strcat(request, "Connection: close\r\n\r\n"); 
+   if(!ret5){
+        goto  label_error;
+    }
 
-    fprintf(stderr, "%s \n", request);
+// recieve response
+    bool ret6 = print_recv_ssl(ssl);
 
-    SSL_write(ssl, request, strlen(request));
+   if(!ret6){
+        goto  label_error;
+    }
 
-    const int RESPONSE_SIZE = 256;
-    char response[RESPONSE_SIZE];
-    int read_size;
-
-    do {
-        read_size = SSL_read(ssl, response, RESPONSE_SIZE);
-        printf("%s", response);
-    } while(read_size > 0);
-
+// close SSL
     SSL_shutdown(ssl);
     SSL_free(ssl);
     SSL_CTX_free(ctx);
     ERR_free_strings();
 
-    close(mysocket);
+    close_socket(socketfd);
+
+   fprintf(stderr, "sucessful \n");
 
     return EXIT_SUCCESS;
+
+
+//  --- error ---
+label_error:
+
+	if ( ssl) {
+        SSL_shutdown(ssl);
+		SSL_free(ssl); 
+	}
+
+	if (  ctx ) {
+		SSL_CTX_free(ctx);
+	}
+
+	if (socketfd) {
+		close_socket(socketfd);
+	}
+
+	ERR_free_strings();
+
+	fprintf(stderr, "failed \n");
+
+	return EXIT_FAILURE;
+
 }
 
 
