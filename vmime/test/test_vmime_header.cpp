@@ -3,12 +3,15 @@
  * 2020-07-01 K.OHWADA
  */
 
-// test for decode_header()
-// g++ pop3/test_vmime_header.cpp -std=c++11 `pkg-config --cflags --libs vmime`
+// test for vmime_header.hpp.hpp and decode_header()
+
+// cd /Users/ohwada/C++/vmime/test
+// g++ test_vmime_header.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
 #include <iostream>
 #include <string>
-#include "vmime_header.hpp"
+
+#include "../pop3/vmime_header.hpp"
 
 using namespace std;
 
@@ -44,7 +47,7 @@ int main(void)
     cout << "utf8: " << result_utf8 << endl;
     cout << "iso2022jp: " << result_iso2022jp << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

@@ -18,14 +18,20 @@ https://www.vmime.org/ <br/>
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/vmime/setup <br/>
 
-### smtp
+### sample code
+
+#### smtp
 send mail to SMTP server <br/>
 
-### pop3 
+#### pop3 
 recieve mail from POP3 (or MAP) server <br/>
 
-### xoauth
+#### xoauth
 send mail to Gmail SMTP server with xoauth2 <br/>
+
+#### test
+test for utility file and function <br/>
+
 
 ### Reference <br/>
 - https://github.com/kisli/vmime

@@ -1,14 +1,15 @@
  /**
- * mail sample
+ * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-// test for parseAccessTokenJson
-// g++ xoauth/test_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// test for auth_json.hpp and parseAccessTokenJson
+
+// g++ test_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "auth_json.hpp"
-#include "file_util.hpp"
+#include "../xoauth/auth_json.hpp"
+#include "../xoauth/file_util.hpp"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string access_file = "access_token.json";
+    string access_file = "data/sample_access_token.json";
 
     if(argc == 2){
         access_file = argv[1];
@@ -49,10 +50,10 @@ int main(int argc, char* argv[])
         cout << "parseAccessTokenJson error: " <<  error << endl;
     }
 
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 
-// access file: assets/sample_access_token.json
+// access file: data/sample_access_token.json
 // access_token: dummy access token
 

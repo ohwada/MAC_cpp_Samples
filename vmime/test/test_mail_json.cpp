@@ -1,13 +1,14 @@
 /**
- * mail sample
+ * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-// test for getGmailParam
-// g++ smtp/test_mail_json.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// test for mail_json.hpp and getGmailParam()
+
+// g++ test_mail_json.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "mail_json.hpp"
+#include "../pop3/mail_json.hpp"
 
 using namespace std;
 
@@ -30,16 +31,14 @@ int main(void)
     MailParam  p3 = getUbuntuMailParam();
     printMailParam( p3 );
 
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 
-// UbuntuMailParam
-// smtp_url: smtp://ubuntu:25
-// smtp_server: ubuntu
-// smtp_port: 25
-// user: taro
+// smtp_url: smtp://smtp.gmail.com:587
+// pop_url: pop3s://pop.gmail.com:995
+// imap_url: imaps://imap.gmail.com:993
+// user: user@gmail.com
 // passwd: 123456789
-// to: taro@ubuntu
-// from: hoge@example.org
-
+// to: user@gmail.com
+// from: user@gmail.com

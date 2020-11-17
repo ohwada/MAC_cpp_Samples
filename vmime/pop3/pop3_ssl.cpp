@@ -11,7 +11,7 @@
 #include <vector>
 #include "pop3.hpp"
 #include "mail_json.hpp"
-#include "certificateVerifier_nubntu.hpp"
+#include "certificateVerifier_ubuntu.hpp"
 
 
 using namespace std;

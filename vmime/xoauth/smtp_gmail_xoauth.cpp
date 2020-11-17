@@ -19,7 +19,7 @@
 #include <string>
 #include "vmime/security/sasl/XOAuth2SASLMechanism.hpp"
 #include "vmime/security/sasl/XOAuth2SASLAuthenticator.hpp"
-#include "certificateVerifier.hpp"
+#include "certificateVerifier_gmail.hpp"
 #include "access_token.hpp"
 #include "smtp.hpp"
 

@@ -21,12 +21,6 @@ send mail with ISO2022JP encode to SMTP server <br/>
 send mail to Gmail SMTP server <br/>
 - smtp_ocn.cpp <br/>
 send mail to OCN SMTP server <br/>
-- test_mail_json.cpp <br/>
-test for getGmailParam <br/> <br/>
-- test_file_time.cpp <br/>
-test for getTimestampFileName <br/>
-- test_vmime_charset.cpp <br/>
-test for utf8_to_iso2022jp() <br/>
 
 
 build code <br/>

@@ -9,18 +9,6 @@ send mail to Gmail SMTP server with xoauth2 <br/>
 - smtp-gmail-xoauth.cpp <br/>
 send mail to Gmail SMTP server with xoauth2 <br/>
 
-- test_readClientJsonFile.cpp <br/>
-est for readClientJsonFile <br/>
-- test_readRefreshTokenJsonFile.cpp <br/>
-test for readRefreshTokenJsonFile <br/>
-- test_parseAccessTokenJson.cpp <br/>
-test for parseAccessTokenJson <br/>
-- test_http_post_to_file.c <br/>
-post to postman echo server,  save response to local file <br/>
-- test_http_post_to_memory.c <br/>
-post to postman echo server,  copy response to memory  <br/>
-
-
 build code <br/>
 % g++ xoauth/smtp_gmail_xoauth.cpp -std=c++11 `pkg-config --cflags --libs vmime_json` `pkg-config --cflags --libs curlpp` -o gmail_xouath <br/>  
 

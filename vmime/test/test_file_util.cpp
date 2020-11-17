@@ -3,13 +3,13 @@
  * 2020-07-01 K.OHWADA
  */
 
-// test for getTimestampFileName
+// test for file_util.hpp and getTimestampFileName
+
+// g++ test_file_util.cpp -std=c++11
 
 #include <iostream>
 #include <string>
-#include "file_time.hpp"
-
-#include <cstdlib>
+#include "../pop3/file_util.hpp"
 
 using namespace std;
 
@@ -29,8 +29,8 @@ int main(void)
 
     cout << "file: " << file << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
-// hoge_2020_10_3_11_59_22.txt
+// hoge_2020103115922.txt

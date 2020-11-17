@@ -1,13 +1,14 @@
  /**
- * mail sample
+ * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-// test for readRefreshTokenJsonFile
-// g++ xoauth/test_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// test for auth_json.hpp and readRefreshTokenJsonFile
+
+// g++ test_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "auth_json.hpp"
+#include "../xoauth/auth_json.hpp"
 
 
 using namespace std;
@@ -20,7 +21,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string refresh_file = "refresh_token_mail.json";
+    string refresh_file = "data/sample_refresh_token.json";
 
     if(argc == 2){
         refresh_file = argv[1];
@@ -41,10 +42,10 @@ int main(int argc, char* argv[])
         cout << " readRefreshTokenJsonFile error: " << error << endl;
     }
 
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 
-// refresh file: assets/sample_refresh_token.json
+// refresh file: data/sample_refresh_token.json
 // refresh_token: dummy refresh token
 

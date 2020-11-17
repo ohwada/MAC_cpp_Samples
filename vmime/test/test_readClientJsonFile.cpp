@@ -1,14 +1,15 @@
  /**
- * mail sample
+ * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-// test for readClientJsonFile
-// g++ xoauth/test_readClientJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// test for auth_json.hpp and readClientJsonFile
+
+// g++ test_readClientJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "auth_json.hpp"
-#include "mail_directory.h"
+#include "../xoauth/auth_json.hpp"
+#include "../xoauth/mail_directory.h"
 
 using namespace std;
 
@@ -42,11 +43,11 @@ int main(int argc, char* argv[])
         cout << " readClientJsonFile error: " << error << endl;
     }
 
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 
-// client file: assets/sample_client_secret.json
+// client file: data/sample_client_credentials.json
 // client_id: dummy client id
 // client_secret: dummy client secret
 

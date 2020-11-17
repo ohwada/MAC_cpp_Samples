@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "smtp.hpp"
-#include "certificateVerifier_nubntu.hpp"
+#include "certificateVerifier_ubuntu.hpp"
 
 using namespace std;
 

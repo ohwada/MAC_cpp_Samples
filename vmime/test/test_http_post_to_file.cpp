@@ -1,16 +1,16 @@
 /**
- * libcurl sample
+ * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-
+// test for curl_http_post_write.hpp and http_post_to_file()
 // post to postman echo server,  save response to local file
-// test for http_post_to_file
 
+// g++ test_http_post_to_file.cpp -std=c++11 `pkg-config --cflags --libs curlpp`
 
 #include <iostream>
 #include <string>
-#include "curl_http_post_write.hpp"
+#include "../xoauth/curl_http_post_write.hpp"
 
 
 using namespace std;
@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
     }	
 
     cout << "saved to: " << filepath << endl;
+
 	return EXIT_SUCCESS;
 }
 

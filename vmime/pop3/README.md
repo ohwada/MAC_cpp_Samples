@@ -13,8 +13,6 @@ user input username and password interactive
 recive mail from Gmail POP3 (or IMAP) server <br/>
 - pop3_ocn.cpp <br/>
 recive mail from OCN POP3 (or IMAP) server <br/>
-- test_vmime_header.cpp <br/>
-test for decode_header() <br/>
 
 
 build code <br/>

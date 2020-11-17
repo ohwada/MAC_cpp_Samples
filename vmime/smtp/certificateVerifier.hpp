@@ -1,12 +1,20 @@
+#pragma once
 /**
  * vmime sample
  * 2020-07-01 K.OHWADA
  */
 
-// customCertificateVerifier
+// common CertificateVerifier
 // save Certificate to file, if not verify
 
 // original : https://github.com/kisli/vmime/blob/master/examples/example6_certificateVerifier.hpp
+
+
+// reference : 
+// A Developers Guide To VMime
+// Certificate verification .
+// https://www.vmime.org/public/documentation/book/vmime-book.pdf
+
 
 #if VMIME_HAVE_TLS_SUPPORT
 
@@ -16,43 +24,77 @@
 
 
 // Certificate verifier (TLS/SSL)
-class customCertificateVerifier : public vmime::security::cert::defaultCertificateVerifier {
+class commonCertificateVerifier : public vmime::security::cert::defaultCertificateVerifier {
 
 public:
-// constrctor
-	customCertificateVerifier() 
+
+/**
+ * constractor
+ */
+	commonCertificateVerifier(void) 
+{
+	// dummy
+}
+
+
+/**
+ * loadRootCAs
+ */
+void loadRootCAs(std::string dir)
 {
 
-// get cert file list
-	std::vector<std::string> vec;
-	std::string error;
-	
-	bool ret = getFileList(".", "pem", vec, error);
-	if(!ret){
-		std::cout << error << std::endl;
-		return;
-	}
+	std::vector< vmime::shared_ptr < vmime::security::cert::X509Certificate > > certs;
 
-// inport cert files
-	for(auto file: vec){
-		std::cout << "import: " << file << std::endl;
-		m_trustedCerts.push_back( loadX509CertificateFromFile( file ));
+	std::string error;
+
+	bool ret = loadX509CertFromDir( dir, certs, error );
+
+	if(ret){ 
+			setX509RootCAs( certs );
+	} else {
+			std::cerr << "loadX509CertFromDir; " << error << std::endl;
 	}
 
 }
 
-// verify
-	void verify(
+
+/**
+ * loadTrustedCerts
+ */
+void loadTrustedCerts(std::string dir)
+{
+
+	std::vector< vmime::shared_ptr < vmime::security::cert::X509Certificate > > certs;
+
+	std::string error;
+
+	bool ret = loadX509CertFromDir(dir, certs, error );
+
+	if(ret){ 
+				setX509TrustedCerts( certs );
+	} else {
+				std::cerr << "loadX509CertFromDir; " << error << std::endl;
+	}
+
+}
+
+
+/**
+ * verifyCommon
+ */
+	void verifyCommon(
 		const vmime::shared_ptr <vmime::security::cert::certificateChain>& chain,
-		const vmime::string& hostname
-	) {
+		const vmime::string& hostname,
+		bool is_save
+	) 
+{
+
 
 	bool is_exception = false;
+
 	std::string msg;
 
 		try {
-
-			setX509TrustedCerts(m_trustedCerts);
 
 			defaultCertificateVerifier::verify(chain, hostname);
 
@@ -81,30 +123,34 @@ public:
 
 		if (cert->getType() == "X.509") {
 
+// X509 cert
 				vmime:: shared_ptr< vmime::security::cert::X509Certificate > x509cert = vmime::dynamicCast <vmime::security::cert::X509Certificate>(cert);
 
-		// save
-				std::string file;
-				getTimestampFileName( "cert", "pem", file);
-				saveX509CertificateFile( file, x509cert );
-				std::cout << "saved to: " << file << std::endl;
+			if(is_save) {
 
-		// always trust
-				m_trustedCerts.push_back( x509cert  );
-				setX509TrustedCerts(m_trustedCerts);
-				defaultCertificateVerifier::verify(chain, hostname);
-		}
+					// save cert file
+					std::string file;
+					std::string error;
+					getTimestampFileName( "cert", "pem", file);
+
+					bool ret = saveX509CertFile( file, x509cert, error );
+					if(ret){
+						std::cout << "saved to: " << file << std::endl;
+					} else {
+						std::cout << error << " : "<< file << std::endl;
+					}
+			}
+
+
+	} // if Type "X.509"
+
 
 	return;
-} // verify
+}
 
-private:
-	static std::vector <vmime::shared_ptr <vmime::security::cert::X509Certificate> > m_trustedCerts;
 
 };
-
-std::vector <vmime::shared_ptr <vmime::security::cert::X509Certificate> >
-	customCertificateVerifier::m_trustedCerts;
+// class commonCertificateVerifier end
 
 
 #endif // VMIME_HAVE_TLS_SUPPORT

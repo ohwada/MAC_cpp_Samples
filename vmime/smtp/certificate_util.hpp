@@ -4,7 +4,7 @@
  * 2020-07-01 K.OHWADA
  */
 
- // loadX509CertificateFromFile
+ // loadX509CertFromFile
 
 
 // C  library
@@ -23,46 +23,87 @@
 #include <ctime>
 #include "vmime/vmime.hpp"
 #include "file_util.hpp"
+#include "mail_directory.h"
 
 
 // prototype
-vmime::shared_ptr <vmime::security::cert::X509Certificate> loadX509CertificateFromFile(const std::string filepath);
-void saveX509CertificateFile(  std::string filepath, vmime:: shared_ptr< vmime::security::cert::X509Certificate > x509cert );
+bool loadX509CertFromDir(std::string dir, std::vector< vmime::shared_ptr < vmime::security::cert::X509Certificate > > &certs );
+vmime::shared_ptr <vmime::security::cert::X509Certificate> loadX509CertFromFile(const std::string filepath);
+bool saveX509CertFile(  std::string filepath, vmime:: shared_ptr< vmime::security::cert::X509Certificate > x509cert, std::string &error );
 
 
 /** 
- *  loadX509CertificateFromFile
+ *  oadX509CertFromDir
   */ 
-vmime::shared_ptr <vmime::security::cert::X509Certificate> loadX509CertificateFromFile(const std::string filepath)
+bool loadX509CertFromDir(std::string dir, std::vector< vmime::shared_ptr < vmime::security::cert::X509Certificate > > &certs, std::string &error ) 
 {
-	std::ifstream ifs;
-	ifs.open(filepath.c_str(), std::ios::in | std::ios::binary);
-	if (!ifs) {
-		std::cerr << "open faild: " << filepath << std::endl;
+
+	std::vector<std::string> vec;
+
+	bool ret = getFileList(dir, "pem", vec, error);
+	if(!ret){
+        std::cerr << "getFileList: " << error << std::endl;
+		return false;
 	}
 
-	vmime::utility::inputStreamAdapter in(ifs);
-	vmime::shared_ptr <vmime::security::cert::X509Certificate> cert ;
+	for(auto file: vec){
+		std::string fullpath = dir + std::string("/") + file;
+		std::cout << "load: " << fullpath << std::endl;
+		certs.push_back( loadX509CertFromFile( fullpath ) );
+	}
+
+	return true;
+}
+
+
+/** 
+ *  loadX509CertFromFile
+  */ 
+vmime::shared_ptr <vmime::security::cert::X509Certificate>
+ loadX509CertFromFile( const std::string filepath )
+{
+	std::ifstream ifs;
+
+	ifs.open(filepath, std::ios::in | std::ios::binary);
+
+	if (!ifs) {
+        std::cerr << "can not open: " << filepath << std::endl;
+		return NULL;
+	}
+
+    vmime::utility::inputStreamAdapter in(ifs);
+
+	vmime::shared_ptr <vmime::security::cert::X509Certificate>  cert ;
+
 	cert = vmime::security::cert::X509Certificate::import(in); 
+
+    ifs.close();
 
 	return cert;
 }
 
 
 /** 
- *  saveX509CertificateFile
+ *  saveX509CertFile
   */ 
-void saveX509CertificateFile(  std::string filepath, vmime:: shared_ptr< vmime::security::cert::X509Certificate > x509cert )
+bool saveX509CertFile(  std::string filepath, vmime:: shared_ptr< vmime::security::cert::X509Certificate > cert, std::string &error )
 {
 
 	std::ofstream ofs;
-	ofs.open(filepath.c_str(), std::ios::out | std::ios::binary);
+
+	ofs.open( filepath, std::ios::out | std::ios::binary );
+
 	if (!ofs) {
-		std::cerr << "open faild: " << filepath << std::endl;
+        error =  std::string("can not open: ");
+		return false;
 	}
 
 	vmime::utility::outputStreamAdapter out(ofs);
-	x509cert->write( out, vmime::security::cert::X509Certificate::FORMAT_PEM );
 
+	cert->write( out, vmime::security::cert::X509Certificate::FORMAT_PEM );
+
+    ofs.close();
+
+    return true;
 }
 
