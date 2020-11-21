@@ -36,9 +36,16 @@ but You can not use it <br/>
 > ld: library not found for -lssl <br/>
 
 % gcc https_client.c  -I/Library/Frameworks/GStreamer.framework/Headers   -lm /usr/lib/libssl.dylib <br/>
-> ld: cannot link directly with dylib/framework, your binary is not an allowed client of /usr/lib/libssl.dylib for architecture x86_64' <br/>
+> ld: cannot link directly with dylib/framework, your binary is not an allowed client of /usr/lib/libssl.dylib for architecture x86_64 <br/>
 
-reference :  <br/>
+
+### setup for HTTPS Server
+generate HTTPS Server  Cetification files <br/>
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup/gencert.md <br/>
+
+
+Reference :  <br/>
 your binary is not an allowed client of /usr/lib/libcrypto.dylib <br/>
 https://stackoverflow.com/questions/58446253/xcode-11-ld-error-your-binary-is-not-an-allowed-client-of-usr-lib-libcrypto-dy <br/>
 

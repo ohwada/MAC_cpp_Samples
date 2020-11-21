@@ -3,10 +3,13 @@
  * 2020-07-01 K.OHWADA
  */
 
-// get web page from HTTP server with HTTPS
+// HTTPS Client
+
+//  gcc https_client.c `pkg-config --cflags --libs openssl` -o client
+
 // reference : http://x68000.q-e-d.net/~68user/net/ssl-1.html
 
-//  gcc https_client.c `pkg-config --cflags --libs openssl` 
+
 
 
 #include <stdio.h>
@@ -23,11 +26,15 @@ int main(int argc, char **argv)
 {
 
     char* host = "example.com";
+    int port = 443;
 
-    if(argc == 2) {
+    if(argc == 3) {
+      	host = argv[1];
+      	port = atoi( argv[2] );
+    } else if(argc == 2) {
       	host = argv[1];
     } else {
-        fprintf(stderr, "Usage: %s  [host] \n",  argv[0] );
+        fprintf(stderr, "Usage: %s  [host] [port] \n",  argv[0] );
     }
 
     int socketfd;
@@ -70,14 +77,24 @@ int main(int argc, char **argv)
     }
 
 // connect socket
-    bool ret3 = connect_socket( socketfd, info, (char *)error );
+    //bool ret3 = connect_socket( socketfd, info, (char *)error );
 
-    if(ret3){
-        fprintf(stderr, "connect_socket: %d \n", socketfd);
+    //if(ret3){
+        //fprintf(stderr, "connect_socket: %d \n", socketfd);
+    //} else {
+        //fprintf(stderr, "connect_socket: %s \n", error);
+        //goto  label_error;
+    //}
+
+bool ret4 = connect_host( socketfd, ipaddr, port, (char *)error );
+
+    if(ret4){
+        fprintf(stderr, "connect_host: %s : %d \n", host, port);
     } else {
-        fprintf(stderr, "connect_socket: %s \n", error);
+        fprintf(stderr, "connect_host: %s \n", error);
         goto  label_error;
     }
+
 
 // SSL connect
     SSL_load_error_strings();
@@ -98,9 +115,9 @@ int main(int argc, char **argv)
         goto  label_error;
     }
 
-    bool ret4 = connect_ssl(ssl, socketfd);
+    bool ret5 = connect_ssl(ssl, socketfd);
 
-   if(ret4){
+   if(ret5){
        fprintf(stderr, "connect_ssl: %s \n", host);
     } else {
         goto  label_error;
@@ -115,16 +132,16 @@ int main(int argc, char **argv)
     fprintf(stderr, "%s \n", (char *)request );
 
 // send request
-    bool ret5 = send_ssl(ssl, (char *)request );
+    bool ret6 = send_ssl(ssl, (char *)request );
 
-   if(!ret5){
+   if(!ret6){
         goto  label_error;
     }
 
 // recieve response
-    bool ret6 = print_recv_ssl(ssl);
+    bool ret7 = print_recv_ssl(ssl);
 
-   if(!ret6){
+   if(!ret7){
         goto  label_error;
     }
 
@@ -167,6 +184,6 @@ label_error:
 
 
 // Conntect to "example.com
-
-
+// HTTP/1.1 200 OK
+// <title>Example Domain</title>
 
