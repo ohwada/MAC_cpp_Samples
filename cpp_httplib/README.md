@@ -8,7 +8,7 @@ A C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
 https://github.com/yhirose/cpp-httplib <br/>
 
 
-###  install cpp_httplib
+### setup for cpp_httplib
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/blob/master/cpp_httplib/setup.md <br/>
 

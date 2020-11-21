@@ -12,7 +12,7 @@ https://github.com/yhirose/cpp-httplib/blob/master/httplib.h <br/>
 
 #### Library required <br/>
 - openssl <br/>
-https://formulae.brew.sh/formula/openssl@1.1 <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl
 
 #### Server Cetification file
 generate private key file and X509 cetification file <br/>
