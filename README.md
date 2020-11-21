@@ -22,9 +22,6 @@ display progress in stdout <br/>
 C++ Class Sample <br/>
 display exam score of each students <br/>
 
-### network
-tcp server and client <br/>
-
 ### signal
 catch and handle POSIX signals <br/>
 
@@ -72,15 +69,6 @@ run two threads <br/>
 
 ### base64
 base64 encoder decoder <br/>
-
-### openssl
-toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
-
-### gnutls
-library implementing the SSL, TLS and DTLS protocols <br/>
-
-### libmicrohttpd : <br/>
-C library to make it easy to run an HTTP server <br/>
 
 ### sqlite
 a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
@@ -153,16 +141,35 @@ Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator <br/>
 ### glm
 header only C++ mathematics library <br/>
 
+## http
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
+sample code for HTTP Client and Server <br/>
 
-## mail
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
-sample code for mail <br/>
+### network
+tcp server and client <br/>
 
 ### libcurl
 the multiprotocol file transfer library <br/> 
 
 ### curlpp
 C++ wrapper for libcurl <br/>
+
+
+### openssl
+toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
+
+### gnutls
+library implementing the SSL, TLS and DTLS protocols <br/>
+
+### libmicrohttpd <br/>
+C library to make it easy to run an HTTP server <br/>
+
+### cpp-httplib <br/>
+A C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
+
+## mail
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
+sample code for mail <br/>
 
 ### libquickmail
 C library for sending e-mail <br/>
