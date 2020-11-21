@@ -3,7 +3,8 @@ examples - libmicrohttpd
 
 libmicrohttpd examples <br/>
 
-## example code
+### example code
+
 - minimal_example.c <br/>
 minimal example for how to use libmicrohttpd <br/>
 - minimal_example_comet.c <br/>
