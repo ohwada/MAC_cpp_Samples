@@ -9,8 +9,8 @@ https://github.com/yhirose/cpp-httplib <br/>
 
 
 ###  install cpp_httplib
-Just include "httplib.h" file in your code <br/>
-https://github.com/yhirose/cpp-httplib/blob/master/httplib.h <br/>
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/cpp_httplib/setup.md <br/>
 
 
 ## sample code
