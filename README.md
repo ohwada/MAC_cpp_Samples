@@ -155,6 +155,9 @@ sample code for mail <br/>
 ### libcurl
 the multiprotocol file transfer library <br/> 
 
+### curlpp
+C++ wrapper for libcurl <br/>
+
 ### libquickmail
 C library for sending e-mail <br/>
 

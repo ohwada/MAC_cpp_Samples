@@ -1,0 +1,13 @@
+# This is a comment
+prefix=/usr/local/Cellar/curlpp/0.8.1
+exec_prefix=/usr/local/Cellar/curlpp/0.8.1
+includedir=include
+
+Name: curlpp
+Description: cURLpp is a libcurl C++ wrapper
+Version:                            
+Libs: -Llib -lcurlpp  
+Cflags: -Iinclude 
+# libcurl is required as non-private because CurlHandle.inl uses curl_easy_setopt.
+Requires: libcurl
+ 

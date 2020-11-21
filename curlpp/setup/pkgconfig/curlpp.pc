@@ -1,0 +1,17 @@
+# 2020-07-01 K.OHWADA
+
+prefix=/usr/local/Cellar/curlpp/0.8.1
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: curlpp
+Description: cURLpp is a libcurl C++ wrapper
+Version: 0.8.1  
+Cflags: -I${includedir}
+# libcurl is required 
+# becuase CurlHandle.inl uses curl_easy_setopt.
+# pre-installed libcurl is required 
+# becuase built with pre-installed libcurl
+Libs: -L${libdir}  -lcurlpp -lcurl 
+ 
