@@ -1,0 +1,15 @@
+# X.509 Certificate options
+
+# DN options
+organization = "hoge inc"
+unit = "hoge dept"
+locality = "Yokohama"
+state = "Kanagawa"
+country = JP
+cn = "ssl hoge"
+expiration_days = 365
+
+# X.509 v3 extensions
+signing_key
+encryption_key
+tls_www_server

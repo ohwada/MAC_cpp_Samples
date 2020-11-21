@@ -74,7 +74,10 @@ run two threads <br/>
 base64 encoder decoder <br/>
 
 ### openssl
-get web page from Google with HTTPS  <br/>
+toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
+
+### gnutls
+library implementing the SSL, TLS and DTLS protocols <br/>
 
 ### sqlite
 a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
