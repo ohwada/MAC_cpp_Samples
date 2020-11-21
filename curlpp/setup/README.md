@@ -28,5 +28,5 @@ see version.cpp
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlpp/src/version.cpp <br/>
 
 ### Reference <br/>
-- https://abseil.io/ <br/>
+- https://github.com/jpbarrette/curlpp
 
