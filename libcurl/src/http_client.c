@@ -3,7 +3,8 @@
  * 2020-07-01 K.OHWADA
  */
 
-// very simple HTTP GET from example.com
+// very simple HTTP Client
+// Get from example.com
 // https://curl.haxx.se/libcurl/c/simple.html
 
 /***************************************************************************
@@ -37,8 +38,23 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 
-int main(void)
+
+/** 
+ * main
+ */
+int main(int argc, char *argv[])
 {
+
+    char *host = "example.com";
+
+   if(argc == 2) {
+      	host = argv[1];
+    } else {
+        fprintf(stderr, "Usage: %s  [host] \n",  argv[0] );
+    }
+
+    fprintf(stderr, "host: %s \n",  host );
+
 
     CURL *curl;
     CURLcode res;
@@ -46,7 +62,7 @@ int main(void)
 
   curl = curl_easy_init();
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "example.com");
+    curl_easy_setopt(curl, CURLOPT_URL, host);
     /* example.com is redirected, so we tell libcurl to follow redirection */
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
 
@@ -68,3 +84,6 @@ int main(void)
 
     return ret;
 }
+
+
+// <title>Example Domain</title>

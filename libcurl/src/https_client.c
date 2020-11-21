@@ -3,7 +3,9 @@
  * 2020-07-01 K.OHWADA
  */
 
-// get web page html from google.com
+// Simple HTTPS Client
+// Get web from example.com
+
 // original : https://curl.haxx.se/libcurl/c/https.html
 
 /***************************************************************************
@@ -34,16 +36,37 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <curl/curl.h>
 
 
 /**
  * main
  */
-int main(void)
+int main(int argc, char *argv[])
 {
 
-    const char URL[] = "https://www.google.com/";
+    char *host = "example.com";
+
+    bool is_verify = true;
+
+  if(argc == 3) {
+      	host = argv[1];
+      	is_verify = (bool)atoi(argv[2]);
+  } else if(argc == 2) {
+      	host = argv[1];
+    } else {
+        fprintf(stderr, "Usage: %s  [host] \n",  argv[0] );
+    }
+
+// add URI scheme "https"
+    const size_t BUFSIZE = 100;
+    char url[BUFSIZE];
+
+    snprintf(url, BUFSIZE, "https://%s", (char *)host );
+
+    fprintf(stderr, "host: %s \n",  host );
+    fprintf(stderr, "url: %s \n",  url );
 
     CURL *curl;
     CURLcode res;
@@ -51,46 +74,41 @@ int main(void)
   curl_global_init(CURL_GLOBAL_DEFAULT);
 
   curl = curl_easy_init();
+
+    int exit;
+
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL,  (char *)URL);
+    curl_easy_setopt(curl, CURLOPT_URL,  (char *)url);
 
-#ifdef SKIP_PEER_VERIFICATION
-    /*
-     * If you want to connect to a site who isn't using a certificate that is
-     * signed by one of the certs in the CA bundle you have, you can skip the
-     * verification of the server's certificate. This makes the connection
-     * A LOT LESS SECURE.
-     *
-     * If you have a CA cert for the server stored someplace else than in the
-     * default bundle, then the CURLOPT_CAPATH option might come handy for
-     * you.
-     */
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-#endif
-
-#ifdef SKIP_HOSTNAME_VERIFICATION
-    /*
-     * If the site you're connecting to uses a different host name that what
-     * they have mentioned in their server certificate's commonName (or
-     * subjectAltName) fields, libcurl will refuse to connect. You can skip
-     * this check, but this will make the connection less secure.
-     */
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-#endif
+        if (is_verify) {
+            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
+            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1L);
+        } else {
+            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+            curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
+        }
 
     /* Perform the request, res will get the return code */
     res = curl_easy_perform(curl);
     /* Check for errors */
-    if(res != CURLE_OK) {
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+    if(res == CURLE_OK) {
+        exit = EXIT_SUCCESS;
+    } else {
+        fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
+        exit = EXIT_FAILURE;
     }
 
     /* always cleanup */
     curl_easy_cleanup(curl);
-  }
+
+  } //   if(curl) 
 
   curl_global_cleanup();
 
-    return EXIT_SUCCESS;
+    return exit;
 }
+
+
+// <title>Example Domain</title>
+

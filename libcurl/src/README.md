@@ -6,12 +6,16 @@ get web page from http server <br/>
 
 
 ### sample codes
-- simpe.c <br/>
- very simple HTTP GET from example.com <br/>
-- https.c <br/>
-get web page html from google.com <br/>
-- http-post.c <br/>
- post to postman echo server <br/>
+- http_client.c <br/>
+ very simple HTTP Client <br/>
+Get from example.com <br/>
+- https_client.c <br/>
+Simple HTTPS Client <client>
+Get web from example.com
+
+- http_post.c <br/>
+// simple HTTP POST using the easy interface <br/>
+// post to postman-echo.com <br/>
 - http_to_file.c <br/>
 get HTTP page, save into a local file <br/>
 - http_to_memory.c <br/>
@@ -27,12 +31,14 @@ display curl version <br/>
 
 
 build code <br/>
-% gcc src/simple.c `pkg-config --cflags --libs libcurl` <br/>  
+% gcc src/http_client.c `pkg-config --cflags --libs libcurl` <br/>  
 
 run code <br/>
-% a.out > simple_result.html
+% a.out
 
-created "simple_result.html"
+display as below <br/>
+> \<title\>Example Domain\</title\> <br/>
+
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/

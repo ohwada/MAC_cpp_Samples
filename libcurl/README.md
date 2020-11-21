@@ -15,20 +15,22 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/setup <br/>
 
 
 ### sample codes
-get web page from http server <br/>
-- simpe.c <br/>
- very simple HTTP GET from example.com <br/>
-- https.c <br/>
-get web page html from google.com <br/>
+- http_client.c <br/>
+ very simple HTTP Client <br/>
+- https_client.c <br/>
+Simple HTTPS Client <client>
+- http_post.c <br/>
+simple HTTP Post <br/>
 
 
 build code <br/>
-% gcc src/simple.c `pkg-config --cflags --libs libcurl` <br/>  
+% gcc src/http_client.c `pkg-config --cflags --libs libcurl` <br/>  
 
 run code <br/>
-% a.out > simple_result.html
+Usage: ./a.out  [host] <br/>
 
-created "simple_result.html"
+display as below<br/>
+> \<title\> Example Domain \</title\>
 
 ### sample codes for mail
 - smtp-auth.c <br/>
