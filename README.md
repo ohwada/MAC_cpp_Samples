@@ -79,6 +79,9 @@ toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) 
 ### gnutls
 library implementing the SSL, TLS and DTLS protocols <br/>
 
+### libmicrohttpd : <br/>
+C library to make it easy to run an HTTP server <br/>
+
 ### sqlite
 a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
 
