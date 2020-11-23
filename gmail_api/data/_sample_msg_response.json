@@ -1,0 +1,163 @@
+{
+  "id": "dummy id",
+  "threadId": "dummy threadId",
+  "labelIds": [
+    "IMPORTANT",
+    "CATEGORY_PERSONAL",
+    "INBOX"
+  ],
+  "snippet": "this is sample snippet",
+  "payload": {
+    "partId": "",
+    "mimeType": "multipart/alternative",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Delivered-To",
+        "value": "user@gmail.com"
+      },
+      {
+        "name": "Received",
+        "value": "dummy Received"
+      },
+      {
+        "name": "X-Received",
+        "value": "dummy X-Received"
+      },
+      {
+        "name": "ARC-Seal",
+        "value": "dummy ARC-Seal"
+      },
+      {
+        "name": "ARC-Message-Signature",
+        "value": "dummy ARC-Message-Signature"
+      },
+      {
+        "name": "ARC-Authentication-Results",
+        "value": "dummy ARC-Authentication-Results"
+      },
+      {
+        "name": "Return-Path",
+        "value": "dummy Return-Path"
+      },
+      {
+        "name": "Received",
+        "value": "dummy Received"
+      },
+      {
+        "name": "Received-SPF",
+        "value": "dummy Received-SPF"
+      },
+      {
+        "name": "Authentication-Results",
+        "value": "dummy Authentication-Results"
+      },
+      {
+        "name": "DKIM-Signature",
+        "value": "dummy DKIM-Signature"
+      },
+      {
+        "name": "X-Google-DKIM-Signature",
+        "value": "dummy X-Google-DKIM-Signature"
+      },
+      {
+        "name": "X-Gm-Message-State",
+        "value": "dummy X-Gm-Message-State"
+      },
+      {
+        "name": "X-Google-Smtp-Source",
+        "value": "dummy X-Google-Smtp-Source"
+      },
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "X-Received",
+        "value": "dummy X-Received"
+      },
+      {
+        "name": "Date",
+        "value": "Mon, 12 Oct 2020 12:16:38 GMT"
+      },
+      {
+        "name": "X-Account-Notification-Type",
+        "value": "dummy X-Account-Notification-Type"
+      },
+      {
+        "name": "Feedback-ID",
+        "value": "dummy Feedback-ID"
+      },
+      {
+        "name": "X-Notifications",
+        "value": "dummy X-Notifications"
+      },
+      {
+        "name": "Message-ID",
+        "value": "dymmy Message-ID"
+      },
+      {
+        "name": "Subject",
+        "value": "sample subject"
+      },
+      {
+        "name": "From",
+        "value": "taro@example.com"
+      },
+      {
+        "name": "To",
+        "value": "user@gmail.com"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/alternative; boundary=\"0000000000003efd7305b1784598\""
+      }
+    ],
+    "body": {
+      "size": 0
+    },
+    "parts": [
+      {
+        "partId": "0",
+        "mimeType": "text/plain",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "text/plain; charset=\"UTF-8\"; format=flowed; delsp=yes"
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+          }
+        ],
+        "body": {
+          "size": 742,
+          "data": " dummy plane body data"
+        }
+      },
+      {
+        "partId": "1",
+        "mimeType": "text/html",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "text/html; charset=\"UTF-8\""
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "quoted-printable"
+          }
+        ],
+        "body": {
+          "size": 4532,
+          "data": "dummy html body" 
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 12122,
+  "historyId": "dummy historyId",
+  "internalDate": "dummy internalDate"
+}

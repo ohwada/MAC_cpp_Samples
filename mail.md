@@ -35,4 +35,10 @@ C++ wraper for libcurl smtp <br/>
 - suport UTF-8 encoding <br/>
 - support xoauth <br/>
 
+### gmail api 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/gmail_api <br/>
+Gmail API sample <br/>
+send and recieve mail with Gmail API <br/>
+- support file attachment <br/>
+- support UTF-8 encoding  <br/>
 

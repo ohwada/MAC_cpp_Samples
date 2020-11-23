@@ -1,0 +1,150 @@
+{
+  "id": "dummy id",
+  "threadId": "dummy threadId",
+  "labelIds": [
+    "SENT",
+    "INBOX"
+  ],
+  "snippet": "this is sample snippet",
+  "payload": {
+    "partId": "",
+    "mimeType": "text/plain",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Received",
+        "value": "dummy received"
+      },
+      {
+        "name": "Mime-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/plain; charset=us-ascii"
+      },
+      {
+        "name": "Content-Transfer-Encoding",
+        "value": "7bit"
+      },
+      {
+        "name": "Subject",
+        "value": "sample subject"
+      },
+      {
+        "name": "To",
+        "value": "user@gmail.com"
+      },
+      {
+        "name": "From",
+        "value": "taro@example.com"
+      },
+      {
+        "name": "Date",
+        "value": "Thu, 15 Oct 2020 03:00:51 +0000"
+      },
+      {
+        "name": "Message-Id",
+        "value": "dummy message id"
+      },
+      {
+        "name": "X-Mailer",
+        "value": "dummy mailer"
+      }
+    ],
+    "body": {
+      "size": 138,
+      "data": "VGhpcyBpcyBhIHRlc3QgZS1tYWlsLg0KVGhpcyBtYWlsIHdhcyBzZW50IHVzaW5nIEdtYWlsIEFQSQ0KVGhpcyBtYWlsIHdhcyBzZW50IHVzaW5nIGxpYmN1cmwNCmxpYmN1cmwvNy43Mi4wIFNlY3VyZVRyYW5zcG9ydCB6bGliLzEuMi4xMQ0K"
+    }
+  },
+  "sizeEstimate": 584,
+  "historyId": "15316",
+  "internalDate": "1602730851000"
+}
+MQ0K"
+    }
+  },
+  "sizeEstimate": 737,
+  "historyId": "15317",
+  "internalDate": "1602733986000"
+}
+": "15318",
+  "internalDate": "1602770174000"
+}
+mdCxIZWx2ZXRpY2EsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjogcmdiYSgwLDAsMCwwLjg3KTsgZm9udC1zaXplOiAxNHB4OyBsaW5lLWhlaWdodDogMjBweDsiPmlvdC5vaHdhZGFAZ21haWwuY29tPC9hPjwvdGQ-PC90cj48L3RhYmxlPiA8L2Rpdj48ZGl2IHN0eWxlPSJmb250LWZhbWlseTogUm9ib3RvLV{
+  "id": "dummy id",
+  "threadId": "dummy threadId",
+  "labelIds": [
+    "IMPORTANT",
+    "SENT",
+    "INBOX"
+  ],
+  "snippet": "this is is sample snippet",
+  "payload": {
+    "partId": "",
+    "mimeType": "text/plain",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Return-Path",
+        "value": "dummy return path"
+      },
+      {
+        "name": "Received",
+        "value": "dummy received"
+      },
+      {
+        "name": "Subject",
+        "value": "sample subject"
+      },
+      {
+        "name": "From",
+        "value": "taro@example.com"
+      },
+      {
+        "name": "To",
+        "value": "user@gmail.com"
+      },
+      {
+        "name": "Date",
+        "value": "Sun, 18 Oct 2020 22:19:15 +0900"
+      },
+      {
+        "name": "Mime-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/plain; charset=us-ascii"
+      },
+      {
+        "name": "Content-Transfer-Encoding",
+        "value": "7bit"
+      },
+      {
+        "name": "User-Agent",
+        "value": "dummy user agent"
+      },
+      {
+        "name": "Message-Id",
+        "value": "dummy message id"
+      }
+    ],
+    "body": {
+      "size": 65,
+      "data": "VGhpcyBpcyBpcyBhIHRlc3QgZS1tYWlsLg0KVGhpcyBtYWlsIHdhcyBzZW50IHVzaW5nIFZNaW1lIDAuOS4yDQo="
+    }
+  },
+  "sizeEstimate": 737,
+  "historyId": "15996",
+  "internalDate": "1603027155000"
+}
+mdCxIZWx2ZXRpY2EsQXJpYWwsc2Fucy1zZXJpZjtjb2xvcjoRleHQtYWxpZ246IGNlbnRlcjsiPjE2MDAgQW1waGl0aGVhd"
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 12715,
+  "historyId": "18721",
+  "internalDate": "1603092381000"
+}

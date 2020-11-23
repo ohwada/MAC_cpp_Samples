@@ -1,0 +1,98 @@
+{
+  "id": "dummy id",
+  "threadId": "dummy threadId",
+  "labelIds": [
+    "SENT",
+    "INBOX"
+  ],
+  "snippet": "this sample snipet",
+  "payload": {
+    "partId": "",
+    "mimeType": "multipart/mixed",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Received",
+        "value": "dummy received"
+      },
+      {
+        "name": "Subject",
+        "value": "sample subject"
+      },
+      {
+        "name": "To",
+        "value": "user@gmail.com"
+      },
+      {
+        "name": "From",
+        "value": "taro@example.com"
+      },
+      {
+        "name": "Date",
+        "value": "Fri, 30 Oct 2020 17:20:05 -0700"
+      },
+      {
+        "name": "Message-Id",
+        "value": "\u003cCABaKi7k52abptAKooZssNYZH_b7uwggpgmTayYC1jB5Q@mail.gmail.com\u003e"
+      },
+      {
+        "name": "Mime-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/mixed; boundary=\"5pn2QMwQbLq9WqJ9\""
+      }
+    ],
+    "body": {
+      "size": 0
+    },
+    "parts": [
+      {
+        "partId": "0",
+        "mimeType": "text/plain",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "text/plain; charset=us-ascii;  format=flowed"
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "7bit"
+          }
+        ],
+        "body": {
+          "size": 91,
+          "data": "VGhpcyBpcyB0ZXN0IGVtYWlsLiANCnRoaXMgbWFpbCBoYXMgb25lIGF0dGFjaGVkIGZpbGUuIA0KdGhpcyBtYWlsIHNlbnQgdXNpbmcgR21haWwgQVBJLiANCg=="
+        }
+      },
+      {
+        "partId": "1",
+        "mimeType": "image/png",
+        "filename": "sample.png",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "image/png"
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+          },
+          {
+            "name": "Content-Disposition",
+            "value": "attachment; filename=sample.png; size=772491;"
+          }
+        ],
+        "body": {
+          "attachmentId": "dummy attachmentId",
+          "size": 772491
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 1030775,
+  "historyId": "21588",
+  "internalDate": "1604103605000"
+}

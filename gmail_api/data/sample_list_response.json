@@ -1,0 +1,26 @@
+{
+  "messages": [
+    {
+      "id": "dummy id 1",
+      "threadId": "dummy threadId 1"
+    },
+    {
+      "id": "dummy id 2",
+      "threadId": "dummy threadId 2"
+    },
+    {
+      "id": "dummy id 3",
+      "threadId": "dummy threadId 3"
+    },
+    {
+      "id": "dummy id 4",
+      "threadId": "dummy threadId 4"
+    },
+    {
+      "id": "dummy id 5",
+      "threadId": "dummy threadId 5"
+    }
+  ],
+  "nextPageToken": "dummy nextPageToken",
+  "resultSizeEstimate": 103
+}
