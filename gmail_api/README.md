@@ -6,6 +6,9 @@ send and recieve mail with Gmail API <br/>
 - support file attachment <br/>
 - support UTF-8 encoding  <br/>
 
+### setup
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/gmail_api/setup <br/>
 
 ### sample code of C version
 - get_mail.c <br/>
