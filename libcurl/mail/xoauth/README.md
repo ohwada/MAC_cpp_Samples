@@ -58,6 +58,8 @@ reuse Refresh Token, from the second time onwards
 
 4. login Gmail server using Access Token
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2020/11/23/095400
 
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/

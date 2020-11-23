@@ -132,9 +132,8 @@ bool   getScopeRefreshTokenToFile(char* scope, char * client_id, char * client_s
 
     const size_t BUFSIZE = 300;
     char auth_url[BUFSIZE];
-
-    char auth_code[200];
-    char refresh_request[200];
+    char auth_code[BUFSIZE];
+    char refresh_request[BUFSIZE];
 
     buildAuthorizationCodeUrl(scope, client_id, auth_url, BUFSIZE);
 
