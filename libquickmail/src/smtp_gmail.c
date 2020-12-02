@@ -3,9 +3,8 @@
  * 2020-07-01 K.OHWADA
  */
 
-// send mail to SMTP server with TLS and AUTH
-// gcc src/smtp-tls-auth.c src/quickmail.c `pkg-config --cflags --libs json-c` -lcurl
 
+// send mail to Gmail SMTP server 
 // original : https://github.com/cdevelop/libquickmail/blob/master/test_quickmail.c
 
 /*
@@ -26,10 +25,8 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "smtp.h"
-
-
-
 
 
 /**
@@ -38,10 +35,10 @@
 
 int main (void)
 {
-
     const char SUBJECT[] = "libquickmail test";
 
-    struct MailParam p = getUbuntuMailParam();
+    struct MailParam p = getGmailParam();
+    printMailParam(p);
     char* SERVER = p.smtp_server;
     int PORT = p.smtp_port;
     char* USER = p.user;
@@ -49,22 +46,32 @@ int main (void)
     char* TO = p.to;
     char* FROM = p.from;
 
-    quickmail_initialize();
+// build body
+    char body[1024];
+    buildBody( body );
 
-    quickmail mailobj = quickmail_create(FROM, SUBJECT);
+    printf("%s \n", body);
+    printf("\n");
 
-    quickmail_add_to(mailobj, TO);
+ quickmail_initialize();
 
-    buildMail(mailobj);
-    sendMail(mailobj, SERVER, PORT, USER, PASSWD);
+  quickmail mailobj = quickmail_create(FROM, SUBJECT);
 
-    return 0;
+  quickmail_add_to(mailobj, TO);
+
+    addHeader( mailobj );
+
+    quickmail_set_body(mailobj, body );
+
+    char error[100];
+    bool ret = sendMail(mailobj, SERVER, PORT, USER, PASSWD, error);
+
+    if(!ret){
+        fprintf(stderr, "Error sending e-mail: %s \n", error );
+        return EXIT_FAILURE;
+    } 
+
+      printf("successful \n");
+
+    return EXIT_SUCCESS;
 }
-
-
-// libquickmail 0.1.27 
-// < 220 VirtualBox ESMTP Postfix (Ubuntu)
-// > AUTH PLAIN
-// < 235 2.7.0 Authentication successful
-
-

@@ -25,24 +25,68 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "smtp.h"
+
+
+/**
+ * buildCustomBody
+ */
+void buildCustomBody(char *body)
+{
+
+    const char body1[] = "This is a test e-mail. \r\n";
+
+    const char body2[] = "This mail has html. \r\n";
+
+    char body3[100];
+    buildBodyMailer( body3 );
+
+    strcpy(body, body1);
+    strcat(body, body2);
+    strcat(body, body3);
+}
+
+
+/**
+ * buildHtml
+ */
+void buildHtml(char *html)
+{
+
+    const char html1[] = "This is a <b>test</b> e-mail.<br/> \r\n";
+
+    char html2[100];
+    sprintf( html2, "This mail was sent using <u> %s </u> \r\n",  getMailer() );
+
+    strcpy(html, html1);
+    strcat(html, html2);
+}
 
 
 /**
  * main
  */
-
 int main (void)
 {
     const char SUBJECT[] = "libquickmail html";
 
     struct MailParam p = getUbuntuMailParam();
+    printMailParam(p);
     char* SERVER = p.smtp_server;
     int PORT = p.smtp_port;
     char* USER = p.user;
     char* PASSWD = p.passwd;
     char* TO = p.to;
     char* FROM = p.from;
+
+// build body
+    char body[1024];
+    buildCustomBody( body );
+
+// buildHtml
+     char html[1024];
+    buildHtml(html);
 
  quickmail_initialize();
 
@@ -52,37 +96,21 @@ int main (void)
 
     addHeader(mailobj);
 
-
-// body
-    char body1[] = "This is a test e-mail. \r\n";
-    char body2[] = "This mail has html. \r\n";
-
-    int body3size = 100;
-    char body3[ body3size];
-    snprintf( body3,   body3size, "This mail was sent using %s \r\n",  getMailer() );
-
-    char body[200];
-    strcpy(body, body1);
-    strcat(body, body2);
-    strcat(body, body3);
-
     quickmail_set_body(mailobj, body );
 
-    // html
-char html1[] = "This is a <b>test</b> e-mail.<br/> \r\n";
+    quickmail_add_body_memory(mailobj, "text/html", html , strlen(html), 0);
 
-    char html2[100];
-    sprintf( html2, "This mail was sent using <u> %s </u> \r\n",  getMailer() );
+    char error[100];
+    bool ret = sendMail(mailobj, SERVER, PORT, USER, PASSWD, error);
 
-    char html[200];
-    strcpy(html, html1);
-    strcat(html, html2);
+    if(!ret){
+        fprintf(stderr, "Error sending e-mail: %s \n", error );
+        return EXIT_FAILURE;
+    } 
 
-  quickmail_add_body_memory(mailobj, "text/html", html , strlen(html), 0);
+      printf("successful \n");
 
-    sendMail(mailobj, SERVER, PORT, USER, PASSWD);
-
-  return 0;
+    return EXIT_SUCCESS;
 }
 
 

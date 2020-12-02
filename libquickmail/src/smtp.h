@@ -26,16 +26,20 @@
 
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include "quickmail.h"
 #include "mail_json.h"
 
 
 //prototype
-void buildMail( quickmail mailobj);
+void buildBody( char *body );
+void buildBodyMailer(char *body);
 char* getMailer(void);
 void addHeader( quickmail mailobj );
- void sendMail(quickmail mailobj, const char* smtpserver, unsigned int smtpport, const char* username, const char* password);
+ bool sendMail(quickmail mailobj, const char* smtpserver, unsigned int smtpport, const char* username, const char* password, char *error );
+void printMessage(quickmail mailobj);
+
 
 void list_attachment_callback (quickmail mailobj, const char* filename, quickmail_attachment_open_fn email_info_attachment_open, quickmail_attachment_read_fn email_info_attachment_read, quickmail_attachment_close_fn email_info_attachment_close, void* callbackdata)
 {
@@ -44,22 +48,30 @@ void list_attachment_callback (quickmail mailobj, const char* filename, quickmai
 
 
 /**
- * buildMail
+ * buildBody
  */
-void buildMail( quickmail mailobj )
+void buildBody( char *body )
 {
     char body1[] = "This is a test e-mail. \r\n";
 
-    int body2size = 100;
-    char body2[body2size];
-    snprintf( body2, body2size, "This mail was sent using %s \r\n",  getMailer() );
+    char body2[100];
+    buildBodyMailer( body2 );
 
-    char body[200];
     strcpy(body, body1);
     strcat(body, body2 );
+}
 
-    addHeader( mailobj );
-    quickmail_set_body(mailobj, body );
+
+/**
+ *  buildBodyMailer
+ */
+void buildBodyMailer(char *body)
+{
+   const size_t  BUFSIZE = 100;
+    char buf[BUFSIZE];
+    snprintf( buf,  BUFSIZE, "This mail was sent using %s \r\n",  getMailer() );
+
+    strcpy(body, buf);
 }
 
 
@@ -96,23 +108,40 @@ char* getMailer(void)
 /**
  * sendMail
  */
-void sendMail(quickmail mailobj, const char* smtpserver, unsigned int smtpport, const char* username, const char* password)
+bool sendMail(quickmail mailobj, const char* smtpserver, unsigned int smtpport, const char* username, const char* password, char *error )
 {
 
-    printf( "smtpserver: %s \n", smtpserver );
-    printf( "username: %s \n", username );
-    printf( "password: %s \n", password );
-
+    bool is_error = false;
+    
     quickmail_set_debug_log(mailobj, stderr);
 
     const char* errmsg;
     errmsg = quickmail_send(mailobj, smtpserver, smtpport, username, password);
+
     if (errmsg != NULL) {
-    fprintf(stderr, "Error sending e-mail: %s\n", errmsg);
+        is_error = true;
+        strcpy(error, errmsg);
     }
 
     quickmail_destroy(mailobj);
     quickmail_cleanup();
 
-  return ;
+  return !is_error;
+}
+
+
+/**
+ * printMessage
+ */
+void printMessage(quickmail mailobj)
+{
+    
+    const char* body = quickmail_get_body(mailobj);
+
+    printf("\n");
+   printf("---------- \n");
+    printf(" %s \n", body);
+   printf("---------- \n");
+    printf("\n");
+
 }

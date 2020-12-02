@@ -3,7 +3,8 @@
  * 2020-07-01 K.OHWADA
  */
 
-// send mail with attached files to SMTP server with TLS and AUTH
+// send mail to SMTP server with TLS and AUTH
+// gcc src/smtp-tls-auth.c src/quickmail.c `pkg-config --cflags --libs json-c` -lcurl
 
 // original : https://github.com/cdevelop/libquickmail/blob/master/test_quickmail.c
 
@@ -25,6 +26,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "smtp.h"
 
 
@@ -35,9 +37,11 @@
 
 int main (void)
 {
-    const char SUBJECT[] = "libquickmail attach";
- 
-     struct MailParam p = getUbuntuMailParam();
+
+    const char SUBJECT[] = "libquickmail test";
+
+    struct MailParam p = getUbuntuMailParam();
+    printMailParam(p);
     char* SERVER = p.smtp_server;
     int PORT = p.smtp_port;
     char* USER = p.user;
@@ -45,34 +49,40 @@ int main (void)
     char* TO = p.to;
     char* FROM = p.from;
 
- quickmail_initialize();
+// build body
+    char body[1024];
+    buildBody( body );
 
-  quickmail mailobj = quickmail_create(FROM, SUBJECT);
+    printf("%s \n", body);
+    printf("\n");
 
-  quickmail_add_to(mailobj, TO);
+    quickmail_initialize();
 
-    addHeader(mailobj);
+    quickmail mailobj = quickmail_create(FROM, SUBJECT);
 
-// body
-    char body1[] = "This is a test e-mail. \r\n";
-    char body2[] = "This mail has two attachments. \r\n";
+    quickmail_add_to(mailobj, TO);
 
-    char body3[100];
-    sprintf( body3, "This mail was sent using %s \r\n",  getMailer() );
-
-    char body[200];
-    strcpy(body, body1);
-    strcat(body, body2);
-    strcat(body, body3);
+    addHeader( mailobj );
 
     quickmail_set_body(mailobj, body );
 
-    // attachment
-    quickmail_add_attachment_file(mailobj, "assets/lorem-ipsum.txt", NULL);
+    char error[100];
+    bool ret = sendMail(mailobj, SERVER, PORT, USER, PASSWD, error);
 
-    quickmail_add_attachment_file(mailobj, "assets/baboon.png", NULL);
+    if(!ret){
+        fprintf(stderr, "Error sending e-mail: %s \n", error );
+        return EXIT_FAILURE;
+    } 
 
-    sendMail(mailobj, SERVER, PORT, USER, PASSWD);
+      printf("successful \n");
 
-  return 0;
+    return EXIT_SUCCESS;
 }
+
+
+// libquickmail 0.1.27 
+// < 220 VirtualBox ESMTP Postfix (Ubuntu)
+// > AUTH PLAIN
+// < 235 2.7.0 Authentication successful
+
+
