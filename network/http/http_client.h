@@ -13,6 +13,8 @@
 
 
 // constant
+const uint16_t PORT_HTTP = 80;
+
 const char *ROOT_PATH = "/";
 
 
