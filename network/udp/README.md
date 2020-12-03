@@ -2,7 +2,7 @@ udp - network
 ===============
 
 C network sample <br/>
-send and recieve UDP packet <br/>
+send and recieve UDP packet  using socket functions <br/>
 
 ### sample code
 - udp_send.c <br/>

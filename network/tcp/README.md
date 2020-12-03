@@ -2,7 +2,7 @@ tcp - network
 ===============
 
 C network sample <br/>
-TCP Client and Server <br/>
+TCP Client and Server  using socket functions <br/>
 
 ### sample code
 - tcp_echo_client.c <br/>

@@ -3,6 +3,10 @@ mail
 
 sample code for mail <br/>
 
+### network
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/smtp <br/>
+SMTP Client using socket functions <br/>
+
 ### libcurl
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/mail <br/>
 the multiprotocol file transfer library <br/> 

@@ -4,10 +4,8 @@ http
 sample code for HTTP Client and Server <br/>
 
 ### network
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/network <br/>
-using socket <br/>
-- HTTP Client <br/>
-- very simple HTTP Server <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/http <br/>
+HTTP Client and Server  using socket functions <br/>
 
 ### libcurl
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl <br/>

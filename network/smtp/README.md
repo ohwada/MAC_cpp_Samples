@@ -2,7 +2,7 @@ smtp - network
 ===============
 
 C network sample <br/>
-SMTP Client <br/>
+SMTP Client using socket functions <br/>
 
 ### sample code
 - smtp_client.c
@@ -24,4 +24,5 @@ display as below <br/>
 ### Reference <br/>
 - http://techdatebook.seesaa.net/article/452940846.html
 - http://srgia.com/docs/rfc2822j.html
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 

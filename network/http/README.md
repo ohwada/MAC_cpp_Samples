@@ -2,7 +2,7 @@ http - network
 ===============
 
 C network sample <br/>
-HTTP Client and Server <br/>
+HTTP Client and Server  using socket functions <br/>
 
 ### sample code
 - http_client.c <br/>
@@ -24,5 +24,6 @@ access localhost:8080 by WEB Brawser <br/>
 ### Reference <br/>
 - http://onishi-lab.jp/programming/tcp_linux.html
 - https://tools.ietf.org/html/rfc7230
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
 
 

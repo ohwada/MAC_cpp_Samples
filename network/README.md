@@ -1,7 +1,7 @@
 network
 ===============
 
-C network sample <br/>
+C network sample  using socket functions <br/>
 
 
 #### tcp

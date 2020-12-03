@@ -2,7 +2,7 @@ ping - network
 ===============
 
 C network sample <br/>
-ping command <br/>
+ping command  using socket functions <br/>
 
 ### sample code
 - ping.c
