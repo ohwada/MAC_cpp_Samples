@@ -25,8 +25,8 @@ access localhost:8080 by WEB Brawser <br/>
 
 
 ### Reference <br/>
-- https://developer.gnome.org/glib/stable/
-- https://developer.gnome.org/gio/stable/
+- https://developer.gnome.org/glib/stable/  <br/>
+- https://developer.gnome.org/gio/stable/  <br/>
 - https://developer.gnome.org/gio//2.34/GSocket.html <br/>
-
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md <br/>
 
