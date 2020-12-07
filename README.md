@@ -76,6 +76,9 @@ a small, fast, self-contained, high-reliability, full-featured, SQL database eng
 ### sqlitecpp : <br/>
 C++ SQLite3 wrapper. <br/
 
+### glib
+low-level system libraries written in C <br/>
+
 ### zlib
 data-compression library <br/>
 compress and decompress file <br/>
