@@ -20,3 +20,5 @@ display as below <br/>
 > 5 : sin: 0.087 ; asin: 5.0 <br/>
 
 ### c99
+C mathematical functions supported since C99 <br/>
+
