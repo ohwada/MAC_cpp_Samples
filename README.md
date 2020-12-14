@@ -67,6 +67,9 @@ run two threads <br/>
 ### array
 2-demension array <br/>
 
+### math
+C mathematical functions <br/>
+
 ### base64
 base64 encoder decoder <br/>
 

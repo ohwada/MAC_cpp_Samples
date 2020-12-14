@@ -1,0 +1,7 @@
+cd /Users/ohwada/C++/math/c99
+
+g++ gcd.cpp  `pkg-config --cflags --libs boost` -lboost_math_c99
+
+
+
+git clone https://github.com/boostorg/boost
