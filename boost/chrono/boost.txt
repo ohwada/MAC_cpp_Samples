@@ -1,5 +1,0 @@
-cd /Users/ohwada/C++/boost/chrono
-
-g++ hello_world.cpp -std=c++11 `pkg-config --cflags --libs boost_chrono` 
-
-git clone https://github.com/boostorg/boost
