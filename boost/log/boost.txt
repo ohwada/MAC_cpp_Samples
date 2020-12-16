@@ -1,0 +1,8 @@
+cd /Users/ohwada/C++/boost/log
+
+g++ log.cpp  -std=c++11 `pkg-config --cflags --libs boost` 
+
+ "boost::log::v2s_mt_posix::record_view::public_data::destroy
+
+
+git clone https://github.com/boostorg/boost

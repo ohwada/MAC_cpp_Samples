@@ -1,0 +1,11 @@
+cd /Users/ohwada/C++/boost/header_only
+
+
+g++ string_algo.cpp -std=c++11 -I/usr/local/Cellar/boost/1.73.0/include
+
+
+g++ gcd.cpp  `pkg-config --cflags --libs boost_system` -lboost_math_c99
+
+
+
+git clone https://github.com/boostorg/boost

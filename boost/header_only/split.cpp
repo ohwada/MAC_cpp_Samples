@@ -1,13 +1,10 @@
 /**
  * boost Samples
- * 2020-03-01 K.OHWADA
+ * 2020-07-01 K.OHWADA
  */
 
 // split string
 // reference : https://www.boost.org/doc/libs/1_57_0/doc/html/string_algo/usage.html
-
-// g++ test_split.cpp -std=c++11  -I/usr/local/Cellar/boost/1.73.0/include/ -L/usr/local/Cellar/boost/1.73.0/lib -lboost_system
-
 
 #include <iostream>
 #include <string>
@@ -71,28 +68,15 @@ int main(void)
 
     dump(results3);
 
+    return EXIT_SUCCESS;
+}
+
+
 // split with ',' 
 // abc,def,ghi,jkl
 // abc
 // def
 // ghi
 // jkl
-//
-// split by white space
-// hello goodbye boost split
-// hello
-// goodbye
-// boost
-// split
-//
-// split by slash, space, colon
-// 2011/02/09 20:19:33
-// 2011
-// 02
-// 09
-// 20
-// 19
-// 33
 
-    return EXIT_SUCCESS;
-}
+

@@ -1,0 +1,13 @@
+cd /Users/ohwada/C++/boost/serialization
+
+g++ serialization.cpp  `pkg-config --cflags --libs boost` 
+
+
+
+g++ serialization.cpp  `pkg-config --cflags --libs boost_serialization`
+
+ -lboost_serialization-mt -lboost_serialization
+
+
+
+git clone https://github.com/boostorg/boost

@@ -1,0 +1,10 @@
+cd /Users/ohwada/C++/boost/locale
+
+g++ hello.cpp -std=c++11 `pkg-config --cflags --libs boost_locale` 
+
+-lboost_locale-mt
+
+"boost::locale::generator::generator()
+
+
+git clone https://github.com/boostorg/boost

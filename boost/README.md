@@ -2,8 +2,7 @@ boost
 ===============
 
 boost Sample <br/>
-split string <br/>
-output with formating like prinf()  <br/>
+
 
 boost : <br/>
 free peer-reviewed portable C++ source libraries.<br/>
@@ -11,71 +10,53 @@ https://www.boost.org/ <br/>
 
 
 ###  install boost
-% brew install boost <br/>
-https://formulae.brew.sh/formula/boost <br/>
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/setup <br/>
 
+### sample code
 
-###  set up for pkg-config
-% sudo mkdir /usr/local/Cellar/boost/1.73.0/pkgconfig <br/>
-% sudo cp pkgconfig/boost.pc /usr/local/Cellar/boost/1.73.0/pkgconfig <br/>
-% sudo ln -s /usr/local/Cellar/boost/1.73.0/pkgconfig/boost.pc /usr/local/lib/pkgconfig/boost.pc <br/>
-
-check for pkg-config <br/>
-% pkg-config --cflags --libs boost <br/>
-display as below <br/>
--I/usr/local/Cellar/boost/1.73.0/include -L/usr/local/Cellar/boost/1.73.0/lib -lboost_system <br/>
-
-
-## test_boost_exsample.cpp <br/>
-boost examples :  <br/>
-- to_upper <br/>
-- to_lower_copy <br/>
-- trim <br/>
-- replace_first_copy <br/>
-- ireplace_first_copy <br/>
-https://www.boost.org/doc/libs/1_63_0/doc/html/boost/algorithm/ <br/>
-
-build code <br/>
-% g++ test_example.cpp `pkg-config --cflags --libs boost` <br/>
-
-run code  <br/>
- ./a.out <br/>
-
-display as below <br/>
-// boost version: 1_73 <br/>
-// original :  hello world!  <br/>
-// to_upper :  HELLO WORLD!  <br/>
-
-
-## test_split.cpp <br/>
+#### header_only
+features available with header only <br/>
+- to_upper.cpp <br/>
+convert lowercase letters to uppercase <br/>
+- split.cpp <br/>
 split string <br/>
+- format.cpp  <br/>
+output with formating like prinf()  <br/>
+- version.cpp <br/>
+display version <br/>
 
-build code <br/>
-% g++ test_example.cpp `pkg-config --cflags --libs boost` <br/>
 
-run code <br/> 
-./a.out <br/>
+#### chrono
+sample code for chronometer <br/>
 
-display as below <br/>
-split with ',' 
-abc,def,ghi,jkl
-abc
-def
+#### filesystem
+ provides facilities to manipulate files and directories <br/>
 
-## test_format.cpp <br/>
-// output with formating like prinf()  <br/>
+### locale
+high quality localization facilities in a C++ way.  <br/>
 
-build code <br/>
-% g++ test_example.cpp `pkg-config --cflags --libs boost` <br/>
+#### log
+logging <br/>
 
-run code <br/> 
-./a.out <br/>
+#### math
+Mathematical Functions <br/>
 
-display as below <br/>
-classical print stlye <br/>
-writing toto,  x=40.25 : 50-th step  <br/>
-boost stlye with reordering <br/>
-11 22 33 22 11  <br/>
+
+#### program_options
+commandline parser <br/>
+
+#### regex
+regular expressions
+
+#### serialization
+the reversible deconstruction of an arbitrary set of C++ data structures to a sequence of bytes <br/>
+
+#### thread
+enables the use of multiple threads of execution with shared data in portable C++ code <br/>
+
+#### timer
+CPU timers
 
 ### Reference <br/>
 - https://www.boost.org/
