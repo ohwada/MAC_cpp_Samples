@@ -26,4 +26,6 @@ access localhost:8080 by WEB Brawser <br/>
 
 ### Reference <br/>
 - https://www.boost.org/
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
+
 
