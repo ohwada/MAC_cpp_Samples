@@ -28,4 +28,5 @@ access localhost:8081 by WEB Brawser <br/>
 
 ### Reference <br/>
 - https://github.com/openssl/openssl
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
 
