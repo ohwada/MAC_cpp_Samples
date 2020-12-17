@@ -10,12 +10,11 @@ https://www.boost.org/ <br/>
 
 
 ###  install boost
-see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/setup <br/>
+% brew install boost <br/>
+https://formulae.brew.sh/formula/boost <br/>
 
-### sample code
 
-#### header_only
+### header_only
 features available with header only <br/>
 - to_upper.cpp <br/>
 convert lowercase letters to uppercase <br/>
@@ -27,35 +26,35 @@ output with formating like prinf()  <br/>
 display version <br/>
 
 
-#### chrono
+### chrono
 sample code for chronometer <br/>
 
-#### filesystem
+### filesystem
  provides facilities to manipulate files and directories <br/>
 
 ### locale
 high quality localization facilities in a C++ way.  <br/>
 
-#### log
+### log
 logging <br/>
 
-#### math
+### math
 Mathematical Functions <br/>
 
 
-#### program_options
+### program_options
 commandline parser <br/>
 
-#### regex
+### regex
 regular expressions
 
-#### serialization
+### serialization
 the reversible deconstruction of an arbitrary set of C++ data structures to a sequence of bytes <br/>
 
-#### thread
+### thread
 enables the use of multiple threads of execution with shared data in portable C++ code <br/>
 
-#### timer
+### timer
 CPU timers
 
 ### Reference <br/>
