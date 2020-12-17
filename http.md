@@ -76,4 +76,14 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/asio/http <br/>
 - http_server.c <br/>
 HTTP Server <br/>
 
+### boost beast
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/http <br/>
+- http_client.cpp <br/>
+ HTTP Client <br/>
+- http_server.cpp <br/>
+HTTP Server <br/>
+- https_client.cpp <br/>
+ HTTPS Client <br/>
+- https_server.cpp <br/>
+HTTPS Server <br/>
 
