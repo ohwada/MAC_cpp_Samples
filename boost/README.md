@@ -10,9 +10,8 @@ https://www.boost.org/ <br/>
 
 
 ###  install boost
-% brew install boost <br/>
-https://formulae.brew.sh/formula/boost <br/>
-
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/setup <br/>
 
 
 ###  sample code
