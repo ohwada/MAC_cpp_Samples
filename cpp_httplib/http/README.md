@@ -25,8 +25,8 @@ display as below <br/>
 access localhost:8080 by WEB Brawser <br/>
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/chrome_http_server.png" width="300" />
 
-access localhost:8080/imafe.jpg  by WEB Brawser  <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/chrome_http_server_image.png" width="300" />
+access localhost:8080/image.jpg  by WEB Brawser  <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/crome_http_server_image.png" width="300" />
 
 ### Reference <br/>
 - https://github.com/yhirose/cpp-httplib 
