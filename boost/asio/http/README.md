@@ -1,8 +1,8 @@
-tcp - boost asio
+http - boost asio
 ===============
 
 boost Sample <br/>
-http client and server <br/>
+HTTP client and server <br/>
 
 
 ### sample code

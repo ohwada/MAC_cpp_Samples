@@ -2,7 +2,7 @@ tcp - boost
 ===============
 
 boost asio Sample <br/>
-tcp client and server <br/>
+TCP client and server <br/>
 
 
 ### sample code
