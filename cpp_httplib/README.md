@@ -1,41 +1,41 @@
 cpp_httplib
 ===============
 
-cpp-httplib sample <br/>
+cpp_httplib sample <br/>
 
 cpp-httplib : <br/>
 A C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
 https://github.com/yhirose/cpp-httplib <br/>
 
 
-### setup for cpp-httplib
+###  install cpp_httplib
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/blob/master/cpp_httplib/setup.md <br/>
 
 
-## sample code
-- http_client.cpp <br/>
-HTTP client <br/> 
-- http_server.cpp <br/>
-HTTP server <br/>
+### sample code
 
-- https_client.cpp <br/>
-HTTPS client <br/>
-- https_server.cpp <br/>
-HTTPS server <br/>
+#### example
+offical sample <br/>
 
+#### http
+HTTP client and server
 
-build sample code<br/>
-% g++ http_client.cpp -std=c++11  <br/>
+#### https
+HTTP client and server
 
-run sample code <br/>
-usage: ./a.out [host] [port] [path] <br/>
+### setup for HTTPS
 
-display as below <br/>
-> Status: 200 <br/>
->  \<title\>Example Domain\</title\> <br/>
+#### Library required <br/>
+- openssl <br/>
+https://formulae.brew.sh/formula/openssl@1.1 <br/>
+
+#### Server Cetification file
+generate private key file and X509 cetification file <br/>
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert.md <br/>
 
 
 ### Reference <br/>
 - https://github.com/yhirose/cpp-httplib 
-
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md

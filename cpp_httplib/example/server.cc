@@ -23,8 +23,8 @@
 /**
  *  cert file
  */
-#define SERVER_CERT_FILE "./server.pem"
-#define SERVER_PRIVATE_KEY_FILE "./server.key"
+#define SERVER_CERT_FILE "./localhost_cert.pem"
+#define SERVER_PRIVATE_KEY_FILE "./localhost_key.pem"
 
 using namespace httplib;
 

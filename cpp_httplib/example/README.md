@@ -3,6 +3,8 @@ example - cpp_httplib
 
 cpp_httplib sample <br/>
 
+The files in this directory downloaded from below <br/>
+https://github.com/yhirose/cpp-httplib/blob/master/example <br/>
 
 ## sample code
 - hello.cc <br/>
@@ -48,8 +50,8 @@ build sample code<br/>
 run sample code <br/>
 % ./a.out <br/>
 
-access localhost:8080 by web brawser <br/>
-chrome_hello.png
+access localhost:8080 by WEB Brawser <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/chrome_hello.png" width="300" />
 
 
 ### Reference <br/>

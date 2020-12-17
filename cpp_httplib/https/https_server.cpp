@@ -5,7 +5,7 @@
 
 // HTTPS Server
 
-// g++ src/https_server.cpp -std=c++11 `pkg-config --cflags --libs openssl` -o server
+// g++ https/https_server.cpp -std=c++11 `pkg-config --cflags --libs openssl` -o server
 
 // original :  https://github.com/yhirose/cpp-httplib/blob/master/example/server.cc
 
@@ -19,7 +19,7 @@
 #define CPPHTTPLIB_OPENSSL_SUPPORT
 
 #include <iostream>
-#include "server.h"
+#include "http_server.h"
 
 
 using namespace std;
@@ -31,9 +31,9 @@ using namespace std;
 int main(int argc, const char *argv[]) 
 {
 
-    const char FILE_CERT[] = "cert/server.pem";
+    const char FILE_CERT[] = "cert/localhost_cert.pem";
 
-    const char FILE_KEY[] = "cert/server.key";
+    const char FILE_KEY[] = "cert/localhost_key.pem";
 
     int port = 8081;
 

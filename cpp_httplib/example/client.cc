@@ -16,7 +16,6 @@
 
 #include <iostream>
 #include "httplib.h"
- #include "error.h"
 
 /**
  *  cert file
@@ -56,7 +55,7 @@ const int PORT = 8080;
         cerr << res->get_header_value("Content-Type") << endl;
         cout << res->body << endl;
     } else {
-        printError( res.error() );
+        cerr << "Error: "<< res.error() << endl;
     }
 
 #ifdef CPPHTTPLIB_OPENSSL_SUPPORT

@@ -58,7 +58,7 @@ int main(int argc, const char *argv[])
         cerr << "Content-Type: " << res->get_header_value("Content-Type") << endl;
         cout << res->body << endl;
     } else {
-        cerr << res.error() << endl;
+        printError( res.error() );
     }
 
     return EXIT_SUCCESS;

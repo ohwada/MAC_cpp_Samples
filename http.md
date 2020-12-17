@@ -44,7 +44,7 @@ HTTP Server <br/>
 HTTPS Server <br/>
 
 ### cpp-httplib
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/cpp_httplib <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/cpp_httplib/http <br/>
 C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
 
 - http_client.cpp <br/>
