@@ -10,7 +10,7 @@ https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/index.html <br/>
 
 ###  install beast
 see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/setup <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/setup.md <br/>
 
 ### sample code
 
