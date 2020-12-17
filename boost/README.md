@@ -14,7 +14,10 @@ https://www.boost.org/ <br/>
 https://formulae.brew.sh/formula/boost <br/>
 
 
-### header_only
+
+###  sample code
+
+#### header_only
 features available with header only <br/>
 - to_upper.cpp <br/>
 convert lowercase letters to uppercase <br/>
@@ -26,38 +29,38 @@ output with formating like prinf()  <br/>
 display version <br/>
 
 
-### asio
+#### asio
 a cross-platform C++ library for network and low-level I/O programming <br/>
 
-### chrono
+#### chrono
 sample code for chronometer <br/>
 
-### filesystem
+#### filesystem
  provides facilities to manipulate files and directories <br/>
 
-### locale
+#### locale
 high quality localization facilities in a C++ way.  <br/>
 
-### log
+#### log
 logging <br/>
 
-### math
+#### math
 Mathematical Functions <br/>
 
 
-### program_options
+#### program_options
 commandline parser <br/>
 
-### regex
+#### regex
 regular expressions
 
-### serialization
+#### serialization
 the reversible deconstruction of an arbitrary set of C++ data structures to a sequence of bytes <br/>
 
-### thread
+#### thread
 enables the use of multiple threads of execution with shared data in portable C++ code <br/>
 
-### timer
+#### timer
 CPU timers
 
 ### Reference <br/>
