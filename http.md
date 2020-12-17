@@ -23,9 +23,10 @@ C++ wrapper for libcurl <br/>
 
 
 ### openssl
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/https <br/>
 toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
 - HTTPS Clent
-- simple HTTPS Server
+- HTTPS Server
 
 
 ### gnutls

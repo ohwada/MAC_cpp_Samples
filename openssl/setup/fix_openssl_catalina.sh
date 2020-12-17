@@ -3,7 +3,8 @@
 # 2020-07-01 K.OHWADA
 
 # fix missing openssl files in catalina
-# reference : https://gist.github.com/llbbl/c54f44d028d014514d5d837f64e60bac
+# reference : https://gist.github.com/llbbl/
+c54f44d028d014514d5d837f64e60bac
 
 ssl_ver=1.1.1h
 dir_ssl_lib=/usr/local/Cellar/openssl@1.1/${ssl_ver}/lib

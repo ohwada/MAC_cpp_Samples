@@ -13,6 +13,8 @@
 
 
 // constant
+const uint16_t PORT_HTTP = 80;
+
 const char *ROOT_PATH = "/";
 
 
@@ -49,5 +51,4 @@ void build_http_request(char *host, char *path, char *request)
 
    strcat(request, "Connection: close\r\n\r\n"); 
 }
-
 

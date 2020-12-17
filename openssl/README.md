@@ -22,15 +22,17 @@ simple HTTPS Server <br/>
 
 
 build code <br/>
-% gcc src/https_client.c `pkg-config --cflags --libs openssl` <br/>
+% gcc src/https_server.c `pkg-config --cflags --libs openssl` -o server <br/>
 
 run code  <br/>
-Usage: ./a.out  [host] [port] <br/>
+Usage: ./server [port] <br/>
 
 display as below <br/>
-> Conntect to example.com <br/>
-> HTTP/1.1 200 OK <br/>
-> \<title\>Example Domain  \</title\> <br/>
+> listen port: 8081  <br/>
+
+access localhost:8081 by WEB Brawser <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/openssl/screenshot/firefox_https_server.png" width="300" />
+
 
 ### bio <br/>
 sample for BIO method <br/>

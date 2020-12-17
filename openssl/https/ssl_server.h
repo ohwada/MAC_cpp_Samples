@@ -8,59 +8,17 @@
 
 // reference : https://wiki.openssl.org/index.php/Simple_TLS_Server
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include "ssl_write_read.h"
 
 
 // prototype
-int create_socket(int port);
 void init_openssl(void);
 void cleanup_openssl(void);
 SSL_CTX *create_context(void);
 bool  configure_context(SSL_CTX *ctx, char *file_cert, char *file_key );
-
-
-/**
- * create_socket
- */
-int create_socket(int port)
-{
-    int sfd;
-    struct sockaddr_in addr;
-
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(port);
-    addr.sin_addr.s_addr = htonl(INADDR_ANY);
-
-// create socet file descriptor
-    sfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sfd < 0) {
-	    perror("Unable to create socket");
-	    return -1;
-    }
-
-    int ret1 = bind( sfd, (struct sockaddr*)&addr, sizeof(addr) );
-    if (ret1 < 0) {
-	    perror("Unable to bind");
-	    return -1;
-    }
-
-    const int backlog = 1;
-    int ret2 = listen( sfd, backlog );
-    if (ret2 < 0) {
-	    perror("Unable to listen");
-	    return -1;
-    }
-
-    return sfd;
-}
+bool ssl_accept_sockfd(SSL *ssl, int sockfd_client);
 
 
 /**
@@ -122,6 +80,28 @@ int ret2 = SSL_CTX_use_PrivateKey_file(ctx, file_key, SSL_FILETYPE_PEM);
     if (ret2 <= 0 ) {
         ERR_print_errors_fp(stderr);
 	    return false;
+    }
+
+    return true;
+}
+
+
+/**
+ *  ssl_accept_sockfd
+ */
+bool ssl_accept_sockfd(SSL *ssl, int sockfd_client)
+{
+
+    int ret1 = SSL_set_fd(ssl, sockfd_client);
+    if(ret1 != 1){
+            ERR_print_errors_fp(stderr);
+            return false;
+    }
+
+    int ret2 = SSL_accept(ssl);
+    if (ret2 != 1) { 
+            ERR_print_errors_fp(stderr);
+           return false;
     }
 
     return true;

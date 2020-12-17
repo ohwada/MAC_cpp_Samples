@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# 2020-07-01 K.OHWADA
 # copy pkgconfig flies to system area
+# 2020-07-01 K.OHWADA
 
-dir_pkgconfig=/usr/local/Cellar/openssl@1.1/1.1.1h/pkgconfig
+ssl_ver=1.1.1h
+dir_pkgconfig=/usr/local/Cellar/openssl@1.1/${ssl_ver}/pkgconfig
 
 mkdir ${dir_pkgconfig}
 cd pkgconfig/

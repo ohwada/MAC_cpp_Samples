@@ -5,20 +5,23 @@
 
 // verify host name of server certificate 
 
-// gcc https_hostname_validation.c `pkg-config --cflags --libs openssl` 
+// gcc https/https_hostname_validation.c `pkg-config --cflags --libs openssl` 
 
 // reference : https://www.bit-hive.com/articles/20200407
-// https://wiki.openssl.org/index.php/host_validation
-
+// https://wiki.openssl.org/index.php/Hostname_validation
 
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <openssl/x509v3.h>
 #include <openssl/err.h>
-#include "ssl_func.h"
-#include "http_socket.h"
-#include "http_build.h"
+#include "tcp_client.h"
+#include "http_client.h"
+#include "ssl_client.h"
+//#include "ssl_func.h"
+//#include "http_socket.h"
+//#include "http_build.h"
 
 
 // prototype
@@ -34,7 +37,9 @@ int verify_callback(int preverified, X509_STORE_CTX *ctx)
 
     const size_t BUFSIZE = 1024;
 	char subject[ BUFSIZE + 1];
+	char issuer[ BUFSIZE + 1];
 
+	fprintf(stderr, "verify_callback: %d \n", preverified );
 
 // get current cert
 	X509* cert;
@@ -45,7 +50,6 @@ int verify_callback(int preverified, X509_STORE_CTX *ctx)
 		    ERR_print_errors_fp(stderr);
 		    return 0;
 	}
-
 
 // get subject name
     X509_NAME *subject_name = X509_get_subject_name(cert);
@@ -59,7 +63,34 @@ int verify_callback(int preverified, X509_STORE_CTX *ctx)
 // get ASCII version of subject name
 	X509_NAME_oneline( subject_name, (char *)subject, BUFSIZE );
 
-	fprintf(stderr, "debug: %d %s\n", preverified, subject);
+	fprintf(stderr, "subject: %s\n", subject);
+
+     X509_NAME *issuer_name =  X509_get_issuer_name(cert);
+
+	X509_NAME_oneline( issuer_name, (char *)issuer, BUFSIZE );
+
+fprintf(stderr, "issuer: %s\n", issuer);
+
+const char *name = "example.com";
+
+
+
+int ret = X509_check_host(cert, name, strlen(name),
+                     0, NULL);
+if(ret == 1){
+         fprintf(stderr, "X509_check_host ok \n" );
+} else {
+         fprintf(stderr, "X509_check_host faild \n" );
+		// return 0;
+	}
+
+int ret2 = X509_verify_cert(ctx);
+if(ret2 == 1){
+         fprintf(stderr, "X509_verify_cert ok \n" );
+} else {
+         fprintf(stderr, "X509_verify_cert faild \n" );
+		// return 0;
+	}
 
 	return preverified;
 }
@@ -101,6 +132,8 @@ int main(int argc, char **argv)
 
 	char *host ="example.com";
 
+int port = 443;
+
     if(argc == 2) {
       	host = argv[1];
     } else {
@@ -108,7 +141,7 @@ int main(int argc, char **argv)
     }
 
 
-    int socketfd;
+    int sockfd;
 
     SSL_CTX *ctx;
     SSL *ssl;
@@ -120,37 +153,49 @@ int main(int argc, char **argv)
     struct addrinfo *info;
     char error[100];
 
- bool ret1 = get_addrinfo( (char *)host, (char *)SERVICE_HTTPS,  &info, (char *)error );
+ //bool ret1 = get_addrinfo( (char *)host, (char *)SERVICE_HTTPS,  &info, (char *)error );
 
-   if ( ret1) {
-        print_addrinfo( info );
-    } else {
-        fprintf(stderr, "getaddrinfo: %s \n", error );
-        return EXIT_FAILURE;
-    }
+   //if ( ret1) {
+        //print_addrinfo( info );
+    //} else {
+       // fprintf(stderr, "getaddrinfo: %s \n", error );
+        //return EXIT_FAILURE;
+    //}
 
 
 // print IP addinfos
-    char ipaddr[100];
+    //char ipaddr[100];
 
-    get_ipaddr_from_addrinfo(info, (char *)ipaddr);
+    //get_ipaddr_from_addrinfo(info, (char *)ipaddr);
 
-    fprintf(stderr, "ipaddr: %s \n", ipaddr);
+   // fprintf(stderr, "ipaddr: %s \n", ipaddr);
 
 
-// open socket
-    bool ret2 = open_socket( info, &socketfd, (char *)error );
+  // create socket
+    sockfd  = tcp_socket( (char *)error );
 
-    if(ret2){
-        fprintf(stderr, "open_socket: %d \n", socketfd);
-    } else {
-        fprintf(stderr, "open_socket: %s \n", error);
-        return EXIT_FAILURE;
+    if( sockfd  < 0 ) {
+            fprintf(stderr, "socket: %s \n",  error );
+            return EXIT_FAILURE;
     }
 
 
+// open socket
+    //bool ret2 = open_socket( info, &sockfd, (char *)error );
+
+   // if(ret2){
+        //fprintf(stderr, "open_socket: %d \n", sockfd);
+    //} else {
+        //fprintf(stderr, "open_socket: %s \n", error);
+        //return EXIT_FAILURE;
+    //}
+
+
 // connect to host
-	bool ret3 = connect_host( socketfd, (char *)ipaddr, PORT_HTTPS,  (char *)error );
+	// bool ret3 = connect_host( sockfd, (char *)ipaddr, PORT_HTTPS,  (char *)error );
+
+// connect host
+   bool ret3 = tcp_connect_hostname( sockfd, (char *)host,  port , (char *)error );
 
     if(ret3){
         fprintf(stderr, "connect to: %s \n", host);
@@ -219,10 +264,10 @@ int main(int argc, char **argv)
 
 
 // connect ssl
-	bool ret8 = connect_ssl(ssl, socketfd);
+	bool ret8 = connect_ssl(ssl, sockfd);
 
    if(ret8){
-       fprintf(stderr, "connect_ssl: %d \n", socketfd);
+       fprintf(stderr, "connect_ssl: %d \n", sockfd);
     } else {
         goto  label_error;
     }
@@ -236,14 +281,14 @@ int main(int argc, char **argv)
     fprintf(stderr, "%s \n", (char *)request );
 
 // send request
-	bool ret9 = send_ssl(ssl, (char *)request );
+	bool ret9 = ssl_write(ssl, (char *)request );
 
 	if(!ret9){
         goto  label_error;
 	}
 
 // recieve response
-    bool ret10 = print_recv_ssl(ssl);
+    bool ret10 = print_ssl_read(ssl);
 
    if(!ret10){
         goto  label_error;
@@ -254,7 +299,7 @@ int main(int argc, char **argv)
 	SSL_shutdown(ssl);
 	SSL_free(ssl); 
 	SSL_CTX_free(ctx);
-	close_socket(socketfd);
+	close(sockfd);
 	ERR_free_strings();
 
 	fprintf(stderr, "successful \n");
@@ -273,8 +318,8 @@ int main(int argc, char **argv)
 		SSL_CTX_free(ctx);
 	}
 
-	if (socketfd) {
-			close_socket(socketfd);
+	if (sockfd) {
+			close(sockfd);
 	}
 
 	ERR_free_strings();
