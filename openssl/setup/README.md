@@ -44,6 +44,10 @@ generate HTTPS Server  Cetification files <br/>
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup/gencert.md <br/>
 
+#### setup for HTTPS Client with server certification verification
+ prepare CA ( Certification Authority ) file <br/>
+https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt <br/>
+
 
 Reference :  <br/>
 your binary is not an allowed client of /usr/lib/libcrypto.dylib <br/>

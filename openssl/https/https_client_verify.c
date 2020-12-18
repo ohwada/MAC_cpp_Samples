@@ -35,7 +35,7 @@ char host[100];
 int main(int argc, char **argv)
 {
 
-    char* file_ca = "cert/ca_cert.pem";
+    char* file_ca = "cert/bundle_ca.pem";
 
     strcpy( host, "example.com");
 
