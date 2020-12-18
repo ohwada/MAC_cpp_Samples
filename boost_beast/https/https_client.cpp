@@ -59,7 +59,7 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-    string file_cert("cert/root_cert.pem");
+    string file_cert("cert/bundle_ca.pem");
 
     char *host = (char *)"www.example.com";
 
