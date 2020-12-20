@@ -45,7 +45,12 @@ display as below <br/>
 send mail to SMTP Server using smtpsocket <br/>
 
 
+### Document <br/>
+- https://ken-ohwada.hatenadiary.org/entry/2020/12/20/150210 <br/>
+
+
 ### Reference <br/>
-- https://github.com/cdevelop/libquickmail/
-- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
+- https://github.com/cdevelop/libquickmail/ <br/>
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md <br/>
+
 
