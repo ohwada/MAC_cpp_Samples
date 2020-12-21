@@ -36,8 +36,14 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp <br/>
 A mail sending tool <br/>
 C++ wraper for libcurl smtp <br/>
 - suport file atachment <br/>
-- suport UTF-8 encoding <br/>
+
+### curlsmtp2
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp <br/>
+this project is fork from  curlsmtp <br/>
+- support file attachment <br/>
+- support UTF-8 encoding <br/>
 - support xoauth <br/>
+
 
 ### gmail api 
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/gmail_api <br/>

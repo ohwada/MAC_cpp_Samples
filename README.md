@@ -186,6 +186,9 @@ C++ class library for working with RFC-822 and MIME messages and Internet messag
 ### curlsmtp
 A mail sending tool <br/>
 
+### curlsmtp2
+this project is fork from  curlsmtp <br/>
+
 ### gmail api 
 send and recieve mail with Gmail API <br/>
 
