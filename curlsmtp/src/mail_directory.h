@@ -1,6 +1,6 @@
 #pragma once
 /**
- * libcurl sample
+ * curlsmtp sample
  * 2020-07-01 K.OHWADA
  */
 

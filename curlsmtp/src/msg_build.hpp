@@ -1,9 +1,10 @@
+#pragma once
 /**
- * libcurl sample
+ * curlsmtp sample
  * 2020-07-01 K.OHWADA
  */
 
-// send mail to Gmail SMTP server 
+// build mail message
 
 
 #include <string>
@@ -11,7 +12,7 @@
 
 // prototype
 std::string getDefaultMessage(void);
-char* getCurlVersion(void);
+char* getLibcurlVersion(void);
 
 // constant
 const std::string CRLF("\r\n");
@@ -28,7 +29,7 @@ std::string getDefaultMessage(void)
 	const std::string MSG1("This is a test e-mail.");
  	const std::string MSG2( "This mail was sent using CurlSmtp");
 
-    snprintf(buf, BUFSIZE, "and %s", getCurlVersion() );
+    snprintf(buf, BUFSIZE, "and %s", getLibcurlVersion() );
 	const std::string MSG3( buf );
 
     std::string msg = 
@@ -41,9 +42,9 @@ std::string getDefaultMessage(void)
 
 
 /**
- * getCurlVersion
+ * getLibcurlVersion
  */
-char* getCurlVersion(void)
+char* getLibcurlVersion(void)
 {
     const size_t BUFSIZE = 100;
     static char buff[BUFSIZE];

@@ -1,10 +1,7 @@
-#pragma once
-/**
- * libcurl sample
- * 2020-07-01 K.OHWADA
- */
+// https://github.com/honeyligo/curlsmtp/blob/master/ustd_string.h
 
-// original : https://github.com/honeyligo/curlsmtp/blob/master/ustd_string.h
+#ifndef __USTD_STRING_H__
+#define __USTD_STRING_H__
 
 #include <vector>
 #include <string>
@@ -368,3 +365,4 @@ size_t args_parse(const std::string &args, std::unordered_map<std::string, std::
 }
 }
 
+#endif

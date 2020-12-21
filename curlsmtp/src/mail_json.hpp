@@ -1,16 +1,16 @@
 #pragma once
 /**
- * libcurl Sample
+ * curlsmtp sample
  * 2020-07-01 K.OHWADA
  */
 
 
 // readGmailJsonFile
 
-#include <iostream>
 #include <fstream>
 #include <string>
 #include "json/json.h"
+#include "mail_directory.h"
 
 
 /**
@@ -18,8 +18,8 @@
  */
 struct MailParam {
 std::string smtp_url;
-std::string pop_url;
-std::string imap_url;
+std::string smtp_server;
+int smtp_port;
 std::string user;
 std::string passwd;
 std::string to;
@@ -28,8 +28,51 @@ std::string from;
 
 
 // prototype
+MailParam  getGmailParam(void);
+ MailParam  getUbuntuMailParam(void);
 bool readMailJsonFile( std::string filepath, MailParam *param, std::string &error ) ;
+void printMailParam( MailParam p );
 
+
+
+/**
+ * getGmailParam
+ */
+ MailParam  getGmailParam(void) 
+{
+
+    MailParam p;
+    std::string error;
+
+    std::string filepath = getMailDir() + std::string( "/gmail.json" );
+
+    bool ret = readMailJsonFile(filepath, &p, error ); 
+    if(!ret){
+        std::cout << error << std::endl;
+    }
+
+    return p;
+}
+
+
+/**
+ * getUbuntuMailParam
+ */
+ MailParam  getUbuntuMailParam(void) 
+{
+
+    MailParam p;
+    std::string error;
+
+   std::string filepath = getMailDir() + std::string( "/ubuntu.json" );
+
+    bool ret = readMailJsonFile(filepath, &p, error ); 
+    if(!ret){
+        std::cout << error << std::endl;
+    }
+
+    return p;
+}
 
 
 /**
@@ -65,18 +108,18 @@ bool readMailJsonFile( std::string filepath, MailParam *param, std::string &erro
         p.smtp_url = jv_smtp_url.asString();
     }
 
-    Json::Value jv_pop_url = root.get("pop_url",  Json::nullValue );
-   if(jv_pop_url.isNull() ){
-        error += "\n not found pop_url \n";
+    Json::Value jv_smtp_server = root.get("smtp_server",  Json::nullValue );
+   if(jv_smtp_server.isNull() ){
+        error += "\n not found smtp_server \n";
     } else {
-        p.pop_url = jv_pop_url.asString();
+        p.smtp_server = jv_smtp_server.asString();
     }
 
-    Json::Value jv_imap_url = root.get("imap_url",  Json::nullValue );
-   if(jv_imap_url.isNull() ){
-        error += "\n not found imap_url \n";
+    Json::Value jv_smtp_port = root.get("smtp_port",  Json::nullValue );
+   if(jv_smtp_port.isNull() ){
+        error += "\n not found smtp_port \n";
     } else {
-        p.imap_url = jv_imap_url.asString();
+        p.smtp_port = jv_smtp_port.asInt();
     }
 
 
@@ -121,8 +164,8 @@ bool readMailJsonFile( std::string filepath, MailParam *param, std::string &erro
 void printMailParam( MailParam p )
 {
     std::cout << "smtp_url: " << p.smtp_url << std::endl;
-    std::cout << "pop_url: " << p.pop_url << std::endl;
-    std::cout << "imap_url: " << p.imap_url << std::endl;
+    std::cout << "smtp_server: " << p.smtp_server << std::endl;
+    std::cout << "smtp_port: " << p.smtp_port << std::endl;
     std::cout << "user: " << p.user << std::endl;
     std::cout << "passwd: " << p.passwd << std::endl;
     std::cout << "to: " << p.to << std::endl;

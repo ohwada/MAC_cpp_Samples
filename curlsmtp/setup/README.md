@@ -3,6 +3,15 @@ setup - curlsmtp
 
 setup for curlsmtp <br/>
 
+### install curlsmtp
+download files
+% git clone https://github.com/honeyligo/curlsmtp <br/>
+% ./configure <br/>
+
+you need three files <br/>
+- curlsmtp.cpp <br/>
+- curlsmtp.h <br/>
+- ustd_string.h <br/>
 
 
 ### Library required 
@@ -29,11 +38,8 @@ Allow less secure apps to access your Gmail account <br/>
 
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_acount.png" width="300" />
 
-### Gmail with oauth2
-obtain OAuth 2.0 client credentials from the Google API Console. <br/>
-and place on Your home directory <br/>
 
-Using OAuth 2.0 to Access Google APIs <br/> 
-- https://developers.google.com/identity/protocols/oauth2 <br/>
+### Reference <br/>
+- https://curl.haxx.se/libcurl/c/
+- https://github.com/honeyligo/curlsmtp <br/>
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp/setup/images/google_api_console.png" width="300" />

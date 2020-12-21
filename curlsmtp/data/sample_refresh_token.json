@@ -1,7 +1,0 @@
-{
-  "access_token": "dummy access token",
-  "expires_in": 3599,
-  "refresh_token": "dummy refresh token",
-  "scope": "https://mail.google.com/",
-  "token_type": "Bearer"
-}
