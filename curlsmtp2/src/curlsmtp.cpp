@@ -13,7 +13,7 @@
 
 #define USER_AGENT					"User-Agent: Mail Client"
 
-#define MULTI_PERFORM_HANG_TIMEOUT	60 * 1000
+
 #define CHUNCK_SIZE					1024 * 10
 
 size_t CurlSmtp::read_callback(void *ptr, size_t size, size_t nmemb, void *userp)
@@ -47,44 +47,11 @@ size_t CurlSmtp::read_callback(void *ptr, size_t size, size_t nmemb, void *userp
   return 0;
 }
 
-static struct timeval tvnow(void)
-{
-  /*
-  ** time() returns the value of time in seconds since the Epoch.
-  */
-  struct timeval now;
-  now.tv_sec = (long)time(NULL);
-  now.tv_usec = 0;
-  return now;
-}
-
-static long tvdiff(struct timeval newer, struct timeval older)
-{
-  return (newer.tv_sec-older.tv_sec)*1000+
-    (newer.tv_usec-older.tv_usec)/1000;
-}
-
 
 CurlSmtp::CurlSmtp(void)
 {
-	mcurl_ = curl_multi_init();
-	curl_ = curl_easy_init();
-
-	rcpt_list_ = NULL;
-
-	curl_global_init(CURL_GLOBAL_DEFAULT);
-
-	typeMap_.insert(std::make_pair(".gif", "Content-Type: image/gif;"));
-	typeMap_.insert(std::make_pair(".jpg", "Content-Type: image/jpg;"));
-	typeMap_.insert(std::make_pair(".jpeg", "Content-Type: image/jpeg;"));
-	typeMap_.insert(std::make_pair(".png", "Content-Type: image/png;"));
-	typeMap_.insert(std::make_pair(".bmp", "Content-Type: image/bmp;"));
-	typeMap_.insert(std::make_pair(".txt", "Content-Type: plain/txt;"));
-	typeMap_.insert(std::make_pair(".log", "Content-Type: plain/txt;"));
-	typeMap_.insert(std::make_pair(".htm", "Content-Type: plain/htm;"));
-	typeMap_.insert(std::make_pair(".html", "Content-Type: plain/htm;"));
-	typeMap_.insert(std::make_pair(".exe", "Content-Type: application/X-exectype-1;"));
-};
+	// nop
+}
 
 
 CurlSmtp::CurlSmtp(const std::string& from,
@@ -427,6 +394,7 @@ void CurlSmtp::make_send_message()
 		{
 			attach(attach_[i]);
 		}
+
 		for (std::vector<std::pair<std::vector<char>, std::string>>::iterator it1 = attachment_.begin();
 			it1 != attachment_.end(); ++it1)
 		{

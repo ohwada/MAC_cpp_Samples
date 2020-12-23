@@ -35,6 +35,27 @@
 #define MSG_CONTENT_TYPE			"Content-Type: text/plain; charset=utf-8; format=flowed"
 #define MSG_ENCODING				"Content-Transfer-Encoding: 7bit"
 
+#define MULTI_PERFORM_HANG_TIMEOUT	60 * 1000
+
+
+static struct timeval tvnow(void)
+{
+  /*
+  ** time() returns the value of time in seconds since the Epoch.
+  */
+  struct timeval now;
+  now.tv_sec = (long)time(NULL);
+  now.tv_usec = 0;
+  return now;
+}
+
+
+static long tvdiff(struct timeval newer, struct timeval older)
+{
+  return (newer.tv_sec-older.tv_sec)*1000+
+    (newer.tv_usec-older.tv_usec)/1000;
+}
+
 
 class CurlSmtp
 {
@@ -78,7 +99,7 @@ public:
 
 protected:
 	 virtual void make_send_message();
-	bool attach(const std::string& filename);
+	virtual bool attach(const std::string& filename);
 	void set_receiver_list();
 	 virtual  void set_curl_option();
 	void clear();

@@ -1,4 +1,9 @@
-// https://github.com/honeyligo/curlsmtp/blob/master/main.cpp
+/**
+ * curlsmtp sample
+ * 2020-07-01 K.OHWADA
+ */
+
+// reference : https://github.com/honeyligo/curlsmtp/blob/master/main.cpp
 
 // g++ src/client_attach.cpp src/curlsmtp.cpp -std=c++11 `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs jsoncpp`
 
@@ -54,8 +59,8 @@ int main(void )
     string PORT = to_string(p.smtp_port);
     string USER = p.user;
     string PASSWD = p.passwd;
-    string MAIL_FROM = p.from;
-    string MAIL_TO =  p.to;
+    string FROM = p.from;
+    string TO =  p.to;
 
 
 	string subject = "curlsmtp attach";
@@ -67,7 +72,7 @@ int main(void )
 
 	vector<string> to =
 	{
-		MAIL_TO
+		TO
 	};
 
 	string file( "data/baboon.png" );
@@ -91,6 +96,8 @@ int main(void )
 		message,
 		SERVER,
 		PORT );
+
+    mail->set_from(FROM);
 
 	mail->send_mail();
 

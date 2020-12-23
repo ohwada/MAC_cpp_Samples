@@ -18,9 +18,13 @@ send mail to Gmail SMTP server <br/>
 
 
 build code <br/>
-% bash src/client_text.sh
-
-% g++ src/client_text.cpp src/curlsmtp.cpp src/curlsmtp2.cpp -std=c++11 `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs jsoncpp` 
+% bash src/build_client_attach.sh
 
 run code <br/>
-% ./a.out
+% ./client_attach
+
+display as bolow
+saved to: mail_20201222201956.eml
+client_attach.cpp
+view by thunderbird mail app
+thunderbird_client_attach.png

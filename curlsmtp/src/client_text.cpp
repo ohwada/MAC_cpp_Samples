@@ -1,13 +1,15 @@
-// https://github.com/honeyligo/curlsmtp/blob/master/main.cpp
+/**
+ * curlsmtp sample
+ * 2020-07-01 K.OHWADA
+ */
+
+// SMTP Client
+// send mail with plain text to SMTP server
+
+// reference : https://github.com/honeyligo/curlsmtp/blob/master/main.cpp
 
 // g++ src/client_text.cpp curlsmtp.cpp -std=c++11 `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs jsoncpp`
 
-// TODO:
-// cannot set separately
-// CURLOPT_USERNAME
-// and 
-// CURLOPT_MAIL_FROM
-// try curlsmtp2
 
 #include <iostream>
 #include <string>
@@ -64,6 +66,8 @@ int main(void )
 		message,
 		SERVER,
 		PORT );
+
+    mail->set_from(FROM);
 
 	mail->send_mail();
 

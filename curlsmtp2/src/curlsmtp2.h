@@ -30,12 +30,17 @@ void set_subject_charset( const std::string subject, const std::string charset )
  void set_token( const std::string token );
 void set_verbose(bool verbose);
 void set_ssl_verify(bool verify);
-std::string get_send_buffer(void);
+bool get_send_buffer( std::string &msg, std::string &ret_error);
+bool send_mail2(std::string &error);
 
 private:
-void make_send_message(void);
-void set_curl_option(void);
+void initCurlSmtp(void);
+void set_curl_option2(void);
  size_t base64encode( const std::string str_data, std::string &ret_b64 );
+bool make_send_message2( std::string &ret_error );
+bool attach2(const std::string& filename, std::string &error);
+void clear2(void);
+bool check_param(std::string &error);
 
 private:
 	std::string m_user;
@@ -50,6 +55,7 @@ private:
     bool m_ssl_verify;
    bool m_verbose;
     bool m_make_send_message_once;
+
 };
 
 #endif // !__CURL_SMTP2_H__

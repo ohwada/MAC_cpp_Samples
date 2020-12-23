@@ -5,7 +5,7 @@ this project is fork from <br/>
 https://github.com/honeyligo/curlsmtp <br/>
 
 added the following tfeatures <br/>
-- able to set separately CURLOPT_USERNAME and CURLOPT_MAIL_FROM <br/>
+- able to set separately username and mail_from <br/>
 - UTF-8 encoding subject and message  <br/>
 - Gmail xouath  <br/>
 

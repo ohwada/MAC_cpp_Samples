@@ -8,12 +8,6 @@ C++ wraper for libcurl smtp <br/>
 
 https://github.com/honeyligo/curlsmtp <br/>
 
-### Note: 
-cannot set separately <br/>
-CURLOPT_USERNAME and CURLOPT_MAIL_FROM <br/>
-try curlsmtp2 <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp2 <br/>
-
 ### setup
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp/setup <br/>

@@ -3,11 +3,6 @@ src - curlsmtp
 
 curlsmtp sample <br/>
 
-### Note: 
-cannot set separately <br/>
-CURLOPT_USERNAME and CURLOPT_MAIL_FROM <br/>
-try curlsmtp2 <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp2 <br/>
 
 ### sample code
 - client_text.cpp <br/>

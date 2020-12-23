@@ -1,4 +1,13 @@
-// https://github.com/honeyligo/curlsmtp/blob/master/curlsmtp.cpp
+/**
+ * curlsmtp sample
+ * 2020-07-01 K.OHWADA
+ */
+
+// change log
+// add user
+// able to set separately username and mail_from
+
+// original : https://github.com/honeyligo/curlsmtp/blob/master/curlsmtp.cpp
 
 #include <fstream>
 #include "curlsmtp.h"
@@ -90,6 +99,9 @@ CurlSmtp::CurlSmtp(const std::string& from,
 	, mcurl_(curl_multi_init())
 	, curl_(curl_easy_init())
 {
+
+	set_user(from);
+
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 
 	typeMap_.insert(std::make_pair(".gif", "Content-Type: image/gif;"));
@@ -114,6 +126,11 @@ CurlSmtp::~CurlSmtp()
 void CurlSmtp::set_from(const std::string& from)
 {
 	from_.assign(from);
+}
+
+void CurlSmtp::set_user(const std::string& user)
+{
+	user_.assign(user);
 }
 
 void CurlSmtp::set_password(const std::string& password)
@@ -295,7 +312,10 @@ void CurlSmtp::set_curl_option()
 	pooh_.data.insert(pooh_.data.begin(), send_buffer_.begin(), send_buffer_.end());
 
 	curl_easy_setopt(curl_, CURLOPT_URL, std::string("smtp://" + server_ + ":" + port_).c_str());
-	curl_easy_setopt(curl_, CURLOPT_USERNAME, from_.c_str());
+
+	// curl_easy_setopt(curl_, CURLOPT_USERNAME, from_.c_str());
+	curl_easy_setopt(curl_, CURLOPT_USERNAME, user_.c_str());
+
 	curl_easy_setopt(curl_, CURLOPT_PASSWORD, password_.c_str());
 	curl_easy_setopt(curl_, CURLOPT_READFUNCTION, read_callback);
 	curl_easy_setopt(curl_, CURLOPT_MAIL_FROM, std::string(LEFT_BRACE + from_ + RIGTH_BRACE).c_str());
@@ -313,6 +333,7 @@ void CurlSmtp::set_curl_option()
 void CurlSmtp::clear()
 {
 	from_.clear();
+	user_.clear();
 	password_.clear();
 	to_.clear();
 	cc_.clear();

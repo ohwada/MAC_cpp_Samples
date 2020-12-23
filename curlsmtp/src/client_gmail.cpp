@@ -27,8 +27,8 @@ int main(void )
     string PORT = to_string(p.smtp_port);
     string USER = p.user;
     string PASSWD = p.passwd;
-    string MAIL_FROM = p.from;
-    string MAIL_TO =  p.to;
+    string FROM = p.from;
+    string TO =  p.to;
 
 
 	string subject = "curlsmtp test";
@@ -40,7 +40,7 @@ int main(void )
 
 	vector<string> to =
 	{
-		MAIL_TO
+		TO
 	};
 
 	vector<string> secret;

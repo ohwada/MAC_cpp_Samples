@@ -55,6 +55,9 @@ int main(void)
 // because ubuntu server is self-certified
     const bool verify = false;
 
+    string buffer;
+    string error;
+
 	CurlSmtp2* mail = new CurlSmtp2();
 
 	 mail->set_url( URL );
@@ -69,14 +72,27 @@ int main(void)
 	mail->set_verbose(verbose);
 
     if (is_save){
-	    string msg = mail->get_send_buffer();
-	    saveMail(msg);
+	    bool ret1 = mail->get_send_buffer(buffer, error);
+        if(ret1){
+	        saveMail(buffer);
+            cout << endl;
+        } else {
+            cerr << "get_send_buffer: " << error << endl;
+            return EXIT_FAILURE;
+        }
     }
 
-	mail->send_mail();
+	bool ret2 = mail->send_mail2(error);
 
 	sleep(5);
 	delete mail;
+
+if(!ret2){
+    cerr << "failed: " << error << endl;
+    return EXIT_FAILURE;
+}
+
+    cout << "sucessful" << endl;
 
 	return  EXIT_SUCCESS;;
 }

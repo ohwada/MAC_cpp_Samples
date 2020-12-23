@@ -1,4 +1,13 @@
-// https://github.com/honeyligo/curlsmtp/blob/master/curlsmtp.h
+/**
+ * curlsmtp sample
+ * 2020-07-01 K.OHWADA
+ */
+
+// change log
+// add user
+// able to set separately username and mail_from
+
+// original : https://github.com/honeyligo/curlsmtp/blob/master/curlsmtp.h
 
 #ifndef __CURL_SMTP_H__
 #define __CURL_SMTP_H__
@@ -36,6 +45,7 @@ public:
 	~CurlSmtp();
 
 	void set_from(const std::string& from);
+	void set_user(const std::string& user);
 	void set_password(const std::string& password);
 	void set_to(const std::vector<std::string>& to);
 	void set_secret(const std::vector<std::string>& secret);
@@ -78,6 +88,7 @@ private:
 	std::vector<std::string> secret_;
 	std::vector<std::string> attach_;
 	std::string from_;
+	std::string user_;
 	std::string server_;
 	std::string port_;
 	std::string subject_;

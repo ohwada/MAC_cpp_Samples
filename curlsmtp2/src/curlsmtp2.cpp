@@ -5,9 +5,9 @@
 
 // curlsmtp2 C++ program file
 
-// TODO:
-// return value of send_mail
 
+#include <iostream>
+#include <fstream>
 #include "curlsmtp2.h"
 
 // consttant
@@ -41,6 +41,8 @@ const char SUBJECT_CHARSET_FORMAT[] =
 CurlSmtp2::CurlSmtp2(void)
 {
 
+    initCurlSmtp();
+
 	m_xoauth = false;
     m_ssl_verify = false;
    m_verbose = false;
@@ -49,6 +51,32 @@ CurlSmtp2::CurlSmtp2(void)
     m_subject_charset = "";
     m_msg_b64 = "";
     m_msg_charset = "";
+}
+
+
+/**
+ * initCurlSmtp
+ */
+void CurlSmtp2::initCurlSmtp(void)
+{
+
+	mcurl_ = curl_multi_init();
+	curl_ = curl_easy_init();
+
+	rcpt_list_ = NULL;
+
+	curl_global_init(CURL_GLOBAL_DEFAULT);
+
+	typeMap_.insert(std::make_pair(".gif", "Content-Type: image/gif;"));
+	typeMap_.insert(std::make_pair(".jpg", "Content-Type: image/jpg;"));
+	typeMap_.insert(std::make_pair(".jpeg", "Content-Type: image/jpeg;"));
+	typeMap_.insert(std::make_pair(".png", "Content-Type: image/png;"));
+	typeMap_.insert(std::make_pair(".bmp", "Content-Type: image/bmp;"));
+	typeMap_.insert(std::make_pair(".txt", "Content-Type: plain/txt;"));
+	typeMap_.insert(std::make_pair(".log", "Content-Type: plain/txt;"));
+	typeMap_.insert(std::make_pair(".htm", "Content-Type: plain/htm;"));
+	typeMap_.insert(std::make_pair(".html", "Content-Type: plain/htm;"));
+	typeMap_.insert(std::make_pair(".exe", "Content-Type: application/X-exectype-1;"));
 }
 
 
@@ -217,19 +245,16 @@ void CurlSmtp2::set_ssl_verify(bool verify)
 /**
  * make_send_message
  */
-void CurlSmtp2::make_send_message(void)
+bool CurlSmtp2::make_send_message2( std::string &ret_error )
 {
-
-    if( m_make_send_message_once ){
-		return;
-	}
-	m_make_send_message_once = true;
-
 
     const size_t BUFSIZE = 100;
     char buf[BUFSIZE];
 
 	send_buffer_.clear();
+
+    bool is_error = false;
+    std::string error;
 
 	// time
 	time_t t;
@@ -357,8 +382,13 @@ void CurlSmtp2::make_send_message(void)
 		// attachment
 		for (int i = 0; i < attach_.size(); ++i)
 		{
-			attach(attach_[i]);
+			bool ret = attach2(attach_[i], error);
+            if(!ret){
+                is_error = true;
+                ret_error = error;
+            }
 		}
+
 		for (std::vector<std::pair<std::vector<char>, std::string>>::iterator it1 = attachment_.begin();
 			it1 != attachment_.end(); ++it1)
 		{
@@ -404,30 +434,89 @@ void CurlSmtp2::make_send_message(void)
 		send_buffer_[i] += ENTER;
 	}
 
+    return !is_error;
+
 }
+
+
+/**
+* attach
+ */
+bool CurlSmtp2::attach2(const std::string& filename, std::string &error)
+{
+
+	if (!filename.length()){
+        // do silly checks.
+        error = std::string("filename empty");
+		return false;
+    }
+
+	std::ifstream file(filename.c_str(), std::ios::binary | std::ios::in);
+	if (!file){
+        error = std::string("can not open: ") + filename;
+		return false;
+    }
+
+	std::vector<char> filedata;
+	char c = file.get();
+	for (; file.good(); c = file.get())
+	{
+		if (file.bad())
+			break;
+		filedata.push_back(c);
+	}
+
+	std::vector<char> outdata;
+	ustd::string::base64encode(&filedata[0], filedata.size(), outdata);
+
+	std::string fn(filename);
+	std::string::size_type p = fn.find_last_of('/');
+	if (p == std::string::npos)
+		p = fn.find_last_of('\\');
+	if (p != std::string::npos)
+	{
+		p += 1; // get past folder delimeter
+		fn = fn.substr(p, fn.length() - p);
+	}
+
+	attachment_.push_back(std::make_pair(outdata, fn));
+
+	return true;
+}
+
 
 
 /**
 * get_send_buffer
  */
-std::string CurlSmtp2::get_send_buffer(void)
+bool CurlSmtp2::get_send_buffer( std::string &msg, std::string &ret_error)
 {
 
-	make_send_message();
-  
-    std::string msg;
+    std::string error;
+
+    if( !m_make_send_message_once ){
+	    m_make_send_message_once = true;
+
+	    bool ret = make_send_message2(error);
+        if(!ret){
+            ret_error = error;
+            return false;
+        }
+    }
+
+
 	for( auto buf: send_buffer_ ){ 
         msg += buf;
     }
 
-    return msg;
+    return true;
 }
 
 
 /**
  * set_curl_option
  */
-void CurlSmtp2::set_curl_option(void)
+void CurlSmtp2::set_curl_option2(void)
 {
 	pooh_.pos = 0;
 	pooh_.counter = 0;
@@ -471,4 +560,115 @@ void CurlSmtp2::set_curl_option(void)
 	curl_easy_setopt(curl_, CURLOPT_SSLVERSION, 0L);
 	curl_easy_setopt(curl_, CURLOPT_SSL_SESSIONID_CACHE, 0L);
 	curl_easy_setopt(curl_, CURLOPT_UPLOAD, 1L);
+}
+
+
+/**
+* send_mail2
+ */
+bool CurlSmtp2::send_mail2(std::string &ret_error)
+{
+
+    bool res ;
+
+    std::string error;
+
+bool ret1 = check_param(error);
+if(!ret1){
+    ret_error = error;
+    return false;
+}
+
+    CURLcode code;
+
+	set_receiver_list();
+
+    if( !m_make_send_message_once ){
+	    m_make_send_message_once = true;
+
+	    bool ret2 = make_send_message2(error);
+        if(!ret2){
+            ret_error = error;
+            return false;
+        }
+    }
+
+	set_curl_option2();
+
+    /* Send the message */
+    code = curl_easy_perform( curl_ );
+
+    /* Check for errors */
+    if(code == CURLE_OK){
+        res = true;
+    } else {
+        ret_error = (char *)curl_easy_strerror(code);
+        res = false;
+    }
+  
+	clear();
+	clear2();
+
+  return res;
+}
+
+
+/**
+* check_param
+ */
+bool CurlSmtp2::check_param(std::string &error)
+{
+
+    if(m_url.empty()){
+        error = std::string("not se=set url");
+        return false;
+    }
+
+    if(m_user.empty()){
+        error = std::string("not set user");
+        return false;
+    }
+
+    if(from_.empty()){
+        error = std::string("not set from");
+        return false;
+    }
+
+    if( subject_.empty() && m_subject_b64.empty() ){
+        error = std::string("not set subject");
+        return false;
+    }
+
+    if( message_.empty() && m_msg_b64.empty() ){
+        error = std::string("not set message");
+        return false;
+    }
+
+    if( password_.empty() && m_token.empty() ){
+        error = std::string("must set password or token");
+        return false;
+    }
+
+    if(to_.size() == 0 ) {
+        error = std::string("not set to");
+        return false;
+    }
+
+    return true;
+}
+
+
+/**
+* clear2
+ */
+void CurlSmtp2::clear2(void)
+{
+	m_user.clear();
+	m_url.clear();
+	m_user_agent.clear();
+	 m_subject_b64.clear();
+	m_subject_charset.clear();
+	m_msg_b64.clear();
+	m_msg_charset.clear();
+	m_token.clear();
 }

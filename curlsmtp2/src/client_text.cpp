@@ -26,8 +26,8 @@ int main(void)
     string URL = p.smtp_url;
     string USER = p.user;
     string PASSWD = p.passwd;
-    string MAIL_FROM = p.from;
-    string MAIL_TO =  p.to;
+    string FROM = p.from;
+    string TO =  p.to;
 
 
 	string subject = "curlsmtp2 test";
@@ -45,26 +45,42 @@ int main(void)
 // because ubuntu server is self-certified
     const bool verify = false;
 
+    string buffer;
+    string error;
+
 	CurlSmtp2* mail = new CurlSmtp2();
 
 	 mail->set_url( URL );
 	mail->set_user(USER);
 	mail->set_password(PASSWD);
-	mail->set_str_to(MAIL_TO);
-	mail->set_from(MAIL_FROM);
+	mail->set_str_to(TO);
+	mail->set_from(FROM);
 	mail->set_subject(subject);
 	mail->set_message(message);
 	mail->set_ssl_verify(verify);
 	mail->set_verbose(verbose);
 
-    string msg = mail->get_send_buffer();
-    cout << msg << endl;
-	cout << endl;
+	    bool ret1 = mail->get_send_buffer(buffer, error);
+        if(ret1){
+	        cout << buffer << endl;
+	        cout << "-----" << endl;
+	        cout << endl;
+        } else {
+            cerr << "get_send_buffer: " << error << endl;
+    return EXIT_FAILURE;
+        }
 
-	mail->send_mail();
+	bool ret2 = mail->send_mail2(error);
 
 	sleep(5);
 	delete mail;
+
+if(!ret2){
+    cerr << "failed: " << error << endl;
+    return EXIT_FAILURE;
+}
+
+    cout << "sucessful" << endl;
 
 	return EXIT_SUCCESS;;
 }

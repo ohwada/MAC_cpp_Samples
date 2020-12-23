@@ -5,8 +5,6 @@
 
 // send mail to Gmail SMTP server with xoauth
 
-// g++ curlsmtp/send_mail_gmail_xoauth.cpp curlsmtp/curlsmtp.cpp  -std=c++11 `pkg-config --cflags --libs libcurl`  `pkg-config --cflags --libs jsoncpp` 
-
 // 1.  obtain Authorization Code with user consent 
 // 2. get Refresh Token using Authorization Code
 // 3. get a new Access Token using a Refresh Token
@@ -62,6 +60,7 @@ int main(void)
     }
 
     cout << "access_token: " << access_token << endl;
+    cout << endl;
 
 	bool is_verbose = true;
     bool is_save = true;
@@ -81,21 +80,18 @@ int main(void)
 	mail->set_ssl_verify( is_verify );
 	mail->set_verbose( is_verbose );
 
-    if (is_save){
-	   	    string msg = mail->get_send_buffer();
-	          saveMail(msg);
-    }
-
-	mail->send_mail();
+	bool ret2 = mail->send_mail2(error);
 
 	sleep(5);
 	delete mail;
 
+    if(!ret2){
+        cerr << "failed: " << error << endl;
+        return EXIT_FAILURE;
+    }
+
+    cout << "sucessful" << endl;
+
     return EXIT_SUCCESS;
 }
-
-
-// Connected to smtp.gmail.com
-
-
 
