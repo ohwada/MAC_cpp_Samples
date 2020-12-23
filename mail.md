@@ -38,7 +38,7 @@ C++ wraper for libcurl smtp <br/>
 - suport file atachment <br/>
 
 ### curlsmtp2
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlsmtp2 <br/>
 this project is fork from  curlsmtp <br/>
 - support file attachment <br/>
 - support UTF-8 encoding <br/>

@@ -29,7 +29,10 @@ send mail with UTF-8 encoding and  attached file to SMTP server <br/>
 - send_mail_gmail.cpp <br/>
 send mail to Gmail SMTP server <br/
 
- 
+client_attach.cpp <br/>
+ view by thunderbird maill app <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp2/screenshot/thunderbird_client_attach.png" width="300" /><br/>
+
 #### xoauth
 - client_gmail_xoauth.cpp <br/>
 send mail to Gmail SMTP server with xoauth <br/>

@@ -21,10 +21,11 @@ build code <br/>
 % bash src/build_client_attach.sh
 
 run code <br/>
-% ./client_attach
+% ./client_attach <br/>
 
-display as bolow
-saved to: mail_20201222201956.eml
-client_attach.cpp
-view by thunderbird mail app
-thunderbird_client_attach.png
+display as bolow <br/>
+saved to: mail_20201222201956.eml <br/>
+
+view by thunderbird maill app <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp2/screenshot/thunderbird_client_attach.png" width="300" /><br/>
+
