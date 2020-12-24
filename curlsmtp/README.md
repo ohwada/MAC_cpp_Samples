@@ -29,6 +29,9 @@ run code <br/>
 % ./client_text <br/>
 
 
+### Document <br/>
+- https://ken-ohwada.hatenadiary.org/entry/2020/12/24/094756 <br/>
+
 ### Reference <br/>
 - https://curl.haxx.se/libcurl/c/
 - https://github.com/honeyligo/curlsmtp <br/>
