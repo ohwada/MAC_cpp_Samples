@@ -37,10 +37,11 @@ private:
 void initCurlSmtp(void);
 void set_curl_option2(void);
  size_t base64encode( const std::string str_data, std::string &ret_b64 );
-bool make_send_message2( std::string &ret_error );
-bool attach2(const std::string& filename, std::string &error);
+void make_send_message2(void);
+bool attach2(const std::string& filename);
 void clear2(void);
 bool check_param(std::string &error);
+bool exists_file(std::string file);
 
 private:
 	std::string m_user;

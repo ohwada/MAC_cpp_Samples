@@ -4,14 +4,13 @@
  */
 
 // SMTP Client
-// send mail with plain text to SMTP server
-
-// cd /Users/ohwada/github/MAC_cpp_Samples/curlsmtp2
-// bash src/build_client_error.sh
+// cause an error intentionally, 
+// specify a recipient adreess that does not exist
+// Recipient address rejected: User unknown in local recipient table
+// Failed sending data to the peer 
 
 
 #include <iostream>
-#include <glog/logging.h>
 #include "curlsmtp2_util.hpp"
 
 
@@ -21,14 +20,8 @@ using namespace std;
 /**
  * main
  */
-int main(int argc, char *argv[])
+int main(void)
 {
-
-    google::InitGoogleLogging(argv[0]);
-
-// set a signal handler that emits a stack trace on CRASH
-     google::InstallFailureSignalHandler();
-
 
    struct MailParam p = getUbuntuMailParam();
     printMailParam( p );
@@ -39,9 +32,9 @@ int main(int argc, char *argv[])
     string FROM = p.from;
     string TO =  p.to;
 
+
+// specify a recipient adreess that does not exist
     TO = "jiro";
-// <jiro>: Recipient address rejected: User unknown in local recipient table
-// curl_easy_perform() failed: Failed sending data to the peer 
 
 	string subject = "curlsmtp2 test";
 

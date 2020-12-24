@@ -13,8 +13,10 @@ send mail with attached file to SMTP server <br/>
 send mail with UTF-8 encoding to SMTP server <br/>
 - client_utf8_attach.cpp <br/>
 send mail with UTF-8 encoding and  attached file to SMTP server <br/>
-- send_mail_gmail.cpp <br/>
+- client_gmail.cpp <br/>
 send mail to Gmail SMTP server <br/>
+- client_error.cpp <br/>
+cause an error intentionally <br/>
 
 
 build code <br/>

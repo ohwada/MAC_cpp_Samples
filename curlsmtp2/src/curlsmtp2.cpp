@@ -8,7 +8,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <sys/stat.h>
 #include "curlsmtp2.h"
+
 
 // consttant
 const std::string CONTENT_TYPE_TEXT_UTF8_FLOWED( "Content-Type: text/plain; charset=utf-8; format=flowed" );
@@ -245,16 +247,13 @@ void CurlSmtp2::set_ssl_verify(bool verify)
 /**
  * make_send_message
  */
-bool CurlSmtp2::make_send_message2( std::string &ret_error )
+void CurlSmtp2::make_send_message2(void)
 {
 
     const size_t BUFSIZE = 100;
     char buf[BUFSIZE];
 
 	send_buffer_.clear();
-
-    bool is_error = false;
-    std::string error;
 
 	// time
 	time_t t;
@@ -382,11 +381,7 @@ bool CurlSmtp2::make_send_message2( std::string &ret_error )
 		// attachment
 		for (int i = 0; i < attach_.size(); ++i)
 		{
-			bool ret = attach2(attach_[i], error);
-            if(!ret){
-                is_error = true;
-                ret_error = error;
-            }
+			attach2(attach_[i]);
 		}
 
 		for (std::vector<std::pair<std::vector<char>, std::string>>::iterator it1 = attachment_.begin();
@@ -434,26 +429,24 @@ bool CurlSmtp2::make_send_message2( std::string &ret_error )
 		send_buffer_[i] += ENTER;
 	}
 
-    return !is_error;
-
 }
 
 
 /**
-* attach
+* attach2
  */
-bool CurlSmtp2::attach2(const std::string& filename, std::string &error)
+bool CurlSmtp2::attach2(const std::string& filename)
 {
 
 	if (!filename.length()){
         // do silly checks.
-        error = std::string("filename empty");
+        std::cerr <<"attach2: filename empty" << std::endl;
 		return false;
     }
 
 	std::ifstream file(filename.c_str(), std::ios::binary | std::ios::in);
 	if (!file){
-        error = std::string("can not open: ") + filename;
+        std::cerr <<"attach2: can not open: " << filename << std::endl;
 		return false;
     }
 
@@ -494,14 +487,15 @@ bool CurlSmtp2::get_send_buffer( std::string &msg, std::string &ret_error)
 
     std::string error;
 
+    bool ret = check_param(error);
+    if(!ret){
+        ret_error = error;
+        return false;
+    }
+
     if( !m_make_send_message_once ){
 	    m_make_send_message_once = true;
-
-	    bool ret = make_send_message2(error);
-        if(!ret){
-            ret_error = error;
-            return false;
-        }
+        make_send_message2();
     }
 
 
@@ -576,7 +570,7 @@ bool CurlSmtp2::send_mail2(std::string &ret_error)
 bool ret1 = check_param(error);
 if(!ret1){
     ret_error = error;
-    return false;
+    // return false;
 }
 
     CURLcode code;
@@ -585,12 +579,7 @@ if(!ret1){
 
     if( !m_make_send_message_once ){
 	    m_make_send_message_once = true;
-
-	    bool ret2 = make_send_message2(error);
-        if(!ret2){
-            ret_error = error;
-            return false;
-        }
+	    make_send_message2();
     }
 
 	set_curl_option2();
@@ -654,7 +643,32 @@ bool CurlSmtp2::check_param(std::string &error)
         return false;
     }
 
+
+// attachment
+    for (int i = 0; i < attach_.size(); ++i){
+        std::string attach = attach_[i];
+        if( !exists_file(attach) ){
+            error = std::string("file not exists: ") + attach;
+            return false;
+        }
+    }
+
+
     return true;
+}
+
+
+/**
+ * exists_file
+ */
+bool CurlSmtp2::exists_file(std::string file)
+{
+    struct stat buffer;
+
+    int ret = stat((char *)file.c_str(), &buffer);
+
+    bool res = (ret == 0)?true:false;
+    return res;
 }
 
 
