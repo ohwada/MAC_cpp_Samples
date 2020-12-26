@@ -33,9 +33,14 @@ client_attach.cpp <br/>
  view by thunderbird maill app <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/curlsmtp2/screenshot/thunderbird_client_attach.png" width="300" /><br/>
 
+
 #### xoauth
 - client_gmail_xoauth.cpp <br/>
 send mail to Gmail SMTP server with xoauth <br/>
+
+
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2020/12/26/110803
 
 
 ### Reference <br/>
