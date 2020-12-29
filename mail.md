@@ -7,6 +7,10 @@ sample code for mail <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/smtp <br/>
 SMTP Client using socket functions <br/>
 
+### postfix
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/postfix <br/>
+send mail using mail command or sensdmail command <br/>
+
 ### libcurl
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/mail <br/>
 the multiprotocol file transfer library <br/> 

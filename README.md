@@ -177,6 +177,9 @@ A C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
 https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 sample code for mail <br/>
 
+### postfix
+send mail using mail command or sensdmail command <br/>
+
 ### libquickmail
 C library for sending e-mail <br/>
 
