@@ -9,16 +9,23 @@ mail_version = 3.2.2 <br/>
 ### send mail to host in the local net
 
 #### /etc/hosts
-add hostname and ip address
-> 192.168.99.100 ubuntu
+
+add hostname and ip address <br/>
+
+> 192.168.99.100 ubuntu <br/>
 
 #### postfix main.cf
-enable to reference the hosts file when resolving hostname 
-> smtp_host_lookup = native
 
-restart
-> postfix reload
+enable to reference the hosts file when resolving IP address <br/>
 
+> smtp_host_lookup = native <br/>
+
+restart <br/>
+> postfix reload <br/>
+
+smtp_host_lookup : what mechanisms the Postfix SMTP client uses to look up a host's IP address <br/>
+native : use the native naming service only <br/>
+http://www.postfix.org/postconf.5.html <br/>
 
 ### Library required for mail
 - json-c <br/>
@@ -43,4 +50,5 @@ use this file for unification with other email apps  <br/>
 
 ### Reference <br/>
 - http://www.postfix.org/
+- http://www.postfix.org/postconf.5.html
 
