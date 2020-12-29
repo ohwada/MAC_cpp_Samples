@@ -23,6 +23,7 @@ enable to reference the hosts file when resolving IP address <br/>
 restart <br/>
 > postfix reload <br/>
 
+reference : Postfix Configuration Parameters <br/>
 smtp_host_lookup : what mechanisms the Postfix SMTP client uses to look up a host's IP address <br/>
 native : use the native naming service only <br/>
 http://www.postfix.org/postconf.5.html <br/>
@@ -46,7 +47,11 @@ this samples don't use account and password <br/>
 use this file for unification with other email apps  <br/>
 
 ### view log
+
 % /usr/bin/log stream --predicate  '(process == "smtpd") || (process == "postfix") || (process == "smtp")' --info <br/>
+
+reference : Max OSX Server 5.2 Postfix missing SMTP Logs <br/>
+http://blog.windhoek24.com/max-osx-server-5-2-postfix-missing-smtp-logs/ <br/>
 
 ### Reference <br/>
 - http://www.postfix.org/
