@@ -5,7 +5,7 @@
 
 // display version
 
-// g++ smtp/version.cpp -std=c++11 `pkg-config --cflags --libs vmime` -lgnutls -lgsasl
+// g++ version.cpp -std=c++11 `pkg-config --cflags --libs vmime` -lgnutls -lgsasl
 
 #include <iostream>
 #include "vmime/vmime.hpp"

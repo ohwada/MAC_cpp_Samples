@@ -99,8 +99,12 @@ and place on Your home directory <br/>
 Using OAuth 2.0 to Access Google APIs <br/> 
 - https://developers.google.com/identity/protocols/oauth2 <br/>
 
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_api_console.png" width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/setup/images/google_api_console.png" width="300" /> <br/>
 
+### sendmail mode
+ Requires : You can use sendmail command <br/>
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/postfix/setup <br/>
 
 ### Reference <br/>
 - Developers Guide to VMime <br/>
