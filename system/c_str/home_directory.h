@@ -1,6 +1,7 @@
+#pragma once
 /**
- * C sample
- * 2020-03-01 K.OHWADA
+ * system sample
+ * 2020-07-01 K.OHWADA
  */
 
 

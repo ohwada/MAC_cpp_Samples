@@ -1,11 +1,15 @@
 /**
- * C sample
+ * system sample
  * 2020-03-01 K.OHWADA
  */
 
 // get home directory
+// test for home_directory.h
+
+// gcc test_get_home_directory.c
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "home_directory.h"
 
 
@@ -21,7 +25,7 @@ int main(void)
 
     printf( "home dir: %s \n",  getHomeDir() );
 
-    return 0;
+        return EXIT_SUCCESS;
 }
 
 

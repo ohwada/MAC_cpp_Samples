@@ -1,11 +1,11 @@
 #pragma once
 /**
- * C++ sample
- * 2020-03-01 K.OHWADA
+ * system sample
+ * 2020-07-01 K.OHWADA
  */
 
 
- // get the path of the main executable for macOS
+ // get executable path for macOS
 
 // reference : https://stackoverflow.com/questions/799679/programmatically-retrieving-the-absolute-path-of-an-os-x-command-line-app/1024933#1024933
 

@@ -1,8 +1,9 @@
 /**
- * C++ system sample
- * 2020-03-01 K.OHWADA
+ * system sample
+ * 2020-07-01 K.OHWADA
  */
 
+ // get executable path for macOS
 // test for executable_path.hpp
 
 #include <iostream>
@@ -14,7 +15,7 @@ using namespace std;
 /**
  * main
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 
     cout << "argv0: " << argv[0] << endl;
@@ -24,5 +25,5 @@ int main(int argc, char **argv)
 
     cout << "executable path: " << dir << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
