@@ -15,6 +15,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <limits.h>
+#include <sys/types.h>
 
 
 // prototype
@@ -26,11 +27,18 @@ bool get_executable_path( char *path, char *error ) ;
  */
 bool get_executable_path( char *path, char *error ) 
 {
-#define PATH_MAX 4096
+
     char buf[PATH_MAX + 1];
 
+    const size_t LINKSIZE = 100;
+    char link[LINKSIZE];
+
 // lnk to the currently running process.
-    const char link[] = "/proc/self/exe";
+    int pid = getpid();
+
+    snprintf(link, LINKSIZE, "/proc/%d/exe", pid);
+
+    printf( "link: %s \n",  link );
 
     ssize_t size = readlink( (char *)link, (char *)buf, PATH_MAX);
 
@@ -65,5 +73,7 @@ int main(void)
 }
 
 
+// link: /proc/4610/exe 
 // executable_path: /home/taro/hoge/a.out 
+
 
