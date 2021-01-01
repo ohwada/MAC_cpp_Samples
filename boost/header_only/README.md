@@ -12,6 +12,7 @@ https://www.boost.org/doc/libs/1_75_0/more/getting_started/unix-variants.html#he
 convert lowercase letters to uppercase <br/>
 - split.cpp <br/>
 split string <br/>
+- string_replace_all.cpp <br/>
 - format.cpp  <br/>
 output with formating like prinf()  <br/>
 - version.cpp <br/>

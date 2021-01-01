@@ -54,9 +54,15 @@ int main(void)
     return 0;
 }
 
+
 // original:
 // hello world goodby world
 // world -> japan
 // replaced:
 // hello japan goodby world
+// try: japan -> world
+// not found:japan
+// remove: world
+// removeed:
+// hello  goodby world
 

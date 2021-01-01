@@ -27,7 +27,7 @@ containg substring in string <br/>
 convert string to number <br/>
 - string_ascii.cpp <br/>
 strip AsciiWhitespace in string <br/>
-- string_replace.cpp <br/>
+- string_replace_all.cpp <br/>
 replace substring in string <br/>
 - string_split.cpp <br/>
 strip prefix or sufix in string <br/>
