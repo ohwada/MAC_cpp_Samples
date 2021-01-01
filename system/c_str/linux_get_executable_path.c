@@ -26,7 +26,7 @@ bool get_executable_path( char *path, char *error ) ;
  */
 bool get_executable_path( char *path, char *error ) 
 {
-
+#define PATH_MAX 4096
     char buf[PATH_MAX + 1];
 
 // lnk to the currently running process.

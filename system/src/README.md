@@ -9,7 +9,7 @@ get executable path for macOS <br/>
 
 
 build code <br/>
-% g++  test_executable_path.cpp <br/>
+% g++ test_executable_path.cpp -std=c++11  <br/>
 
 run code <br/>
 % ./a.out <br/>

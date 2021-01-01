@@ -29,9 +29,10 @@ int main(int argc, char *argv[])
 
     printf("cmd: %s\n", cmd);
 
+    char path[PATH_MAX];
 
-    char path[100];
     bool ret1 = getExecutablePath( (char *)path );
+
 if(ret1){
     printf("path: %s\n", path);
 } else {
@@ -55,5 +56,7 @@ bool ret2 = str_replace(path, cmd, replace, dir );
 }
 
 
- // executable path: /Users/taro/hoge/ 
+// cmd: ./a.out
+// path: /Users/taro/hoge/./a.out
+// dir: /Users/taro/hoge/
 

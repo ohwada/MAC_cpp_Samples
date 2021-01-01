@@ -11,11 +11,16 @@
 
 // https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/dyld.3.html
 
+#include <limits.h>
+#include <string>
 
-// for macOS
+
+/**
+ * macOS
+ */
 #  include <mach-o/dyld.h>
 
-#include <string>
+
 
 // prototype
 bool  replaceString(std::string src, std::string s1,  std::string s2, std::string &dst);
@@ -49,17 +54,16 @@ bool replaceString(std::string src, std::string s1,  std::string s2, std::string
 bool getExecutablePath(std::string &path)
 {
 
-    uint32_t bufsize = 1024;
-    char buf[bufsize];
+    uint32_t bufsize = PATH_MAX;
+    char buf[PATH_MAX];
 
     int ret = _NSGetExecutablePath(buf, &bufsize);
 
     if (ret  != 0) {
-        path = "";
         return false;
     }
 
-    path = buf;
+    path = std::string( buf );
     return true;
 }
 

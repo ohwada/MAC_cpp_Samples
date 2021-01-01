@@ -12,15 +12,17 @@
 
 // https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/dyld.3.html
 
+#include <string.h>
+#include <limits.h>
 
-// for macOS
+/**
+ * macOS
+ */
 #  include <mach-o/dyld.h>
 
-#include <string.h>
 
 // prototype
 bool getExecutablePath(char * path);
-
 
 
 /**
@@ -31,8 +33,8 @@ bool getExecutablePath(char * path);
 bool getExecutablePath(char * path)
 {
 
-    uint32_t bufsize = 1024;
-    char buf[bufsize];
+    uint32_t bufsize = PATH_MAX;
+    char buf[PATH_MAX];
 
     int ret = _NSGetExecutablePath(buf, &bufsize);
 

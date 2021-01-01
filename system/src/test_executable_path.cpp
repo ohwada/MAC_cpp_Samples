@@ -18,12 +18,18 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    cout << "argv0: " << argv[0] << endl;
+    string cmd( argv[0] );
+
+    cout << "cnd: " << cmd << endl;
 
     string dir = 
-    getExecutablePathDir( argv[0] );
+    getExecutablePathDir( cmd );
 
     cout << "executable path: " << dir << endl;
 
     return EXIT_SUCCESS;
 }
+
+
+// cnd: ./a.out
+// executable path: /Users/taro/hoge/

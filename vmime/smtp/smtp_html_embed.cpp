@@ -73,10 +73,11 @@ const string IMAGE_PNG = "png";
 		vmime::shared_ptr <vmime::utility::fileSystemFactory> fs = 
 			vmime::platform::getHandler()->getFileSystemFactory();
 
-	string dir = exe_path + string("data/") ;
-	string fname( "baboon.png" );
 
-	string fullpath = dir + fname; 
+	string filepath( "data/baboon.png" );
+
+	string fullpath = exe_path + filepath;
+
 	cout << "fullpath: " << fullpath << endl;
 
 	vmime::shared_ptr <vmime::utility::file> imageFile =

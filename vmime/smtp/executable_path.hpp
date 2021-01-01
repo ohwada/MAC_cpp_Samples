@@ -1,21 +1,26 @@
 #pragma once
 /**
- * C++ sample
- * 2020-03-01 K.OHWADA
+ * vmime sample
+ * 2020-07-01 K.OHWADA
  */
 
 
- // get the path of the main executable for macOS
+ // get executable path for macOS
 
 // reference : https://stackoverflow.com/questions/799679/programmatically-retrieving-the-absolute-path-of-an-os-x-command-line-app/1024933#1024933
 
 // https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/dyld.3.html
 
+#include <limits.h>
+#include <string>
 
-// for macOS
+
+/**
+ * macOS
+ */
 #  include <mach-o/dyld.h>
 
-#include <string>
+
 
 // prototype
 bool  replaceString(std::string src, std::string s1,  std::string s2, std::string &dst);
@@ -49,17 +54,16 @@ bool replaceString(std::string src, std::string s1,  std::string s2, std::string
 bool getExecutablePath(std::string &path)
 {
 
-    uint32_t bufsize = 1024;
-    char buf[bufsize];
+    uint32_t bufsize = PATH_MAX;
+    char buf[PATH_MAX];
 
     int ret = _NSGetExecutablePath(buf, &bufsize);
 
     if (ret  != 0) {
-        path = "";
         return false;
     }
 
-    path = buf;
+    path = std::string( buf );
     return true;
 }
 

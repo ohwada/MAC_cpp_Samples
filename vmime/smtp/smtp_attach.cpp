@@ -46,16 +46,17 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
 /**
  *  main
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	 const	string  SUBJECT = "vmime attach";
 
     bool verbose = true;
 
-	string exe_path = getExecutablePathDir(argv[0] );
+	string exe_path = getExecutablePathDir( argv[0] );
 	cout << "ExecutablePathDir: " << exe_path << endl;
 
-	string filepath = "data/baboon.png";
+	string filepath( "data/baboon.png" );
+
 	bool is_save = true;
 
     if(argc == 3) {
@@ -78,7 +79,10 @@ int main(int argc, char **argv)
     string FROM = p.from;
     string TO =  p.to;
 
-	string fullpath = exe_path + string("/") + filepath;
+	string fullpath = exe_path + filepath;
+
+    cout << " fullpath: " <<  fullpath << endl;
+
     vmime::shared_ptr <vmime::message> msg = buildCustomMessage(  SUBJECT, FROM, TO, fullpath );
 
     if(is_save){
