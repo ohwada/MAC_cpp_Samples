@@ -40,6 +40,7 @@ display by thunderbird <br/>
 
 ### Document
 - https://ken-ohwada.hatenadiary.org/entry/2020/12/31/152731
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/03/124349
 
 ### Reference <br/>
 - https://github.com/kisli/vmime

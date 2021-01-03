@@ -5,7 +5,10 @@
 
 // send mail with attaced files to SMTP server
 
-//  g++ smtp/smtp_attach.cpp -std=c++11 `pkg-config --cflags --libs vmime`
+
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/03/124349
+
 
 #include <iostream>
 #include "smtp.hpp"
