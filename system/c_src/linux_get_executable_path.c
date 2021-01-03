@@ -6,7 +6,8 @@
  // get executable path for Linux
 // work on Linux only
 
-// reference : https://stackoverflow.com/questions/8579065/c-c-executable-path
+// Document
+https://ken-ohwada.hatenadiary.org/entry/2021/01/03/120707
 
 #include <stdio.h>
 #include <stdlib.h>

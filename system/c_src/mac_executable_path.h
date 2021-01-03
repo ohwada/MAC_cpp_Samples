@@ -8,9 +8,8 @@
  // get executable path for macOS
 // work  on macOS only
 
-// reference : https://stackoverflow.com/questions/799679/programmatically-retrieving-the-absolute-path-of-an-os-x-command-line-app/1024933#1024933
-
-// https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/dyld.3.html
+// Document
+https://ken-ohwada.hatenadiary.org/entry/2021/01/03/120707
 
 #include <string.h>
 #include <limits.h>
