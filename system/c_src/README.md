@@ -25,7 +25,8 @@ display as below <br/>
 
 
 ### Document
-https://ken-ohwada.hatenadiary.org/entry/2021/01/03/120707
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/03/120707
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/03/121904
 
 ### Reference
 - https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/dyld.3.html

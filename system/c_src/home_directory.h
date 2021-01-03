@@ -6,7 +6,9 @@
 
 
 // get home directory
-// reference : https://stackoverflow.com/questions/2910377/get-home-directory-in-linux
+
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/03/121904
 
 
 #include <stdlib.h>
