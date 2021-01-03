@@ -81,7 +81,12 @@ int main(int argc, char *argv[])
 
 	string fullpath = exe_path + filepath;
 
-    cout << " fullpath: " <<  fullpath << endl;
+    if(  existsFile( fullpath) ) {
+        cout << " fullpath: " <<  fullpath << endl;
+    } else {
+        cerr << " not found: " <<  fullpath << endl;
+         return EXIT_FAILURE;
+    }
 
     vmime::shared_ptr <vmime::message> msg = buildCustomMessage(  SUBJECT, FROM, TO, fullpath );
 
@@ -97,7 +102,7 @@ int main(int argc, char *argv[])
     if(ret){
     cout << "send mail successful" << endl;
 	} else {
-        cout << "send mail failed" << endl;
+        cerr << "send mail failed" << endl;
          return EXIT_FAILURE;
     }
 

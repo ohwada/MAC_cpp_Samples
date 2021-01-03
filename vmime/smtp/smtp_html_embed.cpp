@@ -5,6 +5,11 @@
 
 // send mail with HTML and embedded image to SMTP server 
 
+
+// TODO:
+// media sub type is hard-coded with PNG
+
+
 // This sample program demonstrate the use of the messageBuilder component
 // to build a complex message (HTML content, plain text and embedded image)
 // reference : https://github.com/kisli/vmime/blob/master/examples/example3.cpp
@@ -26,10 +31,11 @@ static vmime::shared_ptr <vmime::net::session> g_session = vmime::net::session::
  *  buildCustomMessage
  */
 vmime::shared_ptr <vmime::message> 
-buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, string exe_path )
+buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, string fullpath )
 {
 
-const string IMAGE_PNG = "png";
+// media sub type
+	const string IMAGE_PNG = "png";
 
 // build body 
 	const std::string body = 
@@ -73,15 +79,8 @@ const string IMAGE_PNG = "png";
 		vmime::shared_ptr <vmime::utility::fileSystemFactory> fs = 
 			vmime::platform::getHandler()->getFileSystemFactory();
 
-
-	string filepath( "data/baboon.png" );
-
-	string fullpath = exe_path + filepath;
-
-	cout << "fullpath: " << fullpath << endl;
-
 	vmime::shared_ptr <vmime::utility::file> imageFile =
-			fs->create(fs->stringToPath(fullpath));
+			fs->create( fs->stringToPath( fullpath ) );
 
 		vmime::shared_ptr <vmime::utility::fileReader> fileReader =
 			imageFile->getFileReader();
@@ -137,10 +136,11 @@ const string IMAGE_PNG = "png";
  */
 int main(int argc, char **argv)
 {
- const	std::string  SUBJECT = "vmime embed";
 
-	string path = getExecutablePathDir(argv[0] );
-	cout << "ExecutablePathDir: " << path << endl;
+	const	std::string  SUBJECT = "vmime embed";
+
+	string exe_path = getExecutablePathDir(argv[0] );
+	cout << "ExecutablePathDir: " << exe_path << endl;
 
 	bool is_save = true;
 
@@ -157,24 +157,36 @@ int main(int argc, char **argv)
     string FROM = p.from;
     string TO =  p.to;
 
+	string filepath( "data/baboon.png" );
+
+	string fullpath = exe_path + filepath;
+
+    if(  existsFile( fullpath) ) {
+        cout << " fullpath: " <<  fullpath << endl;
+    } else {
+        cerr << " not found: " <<  fullpath << endl;
+         return EXIT_FAILURE;
+    }
+
     vmime::shared_ptr <vmime::message> msg = 
-buildCustomMessage(  SUBJECT, FROM, TO, path);
+buildCustomMessage(  SUBJECT, FROM, TO, fullpath );
 
     if(is_save){
         saveMessage( msg ) ;
     }
 
-
 	vmime::shared_ptr< vmime::security::cert::certificateVerifier > cv
 = vmime::make_shared <customCertificateVerifier>();
+
     bool ret = sendMessage( g_session, URL,  USER,  PASSWD,  
     msg, cv, verbose ) ;
 
-    if(!ret){
-        cout << "send mail failed" << endl;
-        return 1;
+ if(ret){
+    cout << "send mail successful" << endl;
+	} else {
+        cerr << "send mail failed" << endl;
+         return EXIT_FAILURE;
     }
 
-    cout << "send mail successful" << endl;
-	return 0;
+	    return EXIT_SUCCESS;
 }

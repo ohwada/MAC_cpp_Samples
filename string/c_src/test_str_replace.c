@@ -5,6 +5,10 @@
 
 // replace string first one
 
+// try simple_str_replace.c
+// simple example that makes the processing flow easy to understand
+// the algorithm is the same
+
 
 # include <stdio.h>
 # include "str_replace.h"
