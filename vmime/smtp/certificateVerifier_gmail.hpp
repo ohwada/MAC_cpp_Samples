@@ -13,6 +13,10 @@
 // https://www.digicert.com/kb/digicert-root-certificates.htm
 
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/04/130216
+
+
 #include "certificateVerifier.hpp"
 
 class customCertificateVerifier : public commonCertificateVerifier {
