@@ -65,8 +65,10 @@ Do Google refresh tokens expire?
 - https://stackoverflow.com/questions/8953983/do-google-refresh-tokens-expire#:~:text=The%20Google%20Auth%20server%20issued,revokes%20access%20to%20your%20application.
 
 
+### Document
+https://ken-ohwada.hatenadiary.org/entry/2021/01/05/093009
 
-### Reference <br/>
+### Reference 
 - https://github.com/kisli/vmime
 - https://developers.google.com/identity/protocols/OAuth2
 

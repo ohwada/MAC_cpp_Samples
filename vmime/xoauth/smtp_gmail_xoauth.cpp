@@ -5,7 +5,9 @@
 
 //  send mail to Gmail SMTP server with xoauth2
 
-// reference " https://www.vmime.org/development/xoauth2-authentication-mechanism-gmail
+
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/05/093009
 
 
 // 1.  obtain Authorization Code with user consent 
