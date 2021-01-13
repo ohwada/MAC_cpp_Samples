@@ -3,7 +3,7 @@
  * 2020-03-01 K.OHWADA
  */
 
-// test for getInputChars
+// test for getInt
 
 #include "input.h"
 
@@ -14,38 +14,36 @@
 int main(void)
 {
 
-    const int BUFSIZE = 10;
-    char buf[BUFSIZE];
-
     enum Input in;
+
+   int num =0;
+
+    bool flag = false;
 
 while(1)
 {
-
-  printf("Please enter string and return \n");
+    printf("Please enter int number and return \n");
    printf(">"); // prompt
 
-    in = getInputChars(buf, BUFSIZE);
+   num = 0;
+    in = getInt(&num);
 
-    int flag = 0;
     switch(in)
     {
         case SUCCESS:
-            printf("input: %s \n", buf);
+            printf("input: %d \n", num);
             break;
         case EMPTY:
             puts("empty");
-            flag = 1;
+            flag = true;
             break;
         case ERROR:
-            puts("error");
-            break;
-         case OVER:
-            printf("over: %s (%lu) \n", buf, strlen(buf) );
+            printf("error: %d \n", num);
             break;
     }
 
     if(flag){
+        puts("goodby");
         break;
     }
 

@@ -4,7 +4,7 @@
  */
 
 
-// generate random number
+// generate random number using random()
 // since C11
 // reference : https://www.jpcert.or.jp/sc-rules/c-msc30-c.html
 // https://linuxjm.osdn.jp/html/LDP_man-pages/man3/random.3.html

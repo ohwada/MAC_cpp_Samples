@@ -13,7 +13,7 @@
  */
 int main(void)
 {
-    const int BUFSIZE = 10;
+    const size_t BUFSIZE = 10;
     char buf[BUFSIZE];
 
 while(1)
@@ -21,15 +21,17 @@ while(1)
     printf("Please enter string and return \n");
    printf(">"); // prompt
 
-    if (gets_sub(buf) == NULL) {
+    char *line = gets_sub(buf);
+    if (line == NULL) {
         printf("fgets failed \n");
+    } else {
+        size_t len = strlen(buf)
+        printf("input: %s ( %lu ) \n", buf, len);
+        if( len == 0 ){
+            printf("goodby \n");
+            break;
+        }
     }
-
-    if( strlen(buf) == 0 ){
-        break;
-    }
-
-    printf("input: %s ( %lu ) \n", buf, strlen(buf));
 
 } // while
 
