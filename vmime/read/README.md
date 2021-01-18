@@ -28,6 +28,11 @@ display as below <br/>
  > It was sent by: Vincent( email: vincent@vmime.org ) <br/>
 > A simple message to test VMime <br/>
 
-### Reference <br/>
+
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/18/131914
+
+
+### Reference 
 - https://github.com/kisli/vmime
 
