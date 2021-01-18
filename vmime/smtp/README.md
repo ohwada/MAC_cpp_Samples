@@ -38,7 +38,7 @@ display as below <br/>
 > saved mail_20201226230615.eml <br/>
 
 display by thunderbird <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/result/thunderbird_smtp_attach.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/screenshot/thunderbird_create_mail_attach.png" width="300" /><br/>
 
 ### Document
 - https://ken-ohwada.hatenadiary.org/entry/2020/12/31/152731
