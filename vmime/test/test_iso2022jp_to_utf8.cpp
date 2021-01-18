@@ -5,7 +5,7 @@
 
 // test for vmime_charset.hpp and iso2022jp_to_utf8()
 
-// g++ test_iso2022jp_to_utf8.cpp -std=c++11 `pkg-config --cflags --libs vmime`
+// g++ test/test_iso2022jp_to_utf8.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
 #include <iostream>
 #include <fstream>
@@ -22,8 +22,8 @@ using namespace std;
 int main(void)
 {
 
-    string file_iso2022 = "data/charset_iso2022jp.txt";
-    string file_utf8 = "text_utf8.txt";
+    string file_iso2022 = "data/text_iso2022jp.txt";
+    string file_utf8 = "test_utf8.txt";
 
     string text_utf8;
     string text_iso2022;
@@ -35,7 +35,7 @@ int main(void)
 	    return EXIT_FAILURE;
     }
 
-    iso2022jp_to_utf8(text_iso2022, text_utf8);
+    to_utf8( text_iso2022, text_utf8, CHARSET_ISO2022JP );
 
 // display
     cout << text_utf8 << endl;

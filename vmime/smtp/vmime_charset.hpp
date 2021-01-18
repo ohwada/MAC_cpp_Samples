@@ -8,34 +8,33 @@
 
 #include <string>
 #include "vmime/vmime.hpp"
+
  
 // prototype
-void iso2022jp_to_utf8(std::string src, std::string &utf8);
-void utf8_to_iso2022jp(std::string src, std::string &iso2022);
+void to_utf8(std::string src, std::string &utf8, vmime::charset charset);
+void from_utf8(std::string utf8, std::string &dst,  vmime::charset charset );
 
 
 // global
-const std::string CHARSET_UTF8 = "UTF-8";
-const std::string CHARSET_ISO2022JP = "ISO-2022-JP";
+const vmime::charset CHARSET_UTF8( vmime::charsets::UTF_8 );
+const char CHARS_ISO2022JP[] = "ISO-2022-JP";
+const vmime::charset 
+CHARSET_ISO2022JP( CHARS_ISO2022JP );
 
 
 /** 
- * iso2022jp_to_utf8
+ * to_utf8
   */
-void iso2022jp_to_utf8(std::string src, std::string &utf8)
+void to_utf8(std::string src, std::string &utf8, vmime::charset charset )
 {
-    vmime::string dst;
-    vmime::charset::convert( src, dst, CHARSET_ISO2022JP, CHARSET_UTF8 );
-    utf8 = dst;
+    vmime::charset::convert( src, utf8, charset, CHARSET_UTF8 );
 }
 
 
 /** 
- * utf8_to_iso2022jp
+ * from_utf8
   */
-void utf8_to_iso2022jp(std::string src, std::string &iso2022)
+void from_utf8(std::string utf8, std::string &dst, vmime::charset charset )
 {
-    vmime::string dst;
-    vmime::charset::convert( src, dst, CHARSET_UTF8, CHARSET_ISO2022JP );
-    iso2022 = dst;
+    vmime::charset::convert( utf8, dst, CHARSET_UTF8, charset );
 }

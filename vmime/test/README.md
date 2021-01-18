@@ -38,7 +38,7 @@ verify ubuntu cert file <br/>
 
 
 build code <br/>
-  % g++ test_mail_json.cpp -std=c++11 `pkg-config --cflags --libs vmime_json` <br/>  
+  % g++ test/test_json_mail.cpp -std=c++11 `pkg-config --cflags --libs vmime_json` <br/>  
 
 run code <br/>
 % ./a.out

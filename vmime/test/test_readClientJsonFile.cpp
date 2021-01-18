@@ -5,10 +5,10 @@
 
 // test for auth_json.hpp and readClientJsonFile
 
-// g++ test_readClientJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_readClientJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "../xoauth/auth_json.hpp"
+#include "../xoauth/json_auth.hpp"
 #include "../xoauth/mail_directory.h"
 
 using namespace std;

@@ -5,9 +5,7 @@
 
 //  send mail to Gmail SMTP server with xoauth2
 
-
-// Document
-// https://ken-ohwada.hatenadiary.org/entry/2021/01/05/093009
+// reference " https://www.vmime.org/development/xoauth2-authentication-mechanism-gmail
 
 
 // 1.  obtain Authorization Code with user consent 
@@ -21,7 +19,7 @@
 #include <string>
 #include "vmime/security/sasl/XOAuth2SASLMechanism.hpp"
 #include "vmime/security/sasl/XOAuth2SASLAuthenticator.hpp"
-#include "certificateVerifier_gmail.hpp"
+#include "plugin_certificateVerifier_gmail.hpp"
 #include "access_token.hpp"
 #include "smtp.hpp"
 

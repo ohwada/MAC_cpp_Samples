@@ -5,10 +5,10 @@
 
 // test for auth_json.hpp and parseAccessTokenJson
 
-// g++ test_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "../xoauth/auth_json.hpp"
+#include "../xoauth/json_auth.hpp"
 #include "../xoauth/file_util.hpp"
 
 using namespace std;
@@ -21,7 +21,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string access_file = "data/sample_access_token.json";
+    string access_file = "samples/sample_access_token.json";
 
     if(argc == 2){
         access_file = argv[1];

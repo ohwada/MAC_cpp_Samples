@@ -9,8 +9,7 @@
 #include <string>
 #include <vector>
 #include "pop3.hpp"
-#include "mail_json.hpp"
-#include "certificateVerifier_ocn.hpp"
+#include "plugin_certificateVerifier_ocn.hpp"
 
 
 using namespace std;

@@ -13,7 +13,6 @@
 
 #include <iostream>
 #include "smtp.hpp"
-#include "certificateVerifier_ubuntu.hpp"
 
 using namespace std;
 

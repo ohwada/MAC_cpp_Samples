@@ -6,7 +6,7 @@
 // vmime::exception: ENOENT: a directory in the path does not exist.
 // relative path don't work
 // absolute path works well
-// try smtp_html_embed.cpp
+// try create_mail_embed.cpp
 
 
 //
@@ -104,7 +104,7 @@ int main(void) {
 		//vmime::shared_ptr <vmime::utility::file> imageFile =
 			//fs->create(fs->stringToPath("/path/to/image.jpg"));
 		vmime::shared_ptr <vmime::utility::file> imageFile =
-			fs->create(fs->stringToPath("sample.jpg"));
+			fs->create(fs->stringToPath("uparrow256.jpg"));
 
 		vmime::shared_ptr <vmime::utility::fileReader> fileReader =
 			imageFile->getFileReader();

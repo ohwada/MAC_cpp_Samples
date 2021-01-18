@@ -18,9 +18,11 @@ void getMediaType(std::string ext, std::string &type);
  */
 void getMediaType(std::string ext, std::string &type)
 {
+
     const std::string MEDIA_TYPE_TXT("text/plain");
     const std::string MEDIA_TYPE_PNG("image/png");
-    const std::string MEDIA_TYPE_JPG("image/jpg");
+    const std::string MEDIA_TYPE_JPG("image/jpg");   
+    const std::string MEDIA_TYPE_GIF("image/gif");
     const std::string MEDIA_TYPE_OCTET_STREAM(
     "application/octet-stream");
 
@@ -30,6 +32,8 @@ void getMediaType(std::string ext, std::string &type)
         type = MEDIA_TYPE_PNG;
     } else if (ext == "jpg"){
         type = MEDIA_TYPE_JPG;
+    } else if (ext == "gif"){
+        type = MEDIA_TYPE_GIF;
     } else {
         type = MEDIA_TYPE_OCTET_STREAM;
     }

@@ -5,10 +5,10 @@
 
 // test for auth_json.hpp and readRefreshTokenJsonFile
 
-// g++ test_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "../xoauth/auth_json.hpp"
+#include "../xoauth/json_auth.hpp"
 
 
 using namespace std;
@@ -21,7 +21,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string refresh_file = "data/sample_refresh_token.json";
+    string refresh_file = "samples/sample_refresh_token.json";
 
     if(argc == 2){
         refresh_file = argv[1];

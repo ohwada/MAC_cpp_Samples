@@ -35,20 +35,23 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "pop3_func.hpp"
-#include "mail_json.hpp"
+
+#include "vmime/vmime.hpp"
+#include "vmime/platforms/posix/posixHandler.hpp"
+
+#include "plugin_tracer.hpp"
+#include "plugin_authenticator.hpp"
+#include "plugin_timeoutHandler.hpp"
+#include "plugin_exception _helper.hpp"
+#include "vmime_folder.hpp"
+#include "vmime_net_message.hpp"
+#include "json_mail.hpp"
 
 
 /** 
- * struct HeaderLine
+ * typedef
   */
-struct HeaderLine
-{
-int number;
-std::string subject;
-std::string from;
-std::string date;
-};
+typedef std::map <vmime::size_t, vmime::shared_ptr <vmime::net::message> >  NetMessageList;
 
 
 // prototype
@@ -58,20 +61,15 @@ bool connectImap( vmime::shared_ptr <vmime::net::session> session, std::string u
 bool connectStore( int mode, vmime::shared_ptr <vmime::net::session> session, std::string pop3_url, std::string user, std::string passwd, vmime::shared_ptr< vmime::security::cert::certificateVerifier > cv, int limit, bool verbose) ;
 void procFolder(	 int mode, vmime::shared_ptr <vmime::net::store> st, vmime::shared_ptr <std::ostringstream> traceStream, int limit, bool verbose );
 std::vector <std::string> buildActionMenu();
-void showStatus(vmime::shared_ptr <vmime::net::folder> f);
-void showFolders( vmime::shared_ptr <vmime::net::store> st );
 void showTrace( vmime::shared_ptr <std::ostringstream> traceStream );
 void pop3_showFlags(int mode, vmime::shared_ptr <vmime::net::folder> f,
-vmime::shared_ptr <vmime::net::message> msg );
-void showStructure(int mode, vmime::shared_ptr <vmime::net::folder> f,
-vmime::shared_ptr <vmime::net::message> msg);
-
+vmime::shared_ptr <vmime::net::message> net_msg );
 void pop3_addMessage(int mode, vmime::shared_ptr <vmime::net::folder> f);
-
 void pop3_copyMessage(int mode, vmime::shared_ptr <vmime::net::folder> f,
-	vmime::shared_ptr <vmime::net::message> msg);
-
+	vmime::shared_ptr <vmime::net::message> net_msg);
 vmime::shared_ptr <vmime::net::folder> pop3_changeFolder(int mode,  vmime::shared_ptr <vmime::net::store> st );
+void pop3_showStructure(int mode, vmime::shared_ptr <vmime::net::folder> f,
+vmime::shared_ptr <vmime::net::message> net_msg);
 int getModeFromCommandLine(int argc, char* argv[]);
 int getLimitFromCommandLine(int argc, char* argv[]);
 
@@ -217,51 +215,62 @@ void procFolder( int mode, vmime::shared_ptr <vmime::net::store> st, vmime::shar
 
 		f->open(vmime::net::folder::MODE_READ_WRITE);
 
-		vmime::size_t msg_count  = f->getMessageCount();
+		vmime::size_t net_msg_count  = f->getMessageCount();
 
 		std::cout << std::endl;
-		std::cout << msg_count << " message(s) in your inbox" << std::endl;
+		std::cout << net_msg_count << " message(s) in your inbox" << std::endl;
 
-    int start = msg_count - limit + 1;
+    int start = net_msg_count - limit + 1;
     if(start <  START_MIN){
         start =  START_MIN;
     }
 
  	std::cout << "get latest " << limit << " messages " << std::endl;
 
-		vmime::shared_ptr <vmime::net::message> msg;
-			MessageList msgList;
+	vmime::shared_ptr <vmime::net::message> net_msg;
 
-	//std::vector<std::string> headerList;
-	std::vector<HeaderLine> headerList;
-	for(int i=start; i<=msg_count; i++) {
+    vmime::shared_ptr< vmime::message > msg;
 
-		msg = f->getMessage(i);
-		if(!msg){
+    vmime::shared_ptr <vmime::header> header;
+
+	 NetMessageList  netMsgList;
+
+	std::vector< vmime::shared_ptr< vmime::message > > msg_list;
+
+	std::vector< struct HeaderInfo > headerInfos;
+
+	std::vector<std::string> headerMenu;
+
+    struct HeaderInfo header_info;
+
+	for(int i=start; i<=net_msg_count; i++) {
+
+		net_msg = f->getMessage(i);
+		if(!net_msg){
 			std::cout << "getMessage failed: " << i << std::endl;
 			continue;
 		}
 
+
+
 // progress
         if(verbose){
-    	    fprintf(stderr, "\r fetch [ %2d / %2lu ]", i, msg_count);
+    	    fprintf(stderr, "\r fetch [ %2d / %2lu ]", i, net_msg_count);
         }
 
-		f->fetchMessage(msg, vmime::net::fetchAttributes::FULL_HEADER);
+		f->fetchMessage(net_msg, vmime::net::fetchAttributes::FULL_HEADER);
 
-		msgList.insert(MessageList::value_type(i, msg));
+		 netMsgList.insert( NetMessageList::value_type(i, net_msg));
 
-        std::string subject;  
-        std::string from; 
-        std::string date; 
-        getHeaders( msg, subject, from, date );
+        msg = net_msg->getParsedMessage();
+        msg_list.push_back(msg);
 
-        HeaderLine hl;
-        hl.number = i;
-        hl.subject = subject;
-        hl.from = from;
-        hl.date = date;
-		headerList.push_back(hl);
+        header = msg->getHeader();
+
+        getHeaderInfo( header, header_info );
+        header_info.msg_number = i;
+		headerInfos.push_back( header_info );
+		headerMenu.push_back( header_info.label );
 
 	} // for
 
@@ -269,79 +278,60 @@ void procFolder( int mode, vmime::shared_ptr <vmime::net::store> st, vmime::shar
         fprintf(stderr, "\n"); // line feed
     }
 
+    int empty = 0;
+
+    vmime::shared_ptr< vmime::message > current_msg;
 
 	while(1)
 	{
 
-
-        std::vector <std::string> vec;
-        for(auto hl: headerList){
-            std::string line =  hl.subject +" : " + hl.from;
-            vec.push_back( line );
-        }
-
-        int menu_num = printMenu(vec);
+        int menu_num = printMenu(headerMenu, empty);
 		if (menu_num == 0) {
 		        f->close(true);  // 'true' to expunge deleted messages
 				std::cout << "goodby" << std::endl;
 				return;
 		} else {
-				bool ret = checkNumber(menu_num, 0, msg_count);
+				bool ret = checkNumber(menu_num, 0, net_msg_count);
 				if(!ret){
 					hitEnterKey();
 					continue;
 				}
 		}
 
-        int msg_num = 0; 
-        std::string subject ;	
-        std::string from ;	
-        std::string date ;	
-        int headerList_size = headerList.size();
+        int net_msg_num = 0; 
+
+        size_t msg_list_size  = msg_list.size();
+
+        struct HeaderInfo current_info;
 
         int index = menu_num -1;
-        if( (index >= 0)&&(index < headerList_size )) {
-            HeaderLine hl = headerList[index];
-            msg_num = hl.number; 
-            subject = hl.subject;
-            from = hl.from;
-            date = hl.date;
+
+        if( (index >= 0)&&(index < msg_list.size() )) {
+            current_msg = msg_list[index];
+            current_info = headerInfos[index];
         } else {
 		    std::cout << "out of range: " << menu_num 
-            << "size: " <<  headerList_size << std::endl;
+            << "size: " <<  msg_list_size  << std::endl;
         }
 
-		std::cout << std::endl;
+       int msg_number = current_info.msg_number;
 
-		MessageList::iterator it = msgList.find(msg_num);
-		if (it != msgList.end()) {
-				msg = (*it).second;
-		} else {
-				std::cout << "not found msg: " << msg_num << std::endl;
+		 NetMessageList::iterator it =  netMsgList.find(msg_number);
+		if (it !=  netMsgList.end()) {
+				net_msg = (*it).second;
 	    }
 
 // print header
-	     std::cout << "subject: " << subject << std::endl;
-	     std::cout << "from: " << from << std::endl;
-	     std::cout << "date: " << date << std::endl;
+	     std::cout << "Subject: " << current_info.subject << std::endl;
+	     std::cout << "From: " << current_info.from << std::endl;
+	     std::cout << "Date: " << current_info.date << std::endl;
 
-// get body
-    std::string body;
-    std::string media_type;
-    std::string charset;
-   getBodyContent(msg, body, media_type, charset );
-
-    std::cout << "mediatype: " << media_type << std::endl;
-    std::cout << "charset: " << charset << std::endl;
-
-    std::cout << "----------" <<std::endl;
-    std::cout << body << std::endl;
-    std::cout << "----------" <<std::endl;
+    printTextBody( current_msg );
 
 // get attachments
-    std::vector <vmime::shared_ptr <const vmime::attachment> > attchs = getAttachments(msg);
+    std::vector <vmime::shared_ptr <const vmime::attachment> > attchs = getAttachments( current_msg );
 
-    int attchs_size = attchs.size();
+    size_t attchs_size = attchs.size();
     if(attchs_size > 0){
         std::cout <<std::endl;
         std::cout << "this message has " << attchs_size << " attachment(s)" << std::endl;
@@ -355,7 +345,7 @@ vmime::shared_ptr <vmime::net::folder> new_folder;
 
 while(1)
 {
-        int choice = printMenu( actionMenuList);
+        int choice = printMenu( actionMenuList, empty);
         bool ret3= checkNumber(choice, 0, action_menu_size);
         if(!ret3){
             continue;
@@ -370,32 +360,32 @@ while(1)
 
 				// Show message flags
 				case 1:
-                    pop3_showFlags( mode, f, msg );
+                    pop3_showFlags( mode, f, net_msg );
                     break;
 
 				// Show message structure
 				case 2:
-                    showStructure(mode, f, msg);
+                    pop3_showStructure(mode, f, net_msg);
 					break;
 
 				// Show message header
 				case 3:
-                    showHeader(f, msg);
+                    showHeader(f, net_msg);
 					break;
 
 				// Show message envelope
 				case 4: 
-                    showEnvelope( f, msg);
+                    showEnvelope( f, net_msg);
 					break;
 				
 				// Extract whole message
 				case 5: 
-                        extractMessage(msg);
+                        extractNetMessage(net_msg);
 					    break;
 
 				// Extract attachments
 				case 6: 
-                       extractAttachments(msg);
+                       extractNetAttachments(net_msg);
                         break;
 				
 				// Status
@@ -424,7 +414,7 @@ while(1)
 
 				// Copy message
 				case 11:  
-                    pop3_copyMessage( mode,  f, msg);
+                    pop3_copyMessage( mode,  f, net_msg);
 					break;
 			
 			// Display trace output
@@ -434,12 +424,12 @@ while(1)
 
 		// Display body
 				case 13:
-                    showBody( msg );
+                    showBody( current_msg );
                     break;
 
 		// Save nessage
 				case 14:
-                        saveNetMessage( msg );
+                        saveNetMessage( net_msg );
                     break;
 
     } // switch
@@ -484,34 +474,6 @@ std::vector <std::string> buildActionMenu()
 
 
 
-/**
- *  showStatus
- */
-void showStatus(vmime::shared_ptr <vmime::net::folder> f)
-{
-
-    std::cout << "show status" << std::endl;
-
-    vmime::size_t count, unseen;
-	f->status(count, unseen);
-
-    std::cout << count << " message(s)" << std::endl;
-    std::cout << unseen << " unseen(s)" << std::endl;
-
-}
-
-
- /**
- *  showFolders
- */
-void showFolders( vmime::shared_ptr <vmime::net::store> st )
-{
-
-    std::cout << "show folders" << std::endl;
-
-    vmime::shared_ptr <vmime::net::folder> root = st->getRootFolder();
-    printFolders(root);
-}
 
 
 /**
@@ -535,7 +497,7 @@ void pop3_addMessage(int mode, vmime::shared_ptr <vmime::net::folder> f)
  *  pop3_copyMessage
   */
 void pop3_copyMessage(int mode, vmime::shared_ptr <vmime::net::folder> f,
-	vmime::shared_ptr <vmime::net::message> msg)
+	vmime::shared_ptr <vmime::net::message> net_msg)
 {
 
     std::cout << "copy message" << std::endl;
@@ -544,7 +506,7 @@ void pop3_copyMessage(int mode, vmime::shared_ptr <vmime::net::folder> f,
         return;
     }
 
-    copyMessage(f, msg);
+    copyMessage(f, net_msg);
 
 }
 
@@ -566,6 +528,22 @@ vmime::shared_ptr <vmime::net::folder> pop3_changeFolder(int mode,  vmime::share
 }
 
 
+/**
+ *  pop3_showStructure
+  */
+void pop3_showStructure(int mode, vmime::shared_ptr <vmime::net::folder> f,
+vmime::shared_ptr <vmime::net::message> net_msg)
+{
+    std::cout << "show message structure" << std::endl;
+    if(mode == MODE_POP3){
+        std::cout << "pop3 not suport, try imap" << std::endl;
+        return;
+    }
+
+    showStructure(f, net_msg);
+
+}
+
 
 /**
  *   showTrace
@@ -584,7 +562,7 @@ void showTrace( vmime::shared_ptr <std::ostringstream> traceStream )
  *  pop3_showFlags
  */
 void pop3_showFlags(int mode, vmime::shared_ptr <vmime::net::folder> f,
-vmime::shared_ptr <vmime::net::message> msg )
+vmime::shared_ptr <vmime::net::message> net_msg )
 {
     std::cout << "show message flags" << std::endl;
     if(mode == MODE_POP3){
@@ -592,26 +570,10 @@ vmime::shared_ptr <vmime::net::message> msg )
         return;
     }
 
-    showFlags(f, msg );
+    showFlags(f, net_msg );
 
 }
 
-
-/**
- *  showStructure
-  */
-void showStructure(int mode, vmime::shared_ptr <vmime::net::folder> f,
-vmime::shared_ptr <vmime::net::message> msg)
-{
-    std::cout << "show message structure" << std::endl;
-    if(mode == MODE_POP3){
-        std::cout << "pop3 not suport, try imap" << std::endl;
-        return;
-    }
-
-        f->fetchMessage(msg, vmime::net::fetchAttributes::STRUCTURE);
-		printStructure(msg->getStructure());
-}
 
 
 /**

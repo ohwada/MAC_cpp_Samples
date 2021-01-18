@@ -44,18 +44,17 @@
 #include "vmime/vmime.hpp"
 #include "vmime/platforms/posix/posixHandler.hpp"
 
-#include "tracer.hpp"
-#include "authenticator.hpp"
-#include "timeoutHandler.hpp"
+#include "plugin_tracer.hpp"
+#include "plugin_authenticator.hpp"
+#include "plugin_timeoutHandler.hpp"
+#include "plugin_exception _helper.hpp"
 
-#include "exception _helper.hpp"
-#include "smtp_msg_build.hpp"
-#include "mail_json.hpp"
-#include "file_util.hpp"
+#include "msg_build.hpp"
+#include "msg_write.hpp"
+#include "json_mail.hpp"
 
 
 // prototype
-vmime::shared_ptr <vmime::message> buildMessage( std::string subject, std::string mail_from, std::string mail_to ) ;
 bool sendMessage( 
 vmime::shared_ptr <vmime::net::session> session, std::string smtp_url,  
 std::string user, std::string passwd, 
@@ -67,11 +66,6 @@ vmime::shared_ptr<vmime::net::transport> tr,
 vmime::shared_ptr <vmime::message> msg,
 vmime::shared_ptr< vmime::security::cert::certificateVerifier > cv,
 bool verbose );
-void printMessage(vmime::shared_ptr <vmime::message> msg );
-void saveMessage(  vmime::shared_ptr <vmime::message> msg );
-
-
-
 
 
 /**
@@ -171,35 +165,5 @@ vmime::shared_ptr< vmime::security::cert::certificateVerifier > cv, bool verbose
 	}
 
     return true;
-}
-
-
-/**
- *  printMessage
- */
-void printMessage(vmime::shared_ptr <vmime::message> msg )
-{
-
-	std::cout << std::endl;
-	std::cout <<  msg->generate() << std::endl;
-	std::cout << std::endl;
-
-}
-
-
-/**
- *   saveMessage
- */
-void saveMessage(  vmime::shared_ptr <vmime::message> msg )
-{
-
-    std::string file;
-    getTimestampFileName("mail", "eml", file);
-
-    std::ofstream ofs(file);
-    ofs << msg->generate();
-    ofs.close();
-
-	std::cout << "saved: " << file << std::endl;
 }
 

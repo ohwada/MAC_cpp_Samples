@@ -5,8 +5,8 @@ vmail Sample <br/>
 recieve mail from POP3 (or MAP) server <br/>
 
 ### sample code 
-- pop3_ssl.cpp <br/>
-recievw mail from POP3 (or MAP) server with SSL <br/>
+- pop3_ubuntu.cpp <br/>
+recievw mail from Ubuntu POP3 (or MAP) server <br/>
 - pop3_userinput.cpp <br/>
 user input username and password interactive
 - pop3_gmail.cpp <br/>
@@ -16,7 +16,7 @@ recive mail from OCN POP3 (or IMAP) server <br/>
 
 
 build code <br/>
-  % g++ pop3/pop3_ssl.cpp -std=c++11 `pkg-config --cflags --libs vmime_json`  -o pop <br/>  
+  % g++ pop3/pop3_ubuntu.cpp -std=c++11 `pkg-config --cflags --libs vmime_json`  -o pop <br/>  
 
 run code <br/>
 % ./a.out

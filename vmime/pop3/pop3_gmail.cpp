@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 #include "pop3.hpp"
-#include "mail_json.hpp"
-#include "certificateVerifier_gmail.hpp"
+#include "plugin_certificateVerifier_gmail.hpp"
 
+#include <glog/logging.h>
 
 using namespace std;
 

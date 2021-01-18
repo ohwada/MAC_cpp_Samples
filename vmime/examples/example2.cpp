@@ -5,7 +5,7 @@
 // vmime::exception: Error opening file.
 // relative path don't work
 // absolute path works well
-// try smtp_attach.cpp
+// try create_mail_attach.cpp
 
 
 // https://github.com/kisli/vmime/blob/master/examples/example2.cpp

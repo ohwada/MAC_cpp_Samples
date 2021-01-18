@@ -23,12 +23,18 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/vmime/setup <br/>
 #### examples
 offical samples <br/>
 
+#### create
+create mail message <br/>
+
+create_mail_attach.cpp <br/>
+display by thunderbird <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/result/thunderbird_create_mail_attach.png" width="300" /><br/>
+
+#### read
+read mail from file <br/>
+
 #### smtp
 send mail to SMTP server <br/>
-
-smtp_html_embed.cpp <br/>
-display by thunderbird <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/screenshot/thunderbird_smtp_attach.png" width="300" /><br/>
 
 #### pop3 
 recieve mail from POP3 (or MAP) server <br/>

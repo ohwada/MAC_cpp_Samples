@@ -1,0 +1,37 @@
+Subject: create attach
+From: jiro@exsample.com
+To: taro@example.com
+Date: Sun, 17 Jan 2021 14:50:29 +0900
+Mime-Version: 1.0
+Content-Type: multipart/mixed; 
+ boundary="=_B0Z0Of6mujq2iHK9-3E0PeGo6PjWGIeBD9NSNwiBTzqwx0+u"
+User-Agent: VMime 0.9.2
+
+This is a multi-part message in MIME format. Your mail reader does not
+understand MIME message format.
+--=_B0Z0Of6mujq2iHK9-3E0PeGo6PjWGIeBD9NSNwiBTzqwx0+u
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+This is a test e-mail.
+This mail has one attachments.
+This mail was sent using VMime 0.9.2
+
+--=_B0Z0Of6mujq2iHK9-3E0PeGo6PjWGIeBD9NSNwiBTzqwx0+u
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=text_ascii.txt; size=588; 
+ creation-date="Sun, 17 Jan 2021 14:50:29 +0900"
+
+Vk1pbWUgQm9vawpWTWltZSBpcyBhIHBvd2VyZnVsIEMrKyBjbGFzcyBsaWJyYXJ5IGZvciB3
+b3JraW5nIHdpdGggTUlNRSBtZXNzYWdlcyBhbmQgSW50ZXJuZXQgbWVzc2FnaW5nIHNlcnZp
+Y2VzIGxpa2UgSU1BUCwgUE9QIG9yIFNNVFAuCldpdGggVk1pbWUgeW91IGNhbiBwYXJzZSwg
+Z2VuZXJhdGUgYW5kIG1vZGlmeSBtZXNzYWdlcywgYW5kIGFsc28gY29ubmVjdCB0byBzdG9y
+ZSBhbmQgdHJhbnNwb3J0IHNlcnZpY2VzIHRvIHJlY2VpdmUgb3Igc2VuZCBtZXNzYWdlcyBv
+dmVyIHRoZSBJbnRlcm5ldC4gVGhlIGxpYnJhcnkgb2ZmZXJzIGFsbCB0aGUgZmVhdHVyZXMg
+dG8gYnVpbGQgYSBjb21wbGV0ZSBtYWlsIGNsaWVudC4KVGhlIG1haW4gb2JqZWN0aXZlcyBv
+ZiB0aGlzIGxpYnJhcnkgYXJlOgotIGZ1bGx5IFJGQy1jb21wbGlhbnQgaW1wbGVtZW50YXRp
+b247IAotIG9iamVjdC1vcmllbnRlZCBhbmQgbW9kdWxhciBkZXNpZ247IAotIHZlcnkgZWFz
+eS10by11c2UgKGludHVpdGl2ZSBkZXNpZ24pOwotIHdlbGwgZG9jdW1lbnRlZCBjb2RlOwot
+IHZlcnkgaGlnaCByZWxpYWJpbGl0eTsgCi0gbWF4aW11bSBwb3J0YWJpbGl0eS4K
+--=_B0Z0Of6mujq2iHK9-3E0PeGo6PjWGIeBD9NSNwiBTzqwx0+u--
