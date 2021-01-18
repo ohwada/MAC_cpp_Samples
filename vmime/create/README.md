@@ -19,6 +19,9 @@ create mail with Two attaced files  <br/>
 create mail with HTML  <br/>
 - create_mail_embed.cpp  <br/>
 create mail with HTML embedded image  <br/>
+- version.cpp <br/>
+display version <br/>
+
 
 biuld sample code  <br/>
 g++ create/create_mail_attach.cpp -std=c++11 `pkg-config --cflags --libs vmime` -o attach

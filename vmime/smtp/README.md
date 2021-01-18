@@ -19,8 +19,7 @@ send mail to Gmail SMTP server <br/>
 send mail to OCN SMTP server <br/>
 - sendmail.cpp <br/>
 send mail using sendmail command <br/>
-- version.cpp <br/>
-display version <br/>
+
 
 build code <br/>
 % g++ smtp/smtp_ubuntu_attach.cpp -std=c++11 `pkg-config --cflags --libs vmime_json` -o attach  <br/>  
