@@ -28,7 +28,7 @@ create mail message <br/>
 
 create_mail_attach.cpp <br/>
 display by thunderbird <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/result/thunderbird_create_mail_attach.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/screenshot/thunderbird_create_mail_attach.png" width="300" /><br/>
 
 #### read
 read mail from file <br/>

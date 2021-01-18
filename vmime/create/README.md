@@ -31,7 +31,9 @@ display as below <br/>
 > saved mail_20201226230615.eml <br/>
 
 display by thunderbird <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/result/thunderbird_create_mail_attach.png" width="300" /><br/>
+create_mail_attach.cpp <br/>
+display by thunderbird <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/screenshot/thunderbird_create_mail_attach.png" width="300" /><br/>
 
 ### Reference <br/>
 - https://github.com/kisli/vmime
