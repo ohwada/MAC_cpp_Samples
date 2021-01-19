@@ -5,8 +5,12 @@
 
 
 // read mail from file
-// mail with simple plane text body
-// support Non-ASCII encoding
+// mail with plane text body
+// support Non-ASCII encoding like UTF-8, ISO2022JP
+
+
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/19/105757
 
 
 #include <iostream>
