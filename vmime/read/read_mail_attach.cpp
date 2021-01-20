@@ -9,6 +9,10 @@
 
 // g++ read/read_mail_attach.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/20/143235
+
+
 #include <iostream>
 #include "msg_read.hpp"
 #include "vmime_body_part.hpp"
