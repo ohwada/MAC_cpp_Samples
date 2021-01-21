@@ -7,7 +7,7 @@
 // read mail from file
 // mail with attached file 
 
-// g++ read/read_mail_html.cpp -std=c++11 `pkg-config --cflags --libs vmime_json`
+// g++ read/read_mail_html.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
 #include <iostream>
 #include "msg_read.hpp"

@@ -1,15 +1,15 @@
 Subject: create attach 2
 From: jiro@exsample.com
 To: taro@example.com
-Date: Sun, 17 Dec 2020 12:50:10 +0900
+Date: Tue, 19 Jan 2021 12:16:18 +0900
 Mime-Version: 1.0
 Content-Type: multipart/mixed; 
- boundary="=_OfX0qP7jTMcCyXOxKtL53rBPSMxEXQxWZNg9baKlKeNc3igk"
+ boundary="=_2YA1bAaQJ4x2r5qXuR5+ipsl+5PjqzEeT0GXxH7m7DQWivae"
 User-Agent: VMime 0.9.2
 
 This is a multi-part message in MIME format. Your mail reader does not
 understand MIME message format.
---=_OfX0qP7jTMcCyXOxKtL53rBPSMxEXQxWZNg9baKlKeNc3igk
+--=_2YA1bAaQJ4x2r5qXuR5+ipsl+5PjqzEeT0GXxH7m7DQWivae
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 
@@ -17,11 +17,11 @@ This is a test e-mail.
 This mail has two attachments.
 This mail was sent using VMime 0.9.2
 
---=_OfX0qP7jTMcCyXOxKtL53rBPSMxEXQxWZNg9baKlKeNc3igk
+--=_2YA1bAaQJ4x2r5qXuR5+ipsl+5PjqzEeT0GXxH7m7DQWivae
 Content-Type: image/jpg
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename=uparrow256.jpg; size=8087; 
- creation-date="Sun, 17 Dec 2020 12:50:10 +0900"
+ creation-date="Tue, 19 Jan 2021 12:16:18 +0900"
 
 /9j/4AAQSkZJRgABAQAASABIAAD/4QCARXhpZgAATU0AKgAAAAgABAESAAMAAAABAAEAAAEa
 AAUAAAABAAAAPgEbAAUAAAABAAAARodpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAAB
@@ -173,11 +173,11 @@ E0f8LF8D/wDQatvzb/4mvC/sfH/8+Zf+As09pDudpRXF/wDCxfA//Qatvzb/AOJo/wCFi+B/
 vxv4T1PwXrum6dqcVzd3Wn3EMEEQd5JJZEKoiqFyWYkAAdTXblmU46OMpN0ZW5o/ZfdEyqR5
 XqfUSfcX6CnU1fuj6U6v7ZPnD//W/fyiiigAoxRRQAYoxRRQAYoxRRQAYoxRRQAYoxRRQAYo
 oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k=
---=_OfX0qP7jTMcCyXOxKtL53rBPSMxEXQxWZNg9baKlKeNc3igk
+--=_2YA1bAaQJ4x2r5qXuR5+ipsl+5PjqzEeT0GXxH7m7DQWivae
 Content-Type: text/plain
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename=text_ascii.txt; size=588; 
- creation-date="Sun, 17 Dec 2020 12:50:10 +0900"
+ creation-date="Tue, 19 Jan 2021 12:16:18 +0900"
 
 Vk1pbWUgQm9vawpWTWltZSBpcyBhIHBvd2VyZnVsIEMrKyBjbGFzcyBsaWJyYXJ5IGZvciB3
 b3JraW5nIHdpdGggTUlNRSBtZXNzYWdlcyBhbmQgSW50ZXJuZXQgbWVzc2FnaW5nIHNlcnZp
@@ -190,4 +190,4 @@ ZiB0aGlzIGxpYnJhcnkgYXJlOgotIGZ1bGx5IFJGQy1jb21wbGlhbnQgaW1wbGVtZW50YXRp
 b247IAotIG9iamVjdC1vcmllbnRlZCBhbmQgbW9kdWxhciBkZXNpZ247IAotIHZlcnkgZWFz
 eS10by11c2UgKGludHVpdGl2ZSBkZXNpZ24pOwotIHdlbGwgZG9jdW1lbnRlZCBjb2RlOwot
 IHZlcnkgaGlnaCByZWxpYWJpbGl0eTsgCi0gbWF4aW11bSBwb3J0YWJpbGl0eS4K
---=_OfX0qP7jTMcCyXOxKtL53rBPSMxEXQxWZNg9baKlKeNc3igk--
+--=_2YA1bAaQJ4x2r5qXuR5+ipsl+5PjqzEeT0GXxH7m7DQWivae--

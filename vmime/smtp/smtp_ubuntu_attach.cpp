@@ -12,9 +12,6 @@
 #include "executable_path.hpp"
 
 
-using namespace std;
-
-
 // Global session object
 static vmime::shared_ptr <vmime::net::session> g_session = vmime::net::session::create();
 
@@ -23,8 +20,13 @@ static vmime::shared_ptr <vmime::net::session> g_session = vmime::net::session::
  *  buildCustomMessage
  */
 vmime::shared_ptr <vmime::message> 
-buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, string fullpath, std::string &ret_error ) 
+buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, std::string fullpath, std::string &ret_error ) 
 {
+
+    if( !existsFile(fullpath) ){
+        ret_error = "not found: " + fullpath;
+        return vmime::null;
+    }
 
 // build body 
 	const std::string body = 
@@ -49,6 +51,8 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
 }
 
 
+using namespace std;
+
 
 /**
  *  main
@@ -62,7 +66,7 @@ int main(int argc, char *argv[])
 	string exe_path = getExecutablePathDir( argv[0] );
 	cout << "ExecutablePathDir: " << exe_path << endl;
 
-	string filepath( "data/baboon.png" );
+	string filepath( "data/baboon.jpg" );
 
 	bool is_save = true;
 

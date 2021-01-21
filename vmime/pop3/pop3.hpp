@@ -328,20 +328,19 @@ void procFolder( int mode, vmime::shared_ptr <vmime::net::store> st, vmime::shar
 
     printTextBody( current_msg );
 
-// get attachments
-    std::vector <vmime::shared_ptr <const vmime::attachment> > attchs = getAttachments( current_msg );
 
-    size_t attchs_size = attchs.size();
-    if(attchs_size > 0){
+// get attachment count
+    size_t  attach_count = getAttachmentCount( current_msg );
+
+    if(attach_count > 0){
         std::cout <<std::endl;
-        std::cout << "this message has " << attchs_size << " attachment(s)" << std::endl;
+        std::cout << "this message has " << attach_count << " attachment(s)" << std::endl;
     }
 
+    std::vector<std::string> actionMenuList = buildActionMenu();
+    int action_menu_size = actionMenuList.size();
+    vmime::shared_ptr <vmime::net::folder> new_folder;
 
-
-std::vector<std::string> actionMenuList = buildActionMenu();
-int action_menu_size = actionMenuList.size();
-vmime::shared_ptr <vmime::net::folder> new_folder;
 
 while(1)
 {

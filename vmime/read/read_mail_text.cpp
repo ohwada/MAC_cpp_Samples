@@ -28,7 +28,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-string filepath("result/mail_text.eml");
+string filepath("samples/mail_text.eml");
 
     if (argc == 2) {
       	filepath = argv[1];

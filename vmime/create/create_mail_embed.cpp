@@ -18,9 +18,6 @@
 #include "executable_path.hpp"
 
 
-using namespace std;
-
-
 
 /**
  *  buildCustomMessage
@@ -30,9 +27,7 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
 {
 
 
-    if(  existsFile( fullpath) ) {
-        cout <<  fullpath << endl;
-    } else {
+    if(  !existsFile( fullpath) ) {
         error = "not found: " +  fullpath;
          return vmime::null;
     }
@@ -128,6 +123,8 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
     return msg;
 }
 
+
+using namespace std;
 
 
 /**

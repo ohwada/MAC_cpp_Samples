@@ -11,8 +11,6 @@
 #include "create.hpp"
 #include "vmime_charset.hpp"
 
-using namespace std;
-
 
 /** 
  * buildCustomMessage
@@ -47,6 +45,9 @@ vmime::shared_ptr <vmime::message> buildCustomMessage(std::string mail_from, std
     return buildMessageCharset( subject_iso2022, body_iso2022,  mail_from, mail_to,  CHARSET_ISO2022JP ) ;
 
 }
+
+
+using namespace std;
 
 
 /**

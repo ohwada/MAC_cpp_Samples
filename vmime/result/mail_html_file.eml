@@ -1,0 +1,64 @@
+Subject: create html file
+From: jiro@exsample.com
+To: taro@example.com
+Date: Thu, 21 Jan 2021 12:08:05 +0900
+Mime-Version: 1.0
+Content-Type: multipart/alternative; 
+ boundary="=_l0f2H-Nzee1qy-YSLi97GQmpD1uUOEUkvytBWWaMmlP3q4Gt"
+User-Agent: VMime 0.9.2
+
+This is a multi-part message in MIME format. Your mail reader does not
+understand MIME message format.
+--=_l0f2H-Nzee1qy-YSLi97GQmpD1uUOEUkvytBWWaMmlP3q4Gt
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+this is a test mail 
+this mail has html
+This mail was sent using VMime 0.9.2
+
+--=_l0f2H-Nzee1qy-YSLi97GQmpD1uUOEUkvytBWWaMmlP3q4Gt
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://ww=
+w.w3.org/TR/html4/loose.dtd">
+<html  xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2=
+022-jp">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width" />
+  <title>VMime</title>
+</head>
+<body>
+  <table>
+
+<tr>
+<td width=3D"615" align=3D"center" valign=3D"top" bgcolor=3D"#2F5597" sty=
+le=3D"padding: 10px 0; font-size:18px; color:#ffffff; line-height:1.5;">
+Welcome to VMime
+</td>
+</tr>
+
+<tr>
+<td align=3D"center" valign=3D"top">
+<center>
+<b>MIME and Mail Library for C++</b>
+</center>
+</td>
+</tr>
+
+<tr>
+<td align=3D"center" valign=3D"top">
+<center>
+<br/>
+<a href=3D"https://www.vmime.org/">more detail</a>
+</center>
+</td>
+</tr>
+
+</table>
+</body>
+</html>
+
+--=_l0f2H-Nzee1qy-YSLi97GQmpD1uUOEUkvytBWWaMmlP3q4Gt--

@@ -11,9 +11,55 @@
 #include "vmime_attachment.hpp"
 #include "menu.hpp"
 
+
 // prototype
-void procAttachment( vmime::shared_ptr< const vmime::attachment > att,  struct AttachmentInf info );
+void procAttachmentMenu( std::vector< vmime::shared_ptr< const vmime::attachment > > atts );
+void procAttachment( vmime::shared_ptr< const vmime::attachment > att,  struct AttachmentInfo info );
 void saveAttachmentYn(vmime::shared_ptr< const vmime::attachment > att, std::string fname );
+
+
+/**
+ *  procAttachmentMenu
+ */
+void procAttachmentMenu( std::vector< vmime::shared_ptr< const vmime::attachment > > atts )
+{
+
+    size_t size = atts.size();
+    if( size == 0){
+        return;
+    }
+
+    std::vector<std::string> menu;
+    std::vector<struct AttachmentInfo> infos;
+    getAttachmentMenu( atts, menu, infos );
+
+    if( size == 1) {
+        auto att = atts[0];
+        auto info = infos[0];
+        procAttachment( att,  info );
+        return;
+    }
+
+    int empty = 0; // quit
+
+    while(1)
+    {
+
+        int choice = printMenu( menu, empty );
+        if( choice == 0 ){
+            break;
+        }
+
+        int index = choice - 1;
+
+        if ((index >= 0)&&(index < menu.size() )){
+            auto att = atts[index];
+            auto info = infos[index];
+            procAttachment( att, info );
+        }
+
+    } // while
+}
 
 
 /**

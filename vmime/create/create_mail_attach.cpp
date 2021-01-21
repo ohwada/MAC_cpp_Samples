@@ -18,15 +18,20 @@
 #include "executable_path.hpp"
 
 
-using namespace std;
+
 
 
 /**
  *  buildCustomMessage
  */
 vmime::shared_ptr <vmime::message> 
-buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, string fullpath, std::string &ret_error ) 
+buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, std::string fullpath, std::string &ret_error ) 
 {
+
+    if( !existsFile(fullpath) ){
+        ret_error = "not found: " + fullpath;
+        return vmime::null;
+    }
 
 // build body 
 	const std::string body = 
@@ -36,7 +41,6 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
      + CRLF
 	+ std::string( "This mail was sent using ")
     + MAILER  + CRLF;
-
 
 	// build message
     std::string error;
@@ -51,6 +55,8 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
 }
 
 
+using namespace std;
+
 
 /**
  *  main
@@ -62,8 +68,7 @@ int main(int argc, char *argv[])
 	string exe_path = getExecutablePathDir( argv[0] );
 	cout << "ExecutablePathDir: " << exe_path << endl;
 
-	string filepath( "data/baboon.png" );
-
+	string filepath( "data/baboon.jpg" );
 
 
     if (argc == 2) {

@@ -9,12 +9,13 @@
 // nested multipart 
 // iso-2022jp encoding
 
-// g++ read/read_mail_nested.cpp -std=c++11 `pkg-config --cflags --libs vmime` 
+// g++ read/read_mail_nest.cpp -std=c++11 `pkg-config --cflags --libs vmime` 
 
 #include <iostream>
 #include "msg_read.hpp"
 #include "vmime_body_part.hpp"
 #include "html_write.hpp"
+#include "vmime_attachment_util.hpp"
 
 
 using namespace std;
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
 {
 
 
-string filepath("data/sample_nest.eml");
+string filepath("samples/mail_nest.eml");
 
     if (argc == 2) {
       	filepath = argv[1];
@@ -76,9 +77,9 @@ string filepath("data/sample_nest.eml");
     std::string html;
 
     int depth = 0;
-    bool is_debug = true;
+    bool is_debug1 = true;
 
-    bool ret = getTextBodyRecursive( depth, body, plain, html,  is_debug);
+    bool ret = getTextBodyRecursive( depth, body, plain, html,  is_debug1 );
 
     if(ret){
         if(plain.length() > 0){
@@ -94,6 +95,27 @@ string filepath("data/sample_nest.eml");
         procHtmlMenu( html );
 
     } // if html
+
+
+// attachment
+    std::vector< vmime::shared_ptr< const vmime::attachment > > atts;
+
+    bool is_debug2 = true;
+    getAttachments( msg, atts, is_debug2 );
+
+    size_t att_size = atts.size();
+
+    cout << "att size: " << att_size << endl;
+
+    if( att_size == 0 ){
+        return EXIT_SUCCESS;
+    }
+
+    cout << endl;
+    cout << "this mail has " << att_size << " attachments " << endl;
+    cout << endl;
+
+    procAttachmentMenu( atts );
 
     return EXIT_SUCCESS;
 }

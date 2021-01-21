@@ -11,9 +11,6 @@
 #include "create.hpp"
 
 
-using namespace std;
-
-
 /** 
  * buildCustomMessage
   */
@@ -43,6 +40,9 @@ vmime::shared_ptr <vmime::message> buildCustomMessage(std::string mail_from, std
     return buildMessageCharset( SUBJECT, body,  mail_from, mail_to, CHARSET ) ;
 
 }
+
+
+using namespace std;
 
 
 /**

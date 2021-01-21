@@ -413,6 +413,7 @@ void printHeaderInfo( struct HeaderInfo info)
     std::cout << "Subject: " << info.subject << std::endl;
     std::cout << "From: " << info.from << std::endl;
     std::cout << "To: " << info.to << std::endl;
+    std::cout << "Date: " << info.date << std::endl;
     std::cout << " MessageId: " << info. message_id << std::endl;
     std::cout << " User Agent: " << info. user_agent << std::endl;
     std::cout << "ContentType: " << info.content_type << std::endl;

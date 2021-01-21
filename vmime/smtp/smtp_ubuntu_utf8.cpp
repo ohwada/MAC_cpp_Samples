@@ -9,9 +9,6 @@
 #include "smtp_ubuntu.hpp"
 
 
-using namespace std;
-
-
 // Global session object
 static vmime::shared_ptr <vmime::net::session> g_session = vmime::net::session::create();
 
@@ -25,7 +22,7 @@ vmime::shared_ptr <vmime::message> buildCustomMessage(std::string mail_from, std
 
     const vmime::charset CHARSET( vmime::charsets::UTF_8 );
 
-    const string  SUBJECT = u8"vmime utf8 テスト";
+    const std::string  SUBJECT = u8"vmime utf8 テスト";
 
 
 // build body 
@@ -39,7 +36,7 @@ vmime::shared_ptr <vmime::message> buildCustomMessage(std::string mail_from, std
 	 + std::string( "Mailer: " )
     +  MAILER  + CRLF;
 
-    cout << body << endl;
+    std::cout << body << std::endl;
 
 
 // build message 
@@ -48,20 +45,16 @@ vmime::shared_ptr <vmime::message> buildCustomMessage(std::string mail_from, std
 }
 
 
+using namespace std;
+
+
 /**
  *  main
  */
-int main(int argc, char **argv)
+int main(void)
 {
 
     bool verbose = true;
-
-	int save = 0;
-    if(argc == 2) {
-        save = atoi(argv[1] );
-    } else {
-        cout << "Usage: " << argv[0] << " [save] "  << endl;
-    }
 
     setLocale("");
 
@@ -75,11 +68,8 @@ int main(int argc, char **argv)
 
     vmime::shared_ptr <vmime::message> msg = buildCustomMessage( FROM, TO ) ;
 
-    // printMessage( msg ) ;
-
-    if(save){
-        saveMessage( msg ) ;
-    }
+ 
+    saveMessage( msg ) ;
 
 	shared_ptr< vmime::security::cert::certificateVerifier > cv
 = vmime::make_shared <customCertificateVerifier>();

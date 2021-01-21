@@ -57,9 +57,9 @@ const std::string LF = "\n";
 void extractAttachments(vmime::shared_ptr <vmime::message> msg)
 {
 
-    std::cout << "extract attachments" << std::endl;
-
-    std::vector <vmime::shared_ptr <const vmime::attachment> > atts = getAttachments(msg);
+    std::vector <vmime::shared_ptr <const vmime::attachment> > atts;
+    bool is_debug = true;
+    getAttachments(msg, atts, is_debug);
 
     int atts_size  = atts.size();
 	if (atts_size ==  0) {

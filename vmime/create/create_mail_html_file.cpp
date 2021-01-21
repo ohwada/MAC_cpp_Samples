@@ -3,32 +3,46 @@
  * 2020-07-01 K.OHWADA
  */
 
-// create mail with HTML
+// create mail with HTML read from file
 
-// g++ create_mail_html.cpp -std=c++11 `pkg-config --cflags --libs vmime`   
+// g++ create_mail_html_file.cpp -std=c++11 `pkg-config --cflags --libs vmime`   
 
 // reference : https://github.com/kisli/vmime/blob/master/examples/example3.cpp
 
 
 #include <iostream>
 #include "create.hpp"
+#include "executable_path.hpp"
 
 
 // prototype
 vmime::shared_ptr <vmime::message> 
-buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to );
+buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, std::string filepath,  std::string &error );
 
 
 /**
  *  buildCustomMessage
  */
 vmime::shared_ptr <vmime::message> 
-buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to )
+buildCustomMessage( std::string subject, std::string mail_from, std::string mail_to, std::string filepath,  std::string &error )
 {
+
+    if(  !existsFile( filepath) ) {
+        error = "not found: " +  filepath;
+         return vmime::null;
+    }
+
+
+	std::string html;
+	bool ret = readTextFile( filepath,  html );
+	if(!ret){
+		error = "can not read: " + filepath;
+		return vmime::null;
+	}
 
 	std::string body = "";
 
-// plain 
+// plain message
 	std::string plain = std::string("this is a test mail ")
 	+ CRLF
 	+ std::string( "this mail has html" )
@@ -39,18 +53,6 @@ buildCustomMessage( std::string subject, std::string mail_from, std::string mail
 
 	std::cout << plain << std::endl;
 
-
-// html
-	std::string html = std::string("this is a test mail. <br/> ")
-	+ CRLF
-	+ std::string( "this mail has <b>html</b> <br/>" )
-	+ CRLF
-	+ std::string( "This mail was sent using <b>")
-    + MAILER  
-	+ std::string( "</b> <br/>" )
-	+ CRLF;
-
-	std::cout << html << std::endl;
 
 	// build message
 	vmime::messageBuilder mb = 
@@ -103,15 +105,38 @@ using namespace std;
 /**
  *  main
  */
-int main(void)
+int main(int argc, char *argv[])
 {
 
-	const std::string  SUBJECT = "create html";
+	const std::string  SUBJECT = "create html file";
 
+	string exe_path = getExecutablePathDir( argv[0] );
+	cout << "ExecutablePathDir: " << exe_path << endl;
+
+	string filepath( "data/vmime.html" );
+
+
+
+    if (argc == 2) {
+      	filepath = argv[1];
+    } else {
+        cout << "Usage: " << argv[0] << " [file ] "  << endl;
+    }
+
+	string fullpath = exe_path + filepath;
+
+    cout << " fullpath: " <<  fullpath << endl;
+
+	std::string error;
     vmime::shared_ptr <vmime::message> msg = 
-	buildCustomMessage(  SUBJECT, FROM, TO );
-	
-	saveMessage( msg ) ;
+	buildCustomMessage(  SUBJECT, FROM, TO, fullpath, error );
+	if (msg) {
+		saveMessage( msg ) ;
+	} else {
+        cerr << error << endl;
+         return EXIT_FAILURE;
+	}
+
 
 	return EXIT_SUCCESS;
 }

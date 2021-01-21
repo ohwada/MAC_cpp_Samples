@@ -17,6 +17,8 @@ create mail with attaced file <br/>
 create mail with Two attaced files  <br/>
 - create_mail_html.cpp  <br/>
 create mail with HTML  <br/>
+- create_mail_html_file.cpp  <br/>
+create mail with HTML read from file <br/>
 - create_mail_embed.cpp  <br/>
 create mail with HTML embedded image  <br/>
 - version.cpp <br/>

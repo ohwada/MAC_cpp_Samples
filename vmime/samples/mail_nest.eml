@@ -1,8 +1,8 @@
 Subject: mail nest
 To: taro@example.com
 From: jiro@example.com
-Date: Thu, 14 dec 2020 13:32:35 +0900
-Message-ID: <20201214133235.MacBook-Air.local>
+Date: Tue, 19 Jan 2021 21:58:27 +0900
+Message-ID: <20210119215827.MacBook-Air.local>
 Mime-Version: 1.0
 Content-Type: multipart/mixed; boundary="9NSqZLDvi5zUgxBe"
 
@@ -17,10 +17,18 @@ This is test email.
 this mail has nested multipart. 
 
 --5pn2QMwQbLq9WqJ9
+Content-Type: text/html; charset=us-ascii; 
+Content-Transfer-Encoding: 7bit
+
+This is test email. <br/>
+this part is <b>html</b>. <br/> 
+
+--5pn2QMwQbLq9WqJ9--
+
+--9NSqZLDvi5zUgxBe
 Content-Type: text/plain 
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename=sample.txt; size=44; 
+Content-Disposition: attachment; filename=simple.txt; size=44; 
 
 VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZwo=
---5pn2QMwQbLq9WqJ9--
 --9NSqZLDvi5zUgxBe--

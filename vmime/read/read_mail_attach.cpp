@@ -12,12 +12,10 @@
 // Document
 // https://ken-ohwada.hatenadiary.org/entry/2021/01/20/143235
 
-
 #include <iostream>
 #include "msg_read.hpp"
 #include "vmime_body_part.hpp"
 #include "vmime_attachment_util.hpp"
-
 
 
 using namespace std;
@@ -115,41 +113,24 @@ for(int i=0; i<count; i++){
         cout << "---------" << endl;
        cout << endl;
 
-const std::vector< vmime::shared_ptr< const vmime::attachment > > atts = vmime::attachmentHelper::findAttachmentsInMessage(msg);
+
+// attachment
+    std::vector< vmime::shared_ptr< const vmime::attachment > > atts;
+
+    bool is_debug = true;
+    getAttachments( msg, atts, is_debug );
 
     size_t att_size = atts.size();
-if( att_size == 0 ){
-     return EXIT_SUCCESS;
-}
+
+    if( att_size == 0 ){
+        return EXIT_SUCCESS;
+    }
 
     cout << endl;
     cout << "this mail has " << att_size << " attachments " << endl;
     cout << endl;
 
-    std::vector<std::string> menu;
-    std::vector<struct AttachmentInfo> infos;
-    getAttachmentMenu( atts, menu, infos );
-
-    int empty = 0; // quit
-while(1)
-{
-
-        int choice = printMenu( menu, empty );
-        if( choice == 0 ){
-            cout << "goodby" << endl;
-            break;
-        }
-
-        int index = choice - 1;
-
-        if ((index >= 0)&&(index < menu.size() )){
-            auto att = atts[index];
-            auto info = infos[index];
-            procAttachment( att,  info );
-        }
-
-} // while
-
+    procAttachmentMenu( atts );
 
     return EXIT_SUCCESS;
 }

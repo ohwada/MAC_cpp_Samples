@@ -18,8 +18,8 @@ void from_utf8(std::string utf8, std::string &dst,  vmime::charset charset );
 // global
 const vmime::charset CHARSET_UTF8( vmime::charsets::UTF_8 );
 const char CHARS_ISO2022JP[] = "ISO-2022-JP";
-const vmime::charset 
-CHARSET_ISO2022JP( CHARS_ISO2022JP );
+const vmime::charset CHARSET_ISO2022JP( CHARS_ISO2022JP );
+
 
 
 /** 

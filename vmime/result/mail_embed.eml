@@ -1,15 +1,15 @@
 Subject: create embed
 From: jiro@exsample.com
 To: taro@example.com
-Date: Sun, 17 Dec 2020 13:42:12 +0900
+Date: Tue, 19 Jan 2021 12:18:58 +0900
 Mime-Version: 1.0
 Content-Type: multipart/alternative; 
- boundary="=_A0Y0+Gczp6Ikff299IKGvL9bVRkHMbkKgGpSNfCcUcSf96Ly"
+ boundary="=_y-A1QwO2JT6vsae54+matPaqI4ebQ-MsJ9+2s8dm4Nyish2E"
 User-Agent: VMime 0.9.2
 
 This is a multi-part message in MIME format. Your mail reader does not
 understand MIME message format.
---=_A0Y0+Gczp6Ikff299IKGvL9bVRkHMbkKgGpSNfCcUcSf96Ly
+--=_y-A1QwO2JT6vsae54+matPaqI4ebQ-MsJ9+2s8dm4Nyish2E
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
 
@@ -17,20 +17,20 @@ This is a test e-mail.
 This mail has HTML and embedded image.
 This mail was sent using VMime 0.9.2
 
---=_A0Y0+Gczp6Ikff299IKGvL9bVRkHMbkKgGpSNfCcUcSf96Ly
+--=_y-A1QwO2JT6vsae54+matPaqI4ebQ-MsJ9+2s8dm4Nyish2E
 Content-Type: multipart/related; 
- boundary="=_A0Y0VL63LxaxFZwj+prRqL4MTkZIxTMs8X2BVNQyMLpihCaD"
+ boundary="=_y-A1saNV4+HttPZ9I4j5R-PjjgUTCJ+lbmueJyg3rn9JuPBS"
 
---=_A0Y0VL63LxaxFZwj+prRqL4MTkZIxTMs8X2BVNQyMLpihCaD
+--=_y-A1saNV4+HttPZ9I4j5R-PjjgUTCJ+lbmueJyg3rn9JuPBS
 Content-Type: text/html; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
 
 This is the <b>HTML</b> text. <br/><br/>this mail has <b>embed image</b>.=
- <br/><br/><img src=3D"cid:vmime.6003c01f.10432.4942b4873a5a0b12@m=
+ <br/><br/><img src=3D"cid:vmime.60064f9d.14402.4f362d636dddbe95@m=
 acbook-air.local"/>
---=_A0Y0VL63LxaxFZwj+prRqL4MTkZIxTMs8X2BVNQyMLpihCaD
+--=_y-A1saNV4+HttPZ9I4j5R-PjjgUTCJ+lbmueJyg3rn9JuPBS
 Content-Type: image/jpg
-Content-Id: <vmime.6003c01f.10432.4942b4873a5a0b12@macbook-air.local>
+Content-Id: <vmime.60064f9d.14402.4f362d636dddbe95@macbook-air.local>
 Content-Disposition: inline
 Content-Transfer-Encoding: base64
 
@@ -184,6 +184,6 @@ E0f8LF8D/wDQatvzb/4mvC/sfH/8+Zf+As09pDudpRXF/wDCxfA//Qatvzb/AOJo/wCFi+B/
 vxv4T1PwXrum6dqcVzd3Wn3EMEEQd5JJZEKoiqFyWYkAAdTXblmU46OMpN0ZW5o/ZfdEyqR5
 XqfUSfcX6CnU1fuj6U6v7ZPnD//W/fyiiigAoxRRQAYoxRRQAYoxRRQAYoxRRQAYoxRRQAYo
 oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k=
---=_A0Y0VL63LxaxFZwj+prRqL4MTkZIxTMs8X2BVNQyMLpihCaD--
+--=_y-A1saNV4+HttPZ9I4j5R-PjjgUTCJ+lbmueJyg3rn9JuPBS--
 
---=_A0Y0+Gczp6Ikff299IKGvL9bVRkHMbkKgGpSNfCcUcSf96Ly--
+--=_y-A1QwO2JT6vsae54+matPaqI4ebQ-MsJ9+2s8dm4Nyish2E--
