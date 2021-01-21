@@ -40,7 +40,10 @@ create_mail_attach.cpp <br/>
 display by thunderbird <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/vmime/screenshot/thunderbird_create_mail_attach.png" width="300" /><br/>
 
-### Reference <br/>
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/21/141337
+
+### Reference 
 - https://github.com/kisli/vmime
 - https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
 

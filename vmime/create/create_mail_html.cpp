@@ -9,6 +9,8 @@
 
 // reference : https://github.com/kisli/vmime/blob/master/examples/example3.cpp
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/21/141337
 
 #include <iostream>
 #include "create.hpp"
