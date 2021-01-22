@@ -5,9 +5,14 @@
 
 
 // read mail from file
-// mail with attached file 
+// mail with HTML 
 
 // g++ read/read_mail_html.cpp -std=c++11 `pkg-config --cflags --libs vmime`
+
+
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/22/105336
+
 
 #include <iostream>
 #include "msg_read.hpp"

@@ -33,6 +33,7 @@ display as below <br/>
 - https://ken-ohwada.hatenadiary.org/entry/2021/01/18/131914
 - https://ken-ohwada.hatenadiary.org/entry/2021/01/19/105757
 - https://ken-ohwada.hatenadiary.org/entry/2021/01/20/143235
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/22/105336
 
 ### Reference 
 - https://github.com/kisli/vmime
