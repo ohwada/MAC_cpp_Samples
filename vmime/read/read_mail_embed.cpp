@@ -209,6 +209,7 @@ std::string error;
 
     size_t 	count = body->getPartCount();
     if(count == 0){
+        cout << "this mail has no body parts " << endl;
         return EXIT_SUCCESS;
     }
 
@@ -226,15 +227,15 @@ for(int i=0; i<count; i++){
         struct BodyPartInfo body_part_info_i;
         getBodyPartInfo( part_i,  body_part_info_i);
 
-std::string label_i = body_part_info_i.label;
-cout << i << COLON << label_i << endl;
+    std::string label_i = body_part_info_i.label;
+    cout << i << COLON << label_i << endl;
 
-size_t part_count_i = body_part_info_i.part_count ;
-bool is_inline_text_i = body_part_info_i. is_inline_text;
+    size_t part_count_i = body_part_info_i.part_count ;
+    bool is_inline_text_i = body_part_info_i. is_inline_text;
 
       vmime::shared_ptr< vmime::body > 	part_body_i = part_i->getBody();
 
-    if (is_inline_text_i){
+    if (is_inline_text_i) {
             std::string part_content_i;
              getTextBody( part_body_i, part_content_i );
                 body_content =part_content_i;
@@ -244,96 +245,64 @@ bool is_inline_text_i = body_part_info_i. is_inline_text;
         continue;
     }
 
+    std::string content_id_i;
+    std::string  image_filename_i;
+
+    std::string  timestamp_i;
+    getTimestamp(timestamp_i);
+
 for(int j=0; j<part_count_i; j++){
 
-        vmime::shared_ptr<vmime::bodyPart> part_j =  body->getPartAt(j);
-
-        vmime::shared_ptr< vmime::body > 	part_body_j = part_j->getBody();
+        vmime::shared_ptr<vmime::bodyPart> part_j =  part_body_i->getPartAt(j);
 
         struct BodyPartInfo body_part_info_j;
-        getBodyPartInfo( part_j,  body_part_info_j);
+        getBodyPartInfo( part_j,  body_part_info_j );
 
-        bool is_inline_text_j  =body_part_info_j.is_inline_text;
+        std::string label_j = body_part_info_j.label;
 
-        std:;string part_label_j  =body_part_info_j.label;
+       std::string type_j = body_part_info_j.type;
 
-        size_t count_j = body_part_info_j.part_count ;
+   bool is_inline_j = body_part_info_j.is_inline;
 
-        std::string part_mark_j = EMPTY;
+        bool is_inline_text_html_j = body_part_info_j.is_inline_text_html;
 
-        if(is_inline_text_j){
-std::string part_content_j;
-                getTextBody( part_body_j, part_content_j );
-                body_content = part_content_j;
-                part_mark_j = STAR;
+        cout << i << HYPHEN << j << COLON << label_j << endl;
+
+        if(is_inline_text_html_j) {
+            std::string html_content_j;
+            getEmbedHtml( part_j,  html_content_j );
+            html_content = html_content_j;
         }
 
-        cout << i << HYPHEN << j <<  COLON << part_mark_j << part_label_j << endl;
-
-if (count_j ==0 ){
-    continue;
-}
-
-std::string content_id_j;
-std::string  image_filename_j;
-
-std::string  timestamp_j;
-getTimestamp(timestamp_j);
-
-for(int k=0; k<count_j; k++){
-
-        vmime::shared_ptr<vmime::bodyPart> part_k =  part_body_j->getPartAt(k);
-
-        struct BodyPartInfo body_part_info_k;
-        getBodyPartInfo( part_k,  body_part_info_k );
-
-        std::string label_k = body_part_info_k.label;
-
-       std::string type_k = body_part_info_k.type;
-
-   bool is_inline_k = body_part_info_k.is_inline;
-
-        bool is_inline_text_html_k = body_part_info_k.is_inline_text_html;
-
-        cout << i << HYPHEN << j <<  HYPHEN << k <<  COLON << label_k << endl;
-
-
-        if(is_inline_text_html_k) {
-            std::string html_content_k;
-            getEmbedHtml( part_k,  html_content_k );
-            html_content = html_content_k;
+    if ( is_inline_j && ( type_j == "image" ) ){
+        std::string content_id_j;
+        std::string image_filename_j;
+        bool  ret_1j = getEmbedImageContentId( part_j, content_id_j );
+        if(ret_1j){
+            content_id_i = content_id_j;
         }
 
-    if ( is_inline_k && ( type_k == "image" ) ){
-        std::string content_id_k;
-        std::string image_filename_k;
-        bool  ret_1k = getEmbedImageContentId( part_k, content_id_k );
-        if(ret_1k){
-            content_id_j = content_id_k;
-        }
-
-bool ret_2k = saveEmbedImage( part_k, body_part_info_k,  timestamp_j,  image_filename_k );
-        if(ret_2k){
-            image_filename_j = image_filename_k;
+bool ret_2j = saveEmbedImage( part_j, body_part_info_j,  timestamp_i,  image_filename_j );
+        if(ret_2j){
+            image_filename_i = image_filename_j;
             cout << "saved: " << image_filename_j << endl;
         }
     }
 
-} // for k
-
-std::string  replaced_j;
-bool ret_1j = replaceEmbedHtml( html_content, content_id_j, image_filename_j, replaced_j );
-
- std::string html_filename_j;
-bool ret_2j = savEmbedHtml( replaced_j,  timestamp_j,  html_filename_j );
-
-if(ret_2j) {
-    cout << "saved: " << html_filename_j << endl;
-}
-
 } // for j
 
+std::string  replaced_i;
+bool ret_1i = replaceEmbedHtml( html_content, content_id_i, image_filename_i, replaced_i );
+
+ std::string html_filename_i;
+bool ret_2i = savEmbedHtml( replaced_i,  timestamp_i,  html_filename_i );
+
+    if(ret_2i) {
+        cout << "saved: " << html_filename_i << endl;
+    }
+
 } // for i
+
 
     cout << endl;
     cout << "---------" << endl;
@@ -341,10 +310,8 @@ if(ret_2j) {
     cout << "---------" << endl;
     cout << endl;
 
-    cout << endl;
 
     if( html_content.length() > 0 ) {
-
         cout << "this mail has html" << endl;
         printContentYn( html_content );
     }
