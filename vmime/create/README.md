@@ -42,6 +42,7 @@ display by thunderbird <br/>
 
 ### Document
 - https://ken-ohwada.hatenadiary.org/entry/2021/01/21/141337
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/23/092143
 
 ### Reference 
 - https://github.com/kisli/vmime

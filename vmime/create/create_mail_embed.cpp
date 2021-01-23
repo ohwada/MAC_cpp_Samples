@@ -8,6 +8,10 @@
 //  g++ create/create_mail_embed.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/23/092143
+
+
 // This sample program demonstrate the use of the messageBuilder component
 // to build a complex message (HTML content, plain text and embedded image)
 // reference : https://github.com/kisli/vmime/blob/master/examples/example3.cpp
