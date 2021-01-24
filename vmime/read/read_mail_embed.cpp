@@ -10,6 +10,10 @@
 // g++ read/read_mail_embed.cpp -std=c++11 `pkg-config --cflags --libs vmime`
 
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/01/24/105834
+
+
  // original : https://github.com/kisli/vmime/blob/master/examples/example3.cpp
 
 // This sample program demonstrate the use of the messageBuilder component
