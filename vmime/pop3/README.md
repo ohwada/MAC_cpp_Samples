@@ -28,6 +28,10 @@ display as below <br/>
 >  1 : vmime test : hoge@example.org
 
 
-### Reference <br/>
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/01/25/134954
+
+
+### Reference 
 - https://github.com/kisli/vmime
 
