@@ -1,7 +1,7 @@
 #pragma once
 /**
- * C++ sample
- * 2020-03-01 K.OHWADA
+ * time sample
+ * 2020-10-01 K.OHWADA
  */
 
 // get formated local time
@@ -15,12 +15,28 @@
 
 // prototype
 std::time_t getNow(void);
-void formatTime(std::string format , std::tm* tm, std::string &str );
+void formatTime(std::string format , std::tm* tm, std::string &timestamp );
 void formatGmtimeNow(std::string format, std::string &str );
 void formatLocaltimeNow(std::string format, std::string &str );
 void formatGmtime( std::string format, std::time_t, std::string &str );
 void formatLocaltime(std::string  format, std::time_t t, std::string &str );
 bool getWeekJp(int wday, std::string &str);
+
+
+/** 
+ *   getTimestamp
+  */
+void getTimestamp(std::string &timestamp)
+{
+
+    const std::string format("%Y%m%d%H%M%S");
+
+    std::string str;
+    formatLocaltimeNow(format, str );
+
+    timestamp = str;
+    return;
+}
 
 
 /**

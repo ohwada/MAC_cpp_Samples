@@ -1,13 +1,13 @@
 /**
- * C++ time sample
- * 2020-03-01 K.OHWADA
+ * time sample
+ * 2020-10-01 K.OHWADA
  */
 
 
 // display current time with nanoseconds  
 // g++ timespec_get.cpp -std=c++17
 
-// reference : https://en.cppreference.com/w/c/chrono/timespec_get
+// reference : https://cpprefjp.github.io/reference/ctime/timespec_get.html
 
 #include <iostream>
 #include <ctime>
@@ -39,7 +39,7 @@ int main(void)
     cout << "Current time: " << buff << endl;
     cout << "nanos: " << nsec << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

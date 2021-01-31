@@ -1,14 +1,10 @@
-time
+src - time
 ===============
 
-time sample <br/>
-get formated local time <br/>
-
-
-## sample code
-
-### src
 C++ time sample <br/>
+
+
+### sample code
 - test_time_format.cpp <br/>
 display RFC822 / ISO8601 datetime <br/>
 - test_timestamp.cpp <br/>
@@ -16,16 +12,20 @@ display timesatamp file name <br/>
 - cpuclock.cpp <br/>
  this sample demonstrates the difference between clock() time and real time <br/>
 
+- timespec_get.cpp <br/>
+display current time with nanoseconds  <br/>
+reqiure C++17 <br/>
 
-### c_src
-C time sample <br/>
-- datetime.c <br/>
-display RFC822 / ISO8601 datetime <br/>
-- timespec_get.c <br/>
-// display current time with nanoseconds  <br/>
-- timestamp.c <br/>
-display timesatamp file name <br/>
 
+build code <br/>
+% g++ test_time_format.cpp -std=c++11 <br/>
+
+run code <br/>
+% ./a.out <br/>
+
+display as below <br/>
+2020-08-29 (Sat) 01:52:03 UTC
+2020-08-29 (土) 10:52:03 JST
 
 ### Reference
 - http://www.cplusplus.com/reference/ctime/localtime/

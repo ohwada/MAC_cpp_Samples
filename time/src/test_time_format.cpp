@@ -1,6 +1,6 @@
 /**
- * C++ time sample
- * 2020-03-01 K.OHWADA
+ * time sample
+ * 2020-10-01 K.OHWADA
  */
 
 // test for time_format.hpp
@@ -64,7 +64,12 @@ int main(void)
     cout <<  "UTC: " << str_gmtime << endl;
     cout << "JST: " << str_jsttime << endl;
 
-    return 0;
+    string timestamp;
+    getTimestamp(timestamp);
+
+    cout << "timestamp: " << timestamp << endl;
+
+    return EXIT_SUCCESS;
 }
 
 

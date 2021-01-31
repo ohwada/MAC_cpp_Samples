@@ -1,6 +1,6 @@
 /**
- * C++ time sample
- * 2020-03-01 K.OHWADA
+ * time sample
+ * 2020-10-01 K.OHWADA
  */
 
 
@@ -64,7 +64,7 @@ int main(void)
     << clocktime
     << " ms \n" << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
