@@ -76,6 +76,9 @@ C mathematical functions <br/>
 ### menu
 CUI menu <br/>
 
+### mail builder
+sample codes that create mail message <br/>
+
 ### base64
 base64 encoder decoder <br/>
 

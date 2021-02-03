@@ -3,6 +3,13 @@ mail
 
 sample code for mail <br/>
 
+### mail builder
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/mail_builder <br/>
+sample codes that create mail message <br/>
+- support file attachment <br/>
+- support UTF-8 encoding <br/>
+
+
 ### network
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/smtp <br/>
 SMTP Client using socket functions <br/>

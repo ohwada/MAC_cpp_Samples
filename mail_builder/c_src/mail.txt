@@ -1,0 +1,9 @@
+cd /Users/ohwada/C++/mail_builder/c_src
+
+gcc create_mail_text.c
+
+
+
+cd /Users/ohwada/C++/mail_builder
+
+
