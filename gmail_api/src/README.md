@@ -4,9 +4,10 @@ src - gmail api
 C++ version <br/>
 send and recieve mail with Gmail API <br/>
 
-// TODO:
-// upload large image
-// can not upload 512x512 size (164KB)
+
+TODO: <br/>
+upload large image <br/>
+can not upload 512x512 size (164KB) <br/>
 
 
 ### sample codes
