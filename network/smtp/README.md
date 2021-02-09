@@ -3,6 +3,12 @@ smtp - network
 
 C network sample <br/>
 SMTP Client using socket functions <br/>
+- suport attached file <br/>
+- support UTF-8 encoding <br/>
+
+NOT suport  <br/>
+- TLS encryption  <br/>
+- user authentication <br/>
 
 ### sample code
 - smtp_client_text.c <br/>
@@ -24,7 +30,7 @@ display as below <br/>
 > * \<HELO localhost 
 > * \>220 VirtualBox ESMTP Postfix (Ubuntu)
 
-smtp_client_attac.c <br/>
+smtp_client_attach.c <br/>
 display by thunderbird <br/>
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/network/screenshot/thunderbird_smtp_client_attach.png" width="300" />
 
