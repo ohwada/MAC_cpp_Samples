@@ -88,18 +88,18 @@ bool api_msg_request( std::string id, std::string access_token, std::string &ret
  */
 bool api_send_request( std::string request,  std::string access_token, std::string &ret_response,  std::string &ret_error, bool is_verbose)
 {
-std::string response;
-std::string error;
+    std::string response;
+    std::string error;
 
-bool ret =  http_json_post_token_to_memory(
-URL_API_SEND, 
-request, 
-access_token, 
-response,  
-error, 
-is_verbose );
+    bool ret =  http_json_post_token_to_memory(
+    URL_API_SEND, 
+    request, 
+    access_token, 
+    response,  
+    error, 
+    is_verbose );
 
-    if(ret){
+    if(ret) {
         ret_response = response;
     } else {
         ret_error = error;

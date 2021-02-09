@@ -5,7 +5,7 @@
 
 // send mail using Google API
 
-// g++ src/send_mail.cpp -std=c++11 `pkg-config --cflags --libs curlpp` `pkg-config --cflags --libs jsoncpp` -o send  
+// g++ src/send_mail_text.cpp -std=c++11 `pkg-config --cflags --libs curlpp` `pkg-config --cflags --libs jsoncpp` -o text  
 
 // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send
 
@@ -19,36 +19,7 @@
 
 
 #include <iostream>
-#include <string>
-#include "gmail_api_request.hpp"
-#include "access_token.hpp"
-#include "mail_json.hpp"
-#include "msg_build.hpp"
-
-
-// prototype
-void buildMessageCpp(std::string str_subject, std::string str_from, std::string str_to, std::string &ret_msg);
-void build_send_request(char* msg,std::string request, size_t size);
-void printRequrst(std::string request);
-
-
-/**
- * buildMessage
- * RFC 2822 format
- */
-void buildMessageCpp(std::string str_subject, std::string str_from, std::string str_to, std::string &ret_msg)
-{
-    char* subject = (char *)str_subject.c_str();
-    char* from =  (char *)str_from.c_str();
-    char* to =  (char *)str_to.c_str();
-
-    const size_t MSG_SIZE = 10000; // 10KB
-    char msg[MSG_SIZE];
-
-    buildMessage( subject, from, to, msg);
-
-    ret_msg= msg;
-}
+#include "send_mail.hpp"
 
 
 using namespace std;
@@ -73,23 +44,25 @@ int main(void)
     string TO =  p.to;
 
 
-    string msg;
-    buildMessageCpp( SUBJECT, FROM, TO, msg);
+    string body;
+    buildDefaultBody(body);
 
-    printRequrst( msg ); 
+    string msg;
+    buildMessageText(SUBJECT, TO, FROM, body, msg );
+
+
+    printMessage( msg ); 
 
 
     string request;
     buildSendRequestJson(msg, request);
 
-    printRequrst( request );
+    printMessage( request );
 
-    bool is_save = false;
+    bool is_save = true;
     if(is_save){
         saveMessage(msg);
     }
-
-   // return 1;
 
 
     string access_token;

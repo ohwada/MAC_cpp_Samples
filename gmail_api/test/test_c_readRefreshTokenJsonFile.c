@@ -4,11 +4,11 @@
  */
 
 // test for   readRefreshTokenJsonFile
-// gcc test_readRefreshTokenJsonFile.c `pkg-config --cflags --libs json-c`
+// gcc test/test_c_readRefreshTokenJsonFile.c `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "auth_json.h"
+#include "../c_src/json_auth.h"
 
 
 /**

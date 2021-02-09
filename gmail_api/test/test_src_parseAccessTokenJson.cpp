@@ -4,37 +4,14 @@
  */
 
 // test for  parseAccessTokenJson
-// g++ src/test_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_src_parseAccessTokenJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 
 #include <iostream>
 #include <string>
-#include "auth_json.hpp"
+#include "../src/json_auth.hpp"
+#include "../src/file_util.hpp"
 
-
-/**
- *  readTextFile
- */
-bool readTextFile( std::string file, std::string &text )
-{
-    const std::string LF = "\n";
-
-    std::ifstream fin;
-
-    // open input file
-    fin.open(file, std::ios::in); 
-    if (fin.fail()){ 
-        return false;
-    }                         
-
-    // read text  by one line
-    std::string line;
-    while( getline(fin, line) ) {
-        text += line + LF;
-    }
-
-    return true;
-}
 
 using namespace std;
 

@@ -4,12 +4,12 @@
  */
 
 // test for readClientJsonFile
-// gcc test_readClientJsonFile.c `pkg-config --cflags --libs json-c`
+// gcc test/test_c_readClientJsonFile.c `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "auth_json.h"
-#include "mail_json.h"
+#include "../c_src/mail_directory.h"
+#include "../c_src/json_auth.h"
 
 
 /**

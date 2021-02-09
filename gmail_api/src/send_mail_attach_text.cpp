@@ -8,13 +8,10 @@
 
 
 // TODO:
-// upload large image
-// can upload 256x265 size (39KB)
-// can not upload 512x512 size (164KB)
+// attach jpeg image
 
 
-
-// g++ src/send_mail_attach.cpp -std=c++11 `pkg-config --cflags --libs curlpp` `pkg-config --cflags --libs jsoncpp` -o attach 
+// g++ src/send_mail_attach_text.cpp -std=c++11 `pkg-config --cflags --libs curlpp` `pkg-config --cflags --libs jsoncpp` -o attach 
 
 
 // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send
@@ -23,7 +20,6 @@
 
 #include <iostream>
 #include "send_mail.hpp"
-#include "msg_builder_attach.hpp"
 
 
 /**
@@ -65,9 +61,9 @@ int main(int argc, char* argv[])
     const string REFRESH_FILE("refresh_token_send.json");
 
 // TODO:
-// upload large image
-    string file = "data/baboon256.jpg";
-
+// upload jpeg image
+    //string file = "data/baboon.jpg";
+    string file = "data/text_utf8.txt";
 
    if (argc == 2) {
         file =   argv[1] ;

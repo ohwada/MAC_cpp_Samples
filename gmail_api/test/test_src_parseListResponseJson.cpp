@@ -5,13 +5,13 @@
 
 // test for parseListResponseJson
 
-// g++ src/test_parseListResponseJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp` 
+// g++ test/test_src_parseListResponseJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp` 
 
 #include <iostream>
 #include <string>
 #include <vector>
-#include "response_json.hpp"
-#include "file_text.hpp"
+#include "../src/json_response_list.hpp"
+#include "../src/file_util.hpp"
 
 using namespace std;
 

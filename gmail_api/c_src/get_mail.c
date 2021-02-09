@@ -21,7 +21,7 @@
 #include <string.h>
 #include "gmail_api_request.h"
 #include "access_token.h"
-#include "response_json.h"
+#include "json_response.h"
 #include "char_array.h"
 
 

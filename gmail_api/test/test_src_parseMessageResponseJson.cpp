@@ -5,14 +5,14 @@
 
 // test for parseMessageResponseJson
 
-// g++ src/test_parseMessageResponseJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp` 
+// g++ test/test_src_parseMessageResponseJson.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp` 
 
 
 #include <iostream>
 #include <string>
-#include "response_msg_json.hpp"
-#include "file_util.hpp"
-#include "msg_part.hpp"
+#include "../src/json_response_msg.hpp"
+#include "../src/file_util.hpp"
+#include "../src/msg_part.hpp"
 
 
 using namespace std;
@@ -24,7 +24,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string  file = "data/sample_msg_response_with_attach.json";
+    string  file = "samples/sample_msg_response.json";
 
    if(argc == 2){
         file = argv[1];

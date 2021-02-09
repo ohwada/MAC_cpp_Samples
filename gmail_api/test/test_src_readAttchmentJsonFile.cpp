@@ -4,11 +4,12 @@
  */
 
 // test for readAttchmentJsonFile
-// g++ src/test_readAttchmentJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+
+// g++ test/test_src_readAttchmentJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
 #include <string>
-#include "attchment_decode.hpp"
+#include "../src/attchment_decode.hpp"
 
 
 
@@ -20,9 +21,9 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string file_json("sample_attach.json");
+    string file_json("samples/sample_attach_png.json");
 
-    string file_binary("sample.png");
+    string file_binary("sample_attach.png");
 
 
     if(argc == 3){

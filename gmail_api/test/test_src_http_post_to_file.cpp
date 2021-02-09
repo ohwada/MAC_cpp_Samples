@@ -7,11 +7,11 @@
 // post to postman echo server,  save response to local file
 // test for http_post_to_file
 
-// g++ src/test_http_post_to_file.cpp -std=c++11  `pkg-config --cflags --libs curlpp`
+// g++ test/test_src_http_post_to_file.cpp -std=c++11  `pkg-config --cflags --libs curlpp`
 
 #include <iostream>
 #include <string>
-#include "curl_http_post_write.hpp"
+#include "../src/curl_http_post_write.hpp"
 
 
 using namespace std;
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 			<< endl;
 	}
 
+    cout << "url: " << url << endl;
 
     string error;
     bool ret = http_post_to_file( url, postfileds, filepath, error, verbose);

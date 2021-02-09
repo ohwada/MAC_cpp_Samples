@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 #include "auth_token.hpp"
-#include "auth_json.hpp"
+#include "json_auth.hpp"
 #include "file_util.hpp"
 #include "mail_directory.h"
 

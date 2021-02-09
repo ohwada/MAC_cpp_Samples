@@ -6,8 +6,8 @@
 
 #include <string>
 #include "gmail_api_request.hpp"
-#include "response_list_json.hpp"
-#include "response_msg_json.hpp"
+#include "json_response_list.hpp"
+#include "json_response_msg.hpp"
 #include "file_util.hpp"
 
 

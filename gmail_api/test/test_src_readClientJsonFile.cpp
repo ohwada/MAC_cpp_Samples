@@ -4,11 +4,15 @@
  */
 
 // test for readClientJsonFile
-// gcc test_readClientJsonFile.cpp `pkg-config --cflags --libs jsoncpp`
+
+// g++ test/test_src_readClientJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "auth_json.hpp"
-#include "mail_json.hpp"
+#include "../src/json_auth.hpp"
+#include "../src/mail_directory.h"
+
+
+using namespace std;
 
 
 /**
@@ -17,7 +21,7 @@
 int main(int argc, char* argv[])
 {
 
-    string file + getMailDir() + string("/client_credentials.json");
+    string file = getMailDir() + string("/client_credentials.json");
 
     if(argc == 2){
         file = argv[1];
@@ -33,7 +37,7 @@ int main(int argc, char* argv[])
     string error;
     bool ret = readClientJsonFile(file, client_id, client_secret, error);
     if(ret){
-        cout << "client_id: " << client_id ;
+        cout << "client_id: " << client_id << endl;
         cout << "client_secret: " << client_secret << endl;
     } else {
         cout << error << endl;

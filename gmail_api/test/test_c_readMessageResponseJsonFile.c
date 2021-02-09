@@ -5,10 +5,12 @@
 
 // test for readMessageResponseJsonFile
 
+// gcc test/test_c_readMessageResponseJsonFile.c `pkg-config --cflags --libs json-c`
+
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "response_json.h"
+#include "../c_src/json_response.h"
 
 
 /**
@@ -17,7 +19,7 @@
 int main(int argc, char* argv[])
 {
 
-    const char*  file = "data/sample_msg_response.json";
+    const char*  file = "samples/sample_msg_response.json";
 
    if(argc == 2){
         file = argv[1];

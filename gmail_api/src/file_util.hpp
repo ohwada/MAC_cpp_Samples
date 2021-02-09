@@ -19,8 +19,6 @@ bool existsFile(std::string file);
 int file_exists (char *filename) ;
 bool readTextFile( std::string file, std::string &text );
 bool writeTextFile(std::string file, std::string data );
-bool readBinaryFile(const std::string filepath, std::vector<char> &data);
- bool writeBinaryFile(const std::string filepath, std::vector<char> data);
 void getTimestampFileName(std::string prefix, std::string ext, std::string &filename);
 void getTimestamp(std::string &timestamp);
 
@@ -92,56 +90,6 @@ bool writeTextFile(std::string file, std::string data )
 
     return true;
 }
-
-
-
-/**
- * readBinaryFile
- */
-bool readBinaryFile(const std::string filepath, std::vector<char> &data)
-{
-
-	std::ifstream file(filepath.c_str(), std::ios::binary | std::ios::in);
-	if (!file){
-		return false;
-    }
-
-	char c = file.get();
-	for (; file.good(); c = file.get())
-	{
-		if (file.bad()){
-			break;
-        }
-
-		data.push_back(c);
-
-	} // for
-
-    file.close();
-    return true;
-}
-
-
-/**
- * writeBinaryFile
- */
-bool writeBinaryFile(const std::string filepath, std::vector<char> data)
-{
-
-	std::ofstream file(filepath.c_str(), std::ios::binary | std::ios::out);
-	if (!file){
-		return false;
-    }
-
-    int size = data.size();
-    file.write( reinterpret_cast<char*>(&data[0]), sizeof(char) * size );
-
-    file.flush();
-    file.close();
-
-    return true;
-}
-
 
 
 /** 

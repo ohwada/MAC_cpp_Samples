@@ -6,11 +6,11 @@
 // parse mail json file
 // test for getGmailParam
 
-// gcc c_src/test_mail_json.c  `pkg-config --cflags --libs json-c`
+// gcc test/test_c_json_mail.c  `pkg-config --cflags --libs json-c`
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "mail_json.h"
+#include "../c_src/json_mail.h"
 
 
 

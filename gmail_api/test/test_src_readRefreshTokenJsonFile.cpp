@@ -4,10 +4,10 @@
  */
 
 // test for readRefreshTokenJsonFile
-// g++ src/test_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_src_readRefreshTokenJsonFile.cpp -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
-#include "auth_json.hpp"
+#include "../src/json_auth.hpp"
 
 
 using namespace std;

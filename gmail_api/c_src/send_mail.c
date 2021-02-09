@@ -5,6 +5,9 @@
 
 // send mail with Google API
 
+// gcc c_src/send_mail.c `pkg-config --cflags --libs libcurl` `pkg-config --cflags --libs json-c` 
+
+
 // https://developers.google.com/gmail/api/reference/rest/v1/users.messages/send
 
 
@@ -19,10 +22,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <curl/curl.h>
+#include "msg_builder_gmail.h"
 #include "gmail_api_request.h"
 #include "access_token.h"
-#include "msg_send.h"
-#include "mail_json.h"
+#include "json_mail.h"
 
 
 
@@ -37,7 +40,6 @@ int main(void)
 
     const char FILE_REFRESH[] = "refresh_token_send.json";
 
-    const char FILE_SAVE[] = "mail_send.eml";
    bool is_save = true;
 
     struct CurlMemory mem;
@@ -48,27 +50,29 @@ int main(void)
     char * TO =  p.to;
 
 
-
-
-    const size_t MSG_SIZE = 10000; // 10KB
+    char body [BODY_SIZE];
     char msg[MSG_SIZE]; 
-    buildMessage( (char *)SUBJECT, FROM, TO, msg);
+    char request[REQUEST_SIZE];
+    char response[ RESPONSE_SIZE];
 
-    printMessage(msg);
+    char access_token[TOKEN_SIZE];
+    char error[ERROR_SIZE];
 
-    const size_t REQ_SIZE = 10000; // 10KB
-    char request[REQ_SIZE];
-    build_send_request_json(msg, request, REQ_SIZE);
+    buildDefaultBody( (char *)body );
 
+    buildMsgText( (char *) SUBJECT, (char *)TO, (char *) FROM, (char *)body, (char *)msg );
 
-    printMessage(request);
+    printMsg(msg);
+
+    buildRequestJson(msg, request, REQUEST_SIZE);
+
+    printMsg(request);
 
     if(is_save){
-        saveMessage( (char *)FILE_SAVE, msg);
+        saveMsg(msg);
     }
 
-    char access_token[200];
-    char error[100];
+
     bool is_verbose1 = false;
     bool is_access_save = true;
 
@@ -80,13 +84,12 @@ int main(void)
     is_access_save, is_verbose1);
 
     if( !ret1 ){
-printf("getNewAccessToken: %s \n", error );
-               return EXIT_FAILURE;
+            fprintf(stderr, "getNewAccessToken: %s \n", error );
+            return EXIT_FAILURE;
     }
 
     printf( "access_token: %s \n", access_token);
 
-    char response[1000];
     bool is_verbose2 = true;
 
     bool ret2 = api_send_request( request, access_token, 

@@ -8,10 +8,10 @@
 
 #include <fstream>
 #include <string>
-#include "attachment_json.hpp"
-#include "response_msg_json.hpp"
+#include "json_attachment.hpp"
+#include "json_response_msg.hpp"
 #include "file_util.hpp"
-#include "base64.hpp"
+#include "base64url.hpp"
 
 
 // prototype
@@ -37,7 +37,7 @@ data, &data_size, error ) ;
         return false;
     }
 
-    std::string decoded = base64_decode(data);
+    std::string decoded = base64url_decode(data);
 
     bool ret2 = writeFile(file_binary, decoded, error);
 

@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include "auth_json.h"
+#include "json_auth.h"
 #include "auth_token.h"
 #include "mail_directory.h"
 #include "file_util.h"

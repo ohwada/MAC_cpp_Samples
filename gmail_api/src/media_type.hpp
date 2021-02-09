@@ -1,7 +1,7 @@
 #pragma once
 /**
- * Gmail API Sample
- * 2020-07-01 K.OHWADA
+ * mail builder
+ * 2021-02-01 K.OHWADA
  */
 
 // content type

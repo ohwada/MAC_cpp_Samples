@@ -4,14 +4,14 @@
  */
 
 // test for  parseAccessTokenJson
-// gcc test_parseAccessTokenJson.c `pkg-config --cflags --libs json-c`
+// gcc test/test_c_parseAccessTokenJson.c `pkg-config --cflags --libs json-c`
 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "auth_json.h"
-#include "file_util.h"
+#include "../c_src/json_auth.h"
+#include "../c_src/file_util.h"
 
 
 /**

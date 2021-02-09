@@ -11,17 +11,8 @@
 
 
 #include <iostream>
-#include <string>
-#include "gmail_api_request.hpp"
-#include "access_token.hpp"
-#include "mail_json.hpp"
-#include "msg_build.hpp"
-
-
-// prototype
-void buildMessageUtf8(std::string str_from, std::string str_to, std::string &ret_msg);
-
-
+#include "send_mail.hpp"
+#include "msg_builder_charset.hpp"
 
 
 using namespace std;
@@ -54,25 +45,23 @@ int main(void)
     body += std::string("このメールは Gmail API を使って送信されました \n");
 
     string msg;
-    buildMessageBase64( SUBJECT, CHARSET,  
-    FROM, TO, 
-    body,  msg);
+    buildMessageUtf8( SUBJECT, TO, FROM,  body,  msg );
 
 
-    printRequrst( msg ); 
+    printMessage( msg ); 
 
 
     string request;
     buildSendRequestJson(msg, request);
 
-    printRequrst( request );
+    printMessage( request );
 
-    bool is_save = false;
+    bool is_save = true;
     if(is_save){
         saveMessage(msg);
     }
 
-  // return 1;
+
 
     string access_token;
     string error;

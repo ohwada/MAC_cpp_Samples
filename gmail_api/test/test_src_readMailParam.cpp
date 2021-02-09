@@ -6,11 +6,11 @@
 // parse mail json file
 // test for getGmailParam
 
-// g++ src/test_mail_json.cpp  -std=c++11 `pkg-config --cflags --libs jsoncpp`
+// g++ test/test_src_readMailParam.cpp  -std=c++11 `pkg-config --cflags --libs jsoncpp`
 
 #include <iostream>
 #include <string>
-#include "mail_json.hpp"
+#include "../src/json_mail.hpp"
 
 
 

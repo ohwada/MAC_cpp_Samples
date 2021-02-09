@@ -63,4 +63,6 @@ reuse Refresh Token, from the second time onwards
 
 ### Reference <br/>
 - https://developers.google.com/identity/protocols/oauth2 
+- https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
+- https://github.com/ohwada/MAC_cpp_Samples/tree/master/mail_builder
 
