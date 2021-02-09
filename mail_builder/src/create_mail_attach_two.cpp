@@ -9,7 +9,7 @@
 
 
 #include <iostream>
-#include "msg_builder.hpp"
+#include "msg_builder_attach.hpp"
 
 // prototype
 bool buildMessageAttachmentTwo( std::string str_subject, std::string str_to, std::string str_from, std::string body,  std::string filepath1, std::string filepath2, std::string &ret_msg, std::string &ret_error );
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
 // body
     std::string body("This is test email. \r\n");
-    body += string("this mail has two attached file. \r\n");
+    body += string("this mail has two attached files. \r\n");
 
     string msg;
     string error;

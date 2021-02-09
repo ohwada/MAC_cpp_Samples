@@ -18,6 +18,7 @@
 // constant
 const size_t MSG_SIZE = 1024;
 const size_t BODY_SIZE = 512;
+const size_t HEADER_SIZE = 200;
 const size_t HEADERS_SIZE = 1024;
 const char CRLF[] = "\r\n";
 const char MIME_VER[] ="Mime-Version: 1.0\r\n" ;
@@ -35,7 +36,7 @@ bool saveMsg( char* msg );
 void printMsg( char *msg );
 void getTimestampFileName( char *prefix, char *ext,  char *filename);
 void getTimestamp(char *timestamp);
-bool writeTextFile(char* file, char* data, char *error);
+bool write_text_file(char* file, char* data, char *error);
 
 
 
@@ -74,23 +75,22 @@ void buildMsgText(char* subject, char* to, char* from, char *body, char* msg)
 void buildHeaders(char* subject, char* to, char* from, char* msg)
 {
 
-   size_t BUFSIZE = 100;
-    char buf[BUFSIZE];
+    char buf[HEADER_SIZE];
 
 // headers
-     snprintf(buf, BUFSIZE, "Subject: %s\r\n", subject);
+     snprintf(buf, HEADER_SIZE, "Subject: %s\r\n", subject);
     strcpy(msg, buf);
 
-    snprintf(buf, BUFSIZE, "To: %s\r\n",  to);
+    snprintf(buf, HEADER_SIZE, "To: %s\r\n",  to);
     strcat(msg, buf);
 
-    snprintf(buf, BUFSIZE, "From: %s\r\n", from);
+    snprintf(buf, HEADER_SIZE, "From: %s\r\n", from);
     strcat(msg, buf);
 
-    snprintf(buf, BUFSIZE, "Date: %s\r\n", getDate());
+    snprintf(buf, HEADER_SIZE, "Date: %s\r\n", getDate());
     strcat(msg, buf);
 
-    snprintf(buf, BUFSIZE, "Message-ID: <%s>\r\n", getMessageID());
+    snprintf(buf, HEADER_SIZE, "Message-ID: <%s>\r\n", getMessageID());
     strcat(msg, buf);
 
     strcat(msg, (char *)MIME_VER);
@@ -178,7 +178,7 @@ bool saveMsg( char* msg )
 
     char error[100];
 
-    bool ret = writeTextFile( file, msg, (char *)error );
+    bool ret = write_text_file( file, msg, (char *)error );
 
     if(ret){
         printf("saved to: %s \n", file);
@@ -248,9 +248,9 @@ void getTimestamp(char *timestamp)
 
 
 /**
- * writeTextFile
+ * write_text_file
  */
-bool writeTextFile(char* file, char* data, char *error)
+bool write_text_file(char* file, char* data, char *error)
 {
 
     FILE *fp;

@@ -61,7 +61,9 @@ char * buildMsgAttachmentTwo( char * subject, char * to, char * from, char *body
     char * boundary_begin[HEADER_SIZE];
     char * boundary_end[HEADER_SIZE];
 
-    buildContentTypeMultipartMixed( (char *)boundary,  (char *)content_type_multipart,  (char *)boundary_begin, (char *)boundary_end );
+    buildContentTypeMultipartMixed( (char *)boundary,  
+    (char *)content_type_multipart,  (char *)boundary_begin, 
+    (char *)boundary_end, HEADER_SIZE );
 
 
     char * headers[HEADERS_SIZE];
@@ -135,7 +137,7 @@ int main(int argc, char* argv[])
     char body[BODY_SIZE];
     strcpy(body, "This is test email. ");
     strcat(body, CRLF);
-    strcat(body, "this mail has two attached file. ");
+    strcat(body, "this mail has two attached files. ");
     strcat(body, CRLF);
 
     char error[ERROR_SIZE];

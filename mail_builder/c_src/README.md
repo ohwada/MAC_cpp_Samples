@@ -1,11 +1,11 @@
-mail builde
+c_src - mail builder
 ===============
 
 sample codes that create mail message <br/>
 C samples <br/>
  - support file attachment <br/>
 - support UTF-8 encoding <br/>
-
+- support ISO-2022-JP encoding <br/>
 
 ## sample code
 - create_mail_text.c <br/>
@@ -16,6 +16,10 @@ create mail with UTF-8 encoding <br/>
 create mail with attached file <br/>
 - create_mail_attach_two.c <br/>
 create mail with Two attached file <br/>
+
+- create_mail_iso2022jp.c  <br/>
+create mail with ISO_2022-JP encoding <br/>
+require libiconv <br/>
 
 build code <br/>
 % gcc c_src/create_mail_attach.c <br/>

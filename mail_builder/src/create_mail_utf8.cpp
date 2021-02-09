@@ -9,7 +9,7 @@
 
 
 #include <iostream>
-#include "msg_builder.hpp"
+#include "msg_builder_charset.hpp"
 
 
 using namespace std;
@@ -28,8 +28,10 @@ int main(void)
     const string FROM("jiro@example.com");
 
 // body
-    std::string body("これはテストメールです。 \r\n");
-    body += string("このメールの文字コードは UTF-8 です。 \r\n");
+    std::string body("これはテストメールです。");
+    body += CRLF;
+    body += string("このメールの文字コードは UTF-8 です。");
+    body += CRLF;
 
     string msg;
     buildMessageUtf8( SUBJECT, TO, FROM, body, msg);

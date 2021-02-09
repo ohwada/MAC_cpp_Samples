@@ -4,6 +4,13 @@ mail builder
 sample codes that create mail message <br/>
 - support file attachment <br/>
 - support UTF-8 encoding <br/>
+- support ISO-2022-JP encoding <br/>
+
+
+### Library required 
+- libiconv <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libiconv <br/>
+for ISO-2022-JP encoding <br/>
 
 
 ## sample code
@@ -18,6 +25,8 @@ create mail with UTF-8 encoding <br/>
 create mail with attached file <br/>
 - create_mail_html.cpp <br/>
 create mail with HTML <br/>
+- create_mail_iso2022jp.cpp  <br/>
+create mail with ISO_2022-JP encoding <br/>
 
 create_mail_attach.cpp <br/>
 display by thunderbird <br/>
@@ -33,6 +42,8 @@ create mail with UTF-8 encoding <br/>
 create mail with attached file <br/>
 - create_mail_attach_two.c <br/>
 create mail with Two attached file <br/>
+- create_mail_iso2022jp.c  <br/>
+create mail with ISO_2022-JP encoding <br/>
 
 
 ### Reference

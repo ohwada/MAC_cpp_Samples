@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "msg_builder_utf8.h"
+#include "msg_builder_charset.h"
 
 
 
@@ -30,21 +30,20 @@ int main(void)
     const char FROM[] = "jiro@example.com";
 
 // body
-    char body[500];
+    char body[BODY_SIZE];
     strcpy( body, "これはテストメールです。" );
     strcat(body, (char *)CRLF);
     strcat( body, "このメールの文字コードは UTF-8 です。" );
     strcat(body, (char *)CRLF);
 
-    char msg[1024];
-    char error[100];
+    char msg[MSG_SIZE];
 
-    bool ret= buildMessageUtf8( (char *)SUBJECT, (char *)TO, (char *)FROM, (char *)body, (char *)msg, (char *)error );
-
-    if(!ret){
-        fprintf(stderr, "%s \n", error);
-        return EXIT_FAILURE;
-    }
+    buildMessageUtf8( 
+    (char *)SUBJECT,  
+    (char *)TO, 
+    (char *)FROM, 
+    (char *)body, 
+    (char *)msg );
 
     printMsg(msg);
     saveMsg(msg);
