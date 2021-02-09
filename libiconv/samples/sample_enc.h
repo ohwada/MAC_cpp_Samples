@@ -13,6 +13,7 @@
     (char)0xE3, (char)0x81, (char)0x88,  // え
     (char)0xE3, (char)0x81, (char)0x8A,  // お
     0 };  // string end 
+     const int SAMPLE_UTF8_SIZE = 15;
 
     const char SAMPLE_SJIS[] = 
     { (char)0x82, (char)0xA0, //あ
@@ -29,6 +30,17 @@
     (char)0xA4, (char)0xA8, // え
     (char)0xA4, (char)0xAA }; // お
      const int SAMPLE_EUCJP_SIZE = 10;
+
+
+  const char ISO2022JP[] = 
+ { (char)0x1B , (char)0x24 , (char)0x42 , // begin
+(char)0x24 , (char)0x22,  // あ
+(char)0x24 , (char)0x24,  // い
+(char)0x24 , (char)0x26,  // う
+(char)0x24 , (char)0x28,  // え
+(char)0x24 , (char)0x2A };  // お
+  const int SAMPLE_ISO2022JP_SIZE = 13;
+
 
     const char SAMPLE_UTF16BOM[] = 
     { (char)0xFF,(char)0xFE,(char)0x42,(char)0x30, //  あ

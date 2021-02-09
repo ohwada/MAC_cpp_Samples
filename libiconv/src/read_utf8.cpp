@@ -4,13 +4,11 @@
  */
 
 // read UTF8 file
-
+// g++ read_utf8.cpp TextReader.cpp `pkg-config --cflags --libs iconv`  -o utf8 
 
 #include <iostream>
 #include <string>
-
 #include "TextReader.hpp"
-
 #include "parse_filename.hpp"
 
 using namespace std;
@@ -27,7 +25,7 @@ int main(int argc, char** argv)
 
     TextReader reader;
 
-    string input;
+    string input = "../samples/sample_utf8.txt";
     int flag_debug = 0;
 
     if (argc == 3) {
@@ -37,7 +35,6 @@ int main(int argc, char** argv)
         input = argv[1];
     } else {
         cout << "Usage: " << argv[0] << " <textFile> [debug] "  << endl;
-        return EXIT_FAILURE;
     }
 
 

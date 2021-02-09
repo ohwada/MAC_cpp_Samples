@@ -1,0 +1,12 @@
+# 2020-07-01 K.OHWADA
+
+prefix=/usr/local/Cellar/libiconv/1.16/
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: iconv
+Description: text encode converter
+Version: 1.16 
+Cflags: -I${includedir}
+Libs: -L${libdir}  -liconv

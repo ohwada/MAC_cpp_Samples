@@ -38,15 +38,19 @@ public:
     ~TextEncodeConverter(void);
     void setDebugPrint(bool flag);
     std::string getLibiconvVersion(void);
-    bool convChars(char *buf, int buf_size, std::string enc, std::string &text);
-    void dumpChars(char* buf, int buf_size);
+    int convFile(std::string file_in, std::string enc_in, std::string file_out, int flag_utf);
+    std::string convText(char *buf, int buf_size, std::string enc);
+    void dumpText(char* buf, int buf_size);
 
 private:
-    bool convert(iconv_t icd, char* inbuf, int inbuf_size, std::string &dst);
+    bool convert(char* inbuf, int inbuf_size, std::string &dst);
+    void dumpLine(std::string line);
 
     char*  m_dst_buffer;
     bool m_debug_print;
-
+    iconv_t m_icd;
+    char * m_fromcode;
+    char * m_tocode;
 };
 
 #endif // _TEXT_ENC_CONV_H_

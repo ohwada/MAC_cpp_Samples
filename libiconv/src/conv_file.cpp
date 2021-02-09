@@ -4,6 +4,8 @@
  */
 
 // convert text file codeset to UTF8
+// g++ conv_file.cpp TextEncodeConverter.cpp TextReader.cpp `pkg-config --cflags --libs iconv`  -o file 
+
 // reference : https://www.mk-mode.com/blog/2014/08/24/cpp-convert-sjis-to-utf8/
 
 // TODO :
@@ -11,11 +13,8 @@
 
 #include <iostream>
 #include <string>
-
-#include "TextReader.hpp"
-
 #include "TextEncodeConverter.hpp"
-
+#include "TextReader.hpp"
 #include "parse_filename.hpp"
 
 using namespace std;
@@ -63,7 +62,7 @@ int main(int argc, char** argv)
 
     TextEncodeConverter converter;
 
-    string input;
+    string input = "../samples/sample_sjis.txt";
     int flag_debug = 0;
 
     if (argc == 3) {
@@ -73,7 +72,6 @@ int main(int argc, char** argv)
         input = argv[1];
     } else {
         cout << "Usage: " << argv[0] << " <textFile> [debug] "  << endl;
-        return EXIT_FAILURE;
     }
 
 
@@ -125,14 +123,14 @@ int main(int argc, char** argv)
                 break;
             }
 
-            bool ret2 = converter.convChars(buf, len, enc, text);
-            if (ret2) {
+            text = converter.convText( buf, len, enc );
+            if (text.length() > 0) {
                 cout <<  line_count << " : " << text << endl;
                 ofs << text << endl;
             } else {
                     cout <<  line_count << " : [err]" << endl;
                     if(flag_debug){
-                        converter.dumpChars(buf, len);
+                        converter.dumpText( buf, len );
                     }
             }
 
