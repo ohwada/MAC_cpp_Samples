@@ -23,8 +23,11 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/postfix/setup <br/>
 ### sample code
 - mail.c <br/>
 send mail using mail command <br/>
-- sendmail.c <br/>
-send mail using sendmail command <br/>
+- sendmail_text.c <br/>
+send plain text mail using sendmail command <br/>
+- sendmail_utf8.c <br/>
+send plain text mail with UTF-8 encoding using sendmail command <br/>
+
 
 ### Reference <br/>
 - http://www.postfix.org/

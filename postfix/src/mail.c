@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "mail_json.h"
+#include "json_mail.h"
 
 
 /**
