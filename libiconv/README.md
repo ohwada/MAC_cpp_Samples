@@ -13,7 +13,7 @@ suport utf16, utf32 <br/>
 
 ###  install libiconv
 see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/mil_builder/setup <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libiconv/setup <br/>
 
 
 ### sample code
