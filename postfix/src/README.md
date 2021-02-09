@@ -3,6 +3,7 @@ src - postfix
 
 postfix sample <br/>
 send mail using mail command or sensdmail command <br/>
+- suport UTF-8 encoding <br/>
 
 ### sample code
 - mail.c <br/>
