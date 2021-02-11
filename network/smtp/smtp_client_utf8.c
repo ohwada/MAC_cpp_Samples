@@ -44,7 +44,7 @@ int main(void)
     saveMsg(msg);
 
 
-   char error[ERROR_SIZE];
+   char error[SMTP_ERROR_SIZE];
 
     bool ret = sendMsg( 
     (char *)msg, 

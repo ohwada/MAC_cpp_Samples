@@ -6,7 +6,7 @@
 // SMTP Client
 // send message with attached file
 
-// gcc smtp/smtp_client_text.c
+// gcc smtp/smtp_client_attach.c
 
 
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     strcat(body, (char *)CRLF );
 
 
-    char error[ERROR_SIZE];
+    char error1[ATTACH_ERROR_SIZE];
 
     char* msg = buildMsgAttachment( 
     (char *)SUBJECT, 
@@ -53,10 +53,10 @@ int main(int argc, char* argv[])
     (char *)DUMMY_FROM, 
     (char *)body,  
     (char *)file, 
-    (char *)error );
+    (char *)error1 );
 
     if(!msg){
-        fprintf(stderr, "%s \n", error);
+        fprintf(stderr, "%s \n", error1);
         return EXIT_FAILURE;
     }
 
@@ -64,13 +64,14 @@ int main(int argc, char* argv[])
 
     saveMsg(msg);
 
+    char error2[SMTP_ERROR_SIZE];
 
     bool ret = sendMsg( 
     (char *)msg, 
-    (char *)error );
+    (char *)error2 );
 
     if(!ret){
-        printf("%s \n", error);
+        printf("%s \n", error2);
         return EXIT_FAILURE;
     }
 

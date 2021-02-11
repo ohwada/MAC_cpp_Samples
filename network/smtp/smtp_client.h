@@ -13,7 +13,7 @@
 
 
 // constant
-const size_t ERROR_SIZE = 100;
+const size_t SMTP_ERROR_SIZE = 100;
 
 
 #include <stdlib.h>
@@ -52,7 +52,7 @@ bool sendMsg(char *msg, char *ret_error )
     const char FROM[] = "hoge@example.com";
 
 
-    char error[ERROR_SIZE];
+    char error[SMTP_ERROR_SIZE];
 
     bool ret = send_msg( 
     (char *)HOST, 

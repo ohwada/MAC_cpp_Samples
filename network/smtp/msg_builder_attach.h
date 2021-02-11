@@ -15,17 +15,18 @@
 
 
 // constant
-const size_t BUILDER_ERROR_SIZE = 100;
+const size_t ATTACH_ERROR_SIZE = 100;
 const size_t BOUNDARY_SIZE = 16;
-const char CONTENT_TRANSFER_BASE64[] = 
-"Content-Transfer-Encoding: base64\r\n" ;
-
+const char SUBTYPE_MIXED[] = "mixed";
+const char SUBTYPE_ALTERNATIVE[] = "alternative";
 
 
 // prototype
 char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char *filepath, char *ret_error );
 char* buildAttachment(char *filepath,  size_t *msg_size, char *ret_error );
-void buildContentTypeMultipartMixed(char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size );
+void buildContentTypeMultipartMixed( char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size );
+
+void buildContentTypeMultipart( char *subtype, char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size );
 void buildContentTypeMediaType( char *media_type, char *content_type, size_t content_type_size );
 void buildContentDispotition( char *filename, size_t filesize, char *dispotition, size_t dispotition_size );
 void getFileName(char *fullpath, char *filename ) ;
@@ -46,7 +47,7 @@ char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char
 {
 
    size_t attach_size;
-    char error[BUILDER_ERROR_SIZE];
+    char error[ATTACH_ERROR_SIZE];
 
     char *attachment = buildAttachment( filepath,  &attach_size, (char *)error );
 
@@ -73,7 +74,11 @@ char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char
     char * boundary_begin[HEADER_SIZE];
     char * boundary_end[HEADER_SIZE];
 
-    buildContentTypeMultipartMixed( (char *)boundary,  (char *)content_type_multipart,  (char *)boundary_begin, (char *)boundary_end, HEADER_SIZE );
+    buildContentTypeMultipartMixed( 
+    (char *)boundary,  
+    (char *)content_type_multipart,  
+    (char *)boundary_begin, 
+    (char *)boundary_end, HEADER_SIZE );
 
 
     char * headers[HEADERS_SIZE];
@@ -83,7 +88,6 @@ char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char
 // build msg
     strcpy( msg,  (char *)headers);
     strcat(msg, (char *)content_type_multipart);
-    strcat(msg, (char *)CRLF );
 
 
 // body
@@ -92,22 +96,21 @@ char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char
     (char *)CONTENT_TYPE_TEXT_PLANE_USASCII);
     strcat(msg, (char *)CONTENT_TRANSFER_7BIT);
 
-	    strcat(msg, (char *)CRLF ); // saparator
+    strcat(msg, (char *)CRLF ); // saparator
 
-        strcat(msg, (char *)body);
- 	    strcat(msg, (char *)CRLF );
-
+    strcat(msg, (char *)body);
+    strcat(msg, (char *)CRLF ); 
 
 // attachment
     strcat(msg, (char *)boundary_begin );
 
    strcat( msg, (char *)attachment );
-    strcat(msg, (char *)CRLF );
+    strcat(msg, (char *)CRLF ); 
 
-     strcat(msg, (char *)boundary_end );
+    strcat(msg, (char *)boundary_end );
 
 
-        free(attachment);
+    free(attachment);
 
     return msg;
 
@@ -120,6 +123,10 @@ char* buildMsgAttachment( char *subject, char *to, char *from, char *body,  char
  */
 char* buildAttachment(char *filepath,  size_t *msg_size, char *ret_error )
 {
+
+const char CONTENT_TRANSFER_BASE64[] = 
+"Content-Transfer-Encoding: base64\r\n" ;
+
 
     const size_t ATTACH_HEADER_SIZE = 1024;
 
@@ -140,7 +147,7 @@ char* buildAttachment(char *filepath,  size_t *msg_size, char *ret_error )
 
     size_t filesize;
     int b64_len;
-    char error[BUILDER_ERROR_SIZE];
+    char error[ATTACH_ERROR_SIZE];
 
     char* b64 = getBase64Data( filepath,  &filesize, &b64_len, (char *)error );
 
@@ -229,30 +236,52 @@ void buildContentDispotition( char *filename, size_t filesize, char *dispotition
 }
 
 
-
 /**
  *  buildContentTypeMultipartMixed
  */
-void buildContentTypeMultipartMixed(char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size )
+void buildContentTypeMultipartMixed( 
+char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size )
 {
 
-    const char FORMAT_CONTENT_TYPE_MULTIPART_MIXED_BOUNDARY[] =
-    "Content-Type: multipart/mixed; boundary=\"%s\"\r\n";
+    buildContentTypeMultipart( 
+    (char *)SUBTYPE_MIXED, 
+    boundary, content_type, boundary_begin, boundary_end, content_type_size );
+
+}
+
+
+
+/**
+ *  buildContentTypeMultipart
+ */
+void buildContentTypeMultipart( char *subtype, 
+char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size )
+{
+
+    const char FORMAT_CONTENT_TYPE_MULTIPART_BOUNDARY[] =
+    "Content-Type: multipart/%s; boundary=\"%s\"\r\n";
 
     const char BOUNDARY_FLAG[] =	"--" ;
 
 // content type
-     snprintf(content_type, content_type_size, FORMAT_CONTENT_TYPE_MULTIPART_MIXED_BOUNDARY,
-    boundary );
+     snprintf(content_type, content_type_size, FORMAT_CONTENT_TYPE_MULTIPART_BOUNDARY,
+    subtype, boundary );
     
+
+// RFC 822 
+// The CRLF preceding the boundary delimiter line is 
+// conceptually attached to the boundary 
+
 	// boundary brgin
-    strcpy(boundary_begin, (char *)BOUNDARY_FLAG);
+    strcpy(boundary_begin,    (char *)CRLF);
+    strcat(boundary_begin, (char *)BOUNDARY_FLAG);
     strcat(boundary_begin,    boundary);
     strcat(boundary_begin,    (char *)CRLF);
 
 
-	// boundary end
-    strcpy(boundary_end, (char *)BOUNDARY_FLAG);
+	// boundary end    
+    strcpy(boundary_end,    (char *)CRLF);
+    strcat(boundary_end, (char *)BOUNDARY_FLAG);
     strcat(boundary_end,    boundary);
     strcat(boundary_end, (char *)BOUNDARY_FLAG);
     strcat(boundary_end,    (char *)CRLF);
@@ -417,7 +446,7 @@ char* getBase64Data( char *filepath,  size_t *ret_filesize,      int *ret_encode
 
     uint8_t *filedata;
     size_t filesize;
-    char error[BUILDER_ERROR_SIZE];
+    char error[ATTACH_ERROR_SIZE];
 
     filedata = readBinaryFile( filepath, &filesize, (char *)error );
 

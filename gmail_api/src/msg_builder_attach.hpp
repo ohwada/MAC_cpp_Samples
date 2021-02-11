@@ -17,16 +17,21 @@
 
 
 // constant
+const size_t ERROR_SIZE = 100;
 const size_t BOUNDARY_SIZE = 16;
+const std::string SUBTYPE_MIXED( "mixed");
+const std::string SUBTYPE_ALTERNATIVE( "alternative");
 
 
 // prototype
 bool buildMessageAttachment( std::string str_subject, std::string str_to,  std::string str_from, std::string body,  std::string filename, std::string &ret_msg, std::string &error );
 bool buildAttachment(std::string filepath,  std::string &msg, std::string &error );
 void getContentTypeMultipartMixed( std::string boundary, std::string  &ret_content_type, std::string &ret_boundary_begin, std::string &ret_boundary_end  );
+void buildContentTypeMultipart( char *subtype, 
+char *boundary, char *content_type, char *boundary_begin, char *boundary_end,  size_t content_type_size );
 void buildContentDisposition( char *filename, size_t filesize, char *disposition, size_t disposition_size );
 void getBoundary( std::string &boundary);
-bool exists_file (std::string path) ;
+bool existsFile (std::string path) ;
 bool getBase64Data( std::string filepath,  std::string & ret_b64, size_t &ret_filesize,   std::string &ret_error );
 bool readBinaryFile(const std::string filepath, std::vector<uint8_t> &data);
 void getFileName(std::string fullpath, std::string &fname);
@@ -37,7 +42,13 @@ void buildContentDispotition( char *filename, size_t filesize, char *dispotition
 void getFileName(char *fullpath, char *filename ) ;
 bool getFileExt(char *fullpath, char *ret_ext, char *error);
  uint8_t* readBinaryFile(char *file, size_t *size, char *error);
-bool exists_file (char *path) ;
+bool existsFile (char *path) ;
+
+void getContentTypeMultipart( std::string subtype, 
+std::string boundary, std::string &ret_content_type, std::string &ret_boundary_begin, std::string &ret_boundary_end );
+ void buildContentTypeMultipart( char *subtype, 
+char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size );
+
 void getRandomBoundary( char *boundary);
 
 
@@ -79,8 +90,9 @@ bool buildMessageAttachment( std::string str_subject, std::string str_to, std::s
 
 // text
     msg += content_type;
-    msg += CRLF;
-    msg += boundary_begin;
+
+    msg += CRLF + boundary_begin;
+
     msg += CONTENT_TYPE_TEXT_PLANE_USASCII;
     msg += CONTENT_TRANSFER_7BIT;
 
@@ -90,11 +102,11 @@ bool buildMessageAttachment( std::string str_subject, std::string str_to, std::s
 
 
 // attachment
-    msg += boundary_begin;
-    msg += attach;
-    msg += CRLF;
+    msg += CRLF + boundary_begin;
+
+    msg += attach + CRLF;
     
-    msg +=  std::string(boundary_end);
+    msg +=  CRLF + boundary_end;
 
     return true;
 
@@ -113,7 +125,7 @@ bool buildAttachment(std::string filepath,  std::string &msg, std::string &ret_e
     const std::string CONTENT_TRANSFER_BASE64( 
     "Content-Transfer-Encoding: base64\r\n");
 
-    if( !exists_file(filepath) ) {
+    if( !existsFile(filepath) ) {
         ret_error = "not found: " + filepath;
         return false;
     }
@@ -188,50 +200,26 @@ void buildContentDisposition( char *filename, size_t filesize, char *disposition
 /**
  *  getContentTypeMultipartMixed
  */
-void getContentTypeMultipartMixed( std::string boundary, std::string  &ret_content_type, std::string &ret_boundary_begin, std::string &ret_boundary_end  )
+void getContentTypeMultipartMixed( std::string boundary, std::string  &content_type, std::string &boundary_begin, std::string &boundary_end  )
 {
 
-    char content_type[HEADER_SIZE];
-    char boundary_begin[HEADER_SIZE];
-    char boundary_end[HEADER_SIZE];
-
-    buildContentTypeMultipartMixed(
-    (char *)boundary.c_str(), 
-    (char *)content_type, 
-    (char *)boundary_begin, 
-    (char *)boundary_end, 
-    HEADER_SIZE );
-
-    ret_content_type = std::string( content_type );
-    ret_boundary_begin = std::string(boundary_begin);
-    ret_boundary_end = std::string(boundary_end);
+    getContentTypeMultipart( 
+    SUBTYPE_MIXED,
+    boundary,  content_type, boundary_begin, boundary_end  );
 
 }
+
+
 
 
 
 /**
- *  getBoundary
+ * existsFile
  */
-void getBoundary( std::string &boundary)
+bool existsFile (std::string path) 
 {
-
-    char rand_boundary[HEADER_SIZE];
-
-    getRandomBoundary( (char *)rand_boundary);
-
-    boundary = std::string( rand_boundary );
+    return existsFile ((char *)path.c_str()) ;
 }
-
-
-/**
- * exists_file
- */
-bool exists_file (std::string path) 
-{
-    return exists_file ((char *)path.c_str()) ;
-}
-
 
 
 /**
@@ -339,6 +327,8 @@ bool getFileExt(std::string filename, std::string &ext)
 }
 
 
+
+
 /**
  *  buildContentTypeMediaType
  */
@@ -363,40 +353,6 @@ void buildContentDispotition( char *filename, size_t filesize, char *dispotition
     const char FORMAT_CONTENT_DISPOSITION[] = "Content-Disposition: attachment; filename=%s; size=%zu; \r\n";
 
     snprintf( dispotition, dispotition_size, FORMAT_CONTENT_DISPOSITION, filename, filesize );
-
-}
-
-
-
-/**
- *  buildContentTypeMultipartMixed
- */
-void buildContentTypeMultipartMixed(char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size )
-{
-
-    const char CRLF[] = "\r\n";
-
-    const char FORMAT_CONTENT_TYPE_MULTIPART_MIXED_BOUNDARY[] =
-    "Content-Type: multipart/mixed; boundary=\"%s\"\r\n";
-
-    const char BOUNDARY_FLAG[] =	"--" ;
-
-
-// content type
-     snprintf(content_type, content_type_size, FORMAT_CONTENT_TYPE_MULTIPART_MIXED_BOUNDARY,
-    boundary );
-    
-	// boundary brgin
-    strcpy(boundary_begin, (char *)BOUNDARY_FLAG);
-    strcat(boundary_begin,    boundary);
-    strcat(boundary_begin,    (char *)CRLF);
-
-
-	// boundary end
-    strcpy(boundary_end, (char *)BOUNDARY_FLAG);
-    strcat(boundary_end,    boundary);
-    strcat(boundary_end, (char *)BOUNDARY_FLAG);
-    strcat(boundary_end,    (char *)CRLF);
 
 }
 
@@ -505,9 +461,9 @@ bool getFileExt(char *fullpath, char *ret_ext, char *error)
 
 
 /**
- * exists_file
+ * existsFile
  */
-bool exists_file (char *path) 
+bool existsFile (char *path) 
 {
     struct stat   sb;   
     int ret = stat(path, &sb);
@@ -515,6 +471,84 @@ bool exists_file (char *path)
     return res;
 }
 
+
+/**
+ *  getContentTypeMultipart
+ */
+void getContentTypeMultipart( std::string subtype,
+    std::string boundary,  std::string &ret_content_type, std::string &ret_boundary_begin, std::string &ret_boundary_end  )
+{
+
+    char content_type[HEADER_SIZE];
+    char boundary_begin[HEADER_SIZE];
+    char boundary_end[HEADER_SIZE];
+
+    buildContentTypeMultipart( 
+    (char *)subtype.c_str(), 
+    (char *)boundary.c_str(), 
+    (char *)content_type, 
+    (char *)boundary_begin,
+    (char *)boundary_end, 
+    HEADER_SIZE );
+
+    ret_content_type = std::string( content_type );
+    ret_boundary_begin = std::string( boundary_begin );
+    ret_boundary_end = std::string( ret_boundary_end );
+
+}
+
+
+
+/**
+ *  buildContentTypeMultipart
+ */
+void buildContentTypeMultipart( char *subtype, 
+char *boundary, char *content_type, char *boundary_begin, char *boundary_end, size_t content_type_size )
+{
+
+    const char FORMAT_CONTENT_TYPE_MULTIPART_BOUNDARY[] =
+    "Content-Type: multipart/%s; boundary=\"%s\"\r\n";
+
+    const char BOUNDARY_FLAG[] =	"--" ;
+
+// content type
+     snprintf(content_type, content_type_size, FORMAT_CONTENT_TYPE_MULTIPART_BOUNDARY,
+    subtype, boundary );
+    
+
+// RFC 822 
+// The CRLF preceding the boundary delimiter line is 
+// conceptually attached to the boundary 
+
+	// boundary begin
+    strcpy(boundary_begin,    (char *)CRLF);
+    strcat(boundary_begin, (char *)BOUNDARY_FLAG);
+    strcat(boundary_begin,    boundary);
+    strcat(boundary_begin,    (char *)CRLF);
+
+
+	// boundary end    
+    strcpy(boundary_end,    (char *)CRLF);
+    strcat(boundary_end, (char *)BOUNDARY_FLAG);
+    strcat(boundary_end,    boundary);
+    strcat(boundary_end, (char *)BOUNDARY_FLAG);
+    strcat(boundary_end,    (char *)CRLF);
+
+}
+
+
+/**
+ *  getBoundary
+ */
+void getBoundary( std::string &boundary)
+{
+
+    char rand_boundary[HEADER_SIZE];
+
+    getRandomBoundary( (char *)rand_boundary);
+
+    boundary = std::string( rand_boundary );
+}
 
 
 /**
