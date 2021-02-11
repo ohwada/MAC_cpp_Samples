@@ -36,9 +36,10 @@ display as below <br/>
 libiconv Version: 1.16 <br/>
 sjis: あいうえお <br/>
 
+### Document 
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/11/125248
 
-
-### Reference <br/>
+### Reference 
 - https://www.gnu.org/software/libiconv/
 - https://www.mk-mode.com/blog/2014/08/24/cpp-convert-sjis-to-utf8/
 
