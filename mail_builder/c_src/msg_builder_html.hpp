@@ -7,7 +7,14 @@
 
 
 #include <string>
-#include "msg_builder_attach.hpp"
+#include "msg_builder.hpp"
+
+
+// constant
+const std::string CONTENT_TYPE_TEXT_HTML_USASCII(
+"Content-Type: text/html; charset=us-ascii; \r\n");
+const char FORMAT_CONTENT_TYPE_MULTIPART_ALTERNATIVE_BOUNDARY[] =
+"Content-Type: multipart/alternative; boundary=\"%s\"\r\n";
 
 
 // prototype
@@ -57,16 +64,16 @@ bool buildMessageHtmlAttachment( std::string subject, std::string to, std::strin
     msg += content_type_multipart;
 
 // html plain
-    msg += boundary_begin;
+    msg += CRLF + boundary_begin;
 
     msg += multipart_html;
 
 // attachment
-    msg += boundary_begin;
+    msg += CRLF = boundary_begin;
 
     msg += attach + CRLF;
 
-    msg +=  boundary_end;
+    msg +=  CRLF + boundary_end;
 
     return true;
 
@@ -100,9 +107,6 @@ void buildMessageHtml( std::string subject, std::string to, std::string from, st
  */
 void buildMultipartHtml( std::string plain, std::string html, std::string &msg )
 {
-
-    const std::string CONTENT_TYPE_TEXT_HTML_USASCII(
-    "Content-Type: text/html; charset=us-ascii; \r\n");
 
 
 	// boundary
@@ -145,15 +149,22 @@ void buildMultipartHtml( std::string plain, std::string html, std::string &msg )
 
 
 /**
- *  getContentTypeMultipartAlternative
+ *  getContentTypeMultipartalternative
  */
-void getContentTypeMultipartAlternative( std::string boundary, std::string  &content_type, std::string &boundary_begin, std::string &boundary_end  )
+void getContentTypeMultipartAlternative(std::string boundary, std::string &content_type, std::string &boundary_begin, std::string &boundary_end)
 {
+    const size_t BUFSIZE = 100;
+    char buf[BUFSIZE];
 
-    getContentTypeMultipart( 
-    SUBTYPE_ALTERNATIVE,
-    boundary,  content_type, boundary_begin, boundary_end  );
+// content type
+     snprintf(buf, BUFSIZE, FORMAT_CONTENT_TYPE_MULTIPART_ALTERNATIVE_BOUNDARY,
+    (char *)boundary.c_str() );
+    content_type = std::string( buf );
+
+	// boundary
+    boundary_begin = BOUNDARY_FLAG + boundary + CRLF;
+
+    boundary_end = BOUNDARY_FLAG + boundary + BOUNDARY_FLAG +CRLF;
 
 }
-
 

@@ -29,21 +29,13 @@ int main(void)
     const string FROM("jiro@example.com");
 
 // plain
-    std::string plain("This is test email. ");
-    plain += CRLF;
-    plain += string("this mail has html. ");
-    plain += CRLF;
-    plain += string("this part is plain text. ");
-    plain += CRLF;
-
+    std::string plain("This is test email. \r\n");
+    plain += string("this mail has html. \r\n");
+    plain += string("this part is plain text. \r\n");
 
 // html
-    std::string html("This is test email. <br/>");
-    html += CRLF;
-    html += string("this mail has <b>html</b>. <br/>");
-    html += CRLF;
-    html += string("this part is <b>html</b>. <br/>");
-    html += CRLF;
+    std::string html("This is test email. <br/>\r\n");
+    html += string("this part is <b>html</b>. <br/> \r\n");
 
     string msg;
     buildMessageHtml( SUBJECT, TO, FROM, plain,  html, msg );
