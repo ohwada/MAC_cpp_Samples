@@ -143,7 +143,7 @@ void dump_chars(char* buf, int buf_size)
 {
 
     for(int i=0; i < buf_size; i++ ){
-        printf( "%X, ", (char)buf[i] );
+        printf( "%02X, ", (char)buf[i] );
     }
     printf("\n");
 

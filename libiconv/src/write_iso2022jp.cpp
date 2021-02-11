@@ -54,7 +54,6 @@ int main(int argc, char** argv)
             return EXIT_FAILURE;
         }  
 
-	    // ofs.open( output, std::ios::binary | std::ios::out );
 	    ofs.open( output,  std::ios::out );
 
         if (ofs.fail()) {
@@ -73,19 +72,16 @@ int main(int argc, char** argv)
     while( getline(ifs, line) ) {
 
             line_count++;
+
+
+// replace Line feed code(0x0A) to string terminator code(0x00)
             cout << "line: " << line << endl;
 
             bool ret1 = convToIso2022jp( line,  text,  error );
 
             if ( ret1 ) {
                     dumpString( text );
-
-                    //ofs.write( (char *)text.c_str(), text.length() );
-                    //ofs.write( (char *)ISO2022JP_LF, strlen(ISO2022JP_LF) );
-
-ofs << text;
-ofs << ISO2022JP_LF;
-
+                    ofs << text << ISO2022JP_LF;
             } else {
                     is_error = true;
                     cerr <<  line_count << " : " << error << endl;

@@ -76,9 +76,12 @@ int main(int argc, char** argv)
 
             line_count++;
 
-// remove ESC sequence
+// replace Line feed code(0x0A) to string terminator code(0x00)
+// Escape sequence(0x1B, 0x28, 0x42) remains at the end
+
+// remove Escape sequence
 // iconv will convert correctly
-// even if the ESC sequence remains
+// even if the Escape sequence remains
              removeLastEsc(line, text1);
 
             dumpString( text1 );
