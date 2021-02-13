@@ -6,6 +6,10 @@
 
 // function for ssl server
 
+// TODO:
+// return error message as string
+// instead of displaying it on the display
+
 // reference : https://wiki.openssl.org/index.php/Simple_TLS_Server
 
 #include <openssl/ssl.h>

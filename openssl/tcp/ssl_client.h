@@ -6,6 +6,10 @@
 
 // function for SSL Client
 
+// TODO:
+// return error message as string
+// instead of displaying it on the display
+
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include "ssl_write_read.h"

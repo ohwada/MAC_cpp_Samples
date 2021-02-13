@@ -13,33 +13,38 @@ https://www.openssl.org/ <br/>
 see below <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup <br/>
 
+## sample code
 
-### sample code
+### tcp
+TCP Client and server
+- echo_client.c <br/>
+SSL Echo Client for SSL Echo server <br/>
+- echo_server.c <br/>
+SSL Echo Server <br/>
+
+### https
+HTTPS Client and server
 - https_client.c <br/>
-HTTPS Client <br/>
+HTTPS Client without server certification verification<br/>
 - https_server.c <br/>
-simple HTTPS Server <br/>
-
-
-build code <br/>
-% gcc src/https_server.c `pkg-config --cflags --libs openssl` -o server <br/>
-
-run code  <br/>
-Usage: ./server [port] <br/>
-
-display as below <br/>
-> listen port: 8081  <br/>
+HTTPS Server <br/>
 
 access localhost:8081 by WEB Brawser <br/>
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/openssl/screenshot/firefox_https_server.png" width="300" />
 
-
-### bio <br/>
+### bio 
 sample for BIO method <br/>
 - bio_new_connect.c <br/>
 connect HTTP server using BIO_new_connect <br/>
 - bio_new_ssl_connect.c <br/>
-connect HTTPS srver using BIO_new_ssl_connect <br/>
+connect HTTPS srver using BIO_new_ssl_connect <
+
+### smime
+openssl S/MIME sample <br/>
+- test_encrypt.c <br/>
+S/MIME encrypt decrypt example <br/>
+- test_sign.c <br/>
+S/MIME sign verify example <br/>
 
 
 ### Reference <br/>
