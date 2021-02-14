@@ -31,7 +31,7 @@ convert UTF-8 to/from UTF-16 <br/>
 ### string
 string to uppercase / lowercase <br/>
 
-### string_streams : <br/>
+### string_streams 
 the fmemopen and open_memstream functions allow you to do I/O to a string or memory buffer.  <br/>
 
 ### bind
