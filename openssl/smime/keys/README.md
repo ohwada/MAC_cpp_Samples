@@ -3,7 +3,7 @@ keys - openssl
 
 openssl sample <br/>
 
-### key reqires
+### Required keys
 
 S/MIME sample code requires the keys <br/>
 each email sender and recipient needs the following three <br/>
