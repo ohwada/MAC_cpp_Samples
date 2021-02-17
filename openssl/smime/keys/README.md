@@ -2,13 +2,18 @@ keys - openssl
 ===============
 
 openssl sample <br/>
-private key and public key certificate <br/>
 
-### how to generate keys
+### key reqires
 
-generate private key <br/>
-% openssl genrsa 1024 > privatekey.pem <br/>
+S/MIME sample code requires the keys <br/>
+each email sender and recipient needs the following three <br/>
 
-generate public key certificate <br/>
-% openssl req -x509 -new -key privatekey.pem -out cert.pem -days 356 <br/>
+- private key <br/>
+- public key certificate <br/>
+- Root certificate of CA that issued the public ley certificate <br/>
 
+
+### generate keys
+
+see below <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert.md
