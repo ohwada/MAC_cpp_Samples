@@ -17,7 +17,7 @@ the email recipient needs the following two <br/>
 
 - private key <br/>
 - public key certificate <br/>
-apply Self-signed certificate not issued by CA <br/>
+apply Self-signed certificate <br/>
 
 ### generate keys
 
