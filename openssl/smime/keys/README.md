@@ -10,7 +10,7 @@ each email sender and recipient needs the following three <br/>
 
 - private key <br/>
 - public key certificate <br/>
-- Root certificate of CA that issued the public ley certificate <br/>
+- Root certificate of CA that issued the public key certificate <br/>
 
 
 ### generate keys
