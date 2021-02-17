@@ -30,11 +30,15 @@
 
 // prototype
 bool smime_encrypt_stream(char  *input , char *output, char *recpt_publc );
+bool smime_decrypt_default(char *input, char *output, char *recpt_cert, char *recpt_key );
 bool smime_sign_stream_detached( char *input, char *output, char *signer_cert,  char *signer_key );
-bool smime_encrypt(char  *input , char *output, char *recpt_publc, int flags );
+bool smime_verify_default( char *input, char *output, char *signer_cert );
+bool smime_encrypt(char  *input , char *output, char *recpt_publc,  EVP_CIPHER *cipher, int flags );
 bool smime_decrypt(char *input, char *output, char *recpt_cert, char *recpt_key, int flags );
-bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key, int flags );
-bool smime_verify( char *input, char *output, char *signer_cert, int flags );
+bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key, STACK_OF(X509) *certs,  int flags );
+bool smime_verify( char *input, char *output, char *cacert_file, STACK_OF(X509) *certs, int flags );
+X509 * new_X509( char * signer_cert );
+
 
 
     /*
@@ -57,9 +61,20 @@ bool smime_encrypt_stream(char  *input , char *output, char *recpt_publc )
 // a partial PKCS7 structure is output suitable for streaming I/O
     int flags = PKCS7_STREAM;
 
+   EVP_CIPHER *cipher = 
+    (EVP_CIPHER *)EVP_des_ede3_cbc();
 
-    return smime_encrypt( input , output, recpt_publc, flags );
+    return smime_encrypt( input , output, recpt_publc, cipher, flags );
 
+}
+
+/**
+ * decrypt
+ */
+bool smime_decrypt_default(char *input, char *output, char *recpt_cert, char *recpt_key )
+{
+    int flags = 0;
+    return smime_decrypt( input, output, recpt_cert, recpt_key, flags );
 }
 
 
@@ -73,16 +88,32 @@ bool smime_sign_stream_detached( char *input, char *output, char *signer_cert,  
 // On OpenSSL 0.9.9 only:
 // for streaming detached set PKCS7_DETACHED|PKCS7_STREAM for streaming
 // non-detached set PKCS7_STREAM
-    int flags = PKCS7_DETACHED | PKCS7_STREAM;
+    int flags =  PKCS7_STREAM | PKCS7_DETACHED;
 
-    return smime_sign( input, output, signer_cert,  signer_key, flags );
+    STACK_OF(X509) *certs = NULL;
+
+    return smime_sign( input, output, signer_cert,  signer_key, certs, flags );
+
+}
+
+
+/**
+ * verify
+ */
+bool smime_verify_default( char *input, char *output, char *signer_cert )
+{
+
+    STACK_OF(X509) *certs = NULL;
+    int flags = 0;
+
+    return smime_verify( input, output, signer_cert, certs, flags );
 }
 
 
 /**
  * encrypt
  */
-bool smime_encrypt(char  *input , char *output, char *recpt_publc, int flags )
+bool smime_encrypt(char  *input , char *output, char *recpt_publc, EVP_CIPHER *cipher, int flags )
 {
 
     BIO *in = NULL, *out = NULL, *tbio = NULL;
@@ -133,7 +164,7 @@ bool smime_encrypt(char  *input , char *output, char *recpt_publc, int flags )
     }
 
     /* encrypt content */
-    p7 = PKCS7_encrypt(recips, in, EVP_des_ede3_cbc(), flags);
+    p7 = PKCS7_encrypt( recips, in, cipher, flags );
 
     if (!p7) {
         is_error = true;
@@ -247,7 +278,7 @@ bool smime_decrypt(char *input, char *output, char *recpt_cert, char *recpt_key,
 
  err:
     if ( is_error ) {
-        fprintf(stderr, "Error Signing Data \n");
+        fprintf(stderr, "Error Decrypt Data \n");
         ERR_print_errors_fp(stderr);
     }
 
@@ -266,7 +297,7 @@ bool smime_decrypt(char *input, char *output, char *recpt_cert, char *recpt_key,
 /**
  * sign
  */
-bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key, int flags )
+bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key, STACK_OF(X509) *certs,  int flags )
 {
 
     BIO *in = NULL, *out = NULL, *tbio_cert = NULL, *tbio_key = NULL;
@@ -317,7 +348,7 @@ bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key
     }
 
     /* Sign content */
-    p7 = PKCS7_sign( scert, skey, NULL, in, flags );
+    p7 = PKCS7_sign( scert, skey, certs, in, flags );
 
     if (!p7) {
          is_error = true;
@@ -366,12 +397,12 @@ bool smime_sign( char *input, char *output, char *signer_cert,  char *signer_key
 /**
  * verify
  */
-bool smime_verify( char *input, char *output, char *signer_cert, int flags )
+bool smime_verify( char *input, char *output, char *cacert_file, STACK_OF(X509) *certs, int flags )
 {
 
     BIO *in = NULL, *out = NULL, *tbio = NULL, *cont = NULL;
     X509_STORE *st = NULL;
-    X509 *scert = NULL;
+    X509 *cacert = NULL;
     PKCS7 *p7 = NULL;
 
     bool is_error = false;
@@ -383,22 +414,22 @@ bool smime_verify( char *input, char *output, char *signer_cert, int flags )
 
     st = X509_STORE_new();
 
-    /* Read in signer certificate and private key */
-    tbio = BIO_new_file( signer_cert, "r" );
+    /* Read in CA certificate */
+    tbio = BIO_new_file( cacert_file, "r" );
 
     if (!tbio) {
         is_error = true;
         goto err;
     }
 
-    scert = PEM_read_bio_X509( tbio, NULL, 0, NULL );
+    cacert = PEM_read_bio_X509( tbio, NULL, 0, NULL );
 
-    if (!scert) {
+    if (!cacert) {
         is_error = true;
         goto err;
     }
 
-    int ret1 = X509_STORE_add_cert(st, scert);
+    int ret1 = X509_STORE_add_cert(st, cacert);
 
     if ( ret1 == 0 ) {
         is_error = true;
@@ -430,11 +461,10 @@ bool smime_verify( char *input, char *output, char *signer_cert, int flags )
         goto err;
     }
 
-    int ret2 = PKCS7_verify(p7, NULL, st, cont, out, flags);
+    int ret2 = PKCS7_verify( p7, certs, st, cont, out, flags );
 
     if ( ret2 == 0 ) {
         is_error = true;
-        fprintf(stderr, "Verification Failure\n");
         goto err;
     }
 
@@ -445,10 +475,34 @@ bool smime_verify( char *input, char *output, char *signer_cert, int flags )
     }
 
     PKCS7_free(p7);
-    X509_free(scert);
+    X509_free(cacert);
     BIO_free(in);
     BIO_free(out);
     BIO_free(tbio);
 
     return !is_error;
+}
+
+
+/**
+ * new_X509
+ */
+X509 * new_X509( char *file_cert )
+{
+    BIO *tbio = NULL;
+    X509 *cert = NULL;
+
+    tbio = BIO_new_file( file_cert, "r" );
+    if (!tbio) {
+       ERR_print_errors_fp(stderr);
+        return NULL;
+    }
+
+    cert = PEM_read_bio_X509(tbio, NULL, 0, NULL);
+    if (!cert) {
+       ERR_print_errors_fp(stderr);
+        return NULL;
+    }
+
+    return cert;
 }

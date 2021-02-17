@@ -24,9 +24,9 @@
 int main(int argc, char *argv[])
 {
 
-    const char FILE_CERT[] = "cert/localhost_cert.pem";
+    const char FILE_CERT[] = "certs/localhost_cert.pem";
 
-    const char FILE_KEY[] = "cert/localhost_key.pem";
+    const char FILE_KEY[] = "certs/localhost_key.pem";
 
     const char TITLE[] = "openssl demo";
 

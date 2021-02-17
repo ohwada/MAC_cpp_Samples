@@ -12,6 +12,9 @@ HTTPS Client without server certification verification<br/>
 HTTPS Server <br/>
 - https_client_verify.c <br/>
 HTTPS Client with server certification verification  <br/>
+- get certs <br/>
+get certificate chain from server <br/>
+
 
 build code <br/>
 % gcc https/https_server.c `pkg-config --cflags --libs openssl` -o server <br/>
@@ -28,5 +31,4 @@ access localhost:8081 by WEB Brawser <br/>
 
 ### Reference <br/>
 - https://github.com/openssl/openssl
-- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
 

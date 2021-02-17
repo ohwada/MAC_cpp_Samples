@@ -46,6 +46,13 @@ S/MIME encrypt decrypt example <br/>
 - test_sign.c <br/>
 S/MIME sign verify example <br/>
 
+### verify_cert 
+verify X509 certificate <br/>
+- verift localhost.c <br/>
+verify localhost cert <br/>
+- verify_example_org.c <br/>
+verify www.example.org cert <br/>
+
 
 ### Reference <br/>
 - https://github.com/openssl/openssl

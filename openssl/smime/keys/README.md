@@ -4,7 +4,7 @@ keys - openssl
 openssl sample <br/>
 private key and public key certificate <br/>
 
-### generate keys
+### how to generate keys
 
 generate private key <br/>
 % openssl genrsa 1024 > privatekey.pem <br/>

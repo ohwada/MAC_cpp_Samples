@@ -1,8 +1,9 @@
 #pragma once
 /**
- * C Sample
- * 2020-02-01 K.OHWADA
+ * openssl sample
+ * 2021-02-01 K.OHWADA
  */
+
 
 // file utility
 

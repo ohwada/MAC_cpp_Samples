@@ -1,9 +1,9 @@
 /**
  * openssl sample
- * 2020-07-01 K.OHWADA
+ * 2021-02-01 K.OHWADA
  */
 
-// HTTPS Client with server certification verification
+//  HTTP Client with server certification verification
 
 //  gcc https/https_client_verify.c `pkg-config --cflags --libs openssl`
 
@@ -12,17 +12,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <openssl/x509v3.h>
 #include "tcp_client.h"
 #include "http_client.h"
 #include "ssl_client.h"
-
+#include "x509_util.h"
+#include "two_dem_char_array.h"
 
 // prototype
 int verify_callback(int preverify, X509_STORE_CTX* x509_ctx);
-void print_cn_name(const char* label, X509_NAME* const name);
-void print_san_name(const char* label, X509* const cert);
 bool enable_hostname_validation(SSL *ssl, const char *host);
+void print_san_name( X509*cert );
 
 
 // global
@@ -35,9 +34,9 @@ char host[100];
 int main(int argc, char **argv)
 {
 
-    char* file_ca = "cert/bundle_ca.pem";
+    char* file_ca = "certs/bundle_ca.pem";
 
-    strcpy( host, "example.com");
+    strcpy(host, "www.example.com");
 
     int port = 443;
 
@@ -47,7 +46,7 @@ int main(int argc, char **argv)
       	port = atoi( argv[2] );
       	file_ca = argv[3];
     } else if(argc == 3) {
-      	strcpy( host, argv[1] );
+      	strcpy( host, argv[1]) ;
        	port = atoi( argv[2] );
     } else if(argc == 2) {
       	strcpy( host, argv[1] );
@@ -173,7 +172,9 @@ int main(int argc, char **argv)
 
     close(sockfd);
 
-   fprintf(stderr, "sucessful \n");
+
+    printf("\n");
+   fprintf(stderr, "verification sucessful \n");
 
     return EXIT_SUCCESS;
 
@@ -215,20 +216,37 @@ int verify_callback(int preverify, X509_STORE_CTX* x509_ctx)
     int err = X509_STORE_CTX_get_error(x509_ctx);
     
     X509* cert = X509_STORE_CTX_get_current_cert(x509_ctx);
-    X509_NAME* iname = cert ? X509_get_issuer_name(cert) : NULL;
-    X509_NAME* sname = cert ? X509_get_subject_name(cert) : NULL;
-    
-    fprintf(stdout, "\n verify_callback (depth=%d)(preverify=%d)\n", depth, preverify);
-    
-    /* Issuer is the authority we trust that warrants nothing useful */
-    print_cn_name("Issuer (cn)", iname);
-    
-    /* Subject is who the certificate is issued to by the authority  */
-    print_cn_name("Subject (cn)", sname);
-    
+
+    if(!cert){
+        ERR_print_errors_fp(stderr);
+        return 0;
+    }
+
+    char subject[100];
+    char issuer[100];
+
+    bool ret1 = get_x509_subject_name( cert,  (char *)subject );
+
+    if(!ret1){
+        return 0;
+    }
+
+    bool ret2 = get_x509_issuer_name( cert,  (char *)issuer );
+
+    if(!ret2){
+        return 0;
+    }
+
+
+    printf("\n");
+    printf("depth: %d \n", depth);
+    printf("Subject: %s \n", subject);
+    printf("Issuer: %s \n", issuer);
+
+
     if(depth == 0) {
         /* If depth is 0, its the server's certificate. Print the SANs */
-        print_san_name("Subject (san)", cert);
+        print_san_name( cert );
     }
     
     if(preverify == 0)
@@ -258,6 +276,7 @@ int verify_callback(int preverify, X509_STORE_CTX* x509_ctx)
             int ret = X509_check_host(cert, (char *)host, strlen(host),
                      0, NULL);
             if(ret == 1){
+               fprintf(stderr, "\n" );
                 fprintf(stderr, "X509_check_host ok \n" );
             } else {
                 fprintf(stderr, "X509_check_host: %s faild \n", (char*)host );
@@ -273,112 +292,26 @@ int verify_callback(int preverify, X509_STORE_CTX* x509_ctx)
 }
 
 
-/**
- * print_cn_name
- */
-void print_cn_name(const char* label, X509_NAME* const name)
-{
-    int idx = -1, success = 0;
-    unsigned char *utf8 = NULL;
-    
-    do
-    {
-        if(!name) break; /* failed */
-        
-        idx = X509_NAME_get_index_by_NID(name, NID_commonName, -1);
-        if(!(idx > -1))  break; /* failed */
-        
-        X509_NAME_ENTRY* entry = X509_NAME_get_entry(name, idx);
-        if(!entry) break; /* failed */
-        
-        ASN1_STRING* data = X509_NAME_ENTRY_get_data(entry);
-        if(!data) break; /* failed */
-        
-        int length = ASN1_STRING_to_UTF8(&utf8, data);
-        if(!utf8 || !(length > 0))  break; /* failed */
-        
-        fprintf(stdout, "  %s: %s\n", label, utf8);
-        success = 1;
-        
-    } while (0);
-    
-    if(utf8)
-        OPENSSL_free(utf8);
-    
-    if(!success)
-        fprintf(stdout, "  %s: <not available>\n", label);
-}
-
 
 /**
  * print_san_name
- */
-void print_san_name(const char* label, X509* const cert)
+*/
+void print_san_name( X509*cert )
 {
-    int success = 0;
-    GENERAL_NAMES* names = NULL;
-    unsigned char* utf8 = NULL;
-    
-    do
-    {
-        if(!cert) break; /* failed */
-        
-        names = X509_get_ext_d2i(cert, NID_subject_alt_name, 0, 0 );
-        if(!names) break;
-        
-        int i = 0, count = sk_GENERAL_NAME_num(names);
-        if(!count) break; /* failed */
-        
-        for( i = 0; i < count; ++i )
-        {
-            GENERAL_NAME* entry = sk_GENERAL_NAME_value(names, i);
-            if(!entry) continue;
-            
-            if(GEN_DNS == entry->type)
-            {
-                int len1 = 0, len2 = -1;
-                
-                len1 = ASN1_STRING_to_UTF8(&utf8, entry->d.dNSName);
-                if(utf8) {
-                    len2 = (int)strlen((const char*)utf8);
-                }
-                
-                if(len1 != len2) {
-                    fprintf(stderr, "  Strlen and ASN1_STRING size do not match (embedded null?): %d vs %d\n", len2, len1);
-                }
-                
-                /* If there's a problem with string lengths, then     */
-                /* we skip the candidate and move on to the next.     */
-                /* Another policy would be to fails since it probably */
-                /* indicates the client is under attack.              */
-                if(utf8 && len1 && len2 && (len1 == len2)) {
-                    fprintf(stdout, "  %s: %s\n", label, utf8);
-                    success = 1;
-                }
-                
-                if(utf8) {
-                    OPENSSL_free(utf8), utf8 = NULL;
-                }
-            }
-            else
-            {
-                fprintf(stderr, "  Unknown GENERAL_NAME type: %d\n", entry->type);
-            }
-        }
 
-    } while (0);
-    
-    if(names)
-        GENERAL_NAMES_free(names);
-    
-    if(utf8)
-        OPENSSL_free(utf8);
-    
-    if(!success)
-        fprintf(stdout, "  %s: <not available>\n", label);
-    
+    const int N = 10;
+    const int M = 100;
+    int size;
+
+    char **list = alloc_chars( N, M ) ;
+    bool ret = get_x509_san_name_array( cert,  list, N, &size );
+    if(ret) {
+            printf("Subject (san) \n");
+            print_chars( list, size );
+    }
+
 }
-
+    
 
 /**
  * enable_host name validation
