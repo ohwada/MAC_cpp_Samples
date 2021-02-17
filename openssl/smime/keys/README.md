@@ -6,12 +6,18 @@ openssl sample <br/>
 ### Required keys
 
 S/MIME sample code requires the keys <br/>
-each email sender and recipient needs the following three <br/>
+
+the email sender needs the following three <br/>
+
+- private key <br/>
+- public key certificate issued by CA <br/>
+- Root certificate of CA that issued the public key certificate <br/>
+
+the email recipient needs the following two <br/>
 
 - private key <br/>
 - public key certificate <br/>
-- Root certificate of CA that issued the public key certificate <br/>
-
+apply Self-signed certificate not issued by CA <br/>
 
 ### generate keys
 
