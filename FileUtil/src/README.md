@@ -1,7 +1,9 @@
-FileUtil
+src - FileUtil
 ===============
 
-C++ File Utility <br/>
+File Utility <br/>
+C++ version <br/>
+
 
 ## sample code
 - read_write_text.cpp <br/>

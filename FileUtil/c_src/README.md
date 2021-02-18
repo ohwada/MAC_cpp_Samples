@@ -1,7 +1,8 @@
 c_src - FileUtil
 ===============
 
-C File Utility <br/>
+File Utility <br/>
+C version <br/>
 
 ## sample code
 - test_c_parse_filename.c <br/>
@@ -12,10 +13,12 @@ check file exists <br/>
 copy file <br/>
 - rename_file.c <br/>
 rename file <br/>
-read_write_text_file.c <br/>
+- read_write_text_file.c <br/>
 read and write text file <br/>
-read_write_binary_file.c <br/>
-// read and write binary file  <br/>
+- read_write_binary_file.c <br/>
+read and write binary file  <br/>
+- file_list.c <br/>
+get filenames in directory <br/>
 
 build sample code <br/>
 % gcc  c_src/test_c_parse_filename.c <br/>

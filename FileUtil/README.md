@@ -3,7 +3,10 @@ FileUtil
 
 File Utilty <br/>
 
-## C++ sample code
+## sample code
+
+### src
+C++ version <br/>
 - read_write_text.cpp <br/>
 read and write Text File <br/>
 - read_write_binary.cpp <br/>
@@ -20,19 +23,8 @@ parse file fullpath to dir name, file name, file extension <br/> <br/>
 test for getTimestampFileName <br/>
 
 
-build sample code <br/>
-% g++  src/read_write_text.cpp -std=c++11 <br/>
-
-run sample code <br/>
-Usage:  ./a.out \< Input filename \> \< Output filename \>
-ex) <br/>
-% ./a.out ./data/sample.txt output.txt <br/>
-
-display as below <br/>
-> write to: output.txt <br/>
-
-
-## C sample code
+### c_src
+C version <br/>
 - test_c_parse_filename.c <br/>
 parse fuilepath  <br/>
 - file_exists.c <br/>
@@ -41,22 +33,8 @@ check file exists <br/>
 copy file <br/>
 - rename_file.c <br/>
 rename file <br/>
-read_write_text_file.c <br/>
+- read_write_text_file.c <br/>
 read and write text file <br/>
-read_write_binary_file.c <br/>
+- read_write_binary_file.c <br/>
 read and write binary file  <br/>
-
-build sample code <br/>
-% gcc  c_src/test_c_parse_filename.c <br/>
-
-run sample code <br/>
-Usage: ./a.out \< filepath \>  <br/>
-ex)  <br/>
-% ./a.out data/sample.txt  <br/>
-
-display as below  <br/>
-> filepath: data/sample.txt  <br/>
-> filename_with_ext: sample.txt  <br/>
-> filename_without_ext: sample  <br/>
-> ext: txt 
 

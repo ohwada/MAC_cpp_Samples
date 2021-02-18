@@ -8,6 +8,7 @@ C++ string sample <br/>
 - test_replaceString.cpp <br/>
 - test_str2upper.cpp <br/>
 - test_subString.cpp <br/>
+- replace_char_all.cpp <br/>
 
 build code <br/>
 % g++ test_replaceString.cpp -std=c++11 <br/>

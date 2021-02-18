@@ -16,12 +16,11 @@
 #include "http_client.h"
 #include "ssl_client.h"
 #include "x509_util.h"
-#include "two_dem_char_array.h"
+
 
 // prototype
 int verify_callback(int preverify, X509_STORE_CTX* x509_ctx);
 bool enable_hostname_validation(SSL *ssl, const char *host);
-void print_san_name( X509*cert );
 
 
 // global
@@ -246,7 +245,8 @@ int verify_callback(int preverify, X509_STORE_CTX* x509_ctx)
 
     if(depth == 0) {
         /* If depth is 0, its the server's certificate. Print the SANs */
-        print_san_name( cert );
+        printf("Subject Alternative Name \n");
+        print_x509_san_names( cert );
     }
     
     if(preverify == 0)
@@ -289,27 +289,6 @@ int verify_callback(int preverify, X509_STORE_CTX* x509_ctx)
 #else
     return preverify;
 #endif
-}
-
-
-
-/**
- * print_san_name
-*/
-void print_san_name( X509*cert )
-{
-
-    const int N = 10;
-    const int M = 100;
-    int size;
-
-    char **list = alloc_chars( N, M ) ;
-    bool ret = get_x509_san_name_array( cert,  list, N, &size );
-    if(ret) {
-            printf("Subject (san) \n");
-            print_chars( list, size );
-    }
-
 }
     
 

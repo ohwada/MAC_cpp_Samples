@@ -20,7 +20,10 @@ preparation  <br/>
 (3) CA signs CSR <br/>
 % /usr/local/bin/openssl x509 -days 3650 -in cacert.csr -req -signkey cakey.pem -out cacert.pem <br/>
 
-(4) settings for CA operation <br/>
+(4) check the contents of the certificate <br/>
+% openssl x509 -text -noout -in cacert.pem <br/>
+
+(5) settings for CA operation <br/>
 % mv cakey.pem demoCA/private/cakey.pem <br/>
 % mv cacert.pem demoCA/cacert.pem <br/>
 
@@ -41,6 +44,10 @@ Allows to start the server without passphrase <br/>
 
 (4) CA signs CSR <br/>
  % /usr/local/bin/openssl ca -in server.csr -out server_cert.pem -days 365 <br/>
+
+(5) check the contents of the certificate <br/>
+% openssl x509 -text -noout -in server_cert.pem <br/>
+
 
 ### genarate  Self-signed Server Certificate
 

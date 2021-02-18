@@ -6,6 +6,8 @@
 // parse filepath
 // test for c_parse_filename.h
 
+// cd /Users/ohwada/C++/FileUtil/c_src
+// gcc test_c_parse_filename.c
 
 #include<stdio.h>
 #include<stdlib.h>

@@ -9,7 +9,7 @@ C string sample <br/>
 - test_str_replace.c <br/>
 - test_str2upper.c <br/>
 - simple_str_replace.c <br/>
-
+- replace_char_all.c <br/>
 
 build code <br/>
 % gcc test_str_replace_all.c <br/>

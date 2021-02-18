@@ -1,5 +1,5 @@
 /**
- * c++ sample
+ * C++ string sample
  * 2020-03-01 K.OHWADA
  */
 

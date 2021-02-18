@@ -8,7 +8,11 @@
 
 // test for getFileList
 
+#include <iostream>
 #include "file_list_ext.hpp"
+
+
+using namespace std;
 
 
 /**
@@ -18,34 +22,36 @@ int main(int argc, char** argv)
 {
 
 // current directory
-    std::string path = "src";
-    std::string ext = "cpp";
+    string path = ".";
+
+    string ext = "cpp";
 
     if(argc == 3) {
         path = argv[1];
         ext = argv[2];
     }else {
-        std::cout <<  "Usage: " << argv[0] << " [directory path] [ext] " << std::endl;
+        cout <<  "Usage: " << argv[0] << " [directory path] [ext] " << endl;
     }
 
-    std::vector<std::string> vec;
-    std::string error;
+    vector<string> vec;
+    string error;
+
     bool ret = getFileList(path, ext, vec, error);
 
     if(!ret) {
-        std::cout << error << std::endl;
-        return 1;
+        cerr << error << endl;
+        return EXIT_FAILURE;
     }
 
     int size = vec.size();
     if(size == 0){
-        std::cout << "no files" << std::endl;
-        return 1;
+        cerr << "no files" << endl;
+        return EXIT_FAILURE;
     }
 
-    for(int i=0; i<vec.size(); i++) {    
-        std::cout << vec[i] << std::endl;
-    }
+     cout << "get "<< size << " fies" << endl;
+
+    printFileList(vec);
 
 	return EXIT_SUCCESS;
 }

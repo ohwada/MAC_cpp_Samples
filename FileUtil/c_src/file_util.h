@@ -331,3 +331,27 @@ void dump_binary(uint8_t *data, size_t size)
 }
 
 
+
+/** 
+ *   getTimestamp
+ */
+void getTimestamp(char *timestamp)
+{
+
+    const char format[] = "%Y%m%d%H%M%S";
+
+    const size_t BUFSIZE = 100;
+    char buf[BUFSIZE];
+
+   time_t now;
+   time(&now);
+
+    struct tm *tm;
+    tm = localtime(&now);
+
+    strftime(buf, BUFSIZE, (char *)format, tm);
+
+    strcpy( timestamp, buf );
+}
+
+

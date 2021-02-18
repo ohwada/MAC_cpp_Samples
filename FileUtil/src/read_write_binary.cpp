@@ -34,7 +34,7 @@ int main(int argc, char** argv)
     bool ret1 = readBinaryFile( input, data );
     if (!ret1){ 
         cerr << "open input file failed: " << input << endl;
-        return 1;
+        return EXIT_FAILURE;
     }  
 
     cout << "size: " << data.size() << endl;
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
     bool ret2 = writeBinaryFile( output, data );
     if (!ret2){ 
         cerr << "open output file failed: " << output << endl;
-        return 1;
+        return EXIT_FAILURE;
     } 
 
     cout << "write to: " << output << endl;

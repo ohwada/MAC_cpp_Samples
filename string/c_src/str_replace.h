@@ -1,5 +1,6 @@
+#pragma once
 /**
- * string sample
+ * C string sample
  * 2020-07-01 K.OHWADA
  */
 

@@ -1,17 +1,15 @@
 /**
  * C Sample
- * 2020-02-01 K.OHWADA
+ * 2021-02-01 K.OHWADA
  */
 
-// read filenames in directory
+// get filenames in directory
+// gcc file_list.c
 
-// reference : https://linuxjm.osdn.jp/html/LDP_man-pages/man3/readdir.3.html
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <dirent.h>
-#include <errno.h>  
+#include "file_list.h"
 
 
 /**
@@ -23,38 +21,64 @@ int main(int argc, char** argv)
 // current directory
     char* path = ".";
 
-    if(argc == 2) {
+    char *ext = "c";
+
+    if(argc == 3) {
+        path = argv[1];
+        ext = argv[2];
+    } else if(argc == 2) {
         path = argv[1];
     }else {
-        printf( "Usage: %s [directory path]  \n" , argv[0] );
+        printf( "Usage: %s [directory path]  [ext] \n" , argv[0] );
     }
 
-    const int NUM = 10;
-    char buf[NUM][100];
+    const int N = 10;
+    const int M = 100;
 
-    DIR *dir;
-    dir = opendir (path);
-    if (!dir) {
-        printf ("%s : %s \n", strerror(errno), path);
-               return EXIT_FAILURE;;
+    int size;
+    char error[100];
+
+    char** list = alloc_chars(N, M) ;
+
+    bool ret1 = get_file_list( path,  list, N, &size, (char *)error  );
+
+    if (!ret1) {
+            printf ("%s \n", error );
+            return EXIT_FAILURE;;
     }
 
-    struct dirent * ent;
-    int cnt = 0;
-    while ((ent = readdir (dir)) != NULL) {
-        if(cnt < NUM){
-            strcpy(buf[cnt], ent->d_name );
-        } else {
-            break;
-        }
-        cnt++;
-    } 
+    if(size == 0){
+        printf ("no files \n" );
+            return EXIT_FAILURE;;
+    }
 
-    closedir (dir);
+    printf ("get %d files \n", size );
 
-    for(int i=0; i<cnt; i++){
-        printf ("%s \n", buf[i]);
-    } 
+    print_chars( list, size );
+
+    clear_chars( list, N );
+
+   printf("\n");
+    printf ("ext: %s \n", ext );
+
+    bool ret2 = get_file_list_ext( path,  list, N, ext, &size, (char *)error  );
+
+    if (!ret2) {
+            printf ("%s \n", error );
+            return EXIT_FAILURE;;
+    }
+
+    if(size == 0){
+        printf ("no files \n" );
+            return EXIT_FAILURE;;
+    }
+
+ 
+    printf ("get %d files \n", size );
+
+    print_chars( list, size );
+
+    free_chars( list, N );
 
     return EXIT_SUCCESS;
 }

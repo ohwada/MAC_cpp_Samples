@@ -22,27 +22,11 @@
 
 
 // porototype
-int is_dir(char* path);
-bool getFileList(std::string str_path, std::string ext, std::vector<std::string> &vec, std::string &error);
+bool getFileList(std::string str_path, std::string ext, std::vector<std::string> &vec, std::string &error );
+bool file_exists (char* path);
+bool is_dir(char* path);
 bool match_ext(std::string str, std::string ext);
-
-
-/**
- * is_dir
- * @return 1 : is_dir -1 : not found
- */
-int is_dir(char* path)
-{
-    struct stat sb;
-    int ret = stat(path, &sb);
-    if(ret != 0){
-        return -1;
-    }
-
-    mode_t m = sb.st_mode;
-    int res = ( S_ISDIR(m) )?1:0;
-    return res;        
-}
+void printFileList(  std::vector<std::string> vec);
 
 
 /**
@@ -53,14 +37,18 @@ bool getFileList(std::string str_path, std::string ext, std::vector<std::string>
 
     char* path = (char *)str_path.c_str();
 
-    int ret = is_dir(path);
-    if(ret == -1) {
+    bool ret1 = file_exists(path);
+    if( !ret1 ) {
         error = std::string("not found: ") + path;
         return false;
-    } else if (ret == 0) {
+    }
+
+    bool ret2 = is_dir(path);
+    if ( !ret2 ) {
         error = std::string("not directory: ") + path;
         return false;
     }
+
 
     DIR *dir;
     dir = opendir (path);
@@ -89,6 +77,34 @@ bool getFileList(std::string str_path, std::string ext, std::vector<std::string>
     return true;
 }
 
+
+/**
+ * file_exists
+ */
+bool file_exists (char *path) 
+{
+    struct stat   sb;   
+    int ret = stat(path, &sb);
+    bool res = ( ret == 0 )? true: false;
+    return res;
+}
+/**
+ * is_dir
+ */
+bool is_dir(char* path)
+{
+    struct stat sb;
+    int ret = stat(path, &sb);
+    if(ret != 0){
+        return false;
+    }
+
+    mode_t m = sb.st_mode;
+    bool res = ( S_ISDIR(m) )? true: false;
+    return res;        
+}
+
+
 /**
  * match_ext
  */
@@ -101,3 +117,13 @@ bool match_ext(std::string str, std::string ext)
     return ret;
 }
 
+
+/**
+ * printFileList
+ */
+void printFileList(  std::vector<std::string> vec)
+{
+    for(int i=0; i<vec.size(); i++) {    
+        std::cout << ( i + 1 ) << " : " << vec[i] << std::endl;
+    }
+}

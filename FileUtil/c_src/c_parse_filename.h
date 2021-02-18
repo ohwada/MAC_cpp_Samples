@@ -10,11 +10,9 @@
 #include<stdio.h>
 #include<string.h>
 
-
+// prototype
 char* get_filename_with_ext(char *fullpath);
-
 char* get_filename_without_ext(char *fullpath);
-
 char* get_file_ext(char *fullpath);
 
 
@@ -34,7 +32,7 @@ char* get_filename_with_ext(char *fullpath)
 
     char *basename = strrchr(buf, SLASH);
     if(!basename) {
-        printf("not find slash \n");
+// maybe fullpath has no directory
         return fullpath;
     }
 
@@ -84,12 +82,6 @@ char* get_file_ext(char *fullpath)
 {
 
     const char DOT = '.';
-
-    char *basename = get_filename_with_ext(fullpath); 
-
-    if(!basename) {
-        return "";
-    }
 
     int len = strlen(fullpath);
     char buf[len+1];
