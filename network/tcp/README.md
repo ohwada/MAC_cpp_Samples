@@ -26,8 +26,9 @@ run code <br/>
 display as below <br/>
 > waiting for connection port: 9876   <br/>
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/20/111624
 
 ### Reference <br/>
 - http://onishi-lab.jp/programming/tcp_linux.html
-
 
