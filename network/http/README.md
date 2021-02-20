@@ -20,6 +20,8 @@ Usage: ./a.out [port]
 access localhost:8080 by WEB Brawser <br/>
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/network/screenshot/chrome_http_server.png" width="300" />
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/20/112935
 
 ### Reference <br/>
 - http://onishi-lab.jp/programming/tcp_linux.html
