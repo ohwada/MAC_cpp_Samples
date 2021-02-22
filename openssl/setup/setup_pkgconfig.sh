@@ -1,12 +1,26 @@
 #!/bin/bash
 
 # copy pkgconfig flies to system area
-# 2020-07-01 K.OHWADA
+# 2021-02-01 K.OHWADA
 
-ssl_ver=1.1.1i
-dir_pkgconfig=/usr/local/Cellar/openssl@1.1/${ssl_ver}/pkgconfig
+ # read conf file
+. ./conf.txt
 
+
+# check directory
 mkdir ${dir_pkgconfig}
+
+if [ ! -d ${DIR} ]; then
+    echo 'not found dir'
+fi
+
+dir_pkgconfig=${DIR}/pkgconfig
+
+# mkdir if not exists
+ if [ ! -e ${dir_pkgconfig} ]; then
+    mkdir ${dir_pkgconfig}
+fi
+
 cd pkgconfig/
 files=`ls -1 *.pc`
 for file in ${files}

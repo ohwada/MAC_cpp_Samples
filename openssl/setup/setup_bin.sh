@@ -1,9 +1,21 @@
 #!/bin/bash
 
 # setup for bin command
-# 2020-07-01 K.OHWADA
+# 2021-02-01 K.OHWADA
 
-ssl_ver=1.1.1i
-dir_ssl_bin=/usr/local/Cellar/openssl@1.1/${ssl_ver}/bin
+# read conf file
+. ./conf.txt
+
+echo ${DIR}
+
+# check directory
+if [ ! -d ${DIR} ]; then
+    echo 'not found dir'
+fi
+
+
+dir_ssl_bin=${DIR}/bin
 
  ln -s  ${dir_ssl_bin}/openssl /usr/local/bin/openssl
+
+/usr/local/bin/openssl version

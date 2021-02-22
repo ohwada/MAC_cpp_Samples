@@ -4,10 +4,10 @@
  */
 
 // simple HTTPS Server 
-// using self signed certficate
+// using server chain certficate
 // return fixed prepared response
 
-//  gcc https/https_server.c `pkg-config --cflags --libs openssl` -o server
+//  gcc https/https_server_chain_cert.c `pkg-config --cflags --libs openssl` -o server
 
 // reference : https://blog.sarabande.jp/post/82087204080
 
@@ -18,9 +18,6 @@
 #include "tcp_server.h"
 #include "ssl_server.h"
 
-// prototype
-bool https_server(int port, char *response, char *file_cert, char *file_key);
-
 
 /**
  * main
@@ -28,7 +25,7 @@ bool https_server(int port, char *response, char *file_cert, char *file_key);
 int main(int argc, char *argv[])
 {
 
-    const char FILE_CERT[] = "certs/localhost_self_signed_cert.pem";
+    const char FILE_CERT[] = "certs/localhost_chain_cert.pem";
 
     const char FILE_KEY[] = "certs/localhost_key.pem";
 
@@ -36,9 +33,9 @@ int main(int argc, char *argv[])
 
     const char HEADLINE[] = "openssl HTTPS Server demo";
 
- const char DESCRIPTION[] = "self signed certificate";
+    const char DESCRIPTION[] = "server chain certficate";
 
-    int port = 8081;
+    int port = 8082;
 
     if(argc == 2) {
       	port = atoi( argv[1] );

@@ -1,0 +1,9 @@
+# config file
+# 2021-02-01 K.OHWADA
+
+VER=1.1.1i
+DIR=/usr/local/Cellar/openssl@1.1/${VER}
+
+if [ ! -e ${DIR}/bin/openssl ]; then
+    echo '${DIR}/bin/openssl version'
+fi

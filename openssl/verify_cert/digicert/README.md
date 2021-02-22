@@ -18,4 +18,4 @@ openssl-verify <br/>
 https://www.openssl.org/docs/man1.0.2/man1/openssl-verify.html <br/>
 
 make hashed form  <br/>
-try make_hash.sh  <br/>
+try tools/ make_hash.sh  <br/>

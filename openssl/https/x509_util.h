@@ -28,6 +28,7 @@ bool get_x509_cmmon_name( X509_NAME *name, char *cn );
 void print_x509_san_names( const X509 *cert );
 bool save_x509_to_der( X509 *cert,  char *subject );
 void  replace_char_all( char *src, char *result, char target, char replace);
+X509* read_x509_from_pem(char *file);
 
 
 /**
@@ -294,5 +295,27 @@ void print_x509_san_names(const X509 *cert)
     if(utf8)
         OPENSSL_free(utf8);
         
+}
+
+
+/**
+ * ead_x509_from_pem
+ */
+X509* read_x509_from_pem(char *file)
+{
+
+  BIO  *certbio = NULL;
+  X509   *x509= NULL;
+
+// Load the certificate from PEM file
+    certbio = BIO_new( BIO_s_file() );
+    BIO_read_filename( certbio, file );
+    x509 = PEM_read_bio_X509( certbio, NULL, 0, NULL );
+
+  if (!x509) {
+    ERR_print_errors_fp(stderr);
+  }
+
+    return x509;
 }
 

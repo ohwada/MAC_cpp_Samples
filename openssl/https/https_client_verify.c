@@ -5,7 +5,7 @@
 
 //  HTTP Client with server certification verification
 
-//  gcc https/https_client_verify.c `pkg-config --cflags --libs openssl`
+//  gcc https/https_client_verify.c `pkg-config --cflags --libs openssl` -o verify
 
 // reference : https://wiki.openssl.org/index.php/SSL/TLS_Client#Verification
 

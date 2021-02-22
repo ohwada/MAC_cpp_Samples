@@ -1,0 +1,12 @@
+#
+# OpenSSL extension file
+# 2021-02-01 K.OHWADA
+#
+# use when Root CA signs the CSR of the intermediate CA
+# openssl x509 -req -extfile sign_inter_etx.cnf  -in inter.csr -out inter_cert.pem -extensions v3_ca -days 365
+# referemce : https://http2.try-and-test.net/openssl_simple_ca.html
+#
+[ v3_ca ]
+basicConstraints = CA:true, pathlen:0
+keyUsage = cRLSign, keyCertSign
+nsCertType = sslCA, emailCA

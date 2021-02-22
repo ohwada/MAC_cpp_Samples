@@ -18,9 +18,9 @@
 int main(int argc, char **argv)
 {
 
- char *file_cert = "certs/localhost_cert.pem";
+ char *file_cert = "../certs/localhost_inter_signed_cert.pem";
 
-  char *file_cacert = "certs/hoge_cacert.pem";
+  char *file_cacert = "../certs/hoge_ca_chain_cert.pem";
 
 
     if(argc == 3) {

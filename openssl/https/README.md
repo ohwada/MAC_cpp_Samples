@@ -6,10 +6,15 @@ HTTPS Client and server
 
 
 ### sample code
-- https_client.c <br/>
-HTTPS Client without server certification verification<br/>
+
 - https_server.c <br/>
-HTTPS Server <br/>
+HTTPS Server  using self signed certficate <br/>
+- https_server_chain_cert.c <br/>
+HTTPS Server using server chain certficate <br/>
+- https_server_add_extra_chain_cert.c <br/>
+build certificate chain with add_extra_chain_cert <br/>
+- https_client.c <br/>
+HTTPS Client without server certification verification <br/>
 - https_client_verify.c <br/>
 HTTPS Client with server certification verification  <br/>
 - get certs <br/>

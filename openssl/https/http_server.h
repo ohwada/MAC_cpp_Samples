@@ -14,6 +14,7 @@
 // prototype
 void build_response(char *html, char *response);
 void build_html(char *title, char *headline, char *html);
+void build_html_desc(char *title, char *headline, char *description, char *html);
 
 
 /**
@@ -53,6 +54,23 @@ void build_html(char *title, char *headline, char *html)
     char buf[BUFSIZE];
 
     snprintf( buf, BUFSIZE, (char *)HTML_FORMAT, title, headline);
+
+    strcpy(html, buf);
+}
+
+
+/**
+ * build_html_desc
+ */
+void build_html_desc(char *title, char *headline, char *description, char *html)
+{
+
+    const char HTML_FORMAT[] = "<html><head><title>%s</title></head><body><h1>%s</h1><div>%s</div></body></html>";
+
+    const size_t BUFSIZE = 1024;
+    char buf[BUFSIZE];
+
+    snprintf( buf, BUFSIZE, (char *)HTML_FORMAT, title, headline, description );
 
     strcpy(html, buf);
 }
