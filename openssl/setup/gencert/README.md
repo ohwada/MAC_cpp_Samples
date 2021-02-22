@@ -89,8 +89,6 @@ can be "localhost" <br/>
 
 % sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" cacert.pem
 
-reference : How to Create Your Own SSL Certificate Authority for Local HTTPS Development <br/>
-- https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/ <br/>
 
 ### create Private Intermediate CA
 
@@ -179,7 +177,8 @@ refer to sample_san.cnf <br/>
 % openssl verify -CAfile ca_chain_cert.pem server_cert.pem
 
 
-Reference :  <br/>
+### Reference 
+
 - openssl Command Line Utilities <br/>
 https://wiki.openssl.org/index.php/Command_Line_Utilities <br/>
 
@@ -194,6 +193,9 @@ https://textslashplain.com/2017/03/10/chrome-deprecates-subject-cn-matching/ <br
 
 - Subject Alternative Name not present in certificate
 https://stackoverflow.com/questions/30977264/subject-alternative-name-not-present-in-certificate
+
+- How to Create Your Own SSL Certificate Authority for Local HTTPS Development <br/>
+https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/ <br/>
 
 - プライベートルート証明書・中間証明書・サーバ証明書の作り方 <br/>
  https://http2.try-and-test.net/openssl_simple_ca.html <br/>

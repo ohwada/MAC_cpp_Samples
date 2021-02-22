@@ -39,7 +39,7 @@ chain cert for HTTPS Server <br/>
 
 % cat localhost_inter_signed_cert.pem hoge_inter_cert.pem  > localhost_chain_cert.pem <br/>
 
-### how to genarete 
+### how to generate ertificates
 
 see below
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/setup/gencert <br/>
