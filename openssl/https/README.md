@@ -33,7 +33,9 @@ display as below <br/>
 access localhost:8081 by WEB Brawser <br/>
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/openssl/screenshot/firefox_https_server.png" width="300" />
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/22/160855
 
-### Reference <br/>
+### Reference 
 - https://github.com/openssl/openssl
 

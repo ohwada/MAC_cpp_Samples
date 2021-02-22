@@ -9,6 +9,9 @@
 
 //  gcc https/https_server.c `pkg-config --cflags --libs openssl` -o server
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/22/160855
+
 // reference : https://blog.sarabande.jp/post/82087204080
 
 
