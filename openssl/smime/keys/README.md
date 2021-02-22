@@ -22,4 +22,4 @@ apply Self-signed certificate <br/>
 ### generate keys
 
 see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert.md
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert/
