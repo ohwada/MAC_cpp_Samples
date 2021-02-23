@@ -6,6 +6,9 @@
 // TCP Echo Server
 // Echo back the received data as it is
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/20/111624
+
 // reference : http://onishi-lab.jp/programming/tcp_linux.html
 
 // TODO: quit with ESC key
