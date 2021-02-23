@@ -12,7 +12,7 @@ get the IP Address using getaddrinfo
 
 
 build code  <br/>
-% gcc ethostbyname.c <br/>
+% gcc gethostbyname.c <br/>
 
 run code <br/>
 Usage: ./a.out [hostname] <br/>
@@ -22,6 +22,8 @@ display as below <br/>
 > ipaddr: 172.217.175.14 <br.>
 > reverse hostname: nrt20s18-in-f14.1e100.net <br/>
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/23/122908
 
 ### Reference <br/>
 - https://paulschreiber.com/blog/2005/10/28/simple-gethostbyname-example/

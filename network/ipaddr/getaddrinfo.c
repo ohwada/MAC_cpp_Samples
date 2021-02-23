@@ -6,6 +6,9 @@
 // Get the IP Address from the host name
 // using getaddrinfo
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/23/122908
+
 // reference : https://www.geekpage.jp/programming/linux-network/getaddrinfo-4.php
 
 #include <stdio.h>
