@@ -28,6 +28,7 @@ display as below <br/>
 
 ### Document
 - https://ken-ohwada.hatenadiary.org/entry/2021/02/20/111624
+- https://ken-ohwada.hatenadiary.org/entry/2021/02/23/124215
 
 ### Reference <br/>
 - http://onishi-lab.jp/programming/tcp_linux.html

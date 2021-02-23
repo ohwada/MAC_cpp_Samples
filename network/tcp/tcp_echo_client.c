@@ -6,6 +6,8 @@
 // TCP Client for Echo server
 // send TCP packet continuously every one second
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/23/124215
 
 // reference : http://onishi-lab.jp/programming/tcp_linux.html
 
