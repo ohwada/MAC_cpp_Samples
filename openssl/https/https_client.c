@@ -7,6 +7,11 @@
 
 //  gcc https/https_client.c `pkg-config --cflags --libs openssl` -o client
 
+
+// Document
+ // https://ken-ohwada.hatenadiary.org/entry/2021/02/24/135909 
+
+
 // reference : http://x68000.q-e-d.net/~68user/net/ssl-1.html
 
 
