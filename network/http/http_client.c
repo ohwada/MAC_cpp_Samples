@@ -6,6 +6,9 @@
 // simle HTTP Client
 // get web page from HTTP server
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/24/133529
+
 // reference : http://x68000.q-e-d.net/~68user/net/c-http-1.html
 
 
