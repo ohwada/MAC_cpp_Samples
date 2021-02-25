@@ -17,13 +17,11 @@
 #include "http_client.h"
 #include "ssl_client.h"
 #include "x509_util.h"
-#include "two_dem_char_array.h"
 
 
 // prototype
 int verify_callback(int preverify, X509_STORE_CTX* x509_ctx);
 bool enable_hostname_validation(SSL *ssl, const char *host);
- void print_san_names( const X509 *cert, char *hostname );
 
 
 // global
@@ -253,7 +251,8 @@ int verify_callback( int preverify, X509_STORE_CTX* x509_ctx )
 
     if(depth == 0) {
         /* If depth is 0, its the server's certificate. Print the SANs */
-        print_san_names( cert, host );
+        printf("Subject Alternative Name \n");
+        print_x509_san_names( cert );
     }
 
 
@@ -332,43 +331,3 @@ bool enable_hostname_validation(SSL *ssl, const char *host)
 	return !is_error;
 }
 
-
-/**
- * print_san_names
- */
-void print_san_names( const X509 *cert, char *hostname )
-{
-
-    const size_t N = 10;
-    const size_t M = 100;
-
-    char** list = alloc_chars( N, M ) ;
-
-    size_t count;
-
-    printf("Subject Alternative Name \n");
-
-    bool ret = get_x509_san_names( cert, list, N, &count );
-    if(ret){
-        printf("found %zu SANs \n", count );
-    } else {
-        fprintf(stderr, "not found SANs \n");
-    }
-
-    bool is_match= false;
-    for( int i = 0; i < count; i++ ) {
-        char *name = list[i];
-        char *mark = "";
-        if( strcmp(hostname, name) == 0 ) {
-            is_match= true;
-            mark = " : hostname match";
-        }
-        printf("%d : %s %s \n", (i+1), list[i], mark );
-    }
-
-    if(!is_match) {
-        fprintf(stderr, "not found hostname in SANs \n" );
-    }
-
-    free_chars( list, N );
-}

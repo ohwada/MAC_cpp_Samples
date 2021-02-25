@@ -25,7 +25,7 @@
 bool get_x509_subject_name( X509 *cert,  char *subject );
 bool get_x509_issuer_name( X509 *cert,  char *issuer );
 bool get_x509_cmmon_name( X509_NAME *name, char *cn );
-bool get_x509_san_names(const X509 *cert, char **list, size_t num, size_t *size);
+void print_x509_san_names( const X509 *cert );
 bool save_x509_to_der( X509 *cert,  char *subject );
 void  replace_char_all( char *src, char *result, char target, char replace);
 X509* read_x509_from_pem(char *file);
@@ -232,11 +232,11 @@ void print_cn_name(const char* label, X509_NAME* const name)
 
 
 /**
- * get_x509_san_names
+ * print_x509_san_names
  */
-bool get_x509_san_names( const X509 *cert, char **list, size_t num, size_t *size )
+void print_x509_san_names(const X509 *cert)
 {
-    bool success = false;
+    int success = 0;
     GENERAL_NAMES* names = NULL;
     unsigned char* utf8 = NULL;
     
@@ -273,14 +273,8 @@ bool get_x509_san_names( const X509 *cert, char **list, size_t num, size_t *size
                 /* Another policy would be to fails since it probably */
                 /* indicates the client is under attack.              */
                 if(utf8 && len1 && len2 && (len1 == len2)) {
-                    // fprintf(stdout, "get %d : %s\n", (i+1), utf8 );
-
-                    if( i < num ) {
-                        strcpy( list[i], (char *)utf8 );
-                        success = true;
-                        *size = i + 1;
-                    }
-
+                    fprintf(stdout, "%d : %s\n", (i+1), utf8);
+                    success = 1;
                 }
                 
                 if(utf8) {
@@ -295,15 +289,12 @@ bool get_x509_san_names( const X509 *cert, char **list, size_t num, size_t *size
 
     } while (0);
     
-    if(names) {
+    if(names)
         GENERAL_NAMES_free(names);
-    }
-
-    if(utf8) {
+    
+    if(utf8)
         OPENSSL_free(utf8);
-    }
-
-    return   success;        
+        
 }
 
 

@@ -128,7 +128,7 @@ can be "localhost" <br/>
 (9) settings for CA operation <br/>
 
 % cp inter_key.pem interCA/private/ <br/>
-% cp inter_cert.pem interCA/certs/ <br/>
+% cp inter_cert.pem interCA/ <br/>
 
 
 ### genarate CA signed Server Certificate
@@ -156,7 +156,9 @@ refer to sample_san.cnf <br/>
 
 (5) Intermediate CA signs CSR <br/>
 
- % openssl ca  -config inter_ca.cnf  -in server.csr -out server_cert.pem -days 825 <br/>
+ % openssl ca  -config inter_ca.cnf  -in server.csr -out server_cert.pem -days 397 <br/>
+
+the maximum allowed lifetimes is 397 days. <br/>
 
 (6) confirm the contents of certificate <br/>
 
@@ -196,6 +198,12 @@ https://stackoverflow.com/questions/30977264/subject-alternative-name-not-presen
 
 - How to Create Your Own SSL Certificate Authority for Local HTTPS Development <br/>
 https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/ <br/>
+
+- Any Purpose CA : Yes  <br/>
+http://openssl.6102.n7.nabble.com/quot-critical-CA-FALSE-quot-but-quot-Any-Purpose-CA-Yes-quot-td29933.html  <br/>
+
+- About upcoming limits on trusted certificates <br/>
+https://support.apple.com/en-us/HT211025 <br/>
 
 - プライベートルート証明書・中間証明書・サーバ証明書の作り方 <br/>
  https://http2.try-and-test.net/openssl_simple_ca.html <br/>

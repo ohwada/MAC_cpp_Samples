@@ -34,10 +34,6 @@ private key witout passphrase <br/>
 - localhost_root_signed_cert.pem <br/>
 - localhost_inter_signed_cert.pem <br/>
 
-- localhost_chain_cert.pem <br/>
-chain cert for HTTPS Server <br/>
-
-% cat localhost_inter_signed_cert.pem hoge_inter_cert.pem  > localhost_chain_cert.pem <br/>
 
 ### how to generate ertificates
 

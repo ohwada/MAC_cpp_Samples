@@ -59,7 +59,7 @@ database	= $dir/index.txt	# database index file.
 					# several certs with same subject.
 new_certs_dir	= $dir/newcerts		# default place for new certs.
 
-certificate	= $dir/certs/inter_cert.pem 	# The CA certificate
+certificate	= $dir/inter_cert.pem 	# The CA certificate
 serial		= $dir/serial 		# The current serial number
 crlnumber	= $dir/crlnumber	# the current crl number
 					# must be commented out to leave a V1 CRL
