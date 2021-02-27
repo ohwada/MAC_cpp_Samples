@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     char response[BUFSIZE];
 
 
-    int port = 8082;
+    int port = 8083;
 
     if(argc == 2) {
       	port = atoi( argv[1] );

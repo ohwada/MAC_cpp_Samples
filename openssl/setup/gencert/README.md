@@ -133,6 +133,8 @@ can be "localhost" <br/>
 
 ### genarate CA signed Server Certificate
 
+set SANs in CSR <br/>
+
 (1) generate a private key for the Server <br/>
 
  % openssl genrsa -aes256 -out server_key.pem 2048 <br/>
@@ -145,7 +147,7 @@ can be "localhost" <br/>
 
 (3-1) create  configuration file　<br/>
 
-refer to sample_san.cnf <br/>
+see sample_san.cnf <br/>
 
 (3-2) generate CSR with  -config <br/>
 % openssl req -new -config san.cnf -key server_key.pem -out server.csr
@@ -177,6 +179,31 @@ the maximum allowed lifetimes is 397 days. <br/>
 (8-2) verify certificate with CAfile <br/>
 
 % openssl verify -CAfile ca_chain_cert.pem server_cert.pem
+
+
+### set up the SANs when CA signs
+
+(1) generate CSR <br/>
+
+% openssl req -new -key server_key.pem -out server.csr
+
+(2) confirm CSR <br/>
+
+% openssl req -noout -text -in server.csr 
+
+(3) create config extension file <br/>
+
+see sample_san.txt <br/>
+
+(4) CA signs CSR <br/>
+
+% openssl ca -extfile san.txt -in server.csr -out server_cert.pem  -days 397 <br/>
+
+the maximum allowed lifetimes is 397 days. <br/>
+
+(5) confirm the contents of certificate <br/>
+
+% openssl x509 -text -noout -in server_cert.pem 
 
 
 ### Reference 

@@ -7,10 +7,10 @@ HTTPS Client and server
 
 ### sample code
 
-- https_server.c <br/>
+- https_server_self_signed.c <br/>
 HTTPS Server  using self signed certficate <br/>
-- https_server_chain_cert.c <br/>
-HTTPS Server using server chain certficate <br/>
+- https_server_root_signed.c <br/>
+HTTPS Server  using root signed certficate with SAN<br/>
 - https_server_add_extra_chain_cert.c <br/>
 build certificate chain with add_extra_chain_cert <br/>
 - https_client.c <br/>

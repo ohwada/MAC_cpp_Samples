@@ -1,0 +1,10 @@
+#
+# OpenSSL configuration extension file
+# 2021-02-01 K.OHWADA
+# 
+# set up the SANs when CA signs
+# Usage:
+# openssl ca -extfile san.txt -in server.csr -out server_cert.pem  -days 397 
+#
+# describe your SANs
+subjectAltName = DNS:hoge.com, DNS:fuga.com
