@@ -7,6 +7,10 @@
 
 //  gcc https/https_client_verify.c `pkg-config --cflags --libs openssl` -o verify
 
+
+// Document;
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/27/113436
+
 // reference : https://wiki.openssl.org/index.php/SSL/TLS_Client#Verification
 // reference : https://www.bit-hive.com/articles/20200407
 
