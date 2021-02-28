@@ -9,6 +9,9 @@
 
 //  gcc https/https_server_add_extra_chain_cert.c `pkg-config --cflags --libs openssl` -o server
 
+// Document
+// https://ken-ohwada.hatenadiary.org/entry/2021/02/28/114459
+
 // reference : https://blog.sarabande.jp/post/82087204080
 
 
