@@ -32,7 +32,7 @@ int main(int argc, const char *argv[])
 {
 
 
-    string file_ca_cert = "cert/ca-bundle.crt";
+    string file_ca_cert = "certs/ca_bundle.pem";
 
     string host = "example.com";
 

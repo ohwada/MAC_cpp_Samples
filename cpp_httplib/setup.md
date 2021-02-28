@@ -21,12 +21,13 @@ https://formulae.brew.sh/formula/openssl@1.1 <br/>
 
 #### setup for HTTPS Client
  prepare CA ( Certification Authority ) file <br/>
-https://github.com/yhirose/cpp-httplib/blob/master/example/ca-bundle.crt <br/>
+download from below <br/>
+https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt <br/>
 
 #### setup for HTTPS Server
 generate Server Cetification file <br/>
 see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert.md <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/openssl/setup/gencert/ <br/>
 
 
 ### Reference <br/>

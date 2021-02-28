@@ -31,9 +31,11 @@ using namespace std;
 int main(int argc, const char *argv[]) 
 {
 
-    const char FILE_CERT[] = "cert/localhost_cert.pem";
+    const char FILE_CERT[] = "certs/localhost_root_signed_cert.pem";
 
-    const char FILE_KEY[] = "cert/localhost_key.pem";
+    const char FILE_KEY[] = "certs/localhost_key.pem";
+
+    const char BASE_DIR2[] = "www2";
 
     int port = 8081;
 
@@ -54,7 +56,7 @@ int main(int argc, const char *argv[])
 
   svr.set_logger( logger );
 
-  if ( !svr.set_mount_point("/", BASE_DIR) ) {
+  if ( !svr.set_mount_point("/", BASE_DIR2) ) {
         cout << "The specified base directory doesn't exist...";
         return EXIT_FAILURE;
   }
