@@ -23,7 +23,7 @@ display as below <br/>
 > The server started at port 8081... <br/>
 
 access localhost:8081 by WEB Brawser <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/firefox_https_server.png" width="300" />
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cpp_httplib/screenshot/chrome_https_server.png" width="300" />
 
 
 ### Reference <br/>
