@@ -49,7 +49,8 @@ is full.  DO NOT USE THE AUTOREPEAT FUNCTION ON YOUR KEYBOARD!
 > % g++ sample3.cpp `pkg-config --cflags --libs nss` <br/>
 
 run code <br/>
-% ./a.out <br/>
+
+> % ./a.out <br/>
 
 display as below <br/>
 > Public Key Modulus 256 bytes <br/>

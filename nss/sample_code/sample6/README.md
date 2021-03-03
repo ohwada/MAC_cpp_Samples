@@ -31,7 +31,8 @@ created files <br/>
 > % gcc sample6.c `pkg-config --cflags --libs nss` <br/>
 
 run code <br/>
-% ./a.out <br/>
+
+> % ./a.out <br/>
 
 display as below <br/>
 > key length of generated key is 32 <br/>
