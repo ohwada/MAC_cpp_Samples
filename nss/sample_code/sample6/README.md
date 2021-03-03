@@ -1,4 +1,4 @@
-sample5 - nss
+sample6 - nss
 ===============
 
 Sample Code 6: <br/>
@@ -28,7 +28,7 @@ created files <br/>
 
 ### build code
 
-gcc sample6.c `pkg-config --cflags --libs nss` <br/>
+> % gcc sample6.c `pkg-config --cflags --libs nss` <br/>
 
 run code <br/>
 % ./a.out <br/>
