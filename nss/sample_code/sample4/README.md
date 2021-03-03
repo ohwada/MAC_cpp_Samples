@@ -11,7 +11,7 @@ PKI Encryption <br/>
  - sample4.c <br/>
 Example code to illustrate PKI crypto ops (encrypt with public key, decrypt with private key) <br/>
 
-###Preparation 
+### Preparation 
 
 Code assumes that you have set up a NSS database with a certificate and a private key. 
 The db password should be "test" and the cert nickname should be "TestCA"
