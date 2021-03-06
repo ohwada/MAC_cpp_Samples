@@ -10,7 +10,7 @@ High performance key/value database <br/>
 
 ###  install berkeley-db
 see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/berkeley-db/setup <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/berkeley_db/setup <br/>
 
 ### sample code
 - version.c <br/>
