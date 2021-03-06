@@ -1,0 +1,12 @@
+# 2021-02-01 K.OHWADA
+
+prefix=/usr/local/Cellar/berkeley-db/18.1.32_1
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libdb
+Description: High performance key/value database
+Version: 18.1.32_1
+Cflags: -I${includedir}
+Libs: -L${libdir} -ldb_sql

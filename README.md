@@ -85,11 +85,16 @@ sample codes that create mail message <br/>
 ### base64
 base64 encoder decoder <br/>
 
+
 ### sqlite
 a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
 
-### sqlitecpp : <br/>
-C++ SQLite3 wrapper. <br/
+### sqlitecpp
+C++ SQLite3 wrapper. <br/>
+
+
+### berkeley-db
+High performance key/value database <br/>
 
 ### glib
 low-level system libraries written in C <br/>

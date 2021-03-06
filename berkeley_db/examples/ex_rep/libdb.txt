@@ -1,0 +1,106 @@
+cd /Users/ohwada/C++/berkeley_db/examples/ex_rep
+
+Replication ManagerのSecure Sockets Layer（SSL）の有効化
+https://docs.oracle.com/database/bdb181/BDBSG/enabling-ssl-replication-manager.htm#BDBSG-GUID-FE953CBE-269B-45BE-A198-1B15B8CBEFC2
+
+UNIXでは、–with-repmgr-ssl=no構成する引数として指定すると、ReplicationManagerのSSLサポートのビルドが無効になります。
+
+DB_REPMGR_CONF_DISABLE_SSLする
+
+
+
+gcc mgr/rep_mgr.c  common/rep_common.c `pkg-config --cflags --libs libdb` -o ex_rep_mgr 
+
+
+
+
+% ./a.out
+usage: ex_rep_mgr [-CM]-h home -l|-L host:port [-r host:port][-R host:port][-a all|quorum][-b][-p priority][-v]
+
+
+-M
+このプロセスをマスターとして構成します。
+-C
+このプロセスをクライアントとして構成します。
+
+mkdir server
+./ex_rep_mgr -M -p 100 -h server -l localhost:6000
+
+ex_rep_mgr: BDB5514 SSL configuration parameter 'CA Certificate file and CA Certificate directory for replication node' is missing.
+
+mkdir client
+./a.out -C -h client -l localhost:6001 -r localhost:6000
+
+p_mgr: BDB5514 SSL configuration parameter 'CA Certificate file and CA Certificate directory for replication node' is missing.
+
+
+
+
+
+
+
+1,65535
+./a.out -M -l 100
+
+
+
+
+
+
+
+
+
+cd /Users/ohwada/C++/berkeley_db
+
+brew install berkeley-db
+: berkeley-db 18.1.32_1 is already installed
+
+High performance key/value database
+https://www.oracle.com/database/technologies/related/berkeleydb.html
+
+ohwada@ohwada-MacBook-Air setup % pkg-config --list-all | grep db
+libdb - High performance key/value database
+
+
+pkg-config --cflags --libs libdb
+-I/usr/local/Cellar/berkeley-db/18.1.32_1/include 
+-L/usr/local/Cellar/berkeley-db/18.1.32_1/lib 
+-ldb
+
+
+ohwada@ohwada-MacBook-Air berkeley_db % ls /usr/local/Cellar/berkeley-db/18.1.32_1/lib
+libdb-18.1.a		libdb_cxx-18.dylib	libdb_sql.dylib
+libdb-18.1.dylib	libdb_cxx.a		libdb_stl-18.1.a
+libdb-18.dylib		libdb_cxx.dylib		libdb_stl-18.1.dylib
+libdb.a			libdb_sql-18.1.a	libdb_stl-18.dylib
+libdb.dylib		libdb_sql-18.1.dylib	libdb_stl.a
+libdb_cxx-18.1.a	libdb_sql-18.dylib	libdb_stl.dylib
+libdb_cxx-18.1.dylib	libdb_sql.a
+
+libdb.a :   -ldb
+libdb_sql.a : - ldb_sql
+libdb_stl.a :    - ldb_stl
+
+
+
+
+
+
+
+Sample Applications and Use Cases
+https://www.oracle.com/database/technologies/related/berkeleydb.html
+
+
+/usr/local/Cellar/berkeley-db/18.1.32_1
+
+
+% ls /usr/local/Cellar/berkeley-db/18.1.32_1/lib
+libdb-18.1.a		libdb_cxx-18.dylib	libdb_sql.dylib
+libdb-18.1.dylib	libdb_cxx.a		libdb_stl-18.1.a
+libdb-18.dylib		libdb_cxx.dylib		libdb_stl-18.1.dylib
+libdb.a			libdb_sql-18.1.a	libdb_stl-18.dylib
+libdb.dylib		libdb_sql-18.1.dylib	libdb_stl.a
+libdb_cxx-18.1.a	libdb_sql-18.dylib	libdb_stl.dylib
+libdb_cxx-18.1.dylib	libdb_sql.a
+
+
