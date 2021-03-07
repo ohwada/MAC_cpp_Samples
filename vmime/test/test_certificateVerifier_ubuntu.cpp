@@ -6,12 +6,12 @@
 // verify ubuntu cert file
 // test for certificateVerifier_ubuntu.hpp
 
-// g++ test_certificateVerifier_ubuntu.cpp -std=c++11  `pkg-config --cflags --libs vmime`
+// g++ test/test_certificateVerifier_ubuntu.cpp -std=c++11  `pkg-config --cflags --libs vmime`
 
 #include <iostream>
 #include <string>
 #include "vmime/vmime.hpp"
-#include "../pop3/certificateVerifier_ubuntu.hpp"
+#include "../pop3/plugin_certificateVerifier_ubuntu.hpp"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ int main(void)
 
     const std::string hostname("ubuntu");
 
-    const std::string filepath = "data/sample_ubuntu.pem";
+    const std::string filepath = "samples/certs/ubuntu/ubuntu.pem";
 
 	customCertificateVerifier verifier;
 
@@ -43,6 +43,7 @@ int main(void)
 }
 
 
+// cert: ubuntu.pem
 // certificate succesful
 
 
