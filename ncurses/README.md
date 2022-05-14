@@ -1,0 +1,39 @@
+ncurses
+===============
+
+ncurses sample <br/>
+
+ncurses is Text-based UI library <br/>
+https://invisible-island.net/ncurses/announce.html
+
+
+###  install ncurses
+% brew install ncurses <br/>
+https://formulae.brew.sh/formula/ncurses <br/>
+
+% ln -s  /usr/local/opt/ncurses/lib/pkgconfig/ncurses.pc /usr/local/lib/pkgconfig/ncurses
+
+
+### hello.c <br/>
+
+ display  "Hello World" <br/>
+
+build script <br/>
+% gcc hello.c -o hello `pkg-config --cflags --libs ncurses`
+
+run script <br/>
+% ./hello <br/>
+
+### version.c <br/>
+
+ display  version <br/>
+
+build script <br/>
+% gcc version.c -o version `pkg-config --cflags --libs ncurses`
+
+run script <br/>
+% ./version <br/>
+
+### Reference <br/>
+- https://invisible-island.net/ncurses/announce.html#h3-documentation
+

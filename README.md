@@ -58,6 +58,9 @@ sort int vector using std::sort <br/>
 ### input
 input string from std::cin <br/>
 
+### ncurses
+Text-based UI library <br/>
+
 ### system
 get the path of the main executable for macOS  <br/>
 
