@@ -18,21 +18,21 @@ https://formulae.brew.sh/formula/ncurses <br/>
 
  display  "Hello World" <br/>
 
-build script <br/>
+run file <br/>
 % gcc hello.c -o hello `pkg-config --cflags --libs ncurses`
-
-run script <br/>
 % ./hello <br/>
 
 ### version.c <br/>
 
  display  version <br/>
 
-build script <br/>
+run file <br/>
 % gcc version.c -o version `pkg-config --cflags --libs ncurses`
-
-run script <br/>
 % ./version <br/>
+
+### snake <br/>
+
+sname game  <br/>
 
 ### Reference <br/>
 - https://invisible-island.net/ncurses/announce.html#h3-documentation
