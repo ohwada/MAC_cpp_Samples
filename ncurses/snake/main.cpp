@@ -1,7 +1,7 @@
 // 2022-05-01 K.OHWADA
 // oroginal: https://github.com/romanedgn/sname-game
 
-// g++  main.cpp  fSnakeGame.cpp -std=c++11 -o snake  `pkg-config --cflags --libs ncurses`
+// g++  main.cpp  fSnakeGame.cpp  -std=c++11 -o snake  `pkg-config --cflags --libs ncurses`
 
 
 /*
@@ -9,12 +9,7 @@ This is the console executable, that makes use of the fSnakeGame class.
 This is handling all user interaction. For game logic, please see fSnakeGame.h.
 */
 
-
-// TODO
-// when the snake eat the fruit, make the snake's body longer 
-// when the snake collapse into his own body, make game over.  
-
-
+ 
 #include "fSnakeGame.h"
 
 int maxheight, maxwidth;

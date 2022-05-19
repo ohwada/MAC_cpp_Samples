@@ -26,7 +26,8 @@ const int DELAY_INC = 10000;  // 0.01 sec
 const int DELAY_DEC = 50000;  // 0.05 sec
 
 // snake lngth
-const int LENGTH = 5;
+const int LENGTH_INIT = 6;
+const int LENGTH_INC = 3;
 
 // score
 const int SCORE_INC = 10; 

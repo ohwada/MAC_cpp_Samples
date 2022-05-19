@@ -34,7 +34,7 @@ fSnakeGame::fSnakeGame()
 	fruit.x = 0;
 	fruit.y = 0;
 	score = 0;	
-	length = LENGTH;
+	length = LENGTH_INIT;
 	delay =  DELAY_INIT;
 
 	isEatsFruit = false;
@@ -219,6 +219,8 @@ bool fSnakeGame::GetsFruit()
 		score += SCORE_INC; 
 		PrintScore();
 
+		length += LENGTH_INC;
+
 		delay += DELAY_INC ;
 		
 		// if score is a multiple of 100, increase snake speed
@@ -277,14 +279,6 @@ void fSnakeGame::MoveSnake()
 			break;
 	}
 
-	// the snake doesn't eat fruit, remains same size
-	if (!isEatsFruit)
-	{
-		// moves at the end of the tail
-		move(snake[snake.size()-1].y, snake[snake.size()-1].x); 		printw(" "); // add empty ch to remove last character
-		refresh();
-		snake.pop_back(); // removes the last element in the vector, reducing the container size by one
-	}
 
 	// the snake moves and we add an extra character at the beginning of the vector
 	// add a head and initialise new coordinates for CharPosition according to the direction input
@@ -300,9 +294,24 @@ void fSnakeGame::MoveSnake()
 	// move to the new CharPosition coordinates
 	move(snake[0].y, snake[0].x);
 	addch(CHAR_SNAKE); // draw a new head
+
+
+//if the body length is greater than or equal to the specified length value
+if( snake.size() >= length  ){
+
+		// moves at the end of the tail
+		move(snake[snake.size()-1].y, snake[snake.size()-1].x); 
+
+		printw(" "); // add empty ch to remove last character
+	
+		snake.pop_back(); // removes the last element in the vector, reducing the container size by one
+}
+
 	refresh();
+
 	return;
 }
+
 
 /**
  * PlayGame
