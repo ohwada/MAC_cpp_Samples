@@ -30,9 +30,13 @@ run file <br/>
 % gcc version.c -o version `pkg-config --cflags --libs ncurses`
 % ./version <br/>
 
+### cannon <br/>
+
+Cannon game  <br/>
+
 ### snake <br/>
 
-sname game  <br/>
+Snake game  <br/>
 
 ### Reference <br/>
 - https://invisible-island.net/ncurses/announce.html#h3-documentation

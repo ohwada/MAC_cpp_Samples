@@ -1,7 +1,7 @@
 snake
 ===============
 
-sname game using ncurses <br/>
+Snake game using ncurses <br/>
 
 ### Requires <br/>
 - ncurses <br/>
