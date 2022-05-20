@@ -3,6 +3,8 @@ snake
 
 Snake game using ncurses <br/>
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/snake/snake.png" width="300" /><br/>
+
 ### Requires <br/>
 - ncurses <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/ncurses <br/>
