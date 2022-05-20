@@ -1,7 +1,11 @@
 // 2022-05-01 K.OHWADA
 // original : https://www.kushiro-ct.ac.jp/yanagawa/curses/cannon/
  
- 
+ // chnge log
+// 2022-05-01
+// separated Sound definitions into sound.h
+
+
 // linux
 // gcc  main.c  object.c  gameutil.c -o cannon  -lm -lncurses
 

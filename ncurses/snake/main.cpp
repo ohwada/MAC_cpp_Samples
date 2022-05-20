@@ -1,6 +1,10 @@
 // 2022-05-01 K.OHWADA
 // oroginal: https://github.com/romanedgn/sname-game
 
+// changlog
+// 2022-05-01
+// added getNotArrowKey() to always show GAME OVER
+
 // g++  main.cpp  fSnakeGame.cpp  -std=c++11 -o snake  `pkg-config --cflags --libs ncurses`
 
 

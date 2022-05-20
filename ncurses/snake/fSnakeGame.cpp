@@ -1,6 +1,12 @@
 // 2022-05-01 K.OHWADA
 // oroginal: https://github.com/romanedgn/snake-game
 
+// changlog
+// 2022-05-01
+// (1) added a return code to NewSnake.PlayGame() to always show GAME OVER
+// (2) when the snake ate the fruit, made the snake's body longer
+
+
 #include "fSnakeGame.h"
 #include <unistd.h>
 
@@ -295,8 +301,7 @@ void fSnakeGame::MoveSnake()
 	move(snake[0].y, snake[0].x);
 	addch(CHAR_SNAKE); // draw a new head
 
-
-//if the body length is greater than or equal to the specified length value
+//　Make the snake's body longer until it reaches length
 if( snake.size() >= length  ){
 
 		// moves at the end of the tail
