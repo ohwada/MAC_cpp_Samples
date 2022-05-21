@@ -288,13 +288,13 @@ open SDL window and show image <br/>
 ### SDL_audio
 play audio file <br/>
 
+### SDL_mixer
+play music fie <br/>
+
 ### sfml
 open sfml window and show image  from file <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/sfml/result/screenshot_uparrow.png" width="300" /><br/>
-
-### sfml_audio
-play audio fie <br/>
 
 ### sfml_network
 tcp server and client <br/>
