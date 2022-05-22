@@ -38,6 +38,10 @@ Cannon game  <br/>
 
 Snake game  <br/>
 
+### tetris <br/>
+
+Tetris game  <br/>
+
 ### Reference <br/>
 - https://invisible-island.net/ncurses/announce.html#h3-documentation
 
