@@ -30,6 +30,15 @@ run file <br/>
 % gcc version.c -o version `pkg-config --cflags --libs ncurses`
 % ./version <br/>
 
+### input.c <br/>
+
+ pseudo-implement the echo of character input  <br/>
+ and input a numerical value  <br/>
+
+run file <br/>
+% gcc  input_test.c input.c -o  input  `pkg-config --cflags --libs ncurses`
+% ./input <br/>
+
 ### cannon <br/>
 
 Cannon game  <br/>
