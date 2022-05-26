@@ -7,7 +7,7 @@ generate random number / string <br/>
 random header is part of the pseudo-random number generation library <br/>
 
 
-### rand.h
+### rand.h <br/>
 generate random number using C rand() <br/>
 - getRand()
 
@@ -24,7 +24,7 @@ rand: 0 -> 999 <br/>
 738 <br/>
 461 <br/>
 
-### random.h
+### random.h <br/>
 generate random number using C random() <br/>
 - getRandom()
 
@@ -41,7 +41,7 @@ random: 0 -> 999 <br/>
  676 <br/> 
  959 <br/>
 
-### random_char.h
+### random_char.h <br/>
 generate random char with rand.h <br/>
 
 - genRandomCharMix()
@@ -63,7 +63,7 @@ display as below <br/>
 JGMNPegUgr <br/>
 VFHA5CIrPe <br/>
 
-### gen_random_number.cpp
+### gen_random_number.cpp <br/>
 generate random number vusing mt19937 <br/>
 
 build  coode <br/>
@@ -79,8 +79,11 @@ display as below <br/>
 738 <br/>
 461 <br/>
 
+### gen_random_number_fuc.cpp <br/>
+generate random number vusing mt19937 <br/>
+function version of  gen_random_number.cpp <br/>
 
-### random_string.hpp
+### random_string.hpp <br/>
 generate random string with rand.h <br/>
 
 - genRandomStringMix()
@@ -102,7 +105,7 @@ M5ltjQQxhg <br/>
 jLhG7zOWe0 <br/>
 
 
-### mkpasswd.cpp
+### mkpasswd.cpp <br/>
 generate password <br/>
 resemble like LINUX mkpasswd <br/>
 - https://linux.die.net/man/1/mkpasswd
@@ -127,7 +130,7 @@ len lower: 4 <br/>
 rBS5mi/n <br/>
 
 
-### gen_random_char_no_duplicate.c
+### gen_random_char_no_duplicate.c <br/>
 generate random chars 
 that not duplicate character <br/>
 
@@ -142,6 +145,6 @@ display as below <br/>
 PSdkc7BrGt (7) <br/>
 
 
-### Reference
+### Reference <br/>
 - https://en.cppreference.com/w/cpp/header/random
 - https://www.tutorialspoint.com/c_standard_library/c_function_rand.htm
