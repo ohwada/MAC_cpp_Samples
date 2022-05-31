@@ -12,7 +12,7 @@ https://formulae.brew.sh/formula/sdl2_mixer <br/>
 play music file <br/>
 
 build file <br/>
-% gcc play_music_file.c -o play  `pkg-config --cflags --libs sdl_mixer`  <br/>
+% gcc play_music_file.c -o play  `pkg-config --cflags --libs sdl2_mixer`  <br/>
 or <br/>
 % gcc play_music_file.c -lSDL2_mixer -lSDL2 -o play <br/>
 
