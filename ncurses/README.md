@@ -19,7 +19,7 @@ https://formulae.brew.sh/formula/ncurses <br/>
  display  "Hello World" <br/>
 
 run file <br/>
-% gcc hello.c -o hello `pkg-config --cflags --libs ncurses`
+% gcc hello.c -o hello -lncurses
 % ./hello <br/>
 
 ### version.c <br/>
@@ -27,7 +27,7 @@ run file <br/>
  display  version <br/>
 
 run file <br/>
-% gcc version.c -o version `pkg-config --cflags --libs ncurses`
+%  gcc version.c -o version  -lncurses
 % ./version <br/>
 
 ### input_num.h <br/>
@@ -38,7 +38,7 @@ single header library <br/>
  only positive numbers <br/>
 
 run file <br/>
-% gcc  input_num_test.c -o  input  `pkg-config --cflags --libs ncurses`
+% gcc  input_num_test.c -o  input  -lncurses
 % ./input <br/>
 
 ### cannon <br/>
