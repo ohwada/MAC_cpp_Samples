@@ -1,3 +1,4 @@
+#pragma once
 // 2022-05-01 K.OHWADA
 // original : https://github.com/brenns10/tetris
 

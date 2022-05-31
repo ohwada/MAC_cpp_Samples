@@ -13,10 +13,8 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/SDL2_mixer<br/>
 
 ### Build and Run  the file <br/>
 
-% gcc main.c tetris.c util.c music.c  -o tetris `pkg-config --cflags --libs ncurses`
-
- <br/>
-% ./teiris <br/>
+% make <br/>
+% ./bin/release/tetris <br/>
 
 ### Instructions <br/>
 
@@ -40,9 +38,12 @@ Require "tetris.mp3" ( or your favorite music ) <br/>
 Place this in the same directory that you're running the game from. <br/>
 
 Build and run <br/>
- % gcc main.c tetris.c util.c music.c  -o tetris_music  -DWITH_SDL  `pkg-config --cflags --libs ncurses` `pkg-config --cflags --libs sdl2_mixer` <br/>
-% ./teiris_music <br/>
 
+% make clean_all <br/>
+% make SDL=yes  <br/>
+
+% cp media/tetris.mp3 . <br/>
+% ./bin/release/tetris_music <br/>
 
 ### Reference <br/>
 - https://github.com/brenns10/tetris
