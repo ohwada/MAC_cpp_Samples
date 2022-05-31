@@ -30,13 +30,15 @@ run file <br/>
 % gcc version.c -o version `pkg-config --cflags --libs ncurses`
 % ./version <br/>
 
-### input.c <br/>
+### input_num.h <br/>
 
+single header library <br/>
  pseudo-implement the echo of character input  <br/>
  and input a numerical value  <br/>
+ only positive numbers <br/>
 
 run file <br/>
-% gcc  input_test.c input.c -o  input  `pkg-config --cflags --libs ncurses`
+% gcc  input_num_test.c -o  input  `pkg-config --cflags --libs ncurses`
 % ./input <br/>
 
 ### cannon <br/>

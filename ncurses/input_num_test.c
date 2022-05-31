@@ -1,10 +1,10 @@
 /**
- * iput_test.c
+ * iput_num_test.c
  * 2020-05-01 K.OHWADA
  */
 
 
-// gcc  input_test.c input.c -o  input  `pkg-config --cflags --libs ncurses`
+// gcc  input_num_test.c -o  input  `pkg-config --cflags --libs ncurses`
 
 
 #include <stdio.h>
@@ -12,11 +12,9 @@
 #include <string.h>
 #include <curses.h>
 
-#include "input.h"
-
+#include "input_num.h"
 
 const char KEY_ESC = 27;
-
 
 
 /**
@@ -33,14 +31,22 @@ int main()
 
 	getmaxyx(stdscr, h, w);
 
-    int x = h/2;
-    int y = h/2;
+    int cx = h/2;
+    int cy = h/2;
+
+    int x1 = cx;
+    int x2 = cx+2;
+    int x3 = cx+4;
 
   noecho();            
   cbreak();            
   keypad(stdscr,TRUE);
 
-    move(x, y);
+    move(x3, cy);
+    addstr("press ESC to exit");
+
+   // wait to input
+   move(x1, cy);
     addstr("input>");
 
     int ch;
@@ -52,11 +58,16 @@ while(1)
         break;
     }
 
-    int num = input(ch);
+    int num = input_num(ch);
 
 if( num != -1){
-        move(x+2, y);
-        printw("num = %d ", num);
+        move(x2, cy);
+        printw("num = %d    ", num);
+        move(x1, cy);
+        addstr("          ");
+        // wait to input
+        move(x1, cy);
+        addstr("input>");
  }
 
 } // while
