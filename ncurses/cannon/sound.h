@@ -1,10 +1,10 @@
 // 2022-05-01 K.OHWADA
 // original : https://www.kushiro-ct.ac.jp/yanagawa/curses/cannon/
 
- // chnge log
+ // change log
 // 2022-05-01
 // created this file
-
+// added branch of processing by OS
 
 #ifndef SOUND_H
 #define SOUND_H

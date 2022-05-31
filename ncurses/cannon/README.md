@@ -3,16 +3,13 @@ cannon
 
 Cannon game using ncurses <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/cannon/cannon.png" width="300" /><br/>
-
 ### Requires <br/>
 - ncurses <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/ncurses <br/>
 
 ### Run the file <br/>
 
-% gcc  main.c  object.c  gameutil.c -o cannon  `pkg-config --cflags --libs ncurses` 
- <br/>
+% make <br/>
 % ./cannon <br/>
 
 ### How to play <br/>
