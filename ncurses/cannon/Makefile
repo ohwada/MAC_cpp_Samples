@@ -3,7 +3,8 @@
 
 all: cannon
 
-cannon: main.o object.o gameutil.o	gcc main.o object.o gameutil.o -lncurses -lm -o cannon
+cannon: main.o object.o gameutil.o
+	gcc main.o object.o gameutil.o -lncurses -lm -o cannon
 
 main.o: main.c object.h gameutil.h
 	gcc -c main.c -Wall
