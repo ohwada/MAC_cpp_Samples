@@ -5,14 +5,14 @@ C sample <br/>
 2-demension array <br/>
 
 ## sample code
-- two_dem_int_array.c <br/>
+- test_two_dem_int_array.c <br/>
 2-demension int array <br/>
-- two_dem_char_array.c <br/>
+- test_two_dem_char_array.c <br/>
 2-demension char array <br/>
  
 
 build sample code<br/>
-% gcc two_dem_int_array.c <br/>
+% gcc test_two_dem_int_array.c <br/>
 
 run sample code <br/>
 Usage: ./a.out <br/>

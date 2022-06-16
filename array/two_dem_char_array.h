@@ -1,3 +1,4 @@
+#pragma once
 /**
  * C sample
  * 2020-07-01 K.OHWADA
@@ -6,12 +7,11 @@
  // 2-demension char array
 
 #include <stdio.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <string.h>
 
 // prototype
 char** alloc_chars(int n, int m) ;
-void init_chars(char** chars);
 void print_chars(char** chars, int n);
 void free_chars(char** chars, int n);
 
@@ -21,31 +21,22 @@ void free_chars(char** chars, int n);
  */
 char** alloc_chars(int n, int m) 
 {
+ const char ZERO = '\0';
 
 	char **chars;
 
 // allocate an area to hold addresses for n lines
-	chars = malloc(sizeof(char *) * n);
+	chars = calloc(sizeof(char *), n);
 
  
 	for(int i = 0; i < n; i++) {
 // allocate an area to hold one line of data
-		chars[i] = malloc(sizeof(char) * m); 
-	    chars[i][0] = '\0';
+		chars[i] = calloc(sizeof(char), m); 
+// clear to zero with calloc, just in case
+		chars[i][0] = ZERO;
 	}
  
 	return chars;
-}
-
-
-/**
- * init_chars
- */
-void init_chars(char** chars)
-{
-    strcpy( chars[1], "Sierra");
-    strcpy( chars[2], "Mojave");
-    strcpy( chars[3], "Catalina");
 }
 
 
@@ -74,33 +65,4 @@ void free_chars(char** chars, int n)
 	}
 	free(chars);
 }
-
-
-/**
- * main
- */
-int main(void) 
-{
-
-	int n = 5;
-	int m = 20;
-
-	char** chars = alloc_chars(n, m); 
-
-    init_chars(chars);
-
-	print_chars( chars, n);
-
-	free_chars(chars, n);
- 
-    return EXIT_SUCCESS;
-}
-
-
-// 0 :  
-// 1 : Sierra 
-// 2 : Mojave 
-// 3 : Catalina 
-// 4 :  
-
 
