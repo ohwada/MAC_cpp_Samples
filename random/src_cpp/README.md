@@ -44,8 +44,8 @@ jLhG7zOWe0 <br/>
 ### passwd.hpp <br/>
 generate random password <br/>
 
-Build and Run file 
-% g++  test_passwd.cpp -o passwd 
+Build and Run file  <br/>
+% g++  test_passwd.cpp -o passwd  <br/>
 % ./mkpasswd <br/>
 
 display as below <br/>
