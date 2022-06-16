@@ -32,8 +32,9 @@ char** alloc_chars(int n, int m)
 	for(int i = 0; i < n; i++) {
 // allocate an area to hold one line of data
 		chars[i] = calloc(sizeof(char), m); 
-// clear to zero with calloc, just in case
-		chars[i][0] = ZERO;
+// clear to zero with calloc
+// You can comment out
+		// chars[i][0] = ZERO;
 	}
  
 	return chars;
