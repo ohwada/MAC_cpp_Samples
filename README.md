@@ -22,6 +22,9 @@ display progress in stdout <br/>
 C++ Class Sample <br/>
 display exam score of each students <br/>
 
+### vsprintf
+C Sample of variable length arguments  <br/>
+
 ### signal
 catch and handle POSIX signals <br/>
 
