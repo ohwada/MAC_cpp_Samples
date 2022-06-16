@@ -1,14 +1,13 @@
 /**
  * C++ sample
- * 2020-03-01 K.OHWADA
+ * 2022-06-01 K.OHWADA
  */
 
-// generate random number vusing mt19937
+// generate random integer using mt19937
 // reference : ://vivi.dyndns.org/tech/cpp/random.html
 
 #include<iostream>
-#include <random>
-
+#include "rand.hpp"
 
 using namespace std;
 
@@ -18,7 +17,6 @@ using namespace std;
  */
 int main(int argc, char *argv[])
 {
-
     const int  NUM = 10;
 
     int  min = 0;
@@ -33,18 +31,11 @@ int main(int argc, char *argv[])
 
     cout << "random: " << min << " -> " << max << endl;
 
-    random_device rd;
-
-    mt19937 mt(rd());
-
-    uniform_int_distribution<> rand(min,  max);
-
     for(int i=0; i<NUM; i++)
     {
-        int r = rand(mt);
+        int r = genRandInt(min, max);
         cout << r << endl;
     }
 
     return EXIT_SUCCESS;
 }
-

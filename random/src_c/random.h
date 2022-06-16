@@ -19,26 +19,46 @@
 
 
 // prototype
-int genRandom(int min, int max);
+void initRand();
+double genRand();
+int genRandInt(int min, int max);
 
 
 /**
- * genRandom
+ * initRand
  */
-int genRandom(int min, int max)
+void initRand()
 {
-	static int flag;
     struct timespec ts;
+     timespec_get(&ts, TIME_UTC);
+    srandom(ts.tv_nsec ^ ts.tv_sec);
+}
+
+
+/**
+ * genRand
+ */
+double genRand()
+{
+// static variable is cleared to zero
+	static int flag;
 
 	if (flag == 0) {
-        timespec_get(&ts, TIME_UTC);
-        srandom(ts.tv_nsec ^ ts.tv_sec);
+        initRand();
 		flag = 1;
 	}
 
     double d = (double)random() /( (double)RAND_MAX + 1.0);
-    int ret = (int)((max - min + 1)*d) + min;
+    return d;
+}
 
+
+/**
+ * genRanInt
+ */
+int genRandInt(int min, int max)
+{
+    int ret = (int)((max - min + 1) * genRand() ) + min;
     return ret;
 }
 

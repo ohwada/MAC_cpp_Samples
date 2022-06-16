@@ -4,12 +4,12 @@
  * 2020-03-01 K.OHWADA
  */
 
-// generate random char with rand.h
+// generate random char with random.h
 // reference : https://stackoverflow.com/questions/440133/how-do-i-create-a-random-alpha-numeric-string-in-c
 
 #include<string.h>
 
-#include "rand.h"
+#include "random.h"
 
 
 // prototype
@@ -28,7 +28,7 @@ char choseRandomChar(const char* chars)
 {
 
     int max = strlen(chars) -1;
-    int index = genRand(0, max);
+    int index = genRandInt(0, max);
     char c = chars[index];
     return c;
 }

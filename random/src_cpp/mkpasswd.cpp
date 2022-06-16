@@ -1,18 +1,36 @@
 /**
  * random sample
- * 2020-03-01 K.OHWADA
+ * 2022-06-01 K.OHWADA
  */
 
+
 // generate password with random_string.hpp
-// resemble like LINUX mkpasswd
-// reference : https://linux.die.net/man/1/mkpasswd
+// like LINUX mkpasswd
+// https://docs.oracle.com/cd/E36784_01/html/E36870/mkpasswd-1.html
+// source: https://raw.githubusercontent.com/aeruder/expect/master/example/mkpasswd
+
 // command line paser using tclap
+https://linuxjm.osdn.jp/html/LDP_man-pages/man3/getopt.3.html
+
+// Difference from Linux mkpasswd
+//
+// on Linux mkpasswd
+// if You specify the command option as shown below
+// You get a warning
+// % mkpasswd -d 10
+// impossible to generate 9-character password with 10 // numbers, 2 lowercase letters, 2 uppercase letters and 1 special characters.
+//
+// in this program
+// adjust password length
+// and generate long passwords
+
 
 #include<iostream>
 #include <random>
 #include <tclap/CmdLine.h>
-#include "random_string.hpp"
+#include "passwd.hpp"
  
+
 using namespace std;
 
 
@@ -34,6 +52,14 @@ int main(int argc, char *argv[])
 	int min_upper = 0;
 	int min_digit = 0;
 	int min_special = 0;
+
+// mkpasswd command options
+// https://docs.oracle.com/cd/E36784_01/html/E36870/mkpasswd-1.html
+// l : passwd length default: 9
+// d : digit default : 2
+// c : lower: default 2
+// C : upper default : 2
+// s : speclal default: 1
 
 	try {  
 
@@ -70,47 +96,29 @@ int main(int argc, char *argv[])
         }
     }
 
-    int sum =  min_lower + min_upper + min_digit + min_special;
-
-    char FORMAT [] = "impossible to generate" 
-    " %d-character password"
-    " with %d numbers,"
-    " %d lowercase letters,"
-    " %d uppercase letters"
-    " and %d special characters. \n";
-
-    if ( sum > len_passwd) {
-        printf( FORMAT,  
-        len_passwd, 
-        min_digit,
-        min_lower, 
-        min_upper,
-        min_special );
-                return EXIT_FAILURE;
-    }
-
-    int len_mix = len_passwd - sum;
+    int min_mix =  len_passwd - min_lower - min_upper - min_digit -  min_special;
+	if(min_mix < 0){
+		min_mix = 0;
+	}
 
     if(FLAG_DEBUG) {
-        cout << "len pass: " << len_passwd << endl;
-        cout << "min lower: " << min_lower << endl;
-        cout << "min upper: " << min_upper << endl;
-        cout << "min digit: " << min_digit << endl;
-        cout << "min special: " << min_special << endl;
-    cout << "len mix: " << len_mix << endl;
-       cout << endl; // line feed
-    }
+		cout << "l : " << len_passwd << endl;
+		cout << "d: " << min_digit << endl;
+		cout << "c:" << min_lower<< endl;
+		cout << "C: " << min_upper << endl;
+		cout << "s: " << min_special << endl;
+	}
 
-    string passwd = genPasswd(min_lower, min_upper, min_digit, min_special )
-    + genRandomStringMix(len_mix);
+    string passwd = genPasswd(min_lower, min_upper, min_digit, min_special, min_mix);
 
-      random_device rd;
-    mt19937 mt(rd());
+   if(FLAG_DEBUG) {
+    	cout << passwd << endl;
+	}
 
-  shuffle(passwd.begin(), passwd.end(), mt);
+	string text = shuffle(passwd);
 
-    cout << passwd << endl;
+	cout << text << endl;
 
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }
 

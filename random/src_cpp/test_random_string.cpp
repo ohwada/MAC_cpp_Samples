@@ -1,6 +1,6 @@
 /**
  * random sample
- * 2020-03-01 K.OHWADA
+ * 2022-06-01 K.OHWADA
  */
 
 // test for random_string.hpp
