@@ -14,32 +14,14 @@ https://formulae.brew.sh/formula/ncurses <br/>
 % ln -s  /usr/local/opt/ncurses/lib/pkgconfig/ncurses.pc /usr/local/lib/pkgconfig/ncurses
 
 
-### hello.c <br/>
+### src <br/>
+ C Samples <br/>
 
- display  "Hello World" <br/>
+- hello.c <br/>
+- version.c <br/>
+- scr_size.c <br/>
+- input_num.h <br/>
 
-run file <br/>
-% gcc hello.c -lncurses -o hello <br/>
-% ./hello <br/>
-
-### version.c <br/>
-
- display  version <br/>
-
-run file <br/>
-%  gcc version.c -lncurses -o version <br/>
-% ./version <br/>
-
-### input_num.h <br/>
-
-single header library <br/>
- pseudo-implement the echo of character input  <br/>
- and input a numerical value  <br/>
- only positive numbers <br/>
-
-run file <br/>
-% gcc  input_num_test.c -lncurses -o input
-% ./input <br/>
 
 ### cannon <br/>
 

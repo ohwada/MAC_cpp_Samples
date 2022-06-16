@@ -10,9 +10,11 @@
  * 2020-05-01 K.OHWADA
  */
 
+
 #ifndef  INPUT_NUM_H
 #define INPUT_NUM_H
 
+void init_input_num();
 int input_num(int ch);
 
 
@@ -35,8 +37,20 @@ const char KEY_0 = '0';
 const char KEY_LF = '\n';
 const char  ZERO = '\0';
 
+
+// global variable is cleared to zero
 const int BUFSIZE = 128;
 static char buf[BUFSIZE];
+
+
+/**
+ * init_input_num
+ */
+void init_input_num()
+{
+// global variable is cleared to zero, just in case
+    buf[0] = ZERO;
+}
 
 
 /**

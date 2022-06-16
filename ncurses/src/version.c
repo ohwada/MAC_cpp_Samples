@@ -1,11 +1,14 @@
-// 2022-0501 K.OHWADA 
+/*
+ * version.c
+ * display version
+ * 2022-0501 K.OHWADA 
+*/
 
-// version.c
-// display version
 
-//　gcc version.c -o version  `pkg-config --cflags --libs ncurses`
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <ncurses.h>
+
 
 /**
  * main

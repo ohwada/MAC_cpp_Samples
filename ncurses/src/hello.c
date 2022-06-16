@@ -1,12 +1,14 @@
-// 2022-0501 K.OHWADA 
+/*
+	* hello.c
+ * display  "Hello World"
+ * 2022-0501 K.OHWADA 
+*/
 
-// hello.c
-// display  "Hello World"
 
 // original: https://www.kushiro-ct.ac.jp/yanagawa/ex-2017/2-game/01.html#exercise
 
-//　gcc hello.c -o hello `pkg-config --cflags --libs ncurses`
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <ncurses.h>
 #include <string.h>
 

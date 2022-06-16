@@ -1,11 +1,9 @@
 /**
- * iput_num_test.c
+ * test_input_num.c
  * 2020-05-01 K.OHWADA
  */
 
-
-// gcc  input_num_test.c -o  input  `pkg-config --cflags --libs ncurses`
-
+// gcc test_input_num.c -lncurses -o input
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,18 +12,18 @@
 
 #include "input_num.h"
 
-const char KEY_ESC = 27;
-
 
 /**
  * main
  */
 int main()
 {
+    const char KEY_ESC = 27;
+
     int h;
     int w; 
 
-
+    init_input_num();
 	initscr();
 	curs_set(0); 
 
@@ -49,11 +47,10 @@ int main()
    move(x1, cy);
     addstr("input>");
 
-    int ch;
 
 while(1)
 {
-	ch = getch();
+	int ch = getch();
     if(ch == KEY_ESC){
         break;
     }
