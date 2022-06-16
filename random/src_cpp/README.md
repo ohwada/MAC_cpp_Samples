@@ -60,8 +60,8 @@ resemble like LINUX mkpasswd <br/>
 Require tclap <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/tclap <br/>
 
-Build and Run file 
-% g++  mkpasswd.cpp -DDEBUG -o mkpasswd `pkg-config --cflags --libs tclap` 
+Build and Run file <br/>
+% g++  mkpasswd.cpp -DDEBUG -o mkpasswd `pkg-config --cflags --libs tclap` <br/>
 % ./mkpassword <br/>
 
 display as below <br/>
