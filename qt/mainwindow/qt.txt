@@ -1,0 +1,87 @@
+Qt Examples And Tutorials
+https://doc.qt.io/qt-6/qtexamplesandtutorials.html
+
+
+
+ls /usr/local/lib/QtWidgets.framework/Headers
+
+ ./mainwindow.app/Contents/MacOS/mainwindow
+
+
+
+
+
+$ qmake -project
+
+QT+=widgets <br/>
+
+
+g++ window_only.cpp
+
+ ls /usr/local/lib/pkgconfig/
+
+
+
+
+/usr/local/include/QtWidgets/QApplication
+
+ls /usr/local/include/QtWidgets/Q*
+
+
+ls /usr/local/include/QtWidgets/qwidget.h
+
+% qmake -query QT_VERSION
+6.2.3
+
+
+/usr/local/Cellar/qt@5/5.15.3/bin/qmake  -query QT_VERSION
+5.15.3
+
+cp -p /usr/local/Cellar/qt@5/5.15.3/bin/qmake /usr/local/bin/qmake5
+
+% qmake5 -query QT_VERSION
+
+
+/usr/local/Cellar/qt@5:
+5.15.3
+
+
+
+
+ls /usr/local/lib/libQ*
+
+ls /usr/local/include/Q*
+
+
+ls /usr/local/Cellar/qt/6.2.3_1/include
+
+ls /usr/local/Cellar/qt/6.2.3_1/lib
+
+
+ls /usr/local/Cellar/qt/6.2.3_1
+
+ls /usr/local/Cellar/qt
+6.2.3_1
+
+
+ls /usr/local/Cellar/
+
+
+pkg-config --cflags --libs abseil_strings
+-std=c++11 -I/usr/local/Cellar/abseil/20200923.2_1/include -L/usr/local/Cellar/abseil/20200923.2_1/lib -labsl_throw_delegate -labsl_raw_logging_internal -labsl_int128 -labsl_strings -labsl_strings_internal
+
+
+ `pkg-config --cflags --libs qt` 
+
+cBook-Air src % pkg-config --cflags --libs SDL   
+-D_GNU_SOURCE=1 -D_THREAD_SAFE -I/usr/local/include/SDL -L/usr/local/lib -lSDLmain -lSDL -Wl,-framework,Cocoa
+
+=====
+Qt基本
+http://www.yamamo10.jp/yamamoto/comp/Qt/ver3/basic/Qt.php#SIMPLE-WINDOW
+
+=====
+% qmake -query QT_VERSION
+6.2.3
+
+

@@ -1,0 +1,385 @@
+// Qt: QImage画像を表示
+// https://mf-atelier.sakura.ne.jp/mf-atelier2/qt_image/
+
+#pragma once
+
+  #include <QtGui>
+   
+   class MyGraphicsView :
+    public QGraphicsView
+    {
+    	Q_OBJECT
+   
+  public:
+  	MyGraphicsView( QWidget *pWnd );
+  	~MyGraphicsView(void);
+  
+  	void setImg( QImage &img );
+  
+   private:
+   	void paintEvent( QPaintEvent *event );
+  
+  	QImage m_img;
+   };
+  
+
+// paintEvent()関数は再描画時に呼び出される仮想関数です。
+// なので、この関数をオーバーライドして描画部分を記述します。
+
+//２つの関数の定義は以下のとおりです。
+
+
+  void MyGraphicsView::paintEvent( QPaintEvent *event )
+   {
+    QPainter widgetpainter( viewport() );
+    widgetpainter.setWorldTransform( m_matrix );
+   
+    QImage qimg = m_img.scaled(
+   		viewport()->width(),
+   		viewport()->height(),
+  		Qt::KeepAspectRatio,Qt::FastTransformation);
+   	widgetpainter.drawImage( 0, 0, qimg );
+   }
+  
+   void MyGraphicsView::setImg( QImage &img )
+   {
+  	m_img = QImage( img );
+  	viewport()->update();
+  }
+
+// paintEvent()で描画用QImageオブジェクトを作成して、
+// QPainter::drawImage()関数で描画しています。
+
+
+// この例ではウィジェットのサイズに合わせて描画用画像をリサイズしています。
+// メンバ変数のQImageオブジェクトをリサイズしてしまうと元に戻せなくなるので、
+// これを描画用にしてはいけません。
+
+// あとはこのウィジェットをダイアログの一部やメインウィンドウに貼り付けて、
+// setImg()関数で画像データを送り込めば描画されるはずです。
+
+// OpenCVのcv::Matを使う場合
+// OpenCVであれこれ画像をいじって、結果を表示したい場合は// 上記のメンバ変数をcv::Matにしたいところです。
+// この場合は以下のようにします。
+
+  
+    void MyGraphicsView::paintEvent( QPaintEvent *event )
+   {
+    	QPainter widgetpainter( viewport() );
+    	widgetpainter.setWorldTransform( m_matrix );
+   
+    	// ここでのm_imgはcv::Mat型オブジェクト
+    	QImage qimg = QImage( m_img.ptr(), m_img.cols, m_img.rows, m_img.step, QImage::Format_RGB888 );
+    	qimg = qimg.scaled(
+   		viewport()->width(),
+  		viewport()->height(),
+  		Qt::KeepAspectRatio,Qt::FastTransformation);
+  	widgetpainter.drawImage( 0, 0, qimg );
+  }
+
+// あと、カラー画像の場合は色配列をRGBからBGRに変換する必要があります。
+
+   // 読み込み関数
+   void MainWindow::onOpen()
+    {
+   	QString strFName = QFileDialog::getOpenFileName( this, "Select image",  "C:\", "Image File(*.*)" );
+   	if ( strFName.size() == 0 )
+   	return;
+   
+   	cv::Mat img = cv::imread( strFName.toStdString(), CV_LOAD_IMAGE_ANYCOLOR | CV_LOAD_IMAGE_ANYDEPTH );
+   	
+  	// RGB => BGR
+   	cv::cvtColor( img, img, CV_RGB2BGR );
+  	
+  	// graphicsViewはMyGraphicsViewクラスのメンバ変数
+  	graphicsView->setImg( img );
+  
+   }
+
+// 画面コントロール
+// 画像表示プログラムではズームイン／アウト、移動等の画面コントロールが必要になる場合が多いかと思われます。
+// これらの機能を実装するのは結構面倒ですが、Qtの場合はQTransformクラスを使って少し簡単にできます。
+
+// 以下はOpenCVのhighGUIをほぼまるパチリしています。
+
+// まず、QTransformクラスのメンバ変数を２つ用意します。
+
+	QTransform m_matrix;
+	QTransform m_matrix_inv;
+
+// QTransformクラスのデフォルトコンストラクタを呼び出した場合は単位行列で初期化されるので、
+// 特に何もする必要は今のところありません。
+
+// 次に、paintEvent()関数に以下のコードを追加します。
+
+ 
+   void MyGraphicsView::paintEvent( QPaintEvent *event )
+    {
+    	QPainter widgetpainter( viewport() );
+    	widgetpainter.setWorldTransform( m_matrix );
+   
+    	QImage qimg = QImage( m_img.ptr(), m_img.cols, m_img.rows, m_img.step, QImage::Format_RGB888 );
+    	qimg = qimg.scaled(
+   	viewport()->width(),
+  		viewport()->height(),
+  		Qt::KeepAspectRatio,Qt::FastTransformation);
+  	widgetpainter.drawImage( 0, 0, qimg );
+  }
+
+// こうすることで、QTransformクラスの情報が反映されるようになるそうです。
+// あとは、ズームイン・アウト、移動についてこの行列を操作すればよいということになります。
+
+// まず、ズームイン／アウトは以下のようにします。
+
+  
+    void MyGraphicsView::scaleView( qreal factor, QPointF center )
+    {
+    	factor/=5;//-0.1 <-> 0.1
+    	factor+=1;//0.9 <-> 1.1
+   
+    	//limit zoom out ---
+    	if (m_matrix.m11()==1 && factor < 1)
+   		return;
+  
+  	if (m_matrix.m11()*factor<1)
+  		factor = 1/m_matrix.m11();
+  
+  
+  	//limit zoom in ---
+   	if (m_matrix.m11()>100 && factor > 1)
+   		return;
+  
+  	//inverse the transform
+  	int a, b;
+  	m_matrix_inv.map(center.x(),center.y(),&a,&b);
+  
+  	m_matrix.translate(a-factor*a,b-factor*b);
+  	m_matrix.scale(factor,factor);
+  
+  	controlImagePosition();
+   }
+
+// この関数ではズームイン／アウトのリミットを設定後、変換行列に拡大率を設定しています。
+// すでに以前のズームが適用された後の場合のために、あらかじめズームの中心を移動するようにしています。
+
+// 最後のcontrolImagePosition()関数は以下のとおりです。
+
+  
+   void MyGraphicsView::controlImagePosition()
+    {
+   	qreal left, top, right, bottom;
+   
+   	//after check top-left, bottom right corner to avoid getting "out" during zoom/panning
+    	m_matrix.map(0,0,&left,&top);
+   
+    	if (left > 0)
+   	{
+  		m_matrix.translate(-left,0);
+  		left = 0;
+  	}
+  	if (top > 0)
+   	{
+  		m_matrix.translate(0,-top);
+  		top = 0;
+  	}
+  
+  	QSize sizeImage = size();
+  	m_matrix.map(sizeImage.width(),sizeImage.height(),&right,&bottom);
+  	if (right < sizeImage.width())
+  	{
+  		m_matrix.translate(sizeImage.width()-right,0);
+  		right = sizeImage.width();
+  	}
+  	if (bottom < sizeImage.height())
+  	{
+  		m_matrix.translate(0,sizeImage.height()-bottom);
+  		bottom = sizeImage.height();
+  	}
+  
+  	m_matrix_inv = m_matrix.inverted();
+  
+   	viewport()->update();
+   }
+
+// この関数は、ズームアウトのときに余白が表示されないように画像位置を調整するものです。
+// 最後にviewport()->update();で画面を更新しています。
+
+ 
+// ズームイン／アウトをするには、scaleView()関数の第一引数にズームインの場合は正の値、
+// ズームアウトをする場合は負の値を指定し、第２引数にズームイン／アウトの中心となる点を指定します。
+
+// 移動は、ここではマウスの左ボタンを押してドラッグする場合を示します。
+
+   
+    void MyGraphicsView::mouseMoveEvent( QMouseEvent *event )
+    {
+    	QPoint pnt = event->pos();
+   
+    	if ( m_matrix.m11() > 1 && event->buttons() == Qt::LeftButton )
+   	{
+   	QPointF pntf = ( pnt - m_pntDownPos ) / m_matrix.m11();
+   		m_pntDownPos = event->pos();
+  		m_matrix.translate( pntf.x(), pntf.y() );
+  		controlImagePosition();
+  		viewport()->update();
+  	}
+  
+  	viewport()->update();
+  
+   	QWidget::mouseMoveEvent( event );
+   }
+  
+  
+   void MyGraphicsView::mousePressEvent( QMouseEvent *event )
+   {
+  	m_pntDownPos = event->pos();
+  
+   	QWidget::mousePressEvent( event );
+   }
+
+// 移動はが初期表示よりズームインしている場合にのみ適用されるようにしています。
+
+// クリック位置の画像座標を逆算するには
+// 画像系のプログラムでよくあるのが、クリックした位置の画像座標を取得してピクセル値を取得したりする操作です。
+// ウィンドウ座標から画像座標を取得するのは実際はかなり大変です。
+// 画像がウィンドウのどちらか一辺に合わせて全体が表示されている場合は縦横比だけを考慮すればいいですが、
+// ズームインしていたり、さらにそこから移動していたりした場合はもうわけがわからなくなってしまいます。
+
+// Qtで上記のように実装した場合は、ズームや移動の情報は変換行列が持っているので、
+// それを元に逆算することで大変楽に画像座標を逆算することができます。
+
+// ここではクリック時に画像座標を持たせたシグナルを発行するようにしています。
+
+class MyGraphicsView :
+	public QGraphicsView
+{
+
+// 画像座標を送るシグナルを定義しておく
+Q_SIGNALS:
+	void mousePressed( QPoint p );
+
+////////////////////////////////////////
+
+   
+    void MyGraphicsView::mousePressEvent( QMouseEvent *event )
+    {
+   	// ウィンドウサイズ・画像サイズの比を計算
+    	double dScale = (double)viewport()->width() / (double)m_pimg->width;
+    	if ( dScale > ( (double)viewport()->height() / (double)m_pimg->height ) )
+   		dScale = (double)viewport()->height() / (double)m_pimg->height;
+   
+   	// 画像座標を計算してシグナルを発行
+   	QPointF p = m_matrix_inv.map( event->pos() );
+  	emit mousePressed( QPoint( p.x() / dScale, p.y() / dScale ) );
+  
+   }
+
+// あとはウィジェットの親ウィンドウ側でシグナルを捕まえて、当該ピクセルに対する何らかの操作をすればよいでしょう。
+
+// 改良
+// 上記のコードでは拡大しても画像の解像度はビューポートのサイズのままです。
+// また、描画イベントのたびに表示用画像を作成しているので効率も悪いです。
+// そこで、拡大するごとに表示用画像も解像度を上げるようにしてみましょう。
+
+// まず、paintEvent()関数内にある表示用画像をメンバ変数（ここではm_qimg）にして、
+// 拡大・縮小のところで作成するようにします。
+// 拡大・縮小の箇所も少し変えます。
+
+ 
+   
+    void MyGraphicsView::scaleView( qreal factor, QPointF center )
+    {
+    	factor/=5;//-0.1 <-> 0.1
+    	factor+=1;//0.9 <-> 1.1
+   
+   7: 	//limit zoom out ---
+   8: 	if (m_matrix.m11()==1 && factor < 1)
+   9: 		return;
+  10: 
+  11: 	if (m_matrix.m11()*factor<1)
+  12: 		factor = 1/m_matrix.m11();
+  13: 
+  14: 
+  15: 	//limit zoom in ---
+  16: 	if (m_matrix.m11()>100 && factor > 1)
+  17: 		return;
+  18: 
+  19: 	//inverse the transform
+  20: 	int a, b;
+  21: 	m_matrix_inv.map(center.x(),center.y(),&a,&b);
+  22: 
+  23: 	m_matrix.translate(a-factor*a,b-factor*b);
+  24: 	m_matrix.scale(factor,factor);
+  25: 
+  26: 	// ここで表示用画像を作成、上記コードのOpenCVの場合
+  27: 	m_qimg = QImage( m_img.ptr(), m_img.cols, m_img.rows, m_img.step, QImage::Format_RGB888 );
+  28: 	if ( viewport()->width() < m_qimg.width() )
+  29: 		m_qimg = m_qimg.scaled(
+  30: 			viewport()->width()*m_matrix.m11(),
+  31: 			viewport()->height()*m_matrix.m11(),
+  32: 			Qt::KeepAspectRatio,Qt::FastTransformation);
+  33: 
+  34: 	controlImagePosition();
+  35: 
+これにともなって、controlImagePosition()関数も書き換えます。
+
+   1: void MyGraphicsView::controlImagePosition()
+   2: {
+   3: 	qreal left, top, right, bottom;
+   4: 	qreal limRight, limBottom;
+   5: 
+   6: 	//after check top-left, bottom right corner to avoid getting "out" during zoom/panning
+   7: 	m_matrix.map(0,0,&left,&top);
+   8: 
+   9: 	if (left > 0)
+  10: 	{
+  11: 		m_matrix.translate(-left,0);
+  12: 		left = 0;
+  13: 	}
+  14: 	if (top > 0)
+  15: 	{
+  16: 		m_matrix.translate(0,-top);
+  17: 		top = 0;
+  18: 	}
+  19: 	//-------
+  20: 
+  21: 	QSize sizeImage = size() * (qreal)m_matrix.m11();
+  22: 	m_matrix.map( sizeImage.width(), sizeImage.height(), &right, &bottom );
+  23: 
+  24: 	limRight = sizeImage.width()/m_matrix.m11();
+  25: 	limBottom = sizeImage.height()/m_matrix.m11()
+  26: 
+  27: 	if ( right < limRight )
+  28: 	{
+  29: 		m_matrix.translate( limRight-right, 0 );
+  30: 		right = limRight;
+  31: 	}
+  32: 	if ( bottom < limBottom )
+  33: 	{
+  34: 		m_matrix.translate( 0, limBottom-bottom );
+  35: 		bottom = limBottom;
+  36: 	}
+  37: 
+  38: 	m_matrix_inv = m_matrix.inverted();
+  39: 
+  40: 	viewport()->update();
+  41: }
+また、画像座標の逆算部分も書き換える必要があります。
+
+   1: 
+   2: void MyGraphicsView::mousePressEvent( QMouseEvent *event )
+   3: {
+   4: 	// ウィンドウサイズ・画像サイズの比を計算
+   5: 	double dScale = (double)viewport()->width() / (double)m_pimg->width;
+   6: 	if ( dScale > ( (double)viewport()->height() / (double)m_pimg->height ) )
+   7: 		dScale = (double)viewport()->height() / (double)m_pimg->height;
+   8: 		
+   9: 	dScale *= m_matrix.m11()
+  10: 
+  11: 	// 画像座標を計算してシグナルを発行
+  12: 	pnt = m_matrix_inv.map( event->pos() );
+  13: 	QPoint pntI = pnt/dScale;
+  14: 	
+  15: 	emit mousePressed( pntI );
+  16: 
+  17: }
