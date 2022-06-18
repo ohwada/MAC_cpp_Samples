@@ -4,7 +4,7 @@ QT pushubotton
 QT Sample <br/>
 window with pushbutton <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt/pushubutton/pushubutton.png" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt/pushbutton/pushubotton.png" /> <br/>
 
 Build and Run <br/>
 (1) % qmake -project <br/>
