@@ -18,6 +18,9 @@ https://brew.sh/ <br/>
 emulater for kbhit function of Windows <br />
 display progress in stdout <br/>
 
+### upper lower
+convert Upper case, Lower case <br/>
+
 ### Class
 C++ Class Sample <br/>
 display exam score of each students <br/>
