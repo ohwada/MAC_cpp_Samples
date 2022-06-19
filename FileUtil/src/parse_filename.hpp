@@ -29,7 +29,7 @@ bool parseBaseName(std::string basename, std::string &title, std::string &ext)
 void parseFilePath(std::string fullpath, std::string &dir, std::string &basename)
 {
     int pos  = fullpath.find_last_of('/');
-    if (pos == std::string::npos) {
+    if ( pos == (int)std::string::npos ) {
         dir = "";
         basename = fullpath;
     } else {
@@ -48,7 +48,7 @@ bool parseBaseName(std::string basename, std::string &title, std::string &ext)
 
 
     int pos = basename.find('.');
-    if (pos == std::string::npos) {
+    if ( pos == (int)std::string::npos ) {
         return false;
     }
 
