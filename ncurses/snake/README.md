@@ -1,7 +1,7 @@
 ncurses. Snake
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/snake/screenshots/tetris.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/snake/screenshots/snake.png" width="300" /><br/>
 
 This is Clone <br/>
 https://github.com/romanedgn/snake-game <br/>

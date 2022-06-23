@@ -1,7 +1,7 @@
  ncurses Cannon
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ ncurses/cannon/scrrenshots/cannon.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/cannon/screenshots/cannon.png" width="300" /> <br/>
 
 This is Clone <br/>
  https://www.kushiro-ct.ac.jp/yanagawa/curses/cannon/ <br/>

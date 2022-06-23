@@ -53,6 +53,3 @@ Build and run <br/>
 
 % cp media/tetris.mp3 . <br/>
 % ./bin/release/tetris_music <br/>
-
-### Reference <br/>
-- https://github.com/brenns10/tetris
