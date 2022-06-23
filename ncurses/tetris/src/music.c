@@ -12,9 +12,9 @@
 #endif
 
 #include <stdio.h>
-#include <sys/stat.h>
 
-# include "music.h"
+#include "music.h"
+#include "file_util.h"
 
 const char FILE_MUSIC[] = "tetris.mp3";
 
@@ -131,13 +131,3 @@ void closeMisic()
     return;
 }
 
-
-/**
- * existsFile
- * return 0; exist 1; not
- */
-int existsFile(char *path) 
-{
-    struct stat   sb;   
-    return stat(path, &sb);
-}

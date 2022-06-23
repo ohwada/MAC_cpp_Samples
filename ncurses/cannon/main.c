@@ -28,6 +28,7 @@
 #include "object.h"
 #include "gameutil.h"
 #include "sound.h"
+#include "file_util.h"
 
 #define INTERVAL 20	// (milliseconds)
 #define GRAVITY  0.01	// Gravitational acceleration
@@ -485,17 +486,6 @@ int Title()
   return (key);
 }
 
-
-/**
- * existsFile
- */
-bool existsFile(char *path) 
-{
-    struct stat   sb;   
-    int ret = stat(path, &sb);
-    bool res = ( ret == 0 )? true: false;
-    return res;
-}
 
 /**
  * main

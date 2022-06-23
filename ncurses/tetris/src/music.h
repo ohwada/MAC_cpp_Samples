@@ -15,6 +15,5 @@ void pauseMusic();
 int initMusic();
 int playMusic();
 void closeMisic();
-int existsFile(char *path);
 
 #endif // UTIL_H

@@ -1,9 +1,18 @@
-tetris
+ncurses Tetris
 ===============
 
-Tetris game using ncurses <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/tetris/screenshots/tetris.png" width="300" /><br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/ncurses/tetris/media/tetris.png" width="300" /><br/>
+This is Clone <br/>
+ https://github.com/brenns10/tetris <br/>
+
+Changes: <br/>
+chang SDL_mixer to SDL2_mixer to play mp3 <br/>
+
+### About
+Tetris is one of clasic games <br/>
+https://en.wikipedia.org/wiki/Tetris <br/>
+This version is  program in C using ncurses. <br/>
 
 ### Requires <br/>
 - ncurses <br/>
