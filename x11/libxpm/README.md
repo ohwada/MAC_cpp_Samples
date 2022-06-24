@@ -1,7 +1,7 @@
 X11 libxpm
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/libxpm/scrrenshots/sxpm_gray_xpm.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/libxpm/screenshots/sxpm_gray_xpm.png" width="300" /> <br/>
 
 X11 Sample <br/>
 

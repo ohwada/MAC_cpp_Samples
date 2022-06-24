@@ -1,7 +1,7 @@
 X11 3D Pong
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/3dpong/scrrenshots/pong.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/3dpong/screenshots/3dpong.png" width="300" /> <br/>
 
 This is Clone <br/>
 http://www.newbreedsoftware.com/3dpong/index2.php3 <br/>

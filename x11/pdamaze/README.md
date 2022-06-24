@@ -1,7 +1,7 @@
 X11 PDA Maze
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/pdamaze/scrrenshots/game.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/x11/pdamaze/screenshots/game.png" width="300" /> <br/>
 
 This is Clone <br/>
 http://www.newbreedsoftware.com/pdamaze/ <br/>
