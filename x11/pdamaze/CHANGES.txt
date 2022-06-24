@@ -1,0 +1,78 @@
+CHANGES.txt for PDA Maze
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+http://www.newbreedsoftware.com/pdamaze/
+
+May 23, 2001 - October 5, 2001
+
+
+2001.10.05
+  Bug Fixes:
+    * Added "input" windowmanager hint and title, so program will appear in
+      VRSM window lists (VR->Windows menu, and Statusbar app windowlist).
+      This works around a current bug in VRSM.
+
+2001.09.04
+  Documentation:
+    * REAMDE.txt fleshed out some
+  Code:
+    * Makefile can now build Agenda SNOW binary (does by default).
+  Bug Fixes:
+    * Player doesn't start out in a wall in the medium-sized maze any more.
+    * Removed ".xvpics/" subdirectory from "images/" directory.
+    * Added "strlen.h" include.
+  Tweaks:
+    * Outline of entire maze shown in hidden-maze-view modes.
+    * Cursor (within map) made more obvious.
+    * Window opens right after program starts, and shows "Loading" meter.
+
+
+2001.05.31
+  Bug Fixes:
+    * Game would end immediately when playing with "Up" counter.  Oops!
+    * Exit position was off by one.  Oops!
+    * "Don't face a wall in the beginning" code fixed. (x/y swapped; oops!)
+  Features:
+    * Added Sound On/Off button to game screen.
+  Tweaks:
+    * "Build" is now default map mode when you start the program
+    * Your position on the map flashes
+    * Map area has a background (mainly for build mode)
+
+2001.05.30
+  Features:
+    * A goal!  Start in the middle, get out at the upper left of the maze.
+    * Game ends if timer counts to zero
+  Bug Fixes:
+    * "Build" mode map drawing works better
+    * Sound values returned when program quits
+    * Timer counts real seconds
+  Tweaks:
+    * Fewer (unseen) wall chunks drawn; rendering faster, hence game faster!
+    * "Generating Map" image not displayed (no point; you never see it!)
+    * Images converted to true Agenda 16 grey palette
+
+2001.05.24
+  Bug Fixes:
+    * Debugging code removed from maze generation function
+      (most notably, the system() call to "clear" the screen. ACK!)
+    * Redraw code removed from event handling loop
+    * Removed an ".xvpics" image thumbnail directory (oops!)
+    * Movement code moved outside of event loop (no more going through walls!)
+    * Maze code fixed ('j' shouldn't have changed randomly in one spot)
+  Features:
+    * Added "Done" button
+    * Added walking sound effects / changed bumping sound effect
+    * Added stylus/mouse control
+    * Started work on the timer
+    * Screen "scrolls" when you turn around
+    * Title screen, with options controls
+    * Different maze sizes
+    * Different map modes (show all, build as you go, and show nothing)
+    * Timer modes (count how long it takes, or count-down timer)
+  Documentation:
+    * README.txt updated
+
+2001.05.23
+  * Initial release

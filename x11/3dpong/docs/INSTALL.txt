@@ -1,0 +1,124 @@
+INSTALL.txt
+
+3D Pong
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+
+New Breed Software
+http://www.newbreedsoftware.com/
+
+April 28, 2004
+
+
+COMPILING
+
+  To compile 3D Pong, simply try running "make".
+  You can choose a different location to install 3D Pong, set a different
+  XLib library path, etc., using variables in the Makefile.
+
+  Some compile-time options are available as "#defines" in the "3dpong.c"
+  source code (in the "src/" subdirectory).  You can alter these if you
+  wish to tweak the game.  See the 'DEFINES' section, below.
+
+
+INSTALLING
+
+  If you wish to install 3D Pong, its manual page, and a set of scripts
+  to launch single-player games (without needing to specify arguments),
+  run "make install".
+
+  By default, you'll need superuser ("root") privleges to do this,
+  as 3D Pong tries to install into the "/usr/local/" directory.
+
+  Once installed, you may read 3D Pong's man page with "man 3dpong",
+  or run the program with simply: "3dpong" at a terminal prompt.
+
+
+DEFINES:
+
+  The following "#define"s are available in the "3dpong.c" file.
+  Change these and recompile with the "make" command to put them
+  into effect.
+
+  * DOUBLE_BUFFER
+    - Set to "True" to use a "double buffer" or "backbuffer."  This
+      uses a pixmap to redraw the window, and then copies the pixmap all
+      at once into the window.  This prevents flicker.
+    - Set to "False" to turn this feature off.  The game may run slowly
+      with the double buffer on, or it may fail completely if your
+      X Window Manager doesn't have enough RAM for the buffer.
+    Default is False.
+
+  * WIDTH
+  * HEIGHT
+    The width and height (in pixels) of the game window.
+    Default is 580 pixels by 580 pixels.
+  
+  * X_WIDTH
+  * Y_HEIGHT
+  * Z_DEPTH
+    The width, height and depth (in "units") of the 3D game arena.
+    Default is 100 units wide x 100 high x 150 deep.
+
+  * PADDLE_WIDTH
+  * PADDLE_HEIGHT
+    The width and height (in "units") of the players' paddles.
+    Default is 25 units wide by 25 high.
+
+  * BALL_SIZE
+    The size of the ball (in "units").
+    Default is 15 units.
+
+  * ASPECT
+    The "aspect" value which alters how the 3D positions are converted into
+    two dimensions.
+    Default is 200.
+
+  * GLASS_OFFSET
+    The offset (in "units") of the 3D glasses.  In a sense, this is how
+    far apart your eyes are.
+    Default is 3 units.
+
+  * FRAMERATE
+    The number of microseconds between frames.  The lower the number, the
+    faster the game will play and the faster the windows will refresh.
+    Be careful adjusting this!!!
+    Default is 100,000 microseconds.
+
+  * SHIMMER_TIME
+    How many frames the "X" stays on a paddle when the ball hits it.
+    Default is 5 frames.
+
+  * DEBRIS_TIME
+    How many frames (approximately) the "debris" last.  (They are the bits
+    of colored lines that appear when the ball hits a paddle.)
+    Default is 50 frames.
+
+  * DEBRIS_MIN
+  * DEBRIS_MAX
+    The minimum and maximum number of debris lines to create when the ball
+    hits a paddle.  A random number between these two values will be
+    picked.
+    Default is between 5 and 10 lines.
+
+  * DEBRIS_SPEED
+    How fast debris lines move.
+    Default is 2.
+
+  * COMPUTER_SPEED
+    How fast the computer moves in its sorry attempt to catch the ball.
+    Default is 5 units per frame.
+
+  * BALL_SPEED
+    The maximum speed that the ball moves.
+    Default is 15 units per frame.
+
+  * ANGLE_DIVIDE
+    A value used to scale down the angle that the ball goes when it hits
+    the paddle.  The bigger the paddle, the higher this number should be
+    to compensate.  A low number (ie, 1) causes the ball to move at high
+    angles off of the paddle.  A high number (ie, 10) causes the ball to
+    move mostly forward off of th epaddle.
+    Default is 3.
+

@@ -1,0 +1,25 @@
+TODO.txt for "Brick Out"
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+http://www.newbreedsoftware.com/brickout/
+
+June 9, 2002
+
+
+To Do:
+------
+  Core:
+    * Create Zaurus build stuff
+    * More music!
+  Display/Effects:
+    * Reset X11 sound settings after quit!
+    * Erase cruft around edges in SDL version.
+  Status:
+    * Save state when quitting, load when launching.
+    * Save options when quitting, load when launching.
+    * Display current game's (if any) score, level and lives on title screen.
+    * Display last game's score and level on title screen.
+  Docs:
+    * INSTALL.txt documentation.
+    * Finish README.txt documentation.

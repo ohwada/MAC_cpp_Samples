@@ -1,0 +1,62 @@
+CHANGES.txt
+
+3D Pong
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+
+New Breed Software
+http://www.newbreedsoftware.com/
+
+April 28, 2004
+
+  * Version 0.5 - April 28, 2004
+    Made command-line options "--longoption"-style.
+    Added "--help" option to show usage.
+    Manual page contributed.
+    Changed references to "server" (as in X11 server) to "display"; less ambig.
+    Created "docs" subdirectory for documentation.
+    Split credits, changes and installation stuff out of Readme.
+    Created a basic TODO.txt.
+    Renamed "makefile" to "Makefile", and cleaned up.
+    Created "examples" subfolder; brought back example scripts.
+    Renamed demo scripts ("go" and "handball") to 3dpong-*.sh.
+    Added "$*" to arguments in demo scripts (so you can, e.g., add "-sound")
+    Added "install" and "uninstall" targets for makefile.
+
+  * Version 0.4 - May 10, 2001
+    Added a copy of GPL (COPYING.txt)
+    Removed shell scripts
+
+  * Version 0.3 - January 26, 1998
+    "ftime()" function calls changed to "gettimeofday()" function calls
+      (for portability)
+    A "DOUBLE_BUFFER" constant has been definied.  If set to "True",
+      double-buffering (backbuffering) will be used.  (As in v.0.2)
+      BUT, this sometimes breaks the program ("Can't create Pixmap" error
+      and abort), so you can set it to "False" to turn double-buffering off.
+      (As in v.0.0 and v.0.1)  There may be some flicker, though, but at
+      least it will run.
+    Better documentation.
+
+  * Version 0.2 - December 15, 1997
+    Tested under RedHat Linux.
+    Added simple /dev/audio sound support.  (Sounds from "xboing.")
+    Added clickless mouse control for the paddles.
+    Made the default (#define'd) window size bigger.
+    The sparks were turned into actual 3D lines (looks 1000x better!)
+    A net was added.
+    The game now uses a backbuffer. (I may turn this into an option, as
+      it seems to go a tad slower.)
+    A few tweaks here and there.
+    Red/blue mode has the colors reversed (someone told me red is usually
+      on the left, not the right).
+
+  * Version 0.1 - December 11, 1997
+    Added "free view", "follow the ball" and "follow the paddle" mode.
+    Added ball angle control using the paddle.
+    Added "sparks" (or "debris") when the ball hits walls/etc.
+
+  * Version 0.0 - December 10, 1997
+    First release
+

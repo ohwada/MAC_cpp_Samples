@@ -1,0 +1,29 @@
+TODO.txt
+
+3D Pong v.0.5
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+
+New Breed Software
+http://www.newbreedsoftware.com/
+
+April 28, 2004
+
+
+* Make a Windows version (insanely high-demand, I guess?!)
+
+* Use a better sound system
+
+* Don't use X-Window for 'networking'  (ouch; that'll be hard!)
+
+* Save handball high-score to a file (e.g., "~/.3dpong-high" or...?)
+
+* Parse command-line options more sanely (allow mixing up order of options)
+
+* Default to try and use local $DISPLAY if no display server args given
+
+* Consider porting to OpenGL and/or libSDL
+
+* Improve graphics/fonts
+

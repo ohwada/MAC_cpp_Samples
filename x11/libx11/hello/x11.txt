@@ -1,0 +1,89 @@
+gcc simple.c  `pkg-config --cflags --libs x11`
+
+
+xlsfonts
+micro
+nil2
+olcursor
+olglyph-10
+olglyph-12
+olglyph-14
+olglyph-19
+r14
+r16
+r24
+rk14
+rk16
+rk24
+variable
+
+
+brew install libxfont
+
+pkg-config --cflags --libs xfont 
+
+I/usr/local/Cellar/libxfont/1.5.4/include 
+
+-I/usr/local/Cellar/libfontenc/1.1.4/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/xorgproto/2022.1/include -L/usr/local/Cellar/libxfont/1.5.4/lib -lXfont
+
+
+ohwada@ohwada-MacBook-Air build % ./hello
+X Error of failed request:  BadName (named color or font does not exist)
+  Major opcode of failed request:  45 (X_OpenFont)
+  Serial number of failed request:  10
+  Current serial number in output stream:  11
+
+======
+X11で始めるGUIプログラミング
+https://segmentation-fault.xyz/2017/02/15/83/
+
+X11
+brew install libx11
+
+pkg-config --cflags --libs x11 
+-I/usr/local/Cellar/libx11/1.8.1/include 
+-I/usr/local/Cellar/libxcb/1.15/include 
+-I/usr/local/Cellar/libxau/1.0.9/include 
+-I/usr/local/Cellar/libxdmcp/1.1.3/include 
+-I/usr/local/Cellar/xorgproto/2022.1/include 
+-L/usr/local/Cellar/libx11/1.8.1/lib -lX11
+
+
+gcc x11.c `pkg-config --cflags --libs x11`
+======
+make host
+pdamaze.c:18:10: fatal error: 'X11/xpm.h' file not found
+
+X Pixmap (XPM) image file format library
+
+yum install libXpm-devel.x86_64
+
+brew install libxpm
+
+pkg-config --cflags --libs xpm 
+-I/usr/local/Cellar/libxpm/3.5.13/include 
+-I/usr/local/Cellar/libx11/1.8.1/include 
+-I/usr/local/Cellar/libxcb/1.15/include 
+-I/usr/local/Cellar/libxau/1.0.9/include 
+-I/usr/local/Cellar/libxdmcp/1.1.3/include
+ -I/usr/local/Cellar/xorgproto/2022.1/include 
+-L/usr/local/Cellar/libxpm/3.5.13/lib 
+-L/usr/local/Cellar/libx11/1.8.1/lib -lXpm -lX11
+
+======
+
+
+
+=====
+PDA迷路
+https://github.com/EXL/PDA_Maze
+
+
+PDA Maze
+http://www.newbreedsoftware.com/pdamaze/
+
+ohwada@ohwada-MacBook-Air pdamaze-2001.10.05 % ./pdamaze 
+zsh: bad CPU type in executable: ./pdamaze
+
+ source,agenda-snow
+

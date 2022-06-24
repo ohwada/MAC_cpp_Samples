@@ -1,0 +1,45 @@
+AUTHORS.txt
+
+3D Pong
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+
+New Breed Software
+http://www.newbreedsoftware.com/
+
+April 28, 2004
+
+
+
+CREDITS:
+
+  * 3D Pong was written by Bill Kendrick <bill@newbreedsoftware.com>,
+    (c) New Breed Software 1997, 1998.  (Some code from as early as 1995.)
+    
+  * Original 3D source code based on a Linear Algebra project by
+    Bill Kendrick, 1997.
+    
+  * "Pong" is (c) Atari, now a division of Infogrames.
+  
+  * Manual page by Markku Ojala <mace@pcuf.fi>, December 2003.
+  
+  
+  * Thanks to:
+  
+    Brian Jerskey, my Linear Algebra professor
+    
+    Brian Mordecai, a Lin.Alg. friend who helped a little with the 3D
+    
+    James O'Connor, a Lin.Alg. friend who gave me a pair of 3D glasses
+      (which I promptly lost, but fortunately AFTER coding the 3D glasses mode)
+      
+    Geoff Kruth, a friend with a Linux box to play on.
+    
+    Scott Flattman (mrman@europa.com), for the "makefile" XLIB tweaks.
+    
+    The folks who made Unix, Linux, Mac-X, FVWM, etc.!
+    
+    And everyone who plays 3D Pong! :)
+
+

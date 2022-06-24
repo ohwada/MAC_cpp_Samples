@@ -1,0 +1,93 @@
+CHANGES.txt for "Brick Out"
+
+by Bill Kendrick
+bill@newbreedsoftware.com
+http://www.newbreedsoftware.com/brickout/
+
+May 17, 2001 - June 9, 2002
+
+
+2002.06.09
+  * Created libSDL version
+  * Created Makefile target for libSDL version for host  ("host-sdl")
+  * Changed Makefile target for X-Window version for host to "host-x"
+  * Created Makefile target for libSDL version for Sharp Zaurus  ("zaurus")
+  * Made default Makefile target simply list all available targets
+  * Fixed bug where level "-" button was dark even though level was > 1,
+    when returning to title screen.
+  * Created color version of graphics for SDL version.
+  * Don't cancel paused game if [-] or [+] clicked when they're unavailable.
+  * Can now start game with [Space] or [Enter] on title screen.
+  * Can now change starting level with [Left] and [Right] arrow keys.
+  * Added flicker effect when a brick is hit (SDL version only).
+  * Added more levels.
+  * Added sound effects (SDL version only).
+  * Added music (SDL version only).
+
+2001.10.05
+  * Added "input" windowmanager hint and title, so program will appear in
+    VRSM window lists (VR->Windows menu, and Statusbar app windowlist).
+    This works around a current bug in VRSM.
+  * Added 4 more levels.
+  * Added level selection at title screen.
+
+2001.08.24
+  * Tweaked "Makefile" to build for SNOW-based Agendas
+
+2001.07.01
+  by Tom Satter (tsatter@purecode.com)
+
+  * Fixed paddle movement so that it also can go off
+    the screen when using the keyboard
+  * Fixed paddle so that it can't move faster with mouse than
+    with keyboard
+  * Paddle changed so that it has seven areas for adding
+    slope to the ball.  The new ball angle is now determined
+    by both the paddle hit location and the previous ball 
+    slope
+  * Ball speed corrected so that it moves at the same speed
+    no matter which angle it is moving
+  * Turned on Launch button after level is completed
+  * Fixed problem where ball was leaving a hole in the middle
+    of the new level after a level was completed
+  * Ball now launches closer to the X location of the paddle
+  * Brick collisions are detected correctly.  There are a 
+    few quirks especially around the corners, but they can
+    be ignored without disrupting the game
+  * The ball now speeds up much more gradually as it hits
+    the top of the playing field.
+  * Ball counter now updates when a ball is lost
+  * Added one more level
+
+2001.05.21
+  * GNU General Public License (GPL) included (see COPYING.txt)
+
+2001.05.20
+  Controls:
+    * Paddle can move off the edges of the screen some.
+  Feedback:
+    * Sound played when ball hits top of screen.
+  Gameplay:
+    * Level advancement!
+
+2001.05.18
+  Controls:
+    * Keyboard paddle movement slowed down.
+    * More keyboard controls added (for PCs).
+    * Cursor (stylus/mous) movements accepted for paddle on entire screen.
+    * Tappable "Launch" button added to launch new ball.
+  Feedback:
+    * Sound effects added.
+    * Status values (score, balls, level) added.
+    * Added water.
+    * Only brick redrawn, not entire screen.
+    * README.txt updated some.
+  Gameplay:
+    * Scoring added.
+    * Ball speeds up once it's hit the top of the screen.
+    * Game ends when balls used up.
+    * Ball-to-brick collisions fixed somewhat.
+    * Speed throttling code set up.
+
+2001.05.17
+  * Initial release.
