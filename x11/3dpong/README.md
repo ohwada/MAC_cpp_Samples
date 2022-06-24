@@ -34,6 +34,7 @@ Use your paddle to deflect the ball and keep it from getting in your goal. <br/>
 ### INSTALLING
 Require : <br/>
 - libx11 <br/>
+- aplay or afplay (optional) <br/>
 
 for Linux or MacOSX <br/>
 % cd build <br/>
