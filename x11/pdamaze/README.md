@@ -7,10 +7,10 @@ This is Clone <br/>
 http://www.newbreedsoftware.com/pdamaze/ <br/>
 
 Changes:
-added CMakeLists.txt, <br/>
+(1) added CMakeLists.txt, <br/>
 so that you can build on Mac OS X <br/>
-added scrren shots <br/>
-No other changes <br/>
+(2) added scrren shots <br/>
+(3) No other changes <br/>
 
 ### About:
   "PDA Maze" is a simple Maze Game.  <br/>
