@@ -7,7 +7,8 @@ This is Clone <br/>
 http://www.newbreedsoftware.com/pdamaze/ <br/>
 
 Changes:
-added CMakeLists.txt  <br/>
+added CMakeLists.txt, <br/>
+so that you can build on Mac OS X <br/>
 added scrren shots <br/>
 No other changes <br/>
 

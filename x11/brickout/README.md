@@ -7,7 +7,8 @@ This is Clone <br/>
 http://www.newbreedsoftware.com/brickout/ <br/>
 
 Changes :   <br/>
-added CMakeLists.txt <br/>
+added CMakeLists.txt, <br/>
+so that you can build on Mac OS X <br/>
 and slight changes <br/>
 
 
