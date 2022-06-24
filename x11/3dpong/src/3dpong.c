@@ -1669,7 +1669,9 @@ void playsound(char * aufile)
       char file[BUFSIZE];
 
 // Note:
-// currently /dev/audio is not supported
+// previously, / dev/audio was available as an audio input / output device. 
+// currently, not supported. 
+// so use aplay or afplay instead of / dev/audio
 
   if (use_sound == 1)
     {
