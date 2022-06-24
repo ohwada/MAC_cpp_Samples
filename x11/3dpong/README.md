@@ -9,12 +9,12 @@ http://www.newbreedsoftware.com/3dpong/index2.php3 <br/>
 Changes :   <br/>
 (1) added CMakeLists.txt, <br/>
 so that you can build on Mac OS X <br/>
-(2) added sound.h :  <br/>
+(2) added #include header, <br/>
+to eliminate compile errors <br/>
+(3) added sound.h :  <br/>
 previously, / dev/audio was available as an audio input / output device. <br/>
 currently, not supported. <br/>
 so use aplay or afplay instead of / dev/audio <br/>
-(3) added #include header, <br/>
-to eliminate compile errors <br/>
 
 
 ### WHAT IS 3D PONG?
