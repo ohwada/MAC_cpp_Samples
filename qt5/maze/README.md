@@ -1,7 +1,7 @@
 QT5 PDA Maze
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/battle.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/maze/screenshots/game.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/EXL/PDA_Maze <br/>
