@@ -1,7 +1,7 @@
 QT5 Battle Ship Game
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/battle.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/battle.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/AndLvovSky/battleship-game <br/>
@@ -28,18 +28,18 @@ Require : <br/>
 ## How to Play
 
 (1) click "Settings" in menu <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/menu.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/menu.png" width="300" /> <br/>
 
 (2) choose Ships number <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/settings.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/settings.png" width="300" /> <br/>
 
 (3) click "Start Game" in menu <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/start.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/start.png" width="300" /> <br/>
 
 (4) place Your ships <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/place.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/place.png" width="300" /> <br/>
 
 (5) choose square to fire  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/scrrenshots/battle.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/battle_ship/screenshots/battle.png" width="300" /> <br/>
 
 
