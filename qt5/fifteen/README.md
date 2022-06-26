@@ -1,7 +1,7 @@
 QT5 Fifteen
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/fifteen/scrrenshots/fifteen.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/fifteen/screenshots/fifteen.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/AleksandrRybin/fifteen-game <br/>
