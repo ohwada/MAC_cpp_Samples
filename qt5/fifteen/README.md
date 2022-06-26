@@ -12,10 +12,10 @@ Changes: <br/>
 
 
 ### About:
-15 puzzle is sliding puzzle having 15 square tiles
-https://en.wikipedia.org/wiki/15_puzzle
+15 puzzle is sliding puzzle having 15 square tiles <br/>
+https://en.wikipedia.org/wiki/15_puzzle <br/>
 
-This program is in C++ with Qt 5.10
+This program is in C++ with Qt 5.10 <br/>
 
 ### Installing:
 Require : <br/>
