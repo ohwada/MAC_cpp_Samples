@@ -9,6 +9,7 @@ https://formulae.brew.sh/formula/qt <br/>
 ### setup
  link qmake and pkgconfig flies to system area <br/>
 % bash setup.sh <br/>
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/qt5/setup/setup.sh <br/>
 
 check <br/>
 % qmake -v <br/>
