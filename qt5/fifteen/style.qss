@@ -1,0 +1,64 @@
+FifteenPushButton {
+    background-color: #f0e68c;
+    width: 55px;
+    height: 55px;
+    font-size: 21px;
+    font-style: bold;
+    margin: 0.35px;
+    border-radius: 1.5px;
+}
+
+FifteenPushButton:hover {
+    border: 4px solid #ff5722;
+}
+
+FifteenPushButton:disabled {
+    background-color: #607d7a;
+}
+
+QMessageBox {
+    font-size: 15.5px;
+    background-color: #f1f1f1;
+    messagebox-text-interaction-flags: 1;
+}
+
+QMessageBox QPushButton {
+    background-color: #4CAF50;
+    font-size: 14px;
+    subcontrol-origin: content;
+    subcontrol-position: center center;
+}
+
+#start_again_btn:disabled {
+    background-color: #9e9e9e;
+}
+
+#back_move_btn:disabled {
+    background-color: #9e9e9e;
+}
+
+MainWindow {
+    background-color: #f1f1f1;
+}
+
+#new_game_btn {
+    border: 2px solid #cddc39;
+    height: 27px;
+    border-radius: 4px;
+}
+
+#start_again_btn {
+    border: 2px solid #2196F3;
+    height: 27px;
+    border-radius: 4px;
+}
+
+#back_move_btn {
+    border: 2px solid #ff5722;
+    height: 27px;
+    border-radius: 4px;
+}
+
+#complexity_num_sldr {
+    border-radius: 4px;
+}

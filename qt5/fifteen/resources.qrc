@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>img/internet.png</file>
+        <file>img/replay.png</file>
+        <file>img/brain.png</file>
+        <file>img/back.png</file>
+        <file>img/new.png</file>
+    </qresource>
+    <qresource prefix="/style">
+        <file>style.qss</file>
+    </qresource>
+</RCC>

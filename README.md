@@ -73,6 +73,9 @@ input string from std::cin <br/>
 ### qt
 Cross-platform application and UI framework  <br/>
 
+### qt5
+Cross-platform application and UI framework <br/>
+
 ### ncurses
 Text-based UI library <br/>
 

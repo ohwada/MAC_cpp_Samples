@@ -1,0 +1,9 @@
+test/test_models_build/*
+*.user
+*.autosave
+UML/*
+!UML/diagrams_in_pdf
+!UML/BattleshipGame.vpp
+other/settings.txt
+docs/
+
