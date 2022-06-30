@@ -9,11 +9,33 @@
 #include <stdbool.h>
 
 // prototype
+bool isAlphaNumerical(int c);
+ bool isAlphabet(int c);
 bool isUpper(int c);
 bool isLower(int c);
 bool isDigit(int c);
 int toUpper(int c);
 int toLower(int c);
+
+
+/**
+ * isAlphaNumerica
+ */
+bool isAlphaNumerical(int c)
+{
+    bool ret = (isAlphabet(c) || isDigit(c) )? true: false;
+    return ret;
+}
+
+
+/**
+ * isAlphabet
+ */
+ bool isAlphabet(int c)
+{
+    bool ret = ( isUpper(c) || isLower(c) )? true: false;
+    return ret;
+}
 
 
 /**
