@@ -31,6 +31,9 @@ Cross-platform make <br/>
 ### x11
 draw octagon on X11 Window <br/>
 
+### sound
+play sound using paplay or afplay <br/>
+
 ### vsprintf
 C Sample of variable length arguments  <br/>
 
