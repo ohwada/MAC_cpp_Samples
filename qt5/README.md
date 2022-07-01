@@ -3,7 +3,7 @@ QT5
 
 QT Sample <br/>
 
-QT : Cross-platform application and UI framework
+QT : Cross-platform application and UI framework  <br/>
 https://www.qt.io/ <br/>
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/hello2/hello2.png" /> <br/>

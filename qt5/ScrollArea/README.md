@@ -4,7 +4,7 @@ QT Scroll Area
 QT Sample <br/>
 scroll window <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/ScrollArea/ScrollArea.png" > <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/ScrollArea/ScreollArea.png" > <br/>
 
 Build and Run <br/>
 (1) % qmake -project <br/>
