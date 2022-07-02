@@ -166,7 +166,7 @@ void putballinplay(int pln);
 void recalculatetrig(int i);
 float total(float queue[]);
 void adddebris(void);
-void playsound(char * aufile);
+void playAuSound(char * aufile);
 void show_usage(char * arg, FILE * r, int ext);
 
 
@@ -532,13 +532,13 @@ void eventloop(void)
 	    {
 	      ball_x = -X_WIDTH + BALL_SIZE;
 	      ball_xm = -ball_xm;
-	      playsound("wall");
+	      playAuSound("wall");
 	    }
 	  else if (ball_x > X_WIDTH - BALL_SIZE)
 	    {
 	      ball_x = X_WIDTH - BALL_SIZE;
 	      ball_xm = -ball_xm;
-	      playsound("wall");
+	      playAuSound("wall");
 	    }
 	  
 	  
@@ -550,13 +550,13 @@ void eventloop(void)
 	    {
 	      ball_y = -Y_HEIGHT + BALL_SIZE;
 	      ball_ym = -ball_ym;
-	      playsound("wall");
+	      playAuSound("wall");
 	    }
 	  else if (ball_y > Y_HEIGHT - BALL_SIZE)
 	    {
 	      ball_y = Y_HEIGHT - BALL_SIZE;
 	      ball_ym = -ball_ym;
-	      playsound("wall");
+	      playAuSound("wall");
 	    }
 	  
 	  
@@ -589,7 +589,7 @@ void eventloop(void)
 		  /* They hit it!  Bounce! */
 		  
 		  adddebris();
-		  playsound("hit");
+		  playAuSound("hit");
 
 		  ball_speed = ball_speed + 1;
 		  ball_z = -Z_DEPTH + BALL_SIZE;
@@ -628,7 +628,7 @@ void eventloop(void)
 		    {
 		      /* They missed it!  Score to player 2! */
 		      
-		      playsound("score");
+		      playAuSound("score");
 		      ball_in_play = 0;
 		      ball_waiting_for = 1;
 		      score[1]++;
@@ -662,7 +662,7 @@ void eventloop(void)
 		      /* They hit it!  Bounce! */
 		      
 		      adddebris();
-		      playsound("hit");
+		      playAuSound("hit");
 		      
 		      ball_speed = ball_speed + 1;
 		      ball_z = Z_DEPTH - BALL_SIZE;
@@ -687,7 +687,7 @@ void eventloop(void)
 		    {
 		      /* They missed it!  Score to player 1! */
 		      
-		      playsound("score");
+		      playAuSound("score");
 		      ball_in_play = 0;	
 		      ball_waiting_for = 0;
 		      score[0]++;
@@ -697,7 +697,7 @@ void eventloop(void)
 		{
 		  ball_z = Z_DEPTH - BALL_SIZE;
 		  ball_zm = -ball_zm;
-		  playsound("wall");
+		  playAuSound("wall");
 		}
 	    }
 	  
@@ -709,7 +709,7 @@ void eventloop(void)
 	      if (ball_z >= -BALL_SIZE && ball_z <= BALL_SIZE &&
 		  ball_y >= net_height - BALL_SIZE)
 		{
-		  playsound("wall");
+		  playAuSound("wall");
 		  ball_zm = -ball_zm;
 		  ball_z = ball_z + ball_zm;
 		}
@@ -1283,10 +1283,10 @@ void setup(int argc, char * argv[])
       if (strcmp(argv[argc - 1], "--sound") == 0 ||
 	  strcmp(argv[argc - 1], "-s") == 0)
 	{
-        if( existsFile( PLAY_CMD ) ) {
+        if( existsFile( CMD_PLAY ) ) {
 	        use_sound = 1;
         } else {
-            fprintf(stderr, "not found: %s \n", PLAY_CMD);
+            fprintf(stderr, "not found: %s \n", CMD_PLAY);
             exit(1);
         }
 	  
@@ -1662,10 +1662,9 @@ void adddebris(void)
 
 /* Play a sound (if we can): */
 
-void playsound(char * aufile)
+void playAuSound(char * aufile)
 {
     const int BUFSIZE = 1024;
-    char cmd[BUFSIZE];
       char file[BUFSIZE];
 
 // Note:
@@ -1675,12 +1674,10 @@ void playsound(char * aufile)
 
   if (use_sound == 1)
     {
-        // sprintf(cmd, "/bin/cat sounds/%s.au > /dev/audio &", aufile);
-
         snprintf(file, BUFSIZE-1, "sounds/%s.au", aufile);
-        snprintf(cmd, BUFSIZE-1, "%s %s", PLAY_CMD, file );
+
         if( existsFile( (char *)file) ) {
-            system(cmd);
+            playSound( (char *)file );
         } else {
             fprintf(stderr, "not found: %s \n", file);
         }
