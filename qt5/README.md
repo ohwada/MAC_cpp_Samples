@@ -41,6 +41,9 @@ draw slider and button <br/>
 ### signal
 Signal and Slot <br/>
 
+### collidingmice
+Colliding Mice Example <br/>
+
 #### fifteen
 Fifteen Game <br/>
 
