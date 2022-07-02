@@ -1,0 +1,31 @@
+
+QPushButton {
+  font-family: 'Impact', fantasy;
+  font: 30px;
+  padding: 10px 30px;
+  margin: 10px 20px;
+  position: relative;
+  border: 2px solid white;
+  border-radius: 15px;
+  background: rgba(255, 0, 0, 125);
+  color: white;
+}
+
+QPushButton:hover {
+  background: rgba(255, 0, 0, 200);
+  color: #fff;
+}
+
+
+QPushButton:pressed {
+    background: rgba(161, 6, 6, 200);
+}
+
+QLabel {
+  font-family: 'Impact', fantasy;
+  border: 2px solid black;
+  background: rgba(161, 6, 6, 200);
+  color: white;
+}
+
+
