@@ -1,7 +1,7 @@
 QT5 Tanks
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/tanks/scrrenshots/bricks.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qt5/tanks/Screenshots/bricks.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/magziim/Tanks <br/>
