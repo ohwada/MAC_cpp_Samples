@@ -1,5 +1,5 @@
 /**
- * C++ Sample
+ * test_file_list_ext.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -7,6 +7,8 @@
 // using C++11
 
 // test for getFileList
+
+// g++ test_file_list_ext.cpp -o list
 
 #include <iostream>
 #include "file_list_ext.hpp"

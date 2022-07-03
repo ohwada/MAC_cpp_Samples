@@ -1,10 +1,9 @@
 #pragma once
 /**
- * C++ Sample
+ * file_util.hpp
  * 2020-03-01 K.OHWADA
  */
 
-// file utility
 // read write text file
 
 #include <fstream>

@@ -1,11 +1,11 @@
 /**
- * C Sample
+ * test_file_list.c
  * 2021-02-01 K.OHWADA
  */
 
 // get filenames in directory
-// gcc file_list.c
 
+// gcc  test_file_list.c -o list 
 
 #include <stdio.h>
 #include <stdlib.h>

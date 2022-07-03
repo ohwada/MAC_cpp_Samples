@@ -1,6 +1,6 @@
 #pragma once
 /**
- * C Sample
+ * file_list.h
  * 2021-02-01 K.OHWADA
  */
 

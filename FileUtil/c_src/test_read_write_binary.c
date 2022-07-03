@@ -1,10 +1,11 @@
 /**
- * C Sample
+ * test_read_write_binary.c 
  * 2020-02-01 K.OHWADA
  */
 
-// read and write binary file 
 // test for file_util.h
+
+// gcc test_read_write_binary.c -o binary
 
 #include <stdio.h>
 #include "file_util.h"
@@ -16,7 +17,7 @@
 int main(int argc, char** argv)
 { 
 
-    char* input = "data/baboon.png";
+    char* input = "../data/baboon.png";
     char* output = "baboon_out.png";
 
     if(argc == 3) {

@@ -1,10 +1,12 @@
 /**
- * C++ Sample
+ * test_parse_filename.cpp
  * 2020-03-01 K.OHWADA
  */
 
 // parse file fullpath
 // test for parse_filename.hpp
+
+// g++ test_parse_filename.cpp -o parse
 
 #include <string> 
 #include <iostream>

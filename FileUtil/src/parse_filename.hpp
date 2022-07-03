@@ -1,6 +1,6 @@
 #pragma once
 /**
- * C++ Sample
+ * parse_filename.hpp
  * 2020-03-01 K.OHWADA
  */
 

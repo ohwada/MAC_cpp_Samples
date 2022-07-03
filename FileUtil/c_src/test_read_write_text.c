@@ -1,10 +1,12 @@
 /**
- * C Sample
+ * test_read_write_text.c
  * 2020-02-01 K.OHWADA
  */
 
 // read and write text file 
 // test for text_file.h
+
+// gcc test_read_write_text.c -o text
 
 #include <stdio.h>
 #include "file_util.h"
@@ -15,7 +17,7 @@
 int main(int argc, char** argv)
 { 
 
-    char* input = "data/sample.txt";
+    char* input = "sample.txt";
     char* output = "sample_out.txt";
 
     if(argc == 3) {

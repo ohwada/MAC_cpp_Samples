@@ -1,10 +1,12 @@
 /**
- * C Sample
+ * test_file_text_copy.c
  * 2020-02-01 K.OHWADA
  */
 
 // copy text file
 // test for  file_text_copy()
+
+//  gcc test_file_text_copy.c -o copy
 
 #include <stdio.h>
 #include "file_util.h"
@@ -16,7 +18,7 @@
 int main(int argc, char* argv[])
 {
 
-    char* from = "data/sample.txt";
+    char* from = "sample.txt";
     char* to = "sample_out.txt";
 
     if(argc == 3) {

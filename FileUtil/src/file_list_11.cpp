@@ -1,5 +1,5 @@
 /**
- * C++ Sample
+ * file_list_11.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -7,6 +7,7 @@
 
 // reference : https://linuxjm.osdn.jp/html/LDP_man-pages/man3/readdir.3.html
 
+// g++ file_list_11.cpp -o list11
 
 #include <iostream>
 #include <string>

@@ -1,10 +1,12 @@
 /**
- * C Sample
+ * test_file_exists.c
  * 2020-02-01 K.OHWADA
  */
 
 // check file exists
 // test for  file_exists()
+
+// gcc test_file_exists.c -o exists
 
 #include <stdio.h>
 #include "file_util.h"
@@ -14,7 +16,7 @@
  */
 int main(int argc, char *argv[]) 
 {
-    char * file = "data/sample.txt";
+    char * file = "sample.txt";
 
     if (argc == 2) {
         file = argv[1];

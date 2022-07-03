@@ -1,5 +1,5 @@
 /**
- * C++ Sample
+ * file_list_17.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -7,7 +7,7 @@
 // https://en.cppreference.com/w/cpp/filesystem/directory_iterator
 
 // require option c++17
-// g++ file_list_17.cpp -std=c++17
+// g++ file_list_17.cpp -std=c++17 -o list17
 
 
 #include <iostream>

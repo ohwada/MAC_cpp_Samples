@@ -1,10 +1,8 @@
 #pragma once
 /**
- * C Sample
+ * file_util.h
  * 2020-02-01 K.OHWADA
  */
-
-// file utility
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,6 +11,7 @@
 #include  <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <time.h>
 #include <sys/stat.h>
 
 

@@ -1,10 +1,12 @@
 /**
- * C Sample
+ * test_file_rename.c
  * 2020-03-01 K.OHWADA
  */
 
 // rename file
 // test for file_rename()
+
+// gcc test_file_rename.c -o rename
 
 #include <stdio.h>
 #include "file_util.h"

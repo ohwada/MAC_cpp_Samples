@@ -1,12 +1,12 @@
 /**
- * C++ Sample
+ * test_getTimestampFileName.cpp
  * 2020-03-01 K.OHWADA
  */
 
 
 // test for getTimestampFileName
 
-// g++  src/test_getTimestampFileName.cpp -std=c++11
+// g++  test_getTimestampFileName.cpp -std=c++11 -o timestampfilename
 
 #include <iostream>
 #include <string> 
