@@ -1,4 +1,4 @@
-wav
+wev
 ===============
 
 wav Sample <br/>
@@ -13,7 +13,7 @@ https://developer.apple.com/library/archive/documentation/MusicAudio/Conceptual/
 create tone wav file <br/>
 
 ### build sample code 
-% g++ create_tone_wav.cpp wav_header.c  -o tone <br/>
+% g++ create_tone_wav.cpp -o tone <br/>
 
 ### run sample code 
 Usage: ./tone [freq] [duration]  <br/>
@@ -27,7 +27,7 @@ create wav file of "Flog Sng" <br/>
 https://youtu.be/H18SYpZShmQ <br/>
 
 ### build sample code 
-% g++ create_wav_flog_song.cpp flog_song.cpp wav_header.c  -o flog -std=c++11 <br/>
+% g++ create_wav_flog_song.cpp flog_song.cpp -o flog -std=c++11 <br/>
 
 ### run sample code 
 % ./flog  <br/>
@@ -38,7 +38,7 @@ ctreate flog_song.wav  <br/>
 play wav file with OpenAL <br/>
 
 ### build sample code 
-% g++ play_wav_with_openal.cpp wav_header.c -o play -framework OpenAL
+% g++ play_wav_with_openal.cpp -o play -framework OpenAL
 
 
 ### run sample code 
@@ -53,7 +53,7 @@ play wav file with PulseAudio <br/>
 reqire PulseAudio <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/PulseAudio <br/>
 
-% g++ play_wav_with_pulseaudio.cpp wav_header.c -o pa `pkg-config --cflags --libs libpulse` -lpulse-simple
+% g++ play_wav_with_pulseaudio.cpp -o pa `pkg-config --cflags --libs libpulse` -lpulse-simple
 
 ### run sample code 
 Usage: ./pa \ <wavFile \> <br/> 
