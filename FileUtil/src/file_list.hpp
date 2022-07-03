@@ -1,6 +1,6 @@
 #pragma once
 /**
- * file_list_ext.hpp
+ * file_list.hpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -24,7 +24,9 @@
 
 // porototype
 bool getFileList(std::string str_path, std::string ext, std::vector<std::string> &vec, std::string &error );
+bool existsFile(std::string path); 
 bool file_exists (char* path);
+bool isDir(std::string path);
 bool is_dir(char* path);
 bool match_ext(std::string str, std::string ext);
 void printFileList(  std::vector<std::string> vec);
@@ -67,7 +69,13 @@ bool getFileList(std::string str_path, std::string ext, std::vector<std::string>
         if (( file == DOT  )||( file == TWO_DOT )){
             continue;
         }
-        bool ret = match_ext(file, ext);
+
+        bool ret = false;
+        if( ext.length() > 0 ) {
+            ret = match_ext(file, ext);
+        } else {
+            ret = true;
+        }
         if(ret) {
             vec.push_back( std::string( ent->d_name ) );
         }
@@ -80,15 +88,35 @@ bool getFileList(std::string str_path, std::string ext, std::vector<std::string>
 
 
 /**
+ * existsFile
+ */
+bool existsFile(std::string path) 
+{
+    return file_exists(  (char *)path.c_str() ); 
+}
+
+
+/**
  * file_exists
  */
-bool file_exists (char *path) 
+bool file_exists(char *path) 
 {
     struct stat   sb;   
     int ret = stat(path, &sb);
     bool res = ( ret == 0 )? true: false;
     return res;
 }
+
+
+ /**
+ * isDir
+ */
+bool isDir(std::string path)
+{
+    return is_dir( (char *)path.c_str() );
+}
+
+
 /**
  * is_dir
  */
@@ -114,7 +142,7 @@ bool match_ext(std::string str, std::string ext)
     const std::string DOT = (char *)".";
     std::string dot_ext = DOT + ext;
     int pos = str.rfind(dot_ext );
-    bool ret = (pos == std::string::npos)?false:true;
+    bool ret = (pos == std::string::npos)? false: true;
     return ret;
 }
 

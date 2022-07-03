@@ -1,5 +1,5 @@
 /**
- * test_file_list_ext.cpp
+ * test_file_list.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -8,10 +8,10 @@
 
 // test for getFileList
 
-// g++ test_file_list_ext.cpp -o list
+// g++ test_file_list.cpp -o list
 
 #include <iostream>
-#include "file_list_ext.hpp"
+#include "file_list.hpp"
 
 
 using namespace std;
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 // current directory
     string path = ".";
 
-    string ext = "cpp";
+    string ext = "";
 
     if(argc == 3) {
         path = argv[1];
