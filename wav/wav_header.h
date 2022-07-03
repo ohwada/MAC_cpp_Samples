@@ -1,6 +1,6 @@
 #pragma once
 /**
- * wavheader
+ * wav_header.h
  * 2020-03-01 K.OHWADA
  */
 

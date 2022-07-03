@@ -1,5 +1,5 @@
 /**
- * wav Sample
+ * create_tone_wav.cpp
  * 2020-03-01 K.OHWADA
  */
 

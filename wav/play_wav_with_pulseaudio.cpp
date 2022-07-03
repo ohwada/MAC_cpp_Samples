@@ -1,5 +1,5 @@
 /**
- * wav Sample
+ * play_wav_with_pulseaudio.cpp
  * 2020-03-01 K.OHWADA
  */
 

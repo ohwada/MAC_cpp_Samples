@@ -1,5 +1,5 @@
 /**
- * wav Sample
+ * play_wav_with_openal.cpp
  * 2020-03-01 K.OHWADA
  */
 

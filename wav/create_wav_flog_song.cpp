@@ -1,5 +1,5 @@
 /**
- * wav Sample
+ * create_wav_flog_song.cpp
  * 2020-03-01 K.OHWADA
  */
 
