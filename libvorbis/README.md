@@ -12,14 +12,14 @@ https://xiph.org/vorbis/ <br/>
 % brew install libvorbis <br/>
 https://formulae.brew.sh/formula/libvorbis <br/>
 % pkg-config --cflags --libs vorbis br/>
-> /usr/local/Cellar/libvorbis/1.3.7/include br/>
+> /usr/local/Cellar/libvorbis/1.3.7/include <br/>
 
 % brew install libogg <br/>
 https://formulae.brew.sh/formula/libogg <br/>
 % pkg-config --cflags --libs ogg  br/>
-> /usr/local/Cellar/libogg/1.3.5/include br/>
+> /usr/local/Cellar/libogg/1.3.5/include <br/>
 
-## conv_wav_to_wav.cpp
+## conv_ogg_to_wav.cpp
 convert ogg file to wav file <br/>
 
 Build and Run  <br/>
@@ -27,7 +27,7 @@ Build and Run  <br/>
 %  ./decode ./media/m-art_Shine.ogg <br/> 
 
 
-## conv_wav_to_wav.cpp
+## conv_wav_to_oga.cpp
 convert wav file to ogg file <br/>
 
 Build and Run  <br/>
