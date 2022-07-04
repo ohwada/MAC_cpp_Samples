@@ -1,5 +1,6 @@
+#pragma once
 /**
- * libvorbis Sample
+ * ogg_reader.hpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -18,6 +19,9 @@
 #define OGG_READER_CONTINUE 0
 #define OGG_READER_END 1
 
+const int OGG_OPEN_SUCCESS = 0;
+const int OGG_ERR_FOPEN = 1;
+const int OGG_ERR_OVOPEN = 2;
 
 /**
  * class OggReader

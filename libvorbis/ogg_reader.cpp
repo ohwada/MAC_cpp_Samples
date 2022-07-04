@@ -1,11 +1,11 @@
 /**
- * libvorbis Sample
+ * ogg_eader.cpp
  * 2020-03-01 K.OHWADA
  */
 
 
 
- #include "OggReader.hpp"
+ #include "ogg_reader.hpp"
 
 using namespace std;
 
@@ -47,14 +47,14 @@ int OggReader::open(char *filename)
     // open input
     m_fp = fopen(filename, "rb");
 	if (!m_fp){
-		return 1;
+		return OGG_ERR_FOPEN;
 	}
 
     // open ogg Vorbis
     int ret = ov_open(m_fp, &m_ovf, NULL, 0);
 	if (ret != 0){
         fclose(m_fp);
-		return 2;
+		return OGG_ERR_OVOPEN;
 	}
 
 	m_total = ov_pcm_total(&m_ovf, -1);
@@ -63,7 +63,7 @@ int OggReader::open(char *filename)
 
     m_total_frames = ( m_total / OGG_READER_BUFF_SIZE ) ;
 
-    return 0;
+    return OGG_OPEN_SUCCESS;
 }
 
 

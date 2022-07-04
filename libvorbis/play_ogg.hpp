@@ -1,0 +1,160 @@
+/**
+ * play_ogg.hpp
+ * 2020-03-01 K.OHWADA
+ */
+
+
+// play ogg file with OpenAL
+// reference : https://w.atwiki.jp/opengl/pages/172.html
+
+// macOS
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
+
+#include <iostream>
+#include <unistd.h> // sleep
+
+#include "ogg_reader.hpp"
+
+bool playSound(char* file) ;
+
+
+
+/**
+ * playSound
+ */
+bool playSound(char* file) 
+{
+
+    OggReader reader;
+
+    ALuint source, buffer;
+    ALint state, num;
+
+    ALCdevice* device = alcOpenDevice(NULL);
+	if (!device){
+         std::cout << "alcOpenDevice Faild" << std::endl;;
+        return false;
+	}
+    ALCcontext* context = alcCreateContext(device, NULL);
+	if (!context){
+         std::cout << "alcCreateContext Faild" <<  std::endl;
+        return false;
+	}
+
+    alcMakeContextCurrent(context);
+    alGenSources(1, &source);
+
+
+    int ret1 = reader.open(file);
+    if(ret1 != 0){
+         std::cout << "open Faild: " << file <<  std::endl;
+        return false;
+    }
+
+    reader.printFileInfo();
+
+    // number of 10 seconds frames
+    int num_frames_about_10_secs = 10 *  reader.FRAMES_PER_SEC;
+
+// endless loop
+// exit the loop, when read all the data
+    int isFirst = 1; // show debug message at once 
+    while(1) {
+
+        int ret2 = reader.read();
+        if(ret2 == OGG_READER_END){
+            break;
+        }
+
+        if(isFirst){
+            isFirst = 0;
+            reader.printOvInfo();
+        }
+
+        char *data = reader.getBuffer();
+
+        alGetSourcei(source, AL_BUFFERS_QUEUED, &num);
+        if (num < num_frames_about_10_secs) {
+            // reading data
+            alGenBuffers(1, &buffer);
+        } else {
+            // it seems that all the data has been read
+            alGetSourcei(source, AL_SOURCE_STATE, &state);
+                if (state != AL_PLAYING) {
+                    // play in not
+                    alSourcePlay(source);
+                    std::cout << "\n alSourcePlay" << std::endl;
+                }
+
+                // wait for the buffer to be processed
+                while (alGetSourcei(source, AL_BUFFERS_PROCESSED, &num), num == 0) {
+                    sleep(1);
+                }
+
+                // remove buffer fron queue
+                alSourceUnqueueBuffers(source, 1, &buffer);
+
+        } // if num
+
+        alBufferData(buffer, AL_FORMAT_STEREO16, data, OGG_READER_BUFF_SIZE, OGG_READER_SAMPLINGRATE);
+        alSourceQueueBuffers(source, 1, &buffer);
+
+        reader.printPregress();
+
+    } //  while
+
+
+// close
+    reader.close();
+    fprintf(stderr, "\n"); // add LF to progress
+
+
+// play if not
+    alGetSourcei(source, AL_SOURCE_STATE, &state);
+    if (state != AL_PLAYING) {
+        alSourcePlay(source);
+         std::cout << "alSourcePlay" <<  std::endl;
+    }
+
+
+// wait to finish
+    state = AL_PLAYING;
+    while (1)
+    {
+
+        alGetSourcei(source, AL_SOURCE_STATE, &state);
+        if (state != AL_PLAYING){
+            // finish
+            break;
+        }
+
+        ALenum err = alGetError(); 
+        if(err != AL_NO_ERROR){
+              std::cout << "play Faild: " << err << std:: endl;
+            break;
+        }
+
+        sleep(1);
+
+  } // while
+
+
+// remove queueing buffers
+    ALint num_processed;
+    alGetSourcei(source, AL_BUFFERS_PROCESSED, &num_processed);
+    for(int i=0; i<num_processed; i++){
+        alSourceUnqueueBuffers(source, 1, &buffer);
+        alDeleteBuffers(1, &buffer);
+    }
+
+
+// cleanup
+    alDeleteSources(1, &source);
+    alcMakeContextCurrent(NULL);
+    alcDestroyContext(context);
+    alcCloseDevice(device);
+
+	return true;
+}
+

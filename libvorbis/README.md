@@ -2,7 +2,6 @@ libvorbis
 ===============
 
 libvorbis Sample <br/>
-
 play ogg file <br/>
 
 Vorbis audio compression <br/>
@@ -12,52 +11,40 @@ https://xiph.org/vorbis/ <br/>
 ### install libvorbis and libogg
 % brew install libvorbis <br/>
 https://formulae.brew.sh/formula/libvorbis <br/>
+% pkg-config --cflags --libs vorbis br/>
+> /usr/local/Cellar/libvorbis/1.3.7/include br/>
 
 % brew install libogg <br/>
 https://formulae.brew.sh/formula/libogg <br/>
+% pkg-config --cflags --libs ogg  br/>
+> /usr/local/Cellar/libogg/1.3.5/include br/>
 
-## conv_wav.cpp
+## conv_wav_to_wav.cpp
 convert ogg file to wav file <br/>
 
-### build sample code 
-% g++ conv_wav.cpp OggReader.cpp wav_header.c parse_filename.cpp -o conv `pkg-config --cflags --libs vorbis`  -lvorbisfile
+Build and Run  <br/>
+% g++ conv_ogg_to_wav.cpp ogg_reader.cpp -o decode -std=c++11 `pkg-config --cflags --libs vorbis`  -lvorbisfile  <br/>
+%  ./decode ./media/m-art_Shine.ogg <br/> 
 
-### run sample code 
-Usage: ./conv <oggFile> <br/> 
-ex) <br/>
-%  ./conv ./media/m-art_Shine.ogg <br/> 
 
-saved: m-art_Shine.ogg.wav <br/>
+## conv_wav_to_wav.cpp
+convert wav file to ogg file <br/>
+
+Build and Run  <br/>
+% g++ conv_wav_to_ogg.cpp -o encode  `pkg-config --cflags --libs vorbis` `pkg-config --cflags --libs ogg`  -lvorbisenc
+%  ./encode ./media/church-chime-daniel_simon.wav <br/>
+
 
 ## play_ogg.cpp
 play ogg file <br/>
 
-### build sample code 
+Build and Run <br/>
 require OpenAL <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenAL <br/>
 
-% g++ play_ogg.cpp OggReader.cpp -o play -framework OpenAL `pkg-config --cflags --libs vorbis` -lvorbisfile
-
-### run sample code 
-Usage: ./play \ <oggFile \> <br/> 
-ex) <br/>
+% g++ play_ogg.cpp ogg_reader.cpp -o play -framework OpenAL `pkg-config --cflags --libs vorbis` -lvorbisfile <br/>
 % ./play ./media/m-art_Shine.ogg <br/>
 
-## encode_from_wav.cpp
-encoder sample <br/>
-encode ogg from wav <br/>
-use libvorbisenc <br/>
-https://xiph.org/vorbis/doc/vorbisenc/index.html  <br/>
-
-### build sample code 
-% g++ encode_from_wav.cpp wav_header.c parse_filename.cpp -o encode  `pkg-config --cflags --libs vorbis` `pkg-config --cflags --libs ogg`  -lvorbisenc
-
-### run sample code 
-Usage: ./encode \ <wavFile \> <br/>
-ex) <br/>
-%  ./encode ./media/church-chime-daniel_simon.wav <br/>
-
-saved: church-chime-daniel_simon.wav.ogg
 
 ### Reference <br/>
 - https://xiph.org/vorbis/

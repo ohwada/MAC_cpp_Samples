@@ -1,5 +1,6 @@
+#pragma once
 /**
- * libvorbis Sample
+ * wav_ogg.hpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -35,22 +36,38 @@
 #include <climits>
 
 #include <vorbis/vorbisenc.h>
-
 #include "wav_header.h"
-
-#include"parse_filename.hpp"
-
-using namespace std;
 
 
 #define READ 1024
 #define BUF_SIZE 4096  // 4*READ
 
+const int ENCODE_SUCCESS = 0;
+const int ENCODE_ERR_INPUT = 1;
+const int ENCODE_ERR_OUTPUT = 2;
+const int ENCODE_ERR_FORMAT = 3;
+const int ENCODE_ERR_INIT = 4;
+const int ENCODE_ERR_WRITE = 5;
+
+// prototype
+int convWavToOgg(std::string input, std::string output);
+int wav_to_ogg(char* input, char *output);
+std::string addExtOgg( std::string file);
+
 
 /**
- * main
+ * convWavToOgg
  */
-int main(int argc, char** argv) 
+int convWavToOgg(std::string input, std::string output) 
+{
+    return wav_to_ogg( (char *) input.c_str(), (char *)output.c_str() );
+}
+
+
+/**
+ * wav_to_ogg
+ */
+int wav_to_ogg(char* input, char *output) 
 {
 
 const float ENCODE_QUALITY = 0.1;
@@ -74,29 +91,15 @@ signed char *readbuffer = new signed char[BUF_SIZE];
 
   int eos = 0;
 
-    if(argc < 2) {
-        cout << "Usage:" << argv[0] <<  " <wavFile> " << endl;
-        return EXIT_FAILURE;
-    }
-
-   char* input = argv[1];
-
-
-// output file
-    string fname = getFileNameWithExt(input);
-    string outfile = fname + ".ogg";
-    char* output = (char*)outfile.c_str();
-
    	FILE *fpin = fopen(input, "rb");
 	if(!fpin) {
-        cout << "fopen Faild : " << input << endl;
-        return EXIT_FAILURE;
+        return ENCODE_ERR_INPUT;
 	}
+
 
    	FILE *fpout = fopen(output, "wb");
 	if(!fpout) {
-        cout << "fopen Faild : " << output << endl;
-        return EXIT_FAILURE;
+        return ENCODE_ERR_OUTPUT;
 	}
 
     int wavChannels;
@@ -105,15 +108,15 @@ signed char *readbuffer = new signed char[BUF_SIZE];
     int wavSamplingrate;
     int ret1 = readWavHeader(fpin, &wavChannels, &wavBit, &wavSize, &wavSamplingrate);
 	if (ret1 != 0){
-        cout << "NOT wav format" << endl;
-        return EXIT_FAILURE;
+        return ENCODE_ERR_FORMAT;
 	}
 
     // wav info
-    cout << "wavChannels: " << wavChannels << endl;
-    cout << "wavSamplingrate: " << wavSamplingrate << endl;
-    cout << "wavBit: " << wavBit << endl;
-    cout << "wavSize: " << wavSize << endl;
+    std::cout << "wavChannels: " << wavChannels <<   std::endl;
+      std::cout << "wavSamplingrate: " << wavSamplingrate <<   std::endl;
+      std::cout << "wavBit: " << wavBit <<   std::endl;
+      std::cout << "wavSize: " << wavSize <<   std::endl;
+
 
 
   /********** Encode setup ************/
@@ -151,8 +154,7 @@ signed char *readbuffer = new signed char[BUF_SIZE];
 
   int ret2 = vorbis_encode_init_vbr(&vi, wavChannels, wavSamplingrate, ENCODE_QUALITY);
   if(ret2 != 0){
-        cout << "vorbis_encode_init_vbr Faild" << endl;
-        return EXIT_FAILURE;
+        return ENCODE_ERR_INIT;
     }
 
   /* do not continue if setup failed; this can happen if we ask for a
@@ -279,8 +281,18 @@ signed char *readbuffer = new signed char[BUF_SIZE];
 
   /* ogg_page and ogg_packet structs always point to storage in
      libvorbis.  They're never freed or manipulated directly */
-    cout <<"saved: " << output << endl;
 
-	return EXIT_SUCCESS;
+	return ENCODE_SUCCESS;
 }
+
+
+/**
+ * addExtOgg
+ */
+std::string addExtOgg( std::string file)
+{
+    std::string ogg = file + std::string(".ogg");
+    return ogg;
+}
+
 
