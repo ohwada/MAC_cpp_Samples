@@ -28,6 +28,9 @@ display exam score of each students <br/>
 ### cmake
 Cross-platform make <br/>
 
+### make
+Utility for directing compilation <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
