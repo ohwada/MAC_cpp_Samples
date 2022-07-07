@@ -1,6 +1,7 @@
 sound
 ===============
 
+### sound.h
 play sound using paplay or afplay <br/>
 
 paplay: Play back audio files on a PulseAudio sound server <br/>
@@ -16,3 +17,7 @@ Build and Run <br/>
 Note: <br/>
 paplay can not play mp3 aiff <br/>
 afplay can not play oga <br/>
+
+### sound2.h
+play oga <br/>
+Require: paplay <br/>

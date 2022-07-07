@@ -78,8 +78,10 @@ int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingra
 		return 2;
 	}
 
+#ifdef DEBUG
 	int dataSize = convInt(header, 4);
-	//printf("dataSize: %d \n", dataSize);
+	printf("dataSize: %d \n", dataSize);
+#endif
 
 	int wave = convInt(header, 8);
 	if(wave != WAVH_WAVE){
@@ -95,8 +97,10 @@ int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingra
 		return 4;
 	}
 
+#ifdef DEBUG
     int wFormatLength = convInt(header, 16);
-	//printf("wFormatLength: %d \n", wFormatLength);
+	printf("wFormatLength: %d \n", wFormatLength);
+#endif
 
     short pcm = convShort(header, 20);
 	if(pcm != WAVH_WFORMATTAG_PCM){
@@ -107,11 +111,12 @@ int readWavHeader(FILE* fp, int *channels, int* bits, int *size, int* samplingra
 
 	int samplesPerSec = convInt(header, 24);
 
+#ifdef DEBUG
     int byteParSec = convInt(header, 28);
-	// printf("byteParSec: %d \n", byteParSec);
-
+	printf("byteParSec: %d \n", byteParSec)
     short blockAlign = (int)convShort(header, 32);
-	// printf("blockAlign: %d \n", blockAlign);
+	printf("blockAlign: %d \n", blockAlign);
+#endif
 
     short bitsParSample = (int)convShort(header, 34);
 
