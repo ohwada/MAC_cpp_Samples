@@ -1,11 +1,11 @@
-result - libvorbis
+libvorbis : result
 ===============
 
 ## wav file
-- m-art_Shine.ogg.wav </br>
-created by conv_wav.cpp </br>
+- ImpactModerato.ogg.wav </br>
+created by conv_ogg_to-wav.cpp </br>
 
 ## ogg file
-- church-chime-daniel_simon.wav.ogg </br>
-created by encode_from_wav.cpp </br>
+- townofdeath.wav.ogg </br>
+created by conv_wav_to_ogg.cpp </br>
 
