@@ -306,8 +306,12 @@ open GTK window and show image <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
 
 ### SDL
+SDL( Simple DirectMedia Layer )  <br/>
 open SDL window and show image <br/>
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_uparrow.png" width="300" /><br/>
+
+### SDL2
+SDL2 Samples  <br/>
 
 ### SDL_audio
 play audio file <br/>
