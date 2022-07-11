@@ -4,7 +4,7 @@ SDL2 src
 SDL2 Sample <br/>
 
 font.c <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/scrrenshots/font.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/screenshots/font.png" width="300" /> <br/>
 
 ## samples
 - window.c  <br/>

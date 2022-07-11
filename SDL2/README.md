@@ -3,7 +3,7 @@ SDL2
 
 SDL2 Sample <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/scrrenshots/font.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/screenshots/font.png" width="300" /> <br/>
 
 SDL( Simple DirectMedia Layer ) is a cross-platform development library <br/>
 https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer <br/>

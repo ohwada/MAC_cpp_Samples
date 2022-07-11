@@ -1,7 +1,7 @@
 SDL2 Checkers
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/chkers/scrrenshots/checkers.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/checkers/screenshots/checkers.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/Diegothic/sdl-checkers  <br/>

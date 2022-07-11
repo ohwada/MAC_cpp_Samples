@@ -1,7 +1,7 @@
 SDL2  Super Mario
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/mario/scrrenshots/mario_gamepng" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/mario/screenshots/mario_game.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/TheShoutingParrot/Super-Mario-Remake
