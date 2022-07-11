@@ -1,7 +1,7 @@
-SDL2 RainbowSnake
+SDL 2 RainbowSnake.
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/snake/screenshots/snake_game_640x480.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/snake/scrrenshots/snake_game_640x480.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/Solaire/RainbowSnake <br/>
@@ -25,4 +25,6 @@ SDL2_ttf <br/>
 % make <br/>
 
 ### How to Play
+you can choose Difficulty(Game Speed) <br/>
 You can move the Snake with Arrow Key.<br/>
+

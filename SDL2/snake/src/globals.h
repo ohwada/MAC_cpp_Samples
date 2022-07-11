@@ -13,10 +13,10 @@
 #define  WIN_HEIGHT 480
 // #define  WIN_WIDTH  960
 // #define  WIN_HEIGHT 720
-// #define BOARD_WIDTH 15
-// #define BOARD_HEIGHT 10
-#define BOARD_WIDTH 17
-#define BOARD_HEIGHT 12
+#define BOARD_WIDTH 15
+#define BOARD_HEIGHT 10
+// #define BOARD_WIDTH 17
+// #define BOARD_HEIGHT 12
 extern const ushort CELL_SIZE;
 
 // Game definitions
