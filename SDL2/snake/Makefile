@@ -1,4 +1,5 @@
 ### 2022-06-01 K.OHWADA
+### for Linux and Mac
 
 PROG := snake
 
