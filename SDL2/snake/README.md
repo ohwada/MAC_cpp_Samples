@@ -1,4 +1,4 @@
-SDL 2 RainbowSnake.
+SDL2 RainbowSnake
 ===============
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/snake/screenshots/snake_game_640x480.png" width="300" /> <br/>
