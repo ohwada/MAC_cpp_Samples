@@ -1,3 +1,7 @@
+// change log
+// 2022-06-01 K.OHWADA
+// warning: explicitly assigning value to itself
+
 #include "MainState.h"
 #include "JeuState.h"
 
@@ -28,14 +32,19 @@ void MS_init(state_t * s)
 {
 	MS_t * data = malloc(sizeof(*data));
 	data->image = IMG_Load("images/title.png");
-	
-	s->data = data;
+
+// warning: explicitly assigning value of variable of type' state_t *' (aka 'struct _state_t *') to itself
+	// s->data = data;
+	s->data = (void *)data;
+
 }
 
 void MS_update(state_t * s, Uint32 elapsedTime)
 {
-	s = s;
-	elapsedTime = elapsedTime;
+	// s = s;
+	// elapsedTime = elapsedTime;
+	(void)s;
+	(void)elapsedTime;
 }
 
 void MS_handleEvent(state_t * s)
@@ -43,7 +52,9 @@ void MS_handleEvent(state_t * s)
 	SDL_Event event;
 	int continuer = 1;
 	
-	s = s;
+// warning: explicitly assigning value to itself
+	//s = s;
+	(void)s;
 	
 	while(continuer && SDL_PollEvent(&event))
 	{

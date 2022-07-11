@@ -1,13 +1,15 @@
 SDL2  Super Mario
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/mario/screenshots/mario_game.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL2/mario/scrrenshots/mario_gamepng" width="300" /> <br/>
 
 This is Clone <br/>
-https://github.com/TheShoutingParrot/Super-Mario-Remake
+https://github.com/minirop/Super-Mario-Remake  <br/>
 
 Changes: <br/>
 added mac to Makefile <br/>
+so that you can build on Mac OS X <br/>
+slight changes to eliminate compile warnings  <br/>
 
 ### About: <br/>
 Super Mario Bros written in C using the SDL library

@@ -1,3 +1,7 @@
+// change log
+// 2022-06-01 K.OHWADA
+// warning: explicitly assigning value of variable of type 'int' to itself	
+
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
@@ -10,9 +14,12 @@ int main(int argc, char** argv)
 	SDL_Surface * ecran = NULL;
 	Uint32 lastUpdate = 0, currentTime = 0, elapsedTime = 0;
 	
-	argc = argc;
-	argv = argv;
-	
+// warning: explicitly assigning value of variable of type 'int' to itself	
+	// argc = argc;
+	// argv = argv;
+	(void)argc;
+	(void)argv;
+
 	SDL_Init(SDL_INIT_VIDEO);
 	ecran = SDL_SetVideoMode(SCREEN_W, SCREEN_H, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_WM_SetCaption("Super Mario Bros.", NULL);

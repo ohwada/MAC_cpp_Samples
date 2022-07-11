@@ -1,6 +1,7 @@
 ### change log
 ### 2022-06-01 K.OHWADA
 ### add mac
+### add -std=c99 to OPTS
 
 FILES=src/main.c src/GameState.c src/MainState.c src/JeuState.c src/Mario.c
 LIBSW=-lmingw32 -lSDLmain -lSDL.dll -lSDL_image
@@ -9,7 +10,7 @@ LIBSU=-lSDLmain -lSDL -lSDL_image
 # for Mac
 LIBSM=-lSDLmain -lSDL -lSDL_image -framework Cocoa
 
-OPTS=-Wall -Wextra -ansi -pedantic -iquoteinclude
+OPTS=-Wall -Wextra -ansi -std=c99 -pedantic -iquoteinclude
 OUTPUT=SMB
 
 all:
