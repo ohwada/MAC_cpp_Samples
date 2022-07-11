@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="RainbowSnake" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Linux Debug">
+				<Option platforms="Unix;" />
+				<Option output="bin/LinuxDebug/RainbowSnake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/LinuxDebug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c99" />
+					<Add option="-g" />
+					<Add option="-DDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="`sdl2-config --libs`" />
+					<Add option="-lSDL2_ttf" />
+					<Add option="-lm" />
+				</Linker>
+			</Target>
+			<Target title="Linux Release">
+				<Option platforms="Unix;" />
+				<Option output="bin/LinuxRelease/RainbowSnake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/LinuxRelease/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`sdl2-config --libs`" />
+					<Add option="-lSDL2_ttf" />
+					<Add option="-lm" />
+				</Linker>
+			</Target>
+			<Target title="Win32 Debug">
+				<Option platforms="Windows;" />
+				<Option output="bin/Win32Debug/RainbowSnake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Win32Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="mingw32" />
+					<Add library="SDL2main" />
+					<Add library="SDL2_ttf" />
+					<Add library="SDL2.dll" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="dxguid" />
+				</Linker>
+			</Target>
+			<Target title="Win32 Release">
+				<Option platforms="Windows;" />
+				<Option output="bin/Win32Release/RainbowSnake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Win32Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-std=c99" />
+				</Compiler>
+				<Linker>
+					<Add option="-O3" />
+					<Add option="-s" />
+					<Add library="mingw32" />
+					<Add library="SDL2main" />
+					<Add library="SDL2_ttf" />
+					<Add library="SDL2.dll" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+					<Add library="dxguid" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pedantic-errors" />
+			<Add option="-pedantic" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-std=c99" />
+			<Add option="`sdl2-config --cflags`" />
+		</Compiler>
+		<Linker>
+			<Add option="`sdl2-config --libs`" />
+		</Linker>
+		<Unit filename="src/board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/board.h" />
+		<Unit filename="src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/game.h" />
+		<Unit filename="src/globals.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/globals.h" />
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu.h" />
+		<Unit filename="src/renderer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/renderer.h" />
+		<Unit filename="src/snake.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/snake.h" />
+		<Unit filename="src/types.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

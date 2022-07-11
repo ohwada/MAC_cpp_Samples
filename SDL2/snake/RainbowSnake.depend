@@ -1,0 +1,147 @@
+# depslib dependency file v1.0
+1641758197 source:/home/kacper/dev/RainbowSnake/src/gameboard.c
+	"gameboard.h"
+
+1641850062 /home/kacper/dev/RainbowSnake/src/gameboard.h
+	"SDL2/SDL.h"
+
+1644533166 source:/home/kacper/dev/RainbowSnake/src/main.c
+	<time.h>
+	"renderer.h"
+	"game.h"
+
+1644868591 /home/kacper/dev/RainbowSnake/src/snake.h
+	"types.h"
+
+1644868591 source:/home/kacper/dev/RainbowSnake/src/snake.c
+	"snake.h"
+	"globals.h"
+	"renderer.h"
+
+1643044074 source:c:\dev\rainbowsnake\src\gameboard.c
+	"gameboard.h"
+
+1643043605 c:\dev\rainbowsnake\src\gameboard.h
+	"SDL2/SDL.h"
+
+1644536135 source:c:\dev\rainbowsnake\src\snake.c
+	"snake.h"
+	"globals.h"
+	"renderer.h"
+
+1644536145 c:\dev\rainbowsnake\src\snake.h
+	"types.h"
+
+1644453319 source:c:\dev\rainbowsnake\src\main.c
+	<time.h>
+	"renderer.h"
+	"game.h"
+
+1644869431 source:c:\dev\rainbowsnake\src\game.c
+	"game.h"
+	"renderer.h"
+	"board.h"
+	"globals.h"
+	"types.h"
+	"snake.h"
+	"menu.h"
+	<stdio.h>
+	<SDL2/SDL_keyboard.h>
+
+1644536504 c:\dev\rainbowsnake\src\game.h
+	"types.h"
+
+1644601334 c:\dev\rainbowsnake\src\types.h
+
+1644360683 c:\dev\rainbowsnake\src\menu.h
+	"types.h"
+	<SDL2/SDL_keyboard.h>
+
+1644869929 source:c:\dev\rainbowsnake\src\menu.c
+	"menu.h"
+	"renderer.h"
+	"globals.h"
+	"game.h"
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_rect.h>
+	<math.h>
+	<stdio.h>
+
+1644867741 c:\dev\rainbowsnake\src\globals.h
+	"types.h"
+
+1644621022 c:\dev\rainbowsnake\src\renderer.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
+	"types.h"
+
+1644532019 source:c:\dev\rainbowsnake\src\board.c
+	"board.h"
+	"globals.h"
+	"renderer.h"
+
+1644454675 c:\dev\rainbowsnake\src\board.h
+	"types.h"
+
+1644869431 source:c:\dev\rainbowsnake\src\renderer.c
+	"renderer.h"
+	<stdio.h>
+	"globals.h"
+
+1644870141 source:c:\dev\rainbowsnake\src\globals.c
+	"globals.h"
+
+1644533166 source:/home/kacper/dev/RainbowSnake/src/board.c
+	"board.h"
+	"globals.h"
+	"renderer.h"
+
+1644533166 /home/kacper/dev/RainbowSnake/src/board.h
+	"types.h"
+
+1644868591 /home/kacper/dev/RainbowSnake/src/types.h
+
+1644868591 /home/kacper/dev/RainbowSnake/src/globals.h
+	"types.h"
+
+1644868591 /home/kacper/dev/RainbowSnake/src/renderer.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
+	"types.h"
+
+1644868591 source:/home/kacper/dev/RainbowSnake/src/globals.c
+	"globals.h"
+
+1644869124 source:/home/kacper/dev/RainbowSnake/src/renderer.c
+	"renderer.h"
+	<stdio.h>
+	"globals.h"
+
+1644868591 source:/home/kacper/dev/RainbowSnake/src/game.c
+	"game.h"
+	"renderer.h"
+	"board.h"
+	"globals.h"
+	"types.h"
+	"snake.h"
+	"menu.h"
+	<stdio.h>
+	<SDL2/SDL_keyboard.h>
+
+1644868591 /home/kacper/dev/RainbowSnake/src/game.h
+	"types.h"
+
+1644533166 /home/kacper/dev/RainbowSnake/src/menu.h
+	"types.h"
+	<SDL2/SDL_keyboard.h>
+
+1644869165 source:/home/kacper/dev/RainbowSnake/src/menu.c
+	"menu.h"
+	"renderer.h"
+	"globals.h"
+	"game.h"
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_rect.h>
+	<math.h>
+	<stdio.h>
+
