@@ -8,7 +8,9 @@ https://github.com/Diegothic/sdl-checkers  <br/>
 
 Changes: <br/>
 added Makefile <br/>
+so that you can build on Linux or Mac <br/>
 change onstexpr to const because compile error <br/>
+
 
 ### About: 
 This is a Checkers Game built with SDL2 in C++.<br/>
@@ -27,6 +29,7 @@ Require : <br/>
 ### How to Play
 Two Players Game .<br/>
 No match mode with the Computer .<br/>
-Game rules are taken from the international variant of draughts.  .<br/>
+Game rules are taken from the international variant of Draughts.  .<br/>
 
+https://en.wikipedia.org/wiki/English_draughts
 
