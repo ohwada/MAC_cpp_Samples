@@ -1,12 +1,17 @@
 // change log
 // 2022-06-01 K.OHWADA
 // add WIN Size
-// change BOARD Size
+
 
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
 #include "types.h"
+
+
+// TODO
+// Board size is not fixed value
+// fit to Window size
 
 // Game area dimensions
 #define  WIN_WIDTH  640
