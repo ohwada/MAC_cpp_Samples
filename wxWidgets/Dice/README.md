@@ -1,6 +1,6 @@
 # wxwidgets: Dice
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxwidgets/Dice/scrrenshots/dice.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/Dice/screenshots/dice.png" width="300" /> <br/>
 
 shows how to create a wxGLCanvas and wxGLContext. <br/>
 

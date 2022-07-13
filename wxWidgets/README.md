@@ -3,7 +3,7 @@ wxWidgets
 
 wxWidgets Sample <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxwidgets/wxWidgetsHelloWorld/scrrenshots/hello.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/wxWidgetsHelloWorld/screenshots/hello.png" width="300" /> <br/>
 
 wxWidgets is a C++ library that lets developers create applications <br/>
 https://www.wxwidgets.org/ <br/>

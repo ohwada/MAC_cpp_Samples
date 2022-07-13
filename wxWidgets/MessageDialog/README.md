@@ -1,6 +1,6 @@
 # wxwidgets: MessageDialog
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxwidgets/MessageDialog/scrrenshots/messageDialog.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/MessageDialog/screenshots/messageDialog.png" width="300" /> <br/>
 
 Shows how to create a MessageDialog dialog with wxMessageDialog. <br/>
 

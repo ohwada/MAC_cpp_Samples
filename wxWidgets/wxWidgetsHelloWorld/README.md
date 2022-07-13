@@ -1,6 +1,6 @@
 # wxwidgets: wxWidgetsHelloWorld
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxwidgets/wxWidgetsHelloWorld/scrrenshots/hello.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/wxWidgetsHelloWorld/screenshots/hello.png" width="300" /> <br/>
 
 The classic first application HelloWorld presented as skeleton by wxWidgets. <br/>
 
