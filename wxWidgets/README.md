@@ -28,6 +28,11 @@ Shows how to create a MessageDialog dialog with wxMessageDialog. <br/>
 ### Dice
 shows how to create a wxGLCanvas and wxGLContext. <br/>
 
+### bombs
+Minesweeper Game <br/>
+
+### tetris
+Tetris Game <br/>
 
  ### Reference
 - https://www.wxwidgets.org/ 
