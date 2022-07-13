@@ -82,6 +82,9 @@ Cross-platform application and UI framework  <br/>
 ### qt5
 Cross-platform application and UI framework <br/>
 
+### wxWidgets
+C++ library that lets developers create applications <br/>
+
 ### ncurses
 Text-based UI library <br/>
 
