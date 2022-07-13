@@ -1,7 +1,7 @@
 wxWidgets: Bombs
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/bomb/screenshots/hello.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/bombs/screenshots/bomb_game.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/wxWidgets/wxWidgets/tree/master/demos/bombs <br/>
