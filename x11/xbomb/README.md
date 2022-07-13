@@ -31,12 +31,12 @@ Require : <br/>
 
 ### Features:
 
-There are a number of features that make this version different from the others available (that I have seen). <br/>
+There are a number of features that make this version different from the others. <br/>
 
 3 Grid Tile options: <br/>
-- Hexagonal ; Easy (the endgame can be difficult). <br/>
-- Square ; Traditional. <br/>
-- Triangular ; Difficult. <br/>
+- Hexagonal : Easy (the endgame can be difficult). <br/>
+- Square : Traditional. <br/>
+- Triangular : Difficult. <br/>
 
 3 Grid sizes: <br/>
 - Small : 8x8 with 10 bombs <br/>
