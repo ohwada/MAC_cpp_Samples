@@ -1,0 +1,41 @@
+! XBomb app-defaults Version 2.2a.
+!
+! Copyright 1994-2009 Andrew M. Bishop
+!
+
+! The default font and the font for the markings on the grid.
+*font:			lucidasans-bold-14
+*grid.font:		lucidasans-bold-24
+
+! The colour for the bomb and flag foreground.
+*grid.bomb:		black
+
+! The colour for the bomb background.
+*grid.bombreal:		red
+
+! The colour for the flag background.
+*grid.bombmark:		orange
+
+! The colour for the numbers in the grid.
+*grid.number:		navyblue
+*grid.number2:		darkgreen
+*grid.number3:		darkred
+*grid.number4:		black
+*grid.number5:		turquoise
+*grid.number6:		orange
+*grid.number7:		violet
+*grid.number8:		lightgreen
+*grid.number9:		blue
+*grid.number10:		blue
+*grid.number11:		blue
+*grid.number12:		blue
+
+! The colour for the uncovered tiles.
+*grid.hidden:		grey50
+
+! The colour for the correctly guessed squares at the end.
+*grid.correct:		green
+
+! The colours for the hi-score table.
+*hiscores*foreground:	black
+*hiscores*background:	white
