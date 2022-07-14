@@ -28,6 +28,9 @@ meaning that its evolution is determined by its initial state, requiring no furt
 
 First, You place a living cells with the mouse click <br/>
 Second You start game with click Start button <br/>
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/wxWidgets/life/screenshots/life_set.png" width="300" /> <br/>
+
 All You have to do is wait for its evolution  <br/>
 
 
