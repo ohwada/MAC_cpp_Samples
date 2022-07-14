@@ -23,14 +23,12 @@ Require : <br/>
 % cmake .. <br/>
 make <br/>
 
-
-### The rules of the game: <br/>
-
-Your aim is to discover all the bombs in a mined field. <br/>
-If You click with the left mouse button on a cell containing a bomb, Your game ends. <br/>
-Otherwise, the number of bombs in the 8 neighbour cells will be displayed. <br/>
-When You have clicked all the cells without a bomb, You win. <br/>
-You can also use the right button (or left button+shift) to mark a cell <br/>
-You think hides a bomb, in order to not click it accidentally. <br/>
+### Controlls: <br/>
+left arrow key [←] : move the piece to the Left. <br/>
+right arrow key [→] : move the piece to the Eight. <br/>
+up arrow key [↑] : rotate the piece clockwise. <br/>
+down arrow key [↓] : rotate the piece counterclockwise. <br/>
+space key [SPACE] : drop the tetris piece immediately to the Bottom <br/>
+p key [p] :  pause the game <br/>
 
 

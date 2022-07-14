@@ -34,6 +34,10 @@ Minesweeper Game <br/>
 ### tetris
 Tetris Game <br/>
 
+### life
+Conway's Game of Life <br/>
+
+
  ### Reference
 - https://www.wxwidgets.org/ 
 
