@@ -156,6 +156,9 @@ parse json using jsoncpp <br/>
 ### boost
 split string <br/>
 
+### POCO
+C++ class libraries for building network and internet-based applications <br/>
+
 ### gflags
 parse commandline flags <br/>
 
