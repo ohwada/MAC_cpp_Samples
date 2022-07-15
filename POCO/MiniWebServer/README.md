@@ -3,7 +3,7 @@ POCO MinWebServer
 
 HTTP Web Server  <br/>
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/MiniWebServer/screenshots/index.png" > <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/MiniWebServer/screenshots/index.png" width="300" /> <br/>
 
 Build and Run <br/>
 % g++ MiniWebServer.cpp -std=c++11 -o server -lPocoNet -lPocoUtil  -lPocoFoundation 
