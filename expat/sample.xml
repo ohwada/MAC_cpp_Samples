@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<booklist>
+  <book>
+    <title>Easy Java</title>
+    <authors>
+      <author>Taro Yamada</author>
+    </authors>
+    <publisher>
+ABC Publishing</publisher>
+    <categories>
+      <category>programming</category>
+      <category>Java</category>
+    </categories>
+  </book>
+  <book>
+    <title>Well-understood Linux</title>
+    <authors>
+      <author>Ichiro Suzuki</author>
+    </authors>
+    <publisher>XYZ Publishing</publisher>
+    <categories>
+      <category>Linux</category>
+      <category>UNIX</category>
+    </categories>
+  </book>
+  <book>
+    <title>C Language for Dummies</title>
+    <authors>
+      <author>Taro Yamada</author>
+      <author>Shiro Sato</author>
+    </authors>
+    <publisher>ABC  Publishing</publisher>
+    <categories>
+      <category>Programming</category>
+      <category>C Language</category>
+      <category>Dummies</category>
+    </categories>
+  </book>
+</booklist>

@@ -34,6 +34,9 @@ Cross-platform make <br/>
 ### make
 Utility for directing compilation <br/>
 
+### expat
+XML 1.0 Parser <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
