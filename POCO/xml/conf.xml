@@ -1,0 +1,10 @@
+<config>
+    <prop1>1.23</prop1>
+    <prop2>2.34</prop2>
+    <prop3>
+       <prop4 attr="1"/>
+       <prop4 attr="2"/>
+    </prop3>
+    <prop5 id="first">Hello,</prop5>
+    <prop5 id="second"> world!</prop5>
+</config>
