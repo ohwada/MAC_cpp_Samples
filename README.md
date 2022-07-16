@@ -55,6 +55,9 @@ string to uppercase / lowercase <br/>
 ### string_streams 
 the fmemopen and open_memstream functions allow you to do I/O to a string or memory buffer.  <br/>
 
+### utstring
+dynamic string macros for C <br/>
+
 ### bind
 bind function <br/>
 
