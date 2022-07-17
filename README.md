@@ -43,6 +43,9 @@ GNOME XML Library <br/>
 ### tinyxml
 XML Parser <br/>
 
+### pugixml
+C++ XML Processing Library <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
