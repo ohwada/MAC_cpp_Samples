@@ -40,6 +40,9 @@ XML 1.0 Parser <br/>
 ### libxml
 GNOME XML Library <br/>
 
+### libxml++
+C++ wrapper for libxml <br/>
+
 ### tinyxml
 XML Parser <br/>
 
