@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<person gender="female" age="52">
+  fune
+  <person gender="female" age="24">
+    sazae
+    <person gender="male" age="4">tara</person>
+  </person>
+  <person gender="male" age="11">katsuo</person>
+  <person gender="female" age="9">wakame</person>
+  <cat gender="male" age="?">tama</cat>
+</person>

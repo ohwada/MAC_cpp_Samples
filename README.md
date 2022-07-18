@@ -52,6 +52,9 @@ C++ XML Processing Library <br/>
 ### xerces-c
 XML Parser written in C++. <br/>
 
+### rapidxml
+the fastest XML Parser <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
