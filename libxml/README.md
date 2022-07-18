@@ -3,7 +3,7 @@ libxml
 
 
 libxml: <br/>
-GNOME XML Library <br/>
+GNOME XML library <br/>
 https://gitlab.gnome.org/GNOME/libxml2/ <br/>
 
 
@@ -30,6 +30,12 @@ https://formulae.brew.sh/formula/libxml2 <br/>
 - io1.c  <br/>
 - io2.c  <br/>
 - testWriter.c 
+
+### xml parser
+XML Parser <br/>
+
+### rss parser
+RSS Parser <br/>
 
 
 ### Reference <br/>
