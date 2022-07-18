@@ -49,6 +49,9 @@ XML Parser <br/>
 ### pugixml
 C++ XML Processing Library <br/>
 
+### xerces-c
+XML Parser written in C++. <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
