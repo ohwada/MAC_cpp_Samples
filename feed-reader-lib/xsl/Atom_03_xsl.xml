@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://purl.org/atom/ns#">
+	<xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="yes" indent="no" />
+	
+	<xsl:template match="/">
+		<xsl:apply-templates select="atom:feed" />
+	</xsl:template>
+	
+	<xsl:template match="atom:feed">
+		<feed format="Atom" version="0.3">
+			<xsl:apply-templates select="atom:title" />
+			<xsl:apply-templates select="atom:link" />
+			<xsl:apply-templates select="atom:tagline" />
+			<xsl:apply-templates select="xml:lang" />
+			<xsl:apply-templates select="atom:copyright" />
+			<xsl:apply-templates select="atom:author" />
+            <categories>
+                <xsl:apply-templates select="atom:category" />
+            </categories>
+			<xsl:apply-templates select="atom:entry" />
+		</feed>
+	</xsl:template>
+	
+	<xsl:template match="atom:title">
+		<title>
+			<xsl:value-of select="." />
+		</title>
+	</xsl:template>
+	
+	<xsl:template match="atom:link">
+		<xsl:if test="@rel = 'alternate'">
+			<url>
+				<xsl:value-of select="@href" />
+			</url>
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="atom:tagline">
+		<description>
+			<xsl:value-of select="." />
+		</description>
+	</xsl:template>
+	
+	<xsl:template match="xml:lang">
+		<language>
+			<xsl:value-of select="." />
+		</language>
+	</xsl:template>
+	
+	<xsl:template match="atom:copyright">
+		<copyright>
+			<xsl:value-of select="." />
+		</copyright>
+	</xsl:template>
+	
+	<xsl:template match="atom:author">
+		<authorName>
+			<xsl:value-of select="atom:name" />
+		</authorName>
+		<authorEmail>
+			<xsl:value-of select="atom:email" />
+		</authorEmail>
+	</xsl:template>
+	
+	<xsl:template match="atom:id">
+		<entryUniqueId>
+			<xsl:value-of select="." />
+		</entryUniqueId>
+	</xsl:template>
+	
+	<xsl:template match="atom:issued">
+		<publishDateTime>
+			<xsl:value-of select="." />
+		</publishDateTime>
+	</xsl:template>
+	
+	<xsl:template match="atom:modified">
+		<lastUpdatedDateTime>
+			<xsl:value-of select="." />
+		</lastUpdatedDateTime>
+	</xsl:template>
+
+	<xsl:template match="atom:content">
+		<content>
+			<xsl:copy-of select="." />
+		</content>
+	</xsl:template>
+	
+	<xsl:template match="atom:summary">
+		<description>
+			<xsl:value-of select="." />
+		</description>
+	</xsl:template>
+
+    <xsl:template match="atom:category">
+        <category>
+            <xsl:value-of select="."/>
+        </category>
+    </xsl:template>
+
+	<xsl:template match="atom:entry">
+		<entry>
+			<xsl:apply-templates select="atom:id" />
+			<xsl:apply-templates select="atom:title" />
+			<xsl:apply-templates select="atom:link" />
+			<xsl:apply-templates select="atom:author" />
+			<xsl:apply-templates select="atom:issued" />
+			<xsl:apply-templates select="atom:modified" />
+            <categories>
+                <xsl:apply-templates select="atom:category" />
+            </categories>
+			<xsl:apply-templates select="atom:summary" />
+			<xsl:apply-templates select="atom:content" />
+		</entry>
+	</xsl:template>
+
+</xsl:stylesheet>

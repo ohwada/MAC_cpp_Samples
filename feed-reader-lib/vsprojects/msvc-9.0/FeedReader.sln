@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FeedReader", "FeedReader.vcproj", "{823D57DA-2E6B-42C6-9C66-07FCE3864D26}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FeedReaderTester", "..\..\examples\FeedReaderTester.vcproj", "{6AFC7F59-1C53-4ACC-A4B7-710807CE581C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{823D57DA-2E6B-42C6-9C66-07FCE3864D26} = {823D57DA-2E6B-42C6-9C66-07FCE3864D26}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{823D57DA-2E6B-42C6-9C66-07FCE3864D26}.Debug|Win32.ActiveCfg = Debug|Win32
+		{823D57DA-2E6B-42C6-9C66-07FCE3864D26}.Debug|Win32.Build.0 = Debug|Win32
+		{823D57DA-2E6B-42C6-9C66-07FCE3864D26}.Release|Win32.ActiveCfg = Release|Win32
+		{823D57DA-2E6B-42C6-9C66-07FCE3864D26}.Release|Win32.Build.0 = Release|Win32
+		{6AFC7F59-1C53-4ACC-A4B7-710807CE581C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6AFC7F59-1C53-4ACC-A4B7-710807CE581C}.Debug|Win32.Build.0 = Debug|Win32
+		{6AFC7F59-1C53-4ACC-A4B7-710807CE581C}.Release|Win32.ActiveCfg = Release|Win32
+		{6AFC7F59-1C53-4ACC-A4B7-710807CE581C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

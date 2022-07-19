@@ -58,6 +58,9 @@ the fastest XML Parser <br/>
 ### libmrss
 C library for RSS files or streams <br/>
 
+### feed-reader-lib
+ Fast, thread-safe, extensible &amp; platform independent feed reader library in C++, <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
