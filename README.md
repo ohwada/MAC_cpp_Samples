@@ -55,6 +55,9 @@ XML Parser written in C++. <br/>
 ### rapidxml
 the fastest XML Parser <br/>
 
+### libmrss
+C library for RSS files or streams <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
