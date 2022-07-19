@@ -20,7 +20,7 @@ supports RSS, ATOM, RDF <br/>
 - Xerces > 2.8.0 <br/>
 - Xalan > 1.10.1 <br/>
 - Zlib > 1.23 <br/>
-- OpenMP <br/>
+- libomp <br/>
 
 setup.py: download libraries <br/>
 

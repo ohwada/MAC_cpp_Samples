@@ -63,6 +63,7 @@ class FeedValidator {
  private:
   const std::string& m_feedData;
   Feed& m_feed;
+// warning: private field 'm_validationValid' is not used 
   bool m_validationValid;
 };
 }
