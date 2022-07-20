@@ -61,6 +61,9 @@ C library for RSS files or streams <br/>
 ### feed-reader-lib
  Fast, thread-safe, extensible &amp; platform independent feed reader library in C++, <br/>
 
+### eigen
+C++ template library for linear algebra  <br/>
+
 ### x11
 draw octagon on X11 Window <br/>
 
