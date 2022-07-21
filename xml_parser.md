@@ -25,6 +25,10 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/pugixml <br/>
 Validating XML Parser written in a portable subset of C++. <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/xerces-c <br/>
 
+### arabica
+XML toolkit written in C++ <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/arabica <br/>
+
 ### POCO
 C++ class libraries for building network and internet-based applications <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/POCO/xml <br/>

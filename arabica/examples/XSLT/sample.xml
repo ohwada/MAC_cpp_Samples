@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root-element>
+	<element1>sample1</element1>
+	<element2>
+		<element3>sample3</element3>
+	</element2>
+</root-element>
+

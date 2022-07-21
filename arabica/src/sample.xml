@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <str>Hello</str>
+    <nums>
+        <num>1</num>
+        <num>2</num>
+        <num>3</num>
+    </nums>
+</root>

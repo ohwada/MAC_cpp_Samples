@@ -58,6 +58,9 @@ XML Parser written in C++. <br/>
 ### xalan-c
 XSLT processor <br/>
 
+### arabica
+XML toolkit written in C++ <br/>
+
 ### rapidxml
 the fastest XML Parser <br/>
 
