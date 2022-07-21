@@ -29,6 +29,10 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/xerces-c <br/>
 C++ class libraries for building network and internet-based applications <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/POCO/xml <br/>
 
+### boost
+free peer-reviewed portable C++ source libraries <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/xml <br/>
+
 ### rapidxml
 the fastest XML Parser <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/rapidxml <br/>
