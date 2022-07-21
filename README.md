@@ -55,6 +55,9 @@ C++ XML Processing Library <br/>
 ### xerces-c
 XML Parser written in C++. <br/>
 
+### xalan-c
+XSLT processor <br/>
+
 ### rapidxml
 the fastest XML Parser <br/>
 
