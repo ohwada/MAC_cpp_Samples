@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book-list>
+  <book ISBN="9784873117362">
+    <title>Effective Modern C++</title>
+    <author>Scott Meyers</author>
+  </book>
+</book-list>
