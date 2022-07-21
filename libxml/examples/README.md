@@ -51,13 +51,15 @@ Example of custom Input/Output  <br/>
 - io2.c  <br/>
 Output to char buffer  <br/>
 
-- testWriter.c 
+- testWriter.c <br/>
 use various APIs for the xmlWriter  <br/>
 
 Build and Run <br/>
-% gcc  parse1.c -o parse1 `xml2-config --cflags` `xml2-config --libs`
+% gcc  parse1.c -o parse1 `xml2-config --cflags` `xml2-config --libs`<br/>
+or <br/>
+% make parse1 <br/>
 
-% ./parse1 sample.xml
+% ./parse1 example.xml <br/>
 
 
 ### Reference <br/>

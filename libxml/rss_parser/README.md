@@ -8,7 +8,8 @@ Sample Feeds <br/>
 https://www.feedforall.com/sample-feeds.htm <br/>
 
 Build and Run <br/>
-% gcc  rss_parser.c -o rss `xml2-config --cflags` `xml2-config --libs`
+% make <br/>
+
 
 % ./rss sample.xml <br/>
 > site title: FeedForAll Sample Feed <br/>
