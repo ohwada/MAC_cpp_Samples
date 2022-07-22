@@ -73,6 +73,9 @@ C library for RSS files or streams <br/>
 ### gumbo-parser
 C99 library for parsing HTML5  <br/>
 
+### tidy
+Granddaddy of HTML tools, with support for modern 
+
 ### eigen
 C++ template library for linear algebra  <br/>
 
