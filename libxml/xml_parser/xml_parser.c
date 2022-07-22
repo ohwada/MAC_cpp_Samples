@@ -127,12 +127,14 @@ streamFile(const char *filename) {
  */
 int main(int argc, char **argv) 
 {
-    if (argc != 2) {
+    char* file = (char *)"examples.xml";
+
+    if (argc == 2) {
+        file = argv[1];
+    } else {
        printf("Usage: %s <xmlFile> \n", argv[0] );
-        return 1;
     }
 
-    char* file = argv[1];
     printf("file: %s \n", file );
 
     /*

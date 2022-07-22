@@ -2,14 +2,13 @@
 
 CC=gcc
 CFLAGS=-I. -g -Wall -Werror
-XML2_FLAGS=`xml2-config --cflags` 
-XML2_LIBS=`xml2-config --libs`
+LIBS=-lxml2
 TARGET=xml
-SRCS= xml_parser.c
+SRCS=xml_parser.c
 
 
 $(TARGET):
-	$(CC) $(SRCS) $(CFLAGS) $(XML2_FLAGS) $(XML2_LIBS) -o $@ 
+	$(CC) $(SRCS) $(CFLAGS) $(LIBS) -o $@ 
 
 
 %.o: %.c
@@ -17,4 +16,4 @@ $(TARGET):
 
 
 clean:
-	rm -rf $(TARGET) *.o
+	rm -rf $(TARGET) *.o *.dSYM
