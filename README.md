@@ -70,6 +70,9 @@ C library for RSS files or streams <br/>
 ### feed-reader-lib
  Fast, thread-safe, extensible &amp; platform independent feed reader library in C++, <br/>
 
+### gumbo-parser
+C99 library for parsing HTML5  <br/>
+
 ### eigen
 C++ template library for linear algebra  <br/>
 
