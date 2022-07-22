@@ -20,10 +20,10 @@ Build and Run <br/>
 % make parser1 <br/>
 
 
- % ./parser1 <br/>
-> node: a <br/>
-> attr: href <br/>
-> attr value: https://www.google.com/ <br/>
-> a href: google <br/>
+ % ./parser1
+> node: a
+> attr: href
+> attr value: https://www.google.com/
+> a href: google
 
 

@@ -633,16 +633,21 @@ int main(int argc, char *argv[])
     CURL *conn = NULL;
     CURLcode code;
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <url>\n", argv[0]);
-        exit(EXIT_FAILURE);
+    char* url = (char *)"https://example.com/";
+
+    if (argc == 2) {
+        url = argv[1];
+   } else  {
+        printf("Usage: %s <url>\n", argv[0]);
     }
+
+    printf("url: %s \n", url);
 
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
-    if (!curl_init(conn, argv[1])) {
-        fprintf(stderr, "Connection initializion failed\n");
-        exit(EXIT_FAILURE);
+    if (!curl_init(conn, url)) {
+        fprintf(stderr, "Connection initializion failed: %s \n", url);
+        return EXIT_FAILURE;
     }
 
     // Push MODE Parse definition
@@ -653,8 +658,8 @@ int main(int argc, char *argv[])
     code = curl_easy_perform(conn);
     curl_easy_cleanup(conn);
     if (code != CURLE_OK) {
-        fprintf(stderr, "Failed to get '%s' [%s]\n", argv[1], errorBuffer);
-        exit(EXIT_FAILURE);
+        fprintf(stderr, "Failed to get '%s' [%s]\n", url, errorBuffer);
+        return EXIT_FAILURE;
     }
 
     // End of Chunk

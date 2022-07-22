@@ -20,13 +20,21 @@ void FindInfo(xmlNode*& element);
 /**
  * main
  */
-int main() 
+int main(int argc, char *argv[])
 {
 	// Structure for HTML
 	htmlDocPtr doc;
 
 	char* file = (char *)"sample.html";
 	char* enc = (char *)"utf-8";
+
+    if (argc == 2) {
+        file = argv[1];
+   } else  {
+        cout << "Usage: " << argv[0] << " <url> " << endl;
+    }
+
+		cout << "file: "<< file<< endl;
 
 	// read html
 	doc = htmlReadFile(file, enc, HTML_PARSE_RECOVER);
