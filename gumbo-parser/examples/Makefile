@@ -2,7 +2,7 @@
 
 CC=gcc
 CXX=g++
-CFLAGS=-I. -g -Wall -Werror
+CFLAGS=-Wall -Werror
 LIBS=-lgumbo
 TARGET1=get_title
 SRCS1=get_title.c

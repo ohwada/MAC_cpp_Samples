@@ -1,7 +1,7 @@
 ### 2022-06-01 K.OHWADA
 ### reference : https://qiita.com/tobira-code/items/42803d1e203cbf44636f
 
-CFLAGS=-I. -g -Wall -Werror
+CFLAGS=-Wall -Werror
 INCS=test.h
 OBJS=test.o
 LIBS=#-lpthread -lm

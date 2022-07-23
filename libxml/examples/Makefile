@@ -1,7 +1,7 @@
 ### 2022-06-01 K.OHWADA
 
 CC=gcc
-CFLAGS=-I. -g -Wall -Werror
+CFLAGS=-Wall -Werror
 LIBS=-lxml2
 TARGET=parse1
 SRCS=parse1.c
@@ -16,4 +16,4 @@ $(TARGET):
 
 
 clean:
-	rm -rf $(TARGET) *.o  *.dSYM
+	rm -rf $(TARGET) *.o 

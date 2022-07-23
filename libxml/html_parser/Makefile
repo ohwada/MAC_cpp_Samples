@@ -1,7 +1,7 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-I. -g -Wall -Werror
+CFLAGS=-Wall -Werror
 LIBS=-lxml2
 CURL_LIBS=-lcurl
 TARGET1=parser1
@@ -23,4 +23,4 @@ $(TARGET2):
 
 
 clean:
-	rm -rf $(TARGET1) $(TARGET2) *.o *.dSYM
+	rm -rf $(TARGET1) $(TARGET2) *.o 
