@@ -74,7 +74,7 @@ C library for RSS files or streams <br/>
 C99 library for parsing HTML5  <br/>
 
 ### tidy
-Granddaddy of HTML tools, with support for modern standards <br/>
+HTML tools　with support for modern standards <br/>
 
 ### eigen
 C++ template library for linear algebra  <br/>

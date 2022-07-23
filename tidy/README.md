@@ -3,7 +3,7 @@ tidy-html5
 
 
 tidy-html5: <br/>
-Granddaddy of HTML tools, with support for modern standards <br/>
+HTML tools with support for modern standards <br/>
 https://www.html-tidy.org/ <br/>
 
 
