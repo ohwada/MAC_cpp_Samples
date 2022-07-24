@@ -37,6 +37,9 @@ Cross-platform make <br/>
 ### make
 Utility for directing compilation <br/>
 
+### QsciScintilla
+Port to Qt of the Scintilla editing component <br/>
+
 ### expat
 XML 1.0 Parser <br/>
 
