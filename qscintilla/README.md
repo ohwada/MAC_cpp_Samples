@@ -1,7 +1,7 @@
 QsciScintilla
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qsciScintilla/screenshots/application_main.cpp.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qscintilla/screenshots/application_main.cpp.png" width="300" /> <br/>
 
 QsciScintilla: <br/>
 Port to Qt of the Scintilla editing component <br/>

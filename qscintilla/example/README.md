@@ -1,7 +1,7 @@
 QsciScintilla example
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qsciScintilla/screenshots/application_main.cpp.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/qscintilla/screenshots/application_main.cpp.png" width="300" /> <br/>
 
 This is Clone <br/>
 https://github.com/opencor/qscintilla/tree/master/example <br/>
