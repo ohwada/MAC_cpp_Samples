@@ -82,6 +82,10 @@ C++ template library for linear algebra  <br/>
 ### libomp
 LVM's OpenMP runtime library <br/>
 
+### open-mpi
+High performance message passing library <br/>
+
+
 ### x11
 draw octagon on X11 Window <br/>
 
