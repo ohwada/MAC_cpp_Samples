@@ -1,5 +1,5 @@
 /**
- * html_parser2.cpp
+ * html_parser_url.cpp
  * 2022-06-01 K.OHWADA
  */
 
@@ -7,7 +7,7 @@
 // parse while downloading
 // reference : https://ykot.hateblo.jp/entry/20110106/1294280278
 
-// g++  html_parser2.cpp -o parser2 `xml2-config --cflags` `xml2-config --libs` -lcurl
+// g++  html_parser_url.cpp -o url `xml2-config --cflags` `xml2-config --libs` -lcurl
 
 #include <stdio.h>
 #include <string.h>

@@ -4,10 +4,10 @@ CXX=g++
 CFLAGS=-Wall -Werror
 LIBS=-lxml2
 CURL_LIBS=-lcurl
-TARGET1=parser1
-SRCS1= html_parser1.cpp
-TARGET2=parser2
-SRCS2= html_parser2.cpp
+TARGET1=file
+SRCS1= html_parser_file.cpp
+TARGET2=url
+SRCS2= html_parser_url.cpp
 
 
 $(TARGET1):

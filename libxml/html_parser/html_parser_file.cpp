@@ -1,12 +1,12 @@
 /**
- * html_parser1.cpp
+ * html_parser_file.cpp
  * 2022-06-01 K.OHWADA
  */
 
 // display "a" tag and "href" content
 // https://nantonaku-shiawase.hatenablog.com/entry/2012/04/30/231235
 
-// g++  html_parser1.cpp -o parser1 `xml2-config --cflags` `xml2-config --libs`
+// g++  html_parser_file.cpp -o file `xml2-config --cflags` `xml2-config --libs`
 
 #include <libxml/HTMLparser.h>
 #include <iostream>
