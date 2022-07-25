@@ -214,6 +214,9 @@ parse json using jsoncpp <br/>
 ### cjson
 Ultralightweight JSON parser in ANSI C <br/>
 
+### jansson
+C library for encoding, decoding, and manipulating JSON  <br/>
+
 ### boost
 split string <br/>
 
