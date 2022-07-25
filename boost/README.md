@@ -69,6 +69,12 @@ CPU timers  <br/>
 #### xml
 XML read  <br/>
 
+#### json
+JSON Parser  <br/>
+
+### uuid
+ generate uuid <br/>
+
 
 ### Reference <br/>
 - https://www.boost.org/
