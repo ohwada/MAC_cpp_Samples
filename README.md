@@ -217,6 +217,9 @@ Ultralightweight JSON parser in ANSI C <br/>
 ### jansson
 C library for encoding, decoding, and manipulating JSON  <br/>
 
+### nlohmann-json
+JSON for modern C++ <br/>
+
 ### boost
 split string <br/>
 
