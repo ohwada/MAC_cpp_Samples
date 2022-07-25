@@ -14,9 +14,8 @@ https://formulae.brew.sh/formula/simdjson <br/>
 % ls /usr/local/lib/libsimd*
 
 
-### src
-- parse_string.cpp <br/>
-- parse_file.cpp <br/>
+### examples
+- quickstart.cpp <br/>
 
 
 ### Reference
