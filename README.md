@@ -220,6 +220,9 @@ C library for encoding, decoding, and manipulating JSON  <br/>
 ### nlohmann-json
 JSON for modern C++ <br/>
 
+### simdjson
+SIMD-accelerated C++ JSON parser <br/>
+
 ### picojson
 a header-file-only, JSON parser serializer in C++ <br/>
 
