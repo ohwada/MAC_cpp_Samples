@@ -1,0 +1,12 @@
+{
+    "string": "TEST 0",
+    "number_double": 123.456,
+    "number_integer": 123456,
+    "boolean_true": true,
+    "boolean_false": false,
+    "array": [
+         "array_elem0",
+         "array_elem1",
+         "array_elem2"
+    ]
+}

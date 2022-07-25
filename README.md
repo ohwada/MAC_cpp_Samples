@@ -220,6 +220,9 @@ C library for encoding, decoding, and manipulating JSON  <br/>
 ### nlohmann-json
 JSON for modern C++ <br/>
 
+### picojson
+a header-file-only, JSON parser serializer in C++ <br/>
+
 ### boost
 split string <br/>
 
