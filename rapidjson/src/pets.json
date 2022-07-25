@@ -1,0 +1,9 @@
+{
+    "pets": "dog",
+    "age": 5,
+    "like": [
+        "walking",
+        "eating",
+        "hamster"
+    ]
+}
