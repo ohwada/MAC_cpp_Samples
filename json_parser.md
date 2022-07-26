@@ -18,7 +18,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/jansson <br/>
 Lightweight JSON library written in C. <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/parson <br/>
 
-### yyjon
+### yyjson
 A high performance JSON library written in ANSI C.  <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/yyjson <br/>
 
