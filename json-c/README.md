@@ -19,7 +19,6 @@ https://formulae.brew.sh/formula/json-c <br/>
 
 
 ### src
-- test2.cpp <br/>
 - parse_from_file.c <br/>
 - parse_from_string.c <br/>
 - parse_mail.c <br/>

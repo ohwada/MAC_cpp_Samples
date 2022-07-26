@@ -3,9 +3,6 @@ json-c: src
 
 j
 ### samples
-- test2.cpp <br/>
-parse JSON from string <br/>
-
 - parse_from_file.c <br/>
 psrse JSON from file <br/>
 
