@@ -1,5 +1,5 @@
 /**
- * jsoncpp Sample
+ * parse_file.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -31,25 +31,26 @@ using namespace std;
  */
 int main(int argc, char* argv[]) 
 {
+char* file = (char *)"jsons/withComment.json";
 
     Json::Value root;
     ifstream ifs;
 
-    if(argc !=2) {
-
+    if(argc == 2) {
+        file =  argv[1];
+    } else {
         cout << "Usage: " << argv[0] << " <jsonFile> "  << endl;
-        return EXIT_FAILURE;
     }
 
-    string input = argv[1];
+    cout << "file: " << file << endl;
 
-  ifs.open(input);
+  ifs.open(file);
     if(!ifs){
-        cout << "can not open: " << input << endl;
+        cout << "can not open: " << file << endl;
      return EXIT_FAILURE;
     }
 
-    cout << "open: " << input << endl;
+    cout << "open: " << file << endl;
 
   Json::CharReaderBuilder builder;
   builder["collectComments"] = true;
@@ -69,7 +70,7 @@ int main(int argc, char* argv[])
   return EXIT_SUCCESS;
 }
 
-// open: assets/withComment.json
+// open: jsons/withComment.json
 // "value"
 // "python"
 // "c++"

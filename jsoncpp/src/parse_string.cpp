@@ -1,5 +1,5 @@
 /**
- * jsoncpp Sample
+ * parse_string.cpp
  * 2020-03-01 K.OHWADA
  */
 

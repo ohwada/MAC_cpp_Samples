@@ -1,5 +1,5 @@
 /**
- * json Sample
+ * parse_file.c
  * 2020-03-01 K.OHWADA
  */
 
@@ -76,16 +76,18 @@ void test_parse_check_type(struct json_object* const obj) {
  */
 int main(int argc, char **argv) 
 {
+    char* file = (char *)"jsons/sample1.json";
 
-    if(argc != 2){
+    if(argc == 2){
+        file = argv[1];
+    } else {
         printf("Usage: %s <jsonFile> \n", argv[0]);
-        return 1;
     }
 
-    char* filepath = argv[1];
+      printf("file: %s \n", file);
 
-    printf("json parse from file: %s \n", filepath);
-    struct json_object *jobj_from_file = json_object_from_file(filepath);
+    printf("json parse from file: %s \n", file);
+    struct json_object *jobj_from_file = json_object_from_file(file);
     test_parse_obj_to_string(jobj_from_file);
 
     //printf("json parse from file & check type \n");

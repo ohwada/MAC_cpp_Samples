@@ -1,5 +1,5 @@
 /**
- * json-c Sample
+ * parse_string.c
  * 2020-03-01 K.OHWADA
  */
 

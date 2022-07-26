@@ -1,5 +1,5 @@
 /**
- * json Sample
+ * parse_mail.c
  * 2020-03-01 K.OHWADA
  */
 
@@ -113,15 +113,17 @@ void printMailParam(struct MailParam p)
  */
 int main(int argc, char **argv) 
 {
+    char* file = (char *)"jsons/mail.json";
 
-    if(argc != 2){
+    if(argc == 2){
+        file = argv[1];
+    } else {
         printf("Usage: %s <jsonFile> \n", argv[0]);
-        return 1;
     }
 
-    char* filepath = argv[1];
+        printf("file: %s \n", file);
 
-    struct MailParam p = getMailParam(filepath);
+    struct MailParam p = getMailParam(file);
 
     printMailParam(p);
 

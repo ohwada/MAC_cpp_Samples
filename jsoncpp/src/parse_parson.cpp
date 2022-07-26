@@ -1,5 +1,5 @@
 /**
- * jsoncpp Sample
+ * parse_person.cpp
  * 2020-03-01 K.OHWADA
  */
 
@@ -16,19 +16,19 @@ using namespace std;
 /**
  * readJson
  */
-bool readJson(string filepath, string &name, int* age, string &error) 
+bool readJson(string file, string &name, int* age, string &error) 
 {
     Json::Value root;
     ifstream ifs;
 
-    ifs.open(filepath);
+    ifs.open(file);
     if(!ifs){
-        error = "can not open: " + filepath;
+        error = "can not open: " +file;
         cout << error << endl;
      return false;
     }
 
-    cout << "open: " << filepath << endl;
+    cout << "open: " <<file << endl;
 
     Json::CharReaderBuilder builder;
     builder["collectComments"] = true;
@@ -73,19 +73,20 @@ bool readJson(string filepath, string &name, int* age, string &error)
 int main(int argc, char* argv[]) 
 {
 
-    string filepath = "assets/taro.json";
-
+    string file = "jsons/taro.json";
 
     if(argc ==2) {
-    filepath = argv[1];
+   file = argv[1];
 } else {
         cout << "Usage: " << argv[0] << " <jsonFile> "  << endl;
     }
 
+    cout << "file: " << file << endl;
+
     string name;
     int age;
     string error;
-    bool ret = readJson(filepath, name, &age, error);
+    bool ret = readJson(file, name, &age, error);
 
     if(!ret){
         cout << "error: " << error << endl;
