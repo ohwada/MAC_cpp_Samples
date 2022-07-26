@@ -236,6 +236,9 @@ a header-file-only, JSON parser serializer in C++ <br/>
 ### rapidjson
 JSON parser/generator for C++ with SAX and DOM style APIs  <br/>
 
+### jsmn
+a world fastest JSON parser/tokenizer.  <br/>
+
 ### boost
 split string <br/>
 

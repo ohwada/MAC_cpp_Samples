@@ -42,6 +42,10 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/simdjson <br/>
 a header-file-only, JSON parser serializer in C++ <br/>
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/picojson <br/>
 
+### jsmn
+a world fastest JSON parser/tokenizer.  <br/>
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/jsmn <br/>
+
 ### boost
 free peer-reviewed portable C++ source libraries
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/json
