@@ -217,6 +217,9 @@ Ultralightweight JSON parser in ANSI C <br/>
 ### jansson
 C library for encoding, decoding, and manipulating JSON  <br/>
 
+### parson
+Lightweight JSON library written in C. <br/>
+
 ### nlohmann-json
 JSON for modern C++ <br/>
 
