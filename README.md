@@ -1,546 +1,566 @@
 MAC C/C++ Samples
 ===============
 
-C++ sample codes for MAC <br/>
+C++ sample codes for MAC  
 
-### Prerequisites
- - Xcode <br/>
-https://developer.apple.com/support/xcode/ <br/>
- - Homebrew <br/>
-https://brew.sh/ <br/>
+### Prerequisites  
+ - Xcode  
+https://developer.apple.com/support/xcode/   
+ - Homebrew   
+https://brew.sh/   
 
 
-### FileUtil
-- read and write Text File <br/>
-- parse file fullpath to dir name, file name, file extension <br/>
+### FileUtil  
+- read and write Text File  
+- parse file fullpath to dir name, file name, file extension  
 
-###ConsoleUtil
-emulater for kbhit function of Windows <br />
-display progress in stdout <br/>
+###ConsoleUtil  
+emulater for kbhit function of Windows  
+display progress in stdout  
 
-### upper lower
-convert Upper case, Lower case <br/>
+### upper lower  
+convert Upper case, Lower case  
 
-### Class
-C++ Class Sample <br/>
-display exam score of each students <br/>
+### Class  
+C++ Class Sample  
+display exam score of each students  
 
-### callback
-callback function: <br/>
+### callback  
+callback function  
 
-### libsigc++
-Callback framework for C++ <br/>
+### libsigc++  
+Callback framework for C++   
 
-### cmake
-Cross-platform make <br/>
+### cmake  
+Cross-platform make  
 
-### make
-Utility for directing compilation <br/>
+### make  
+Utility for directing compilation  
 
-### QsciScintilla
-Port to Qt of the Scintilla editing component <br/>
+### QsciScintilla  
+Port to Qt of the Scintilla editing component  
 
-### expat
-XML 1.0 Parser <br/>
+### expat  
+XML 1.0 Parser  
 
-### libxml
-GNOME XML Library <br/>
+### libxml  
+GNOME XML Library  
 
-### libxml++
-C++ wrapper for libxml <br/>
+### libxml++  
+C++ wrapper for libxml  
 
-### tinyxml
-XML Parser <br/>
+### tinyxml  
+XML Parser  
 
-### pugixml
-C++ XML Processing Library <br/>
+### pugixml  
+C++ XML Processing Library  
 
-### xerces-c
-XML Parser written in C++. <br/>
+### xerces-c  
+XML Parser written in C++  
 
-### xalan-c
-XSLT processor <br/>
+### xalan-c  
+XSLT processor  
 
-### arabica
-XML toolkit written in C++ <br/>
+### arabica  
+XML toolkit written in C++  
 
-### rapidxml
-the fastest XML Parser <br/>
+### rapidxml  
+the fastest XML Parser  
 
-### libmrss
-C library for RSS files or streams <br/>
+### libmrss  
+C library for RSS files or streams  
 
-### feed-reader-lib
- Fast, thread-safe, extensible &amp; platform independent feed reader library in C++, <br/>
+### feed-reader-lib  
+ Fast, thread-safe, extensible &amp; platform independent feed reader library in C++   
 
-### gumbo-parser
-C99 library for parsing HTML5  <br/>
+### gumbo-parser  
+C99 library for parsing HTML5  
 
-### tidy
-HTML tools　with support for modern standards <br/>
+### tidy  
+HTML tools with support for modern standards  
 
-### eigen
-C++ template library for linear algebra  <br/>
+### eigen  
+C++ template library for linear algebra  
 
-### libomp
-LVM's OpenMP runtime library <br/>
+### libomp  
+LVM's OpenMP runtime library  
 
-### open-mpi
-High performance message passing library <br/>
+### open-mpi   
+High performance message passing library  
 
 
-### x11
-draw octagon on X11 Window <br/>
+### x11  
+draw octagon on X11 Window  
 
-### sound
-play sound using paplay or afplay <br/>
+### sound  
+play sound using paplay or afplay  
 
-### vsprintf
-C Sample of variable length arguments  <br/>
+### vsprintf  
+C Sample of variable length arguments  
 
-### signal
-catch and handle POSIX signals <br/>
+### signal  
+catch and handle POSIX signals  
 
-### codecvt
-convert UTF-8 to/from UTF-16 <br/>
+### codecvt  
+convert UTF-8 to/from UTF-16  
 
-### string
-string to uppercase / lowercase <br/>
+### string  
+string to uppercase / lowercase  
 
-### string_streams 
-the fmemopen and open_memstream functions allow you to do I/O to a string or memory buffer.  <br/>
+### string_streams   
+the fmemopen and open_memstream functions allow you to do I/O to a string or memory buffer  
 
-### utstring
-dynamic string macros for C <br/>
+### utstring  
+dynamic string macros for C  
 
-### bind
-bind function <br/>
+### bind  
+bind function  
 
-### map
-map with int or string key <br/>
+### map  
+map with int or string key  
 
-### unordered_map
-unordered map with string key or vector / class / enum <br/>
+### unordered_map  
+unordered map with string key or vector / class / enum  
 
-### shuffle
-shaffle  vector / string <br/>
+### shuffle  
+shaffle  vector / string  
 
-### random
-generate random number / string <br/>
+### random  
+generate random number / string  
 
-### search
- find first matched element in int vector <br/>
+### search  
+ find first matched element in int vector  
 
-### sort
-sort int vector using std::sort <br/>
+### sort  
+sort int vector using std::sort  
 
-### input
-input string from std::cin <br/>
+### input  
+input string from std::cin  
 
-### qt
-Cross-platform application and UI framework  <br/>
+### qt  
+Cross-platform application and UI framework  
 
-### qt5
-Cross-platform application and UI framework <br/>
+### qt5  
+Cross-platform application and UI framework  
 
-### wxWidgets
-C++ library that lets developers create applications <br/>
+### wxWidgets  
+C++ library that lets developers create applications  
 
-### ncurses
-Text-based UI library <br/>
+### ncurses  
+Text-based UI library  
 
-### system
-get the path of the main executable for macOS  <br/>
+### system  
+get the path of the main executable for macOS  
 
-### time
-get formated local time <br/>
+### time  
+get formated local time  
 
-### thread
-run two threads <br/>
+### thread  
+run two threads  
 
-### array
-2-demension array <br/>
+### array  
+2-demension array  
 
-### recursion 
-recursion sample <br/>
+### recursion   
+recursion sample  
 
-### math
-C mathematical functions <br/>
+### math  
+C mathematical functions  
 
-### menu
-CUI menu <br/>
+### menu  
+CUI menu  
 
-### mail builder
-sample codes that create mail message <br/>
+### mail builder  
+sample codes that create mail message  
 
-### base64
-base64 encoder decoder <br/>
+### base64  
+base64 encoder decoder  
 
 
-### sqlite
-a small, fast, self-contained, high-reliability, full-featured, SQL database engine. <br/>
+### sqlite  
+a small, fast, self-contained, high-reliability, full-featured, SQL database engine  
 
-### sqlitecpp
-C++ SQLite3 wrapper. <br/>
+### sqlitecpp  
+C++ SQLite3 wrapper  
 
 
-### berkeley-db
-High performance key/value database <br/>
+### berkeley-db  
+High performance key/value database  
 
-### glib
-low-level system libraries written in C <br/>
+### glib  
+low-level system libraries written in C  
 
-### zlib
-data-compression library <br/>
-compress and decompress file <br/>
+### zlib  
+data-compression library  
+compress and decompress file  
 
-### icu4c 
-C/C++ libraries for Unicode and globalization <br/>
-read sjis file convrt to UTF-8 <br/>
+### libzip  
+C library for reading, creating, and modifying zip archives    
 
-### c11
-C Sample since std C11 <br/>
-generate random number using random()<br/>
+### icu4c  
+C/C++ libraries for Unicode and globalization  
+read sjis file convrt to UTF-8  
 
-### get_opt
-parse commandline options <br/>
+### c11  
+C Sample since std C11  
+generate random number using random()  
 
-### json-c
-parse json using json-c <br/>
+### get_opt  
+parse commandline options  
 
-### jsoncpp
-parse json using jsoncpp <br/>
+### json-c  
+parse json using json-c  
 
-### cjson
-Ultralightweight JSON parser in ANSI C <br/>
+### jsoncpp  
+parse json using jsoncpp   
 
-### jansson
-C library for encoding, decoding, and manipulating JSON  <br/>
+### cjson  
+Ultralightweight JSON parser in ANSI C  
 
-### parson
-Lightweight JSON library written in C. <br/>
+### jansson  
+C library for encoding, decoding, and manipulating JSON  
 
-### yyjon
-A high performance JSON library written in ANSI C.  <br/>
+### parson  
+Lightweight JSON library written in C  
 
+### yyjon  
+A high performance JSON library written in ANSI C  
 
-### nlohmann-json
-JSON for modern C++ <br/>
 
-### simdjson
-SIMD-accelerated C++ JSON parser <br/>
+### nlohmann-json  
+JSON for modern C++  
 
-### picojson
-a header-file-only, JSON parser serializer in C++ <br/>
+### simdjson  
+SIMD-accelerated C++ JSON parser  
 
-### rapidjson
-JSON parser/generator for C++ with SAX and DOM style APIs  <br/>
+### picojson  
+a header-file-only, JSON parser serializer in C++  
 
-### jsmn
-a world fastest JSON parser/tokenizer.  <br/>
+### rapidjson  
+JSON parser/generator for C++ with SAX and DOM style APIs  
 
-### boost
-split string <br/>
+### jsmn  
+a world fastest JSON parser/tokenizer  
 
-### POCO
-C++ class libraries for building network and internet-based applications <br/>
+### boost  
+split string  
 
-### gflags
-parse commandline flags <br/>
+### POCO  
+C++ class libraries for building network and internet-based applications  
 
-### glog
-write log to file <br/>
+### gflags  
+parse commandline flags  
 
-### cctz
-display local time <br/>
+### glog  
+write log to file  
 
-### abseil
-open source collection of C++ libraries <br/>
+### cctz  
+display local time  
 
-### nss
-Mozilla Network Security Services <br/>
+### abseil  
+open source collection of C++ libraries  
 
-### tclap
-test for command line parser <br/>
+### nss  
+Mozilla Network Security Services  
 
-### fftw
-calc FFT <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/fftw/result/plot_fft_sin_440.png" width="300" /><br/>
+### tclap  
+test for command line parser  
 
-### assimp
-draw 3D model from file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/assimp/result/screenshot_wusonobj.png" width="300" /><br/>
+### fftw  
+calc FFT  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/fftw/result/plot_fft_sin_440.png" width="300" />  
 
-### cairo
-draw arc to png file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cairo/result/arc.png" width="300" /><br/>
+### assimp  
+draw 3D model from file  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/assimp/result/screenshot_wusonobj.png" width="300" />  
 
-### gnuplot
-plot sin wave <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/gnuplot/result/screenshot_plot_sin.png" width="300" /><br/>
+### cairo  
+draw arc to png file  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/cairo/result/arc.png" width="300" />  
 
-### libiconv
-convert text file codeset to UTF8 <br/>
+### gnuplot  
+plot sin wave  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/gnuplot/result/screenshot_plot_sin.png" width="300" />  
 
+### libiconv  
+convert text file codeset to UTF8  
 
-### glad
-Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator <br/>
 
-### glm
-header only C++ mathematics library <br/>
+### glad  
+Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator  
 
-## http
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
-sample code for HTTP Client and Server <br/>
+### glm  
+header only C++ mathematics library  
 
-### network
-tcp server and client <br/>
+## http  
+sample code for HTTP Client and Server  
 
-### libcurl
-the multiprotocol file transfer library <br/> 
+### network  
+tcp server and client  
 
-### curlpp
-C++ wrapper for libcurl <br/>
+### libcurl  
+the multiprotocol file transfer library  
 
+### curlpp  
+C++ wrapper for libcurl  
 
-### openssl
-toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
 
-### gnutls
-library implementing the SSL, TLS and DTLS protocols <br/>
+### openssl  
+toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols  
 
-### libmicrohttpd <br/>
-C library to make it easy to run an HTTP server <br/>
+### gnutls  
+library implementing the SSL, TLS and DTLS protocols  
 
-### cpp-httplib <br/>
-A C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
+### libmicrohttpd  
+C library to make it easy to run an HTTP server  
 
-## mail
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/mail.md
-sample code for mail <br/>
+### cpp-httplib  
+A C++11 single-file header-only cross platform HTTP/HTTPS library  
 
-### postfix
-send mail using mail command or sensdmail command <br/>
+## mail  
+sample code for mail  
 
-### libquickmail
-C library for sending e-mail <br/>
+### postfix  
+send mail using mail command or sensdmail command  
 
-### vmime
-C++ class library for working with RFC-822 and MIME messages and Internet messaging services like IMAP, POP or SMTP. <br/>
+### libquickmail  
+C library for sending e-mail  
 
-### curlsmtp
-A mail sending tool <br/>
+### vmime   
+C++ class library for working with RFC-822 and MIME messages and Internet messaging services like IMAP, POP or SMTP  
 
-### curlsmtp2
-this project is fork from  curlsmtp <br/>
+### curlsmtp  
+A mail sending tool  
 
-### gmail api 
-send and recieve mail with Gmail API <br/>
+### curlsmtp2  
+this project is fork from  curlsmtp  
 
-## AudioPlayer
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/AudioPlayer.md <br/>
+### gmail api  
+send and recieve mail with Gmail API  
 
 
-### OpenAL
-play tone, wav file <br/>
+### OpenAL  
+play tone, wav file  
 
-### PulseAudio
-play audio file <br/>
+### PulseAudio  
+play audio file  
 
-### irrKlang
-play audio file <br/>
+### irrKlang  
+play audio file  
 
-### libsndfile
-play audio file <br/>
+### libsndfile  
+play audio file  
 
-### beep
-play beep sound  <br/>
+### beep  
+play beep sound   
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/beep/result/screenshot_piano.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/beep/result/screenshot_piano.png" width="300" />  
 
-### wav
-play wav file  <br/>
+### wav  
+play wav file  
 
-### libmad
-play mp3 <br/>
+### libmad  
+play mp3  
 
-### libvorbis
-play ogg <br/>
+### libvorbis  
+play ogg  
 
-### flac
-play flac <br/>
+### flac  
+play flac  
 
-### fdk_aac
-play aac  <br/>
+### fdk_aac  
+play aac  
 
-### mp3lame
-encode mp3 <br/>
+### mp3lame  
+encode mp3  
 
- ### stb_vorbis
-convert ogg file to wav file <br/>
+ ### stb_vorbis  
+convert ogg file to wav file  
 
-### id3lib
-show id3tag in mp3 file <br/>
+### id3lib  
+show id3tag in mp3 file  
 
-### taglib
-show id3tag in mp3 file <br/>
+### taglib  
+show id3tag in mp3 file  
 
-### minimp3
-mp3 player with OpenGL and SDL <br/>
+### minimp3  
+mp3 player with OpenGL and SDL  
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/minimp3/result/screenshot_player.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/minimp3/result/screenshot_player.png" width="300" />  
 
 
-### FreeType
-read font file <br/>
-show text in OpenGL window <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeType/result/screenshot_test_TextRenderer.png" width="300" /><br/>
+### FreeType  
+read font file  
+show text in OpenGL window  
 
-### GTK
-open GTK window and show image <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeType/result/screenshot_test_TextRenderer.png" width="300" />  
 
-### SDL
-SDL( Simple DirectMedia Layer )  <br/>
-open SDL window and show image <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_uparrow.png" width="300" /><br/>
+### GTK  
+open GTK window and show image   
 
-### SDL2
-SDL2 Samples  <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" />  
 
-### SDL_audio
-play audio file <br/>
+### SDL  
+SDL( Simple DirectMedia Layer )   
+open SDL window and show image  
 
-### SDL_mixer
-play music fie <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/SDL/result/screenshot_uparrow.png" width="300" />  
 
-### sfml
-open sfml window and show image  from file <br/>
+### SDL2  
+SDL2 Samples  
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/sfml/result/screenshot_uparrow.png" width="300" /><br/>
+### SDL_audio  
+play audio file  
 
-### sfml_network
-tcp server and client <br/>
+### SDL_mixer  
+play music fie  
 
-## ImageLoader Samples
-https://github.com/ohwada/MAC_cpp_Samples/blob/master/ImageLoader.md <br/>
+### sfml  
+open sfml window and show image  from file  
 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/sfml/result/screenshot_uparrow.png" width="300" />  
 
-### FreeImage
-read and write Image File using FreeImage <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/result/vegetables_gray.jpg" width="300" /><br/>
+### sfml_network  
+tcp server and client  
 
 
-### Devil
-read and write Image File using Devil <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/result/screenshot_gtk_uparrow.png" width="300" /><br/>
+### FreeImage  
+read and write Image File using FreeImage  
 
-### stb_image 
-read and write Image File using stb_image <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/stb <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/FreeImage/result/vegetables_gray.jpg" width="300" />  
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/screenshot_gray.png" width="300" /><br/>
 
-### libjpeg 
-read and write JPEG format Image File <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/screenshot_uparrow.jpg" width="300" /><br/>
+### Devil  
+read and write Image File using Devil  
 
-### libpng 
-read and write oNG format Image File <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/Devil/result/screenshot_gtk_uparrow.png" width="300" />  
 
-### libtiff 
-read and write tiff format Image File <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/screenshot_uparrow.png" width="300" /><br/>
+### stb_image  
+read and write Image File using stb_image  
 
-### bmp 
-read and write bmp format Image File <br/>
-supported format: 24 bit  bmp <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_door.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/stb_image/result/screenshot_gray.png" width="300" />  
 
-### bmp2 
-read and write bmp format Image File <br/>
-supported format: 24 bit / 32 bit bmp <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp2/result/screenshot_vegitables.png" width="300" /><br/>
+### libjpeg   
+read and write JPEG format Image File  
 
-### TGALoader
-load Texture from TGA format image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/TGALoader/result/screenshot_gtk_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/screenshot_uparrow.jpg" width="300" />  
 
-### RawLoader
-read Raw format image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparraow.png" width="300" /><br/>
+### libpng   
+read and write oNG format Image File  
 
-### DDSLoader
-read DDS format image file <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/DDSLoader/result/screenshot_uparrow.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" />
 
-### nv_dds
-read and write dds format Image File using nv_dds<br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/nv_dds/result/screenshot_woman.png" width="300" /><br/>
+### libtiff   
+read and write tiff format Image File  
 
-### OpenCV
-Open source computer vision library  <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libtiff/result/screenshot_uparrow.png" width="300" />  
 
-### OpenCV-ImageReadWrite
-read and write Image File using OpenCV <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow_vegitables.png" width="300" /><br/>
+### bmp   
+read and write bmp format Image File   
+supported format: 24 bit  bmp   
 
-### OpenCV-GaussianBlur
-process Image with OpenCV GaussianBlur API <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-GaussianBlur/result/opencv_logo_11x11_3.0_.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp/result/screenshot_door.png" width="300" />  
 
-### OpenCV-Hisotgram
-calculate Histogram with OpenCV calcHist API <br/>'
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histogram/result/screenshot_color.png" width="300" /><br/>
+### bmp2   
+read and write bmp format Image File   
+supported format: 24 bit / 32 bit bmp   
 
-### OpenCLInfo
-show OpenCL version and others <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/bmp2/result/screenshot_vegitables.png" width="300" />  
 
-### OpenCL-HelloWorld
-operate simple addition with OpenCL<br/>
+### TGALoader  
+load Texture from TGA format image file   
 
-### OpenCL-ImageFilter2D
-this sample demonstrates performing Gaussian Filter (Gaussian Blur) on a 2D image using <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/result/rectangles_5x5.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/TGALoader/result/screenshot_gtk_uparrow.png" width="300" />  
 
-### OpenCL-GaussianFilter
-process Image with Gaussian Filter (Gaussian Blur)  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/OpenCL_Logo_11x11_3.0_.png" width="300" /><br/>
+### RawLoader  
+read Raw format image file   
 
-### OPenCL-HPPーVectorAdd
-this simple demonstrates use OpenCL C++ Wrapper API <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RawLoader/result/screenshot_gl_uparraow.png" width="300" />
 
-### OpenCL-Sobel
-Sobel Edge Detection Filter <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" /><br/>
+### DDSLoader  
+read DDS format image file  
 
-### OpenCL-Histogram
-calculate Histogram in RGB values <br/> 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/DDSLoader/result/screenshot_uparrow.png" width="300" />  
 
-### OpenGL-GLUT
-open OpenGL window with GLUT <br/>
-and draw teapot <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_ads.png" width="300" /><br/>
+### nv_dds  
+read and write dds format Image File using nv_dds  
 
-### OpenGL-GLFW
-open OpenGL window with glfw <br/>
-and draw triangle <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW/result/screenshot_triangle.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/nv_dds/result/screenshot_woman.png" width="300" />  
 
-### OpenGL-GLSL
-open OpenGL window with glfw and glad  <br/>
-and draw Triangle with GLSL <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLSL/result/screenshot_basic.png" width="300" /><br/>
+### OpenCV  
+Open source computer vision library  
 
+### OpenCV-ImageReadWrite  
+read and write Image File using OpenCV   
 
-### OpenGL-GLUT-Texture
-dwaw Texture with image using GLUT <br/>
-<image src="https://github.com/ohwada/MAC_cpp_Samples/blob/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" /><br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-ImageReadWrite/result/screenshot_imshow_vegitables.png" width="300" />  
 
-### OpenGL-GLFW-Texture
-dwaw Texture with image using GLFW  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW-Texture/result/screenshot_uparrow.png" width="300" /><br/>
+### OpenCV-GaussianBlur  
+process Image with OpenCV GaussianBlur API   
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-GaussianBlur/result/opencv_logo_11x11_3.0_.png" width="300" />  
+
+### OpenCV-Hisotgram  
+calculate Histogram with OpenCV calcHist API   
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCV-Histogram/result/screenshot_color.png" width="300" />  
+
+### OpenCLInfo  
+show OpenCL version and others   
+
+### OpenCL-HelloWorld  
+operate simple addition with OpenCL  
+
+### OpenCL-ImageFilter2D  
+this sample demonstrates performing Gaussian Filter (Gaussian Blur) on a 2D image using  
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-ImageFilter2D/result/rectangles_5x5.png" width="300" />  
+
+### OpenCL-GaussianFilter  
+process Image with Gaussian Filter (Gaussian Blur)   
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-GaussianFilter/result/OpenCL_Logo_11x11_3.0_.png" width="300" />  
+
+### OPenCL-HPPーVectorAdd  
+this simple demonstrates use OpenCL C++ Wrapper API  
+
+### OpenCL-Sobel  
+Sobel Edge Detection Filter  
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Sobel/result/lena_gray_edge.png" width="300" />  
+
+### OpenCL-Histogram  
+calculate Histogram in RGB values  
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenCL-Histogram/result/baboon_hist_plot.png" width="300" />  
+
+### OpenGL-GLUT  
+open OpenGL window with GLUT  
+and draw teapot  
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLUT/result/screenshot_solidteapot_ads.png" width="300" />  
+
+### OpenGL-GLFW  
+open OpenGL window with glfw  
+and draw triangle   
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW/result/screenshot_triangle.png" width="300" />  
+
+### OpenGL-GLSL  
+open OpenGL window with glfw and glad   
+and draw Triangle with GLSL   
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLSL/result/screenshot_basic.png" width="300" />  
+
+
+### OpenGL-GLUT-Texture  
+dwaw Texture with image using GLUT  
+
+<image src="https://github.com/ohwada/MAC_cpp_Samples/blob/master/OpenGL-GLUT-Texture/result/screenshot_park.png" width="300" />  
+
+### OpenGL-GLFW-Texture  
+dwaw Texture with image using GLFW  
+
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/OpenGL-GLFW-Texture/result/screenshot_uparrow.png" width="300" />  
 
 
