@@ -31,6 +31,9 @@ callback function
 ### libsigc++  
 Callback framework for C++   
 
+### gmp  
+GNU multiple precision arithmetic library  
+
 ### cmake  
 Cross-platform make  
 
