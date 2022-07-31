@@ -214,6 +214,9 @@ Whats New in C99
 C Sample since std C11  
 generate random number using random()  
 
+### c++11  
+Whats New in C++11  
+
 ### get_opt  
 parse commandline options  
 
