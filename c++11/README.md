@@ -35,6 +35,9 @@ https://en.cppreference.com/w/cpp/language/parameter_pack
 nullptr  
 https://en.cppreference.com/w/cpp/language/nullptr  
 
+- constexpr.cpp
+https://en.cppreference.com/w/cpp/language/constexpr
+
 
 ### Build and Run:  
 % make rang_for  
