@@ -28,6 +28,9 @@ display exam score of each students
 ### callback  
 callback function  
 
+### binarry  
+decimal_to_binary  
+
 ### libsigc++  
 Callback framework for C++   
 
