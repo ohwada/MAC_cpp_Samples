@@ -75,6 +75,12 @@ JSON Parser  <br/>
 ### uuid
  generate uuid <br/>
 
+### integer  
+GCD( Greatest Common Divisor )  
+
+### multiprecision  
+prime numbers  
+
 
 ### Reference <br/>
 - https://www.boost.org/
