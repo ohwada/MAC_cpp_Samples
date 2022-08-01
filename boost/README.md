@@ -1,79 +1,78 @@
 boost
 ===============
 
-boost Sample <br/>
+boost Sample  
 
 
-boost : <br/>
+boost :  
 free peer-reviewed portable C++ source libraries.<br/>
-https://www.boost.org/ <br/>
+https://www.boost.org/   
 
 
 ###  install boost
-see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/setup <br/>
+see below   
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/setup   
 
 
-###  sample code
+###  sample code  
 
-#### header_only
-features available with header only <br/>
-- to_upper.cpp <br/>
-convert lowercase letters to uppercase <br/>
-- split.cpp <br/>
-split string <br/>
-- format.cpp  <br/>
-output with formating like prinf()  <br/>
-- version.cpp <br/>
-display version <br/>
-
-
-#### asio
-a cross-platform C++ library for network and low-level I/O programming <br/>
-
-HTTP Server <br/>
-access localhost:8080 by WEB Brawser <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost/screenshot/chrome_http_server.png" width="300" />
-
-#### chrono
-sample code for chronometer <br/>
-
-#### filesystem
- provides facilities to manipulate files and directories <br/>
-
-#### locale
-high quality localization facilities in a C++ way.  <br/>
-
-#### log
-logging <br/>
-
-#### math
-Mathematical Functions <br/>
+#### header_only  
+features available with header only  
+- to_upper.cpp  
+convert lowercase letters to uppercase  
+- split.cpp   
+split string   
+- format.cpp    
+output with formating like prinf()    
+- version.cpp   
+display version   
 
 
-#### program_options
-commandline parser <br/>
+#### asio  
+a cross-platform C++ library for network and low-level I/O programming   
 
-#### regex
-regular expressions
+HTTP Server   
+access localhost:8080 by WEB Brawser   
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost/screenshot/chrome_http_server.png" width="300" />  
 
-#### serialization
-the reversible deconstruction of an arbitrary set of C++ data structures to a sequence of bytes <br/>
+#### chrono  
+sample code for chronometer   
 
-#### thread
-enables the use of multiple threads of execution with shared data in portable C++ code <br/>
+#### filesystem  
+ provides facilities to manipulate files and directories   
 
-#### timer
-CPU timers  <br/>
+#### locale  
+high quality localization facilities in a C++ way.    
 
-#### xml
-XML read  <br/>
+#### log  
+logging   
 
-#### json
-JSON Parser  <br/>
+#### math  
+Mathematical Functions   
 
-### uuid
- generate uuid <br/>
+#### program_options  
+commandline parser    
+
+#### regex  
+regular expressions  
+
+#### serialization  
+the reversible deconstruction of an arbitrary set of C++ data structures to a sequence of bytes   
+
+#### thread  
+enables the use of multiple threads of execution with shared data in portable C++ code   
+
+#### timer  
+CPU timers    
+
+#### xml  
+XML read    
+
+#### json  
+JSON Parser    
+
+### uuid  
+ generate uuid   
 
 ### integer  
 GCD( Greatest Common Divisor )  
@@ -81,7 +80,10 @@ GCD( Greatest Common Divisor )
 ### multiprecision  
 prime numbers  
 
+### assign  
+assign, optional  
 
-### Reference <br/>
-- https://www.boost.org/
+
+### Reference  
+- https://www.boost.org/  
 
