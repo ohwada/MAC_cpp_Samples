@@ -260,6 +260,9 @@ split string
 ### boost build  
 C++ build system  
 
+### boost uri  
+portable C++ library which provides containers and algorithms which model a "URL"  
+
 ### POCO  
 C++ class libraries for building network and internet-based applications  
 
