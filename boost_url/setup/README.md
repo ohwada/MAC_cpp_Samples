@@ -1,9 +1,9 @@
-boost uri: setup
+boost url: setup
 ===============
 
 ### setup   
-(1) download sources
-% git clone https://github.com/CPPAlliance/url/
+(1) download sources  
+% git clone https://github.com/CPPAlliance/url/  
 
 (2) copy setup.sh to downloaded directory
 
