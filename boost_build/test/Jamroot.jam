@@ -1,0 +1,5 @@
+# 2022-06-01 K.OHWADA
+# https://qiita.com/kaoru/items/04a6f7d1051ba832713c
+
+import testing ;
+unit-test hello_world : hello_world.cpp ;
