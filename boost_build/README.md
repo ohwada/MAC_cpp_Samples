@@ -4,11 +4,11 @@ boost build
 Boost.Build :  
 C++ build system  
 Also known as: bjam, boost-jam  
-https://formulae.brew.sh/formula/boost-build  
+https://www.boost.org/build/
 
 ###  install 
-% brew install boost-build
-https://formulae.brew.sh/formula/boost-build
+% brew install boost-build  
+https://formulae.brew.sh/formula/boost-build  
 
 % b2 --help  
 > B2 4.7-git  
