@@ -1,5 +1,5 @@
 /**
- * c++ sample
+ * sort_struct.cpp
  * 2020-03-01 K.OHWADA
  */
 

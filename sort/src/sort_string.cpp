@@ -1,5 +1,5 @@
 /**
- * sort sample
+ * sort_string.cpp
  * 2020-03-01 K.OHWADA
  */
 

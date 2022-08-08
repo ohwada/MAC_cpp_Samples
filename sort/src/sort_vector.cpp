@@ -1,5 +1,5 @@
 /**
- * c++ sample
+ * sort_vector.cpp
  * 2020-03-01 K.OHWADA
  */
 
