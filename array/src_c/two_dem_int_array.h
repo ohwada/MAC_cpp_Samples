@@ -1,6 +1,6 @@
 #pragma once
 /**
- * C sample
+ * two_dem_int_array.h
  * 2020-07-01 K.OHWADA
  */
 

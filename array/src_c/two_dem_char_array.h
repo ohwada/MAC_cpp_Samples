@@ -1,6 +1,6 @@
 #pragma once
 /**
- * C sample
+ *  two_dem_char_array.h
  * 2020-07-01 K.OHWADA
  */
 
@@ -21,7 +21,6 @@ void free_chars(char** chars, int n);
  */
 char** alloc_chars(int n, int m) 
 {
- const char ZERO = '\0';
 
 	char **chars;
 

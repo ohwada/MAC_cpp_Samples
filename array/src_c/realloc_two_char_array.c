@@ -1,10 +1,10 @@
 /**
- * C sample
- * 2020-07-01 K.OHWADA
+ *  realloc_two_char_array.c
+ * 2022-06-01 K.OHWADA
  */
 
  // 2-demension char array
-// gcc test_two_dem_char_array.c
+// gcc realloc_two_char_array.c
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,8 +44,33 @@ int main(void)
     printf("\n");
 	print_chars( chars, N );
 
-	free_chars(chars, N );
- 
+int nn = N+4;
+	size_t size = sizeof(char*) * nn;
+
+	char** new = realloc( chars, size);
+	if(new == NULL) {
+		printf("realloc faild \n");
+		return EXIT_FAILURE;
+	}
+
+
+	for(int i = N; i < nn; i++) {
+		new[i] = calloc(sizeof(char), M); 
+	}
+
+	printf("\n");
+	print_chars( new, nn);
+
+    strcpy( new[5], "Big Sur");
+    strcpy( new[6], "Monterey");
+    strcpy( new[7], "Ventura");
+
+	printf("\n");
+	print_chars( new, nn);
+
+	free_chars(new, nn);
+
+
     return EXIT_SUCCESS;
 }
 
@@ -55,5 +80,8 @@ int main(void)
 // 2 : Mojave 
 // 3 : Catalina 
 // 4 :  
-
+// 5 : Big Sur 
+// 6 : Monterey 
+// 7 : Ventura 
+// 8 : 
 
