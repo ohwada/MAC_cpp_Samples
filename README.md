@@ -97,6 +97,8 @@ LVM's OpenMP runtime library
 ### open-mpi   
 High performance message passing library  
 
+### date 
+date and time library for use with C++11 and C++14.   
 
 ### x11  
 draw octagon on X11 Window  
