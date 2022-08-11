@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# 2020-07-01 K.OHWADA
+# 2022-06-01 K.OHWADA
 # copy pkgconfig flies to system area
 
-prefix=/usr/local/Cellar/boost/1.74.0
-dir_pkgconfig=${prefix}pkgconfig
+ver=1.79.0_1
+prefix=/usr/local/Cellar/boost/${ver}
+dir_pkgconfig=${prefix}/pkgconfig
 
 mkdir ${dir_pkgconfig}
 
