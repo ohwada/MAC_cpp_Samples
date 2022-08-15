@@ -25,6 +25,9 @@ convert Upper case, Lower case
 C++ Class Sample  
 display exam score of each students  
 
+### queue  
+Queue and Stack  
+
 ### regex
 RegularExpressions  
 
