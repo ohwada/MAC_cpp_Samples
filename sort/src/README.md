@@ -7,6 +7,7 @@ C++ Samples
 - sort_vector.cpp 
 - sort_struct.cpp
 - sort_string.cp  
+- quicksort.cpp  
 
 
 build code <br/>
