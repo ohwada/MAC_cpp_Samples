@@ -5,7 +5,7 @@
 
 // get filenames in directory
 
-// gcc  test_file_list.c -o list 
+// gcc  test_file_list.c -Wall -o list 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,53 +32,46 @@ int main(int argc, char** argv)
         printf( "Usage: %s [directory path]  [ext] \n" , argv[0] );
     }
 
-    const int N = 10;
-    const int M = 100;
+    const int BUFSIZE = 100;
+    char error[BUFSIZE];
+    char error2[BUFSIZE];
 
+    int num;
     int size;
-    char error[100];
-
-    char** list = alloc_chars(N, M) ;
-
-    bool ret1 = get_file_list( path,  list, N, &size, (char *)error  );
-
-    if (!ret1) {
-            printf ("%s \n", error );
+    char** list = get_file_list(path, &num, &size, (char *)error );
+    if(num == 0) {
+             printf ("%s \n", error );
+            return EXIT_FAILURE;;
+    }
+    if(size == 0) {
+             printf ("no files\n");
             return EXIT_FAILURE;;
     }
 
-    if(size == 0){
-        printf ("no files \n" );
-            return EXIT_FAILURE;;
-    }
-
-    printf ("get %d files \n", size );
-
+    printf("get %d files \n", size);
     print_chars( list, size );
 
-    clear_chars( list, N );
+    free_chars( list, num );
 
    printf("\n");
     printf ("ext: %s \n", ext );
 
-    bool ret2 = get_file_list_ext( path,  list, N, ext, &size, (char *)error  );
-
-    if (!ret2) {
+int num2;
+ int size2;
+char **list2 = get_file_list_ext(path, ext, &num2, &size2, (char *)error2 );
+   if(num2 == 0) {
             printf ("%s \n", error );
             return EXIT_FAILURE;;
     }
-
-    if(size == 0){
-        printf ("no files \n" );
+   if(size2 == 0) {
+            printf ("no match files \n");
             return EXIT_FAILURE;;
     }
 
- 
-    printf ("get %d files \n", size );
+    printf("get %d files \n", size2);
+  print_chars( list2, size2 );
 
-    print_chars( list, size );
-
-    free_chars( list, N );
+    free_chars( list2, num2 );
 
     return EXIT_SUCCESS;
 }

@@ -19,6 +19,10 @@ read and write text file <br/>
 read and write binary file  <br/>
 - test_file_list.c <br/>
 get filenames in directory <br/>
+-slink.c  
+ * show symbolic link  
+- ls.c  
+ls command-like  
 
 build sample code <br/>
 % gcc test_c_parse_filename.c -o parse <br/>

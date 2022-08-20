@@ -16,8 +16,9 @@
 #include <sys/stat.h>
 
 // prototype
-bool get_file_list(char *path, char** list, int n, int *size, char *error );
-bool get_file_list_ext(char *path, char** list, int n, char *ext, int *size, char *error );
+char** get_file_list(char *path, int *num, int *size, char *error );
+char** get_file_list_ext(char *path, char *ext, int *num, int *size, char *error );
+int get_file_num(char *path, char *error );
 bool file_exists (char* path);
 bool is_dir(char* path);
 bool match_ext( char *name, char *ext );
@@ -31,32 +32,49 @@ void free_chars(char** chars, int n);
 /**
  * get_file_list
  */
-bool get_file_list(char *path, char** list, int n, int *size, char *error )
+char** get_file_list(char *path, int *num, int *size, char *error )
 {
     const char DOT[] = ".";
     const char TWO_DOT[] = "..";
-
+    const int LEN = 256;
 
     if ( !file_exists(path) ) {
         strcpy(error, "not found: ");
         strcat(error, path);
-        return false;
+        *num = 0;
+        *size = 0;
+        return NULL;
     }
 
 
     if ( !is_dir(path) ) {
         strcpy(error, "not directory: ");
         strcat(error, path);
-        return false;
+        *num = 0;
+        *size = 0;
+        return NULL;
     }
 
 
+    int file_num = get_file_num(path, error );
+    if (file_num == 0) {
+        *num = 0;
+        *size = 0;
+        return NULL;
+    }
+
+    char** list = alloc_chars(file_num, LEN) ;
+
+
+// get files
     DIR *dir;
     dir = opendir (path);
     if (!dir) {
         int save_err = errno;
-        strcpy(error, strerror(save_err) );               
-        return false;
+        strcpy(error, strerror(save_err) );
+        *num = 0;   
+        *size = 0;            
+        return NULL;
     }
 
     struct dirent * ent;
@@ -74,37 +92,65 @@ bool get_file_list(char *path, char** list, int n, int *size, char *error )
             continue;
         }
   
-        if(cnt < n){
+        if(cnt< file_num){
             strcpy( list[cnt], ent->d_name );
-        } else {
-            break;
-        }
+            cnt++;
+        } 
 
-        cnt++;
     } // while
 
     closedir (dir);
 
+    *num = file_num;
     *size = cnt;
 
-    return true;
+    return list;
 }
 
 
 /**
- * get_file_list
+ * get_file_list_ext
  */
-bool get_file_list_ext(char *path, char** list, int n, char *ext, int *size, char *error )
+char** get_file_list_ext(char *path, char *ext, int *num, int *size, char *error )
 {
     const char DOT[] = ".";
     const char TWO_DOT[] = "..";
+ const int LEN = 256;
 
+    if ( !file_exists(path) ) {
+        strcpy(error, "not found: ");
+        strcat(error, path);
+        *num = 0;
+        *size = 0;
+        return NULL;
+    }
+
+    if ( !is_dir(path) ) {
+        strcpy(error, "not directory: ");
+        strcat(error, path);
+        *num = 0;
+        *size = 0;
+        return NULL;
+    }
+
+    int file_num = get_file_num(path, error );
+    if (file_num == 0) {
+        *num = 0;
+        *size = 0;
+        return NULL;
+    }
+
+    char** list = alloc_chars(file_num, LEN) ;
+
+// get files
     DIR *dir;
     dir = opendir (path);
     if (!dir) {
         int save_err = errno;
         strcpy(error, strerror(save_err) );               
-        return false;
+        *num = 0;
+        *size = 0;
+        return NULL;
     }
 
     struct dirent * ent;
@@ -125,20 +171,53 @@ bool get_file_list_ext(char *path, char** list, int n, char *ext, int *size, cha
             continue;
         }
 
-        if(cnt < n){
+        if(cnt < file_num){
             strcpy( list[cnt], ent->d_name );
-        } else {
-            break;
-        }
+            cnt ++;
+        } 
 
-        cnt++;
     } // while
 
     closedir (dir);
 
+    *num = file_num;
     *size = cnt;
 
-    return true;
+    return list;
+}
+
+
+/**
+ * get_file_num
+ */
+int get_file_num(char *path, char *error )
+{
+    if ( !is_dir(path) ) {
+        strcpy(error, "not directory: ");
+        strcat(error, path);
+        return 0;
+    }
+
+// count files
+    DIR *dir;
+    dir = opendir (path);
+    if (!dir) {
+        int save_err = errno;
+        strcpy(error, strerror(save_err) );               
+        return 0;
+    }
+
+    struct dirent * ent;
+    int cnt = 0;
+
+    while ((ent = readdir (dir)) != NULL) 
+{
+        cnt++;
+} // while
+
+    closedir (dir);
+
+    return cnt;
 }
 
 
@@ -201,7 +280,7 @@ char* get_file_ext(char *fullpath)
 
     char *ext = strrchr(buf, DOT);
     if(!ext) {
-        printf("not find dot \n");
+        // not found dot
         return "";
     }
 
