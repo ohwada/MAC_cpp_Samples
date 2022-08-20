@@ -1,14 +1,14 @@
-nlohmann-json: src
+nlohmann-json: simple
 ===============
 
 
 ### sample
-- json.cpp  <br/>
+- simple.cpp  
 
-Build and Run  <br/>
-% make<br/>
-or  <br/>
-% g++ json.cpp -o json -std=c++11 <br/>
+Build and Run  
+% make
+or  
+% g++ imple.cpp -o simple -std=c++11 
 
  % ./json  <br/>
 > {"answer":{"everything":42},"happy":true,"list":

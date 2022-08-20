@@ -2,15 +2,15 @@
 
 CXX=g++
 CFLAGS=-Wall -std=c++11
-TARGET=json
-SRCS=json.cpp
+TARGET=movie
+SRCS=movie.cpp
 
 
 $(TARGET):
 	$(CXX) $(SRCS) $(CFLAGS) -o $@
 
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 

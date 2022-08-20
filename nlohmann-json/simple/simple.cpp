@@ -1,9 +1,9 @@
 /**
- * json.cpp
+ * simple.cpp
  * 2022-06-01 K.OHWADA
  */
 
-// g++ json.cpp -o json -std=c++11
+// g++ simple.cpp -o simple -std=c++11
 
 // reference : https://qiita.com/yohm/items/0f389ba5c5de4e2df9cf
 
