@@ -55,6 +55,9 @@ Utility for directing compilation
 ### QsciScintilla  
 Port to Qt of the Scintilla editing component  
 
+### cryptopp  
+C++ class library of cryptographic schemes  
+
 ### expat  
 XML 1.0 Parser  
 
