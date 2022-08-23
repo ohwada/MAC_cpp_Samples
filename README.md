@@ -214,6 +214,9 @@ compress and decompress file
 ### libzip  
 C library for reading, creating, and modifying zip archives    
 
+### bzip2
+Freely available high-quality data compressor  
+
 ### icu4c  
 C/C++ libraries for Unicode and globalization  
 read sjis file convrt to UTF-8  

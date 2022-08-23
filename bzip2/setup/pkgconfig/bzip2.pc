@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/bzip2
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: bzip2
+Description: high-quality data compressor
+Version: 1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lbz2
+
