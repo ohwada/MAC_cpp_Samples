@@ -339,6 +339,8 @@ the multiprotocol file transfer library
 ### curlpp  
 C++ wrapper for libcurl  
 
+### curlcpp  
+an object oriented C++ wrapper for libcurl  
 
 ### openssl  
 toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols  

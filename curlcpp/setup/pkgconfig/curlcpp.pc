@@ -1,0 +1,13 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/curlcpp
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: curlcpp
+Description: An object oriented C++ wrapper for CURL (libcurl)
+URL: https://github.com/JosephP91/curlcpp/
+Version: 1.4
+Requires: libcurl >= 7.28.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lcurlcpp
