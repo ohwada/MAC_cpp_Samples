@@ -274,6 +274,9 @@ a world fastest JSON parser/tokenizer
 ### boost  
 split string  
 
+### boost_asio
+C++ library for network and low-level I/O programming 
+
 ### boost build  
 C++ build system  
 
