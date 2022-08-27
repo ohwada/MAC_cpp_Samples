@@ -55,6 +55,9 @@ Utility for directing compilation
 ### QsciScintilla  
 Port to Qt of the Scintilla editing component  
 
+### libharu  
+Library for generating PDF files  
+
 ### cryptopp  
 C++ class library of cryptographic schemes  
 
