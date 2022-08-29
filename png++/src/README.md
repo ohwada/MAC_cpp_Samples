@@ -1,17 +1,12 @@
-png++:src
+png++: src
 ===============
 
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/png++/scrrenshots/screenshot_upsrrow.png" width="300" />  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/png%2B%2B/scrrenshots/scrrenshot_uparrow.png" width="300" /> 
 
 
 ## samplrs
-- copy.cpp
-- write.cpp
-- gtk.cpp
-
 - copy.c
-- flag.c
 - gray.c
 - write.c
 - gtk.c
