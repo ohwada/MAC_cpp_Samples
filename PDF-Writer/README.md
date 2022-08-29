@@ -3,7 +3,7 @@ PDF-Writer
 
 
 PDF-Writer:  
-High performance library for creating, modiyfing and parsing PDF files in C++
+High performance library for creating, modiyfing and parsing PDF files in C++   
 https://github.com/galkahana/PDF-Writer  
 
 
@@ -11,13 +11,13 @@ https://github.com/galkahana/PDF-Writer
 see below  
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/PDF-Writer/setup 
 
-##simple  
+## simple  
 create one page PDF 
 
 ### movie
 printing a list of movies to a PDF  
 
-###image
+### image
 creating a PDF from a collection of images  
 
 
