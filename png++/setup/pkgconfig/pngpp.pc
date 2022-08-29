@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/Cellar/png++/0.2.10
+includedir=${prefix}/include
+
+Name: Png++
+Description: C++ wrapper for libpng library 
+Version: 0.2.10
+Cflags: -I${includedir}  -I${includedir}/png++
+Libs:
+Requires: libpng 
+

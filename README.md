@@ -494,7 +494,10 @@ read and write JPEG format Image File
 ### libpng   
 read and write oNG format Image File  
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" />
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/result/screenshot_upsrrow.png" width="300" />  
+
+### png++  
+C++ wrapper for libpng library  
 
 ### libtiff   
 read and write tiff format Image File  
