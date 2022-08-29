@@ -52,6 +52,9 @@ Cross-platform make
 ### make  
 Utility for directing compilation  
 
+### PDF-Writer  
+High performance library for creating, modiyfing and parsing PDF files in C++  
+
 ### QsciScintilla  
 Port to Qt of the Scintilla editing component  
 

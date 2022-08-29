@@ -1,0 +1,13 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/PDFWriter
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: PDFWriter
+Description: library for creating PDF
+Version: 1.0
+Cflags: -I${includedir}  -I${includedir}/PDFWriter
+Libs: -L${libdir} -lPDFWriter -lLibAesgm
+Requires: libpng libjpeg libtiff-4 freetype2 zlib
+
