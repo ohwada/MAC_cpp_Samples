@@ -1,7 +1,0 @@
-sample when run copy
-----------
-libpng : copy
-libpng Version: 1.6.37
-loadImage: ./images/uparrow.png ( 512 x 512 )
-saved Image : uparrow_copy.png
-
