@@ -2,7 +2,7 @@ libpng
 ===============
 
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/scrrenshots/screenshot_upsrrow.png" width="300" />  
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libpng/screenshot/screenshot_upsrrow.png" width="300" />  
 
 
 libpng:  
