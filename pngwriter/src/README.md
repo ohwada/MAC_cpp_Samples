@@ -1,4 +1,4 @@
-pngwriter: simple
+pngwriter: src
 ===============
 
 build file with pngwriter.cc  
