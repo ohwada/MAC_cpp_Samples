@@ -499,6 +499,9 @@ read and write oNG format Image File
 ### png++  
 C++ wrapper for libpng library  
 
+### pngwriter  
+C++ library for creating PNG images  
+
 ### libtiff   
 read and write tiff format Image File  
 

@@ -1,0 +1,13 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/pngwriter
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: PngWriter
+Description: library for creating PNG
+Version: 1.0
+Cflags: -I${includedir} 
+Libs: -L${libdir} -lpngwriter
+Requires: libpng freetype2
+
