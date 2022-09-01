@@ -7,8 +7,6 @@ libzip: src
 
 Build and Run:  
 % make  
-or  
- gcc show_zip.cpp -o show `pkg-config --cflags --libs libzip`   
 
 % ./show  
 > num: 4  

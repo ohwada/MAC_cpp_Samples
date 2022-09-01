@@ -15,10 +15,12 @@ https://formulae.brew.sh/formula/libzip
 > -L/usr/local/Cellar/libzip/1.9.2/lib  
 > -lzip   
 
+
 ### src
 - show_zip.c  
 
+### compress  
+Compressing and decompressing files to/from a ZIP archive  
 
-### Reference
-- https://libzip.org/ 
+
 
