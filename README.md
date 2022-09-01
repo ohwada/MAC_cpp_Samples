@@ -223,6 +223,9 @@ compress and decompress file
 ### libzip  
 C library for reading, creating, and modifying zip archives    
 
+### ZipLib  
+C++ library for Zip archives  
+
 ### bzip2
 Freely available high-quality data compressor  
 
