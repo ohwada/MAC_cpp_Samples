@@ -1,39 +1,35 @@
 setup - sqlite
 ===============
 
-setup for sqlite <br/>
+setup for sqlite  
 
 
 ### Note: 
-sqlite is preinstalled on macOS <br/>
+sqlite is preinstalled on macOS  
 
-binary <br/>
-% sqlite3 --version <br/>
-3.28.0 2019-04-15 14:49:49 <br/>
+binary  
+% sqlite3 --version  
+3.28.0 2019-04-15 14:49:49  
 
-header file <br/>
-% ls /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sqlite* <br/>
+header file  
+% ls /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sqlite*  
 
-librariy file <br/>
-% ls /usr/lib/libsqlite* <br/>
+librariy file  
+% ls /usr/lib/libsqlite*  
 
 
 ###  install sqlite
-% brew install sqlite <br/>
-https://formulae.brew.sh/formula/sqlite <br/>
+% brew install sqlite   
+https://formulae.brew.sh/formula/sqlite   
 
 
-###  set up for pkg-config
-% bash setup.sh <br/>
+###  set up for pkg-config  
+% bash setup.sh   
 
-check for pkg-config <br/>
-% pkg-config --cflags --libs sqlite3 <br/>
-> -I/usr/local/Cellar/sqlite/3.33.0/include <br/>
-> -L/usr/local/Cellar/sqlite/3.33.0/lib <br/>
--lsqlite3 <br/>
-
-
-### Reference <br/>
-- https://sqlite.org/index.html
+check for pkg-config   
+% pkg-config --cflags --libs sqlite3   
+> -I/usr/local/Cellar/sqlite/3.33.0/include   
+> -L/usr/local/Cellar/sqlite/3.33.0/lib   
+-lsqlite3   
 
 

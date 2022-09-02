@@ -1,15 +1,19 @@
 /**
- * sqlite sample
+ * version.c
  * 2020-07-01 K.OHWADA
  */
 
+// gcc version.c -o bin/version `pkg-config --cflags --libs sqlite3`
 
-// display version
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "sqlite3.h"
 
+
+/**
+ * main
+ */
 int main(void)
 {
 
@@ -26,7 +30,7 @@ int main(void)
 // sqlite3_libversion: 3.28.0 
 
 // gcc version.c `pkg-config --cflags --libs sqlite3`
-// SQLITE_VERSION: 3.33.0 
-// sqlite3_libversion: 3.33.0 
+// SQLITE_VERSION: 3.39.2 
+// sqlite3_libversion: 3.39.2 
 
 

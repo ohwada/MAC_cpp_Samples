@@ -1,8 +1,18 @@
 #!/bin/bash
 
-# 2020-07-01 K.OHWADA
-# link pkgconfig flie to system area
+# 2022-06-01 K.OHWADA
+# link bin flie and pkgconfig flie to system area
 
-dir_pkgconfig=/usr/local/Cellar/sqlite/3.33.0/lib/pkgconfig
+ver=3.39.2
+root=/usr/local/Cellar/sqlite/${ver}
+bin=${root}/bin
+pkgconfig=${root}/lib/pkgconfig
 
-ln -s  ${dir_pkgconfig}/sqlite3.pc /usr/local/lib/pkgconfig/sqlite3.pc
+ln -s  ${bin}/sqlite3 /usr/local/bin/sqlite3
+
+ln -s  ${pkgconfig}/sqlite3.pc /usr/local/lib/pkgconfig/sqlite3.pc
+
+ls -la  /usr/local/bin/sqlite3
+
+ls -la /usr/local/lib/pkgconfig/sqlite3.pc
+
