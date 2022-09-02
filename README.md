@@ -209,6 +209,8 @@ a small, fast, self-contained, high-reliability, full-featured, SQL database eng
 ### sqlitecpp  
 C++ SQLite3 wrapper  
 
+### SqliteModernCpp  
+The C++14 wrapper around sqlite library  
 
 ### berkeley-db  
 High performance key/value database  
