@@ -5,6 +5,7 @@
 
 
 // display list of elements
+// read from stdin
 // reference : https://qiita.com/zinbe/items/0516e58cea479e95f6bf
 
 // gcc expat_test1.c -Wall -lexpat -o test1

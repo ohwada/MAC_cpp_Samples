@@ -4,6 +4,7 @@
  */
 
 // display element name and the data in the element as a set
+// read from stdin
 // reference : https://qiita.com/zinbe/items/0516e58cea479e95f6bf
 
 #include <stdio.h>
