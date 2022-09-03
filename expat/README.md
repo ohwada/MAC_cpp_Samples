@@ -2,15 +2,15 @@ expat
 ===============
 
 
-expat: 
-XML 1.0 parser 
+expat:  
+XML 1.0 parser  
 https://libexpat.github.io/ 
 
 
 ###  install 
-% brew install expat 
-https://formulae.brew.sh/formula/expat 
-
+% brew install expat  
+https://formulae.brew.sh/formula/expat  
+ 
 % pkg-config --cflags --libs expat 
 > -lexpat 
 
