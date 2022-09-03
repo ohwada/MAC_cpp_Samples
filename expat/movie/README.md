@@ -3,11 +3,12 @@ expat: movie
 
 deserializing data from movie XML  
 
-### samples
+### samples  
 - movie.c
 
-Build and Run
-% make
+Build and Run  
+% make  
+
 % bin/movie  
 > id: 11001  
 > title: The Matrix  
