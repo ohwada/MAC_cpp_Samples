@@ -43,8 +43,10 @@ struct simple_walker: pugi::xml_tree_walker
  */
 int main()
 {
+    const char* FILE = "tree.xml";
+
     pugi::xml_document doc;
-    if (!doc.load_file("sample.xml")) {
+    if (!doc.load_file(FILE)) {
         return 1;
     }
 
@@ -52,8 +54,11 @@ int main()
     simple_walker walker;
     doc.traverse(walker);
     // end::traverse[]
+
     return 0;
 }
 
-// element: name='rss', value=''
-// element: name='channel', value=''
+// element: name='mesh', value=''
+  // pcdata: name='', value='some text'
+
+

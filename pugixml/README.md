@@ -2,36 +2,40 @@ pugixml
 ===============
 
 
-pugixml: <br/>
-Light-weight C++ XML Processing Library<br/>
-https://pugixml.org/ <br/>
+pugixml: 
+Light-weight C++ XML Processing Library  
+https://pugixml.org/  
 
 
 ###  install 
-% brew install pugixml <br/>
-https://formulae.brew.sh/formula/pugixml <br/>
+% brew install pugixml  
+https://formulae.brew.sh/formula/pugixml  
 
-%  pkg-config --cflags --libs  pugixml  <br/>
+%  pkg-config --cflags --libs  pugixml  
+
 
 ### samples
-- load_error_handling.cpp <br/>
-- load_file.cpp <br/>
-- load_memory.cpp <br/>
-- load_stream.cpp <br/>
-- modify_add.cpp <br/>
-- modify_base.cpp <br/>
-- modify_remove.cpp <br/>
-- save_custom_writer.cpp <br/>
-- save_file.cpp <br/>
-- save_stream.cpp <br/>
-- traverse_base.cpp <br/>
-- traverse_iter.cpp <br/>
-- traverse_rangefor.cpp <br/>
-- traverse_walker.cpp <br/>
+- load_error_handling.cpp 
+- load_file.cpp 
+- load_memory.cpp 
+- load_stream.cpp 
+- modify_add.cpp 
+- modify_base.cpp 
+- modify_remove.cpp 
+- save_custom_writer.cpp 
+- save_file.cpp 
+- save_stream.cpp 
+- traverse_base.cpp 
+- traverse_iter.cpp 
+- traverse_rangefor.cpp 
+- traverse_walker.cpp 
 
 ### walker
 - traverse_walker.cpp  
 
-### movie  
-- movie.cpp  
+### movie1  
+- serializing and deserializing data to/from XML  
+
+### movie2  
+Selecting data from XML using XPath 
  

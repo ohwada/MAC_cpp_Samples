@@ -1,13 +1,13 @@
-pugixml: src
+pugixml: walker
 ===============
 
 ### Samples
 - traverse_walker.cpp  
 
 Build and Run:
- % g++ traverse_walker.cpp -o walker -std=c++11 `pkg-config --cflags --libs  pugixml`
+ % make walker
 
-% ./walker
-> element: name='rss', value=''
-> element: name='channel', value=''
+% bin/walker
+> element: name='mesh', value=''
+  > pcdata: name='', value='some text'
 
