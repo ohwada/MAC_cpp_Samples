@@ -1,0 +1,13 @@
+# 2020-07-01 K.OHWADA
+prefix=/usr/local/Cellar/boost/1.74.0
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: boost exception
+Description: C++ source libraries.
+Version: 1.74.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lboost_system \
+ -lboost_system-mt \
+-lboost_exception-mt \
+-lboost_exception
