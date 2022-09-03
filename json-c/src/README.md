@@ -1,26 +1,22 @@
 json-c: src
 ===============
 
-j
+
 ### samples
-- parse_from_file.c <br/>
-psrse JSON from file <br/>
+- parse_from_file.c 
+psrse JSON from file 
 
+- parse_from_string.c 
+psrse JSON from string 
 
-- parse_from_string.c <br/>
-psrse JSON from string <br/>
+- parse_mail.c 
+parse mail json file 
 
-- parse_mail.c <br/>
-parse mail json file <br/>
-
-Build and Run: <br/>
-% make string  <br/>
-or  <br/>
-% gcc parse_string.c -o string `pkg-config --cflags --libs json-c` <br/>
-
-% ./string <br/>
-> Name : xxxxx  <br/>
-> Id : 101  <br/>
-> Voting_eligible : true  <br/>
+Build and Run: 
+% make string  
+% bin/string 
+> Name : taro  
+> Id : 101  
+> Voting_eligible : true  
 
 

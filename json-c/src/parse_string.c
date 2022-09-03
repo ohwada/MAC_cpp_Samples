@@ -19,7 +19,7 @@
 int main(void)
 {
   /*Declaring the json data's in json format*/
-  char buf[] = "{ \"Name\": \"xxxxx\", \"Id\": 101, \"Voting_eligible\": true }";
+  char buf[] = "{ \"Name\": \"taro\", \"Id\": 101, \"Voting_eligible\": true }";
 
   /*Declaring the Json_object.To pass the Json string to the newly created Json_object*/
   json_object *new_obj = json_tokener_parse(buf);
@@ -58,7 +58,7 @@ int main(void)
 }
 
 
-// Name : xxxxx
+// Name : taro
 // Id : 101
 // Voting_eligible : true
 
