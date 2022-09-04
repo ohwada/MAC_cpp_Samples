@@ -7,14 +7,28 @@ TARGET1=image
 SRCS1=image_show.cpp
 TARGET2=video
 SRCS2=video_show.cpp
+TARGET3=capture
+SRCS3=video_capture.cpp
+TARGET4=version
+SRCS4=version.cpp
 
 
-$(TARGET1):
-	$(CXX) $(SRCS1) $(CFLAGS) $(OCV_FLAGS) -o $@
+$(TARGET1): $(SRCS1)
+	$(CXX) $<  $(CFLAGS) $(OCV_FLAGS) -o bin/$@
+	cp -R images bin
 
 
-$(TARGET2):
-	$(CXX) $(SRCS2) $(CFLAGS) $(OCV_FLAGS) -o $@
+$(TARGET2): $(SRCS2)
+	$(CXX) $<  $(CFLAGS) $(OCV_FLAGS) -o bin/$@
+	cp -R videos bin
+
+
+$(TARGET3): $(SRCS3)
+	$(CXX) $< $(CFLAGS) $(OCV_FLAGS) -o bin/$@
+
+
+$(TARGET4): $(SRCS4)
+	$(CXX) $< $(CFLAGS) $(OCV_FLAGS) -o bin/$@
 
 
 %.o: %.c
@@ -22,4 +36,4 @@ $(TARGET2):
 
 
 clean:
-	rm -rf $(TARGET1) $(TARGET2) *.o 
+	rm -rf  bin/*  *.o 

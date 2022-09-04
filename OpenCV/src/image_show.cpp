@@ -17,8 +17,8 @@ using namespace std;
  */
 int main(int argc, char **argv) 
 {
-    char* file = (char *)"images/sample.png";
-    char * outfile = (char*)"sample_gray.png";
+    char* file = (char *)"images/uparrow.png";
+    char * outfile = (char*)"uparrow_gray.png";
 
     if (argc == 2) {
         file = argv[1];
@@ -62,3 +62,5 @@ const char* WINNAME = (char *)"OpenCV: Image";
 
     return 0;
 }
+
+// saved to: uparrow_gray.png

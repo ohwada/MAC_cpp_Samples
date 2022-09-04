@@ -10,18 +10,12 @@ https://opencv.org/  <br/>
 
 
 ###  install 
-% brew install opncv <br/>
-https://formulae.brew.sh/formula/opencv <br/>
-
-% pkg-config --cflags --libs opencv4 <br/>
+see below   
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCV/setup
 
 ### src
-- image_show.cpp <br/>
-- video_show.cpp <br/>
-- video_capture.cpp <br/>
-- version.cpp <br/>
-
-
-### Reference <br/>
-- https://opencv.org/
+- image_show.cpp  
+- video_show.cpp  
+- video_capture.cpp  
+- version.cpp  
 
