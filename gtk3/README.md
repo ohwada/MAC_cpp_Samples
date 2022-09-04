@@ -8,8 +8,8 @@ Toolkit for creating graphical user interfaces
 https://gtk.org/
 
 
-### Install 
-% brew install gtk+3 
-https://formulae.brew.sh/formula/gtk+3 
-
+### Install  
+% brew install gtk+3  
+https://formulae.brew.sh/formula/gtk+3  
+ 
 % pkg-config --cflags --libs gtk+-3.0 
