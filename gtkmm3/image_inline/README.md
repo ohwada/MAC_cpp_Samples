@@ -10,6 +10,6 @@ using Gdk::Pixbuf::create_from_inline
 ### samplrs
 - SampleWindow.cpp
 
-Build and Run:
-% make image
-% bin/image
+Build and Run:  
+% make image  
+% bin/image  
