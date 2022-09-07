@@ -7,14 +7,15 @@ OpenCV: face_detect
 ### overview
 OpenCV has two types of image recognition futures
 
-(1) CascadeClassifier
-https://docs.opencv.org/3.4/d1/de5/classcv_1_1CascadeClassifier.html  
+(1) Cascade Classifier
+https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
 
-(2) DNN-based Face Detection And Recognition
+
+(2) DNN( Deep Neural Network )
 (since 4.5.4)  
-https://docs.opencv.org/4.x/d0/dd4/tutorial_dnn_face.html  
+https://docs.opencv.org/4.x/d2/d58/tutorial_table_of_content_dnn.html
 
-DNN( Deep Neural Network )
+Deep Leaning
 https://en.wikipedia.org/wiki/Deep_learning  
 
 Preparation:
