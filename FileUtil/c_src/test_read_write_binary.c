@@ -5,7 +5,7 @@
 
 // test for file_util.h
 
-// gcc test_read_write_binary.c -o binary
+// gcc test_read_write_binary.c -o bin/binary
 
 #include <stdio.h>
 #include "file_util.h"

@@ -6,7 +6,7 @@
 // check file exists
 // test for  file_exists()
 
-// gcc test_file_exists.c -o exists
+// gcc test_file_exists.c -o bin/exists
 
 #include <stdio.h>
 #include "file_util.h"

@@ -6,7 +6,7 @@
 // rename file
 // test for file_rename()
 
-// gcc test_file_rename.c -o rename
+// gcc test_file_rename.c -o bin/rename
 
 #include <stdio.h>
 #include "file_util.h"

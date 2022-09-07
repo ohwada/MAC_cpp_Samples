@@ -43,6 +43,9 @@ Calendar Utilty
 ### libsigc++  
 Callback framework for C++   
 
+### Urdl 
+cross-platform C++ library for downloading web content using a URL.  
+
 ### gmp  
 GNU multiple precision arithmetic library  
 

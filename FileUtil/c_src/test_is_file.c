@@ -6,7 +6,7 @@
 // determine if it is a file or a directory
 // test for is_file() and is_dir()
 
-// gcc  test_is_file.c -o is_file 
+// gcc  test_is_file.c -o bin/is_file 
 
 #include <stdio.h>
 #include "file_util.h"

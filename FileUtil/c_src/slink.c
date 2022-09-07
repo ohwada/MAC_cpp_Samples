@@ -4,6 +4,7 @@
  * 2022-06-01 K.OHWADA
  */
 
+// gcc slink.c -o bin/slink
 
 #include <stdio.h>
 #include"slink.h"

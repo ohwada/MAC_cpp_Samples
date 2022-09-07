@@ -19,14 +19,14 @@
 char** get_file_list(char *path, int *num, int *size, char *error );
 char** get_file_list_ext(char *path, char *ext, int *num, int *size, char *error );
 int get_file_num(char *path, char *error );
-bool file_exists (char* path);
-bool is_dir(char* path);
+bool is_dir2(char* path);
 bool match_ext( char *name, char *ext );
-char* get_file_ext(char *fullpath);
+bool get_file_ext(char *fullpath, char *ext);
 char** alloc_chars(int n, int m) ;
 void clear_chars(char** chars, int n);
 void print_chars(char** chars, int n);
 void free_chars(char** chars, int n);
+void make_path(char *path, char *dir, char *file);
 
 
 /**
@@ -38,16 +38,8 @@ char** get_file_list(char *path, int *num, int *size, char *error )
     const char TWO_DOT[] = "..";
     const int LEN = 256;
 
-    if ( !file_exists(path) ) {
-        strcpy(error, "not found: ");
-        strcat(error, path);
-        *num = 0;
-        *size = 0;
-        return NULL;
-    }
 
-
-    if ( !is_dir(path) ) {
+    if ( !is_dir2(path) ) {
         strcpy(error, "not directory: ");
         strcat(error, path);
         *num = 0;
@@ -117,15 +109,8 @@ char** get_file_list_ext(char *path, char *ext, int *num, int *size, char *error
     const char TWO_DOT[] = "..";
  const int LEN = 256;
 
-    if ( !file_exists(path) ) {
-        strcpy(error, "not found: ");
-        strcat(error, path);
-        *num = 0;
-        *size = 0;
-        return NULL;
-    }
 
-    if ( !is_dir(path) ) {
+    if ( !is_dir2(path) ) {
         strcpy(error, "not directory: ");
         strcat(error, path);
         *num = 0;
@@ -192,7 +177,7 @@ char** get_file_list_ext(char *path, char *ext, int *num, int *size, char *error
  */
 int get_file_num(char *path, char *error )
 {
-    if ( !is_dir(path) ) {
+    if ( !is_dir2(path) ) {
         strcpy(error, "not directory: ");
         strcat(error, path);
         return 0;
@@ -222,21 +207,9 @@ int get_file_num(char *path, char *error )
 
 
 /**
- * file_exists
+ * is_dir2
  */
-bool file_exists (char *path) 
-{
-    struct stat   sb;   
-    int ret = stat(path, &sb);
-    bool res = ( ret == 0 )? true: false;
-    return res;
-}
-
-
-/**
- * is_dir
- */
-bool is_dir(char* path)
+bool is_dir2(char* path)
 {
     struct stat sb;
     int ret = stat(path, &sb);
@@ -253,12 +226,14 @@ bool is_dir(char* path)
 /**
  * match_ext
  */
-bool match_ext( char *name, char *ext )
+bool match_ext( char *name, char *ext1 )
 {
+    const int BUFSIZE = 256;
+    char ext2[BUFSIZE];
 
-    char *name_ext = get_file_ext( name );
+    get_file_ext( name, ext2 );
 
-    if( strcmp( name_ext, ext ) == 0 ) {
+    if( strcmp(ext1, ext2 ) == 0 ) {
         return true;
     }
 
@@ -269,27 +244,28 @@ bool match_ext( char *name, char *ext )
 /**
  * get_file_ext
  */
-char* get_file_ext(char *fullpath) 
+bool get_file_ext(char *fullpath, char *ext) 
 {
 
     const char DOT = '.';
+    const char NUL = '\0';
 
     int len = strlen(fullpath);
     char buf[len+1];
     strcpy(buf, fullpath);
 
-    char *ext = strrchr(buf, DOT);
-    if(!ext) {
+    char *p = strrchr(buf, DOT);
+    if(!p) {
         // not found dot
-        return "";
+        ext[0] = NUL;
+        return false;
     }
 
 
     // omit the first DOT
-    char *ext1 = &ext[1];
+    strcpy(ext, &p[1]);
 
-    return ext1;
-
+    return true;
 }
 
 
@@ -354,4 +330,20 @@ void free_chars(char** chars, int n)
 	free(chars);
 }
 
+void make_path(char *path, char *dir, char *file)
+{
+    const char SLASH = '/';
+    const char NUL = '\0';
 
+
+    strcpy(path, dir);
+
+    int len = strlen(path);
+    char last = path[len-1];
+    if(last != SLASH) {
+        path[len] = SLASH;
+        path[len+1] = NUL;
+    }
+
+    strcat(path, file);
+}

@@ -4,7 +4,7 @@
  * 2022-06-01 K.OHWADA
  */
 
-//  gcc ls.c -Wall -o ls
+//  gcc ls.c -Wall -o bin/ls
 
 // original : https://github.com/ohmae/ls
 

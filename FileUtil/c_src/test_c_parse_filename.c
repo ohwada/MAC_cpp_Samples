@@ -7,7 +7,7 @@
 // test for c_parse_filename.h
 
 // cd /Users/ohwada/C++/FileUtil/c_src
-// gcc test_c_parse_filename.c
+// gcc test_c_parse_filename.c -o bin/parse
 
 #include<stdio.h>
 #include<stdlib.h>

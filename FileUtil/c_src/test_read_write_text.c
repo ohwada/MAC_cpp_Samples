@@ -6,7 +6,7 @@
 // read and write text file 
 // test for text_file.h
 
-// gcc test_read_write_text.c -o text
+// gcc test_read_write_text.c -o bin/text
 
 #include <stdio.h>
 #include "file_util.h"

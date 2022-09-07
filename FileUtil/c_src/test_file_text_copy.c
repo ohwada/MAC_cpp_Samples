@@ -6,7 +6,7 @@
 // copy text file
 // test for  file_text_copy()
 
-//  gcc test_file_text_copy.c -o copy
+//  gcc test_file_text_copy.c -o bin/copy
 
 #include <stdio.h>
 #include "file_util.h"

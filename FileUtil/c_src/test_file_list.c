@@ -5,7 +5,7 @@
 
 // get filenames in directory
 
-// gcc  test_file_list.c -Wall -o list 
+// gcc  test_file_list.c -Wall -o bin/list 
 
 #include <stdio.h>
 #include <stdlib.h>

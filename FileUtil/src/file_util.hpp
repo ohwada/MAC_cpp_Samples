@@ -27,6 +27,7 @@ void dumpBinary(std::vector<char> data, size_t size);
 void getTimestampFileName(std::string prefix, std::string ext, std::string &filename);
 void getTimestamp(std::string &timestamp);
 bool cmpFiles(const std::string& p1, const std::string& p2);
+std::string make_path(std::string dir, std::string fname);
 
 
 /**
@@ -218,4 +219,19 @@ return std::equal(std::istreambuf_iterator<char>(f1.rdbuf()),
                     std::istreambuf_iterator<char>(f2.rdbuf()));
 }
 
+/**
+ * make_path
+ */
+std::string make_path(std::string dir, std::string fname)
+{
+    const char SLASH = '/';
+
+    std::string path = dir;
+    int len = path.size();
+    if( path[len - 1] != SLASH){
+        path.push_back(SLASH);
+    }
+    path += fname;
+    return path;
+}
 

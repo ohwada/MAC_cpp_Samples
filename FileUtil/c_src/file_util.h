@@ -1,7 +1,7 @@
 #pragma once
 /**
  * file_util.h
- * 2020-02-01 K.OHWADA
+ * 2022-06-01 K.OHWADA
  */
 
 #include <stdio.h>
@@ -16,9 +16,11 @@
 
 
 // prototype
-bool file_exists (char* path);
+bool file_exists(char* path);
 bool is_file(char* path);;
 bool is_dir(char* path);
+size_t get_file_size(char* filepath);
+int get_file_mtime(char* filepath);
 bool file_rename(char* oldpath, char* newpath, char* error);
 bool file_text_copy(char *from, char *to, char* error);
 bool file_text_write(char* file, char* data, char *error);
@@ -26,7 +28,7 @@ char* file_text_read(char *file, char *error);
  uint8_t* file_binary_read(char *file, size_t *size, char *error);
  bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error);
 void dump_binary(uint8_t *data, size_t size);
-
+bool make_dir(char* dir, mode_t mode);
 
 
 /**
@@ -72,6 +74,37 @@ bool is_dir(char* path)
     mode_t m = sb.st_mode;
     bool res = ( S_ISDIR(m) )? true: false;
     return res;        
+}
+
+
+/**
+ * get_file_size
+ */
+size_t get_file_size(char* filepath)
+{
+    struct stat st;
+
+    if (stat(filepath, &st) != 0) {
+        return 0;
+    }
+
+    return st.st_size;
+}
+
+
+/**
+ * get_file_mtime
+ * @return: unix time
+ */
+int get_file_mtime(char* filepath)
+{
+    struct stat st;
+
+    if (stat(filepath, &st) != 0) {
+        return 0;
+    }
+
+    return st.st_mtime;
 }
 
 
@@ -353,4 +386,31 @@ void getTimestamp(char *timestamp)
     strcpy( timestamp, buf );
 }
 
+
+/**
+ * make_dir
+ */
+bool make_dir(char* dir, mode_t mode)
+{
+
+	if( strlen(dir) == 0 ) {
+		return false;
+	}
+
+	if ( is_dir(dir) ) {
+		return false;
+	}
+
+	if ( mkdir(dir, mode) != 0) {
+		printf("mkdir faild: %s \n", dir);
+        return false;
+	}
+
+	if ( chmod(dir, mode) != 0) {
+		printf("chmod faild: %s \n", dir);
+        return false;
+	}
+
+	return true;
+} 
 
