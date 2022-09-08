@@ -13,6 +13,10 @@ https://formulae.brew.sh/formula/gtkmm3
 
 % pkg-config --cflags --libs gtkmm-3.0  
 
+### tutorial 
+Programming with gtkmm 3  
+https://docs.huihoo.com/gtkmm/programming-with-gtkmm-3/3.2.1/en/  
+
 ### src
 - window.cpp
 - box_button.cpp
