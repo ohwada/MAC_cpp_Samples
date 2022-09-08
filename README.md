@@ -395,6 +395,8 @@ this project is fork from  curlsmtp
 ### gmail api  
 send and recieve mail with Gmail API  
 
+### google vision api 
+face detection
 
 ### OpenAL  
 play tone, wav file  
