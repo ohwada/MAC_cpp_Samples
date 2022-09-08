@@ -1,7 +1,7 @@
 GoogleVision Api ; response
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/google_vision_api/screenshots/face_detect.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/google_vision_api/scrrenshots/face_detect.png" width="300" /> 
 
 ### overview
 parse response JSON using  nlohmann-json
