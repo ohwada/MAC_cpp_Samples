@@ -1,4 +1,4 @@
-GoogleVision Api ; response
+GoogleVision Api : response
 ===============
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/google_vision_api/scrrenshots/face_detect.png" width="300" /> 
