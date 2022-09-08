@@ -13,10 +13,10 @@ You must enable billing
 
 
 ### Require
-Setup the Vision API
-https://cloud.google.com/vision/docs/setup
+Setup the Vision API  
+https://cloud.google.com/vision/docs/setup  
 
-API Key
+API Key  
 place it in Your home directory
 
 Library  
@@ -24,7 +24,9 @@ Library
 - nlohmann-json  
 - opencv
 
-### sample
-there are two section
-(1) request
+### sample  
+there are two section  
+(1) request   
+send request  
 (2) response
+show response   
