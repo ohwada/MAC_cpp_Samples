@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 and then changed manually -->
+<interface>
+  <object class="GtkDialog" id="DialogDerived">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Derived Builder example</property>
+    <property name="default_width">250</property>
+    <property name="default_height">120</property>
+    <property name="hide_on_close">True</property>
+    <child internal-child="content_area">
+      <object class="GtkBox" id="dialog-vbox2">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child type="end" internal-child="action_area">
+          <object class="GtkBox" id="dialog-action_area2">
+            <property name="can_focus">False</property>
+            <child>
+              <object class="gtkmm__CustomObject_MyButton" id="quit_button">
+                <property name="label">_Quit</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_underline">True</property>
+                <property name="button-ustring">Button with extra properties</property>
+                <property name="button-int">85</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">This is a Glade and Gtk::Builder example with a derived widget</property>
+            <property name="wrap">True</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">quit_button</action-widget>
+    </action-widgets>
+  </object>
+</interface>
