@@ -1,24 +1,49 @@
 #pragma once
 /**
- * curlpp sample
+ * http_post_write.hpp
  * 2020-07-01 K.OHWADA
  */
 
 // http post to file or memory
 
-
+#include <iostream>
 #include <string>
 #include "write_func.hpp"
 
 // prototype
-bool http_post_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose);
+bool http_post_form_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose);
+bool http_post_json_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose);
+bool http_post_to_memory_header(std::string url, std::string postfileds, 	std::list<std::string> header, std::string &response,  std::string &error, bool verbose);
 bool http_post_to_file(std::string url,  std::string postfileds, std::string filepath, std::string &error, bool verbose);
 
 
 /**
- *  http_post_to_memory
+ *  http_post_form_to_memory
  */
-bool http_post_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose)
+bool http_post_form_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose)
+{
+	std::list<std::string> header; 
+	header.push_back("Content-Type: application/x-www-form-urlencoded");
+	return http_post_to_memory_header(url,  postfileds,  	header, response,  error,  verbose);
+}
+
+
+/**
+ *  http_post_json_to_memory
+ */
+bool http_post_json_to_memory(std::string url, std::string postfileds, std::string &response,  std::string &error, bool verbose)
+{
+	std::list<std::string> header; 
+    header.push_back("Content-Type: application/json; charset=utf-8");
+
+	return http_post_to_memory_header(url,  postfileds,  	header, response,  error,  verbose);
+}
+
+
+/**
+ *  http_post_to_memory_header
+ */
+bool http_post_to_memory_header(std::string url, std::string postfileds, 	std::list<std::string> header, std::string &response,  std::string &error, bool verbose)
 {
 
 	bool is_error = false;
@@ -42,10 +67,7 @@ bool http_post_to_memory(std::string url, std::string postfileds, std::string &r
 		request.setOpt(new curlpp::options::Url(url));
 		request.setOpt(new curlpp::options::Verbose(verbose));
 
-    
-    std::list<std::string> header; 
-    header.push_back("Content-Type: application/x-www-form-urlencoded"); 
-    
+ 
     request.setOpt(new curlpp::options::HttpHeader(header)); 
     
     request.setOpt(new curlpp::options::PostFields(postfileds));
@@ -56,6 +78,7 @@ bool http_post_to_memory(std::string url, std::string postfileds, std::string &r
 		request.perform();
 
         response = mWriterChunk.getBuffer();
+			std::cout << response << std::endl;
 
 	}
 	
@@ -63,12 +86,18 @@ bool http_post_to_memory(std::string url, std::string postfileds, std::string &r
 	{
 		is_error = true;
 		error = e.what();
+		if(verbose) {
+			std::cout<< "LogicError: " << error << std::endl;
+		}
 	}
 	
 	catch ( curlpp::RuntimeError & e )
 	{
 		is_error = true;
 		error = e.what();
+		if(verbose) {
+			std::cout<< "RuntimeError: " << error << std::endl;
+		}
 	}
 
 	return !is_error;
