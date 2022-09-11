@@ -16,7 +16,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/stduuid/setup
 stduuid use system libraries CFUUID
 
 CFUUID:  
- https://developer.apple.com/documentation/corefoundation/cfuuid-rci 
+ https://developer.apple.com/documentation/corefoundation/cfuuid-rci  
 
-add complie option
--framework CoreFoundation
+add complie option  
+-framework CoreFoundation  
