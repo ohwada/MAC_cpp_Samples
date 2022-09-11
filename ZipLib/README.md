@@ -4,7 +4,7 @@ ZipLib
 
 ZipLib:  
 C++ library for Zip archives
-
+ https://github.com/frk1/ziplib
 
 ## install 
 see below

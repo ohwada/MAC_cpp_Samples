@@ -1,8 +1,12 @@
 ZipLib: setup
 ===============
 
+Require:  
+- bzip2 
+- lzma 
+- zlib 
 
-### setup
+### Install
 (1) create shared liblary(libZipLib.a)
 % cd ZipLib  
 % cd build  
