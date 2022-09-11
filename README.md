@@ -67,6 +67,9 @@ Library for generating PDF files
 ### cryptopp  
 C++ class library of cryptographic schemes  
 
+### stduuid
+C++17 cross-platform single-header library implementation for UUID(Universally Unique IDentifiers)
+
 ### expat  
 XML 1.0 Parser  
 

@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/stduuid
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: stduuid
+Description: single-header library implementation for UUID(Universally Unique IDentifiers)
+Version: 1.0
+Cflags: -I${includedir}
+L
