@@ -10,39 +10,39 @@ Reference:
 
 
 ### Samples:  
-- quoted.cpp
+- quoted.cpp  
 https://en.cppreference.com/w/cpp/io/manip/quoted
 
-- exchange.cpp
+- exchange.cpp  
 https://en.cppreference.com/w/cpp/utility/exchange
 
-- integer_sequence.cpp
+- integer_sequence.cpp  
 https://en.cppreference.com/w/cpp/utility/integer_sequence
 
-- make_unique.cpp
+- make_unique.cpp  
 https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique
 
-- constexpr.cpp
+- constexpr.cpp  
 https://en.cppreference.com/w/cpp/language/constexpr
 https://cpprefjp.github.io/lang/cpp14/relaxing_constraints_on_constexpr.html
 
-- lambda.cpp
+- lambda.cpp  
 https://en.cppreference.com/w/cpp/language/lambda
 https://cpprefjp.github.io/lang/cpp11/lambda_expressions.html
 
-- less.cpp
+- less.cpp  
 std::less<void>
 https://en.cppreference.com/w/cpp/utility/functional/less_void
 
-- cbegin.cpp  
+- cbegin.cpp    
 std::cbegin  
 https://en.cppreference.com/w/cpp/iterator/begin  
 
-- op_s.cpp
-operator_s
+- op_s.cpp  
+operator_s  
 https://en.cppreference.com/w/cpp/string/basic_string/operator%22%22s
 
-- chrono_literals.cpp  
+- chrono_literals.cpp    
 std::chrono_literals  
 https://en.cppreference.com/w/cpp/symbol_index/chrono_literals  
 
