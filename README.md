@@ -231,6 +231,9 @@ compress and decompress file
 ### libzip  
 C library for reading, creating, and modifying zip archives    
 
+### liblzma  
+General-purpose data compression with high compression ratio  
+
 ### ZipLib  
 C++ library for Zip archives  
 
