@@ -18,8 +18,8 @@ https://brew.sh/
 emulater for kbhit function of Windows  
 display progress in stdout  
 
-### upper lower  
-convert Upper case, Lower case  
+ ### string util
+utility for string
 
 ### Class  
 C++ Class Sample  
