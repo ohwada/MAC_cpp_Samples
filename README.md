@@ -118,6 +118,9 @@ LVM's OpenMP runtime library
 ### open-mpi   
 High performance message passing library  
 
+### openblas  
+Optimized BLAS library
+
 ### date 
 date and time library for use with C++11 and C++14.   
 
