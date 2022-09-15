@@ -6,7 +6,17 @@ ZipLib:
 C++ library for Zip archives
  https://github.com/frk1/ziplib
 
-## install 
+
+### Enclosed librarirs: 
+- bzip2 
+- lzma 
+- zlib 
+
+Note:
+not the latest version
+because it is hardcoded
+
+### install 
 see below
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/ZipLib/setup 
 

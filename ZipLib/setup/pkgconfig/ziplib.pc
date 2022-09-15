@@ -8,7 +8,7 @@ Name: ZipLib
 Description: library for Zip archives
 Version: 1.0
 Cflags: -I${includedir} 
-Libs: -L${libdir} -lZipLib
-Requires:  liblzma bzip2 zlib
+Libs: -L${libdir} -lZipLib -lbzip2	-llzma	-lzlib
+
 
 

@@ -7,19 +7,19 @@ ROOT=/usr/local/opt/ZipLib
 INC=${ROOT}/include
 LIB=${ROOT}/lib
 DETAIL=${INC}/detail
-EXTLIBS=${INC}/extlibs
-BZIP2=${EXTLIBS}/bzip2
-LZMA=${EXTLIBS}/lzma
-ZLIB=${EXTLIBS}/zlib
+INC_EXTLIBS=${INC}/extlibs
+INC_BZIP2=${INC_EXTLIBS}/bzip2
+INC_LZMA=${INC_EXTLIBS}/lzma
+INC_ZLIB=${INC_EXTLIBS}/zlib
 
 mkdir ${ROOT}
 mkdir ${INC}
 mkdir ${LIB}
 mkdir ${DETAIL}
-mkdir ${EXTLIBS}
-mkdir ${BZIP2}
-mkdir ${LZMA}
-mkdir ${ZLIB}
+mkdir ${INC_EXTLIBS}
+mkdir ${INC_BZIP2}
+mkdir ${INC_LZMA}
+mkdir ${INC_ZLIB}
 
 
 # header
@@ -29,9 +29,9 @@ cp -R streams ${INC}
 cp -R utils ${INC}
 cp -R compression ${INC}
 cp detail/*.h ${DETAIL}
-cp extlibs/bzip2/*.h ${BZIP2}
-cp extlibs/lzma/*.h ${LZMA}
-cp extlibs/zlib/*.h ${ZLIB}
+cp extlibs/bzip2/*.h ${INC_BZIP2}
+cp extlibs/lzma/*.h ${INC_LZMA}
+cp extlibs/zlib/*.h ${INC_ZLIB}
 
 
 # lib

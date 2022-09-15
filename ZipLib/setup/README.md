@@ -7,15 +7,15 @@ Require:
 - zlib 
 
 ### Install
-(1) create shared liblary(libZipLib.a)
+(2) create shared liblary(libziplib.a)
 % cd ZipLib  
+% mkdir build 
 % cd build  
 % cmake ..  
 % make  
-> created libZipLib.a  
+> created libziplib.a  
 
-
-(2)copy header files and lib files to system area 
+(3)copy header files and lib files to system area 
 (eg /usr/local/opt/ZipLib)
 % bash setup_lib.sh
 
