@@ -528,6 +528,9 @@ read and write JPEG format Image File
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libjpeg/result/screenshot_uparrow.jpg" width="300" />  
 
+### jpeg-turbo  
+JPEG image codec that aids compression and decompression  
+
 ### libpng   
 read and write oNG format Image File  
 
