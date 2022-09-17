@@ -6,7 +6,7 @@
 // run two threads 
 // detects data races with ThreadSanitizer
 
-// gcc -fsanitize=thread -g -O1 tiny_race.c
+// gcc -fsanitize=thread -O1 tiny_race.c
 
 // reference : https://clang.llvm.org/docs/ThreadSanitizer.html
 
