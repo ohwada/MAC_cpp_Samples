@@ -64,6 +64,9 @@ Port to Qt of the Scintilla editing component
 ### dlib
 C++ library for machine learning  
 
+### dlib_gui
+C++ library for machine learning  
+
 ### libharu  
 Library for generating PDF files  
 

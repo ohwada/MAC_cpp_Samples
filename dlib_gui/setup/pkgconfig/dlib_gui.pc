@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/dlib_gui
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: dlib gui
+Description: Numerical and networking C++ library
+Version: 19.24.99
+Libs: -L${libdir} -ldlibgui 
+Cflags: -I${includedir} 
+Requires: x11 libpng libjpeg
