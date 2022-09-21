@@ -1,0 +1,8 @@
+Chromeで指定したURLを開く方法
+https://takabus.com/tips/175/
+
+シェルから起動する
+system("start chrome.exe https://google.com");
+
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
