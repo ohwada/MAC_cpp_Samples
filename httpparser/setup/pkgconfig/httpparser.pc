@@ -1,0 +1,10 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/httpparser
+includedir=${prefix}/include
+libdir=${prefix}/lib
+Name: httpparser
+Description: HTTP request, response and urls parser 
+Version: 1.0
+Cflags: -I${includedir}
+

@@ -46,6 +46,9 @@ Callback framework for C++
 ### Urdl 
 cross-platform C++ library for downloading web content using a URL.  
 
+### httpparser    
+Simple and fast HTTP request, response and urls parser written in C++
+
 ### gmp  
 GNU multiple precision arithmetic library  
 
