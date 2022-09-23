@@ -324,6 +324,9 @@ C++ build system
 ### boost uri  
 portable C++ library which provides containers and algorithms which model a "URL"  
 
+### mongoose
+Web server build on top of Libmongoose embedded library
+
 ### POCO  
 C++ class libraries for building network and internet-based applications  
 
