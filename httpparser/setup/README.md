@@ -11,7 +11,7 @@ httpparser: setup
 copy setup_hdr.sh to downloaded directory  
 % bash setup_hdr.sh  
 
-(3) copy config file (httpparser.pc) to system area 
+(3) copy config file (httpparser.pc) to system area   
 % bash setup_pkgconfig.sh  
 % pkg-config --cflags httpparser  
 
