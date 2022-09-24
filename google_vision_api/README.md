@@ -1,7 +1,7 @@
 Google Vision API 
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/google_vision_api/scrrenshots/face_detect.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/google_vision_api/screenshots/face_detect.png" width="300" /> 
 
 Detect faces 
 Face Detection detects multiple faces within an image along with the associated key facial attributes such as emotional state or wearing headwear. Specific individual Facial Recognition is not supported.
@@ -13,10 +13,10 @@ You must enable billing
 
 
 ### Require
-Setup the Vision API  
-https://cloud.google.com/vision/docs/setup  
+Setup the Vision API
+https://cloud.google.com/vision/docs/setup
 
-API Key  
+API Key
 place it in Your home directory
 
 Library  
@@ -24,9 +24,7 @@ Library
 - nlohmann-json  
 - opencv
 
-### sample  
-there are two section  
-(1) request   
-send request  
+### sample
+there are two section
+(1) request
 (2) response
-show response   

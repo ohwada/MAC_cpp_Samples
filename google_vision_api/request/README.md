@@ -1,4 +1,4 @@
-GoogleVision Api : request
+GoogleVision Api ; request
 ===============
 
 buid request JSON
