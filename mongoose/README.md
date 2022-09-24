@@ -7,9 +7,16 @@ mongoose:
 Web server build on top of Libmongoose embedded library
 https://github.com/cesanta/mongoose
 
-### Install
-see below
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/mongoose/setup.md   
+### Setup
+ (1) Download souce files  
+% git clone https://github.com/cesanta/mongoose  
+
+(2) copy  mongoose.c  mongoose.h  to Your souce directory
+
+refeence:
+2-minute integration guide
+https://mongoose.ws/documentation/
+
 
 ### http server
 
