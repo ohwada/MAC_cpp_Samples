@@ -3,87 +3,65 @@ http
 
 sample code for HTTP Client and Server <br/>
 
-### network
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/http <br/>
-HTTP Client and Server  using socket functions <br/>
+### network  
+HTTP Client and Server  using socket functions   
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/network/http   
 
-HTTP Server <br/>
-access localhost:8080 by WEB Brawser <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/network/screenshot/chrome_http_server.png" width="300" />
+### libcurl  
+the multiprotocol file transfer library  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl 
 
+### curlpp  
+C++ wrapper for libcurl 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlpp 
 
-### libcurl
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl <br/>
-the multiprotocol file transfer library <br/> 
-- HTTP Client <br/>
-- HTTPS Client <br/>
-- HTTP Post Client <br/>
-
-### curlpp
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlpp <br/>
-C++ wrapper for libcurl <br/>
-- HTTP Client <br/>
-- HTTPS Client <br/>
-- HTTP Post Client <br/>
-
+### curlcpp  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/curlcpp
+an object oriented C++ wrapper for libcurl. 
 
 ### openssl
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/https <br/>
-toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols. <br/>
-- HTTPS Clent
-- HTTPS Server
+toolkit for the TLS (Transport Layer Security )  and SSL( Secure Sockets Layer) protocols.  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/openssl/https  
 
+### gnutls  
+library implementing the SSL, TLS and DTLS protocols 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/gnutls   
 
-### gnutls
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/gnutls <br/>
-library implementing the SSL, TLS and DTLS protocols <br/>
-- TLS Client
-- HTTP Echo Server
-
-
-### libmicrohttpd
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmicrohttpd <br/>
-C library that is supposed to make it easy to run an HTTP server
-- http_server.c <br/>
-HTTP Server <br/>
-- https_server.c <br/>
-HTTPS Server <br/>
+### libmicrohttpd  
+C library that is supposed to make it easy to run an HTTP server  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libmicrohttpd   
 
 ### cpp-httplib
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/cpp_httplib/http <br/>
-C++11 single-file header-only cross platform HTTP/HTTPS library <br/>
-
-- http_client.cpp <br/>
-HTTP client <br/>
-- http_server.cpp <br/>
-HTTP Server <br/>
-- https_client.cpp <br/>
-HTTPS client <br/>
-- https_server.cpp <br/>
-HTTPS Server <br/>
+a C++11 single-file header-only cross platform HTTP/HTTPS library    
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/cpp_httplib/http   
 
 ### glib gio
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/glib/gio/http <br/>
-- http_client.c <br/>
- HTTP Client <br/>
-- http_server.c <br/>
-HTTP Server <br/>
+ a C library, designed to present programmers with a modern and usable interface to a virtual file system. 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/
 
 ### boost asio
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost/asio/http <br/>
-- http_client.c <br/>
- HTTP Client <br/>
-- http_server.c <br/>
-HTTP Server <br/>
+a cross-platform C++ library for network and low-level I/O programming 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/
 
 ### boost beast
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/http <br/>
-- http_client.cpp <br/>
- HTTP Client <br/>
-- http_server.cpp <br/>
-HTTP Server <br/>
-- https_client.cpp <br/>
- HTTPS Client <br/>
-- https_server.cpp <br/>
-HTTPS Server <br/>
+ a C++ header-only library serving as a foundation for writing interoperable networking libraries by providing low-level HTTP/1, WebSocket, and networking protocol 
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/
 
+### POCO
+C++ class libraries for building network and internet-based applications   
+
+### mongoose
+Web server build on top of Libmongoose embedded library
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/mongoose
+
+### EmbeddableWebServer
+Single .h File C Embeddable Web Server  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/EmbeddableWebServer
+
+### websocketpp
+a cross platform header only C++ library for websocket
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/websocketpp
+
+### fasil.io
+C micro-framework for web applications  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/facil
