@@ -9,12 +9,16 @@
 // reference : https://github.com/opencv/opencv/blob/4.x/samples/dnn/face_detect.cpp
 
 #include <iostream>
+#include <chrono>
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
 #include "file_util.hpp"
 #include "parse_filename.hpp"
+
+
+
 
 using namespace cv;
 using namespace std;
@@ -26,6 +30,9 @@ using namespace std;
 static
 void visualize(Mat& input, Mat& faces, int thickness = 2)
 {
+
+    Scalar GREEN(0, 255, 0);
+
     for (int i = 0; i < faces.rows; i++)
     {
         // Print results
@@ -36,18 +43,32 @@ void visualize(Mat& input, Mat& faces, int thickness = 2)
              << endl;
 
         // Draw bounding box
-        rectangle(input, Rect2i(int(faces.at<float>(i, 0)), int(faces.at<float>(i, 1)), int(faces.at<float>(i, 2)), int(faces.at<float>(i, 3))), Scalar(0, 255, 0), thickness);
+        rectangle(input, Rect2i(int(faces.at<float>(i, 0)), int(faces.at<float>(i, 1)), int(faces.at<float>(i, 2)), int(faces.at<float>(i, 3))), GREEN, thickness);
+
         // Draw landmarks
-        circle(input, Point2i(int(faces.at<float>(i, 4)), int(faces.at<float>(i, 5))), 2, Scalar(255, 0, 0), thickness);
-        circle(input, Point2i(int(faces.at<float>(i, 6)), int(faces.at<float>(i, 7))), 2, Scalar(0, 0, 255), thickness);
-        circle(input, Point2i(int(faces.at<float>(i, 8)), int(faces.at<float>(i, 9))), 2, Scalar(0, 255, 0), thickness);
-        circle(input, Point2i(int(faces.at<float>(i, 10)), int(faces.at<float>(i, 11))), 2, Scalar(255, 0, 255), thickness);
-        circle(input, Point2i(int(faces.at<float>(i, 12)), int(faces.at<float>(i, 13))), 2, Scalar(0, 255, 255), thickness);
+        circle(input, Point2i(int(faces.at<float>(i, 4)), int(faces.at<float>(i, 5))), 2, GREEN, thickness);
+        circle(input, Point2i(int(faces.at<float>(i, 6)), int(faces.at<float>(i, 7))), 2, GREEN, thickness);
+        circle(input, Point2i(int(faces.at<float>(i, 8)), int(faces.at<float>(i, 9))), 2, GREEN, thickness);
+        circle(input, Point2i(int(faces.at<float>(i, 10)), int(faces.at<float>(i, 11))), 2, GREEN, thickness);
+        circle(input, Point2i(int(faces.at<float>(i, 12)), int(faces.at<float>(i, 13))), 2, GREEN, thickness);
     } // for
 
     // putText(input, fpsString, Point(0, 15), 
    // FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 2);
 }
+
+
+/**
+ * print_elapsed_time
+ */
+template< class CLOCK >
+void print_elapsed_time(std::chrono::time_point<CLOCK> start)
+{
+    auto end = std::chrono::high_resolution_clock::now();
+    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    std::cout << "  elapsed time: " << elapsed / 1000.0 << " sec." << std::endl;
+}
+
 
 
 /**
@@ -57,7 +78,7 @@ int main(int argc, char** argv)
 {
     const char* WINNAME = (char *)"OpenCV dnn";
 
-string input_file("images/faces1.jpg");
+string input_file("images/ocv_festival.jpg");
   string output_file;
 
   if (argc == 3) {
@@ -82,6 +103,9 @@ if( output_file.empty() ) {
 
     const string FD_MODEL_PATH = make_path(PATH, "face_detection_yunet.onnx");
 
+// cv::FaceDetectorYN::create	
+// https://docs.opencv.org/4.x/df/d20/classcv_1_1FaceDetectorYN.html#a42293cf2d64f8b69a707ab70d11925b3
+
   const float SCORE_THRESHOLD = 0.9;
 
     const float NMS_THRESHOLD = 0.3;
@@ -90,31 +114,42 @@ if( output_file.empty() ) {
 
       const int TOPK = 5000;
 
+        const string CONFIG("");
+
+        const cv::Size SIZE(320, 320);
+
     //! [initialize_FaceDetectorYN]
     // Initialize FaceDetectorYN
-    Ptr<FaceDetectorYN> detector = FaceDetectorYN::create(FD_MODEL_PATH, "", Size(320, 320), SCORE_THRESHOLD, NMS_THRESHOLD, TOPK);
+    Ptr<FaceDetectorYN> detector = FaceDetectorYN::create(FD_MODEL_PATH, CONFIG, SIZE, SCORE_THRESHOLD, NMS_THRESHOLD, TOPK);
     //! [initialize_FaceDetectorYN]
 
 
         Mat image = imread(samples::findFile(input_file));
         if (image.empty())
         {
-            cerr << "Cannot read image: " << input_file << endl;
+            std::cerr << "Cannot read image: " << input_file << std:: endl;
             return EXIT_FAILURE;
-
         }
 
         int imageWidth = int(image.cols * SCALE);
         int imageHeight = int(image.rows * SCALE);
         resize(image, image, Size(imageWidth, imageHeight));
 
+    auto start = std::chrono::high_resolution_clock::now();
 
         // Set input size before inference
         detector->setInputSize(image.size());
 
         Mat faces;
         detector->detect(image, faces);
-        if (faces.rows < 1)
+
+        print_elapsed_time(start);
+
+        auto rows = faces.rows;
+
+        cout << "found: " << rows << endl;
+
+        if( rows < 1)
         {
             cerr << "Cannot find a face in " << input_file << endl;
             return EXIT_FAILURE;

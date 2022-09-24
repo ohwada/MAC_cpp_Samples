@@ -1,5 +1,5 @@
 /**
- * face_detect_cascade.cpp
+ * cat_face_detect.cpp
  * 2022-06-01 K.OHWADA
  */
 
@@ -43,18 +43,6 @@ void visualize(cv::Mat& image, cv::Rect face)
 }
 
 
-/**
- * print_elapsed_time
- */
-template< class CLOCK >
-void print_elapsed_time(std::chrono::time_point<CLOCK> start)
-{
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-    std::cout << "  elapsed time: " << elapsed / 1000.0 << " sec." << std::endl;
-}
-
-
 using namespace std;
 
 
@@ -66,7 +54,7 @@ int main(int argc, char* argv[])
 
 const char* WINNAME = (char *)"OpenCV";
 
-  string input_file("images/lena.png");
+  string input_file("images/cat-kowalievska-1170986.jpg");
   string output_file;
 
   if (argc == 3) {
@@ -91,17 +79,13 @@ if( output_file.empty() ) {
 
   // use IMREAD_UNCHANGED to support with alpha channel
   cv::Mat input_image = cv::imread(input_file, cv::IMREAD_UNCHANGED);
-        if (input_image.empty())
-        {
-            std::cerr << "Cannot read image: " << input_file << std:: endl;
-            return EXIT_FAILURE;
-        }
+
 
 // Preparation for object detection with Haar feature-based cascade classifier
   // use cascade classifier for face detection
 
   const string FACE_CASCADE_NAME =
-    "/usr/local/share/opencv4/haarcascades/haarcascade_frontalface_alt.xml";
+    "/usr/local/share/opencv4/haarcascades/haarcascade_frontalcatface.xml";
 
   cv::CascadeClassifier face_cascade;
   if ( !face_cascade.load(FACE_CASCADE_NAME) ) {
@@ -110,17 +94,10 @@ if( output_file.empty() ) {
   };
 
 
-  auto start = std::chrono::high_resolution_clock::now();
-
   // detect face
   std::vector<cv::Rect> faces;
   face_cascade.detectMultiScale(input_image, faces);
 
-    print_elapsed_time(start);
-
-    auto size = faces.size();
-
-    cout << "found: " << size << endl;
 
   // Object to put the output image data
   // use CV_8UC4 to support with alpha channel

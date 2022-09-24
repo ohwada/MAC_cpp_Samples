@@ -4,14 +4,12 @@ CXX=g++
 CFLAGS=-Wall -std=c++11
 OCV_FLAGS=`pkg-config --cflags --libs opencv4` 
 
-TARGET1=cascade
-SRCS1=face_detect_cascade.cpp
-TARGET2=dnn
-SRCS2=face_detect_dnn.cpp
-TARGET3=vido
-SRCS3=face_detect_dnn_video.cpp
-TARGET4=smile
-SRCS4=face_detect_smile.cpp
+TARGET1=cat
+SRCS1=cat_face _detect.cpp
+TARGET2=qrcode
+SRCS2=qrcode.cpp
+TARGET3=blob
+SRCS3=detect_blob.cpp
 
 
 $(TARGET1):  $(SRCS1)
@@ -25,10 +23,6 @@ $(TARGET2):  $(SRCS2)
 
 
 $(TARGET3):  $(SRCS3)
-	$(CXX)  $<  $(CFLAGS) $(OCV_FLAGS) -o bin/$@
-
-
-$(TARGET4):  $(SRCS4)
 	$(CXX)  $<  $(CFLAGS) $(OCV_FLAGS) -o bin/$@
 	cp -R images bin
 
