@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+ver=0.8.2
+prefix= /usr/local/Cellar/websocketpp/${ver}
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: websocketpp
+Description: header only C++ library for WebSocket 
+Version: 0.8.2
+Cflags: -I${includedir} 
+
