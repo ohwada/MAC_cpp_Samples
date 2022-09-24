@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/facil
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: facil.io
+Description: C micro-framework for web applications
+Version: 1.0
+Cflags: -I${includedir} 
+Libs: -L${libdir} -lfacil.io

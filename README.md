@@ -333,6 +333,9 @@ Web server build on top of Libmongoose embedded library
 ### POCO  
 C++ class libraries for building network and internet-based applications  
 
+### facil.io:
+C micro-framework for web applications
+
 ### websocketpp
 a cross platform header only C++ library for websocket
 
