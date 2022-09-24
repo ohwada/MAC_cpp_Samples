@@ -66,9 +66,9 @@ int main (int argc, char const *argv[])
       printf ( "Usage: %s [port] \n", argv[0] );
     }
 
-    const char FILE_KEY[] = "cert/server.key";
+    const char FILE_KEY[] = "../cert/server.key";
 
-    const char FILE_CERT[] = "cert/server.pem";
+    const char FILE_CERT[] = "../cert/server.pem";
 
     char error[100];
 

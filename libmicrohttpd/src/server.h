@@ -90,7 +90,7 @@ int ahc_echo (void *cls,
 	  size_t *upload_data_size, void **ptr)
 {
 
-    const char DIR[] = "www";
+    const char DIR[] = "../www";
 
     char *filename = (char *)&url[1];
 
