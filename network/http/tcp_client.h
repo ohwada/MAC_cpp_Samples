@@ -37,7 +37,6 @@ int tcp_socket(char *error)
   // create socket
     int sfd  = socket(AF_INET, SOCK_STREAM, 0);
     if( sfd  <= 0 ) {
-            int save_err = errno;
             strcpy(error, strerror(errno) );
             return -1;
     }
@@ -82,7 +81,6 @@ bool tcp_connect_ipaddress( int sockfd , char *ipaddress, int port, char *error 
   int ret = connect(sockfd , (struct sockaddr *)&sock_addr, sizeof(sock_addr));
 
   if(ret == -1){
-        int save_err = errno;
         strcpy(error, strerror(errno) );
         return false;
   }

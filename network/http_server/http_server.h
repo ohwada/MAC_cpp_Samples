@@ -49,7 +49,7 @@ void build_response(char *html, char *response)
     const char HEADER_OK[] = "HTTP/1.1 200 OK\r\n";
     const char HEADER_CONTENT_HTML[] = "Content-Type: text/html\r\n";
 
-    const char HEADER_CONTENT_LENGTH_FORMAT[] = "Content-Length: %d \r\n";
+    const char FORMAT_CONTENT_LENGTH[] = "Content-Length: %d \r\n";
 
     // const char CLOSE[] = "Connection: Close\r\n";
 
@@ -59,7 +59,7 @@ void build_response(char *html, char *response)
     char header_content_length[BUFSIZE];
 
     snprintf( header_content_length, BUFSIZE, 
-    (char *)HEADER_CONTENT_LENGTH_FORMAT, (int)strlen(html) );
+    (char *)FORMAT_CONTENT_LENGTH, (int)strlen(html) );
 
  strcpy( (char *)response, (char *)HEADER_OK );
  strcat( (char *)response, 
