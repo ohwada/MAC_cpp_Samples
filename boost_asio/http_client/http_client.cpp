@@ -24,6 +24,65 @@ using std::cerr;
 using std::endl;
 
 
+
+bool client(std::string host, int port, std::string request, std::string &response)
+{
+
+    boost::asio::ip::address address;
+    std::string error;
+
+bool ret1 = get_address( host, address, error );
+
+    if(!ret1){
+        std::cerr << "get_address: " << error << std::endl;
+        return false;
+    }
+
+
+    std::string ipaddr = address.to_string();
+
+    std::cout << "ip address: " << ipaddr << std::endl;
+
+    tcp::endpoint endpoint(address, port );
+
+    boost::asio::io_service io_service;
+    tcp::socket socket(io_service);
+
+    try {
+        socket.connect( endpoint );
+   } catch ( boost::system::system_error &err ) {
+        cerr << "connect: " << err.what() << endl;
+            return false;
+    }
+
+    std::cout << "connect: " << host << " : "<< port << std::endl;
+
+    string write_data( request );
+
+    bool ret2 = asio_write(socket, write_data, error );
+
+    if( !ret2 ) {
+        std::cerr << "write: " << error << std::endl;
+        return false;
+    }
+
+    string read_data;
+
+    bool ret3 = asio_read(socket, read_data, error);
+
+    if( !ret3 ) {
+        std::cerr << "read: " << error << std::endl;
+        return false;
+    }
+
+    response = read_data;
+
+  return true;
+
+}
+
+
+
 /**
  * main
  */
@@ -40,71 +99,25 @@ int main(int argc, char *argv[])
     } else if(argc == 2) {
       	host = argv[1];
     } else {
-        cerr << "Usage: " << argv[0] << " [host] [port] " << endl;
+        cout << "Usage: " << argv[0] << " [host] [port] " << endl;
     }
 
-    cerr << "host: " << host << endl;
-    cerr << "port: " << port << endl;
+    cout << "host: " << host << endl;
+    cout << "port: " << port << endl;
 
-    string request;
+    string request =
+    build_http_root_path_request( host);
 
-    build_http_root_path_request( host, request );
-
+    cout << endl;
     cout << "request" << endl;
     cout << request << endl;
 
-    boost::asio::ip::address address;
-    std::string error;
+    string response;
+    client(host, port, request, response);
 
-bool ret1 = get_address( host, address, error );
-
-    if(!ret1){
-        cerr << "get_address: " << error << endl;
-        return EXIT_FAILURE;
-    }
-
-
-    string ipaddr = address.to_string();
-
-    cout << "ip address: " << ipaddr << endl;
-
-    tcp::endpoint endpoint(address, port );
-
-    boost::asio::io_service io_service;
-    tcp::socket socket(io_service);
-
-    try {
-        socket.connect( endpoint );
-   } catch ( boost::system::system_error &err ) {
-        cerr << "connect: " << err.what() << endl;
-            return EXIT_FAILURE;
-    }
-
-    cout << "connect: " << host << " : "<< port << endl;
-
-    
-
-    string write_data( request );
-
-    bool ret2 = asio_write(socket, write_data, error );
-
-    if( !ret2 ) {
-        cerr << "write: " << error << endl;
-        return EXIT_FAILURE;
-    }
-
-    string read_data;
-
-    bool ret3 = asio_read(socket, read_data, error);
-
-    if( !ret3 ) {
-        cerr << "read: " << error << endl;
-        return EXIT_FAILURE;
-    }
-
+    cout << endl;
     cout << "response" << endl;
-    cout << read_data << endl;
+    cout << response << endl;
 
-  return EXIT_SUCCESS;
-
+    return 0;
 }

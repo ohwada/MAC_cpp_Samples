@@ -16,23 +16,23 @@ const std::string ROOT_PATH("/");
 
 
 // prototype
-void build_http_root_path_request(std::string host, std::string &request);
-void build_http_request(std::string host, std::string path, std::string &request);
+std::string build_http_root_path_request(std::string host);
+std::string build_http_request(std::string host, std::string path);
 
 
 /** 
  *  build_http_root_path_request
  */
-void build_http_root_path_request(std::string host, std::string &request)
+std::string build_http_root_path_request(std::string host)
 {
-    build_http_request( host, ROOT_PATH, request);
+    return build_http_request( host, ROOT_PATH);
 }
 
 
 /** 
  *  build_http_request
  */
-void build_http_request(std::string host, std::string path, std::string &request)
+std::string build_http_request(std::string host, std::string path)
 {
 
     const std::string HEADER_ACCEPT_ALL("Accept: */* \r\n");
@@ -50,10 +50,11 @@ void build_http_request(std::string host, std::string path, std::string &request
     std::string hdr_host =
     boost::str( boost::format( FORMAT_HOST) % host );
 
-    request = hdr_get
+    std::string request = hdr_get
     + HEADER_ACCEPT_ALL
     + hdr_host
     + HEADER_CLOSE;
 
+    return request;
 }
 

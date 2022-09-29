@@ -11,7 +11,9 @@
 // g++ echo_client.cpp -std=c++11 `pkg-config --cflags --libs boost` -o client
 
 #include <iostream>
-#include <unistd.h>
+#include <thread>
+#include <chrono>
+
 #include <boost/format.hpp>
 #include <boost/asio.hpp>
 #include "asio_socket.hpp"
