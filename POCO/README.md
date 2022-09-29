@@ -1,34 +1,21 @@
 POCO
 ===============
 
-MinWebServer  <br/>
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/MiniWebServer/screenshots/index.png" width="300" /> <br/>
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_web_server.png" width="300" /> 
 
-POCO: <br/>
-C++ class libraries for building network and internet-based applications <br/>
-https://pocoproject.org/ <br/>
+POCO:   
+C++ class libraries for building network and internet-based applications   
+https://pocoproject.org/   
 
 
 ###  install 
-% brew install poco <br/>
-https://formulae.brew.sh/formula/poco <br/>
+see brlow
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/POCO/setup  
 
-%  ls /usr/local/include/POCO <br/>
-%  ls /usr/local/lib/libPoco* <br/>
 
 ### src
-- poco_ regexp.cpp <br/>
-- poco_file.cpp <br/>
-- poco_log.cpp <br/>
-- poco_string.cpp <br/>
-
-### MinWebServer
-HTTP Web Server  <br/>
-
-### xml
-POCO XML Parser  <br/>
-
-
-### Reference <br/>
-- https://pocoproject.org/
+- poco_ regexp.cpp 
+- poco_file.cpp   
+- poco_log.cpp  
+- poco_string.cpp  
 

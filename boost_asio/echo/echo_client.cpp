@@ -37,7 +37,7 @@ int main(void)
 
     const int MAX_LOOP = 100;
 
-    const int INTINTERVAL = 1; // 1 sec
+    const long SLEEP = 1000; // 1 sec
 
   boost::asio::io_service io_service;
   tcp::socket socket(io_service);
@@ -83,9 +83,7 @@ for(int i=0; i < MAX_LOOP; i++)
         break;
   }
 
-    cout << endl;
-
-    sleep(INTINTERVAL);
+std::this_thread::sleep_for(std::chrono:: milliseconds (SLEEP));
 
 } // for
 
