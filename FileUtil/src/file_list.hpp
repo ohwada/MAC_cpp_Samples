@@ -30,8 +30,8 @@ const int RET__ERR_OPEN = 3;
 int getFileListExt(std::string str_path, std::string ext, std::vector<std::string> &vec, std::string &err );
 int getFileListExt2(std::string str_path, std::string ext1, std::string ext2, std::vector<std::string> &vec );
 int getFileList(std::string str_path, std::vector<std::string> &vec, std::string &err );
-bool existsFile(std::string path); 
-bool file_exists (char* path);
+bool existsFile2(std::string path); 
+bool file_exists2 (char* path);
 bool isDir(std::string path);
 bool is_dir(char* path);
 bool isFile(std::string path);
@@ -122,7 +122,7 @@ int getFileList(std::string str_path, std::vector<std::string> &vec,  std::strin
 
     char* path = (char *)str_path.c_str();
 
-    bool ret1 = file_exists(path);
+    bool ret1 = file_exists2(path);
     if( !ret1 ) {
         return RET__ERR_EXISTS;
     }
@@ -160,18 +160,18 @@ int getFileList(std::string str_path, std::vector<std::string> &vec,  std::strin
 
 
 /**
- * existsFile
+ * existsFile2
  */
-bool existsFile(std::string path) 
+bool existsFile2(std::string path) 
 {
-    return file_exists(  (char *)path.c_str() ); 
+    return file_exists2(  (char *)path.c_str() ); 
 }
 
 
 /**
- * file_exists
+ * file_exists2
  */
-bool file_exists(char *path) 
+bool file_exists2(char *path) 
 {
     struct stat   sb;   
     int ret = stat(path, &sb);
