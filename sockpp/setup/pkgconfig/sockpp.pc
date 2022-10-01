@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/sockpp
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: sockpp
+Description: Simple, modern, C++ socket library.
+Version: 0.7.1
+Cflags: -I${includedir}
+Libs: -L${libdir} -lsockpp

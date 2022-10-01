@@ -342,6 +342,9 @@ C micro-framework for web applications
 ### websocketpp
 a cross platform header only C++ library for websocket
 
+### sockpp  
+ Simple, modern, C++ socket library  
+
 ### gflags  
 parse commandline flags  
 
