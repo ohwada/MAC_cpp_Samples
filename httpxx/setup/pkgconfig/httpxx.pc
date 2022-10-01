@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/httpxx
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: httpxx
+Description:  - Low level C++ HTTP library
+Version: 1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lhttpxx

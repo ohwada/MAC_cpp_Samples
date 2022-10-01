@@ -65,3 +65,8 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/websocketpp
 ### fasil.io
 C micro-framework for web applications  
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/facil
+
+### sockpp
+ Simple, modern, C++ socket library  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/sockpp  
+

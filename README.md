@@ -345,6 +345,9 @@ a cross platform header only C++ library for websocket
 ### sockpp  
  Simple, modern, C++ socket library  
 
+### httpxx 
+ Low level C++ HTTP library 
+
 ### gflags  
 parse commandline flags  
 
