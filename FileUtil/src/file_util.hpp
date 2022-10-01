@@ -29,6 +29,9 @@ void getTimestampFileName(std::string prefix, std::string ext, std::string &file
 void getTimestamp(std::string &timestamp);
 bool cmpFiles(const std::string& p1, const std::string& p2);
 std::string make_path(std::string dir, std::string fname);
+bool makeDir(std::string dir, mode_t mode);
+bool make_dir(char* dir, mode_t mode);
+bool is_dir2(char* path);
 
 
 /**
@@ -258,5 +261,59 @@ std::string make_path(std::string dir, std::string fname)
     }
     path += fname;
     return path;
+}
+
+
+/**
+ * makeDir
+ */
+bool makeDir(std::string dir, mode_t mode)
+{
+    return make_dir( (char *)dir.c_str(), mode);
+}
+
+
+/**
+ * make_dir
+ */
+bool make_dir(char* dir, mode_t mode)
+{
+
+	if( strlen(dir) == 0 ) {
+		return false;
+	}
+
+	if( is_dir2(dir) ) {
+		return false;
+	}
+
+	if ( mkdir(dir, mode) != 0) {
+		printf("mkdir faild: %s \n", dir);
+        return false;
+	}
+
+	if ( chmod(dir, mode) != 0) {
+		printf("chmod faild: %s \n", dir);
+        return false;
+	}
+
+	return true;
+} 
+
+
+/**
+ * is_dir
+ */
+bool is_dir2(char* path)
+{
+    struct stat sb;
+    int ret = stat(path, &sb);
+    if(ret != 0){
+        return false;
+    }
+
+    mode_t m = sb.st_mode;
+    bool res = ( S_ISDIR(m) )? true: false;
+    return res;        
 }
 
