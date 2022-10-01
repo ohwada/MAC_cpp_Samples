@@ -70,3 +70,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/facil
  Simple, modern, C++ socket library  
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/sockpp  
 
+### httpxx 
+ Low level C++ HTTP library  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/httpxx  
+
