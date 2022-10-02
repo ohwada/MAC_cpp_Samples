@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/libzippp
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libzippp
+Description: C++ wrapper for libzip
+Version: 1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lzippp_static
+Requires: libzip
