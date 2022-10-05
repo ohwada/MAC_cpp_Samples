@@ -19,7 +19,8 @@
 // prototype
 bool existsFile(std::string file);
 int file_exists (char *filename) ;
-bool readTextFile( std::string file, std::string &text );
+bool readTextFile1( std::string file, std::string &text );
+bool readTextFile2( std::string file, std::vector<std::string> &vec );
 bool writeTextFile(std::string file, std::string data );
 bool readBinaryFile1(const std::string filepath, std::vector<char> &data);
 bool readBinaryFile2(const std::string filepath, std::string &data);
@@ -59,7 +60,7 @@ int file_exists (char *filename)
 /**
  * readTextFile
  */
-bool readTextFile( std::string file, std::string &text )
+bool readTextFile1( std::string file, std::string &text )
 {
     const std::string LF = "\n";
 
@@ -75,6 +76,30 @@ bool readTextFile( std::string file, std::string &text )
     std::string line;
     while( getline(fin, line) ) {
         text += line + LF;
+    }
+
+    return true;
+}
+
+
+/**
+ * readTextFile2
+ */
+bool readTextFile2( std::string file, std::vector<std::string> &vec )
+{
+
+    std::ifstream fin;
+
+    // open input file
+    fin.open(file, std::ios::in); 
+    if (fin.fail()){ 
+        return false;
+    }                         
+
+    // read text  by one line
+    std::string line;
+    while( getline(fin, line) ) {
+        vec.push_back( line );
     }
 
     return true;
