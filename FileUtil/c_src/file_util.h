@@ -29,6 +29,7 @@ char* file_text_read(char *file, char *error);
  bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error);
 void dump_binary(uint8_t *data, size_t size);
 bool make_dir(char* dir, mode_t mode);
+void make_path(char* dir, char* fname, char* path);
 
 
 /**
@@ -363,30 +364,6 @@ void dump_binary(uint8_t *data, size_t size)
 }
 
 
-
-/** 
- *   getTimestamp
- */
-void getTimestamp(char *timestamp)
-{
-
-    const char format[] = "%Y%m%d%H%M%S";
-
-    const size_t BUFSIZE = 100;
-    char buf[BUFSIZE];
-
-   time_t now;
-   time(&now);
-
-    struct tm *tm;
-    tm = localtime(&now);
-
-    strftime(buf, BUFSIZE, (char *)format, tm);
-
-    strcpy( timestamp, buf );
-}
-
-
 /**
  * make_dir
  */
@@ -413,4 +390,25 @@ bool make_dir(char* dir, mode_t mode)
 
 	return true;
 } 
+
+
+/**
+ * make_path
+ */
+void make_path(char* dir, char* fname, char* path)
+{
+    const char SLASH = '/';
+    const char STR_SLASH[] = "/";
+
+    strcpy(path, dir);
+
+    size_t len = strlen(path);
+    if( path[len - 1] != SLASH){
+        strcat(path, STR_SLASH);
+    }
+
+    strcat(path, fname);
+
+    return;
+}
 
