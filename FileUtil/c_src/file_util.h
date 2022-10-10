@@ -24,12 +24,13 @@ int get_file_mtime(char* filepath);
 bool file_rename(char* oldpath, char* newpath, char* error);
 bool file_text_copy(char *from, char *to, char* error);
 bool file_text_write(char* file, char* data, char *error);
-char* file_text_read(char *file, char *error);
+char* file_text_read1(char *file, size_t *size,char *error);
+ bool file_text_read2(char *file, char* buffer, char *error);
  uint8_t* file_binary_read(char *file, size_t *size, char *error);
  bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error);
 void dump_binary(uint8_t *data, size_t size);
 bool make_dir(char* dir, mode_t mode);
-void make_path(char* dir, char* fname, char* path);
+void make_path(char* dir, char* file, char *path);
 
 
 /**
@@ -229,12 +230,12 @@ bool file_text_write(char* file, char* data, char *error)
 
 
 /**
- * file_text_read
+ * file_text_read1
  */
-char* file_text_read(char *file, char *error)
+char* file_text_read1(char *file, size_t *size, char *error)
 {
 
-    const char CHAR_NULL = '\0';
+    const char NUL = '\0';
 
    FILE *fp;
     int saved_errno;
@@ -248,23 +249,25 @@ char* file_text_read(char *file, char *error)
 
     fseek(fp, 0, SEEK_END);
      
-    int file_size = ftell(fp);
+    size_t file_size = ftell(fp);
 
     rewind(fp);
 
 // one big size for the null end than file size
     char* buffer = (char*) malloc(sizeof(char) * (file_size + 1) );
 
-    int read_size = fread(buffer, sizeof(char), file_size, fp);
+    size_t read_size = fread(buffer, sizeof(char), file_size, fp);
 
     // fread doesn't set it so put a \0 in the last position
     // and buffer is now officially a string
-    buffer[file_size] = CHAR_NULL;
+    buffer[file_size] = NUL;
+    *size = file_size;
 
     if (file_size != read_size){
 
            free(buffer);
            buffer = NULL;
+            *size = 0;
 
         saved_errno = errno;
         strcpy( error, strerror(saved_errno) );
@@ -273,6 +276,30 @@ char* file_text_read(char *file, char *error)
     fclose(fp);
 
     return buffer;
+}
+
+
+/**
+ * file_text_read2
+ */
+bool file_text_read2(char *file, char* buffer, char *error)
+{
+    const char NUL = '\0';
+
+    size_t size;
+    bool is_error = false;
+
+    char* text = file_text_read1(file, &size, error);
+    if(text){
+        strncpy(buffer, text, size);
+        buffer[size] = NUL;
+    } else {
+        is_error = true;
+    }
+
+    free(text);
+
+    return !is_error;
 }
 
 
@@ -364,6 +391,30 @@ void dump_binary(uint8_t *data, size_t size)
 }
 
 
+
+/** 
+ *   getTimestamp
+ */
+void getTimestamp(char *timestamp)
+{
+
+    const char format[] = "%Y%m%d%H%M%S";
+
+    const size_t BUFSIZE = 100;
+    char buf[BUFSIZE];
+
+   time_t now;
+   time(&now);
+
+    struct tm *tm;
+    tm = localtime(&now);
+
+    strftime(buf, BUFSIZE, (char *)format, tm);
+
+    strcpy( timestamp, buf );
+}
+
+
 /**
  * make_dir
  */
@@ -393,22 +444,18 @@ bool make_dir(char* dir, mode_t mode)
 
 
 /**
- * make_path
+ * build_access_token_request
  */
-void make_path(char* dir, char* fname, char* path)
+void make_path(char* dir, char* file, char *path)
 {
     const char SLASH = '/';
     const char STR_SLASH[] = "/";
 
     strcpy(path, dir);
-
     size_t len = strlen(path);
-    if( path[len - 1] != SLASH){
+    if( path[len-1] != SLASH) {
         strcat(path, STR_SLASH);
     }
+    strcat(path, file);
 
-    strcat(path, fname);
-
-    return;
 }
-
