@@ -8,7 +8,7 @@ C utility libraly
 
 
 ## install 
-see below
+see below  
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/cmn-clib/setup   
 
 
