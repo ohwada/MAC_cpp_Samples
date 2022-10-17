@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/cmn-clib
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: cmn-clib
+Description: C utility libraly
+Version: 1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lcmn-clib

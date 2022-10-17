@@ -40,6 +40,9 @@ decimal_to_binary
 ### calendar
 Calendar Utilty  
 
+### cmn-clib  
+C utility libraly  
+
 ### libsigc++  
 Callback framework for C++   
 
