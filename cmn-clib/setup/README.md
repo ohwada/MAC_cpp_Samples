@@ -17,7 +17,7 @@ cd downloaded directory (cmn-clib)
 copy setup_lib.sh to cmn-clib  
 % bash setup_lib.sh  
 
-(4) copy config file (cmn-clib.pc) to system area 
-% bash setup_pkgconfig.sh  
-% pkg-config --cflags --libs cmn-clib  
+(4) copy config file (cmn-clib.pc) to system area   
+% bash setup_pkgconfig.sh    
+% pkg-config --cflags --libs cmn-clib    
 
