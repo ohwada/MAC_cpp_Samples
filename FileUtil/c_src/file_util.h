@@ -26,9 +26,9 @@ bool file_text_copy(char *from, char *to, char* error);
 bool file_text_write(char* file, char* data, char *error);
 bool file_text_read1(char *file, char* text, char *error);
 char* file_text_read2(char *file, char *error);
- uint8_t* file_binary_read(char *file, size_t *size, char *error);
- bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error);
-void dump_binary(uint8_t *data, size_t size);
+ char* file_binary_read(char *file, size_t *size, char *error);
+ bool file_binary_write(char *file,  char *data, size_t size, char *error);
+void dump_binary(char *data, size_t size);
 bool make_dir(char* dir, mode_t mode);
 void make_path(char* dir, char* fname, char* path);
 
@@ -295,7 +295,7 @@ char* file_text_read2(char *file, char *error)
 /**
  * file_binary_read
  */
- uint8_t* file_binary_read(char *file, size_t *size, char *error)
+ char* file_binary_read(char *file, size_t *size, char *error)
 {
 
    FILE *fp;
@@ -317,9 +317,9 @@ char* file_text_read2(char *file, char *error)
 
     rewind(fp);
 
-    uint8_t* buffer = ( uint8_t *) malloc(sizeof( uint8_t) * file_size );
+    char* buffer = (char *) malloc(sizeof(char) * file_size );
 
-    int read_size = fread(buffer, sizeof( uint8_t), file_size, fp);
+    int read_size = fread(buffer, sizeof(char), file_size, fp);
 
     if (file_size == read_size){
             *size = read_size;
@@ -343,7 +343,7 @@ char* file_text_read2(char *file, char *error)
 /**
  * file_binary_write
  */
- bool file_binary_write(char *file,  uint8_t *data, size_t size, char *error)
+ bool file_binary_write(char *file,  char *data, size_t size, char *error)
 {
 
    FILE *fp;
@@ -356,7 +356,7 @@ char* file_text_read2(char *file, char *error)
         return false;
     }
 
-    size_t write_size = fwrite(data, sizeof(uint8_t),  size, fp);
+    size_t write_size = fwrite(data, sizeof(char),  size, fp);
 
      if (size != write_size){
         saved_errno = errno;
@@ -371,7 +371,7 @@ char* file_text_read2(char *file, char *error)
 /**
  * dump_binary
  */
-void dump_binary(uint8_t *data, size_t size)
+void dump_binary(char *data, size_t size)
 {
     for(int i=0; i<size; i++){
         printf("%x, ", data[i] );
