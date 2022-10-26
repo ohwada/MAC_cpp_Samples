@@ -4,12 +4,12 @@ CXX=g++
 CFLAGS=-Wall -std=c++11
 BOOST_FLAGS=`pkg-config --cflags  boost`
 
-TARGET1=hello
-SRCS1=http_hello_server.cpp
-TARGET2=index
-SRCS2=http_index_server.cpp
-TARGET3=file
-SRCS3=http_file_server.cpp
+TARGET1=get
+SRCS1=http_get_form_server.cpp
+TARGET2=post
+SRCS2=http_post_form_server.cpp
+TARGET3=test
+SRCS3=test_parse_request.cpp
 
 
 $(TARGET1): $(SRCS1)
@@ -25,7 +25,7 @@ $(TARGET3): $(SRCS3)
 
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CXX) $(CFLAGS) -c -o $@ $<
 
 
 clean:

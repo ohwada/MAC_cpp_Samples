@@ -1,30 +1,23 @@
-http : boost_beast
+boost_beast: http server
 ===============
 
-beast samples <br/>
-HTTP Client and Server
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_beast/screenshots/index_server.png" width="300" />
 
-### sample code
-- http_client.cpp <br/>
-HTTP Client, synchronous <br/>
-- http_server.cpp <br
-HTTP Server, synchronous <br/>
+### samples
+- http_hello_server.cpp  
+ return "Hello World"  
+
+- http_index_server.cpp  
+// return index.html  
+
+- http_file_server.cpp  
+file server  
 
 
-### build sample code
-g++ http/http_server.cpp -std=c++11 `pkg-config --cflags --libs boost` -o server 
+Build and Run:
+% make hello
 
-### run sample code
-Usage: ./server  [address] [port] [doc_root] <br/>
-
-display as below <br/>
-> listen: 8080 <br/>
-
-access localhost:8080 by WEB Brawser <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_beast/screenshot/chrome_http_server.png" width="300" />
-
-### Reference <br/>
-- https://www.boost.org/
-- https://github.com/ohwada/MAC_cpp_Samples/blob/master/http.md
+% bin/hello
+> listen port: 8080
 
 

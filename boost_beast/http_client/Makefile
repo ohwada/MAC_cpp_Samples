@@ -4,13 +4,12 @@ CXX=g++
 CFLAGS=-Wall -std=c++11
 BOOST_FLAGS=`pkg-config --cflags  boost`
 
-TARGET1=hello
-SRCS1=http_hello_server.cpp
-TARGET2=index
-SRCS2=http_index_server.cpp
-TARGET3=file
-SRCS3=http_file_server.cpp
-
+TARGET1=get
+SRCS1=http_get_client.cpp
+TARGET2=form
+SRCS2=post_form_client.cpp
+TARGET3=json
+SRCS3=post_json_client.cpp
 
 $(TARGET1): $(SRCS1)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
@@ -29,4 +28,4 @@ $(TARGET3): $(SRCS3)
 
 
 clean:
-	rm -rf bin/*  *.o 
+	rm -rf bin/* log/*  *.o 
