@@ -1,17 +1,18 @@
 POCO: http form server
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_form_server.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_get_form_server.png" width="300" /> 
 
-sample for get form, post form , upload
+sample for get form, post form
 
 ### sample code
-- HTTPFormServer.cpp
+- http_get_form_server.cpp
+- http_post_form_server.cpp
 
 Build and Run:
-% make server
+% make get
 
-% bin/server
-> listen port: 9980
+% bin/get
+> listen port: 9981
 
 

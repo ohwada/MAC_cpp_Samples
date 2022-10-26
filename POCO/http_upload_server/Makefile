@@ -4,9 +4,8 @@ CXX=g++
 CFLAGS=-Wall -std=c++11
 POCO_FLAGS= -lPocoNet -lPocoUtil  -lPocoFoundation -lPocoJSON
 
-
-TARGET=client
-SRCS=http_client.cpp
+TARGET=server
+SRCS=http_upload_server.cpp
 
 
 $(TARGET): $(SRCS)
@@ -18,4 +17,4 @@ $(TARGET): $(SRCS)
 
 
 clean:
-	rm -rf bin/*  *.o 
+	rm -rf bin/* upload/*  *.o 

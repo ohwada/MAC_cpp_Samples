@@ -6,7 +6,7 @@ POCO_FLAGS= -lPocoNet -lPocoUtil  -lPocoFoundation -lPocoJSON
 
 
 TARGET=server
-SRCS=HTTPTimeServer.cpp
+SRCS=http_time_server.cpp
 
 
 

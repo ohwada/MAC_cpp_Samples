@@ -2,7 +2,7 @@ POCO: http client
 ===============
 
 ### sample code
-- http_client.cpp
+- https_client.cpp
 
 Build and Run:
 % make client

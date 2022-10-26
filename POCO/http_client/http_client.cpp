@@ -1,74 +1,110 @@
 /**
- *  http_client.cpp
+ * http_client.cpp
  * 2022-06-01 K.OHWADA
  */
 
-// reference : https://mcommit.hatenadiary.com/entry/2017/07/14/170146#HTTPS%E9%80%9A%E4%BF%A1%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B
+// reference : https://tullio.hatenablog.com/entry/20090430/1241102742
+// https://docs.pocoproject.org/current/Poco.Net.HTTPClientSession.html
 
-#include <string>
 #include <iostream>
-#include <sstream>
-
-#include <Poco/URI.h>
 #include <Poco/Net/HTTPClientSession.h>
+#include <Poco/Net/StreamSocket.h>
+#include <Poco/Net/SocketAddress.h>
 #include <Poco/Net/HTTPRequest.h>
 #include <Poco/Net/HTTPResponse.h>
-#include <Poco/StreamCopier.h>
+ #include <Poco/Net/NetException.h>
+
+
+/**
+ * http_client
+ */
+bool http_client(std::string host,  Poco::UInt16 port,  std::string uri, std::string &body)
+{
+
+    bool is_error = false;
+
+try {
+
+// set Access host and port
+  Poco::Net::HTTPClientSession 
+client(host,port);
+
+// set request
+  Poco::Net::HTTPRequest request(Poco::Net::HTTPRequest::HTTP_GET, uri); 
+ 
+    std::cout << "request" << std::endl;
+    request.write(std::cout);
+
+// Preparing to receive response
+  Poco::Net::HTTPResponse response;
+
+// send request
+    client.sendRequest(request);
+
+// get response
+  std::istream &res =  client.receiveResponse(response); 
+
+// get the Content-Length of the header
+  int len = response.getContentLength();
+
+// Allocate an area to put the body HTML
+  char *resbody = new char[len+1];
+ 
+// output HTTP headers
+    std::cout << std::endl;
+    std::cout << "header" << std::endl;
+    response.write(std::cout);  
+
+// get HTML body
+    res.read(resbody,len);  
+    body = resbody;
+
+} catch(Poco::Net::HostNotFoundException e) {
+    std::cerr << e.displayText() << std::endl;
+    is_error = true;
+} catch( Poco::Net::ConnectionRefusedException e){
+    std::cerr << e.displayText() << std::endl;
+    is_error = true;
+}
+
+    return !is_error;
+}
+
 
 using namespace std;
 
 
 /**
- *  main
+ * main
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 
-	std::string host("example.com");
-	int port = 80;
-	std::string path("/");
+    std::string host("example.com");
 
-    if(argc == 4) {
-      	host = argv[1];
-      	port = atoi( argv[2] );
-      	path = argv[3];
-    } else if(argc == 3) {
+    Poco::UInt16 port = 80;
+
+    if(argc == 3) {
       	host = argv[1];
       	port = atoi( argv[2] );
     } else if(argc == 2) {
       	host = argv[1];
     } else {
-        cerr << "Usage: " << argv[0] << " [host] [port]  [path]" << endl;
+        cout << "Usage: " << argv[0] << " [host] [port] " << endl;
     }
 
-    cerr << "host: " << host << endl;
-    cerr << "port: " << port << endl;
-    cerr << "path: " << path << endl;
+    cout << "host: " << host << endl;
+    cout << "port: " << port << endl;
 
-	try {
-		Poco::Net::HTTPClientSession session(host, port);
+    string uri("/");
 
-		Poco::Net::HTTPRequest req("GET", path, Poco::Net::HTTPMessage::HTTP_1_1);
+    string body;
 
-		// send request
-		session.sendRequest(req);
+    http_client(host,  port,  uri, body);
 
-		// recieve response
-		Poco::Net::HTTPResponse res;
-		istream& rs = session.receiveResponse(res);
+    cout << endl;
+    cout << "body" << endl;
+    cout << body << endl;
 
-		stringstream sstr;
-		Poco::StreamCopier::copyStream(rs, sstr);
-		string response = sstr.str();
-		cout << string("response:") + response << endl;
-	}
-	catch ( Poco::Exception& ex )
-	{
-		string msg = string("Poco Exception : ") + ex.what() + ", message: " + ex.message();
-		cout << msg << endl;
-   	 	return EXIT_FAILURE;
-	}
-
-	return EXIT_SUCCESS;
+  return 0;
 }
-
