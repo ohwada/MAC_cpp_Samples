@@ -1,7 +1,7 @@
 POCO: http upload server
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_upload_server.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_uoload_server.png" width="300" /> 
 
 sample for upload
 
