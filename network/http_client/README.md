@@ -12,9 +12,14 @@ Build and Run:
 
 
 ### TODO:
-(1) variable length buffer
+variable length buffer  
+in this version   
+requires a sufficiently large buffer  
 
-(2) suport Transfer-Encoding: chunked
-in this version
-body contains unnecessary chunksize like 5e6c
+try  
+- lbcurl  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl  
+- cmn-clib  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/cmn-clib/http_client  
+
 
