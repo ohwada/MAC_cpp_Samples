@@ -1,4 +1,4 @@
-boost asio: http server1
+boost asio: http server
 ===============
 
 <img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_asio/screenshots/index_server.png" width="300" />
