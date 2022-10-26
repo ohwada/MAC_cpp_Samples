@@ -1,0 +1,1 @@
+{"args":{},"data":"{ \"name\": \"michael\" \"age\": 30 }","files":{},"form":{},"headers":{"x-forwarded-proto":"http","x-forwarded-port":"80","host":"postman-echo.com","x-amzn-trace-id":"Root=1-634e660b-7493039332f3401b34caac09","content-length":"31","accept":"*/*","content-type":"application/json; charset=utf-8"},"json":null,"url":"http://postman-echo.com/post"}

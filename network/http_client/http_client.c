@@ -1,6 +1,6 @@
 /**
- * network sample
- * 2020-07-01 K.OHWADA
+ * http_client.c
+ * 2022-06-01 K.OHWADA
  */
 
 // simle HTTP Client
@@ -16,6 +16,9 @@
 #include <stdlib.h>
 #include "tcp_client.h"
 #include "http_client.h"
+#include "request_builder.h"
+#include "main_proc.h"
+
 
 /**
  * main
@@ -27,7 +30,15 @@ int main(int argc, char *argv[])
 
     int port = PORT_HTTP;
 
-    if(argc == 3) {
+
+    bool is_verbose = false;
+
+
+    if(argc == 4) {
+      	host = argv[1];
+      	port = atoi( argv[2] );
+        is_verbose = (bool)atoi( argv[3] );
+    } else if(argc == 3) {
       	host = argv[1];
       	port = atoi( argv[2] );
     } else if(argc == 2) {
@@ -38,82 +49,44 @@ int main(int argc, char *argv[])
 
     printf("host: %s \n",  host );
     printf("port: %d \n",  port );
+    printf(" is_verbose: %d \n",   is_verbose );
 
- const size_t BUFSIZE = 1024;
-    char request[BUFSIZE];
- const size_t ERR_SIZE = 100;
-    char error[ERR_SIZE];
+// TODO:
+// variable length buffer
+// Note:
+// Google response size is 54KB
+    const size_t BUFSIZE = 102400; // 100KB
+    char response[BUFSIZE];
 
+
+    const size_t REQ_SIZE = 1024; // 1KB
+    char request[REQ_SIZE];
+    char error[REQ_SIZE];
+
+    const char NUL = '\0';
+
+// Note
+// for Google: received 49 times
+    const int LOOP = 60;
+
+// clear buffer
+    memset(response, NUL, BUFSIZE);
 
 // create GET request 
     build_http_root_path_request( (char *)host, (char *)request);
 
     printf("request \n");
     printf("%s \n", (char *)request );
+// request size: 73
+    printf("request size: %zu \n", strlen(request) );
 
-
-  // create socket
-    int sockfd ;
-    sockfd  = tcp_socket( (char *)error );
-
-    if( sockfd  < 0){
-            fprintf(stderr, "tcp_socket: %s \n", error );
+bool ret1 = http_client(host, port, (char *)request, (char *) response, LOOP, (char *)error, is_verbose );
+    if(!ret1){
             return EXIT_FAILURE;
     }
 
-  // connect to server
-    bool ret1 = tcp_connect_hostname( sockfd, (char *)host,  port , (char *)error );
-
-    if(!ret1){
-       fprintf( stderr, "tcp_connect_hostname: %s : %d : %s \n", host,  port, error);
-        goto label_error;
-    }
-
-
-  printf("connect to : %s : %d \n", host, port );
-
-
-
-
-// send request
-    bool ret2 = tcp_write( sockfd, (char *)request, (char *)error);
-
-    if(!ret2){
-        fprintf(stderr, "tcp_write: %s \n", error);
-        goto label_error;
-    }
-
-// recieve response
- printf("response \n");
-    bool ret3 = print_tcp_read( sockfd, (char *)error );
-
-    if(!ret3){
-        fprintf(stderr, "tcp_read: %s \n", error);
-        goto label_error;
-    }
-
-
-// close
-    close(sockfd );
-
-    fprintf(stderr, "sucessful \n");
+    proc_response1( (char *)response);
 
     return EXIT_SUCCESS;
-
-
-// --- error ---
-label_error:
-
-    if(sockfd){
-        close( sockfd );
-    }
-
-    fprintf(stderr, "failed \n");
-
-    return EXIT_FAILURE;
 }
-
-
-// Conntect to: example.com : 80 
-// <title>Example Domain</title>
 

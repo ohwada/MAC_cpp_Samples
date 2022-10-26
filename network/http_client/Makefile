@@ -16,4 +16,4 @@ $(TARGET): $(SRCS)
 
 
 clean:
-	rm -rf bin/*  *.o 
+	rm -rf  bin/*  log/*   *.o 

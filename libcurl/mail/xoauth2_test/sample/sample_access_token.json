@@ -1,0 +1,6 @@
+{
+  "access_token": "ya29.a0dummy-token",
+  "expires_in": 3599,
+  "scope": "https://mail.google.com/",
+  "token_type": "Bearer"
+}
