@@ -1,9 +1,17 @@
 xoauth - libcurl
 ===============
 
-libcurl Sample <br/>
-send mail to Gmail SMTP server with xoauth <br/>
+send mail to Gmail SMTP server with xoauth  
 
+### Note
+At October 2022
+Out-of-band (OOB) flow is deprecated On Gmail 
+
+Out-Of-Band (OOB) flow Migration Guide
+https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=en
+
+try xouath2
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/mail/xoauth2
 
 ### sample codes
 - smtp-gmail-xoauth.c <br/>
@@ -60,8 +68,4 @@ reuse Refresh Token, from the second time onwards
 
 ### Document
 - https://ken-ohwada.hatenadiary.org/entry/2020/11/23/095400
-
-### Reference <br/>
-- https://curl.haxx.se/libcurl/c/
-- https://developers.google.com/identity/protocols/oauth2 
 
