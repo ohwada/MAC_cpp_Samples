@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fetch API demo</title>
+ </head>
+ <body>
+<a href="/">[HOME]</a>
+<h1  style="text-align:center">Fetch API demo</h1>
+ <div style="text-align:center; font-size: 150%;"><a  href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch">Fetch_API</a> </div>
+<div id="el1" style="text-align:center; border: 1px  dashed blue; margin-top: 5px; margin-bottom: 5px;">display sample.html here</div>
+ <div style="text-align:center;">
+ <button id="btn1" style="font-size: 150%;">start fetch</button> 
+</div>
+</body>
+<script>
+document.getElementById('btn1').onclick = function(ev) {
+fetch('http://localhost:8000/sample.html')
+.then( res => res.text() )
+.then(data => document.getElementById('el1').innerHTML = data );
+    };
+</script>
+</html>
