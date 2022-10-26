@@ -1,33 +1,30 @@
 boost_beast
 ===============
 
-beast Sample <br/>
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_beast/screenshots/index_server.png" width="300" />
 
-Beast : <br/>
-a C++ header-only library serving as a foundation for writing interoperable networking libraries by providing low-level HTTP/1, WebSocket, and networking protocol <br/>
-https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/index.html <br/>
+
+Beast 
+a C++ header-only library serving as a foundation for writing interoperable networking libraries by providing low-level HTTP/1, WebSocket, and networking protocol   
+https://www.boost.org/doc/libs/1_70_0/libs/beast/doc/html/index.html   
 
 
 ###  install beast
-see below <br/>
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/setup.md <br/>
+see below   
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/boost_beast/setup.md   
 
 ### sample code
 
 #### examples
-offical samples <br/>
+offical samples   
 
 #### http
-HTTP Client and Server <br/>
-
-HTTP Server <br/>
-access localhost:8080 by WEB Brawser <br/>
-<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_beast/screenshot/chrome_http_server.png" width="300" />
+HTTP Client and Server   
 
 #### https
-HTTPS Client and Server <br/>
+HTTPS Client and Server   
 
 
-### Reference <br/>
+### Reference   
 - https://www.boost.org/
 
