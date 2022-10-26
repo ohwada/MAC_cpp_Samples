@@ -4,14 +4,15 @@ CXX=g++
 CFLAGS=-Wall -std=c++11
 BOOST_FLAGS=`pkg-config --cflags  boost`
 
-TARGET1=client
-SRCS1=http_client.cpp
-TARGET2=localhost
-SRCS2=localhost_client.cpp
-TARGET3=ipaddress
-SRCS3=ipaddress.cpp
+TARGET1=hello
+SRCS1=http_hello_server.cpp
+TARGET2=index
+SRCS2=http_index_server.cpp
+TARGET3=file
+SRCS3=http_file_server.cpp
 TARGET4=test
-SRCS4=test_response_parser.cpp
+SRCS4=test_parse_request.cpp
+
 
 $(TARGET1): $(SRCS1)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
@@ -30,8 +31,8 @@ $(TARGET4): $(SRCS4)
 
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CXX) $(CFLAGS) -c -o $@ $<
 
 
 clean:
-	rm -rf bin/* log/*  *.o 
+	rm -rf bin/*  *.o 

@@ -6,6 +6,7 @@
 
 // function for boost asio socket
 
+#include <iostream>
 #include <string>
 #include <boost/asio.hpp>
 

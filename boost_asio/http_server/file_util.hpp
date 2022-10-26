@@ -21,13 +21,17 @@ bool existsFile(std::string file);
 int file_exists (char *filename) ;
 bool readTextFile( std::string file, std::string &text );
 bool writeTextFile(std::string file, std::string data );
-bool readBinaryFile(const std::string filepath, std::vector<char> &data);
+bool readBinaryFile1(const std::string filepath, std::vector<char> &data);
+bool readBinaryFile2(const std::string filepath, std::string &data);
  bool writeBinaryFile(const std::string filepath, std::vector<char> data);
 void dumpBinary(std::vector<char> data, size_t size);
 void getTimestampFileName(std::string prefix, std::string ext, std::string &filename);
 void getTimestamp(std::string &timestamp);
 bool cmpFiles(const std::string& p1, const std::string& p2);
 std::string make_path(std::string dir, std::string fname);
+bool makeDir(std::string dir, mode_t mode);
+bool make_dir(char* dir, mode_t mode);
+bool is_dir2(char* path);
 
 
 /**
@@ -100,9 +104,9 @@ bool writeTextFile(std::string file, std::string data )
 
 
 /**
- * readBinaryFile
+ * readBinaryFile1
  */
-bool readBinaryFile(const std::string filepath, std::vector<char> &data)
+bool readBinaryFile1(const std::string filepath, std::vector<char> &data)
 {
 
 	std::ifstream file(filepath.c_str(), std::ios::binary | std::ios::in);
@@ -122,6 +126,30 @@ bool readBinaryFile(const std::string filepath, std::vector<char> &data)
 	} // for
 
     file.close();
+    return true;
+}
+
+
+/**
+ * readBinaryFile2
+ */
+bool readBinaryFile2(const std::string filepath, std::string &data)
+{
+    std::vector<char> vec;
+    bool ret = readBinaryFile1(filepath, vec);
+    if(!ret){
+        return false;
+    }
+    const char NUL = '\0';
+    size_t size = vec.size();
+    std::string str(size+10, NUL); // 10 margin
+
+    for(int i=0; i<size; i++){
+        str[i] = vec[i];
+    } // for
+
+    data = str;
+
     return true;
 }
 
@@ -233,5 +261,59 @@ std::string make_path(std::string dir, std::string fname)
     }
     path += fname;
     return path;
+}
+
+
+/**
+ * makeDir
+ */
+bool makeDir(std::string dir, mode_t mode)
+{
+    return make_dir( (char *)dir.c_str(), mode);
+}
+
+
+/**
+ * make_dir
+ */
+bool make_dir(char* dir, mode_t mode)
+{
+
+	if( strlen(dir) == 0 ) {
+		return false;
+	}
+
+	if( is_dir2(dir) ) {
+		return false;
+	}
+
+	if ( mkdir(dir, mode) != 0) {
+		printf("mkdir faild: %s \n", dir);
+        return false;
+	}
+
+	if ( chmod(dir, mode) != 0) {
+		printf("chmod faild: %s \n", dir);
+        return false;
+	}
+
+	return true;
+} 
+
+
+/**
+ * is_dir
+ */
+bool is_dir2(char* path)
+{
+    struct stat sb;
+    int ret = stat(path, &sb);
+    if(ret != 0){
+        return false;
+    }
+
+    mode_t m = sb.st_mode;
+    bool res = ( S_ISDIR(m) )? true: false;
+    return res;        
 }
 

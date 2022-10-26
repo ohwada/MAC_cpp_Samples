@@ -1,20 +1,20 @@
-boost_asio: http
+boost_asio: http client
 ===============
 
-HTTP Server and Client  
+HTTP Client  
 
 
 ### sample code
 - http_client.cpp   
-HTTP Client  
-
-- http_server.cpp  
-HTTP Server  
-
+- localhost_client.cpp
+- ipaddress.cpp
 
 Build and Run:
-% make all
+% make client
 
-% bin/server
-> listen port: 8080
+% bin/client
+> connect: example.com : 80
+> HTTP/1.1 200 OK
+>  < title > Example Domain < /title >
+
 
