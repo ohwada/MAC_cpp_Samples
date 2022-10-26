@@ -1,7 +1,7 @@
 xoauth - libcurl: xoauth2
 ===============
 
-send mail to Gmail SMTP server with xoauth 
+send mail to Gmail SMTP server with xoauth  
 suport  (OOB) flow Migration  
 
 ### OAuth 2.0 Mechanism  
