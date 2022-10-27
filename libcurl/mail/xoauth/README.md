@@ -10,6 +10,12 @@ Out-of-band (OOB) flow is deprecated On Gmail
 Out-Of-Band (OOB) flow Migration Guide
 https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=en
 
+
+when You run this old style program  
+You get the following error  
+<img src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/libcurl/screenshots/xouth_invalid.png" width="300" />  
+
+
 try xouath2
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/libcurl/mail/xoauth2
 
