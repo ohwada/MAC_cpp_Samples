@@ -1,11 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// minimal example for how to use libmicrohttpd
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/minimal_example.c
 /*
      This file is part of libmicrohttpd
      (C) 2007 Christian Grothoff (and other contributing authors)
@@ -33,12 +25,8 @@
 #include "platform.h"
 #include <microhttpd.h>
 
-#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body><h1>libmicrohttpd demo</h1></body></html>"
+#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body>libmicrohttpd demo</body></html>"
 
-
-/**
- * ahc_echo
- */
 static int
 ahc_echo (void *cls,
           struct MHD_Connection *connection,
@@ -47,7 +35,6 @@ ahc_echo (void *cls,
           const char *version,
           const char *upload_data, size_t *upload_data_size, void **ptr)
 {
-
   static int aptr;
   const char *me = cls;
   struct MHD_Response *response;
@@ -70,39 +57,27 @@ ahc_echo (void *cls,
   return ret;
 }
 
-
-/**
- * main
- */
-int main (int argc, char *const *argv)
+int
+main (int argc, char *const *argv)
 {
   struct MHD_Daemon *d;
 
-    int port = 8080;
-
-    if (argc == 2) {
-        port = atoi ( argv[1] );
-    } else {
-        printf ("%s PORT\n", argv[0]);
+  if (argc != 2)
+    {
+      printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
-  d = MHD_start_daemon (
-        MHD_USE_SELECT_INTERNALLY | 
-        MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, PAGE,
+  d = MHD_start_daemon (// MHD_USE_SELECT_INTERNALLY | MHD_USE_DEBUG | MHD_USE_POLL,
+			MHD_USE_SELECT_INTERNALLY | MHD_USE_DEBUG,
+			// MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG | MHD_USE_POLL,
+			// MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, PAGE,
 			MHD_OPTION_CONNECTION_TIMEOUT, (unsigned int) 120,
 			MHD_OPTION_END);
-
-  if (d == NULL) {
+  if (d == NULL)
     return 1;
-}
-
-
-// quite when enter any key  
-(void) getc (stdin);
-
+  (void) getc (stdin);
   MHD_stop_daemon (d);
-
   return 0;
 }

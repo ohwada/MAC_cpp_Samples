@@ -1,6 +1,6 @@
 /*
      This file is part of libmicrohttpd
-     (C) 2007 Christian Grothoff (and other contributing authors)
+     (C) 2007, 2008 Christian Grothoff (and other contributing authors)
 
      This library is free software; you can redistribute it and/or
      modify it under the terms of the GNU Lesser General Public
@@ -16,15 +16,15 @@
      License along with this library; if not, write to the Free Software
      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 /**
- * @file fileserver_example.c
- * @brief minimal example for how to use libmicrohttpd to serve files
+ * @file fileserver_example_external_select.c
+ * @brief minimal example for how to use libmicrohttpd to server files
  * @author Christian Grothoff
  */
 
 #include "platform.h"
 #include <microhttpd.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #define PAGE "<html><head><title>File not found</title></head><body>File not found</body></html>"
@@ -34,7 +34,7 @@ file_reader (void *cls, uint64_t pos, char *buf, size_t max)
 {
   FILE *file = cls;
 
-  (void)  fseek (file, pos, SEEK_SET);
+  (void) fseek (file, pos, SEEK_SET);
   return fread (buf, 1, max, file);
 }
 
@@ -69,7 +69,8 @@ ahc_echo (void *cls,
       return MHD_YES;
     }
   *ptr = NULL;                  /* reset when done */
-  if (0 == stat (&url[1], &buf))
+  if ( (0 == stat (&url[1], &buf)) &&
+       (S_ISREG (buf.st_mode)) )
     file = fopen (&url[1], "rb");
   else
     file = NULL;
@@ -102,18 +103,48 @@ int
 main (int argc, char *const *argv)
 {
   struct MHD_Daemon *d;
+  time_t end;
+  time_t t;
+  struct timeval tv;
+  fd_set rs;
+  fd_set ws;
+  fd_set es;
+  int max;
+  unsigned MHD_LONG_LONG mhd_timeout;
 
-  if (argc != 2)
+  if (argc != 3)
     {
-      printf ("%s PORT\n", argv[0]);
+      printf ("%s PORT SECONDS-TO-RUN\n", argv[0]);
       return 1;
     }
-  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+  d = MHD_start_daemon (MHD_USE_DEBUG,
                         atoi (argv[1]),
                         NULL, NULL, &ahc_echo, PAGE, MHD_OPTION_END);
   if (d == NULL)
     return 1;
-  (void) getc (stdin);
+  end = time (NULL) + atoi (argv[2]);
+  while ((t = time (NULL)) < end)
+    {
+      tv.tv_sec = end - t;
+      tv.tv_usec = 0;
+      max = 0;
+      FD_ZERO (&rs);
+      FD_ZERO (&ws);
+      FD_ZERO (&es);
+      if (MHD_YES != MHD_get_fdset (d, &rs, &ws, &es, &max))
+	break; /* fatal internal error */
+      if (MHD_get_timeout (d, &mhd_timeout) == MHD_YES)
+
+        {
+          if (tv.tv_sec * 1000 < mhd_timeout)
+            {
+              tv.tv_sec = mhd_timeout / 1000;
+              tv.tv_usec = (mhd_timeout - (tv.tv_sec * 1000)) * 1000;
+            }
+        }
+      select (max + 1, &rs, &ws, &es, &tv);
+      MHD_run (d);
+    }
   MHD_stop_daemon (d);
   return 0;
 }

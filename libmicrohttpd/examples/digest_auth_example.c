@@ -1,11 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// minimal example for how to use digest auth with libmicrohttpd
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/digest_auth_example.c
 /*
      This file is part of libmicrohttpd
      (C) 2010 Christian Grothoff (and other contributing authors)
@@ -34,9 +26,9 @@
 #include <microhttpd.h>
 #include <stdlib.h>
 
-#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body><b>Access granted</b></body></html>"
+#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body>Access granted</body></html>"
 
-#define DENIED "<html><head><title>libmicrohttpd demo</title></head><body><b>Access denied</b></body></html>"
+#define DENIED "<html><head><title>libmicrohttpd demo</title></head><body>Access denied</body></html>"
 
 #define OPAQUE "11733b200778ce33060f31c9af70a870ba96ddd4"
 
@@ -101,17 +93,13 @@ main (int argc, char *const *argv)
   char rnd[8];
   size_t len;
   size_t off;
-
   struct MHD_Daemon *d;
 
-    int port = 8080;
-
-    if (argc == 2){
-        port = atoi (argv[1]);
-    } else{
-        printf ("%s PORT\n", argv[0]);
+  if (argc != 2)
+    {
+      printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
   fd = open("/dev/urandom", O_RDONLY);
   if (-1 == fd)
     {
@@ -135,25 +123,17 @@ main (int argc, char *const *argv)
       off += len;
     }
   (void) close(fd);
-  d = MHD_start_daemon (
-    MHD_USE_INTERNAL_POLLING_THREAD | 
-    MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, PAGE,
+  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, PAGE,
 			MHD_OPTION_DIGEST_AUTH_RANDOM, sizeof(rnd), rnd,
 			MHD_OPTION_NONCE_NC_SIZE, 300,
 			MHD_OPTION_CONNECTION_TIMEOUT, (unsigned int) 120,
 			MHD_OPTION_END);
-
-    if (d == NULL) {
-        return 1;
-    }
-
-// quite when enter any key  
+  if (d == NULL)
+    return 1;
   (void) getc (stdin);
-
   MHD_stop_daemon (d);
-
   return 0;
 }
 

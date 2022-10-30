@@ -1,17 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// minimal example for how to generate an infinite stream with libmicrohttpd
-
-// Comet
-// https://en.wikipedia.org/wiki/Comet_(programming)
-
-// gcc minimal_example_comet.c `pkg-config --cflags --libs libmicrohttpd`
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/minimal_example_comet.c
-
 /*
      This file is part of libmicrohttpd
      (C) 2007, 2008 Christian Grothoff (and other contributing authors)
@@ -30,7 +16,6 @@
      License along with this library; if not, write to the Free Software
      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 /**
  * @file minimal_example.c
  * @brief minimal example for how to generate an infinite stream with libmicrohttpd
@@ -40,26 +25,16 @@
 #include "platform.h"
 #include <microhttpd.h>
 
-
-/**
- * data_generator
- */
 static ssize_t
 data_generator (void *cls, uint64_t pos, char *buf, size_t max)
 {
-    if (max < 80) {
-        return 0;
-    }
-
+  if (max < 80)
+    return 0;
   memset (buf, 'A', max - 1);
   buf[79] = '\n';
   return 80;
 }
 
-
-/**
- * ahc_echo
- */
 static int
 ahc_echo (void *cls,
           struct MHD_Connection *connection,
@@ -89,36 +64,22 @@ ahc_echo (void *cls,
   return ret;
 }
 
-
-/**
- * main
- */
-int main (int argc, char *const *argv)
+int
+main (int argc, char *const *argv)
 {
-
   struct MHD_Daemon *d;
 
-    int port = 8080;
-
-  if (argc == 2){
-        port = atoi (argv[1]);
-    } else {
+  if (argc != 2)
+    {
       printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
-  d = MHD_start_daemon( 
-    MHD_USE_INTERNAL_POLLING_THREAD | MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, NULL, MHD_OPTION_END);
-
-    if (d == NULL) {
-        return 1;
-    }
-
-// quite when enter any key  
+  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, NULL, MHD_OPTION_END);
+  if (d == NULL)
+    return 1;
   (void) getc (stdin);
-
   MHD_stop_daemon (d);
-
   return 0;
 }

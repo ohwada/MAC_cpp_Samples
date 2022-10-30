@@ -1,12 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// gcc https_fileserver_example.c `pkg-config --cflags --libs libmicrohttpd` `pkg-config --cflags --libs gnutls`
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/https_fileserver_example.c
-
 /*
      This file is part of libmicrohttpd
      (C) 2007, 2008 Christian Grothoff (and other contributing authors)
@@ -130,20 +121,6 @@ http_ahc (void *cls,
           const char *upload_data,
 	  size_t *upload_data_size, void **ptr)
 {
-
-    const char DIR[] = "www";
-
-    char *filename = (char *)&url[1];
-
-    printf("filename: %s \n", filename);
-
-    const size_t BUFSIZE = 100;
-    char filepath[BUFSIZE];
-
-    snprintf(filepath, BUFSIZE, "%s/%s",  DIR, filename );
-
-    printf("filepath : %s \n", filepath);
-
   static int aptr;
   struct MHD_Response *response;
   int ret;
@@ -160,13 +137,11 @@ http_ahc (void *cls,
     }
   *ptr = NULL;                  /* reset when done */
 
-    if ( (0 == stat( filepath, &buf )) &&
-       (S_ISREG (buf.st_mode)) ) {
-        file = fopen ( filepath, "rb" );
-    } else {
-        file = NULL;
-    }
-
+  if ( (0 == stat (&url[1], &buf)) &&
+       (S_ISREG (buf.st_mode)) )
+    file = fopen (&url[1], "rb");
+  else
+    file = NULL;
   if (file == NULL)
     {
       response = MHD_create_response_from_buffer (strlen (EMPTY_PAGE),
@@ -196,24 +171,23 @@ main (int argc, char *const *argv)
 {
   struct MHD_Daemon *TLS_daemon;
 
-    int port = 8081;
-
-  if (argc == 2) {
-        port = atoi (argv[1]);
-    } else {
-      printf ("Usage: %s HTTP-PORT \n", argv[0] );
-    }
-
+  if (argc == 2)
+    {
       /* TODO check if this is truly necessary -  disallow usage of the blocking /dev/random */
       /* gcry_control(GCRYCTL_ENABLE_QUICK_RANDOM, 0); */
       TLS_daemon =
         MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG |
-                          MHD_USE_SSL, port, NULL, NULL, (void *)&http_ahc,
+                          MHD_USE_SSL, atoi (argv[1]), NULL, NULL, &http_ahc,
                           NULL, MHD_OPTION_CONNECTION_TIMEOUT, 256,
                           MHD_OPTION_HTTPS_MEM_KEY, key_pem,
                           MHD_OPTION_HTTPS_MEM_CERT, cert_pem,
                           MHD_OPTION_END);
-
+    }
+  else
+    {
+      printf ("Usage: %s HTTP-PORT\n", argv[0]);
+      return 1;
+    }
 
   if (TLS_daemon == NULL)
     {
@@ -222,7 +196,7 @@ main (int argc, char *const *argv)
     }
   else
     {
-      printf ("MHD daemon listening on port %d\n", port );
+      printf ("MHD daemon listening on port %d\n", atoi (argv[1]));
     }
 
   (void) getc (stdin);

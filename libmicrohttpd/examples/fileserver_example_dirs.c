@@ -1,11 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// example for how to use libmicrohttpd to serve files (with directory support)
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/fileserver_example_dirs.c
 /*
      This file is part of libmicrohttpd
      (C) 2007 Christian Grothoff (and other contributing authors)
@@ -92,20 +84,6 @@ ahc_echo (void *cls,
           const char *upload_data,
 	  size_t *upload_data_size, void **ptr)
 {
-
-    const char DIR_DOC_ROOT[] = "www";
-
-    char *filename = (char *)&url[1];
-
-    printf("filename: %s \n", filename);
-
-    const size_t BUFSIZE = 100;
-    char filepath[BUFSIZE];
-
-    snprintf(filepath, BUFSIZE, "%s/%s",  DIR, filename );
-
-    printf("filepath : %s \n", filepath);
-
   static int aptr;
   struct MHD_Response *response;
   int ret;
@@ -123,24 +101,21 @@ ahc_echo (void *cls,
       return MHD_YES;
     }
   *ptr = NULL;                  /* reset when done */
-
-    if ( (0 == stat ( filepath, &buf )) &&
-       (S_ISREG (buf.st_mode)) ) {
-        file = fopen ( filepath, "rb");
-    }else{
-        file = NULL;
-    }
-
+  if ( (0 == stat (&url[1], &buf)) &&
+       (S_ISREG (buf.st_mode)) )
+    file = fopen (&url[1], "rb");
+  else
+    file = NULL;
   if (file == NULL)
     {
-      dir = opendir ( DIR_DOC_ROOT );
+      dir = opendir (".");
       if (dir == NULL)
 	{
 	  /* most likely cause: more concurrent requests than  
 	     available file descriptors / 2 */
 	  snprintf (emsg,
 		    sizeof (emsg),
-		    "Failed to open directory `files': %s\n",
+		    "Failed to open directory `.': %s\n",
 		    strerror (errno));
 	  response = MHD_create_response_from_buffer (strlen (emsg),
 						      emsg,
@@ -188,28 +163,17 @@ main (int argc, char *const *argv)
 {
   struct MHD_Daemon *d;
 
-    int port = 8080;
-
-    if (argc == 2){
-        port = atoi (argv[1]);
-    } else {
-        printf ("%s PORT\n", argv[0]);
+  if (argc != 2)
+    {
+      printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
-  d = MHD_start_daemon (
-    MHD_USE_INTERNAL_POLLING_THREAD | 
-    MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, PAGE, MHD_OPTION_END);
-
-    if (d == NULL){
-        return 1;
-    }
-
-// quite when enter any key  
+  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, PAGE, MHD_OPTION_END);
+  if (d == NULL)
+    return 1;
   (void) getc (stdin);
-
   MHD_stop_daemon (d);
-
   return 0;
 }

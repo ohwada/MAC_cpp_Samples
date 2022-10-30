@@ -1,11 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// example for how to use libmicrohttpd with HTTP authentication
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/authorization_example.c
 /*
      This file is part of libmicrohttpd
      (C) 2008 Christian Grothoff (and other contributing authors)
@@ -34,7 +26,7 @@
 #include "platform.h"
 #include <microhttpd.h>
 
-#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body><b>libmicrohttpd demo</b></body></html>"
+#define PAGE "<html><head><title>libmicrohttpd demo</title></head><body>libmicrohttpd demo</body></html>"
 
 #define DENIED "<html><head><title>Access denied</title></head><body>Access denied</body></html>"
 
@@ -69,10 +61,6 @@ ahc_echo (void *cls,
   /* require: "Aladdin" with password "open sesame" */
   pass = NULL;
   user = MHD_basic_auth_get_username_password (connection, &pass);
-
-printf("user: %s \n", user );
-printf("pass: %s \n", pass);
-
   fail = ( (user == NULL) || (0 != strcmp (user, "Aladdin")) || (0 != strcmp (pass, "open sesame") ) );
   if (fail)
   {
@@ -98,27 +86,17 @@ main (int argc, char *const *argv)
 {
   struct MHD_Daemon *d;
 
-    int port = 8080;
-    int seconds = 60;
-
-  if (argc == 3){
-      port = atoi (argv[1]);
-      seconds = atoi (argv[2]);
-    } else {
-      printf ("%s PORT SECONDS-TO-STOP \n", argv[0]);
+  if (argc != 3)
+    {
+      printf ("%s PORT SECONDS-TO-RUN\n", argv[0]);
+      return 1;
     }
-
-  d = MHD_start_daemon ( MHD_USE_INTERNAL_POLLING_THREAD | MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, PAGE, MHD_OPTION_END);
-
-    if (d == NULL){
-        return 1;
-    }
-
-    sleep( seconds );
-
-    MHD_stop_daemon (d);
-
-    return 0;
+  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, PAGE, MHD_OPTION_END);
+  if (d == NULL)
+    return 1;
+  sleep (atoi (argv[2]));
+  MHD_stop_daemon (d);
+  return 0;
 }

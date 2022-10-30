@@ -1,13 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// example for how to get the query string from libmicrohttpd
-
-// gcc querystring_example.c `pkg-config --cflags --libs libmicrohttpd`
-
-// https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/querystring_example.c
 /*
      This file is part of libmicrohttpd
      (C) 2007, 2008 Christian Grothoff (and other contributing authors)
@@ -64,27 +54,18 @@ ahc_echo (void *cls,
   *ptr = NULL;                  /* reset when done */
   val = MHD_lookup_connection_value (connection, MHD_GET_ARGUMENT_KIND, "q");
   me = malloc (snprintf (NULL, 0, fmt, "q", val) + 1);
-
-    if (me == NULL) {
-        return MHD_NO;
-    }
-
-    sprintf (me, fmt, "q", val);
-
-    printf("q: %s \n", val);
-
-    response = MHD_create_response_from_buffer (strlen (me), me,
+  if (me == NULL)
+    return MHD_NO;
+  sprintf (me, fmt, "q", val);
+  response = MHD_create_response_from_buffer (strlen (me), me,
 					      MHD_RESPMEM_MUST_FREE);
-
-    if (response == NULL) {
-        free (me);
-        return MHD_NO;
+  if (response == NULL)
+    {
+      free (me);
+      return MHD_NO;
     }
-
   ret = MHD_queue_response (connection, MHD_HTTP_OK, response);
-
   MHD_destroy_response (response);
-
   return ret;
 }
 
@@ -93,27 +74,17 @@ main (int argc, char *const *argv)
 {
   struct MHD_Daemon *d;
 
-    int port = 8080;
-
-    if (argc == 2) {
-        port = atoi (argv[1]);
-    } else {
-        printf ("%s PORT\n", argv[0]);
+  if (argc != 2)
+    {
+      printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
-  d = MHD_start_daemon (
-    MHD_USE_INTERNAL_POLLING_THREAD | MHD_USE_DEBUG,
-                        port,
-                        NULL, NULL, (void *)&ahc_echo, PAGE, MHD_OPTION_END);
-
-    if (d == NULL) {
-        return 1;
-    }
-
-// quite when enter any key  
+  d = MHD_start_daemon (MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                        atoi (argv[1]),
+                        NULL, NULL, &ahc_echo, PAGE, MHD_OPTION_END);
+  if (d == NULL)
+    return 1;
   (void) getc (stdin);
-
   MHD_stop_daemon (d);
-
   return 0;
 }

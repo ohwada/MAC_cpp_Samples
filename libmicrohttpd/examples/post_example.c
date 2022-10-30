@@ -1,12 +1,3 @@
-/**
- * libmicrohttpd sample
- * 2020-07-01 K.OHWADA
- */
-
-// example for processing POST requests using libmicrohttpd
-
-// original : https://github.com/rboulton/libmicrohttpd/blob/master/src/examples/post_example.c
-
 /*
      This file is part of libmicrohttpd
      (C) 2011 Christian Grothoff (and other contributing authors)
@@ -66,7 +57,7 @@
 /**
  * Last page.
  */
-#define LAST_PAGE "<html><head><title>Thank you</title></head><body><b>Thank you.</b></body></html>"
+#define LAST_PAGE "<html><head><title>Thank you</title></head><body>Thank you.</body></html>"
 
 /**
  * Name of our cookie.
@@ -465,11 +456,10 @@ post_iterator (void *cls,
   if (0 == strcmp ("DONE", key))
     {
       fprintf (stdout,
-	       "Session: `%s' submitted name: `%s', job: `%s' \n",
+	       "Session `%s' submitted `%s', `%s'\n",
 	       session->sid,
 	       session->value_1,
 	       session->value_2);
-
       return MHD_YES;
     }
   if (0 == strcmp ("v1", key))
@@ -561,8 +551,7 @@ create_response (void *cls,
       if (0 == strcmp (method, MHD_HTTP_METHOD_POST))
 	{
 	  request->pp = MHD_create_post_processor (connection, 1024,
-						   (void *)&post_iterator, request );
-
+						   &post_iterator, request);
 	  if (NULL == request->pp)
 	    {
 	      fprintf (stderr, "Failed to setup post processor for `%s'\n",
@@ -624,11 +613,9 @@ create_response (void *cls,
 					      (void *) METHOD_ERROR,
 					      MHD_RESPMEM_PERSISTENT);
   ret = MHD_queue_response (connection, 
-			    MHD_HTTP_NOT_ACCEPTABLE, 
+			    MHD_HTTP_METHOD_NOT_ACCEPTABLE, 
 			    response);
-
   MHD_destroy_response (response);
-
   return ret;
 }
 
@@ -710,28 +697,22 @@ main (int argc, char *const *argv)
   int max;
   unsigned MHD_LONG_LONG mhd_timeout;
 
-    int port = 8080;
-
-    if (argc == 2) {
-        port = atoi (argv[1]);
-    } else {
-        printf ("%s PORT\n", argv[0]);
+  if (argc != 2)
+    {
+      printf ("%s PORT\n", argv[0]);
+      return 1;
     }
-
   /* initialize PRNG */
   srandom ((unsigned int) time (NULL));
   d = MHD_start_daemon (MHD_USE_DEBUG,
-                        port,
+                        atoi (argv[1]),
                         NULL, NULL, 
-			(void *)&create_response, NULL, 
+			&create_response, NULL, 
 			MHD_OPTION_CONNECTION_TIMEOUT, (unsigned int) 15,
 			MHD_OPTION_NOTIFY_COMPLETED, &request_completed_callback, NULL,
 			MHD_OPTION_END);
-
-    if (NULL == d) {
-        return 1;
-    }
-
+  if (NULL == d)
+    return 1;
   while (1)
     {
       expire_sessions ();
@@ -739,27 +720,20 @@ main (int argc, char *const *argv)
       FD_ZERO (&rs);
       FD_ZERO (&ws);
       FD_ZERO (&es);
-
-      if (MHD_YES != MHD_get_fdset (d, &rs, &ws, &es, &max)) {
+      if (MHD_YES != MHD_get_fdset (d, &rs, &ws, &es, &max))
 	break; /* fatal internal error */
-      }
-
       if (MHD_get_timeout (d, &mhd_timeout) == MHD_YES)	
 	{
 	  tv.tv_sec = mhd_timeout / 1000;
 	  tv.tv_usec = (mhd_timeout - (tv.tv_sec * 1000)) * 1000;
 	  tvp = &tv;	  
-	} else {
-	    tvp = NULL;
-    }
-
+	}
+      else
+	tvp = NULL;
       select (max + 1, &rs, &ws, &es, tvp);
       MHD_run (d);
-
-    } // while
-
+    }
   MHD_stop_daemon (d);
-
   return 0;
 }
 
