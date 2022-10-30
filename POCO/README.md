@@ -1,7 +1,7 @@
 POCO
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_web_server.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/POCO/screenshots/http_index_server.png" width="300" /> 
 
 POCO:   
 C++ class libraries for building network and internet-based applications   
