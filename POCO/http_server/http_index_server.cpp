@@ -18,7 +18,7 @@ void on_request(HTTPServerRequest& request, HTTPServerResponse& response)
 	Application& app = Application::instance();
 	app.logger().information("Request from " + request.clientAddress().toString());
 
-    std::string fpath("data/index.html");
+    std::string fpath("www/index.html");
     std::string mime("text/html");
 
 	try{

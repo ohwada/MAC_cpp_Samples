@@ -44,7 +44,6 @@ Size: %d <br/>
 </html>)";
 
 
-
 std::cout << "Name: " << name << std::endl;
 std::cout << "File Name: " << filename << std::endl;
 std::cout << "Type: " << type << std::endl;

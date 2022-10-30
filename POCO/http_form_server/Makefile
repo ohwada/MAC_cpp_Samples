@@ -23,4 +23,4 @@ $(TARGET2): $(SRCS2)
 
 
 clean:
-	rm -rf bin/*  *.o 
+	rm -rf bin/* log/*  *.o 

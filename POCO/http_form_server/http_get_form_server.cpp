@@ -5,9 +5,11 @@
 
 // original : https://github.com/pocoproject/poco/blob/devel/Net/samples/HTTPFormServer/src/HTTPFormServer.cpp'
 
-#include "Poco/Format.h"
+
 #include "poco_http_server.hpp"
 #include "form.hpp"
+#include "form_response_builder.hpp"
+#include "request_saver.hpp"
 
 
 /**
@@ -16,23 +18,7 @@
 void on_request(HTTPServerRequest& request, HTTPServerResponse& response)
 {
 
-    std::string FORMAT=
-R"(<html>
-<head>
-<title>HTTP Server demo</title>
-</head>
-<body>
-<h2>POCO Form Server demo</h2>
-<a href="/">[HOME]</a> <br/>
-<h2>Request</h2>
-<p>
-Method: %s <br/>
-URI: %s <br/>
-</p>
-<h2>Form</h2>
-<p> %s </p>
-</body>
-</html>)";
+
 
     log_client(request);
 
@@ -42,7 +28,10 @@ URI: %s <br/>
     std::cout << "Method: " << method << std::endl;
     std::cout << "URI: " << uri << std::endl;
 
-    std::string fpath("data/index_get.html");
+    bool is_verbose = true;
+    save_request(request,  is_verbose );
+
+    std::string fpath("www/index_get.html");
     std::string mime("text/html");
 
     if( is_root(uri) ) {
@@ -53,8 +42,8 @@ URI: %s <br/>
     std::string form = get_string_form(request);
     std::cout << "form: " << form << std::endl;
 
-    std::string text;
-    Poco::format(text, FORMAT,  method, uri, form);
+    std::string text = 
+    build_response(method, uri, form);
 
     std::cout << std::endl;
     std::cout << "response" << std::endl;

@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "poco_http_server.hpp"
-
+#include "request_saver.hpp"
 
 
 /**
@@ -16,10 +16,15 @@
 void on_request(HTTPServerRequest& request, HTTPServerResponse& response)
 {
 
-	std::string TEXT("Hello World");
-
 	Application& app = Application::instance();
 	app.logger().information("Request from " + request.clientAddress().toString());
+
+    print_request(request);
+
+    bool is_verbose = true;
+    save_request(request,  is_verbose );
+
+	std::string TEXT("Hello World");
 
 	response.setContentType("text/plain");
 

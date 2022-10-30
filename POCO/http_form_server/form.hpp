@@ -22,30 +22,35 @@ using Poco::NullOutputStream;
 using Poco::StreamCopier;
 
 // prototype
-std::string get_string_form(HTTPServerRequest& request);
-std::string form_to_string(HTMLForm* form);
+std::string get_string_form(HTTPServerRequest& request, bool is_post_raw=false);
+std::string form_to_string(HTMLForm* form, bool is_post_raw);
 std::string get_post_data(HTTPServerRequest& request);
 
 
 /**
  *  get_string_form
  */
-std::string get_string_form(HTTPServerRequest& request)
+std::string get_string_form(HTTPServerRequest& request, bool is_post_raw)
 {
 	HTMLForm* form = new HTMLForm(request, request.stream());
 
-    return form_to_string(form);
+    return form_to_string(form, is_post_raw);
 }
 
 
 /**
  *  form_to_string
  */
-std::string form_to_string(HTMLForm* form)
+std::string form_to_string(HTMLForm* form, bool is_post_raw)
 {
     std::ostringstream oss;
 
 	if (!form->empty()) {
+            if(is_post_raw){
+                oss << "raw: ";
+                form->write(oss);
+                oss << "<br/>\n";
+            }
 			NameValueCollection::ConstIterator it = form->begin();
 			NameValueCollection::ConstIterator end = form->end();
 			for (; it != end; ++it){
@@ -60,6 +65,7 @@ std::string form_to_string(HTMLForm* form)
 /**
  *  get_post_data
  */
+// cannot use with get_string_form
 std::string get_post_data(HTTPServerRequest& request)
 {
     std::string recv_string;
