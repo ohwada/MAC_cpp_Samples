@@ -4,6 +4,16 @@ src - gmail api
 C++ version <br/>
 send and recieve mail with Gmail API <br/>
 
+### Note
+At October 2022
+Out-of-band (OOB) flow is deprecated On Gmail 
+
+Out-Of-Band (OOB) flow Migration Guide
+https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=en
+
+try ouath2
+
+
 // TODO:
 // upload large image
 // can not upload 512x512 size (164KB)
