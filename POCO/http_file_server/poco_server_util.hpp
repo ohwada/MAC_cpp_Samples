@@ -11,7 +11,7 @@
 #include "Poco/File.h"
 #include "Poco/Path.h"
 #include "Poco/Format.h"
-#include "mime.hpp"
+
 
 using Poco::Net::HTTPServerRequest;
 using Poco::Net::HTTPServerResponse;
