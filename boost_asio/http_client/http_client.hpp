@@ -1,181 +1,120 @@
-#pragma once
 /**
  * http_client.hpp
  * 2022-06-01 K.OHWADA
  */
 
+// original : https://github.com/boostorg/asio/blob/develop/example/cpp03/http/client/sync_client.cpp
 
+
+#include <iostream>
+#include <istream>
+#include <ostream>
+#include <sstream>
 #include <string>
-#include <boost/format.hpp>
-#include "asio_socket.hpp"
-#include "resolver.hpp"
-
-// constant
-const uint16_t PORT_HTTP = 80;
-
-const std::string ROOT_PATH("/");
-
+#include <boost/asio.hpp>
 
 // prototype
-bool http_client(std::string host, int port, std::string request, std::string &response);
-bool localhost_client(int port, std::string request, std::string &response);
-std::string build_http_root_path_request(std::string host);
-std::string build_http_request(std::string host, std::string path);
-bool split_header_body(std::string text, std::string &header, std::string &body);
+bool http_client(std::string host, std::string request, std::string &body,  bool is_verbose);
 
 
-using namespace boost::asio;
-using ip::tcp;
+using boost::asio::ip::tcp;
 
 
 /**
- * http_client
+ *  http_client
  */
-bool http_client(std::string host, int port, std::string request, std::string &response)
+bool http_client(std::string host, std::string request_data, std::string &body,    bool is_verbose)
 {
-    boost::asio::ip::address address;
-    std::string error;
+  try
+  {
+    boost::asio::io_context io_context;
 
-bool ret1 = get_address( host, address, error );
+    // Get a list of endpoints corresponding to the server name.
+    tcp::resolver resolver(io_context);
+    tcp::resolver::results_type endpoints = resolver.resolve(host, "http");
 
-    if(!ret1){
-        std::cerr << "get_address: " << error << std::endl;
-        return false;
+    // Try each endpoint until we successfully establish a connection.
+    tcp::socket socket(io_context);
+    boost::asio::connect(socket, endpoints);
+
+    // Form the request. We specify the "Connection: close" header so that the
+    // server will close the socket after transmitting the response. This will
+    // allow us to treat all data up until the EOF as the content.
+    boost::asio::streambuf request;
+    std::ostream request_stream(&request);
+    request_stream << request_data;
+    
+    // Send the request.
+    boost::asio::write(socket, request);
+
+    // Read the response status line. The response streambuf will automatically
+    // grow to accommodate the entire line. The growth may be limited by passing
+    // a maximum size to the streambuf constructor.
+    boost::asio::streambuf response;
+    boost::asio::read_until(socket, response, "\r\n");
+
+    // Check that response is OK.
+    std::istream response_stream(&response);
+    std::string http_version;
+    response_stream >> http_version;
+    unsigned int status_code;
+    response_stream >> status_code;
+    std::string status_message;
+    std::getline(response_stream, status_message);
+    if (!response_stream || http_version.substr(0, 5) != "HTTP/")
+    {
+      std::cout << "Invalid response\n";
+      return false;
+    }
+    if (status_code != 200)
+    {
+      std::cout << "Response returned with status code " << status_code << "\n";
+      return false;
     }
 
-    auto str_ipaddr = address.to_string();
+    // Read the response headers, which are terminated by a blank line.
+    boost::asio::read_until(socket, response, "\r\n\r\n");
 
-    std::cout << "ip address: " << str_ipaddr << std::endl;
+    // Process the response headers.
 
-    tcp::endpoint endpoint(address, port );
-
-    boost::asio::io_service io_service;
-    tcp::socket socket(io_service);
-
-    try {
-        socket.connect( endpoint );
-   } catch ( boost::system::system_error &err ) {
-        std::cerr << "connect: " << err.what() << std::endl;
-            return false;
+    if (is_verbose ){
+      std::cout << std::endl;
+      std::cout << "header" << std::endl;
     }
 
-    std::cout << "connect: " << host << " : "<< port << std::endl;
+    std::string header;
+    while (std::getline(response_stream, header) && header != "\r") {
+        if (is_verbose ){
+            std::cout << header << "\n";
+        }
+    } // while
 
-    std::string write_data( request );
-
-    bool ret2 = asio_write(socket, write_data, error );
-    if( !ret2 ) {
-        std::cerr << "write: " << error << std::endl;
-        return false;
+    if (is_verbose ){
+        std::cout << "\n";
     }
 
-    std::string read_data;
+    std::ostringstream oss;
 
-    bool ret3 = asio_read(socket, read_data, error);
-    if( !ret3 ) {
-        std::cerr << "read: " << error << std::endl;
-        return false;
+    // Write whatever content we already have to output.
+    if (response.size() > 0){
+        oss << &response;
     }
 
-    response = read_data;
+    // Read until EOF, writing data to output as we go.
+    boost::system::error_code error;
+    while (boost::asio::read(socket, response,
+          boost::asio::transfer_at_least(1), error)) {
+      oss << &response;
+    } // while
+    body = oss.str();
+    if (error != boost::asio::error::eof)
+      throw boost::system::system_error(error);
+  }
+  catch (std::exception& e)
+  {
+    std::cout << "Exception: " << e.what() << "\n";
+      return false;
+  }
 
   return true;
-
 }
-
-
-/**
- * localhost_client
- */
-bool localhost_client(int port, std::string request, std::string &response)
-{
-    const std::string IPADDR("127.0.0.1");
-
-    std::string host("localhost");
-
-    boost::asio::ip::address address = boost::asio::ip::address::from_string( IPADDR );
-
-   // boost::asio::ip::address address;
-    // bool ret1 = get_address( host, address, error );
-
-    tcp::endpoint endpoint(address, port );
-
-    boost::asio::io_service io_service;
-    tcp::socket socket(io_service);
-
-    try {
-        socket.connect( endpoint );
-   } catch ( boost::system::system_error &err ) {
-        std::cerr << "connect: " << err.what() << std::endl;
-            return false;
-    }
-
-    std::cout << "connect: " << host << " : "<< port << std::endl;
-
-    std::string write_data( request );
-
-    std::string error;
-
-    bool ret2 = asio_write(socket, write_data, error );
-    if( !ret2 ) {
-        std::cerr << "asio write: " << error << std::endl;
-        return false;
-    }
-
-
-    std::string read_data;
-
-    // bool ret3 = asio_read(socket, read_data, error);
-    bool ret3 =  asio_read_until_lf(socket, read_data, error);
-
-    if( !ret3 ) {
-        std::cerr << "read: " << error << std::endl;
-        return false;
-    }
-
-
-    response = read_data;
-
-  return true;
-
-}
-
-
-/** 
- *  build_http_root_path_request
- */
-std::string build_http_root_path_request(std::string host)
-{
-    return build_http_request( host, ROOT_PATH);
-}
-
-
-/** 
- *  build_http_request
- */
-std::string build_http_request(std::string host, std::string path)
-{
-
-    const std::string HEADER_ACCEPT_ALL("Accept: */* \r\n");
-
-    const std::string HEADER_CLOSE("Connection: close\r\n\r\n");
-
-// Dont put space after HTTP/1.1 
-    const std::string FORMAT_GET("GET %s HTTP/1.1\r\n");
-
-    const std::string FORMAT_HOST("Host: %s\r\n");
-
-    std::string hdr_get =
-    boost::str( boost::format( FORMAT_GET) % path );
-
-    std::string hdr_host =
-    boost::str( boost::format( FORMAT_HOST) % host );
-
-    std::string request = hdr_get
-    + HEADER_ACCEPT_ALL
-    + hdr_host
-    + HEADER_CLOSE;
-
-    return request;
-}
-

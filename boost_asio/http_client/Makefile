@@ -1,32 +1,15 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-Wall -std=c++11
+CFLAGS=-Wall -std=c++03
 BOOST_FLAGS=`pkg-config --cflags  boost`
 
-TARGET1=client
-SRCS1=http_client.cpp
-TARGET2=localhost
-SRCS2=localhost_client.cpp
-TARGET3=ipaddress
-SRCS3=ipaddress.cpp
-TARGET4=test
-SRCS4=test_response_parser.cpp
+TARGET=client
+SRCS=http_client.cpp
 
-$(TARGET1): $(SRCS1)
+
+$(TARGET): $(SRCS)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
-
-
-$(TARGET2): $(SRCS2)
-	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
-
-
-$(TARGET3): $(SRCS3)
-	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
-
-
-$(TARGET4): $(SRCS4)
-	$(CXX) $< $(CFLAGS) -o bin/$@
 
 
 %.o: %.cpp
@@ -34,4 +17,4 @@ $(TARGET4): $(SRCS4)
 
 
 clean:
-	rm -rf bin/* log/*  *.o 
+	rm -rf bin/* log/* *.o 

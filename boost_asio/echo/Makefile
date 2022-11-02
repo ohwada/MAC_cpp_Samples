@@ -1,23 +1,21 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-Wall -std=c++11
-BOOST_FLAGS=`pkg-config --cflags  boost`
+CFLAGS=-Wall -std=c++03
+BOOST_FLAGS=`pkg-config --cflags --libs  boost`
+
 TARGET1=server
-SRCS1=echo_server.cpp
+SRCS1=blocking_tcp_echo_server.cpp
 TARGET2=client
-SRCS2=echo_client.cpp
-
-
-all: $(TARGET1) $(TARGET2)
+SRCS2=blocking_tcp_echo_client.cpp
 
 
 $(TARGET1): $(SRCS1)
-	$(CXX) $(SRCS1) $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
+	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
 
 
 $(TARGET2): $(SRCS2)
-	$(CXX) $(SRCS2) $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
+	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
 
 
 %.o: %.cpp
@@ -25,4 +23,4 @@ $(TARGET2): $(SRCS2)
 
 
 clean:
-	rm -rf bin/*  *.o 
+	rm -rf bin/* *.o 
