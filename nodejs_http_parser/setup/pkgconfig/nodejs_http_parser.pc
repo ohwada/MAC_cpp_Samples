@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/nodejs_http_parser
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: nodejs_http_parser
+Description: http request/response parser for c
+Version: 2.9.4
+Cflags: -I${includedir}
+Libs: -L${libdir} -lhttp_parser.2.9.4

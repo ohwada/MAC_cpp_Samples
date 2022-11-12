@@ -55,6 +55,9 @@ Callback framework for C++
 ### fmt   
 Open-source formatting library for C++  
 
+### nodejs_http_parser  
+http request/response parser for c  
+
 ### Urdl 
 cross-platform C++ library for downloading web content using a URL.  
 
