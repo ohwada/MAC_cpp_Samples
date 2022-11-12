@@ -336,6 +336,9 @@ C++ build system
 ### boost uri  
 portable C++ library which provides containers and algorithms which model a "URL"  
 
+### asio:  
+Asio C++ Library  
+
 ### mongoose
 Web server build on top of Libmongoose embedded library
 
