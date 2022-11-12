@@ -1,0 +1,50 @@
+project(sample)
+
+add_subdirectory(hello_world_basic)
+add_subdirectory(hello_world)
+add_subdirectory(hello_world_minimal)
+add_subdirectory(hello_world_delayed)
+add_subdirectory(hello_world_sendfile)
+add_subdirectory(run_existing_server)
+add_subdirectory(run_for_minute)
+add_subdirectory(express_router)
+add_subdirectory(express_router_tutorial)
+add_subdirectory(easy_parser_router)
+add_subdirectory(sendfiles)
+add_subdirectory(query_string_params)
+add_subdirectory(try_parse_query_string)
+add_subdirectory(websocket)
+add_subdirectory(websocket_detailed)
+add_subdirectory(using_external_io_context)
+
+if ( RESTINIO_SOBJECTIZER_ENABLED )
+	add_subdirectory(async_handling_with_sobjectizer)
+endif()
+
+add_subdirectory(compression)
+add_subdirectory(decompression)
+
+if ( RESTINIO_SOBJECTIZER_ENABLED )
+	add_subdirectory(notificators)
+endif()
+
+add_subdirectory(custom_buffer)
+add_subdirectory(connection_state)
+add_subdirectory(ip_blocker)
+add_subdirectory(file_upload)
+
+add_subdirectory(chained_handlers)
+add_subdirectory(extra_data_factory)
+
+if ( OPENSSL_FOUND )
+	add_subdirectory(hello_world_https)
+	add_subdirectory(shared_tls_context)
+	add_subdirectory(hello_world_sendfile_https)
+	add_subdirectory(websocket_wss)
+	add_subdirectory(tls_inspector)
+endif ()
+
+if( WIN32 )
+	add_subdirectory(hello_world_sendfile_w32_unicode)
+endif()
+
