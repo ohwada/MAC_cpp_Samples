@@ -58,6 +58,9 @@ Open-source formatting library for C++
 ### nodejs_http_parser  
 http request/response parser for c  
 
+### pcre  
+Perl compatible regular expressions library  
+
 ### Urdl 
 cross-platform C++ library for downloading web content using a URL.  
 
