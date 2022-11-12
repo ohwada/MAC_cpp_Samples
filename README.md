@@ -43,6 +43,9 @@ Calendar Utilty
 ### cmn-clib  
 C utility libraly  
 
+### Clara  
+A simple to use, composable, command line parser for C++ 11 and beyond  
+
 ### libsigc++  
 Callback framework for C++   
 

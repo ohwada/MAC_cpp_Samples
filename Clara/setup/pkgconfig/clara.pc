@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/clara
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: Clara
+Description: A simple to use, composable, command line parser 
+Version: 1.1.5
+Cflags: -I${includedir}
+
