@@ -74,3 +74,7 @@ https://github.com/ohwada/MAC_cpp_Samples/tree/master/sockpp
  Low level C++ HTTP library  
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/httpxx  
 
+### RESTinio  
+Cross-platform, efficient, customizable, and robust asynchronous HTTP/WebSocket server C++14 library with the right balance between performance and ease of use  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/RESTinio  
+
