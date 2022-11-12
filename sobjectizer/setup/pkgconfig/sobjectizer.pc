@@ -1,0 +1,11 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/sobjectizer
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: sobjectizer
+Description: An implementation of Actor, Publish-Subscribe
+Version: 5.7.4.2
+Cflags: -I${includedir}
+Libs: -L${libdir} -lso.5.7.4.2

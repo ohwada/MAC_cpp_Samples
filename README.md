@@ -61,6 +61,9 @@ http request/response parser for c
 ### pcre  
 Perl compatible regular expressions library  
 
+### sobjectizer  
+An implementation of Actor, Publish-Subscribe, and CSP models in one rather small C++ framework  
+
 ### Urdl 
 cross-platform C++ library for downloading web content using a URL.  
 
