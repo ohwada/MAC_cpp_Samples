@@ -327,6 +327,9 @@ JSON parser/generator for C++ with SAX and DOM style APIs
 ### jsmn  
 a world fastest JSON parser/tokenizer  
 
+### json_dto  
+A small header-only library for converting data between json representation and c++ structs  
+
 ### boost  
 split string  
 

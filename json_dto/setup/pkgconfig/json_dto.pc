@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/json_dto
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: json_dto
+Description: A small header-only library for converting data between json representation and c++ structs
+Version: 1.0
+Requires: rapidjson
+Cflags: -I${includedir}
+
