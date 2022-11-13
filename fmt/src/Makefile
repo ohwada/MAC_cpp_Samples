@@ -1,15 +1,15 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-Wall -std=c++14
+CFLAGS=-Wall -std=c++11
  FMT_FLAGS=`pkg-config --cflags --libs fmt`
 
 TARGET1=print
 SRCS1=print.cpp
 TARGET2=string
 SRCS2=string.cpp
-TARGET3=chrono
-SRCS3=chrono.cpp
+TARGET3=mini
+SRCS3=mini_lang.cpp
 
 
 $(TARGET1):  $(SRCS1)
