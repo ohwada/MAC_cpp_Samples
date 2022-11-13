@@ -70,6 +70,9 @@ Cross-platform, efficient, customizable, and robust asynchronous HTTP/WebSocket 
 ### tinytinyhttpd  
 tiny tiny httpd written in C.   
 
+### Catch2  
+A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11  
+
 ### Urdl 
 cross-platform C++ library for downloading web content using a URL.  
 

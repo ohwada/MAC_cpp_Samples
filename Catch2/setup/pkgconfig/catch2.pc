@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+prefix=/usr/local/opt/catch2
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: Catch2
+Description: A modern, C++-native, test framework for C++14 and above
+URL: https://github.com/catchorg/Catch2
+Version: 3.1.1
+Cflags: -I${includedir}
+Libs: -L${libdir} -lCatch2
