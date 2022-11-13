@@ -33,3 +33,8 @@ https://www.manpagez.com/man/1/otool/
 > name lib/libhello.dylib   
 > name /usr/lib/libSystem.B.dylib 
 
+
+### Document  
+https://ken-ohwada.hatenadiary.org/entry/2022/11/13/130833  
+
+
