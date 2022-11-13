@@ -5,25 +5,28 @@ CC=gcc
 CCFLAGS=-Wall -c -fPIC
 LIBFLAGS=-shared
 LDFLAGS=-Wall -L./lib -lhello
+DIR_GUARD=@mkdir -p $(@D)
 
-TARGET=hello
+TARGET=bin/hello
 MAIN_SRCS=main.c
 LIBNAME=libhello.dylib
-# LIB=lib/$(LIBNAME)
-LIB=$(LIBNAME)
+LIB=lib/$(LIBNAME)
 OBJ=objs/hello.o
 SRC=sub/hello.c
 
 
 $(TARGET): $(MAIN_SRCS) $(LIB)
-	$(CC) $(MAIN_SRCS) $(LDFLAGS) -o bin/$@
+	$(DIR_GUARD)
+	$(CC) $(MAIN_SRCS) $(LDFLAGS) -o $@
 
 
 $(LIB): $(OBJ)
+	$(DIR_GUARD)
 	$(CC) $(OBJ) $(LIBFLAGS) -o $@
 
 
 $(OBJ): $(SRC)
+	$(DIR_GUARD)
 	$(CC) $< $(CCFLAGS) -o $@
 
 

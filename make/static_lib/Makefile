@@ -5,7 +5,9 @@ CC=gcc
 CCFLAGS=-Wall -c
 LDFLAGS=-Wall -L./lib -lhello
 LBTOOL_FLAG=-c -static
-TARGET=hello
+DIR_GUARD=@mkdir -p $(@D)
+
+TARGET=bin/hello
 MAIN_SRCS=main.c
 LIB=lib/libhello.a
 OBJ=objs/hello.o
@@ -13,14 +15,17 @@ SRC=sub/hello.c
 
 
 $(TARGET): $(MAIN_SRCS) $(LIB)
-	$(CC) $(MAIN_SRCS) $(LDFLAGS) -o bin/$@
+	$(DIR_GUARD)
+	$(CC) $(MAIN_SRCS) $(LDFLAGS) -o $@
 
 
 $(LIB): $(OBJ)
+	$(DIR_GUARD)
 	libtool $(OBJ) $(LBTOOL_FLAG) -o $@
 
 
 $(OBJ): $(SRC)
+	$(DIR_GUARD)
 	$(CC) $< $(CCFLAGS) -o $@
 
 
