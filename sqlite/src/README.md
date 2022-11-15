@@ -2,15 +2,11 @@ sqlite: src
 ===============
 
 
-### Preparation
-Prepare sample record in database
-% sqlite3 test.db
-sqlite> create table testtable (id integer primary key, name text);
-sqlite> insert into testtable (name) values ('aaa');
-sqlite> insert into testtable (name) values ('bbb');
-sqlite> insert into testtable (name) values ('ccc');
-sqlite> select * from testtable;
-sqlite> .quit
+### Preparation  
+Prepare sample record in database  
+create test.db  
+see below  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/sqlite/setup/create_test_db.md  
 
 
 ## samples
