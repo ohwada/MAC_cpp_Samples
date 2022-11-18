@@ -49,6 +49,9 @@ A simple to use, composable, command line parser for C++ 11 and beyond
 ### libpcap  
 Portable library for network traffic capture  
 
+### mysql 
+Open source relational database management system  
+
 ### libsigc++  
 Callback framework for C++   
 
