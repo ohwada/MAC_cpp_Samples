@@ -7,7 +7,7 @@ with loading image from file
 ### Preparation  
 create db_test
 see below  
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/mysql/setup/create_db_test.md  
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/mysql/setup/create%20db_test.md
 
 
 ## samples
