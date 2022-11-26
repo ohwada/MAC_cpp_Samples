@@ -8,7 +8,7 @@ mysqlpp: setup
 https://formulae.brew.sh/formula/mysql-connector-c++
 
 
-(2) copy config file (mysqlcppconn.pc) to system area 
-% bash setup_pkgconfig.sh
-% pkg-config --cflags --libs mysqlcppconn
+(2) copy config file (mysqlcppconn.pc) to system area   
+% bash setup_pkgconfig.sh  
+% pkg-config --cflags --libs mysqlcppconn  
 
