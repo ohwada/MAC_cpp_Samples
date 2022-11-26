@@ -26,3 +26,6 @@ mysql> exit
 Mac へ MySQL を Homebrew でインストールする手順  
 https://qiita.com/hkusu/items/cda3e8461e7a46ecf25d  
 
+
+### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/11/26/125608
