@@ -1,5 +1,5 @@
 /**
- * decimal_to_binary.c
+ * test_decimal_to_binary.c
  * 2022-06-01 K.OHWADA
  */
 
