@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWA
+
+ver=8.0.30
+prefix=/usr/local/Cellar/mysql-connector-c++/${ver}
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: mysql-connector-c++
+Description: MySQL database connector for C++ applications
+Version: ${ver}
+Cflags: -I${includedir}
+Libs: -L${libdir} -lmysqlcppconn8

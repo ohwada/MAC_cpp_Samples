@@ -52,6 +52,9 @@ Portable library for network traffic capture
 ### mysql 
 Open source relational database management system  
 
+### mysql-connector-cpp  
+MySQL database connector for C++ applications  
+
 ### libsigc++  
 Callback framework for C++   
 
