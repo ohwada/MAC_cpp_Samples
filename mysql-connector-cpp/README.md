@@ -15,3 +15,5 @@ https://dev.mysql.com/doc/dev/mysql-server/latest/page_mysqlx_protocol.html
 see below   
 https://github.com/ohwada/MAC_cpp_Samples/tree/master/mysql-connector-cpp/setup   
 
+### Document
+- https://ken-ohwada.hatenadiary.org/entry/2022/11/27/124613
