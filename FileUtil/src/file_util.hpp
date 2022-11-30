@@ -25,7 +25,8 @@ bool writeTextFile(std::string file, std::string data );
 bool readBinaryFile1(const std::string filepath, std::vector<char> &data);
 bool readBinaryFile2(const std::string filepath, std::string &data);
  bool writeBinaryFile1(const std::string filepath, std::vector<char> data);
-bool writeBinaryFile2(const std::string filepath, char* data, size_t size);
+ bool writeBinaryFile2(const std::string filepath, std::string data);
+bool writeBinaryFile3(const std::string filepath, char* data, size_t size);
 void dumpBinary(std::vector<char> data, size_t size);
 void getTimestampFileName(std::string prefix, std::string ext, std::string &filename);
 void getTimestamp(std::string &timestamp);
@@ -166,14 +167,8 @@ bool readBinaryFile2(const std::string filepath, std::string &data)
     if(!ret){
         return false;
     }
-    const char NUL = '\0';
-    size_t size = vec.size();
-    std::string str(size+10, NUL); // 10 margin
 
-    for(int i=0; i<size; i++){
-        str[i] = vec[i];
-    } // for
-
+    std::string str(vec.begin(), vec.end() );
     data = str;
 
     return true;
@@ -181,21 +176,28 @@ bool readBinaryFile2(const std::string filepath, std::string &data)
 
 
 /**
- * writeBinaryFile
+ * writeBinaryFile1
  */
 bool writeBinaryFile1(const std::string filepath, std::vector<char> vec)
 {
-    char* data= reinterpret_cast<char*>(&vec[0]);
-    size_t size = vec.size();
-
-    return writeBinaryFile2(filepath, data, size);
+    return writeBinaryFile3(filepath, (char *)vec.data(),   vec.size());
 }
 
 
 /**
- * writeBinaryFile
+ * writeBinaryFile2
  */
-bool writeBinaryFile2(const std::string filepath, char* data, size_t size)
+
+ bool writeBinaryFile2(const std::string filepath, std::string data)
+{
+    return writeBinaryFile3(filepath, (char *)data.c_str(), data.size() );
+}
+
+
+/**
+ * writeBinaryFile3
+ */
+bool writeBinaryFile3(const std::string filepath, char* data, size_t size)
 {
 
 	std::ofstream file(filepath.c_str(), std::ios::binary | std::ios::out);
