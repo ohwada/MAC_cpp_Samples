@@ -11,8 +11,8 @@ convert binary to/from base64 encoding
 Build and Run:  
 % make test  
 % bin/test  
-> BASE64("") = ""
-> DATA("") = ""
-> BASE64("f") = "Zg=="
-> DATA("Zg==") = "f"
-> successful
+> BASE64("") = ""  
+> DATA("") = ""  
+> BASE64("f") = "Zg=="  
+> DATA("Zg==") = "f"  
+> successful  
