@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "bin_hex.h"
+#include "hex.h"
 #include "file_util.h"
 
 
