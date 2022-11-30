@@ -16,7 +16,7 @@
 #include "c_parse_filename.h"
 #include "blob_type.h"
 #include "base64.h"
-#include "bin_hex.h"
+#include "hex.h"
 
 
 /**

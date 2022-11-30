@@ -1,6 +1,6 @@
 #pragma once
 /**
- * bin_hex.h
+ * hex.h
  * 2022-06-01 K.OHWADA
  */ 
 
