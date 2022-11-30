@@ -16,3 +16,7 @@ Build and Run:
 > BASE64("f") = "Zg=="  
 > DATA("Zg==") = "f"  
 > successful  
+
+### document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/11/30/135415
+
