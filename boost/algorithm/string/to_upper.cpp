@@ -1,5 +1,5 @@
 /**
- * boost Samples
+ * to_upper.cpp
  * 2020-07-01 K.OHWADA
  */
 
@@ -29,10 +29,16 @@ int main(void)
     boost::to_upper(str2); 
     cout << "to_upper : " << str2 << endl;
 
+    string str3 = str2;
+    boost::to_lower(str3); 
+    cout << "to_lower : " << str3 << endl;
+
     return EXIT_SUCCESS;
 }
 
 
 // original :  hello world! 
 // to_upper :  HELLO WORLD! 
+// to_lower :  hello world! 
+
 

@@ -1,12 +1,12 @@
 /**
- * boost Samples
+ * string_replace_all.cpp
  * 2020-07-01 K.OHWADA
  */
 
-// replace string all
 
 // g++ replace_all.cpp  -std=c++11 `pkg-config --cflags --libs boost` 
 
+// replace all
 // reference : https://boostjp.github.io/tips/string_algo.html#replace-all
 
 #include <iostream>

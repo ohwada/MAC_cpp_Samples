@@ -1,9 +1,9 @@
 /**
- * boost Samples
+ * split.cpp
  * 2020-07-01 K.OHWADA
  */
 
-// split string
+// split string by delimiter
 // reference : https://www.boost.org/doc/libs/1_57_0/doc/html/string_algo/usage.html
 
 #include <iostream>
