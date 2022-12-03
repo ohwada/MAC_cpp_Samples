@@ -13,3 +13,7 @@ Build and Run:
 % bin/test  
 > sucessful 
 
+
+### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/12/03/140431  
+
