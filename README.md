@@ -55,6 +55,9 @@ Open source relational database management system
 ### mysql-connector-cpp  
 MySQL database connector for C++ applications  
 
+### redis
+Persistent key-value database, with built-in net interface  
+
 ### libsigc++  
 Callback framework for C++   
 
