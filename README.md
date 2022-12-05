@@ -301,20 +301,20 @@ Freely available high-quality data compressor
 C/C++ libraries for Unicode and globalization  
 read sjis file convrt to UTF-8  
 
-### c99  
+### C99  
 Whats New in C99   
 
-### c11  
+### C11  
 C Sample since std C11  
 generate random number using random()  
 
-### c++03
+### C++03
 C++03 Samples  
 
-### c++11  
+### C++11  
 Whats New in C++11  
 
-### c++14
+### C++14
 Whats New in C++14
 
 ### c++17
@@ -322,6 +322,10 @@ Whats New in C++17
 
 ### filesystem
 C++17  filesystem: 
+
+### C++20
+### Whats New in C++20
+
 
 ### get_opt  
 parse commandline options  
