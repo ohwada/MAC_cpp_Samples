@@ -3,6 +3,9 @@
  * 2022-06-01 K.OHWADA
  */
 
+// chang log
+// add get command
+
 // Handling movie images in an SQLite database  
 // original : https://github.com/PacktPublishing/The-Modern-Cpp-Challenge/blob/master/Chapter10/problem_87/main.cpp
 
@@ -18,6 +21,8 @@
 #include "movies.h"
 
 #include "parse_filename.hpp"
+#include "file_util.hpp"
+
 
 /**
  *  get_movies
@@ -289,6 +294,47 @@ void run_del(std::string_view line, sqlite::database & db)
 
 
 /**
+ *  run_get
+ */
+void run_get(std::string_view line, sqlite::database & db)
+{
+
+    std::string dir("out");
+   auto movieid = std::stoi(trim(line.substr(4)));
+   if (movieid > 0)
+   {
+      auto list = get_media(movieid, db);
+      if (list.empty())
+      {
+         std::cout << "empty" << std::endl;
+      }
+      else
+      {
+            auto m = list[0];
+
+            std::cout
+               << m.id << " | "
+               << m.movie_id << " | "
+               << m.name << " | "
+               << m.text
+               << std::endl;
+
+            auto fpath = make_path(dir, m.name);
+            bool ret = writeBinaryFile1(fpath, m.blob);
+            if(ret){
+                std::cout << "saved to " << fpath << std::endl;
+            } else {
+                std::cerr << " writeBinaryFile1 failed: " << fpath << std::endl;
+            }
+   
+      }
+   }
+   else
+      std::cout << "input error" << std::endl;
+}
+
+
+/**
  *  print_commands
  */
 void print_commands()
@@ -298,6 +344,7 @@ void print_commands()
       << "list <movieid>                      lists the images of a movie\n"
       << "add <movieid>,<path>,<description>  adds a new image\n"
       << "del <imageid>                       delete an image\n"
+      << "get <imageid> get an image and save to file \n"
       << "help                                shows available commands\n"
       << "exit                                exists the application\n";
 }
@@ -311,6 +358,8 @@ int main()
    try
    {
       sqlite::database db(R"(movies.db)");
+
+    std::cout << "input command(eg: help)" << std::endl;
 
       while (true)
       {
@@ -329,6 +378,8 @@ int main()
                run_add(line, db);
             else if (starts_with(line, "del"))
                run_del(line, db);
+            else if (starts_with(line, "get"))
+               run_get(line, db);
             else
                std::cout << "unknown command" << std::endl;
          }
