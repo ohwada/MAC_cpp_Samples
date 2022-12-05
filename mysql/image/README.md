@@ -20,3 +20,7 @@ Build and Run:
 % make crate
 % cd bin/create 
 > created tb_image
+
+
+### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/12/05/134317
