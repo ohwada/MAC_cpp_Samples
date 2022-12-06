@@ -3,7 +3,7 @@
 # 2022-06-01 K.OHWADA
 # copy pkgconfig flies to system area
 
-ver=1.79.0_1
+ver=1.80.0
 prefix=/usr/local/Cellar/boost/${ver}
 dir_pkgconfig=${prefix}/pkgconfig
 

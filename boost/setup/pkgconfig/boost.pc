@@ -1,11 +1,13 @@
 # 2020-07-01 K.OHWADA
-prefix=/usr/local/Cellar/boost/1.79.0_1
+
+ver=1.80.0
+prefix=/usr/local/Cellar/boost/${ver}
 includedir=${prefix}/include
 libdir=${prefix}/lib
 
 Name: boost
 Description: C++ source libraries.
-Version: 1.79.0
+Version: ${ver}
 Cflags: -I${includedir}
 Libs: -L${libdir} -lboost_system \
 -lboost_atomic-mt \
