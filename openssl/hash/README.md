@@ -9,6 +9,7 @@ MD5(Message Digest algorithm 5)
 ### samples
 - sha1.c 
 - sha256.c 
+- sha512.c 
 - md5.c 
 
 
