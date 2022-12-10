@@ -1,9 +1,8 @@
 /**
- * boost_uuid.cpp
+ * uuid.cpp
  * 2022-06-01 K.OHWADA
  */
 
-// g++ boost_uuid.cpp -o boost_uuid
 // reference : https://boostjp.github.io/tips/uuid.html
 
 #include <iostream>
@@ -13,6 +12,7 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/lexical_cast.hpp>
 
+ using namespace std;
 using namespace boost::uuids;
 
 
@@ -25,10 +25,12 @@ int main()
     const uuid id = random_generator()();
 
 // convert to string
-    const std::string result = boost::lexical_cast<std::string>(id);
+    auto result = boost::lexical_cast<std::string>(id);
 
-    std::cout << result << std::endl;
+    cout << result << endl;
 
     return 0;
 }
+
+// fab81212-63a0-4718-b2f6-ae5ae9b4de69  
 

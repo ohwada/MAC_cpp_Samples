@@ -1,15 +1,21 @@
 boost: uuid
 ===============
 
-boost uuid Sample <br/>
+boost Uuid:  
+https://www.boost.org/doc/libs/1_73_0/libs/uuid/doc/uuid.html  
+https://boostjp.github.io/tips/uuid.html  
+
+boost sha1.h:  
+https://www.boost.org/doc/libs/1_59_0/boost/uuid/sha1.hpp  
 
 ### samples
-- uuid.c <br/>
-- boost_uuid.cpp <br/>
+- uuid.cpp 
+- sha1.cpp
+- md5.cpp
 
-Build and Run <br/>
-% g++ boost_uuid.cpp -o boost_uuid  <br/>
+Build and Run:  
+% make uuid  
 
-% ./boost_uuid <br/>
-> fab81212-63a0-4718-b2f6-ae5ae9b4de69 <br/>
+% bin/uuid
+> fab81212-63a0-4718-b2f6-ae5ae9b4de69  
 
