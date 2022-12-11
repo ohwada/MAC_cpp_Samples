@@ -13,14 +13,14 @@ cd downloaded directory(soci)
 % cmake ..  
 % make  
 
-(3) copy header files and lib files to system area 
-(eg /usr/local/opt/soci)
-copy setup_lib.sh to downloaded directory
-% bash setup_lib.sh
+(3) copy header files and lib files to system area   
+(eg /usr/local/opt/soci)  
+copy setup_lib.sh to downloaded directory  
+% bash setup_lib.sh  
 
-(4) copy config file (soci_mysql.pc) to system area 
-% bash setup_pkgconfig.sh
-% pkg-config --cflags --libs soci_mysql
+(4) copy config file (soci_mysql.pc) to system area   
+% bash setup_pkgconfig.sh  
+% pkg-config --cflags --libs soci_mysql  
 
 
 ### Note
