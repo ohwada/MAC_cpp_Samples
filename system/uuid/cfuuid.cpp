@@ -1,5 +1,5 @@
 /**
- * gen_uuid.cpp
+ * cfuuid.cpp
  * 2022-06-01 K.OHWADA
  */
 

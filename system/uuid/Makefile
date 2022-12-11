@@ -3,8 +3,8 @@
 CXX=g++
 CFLAGS=-Wall -std=c++11
 MAC_FLAGS=-framework CoreFoundation
-TARGET=gen
-SRCS=gen_uuid.cpp
+TARGET=cfuuid
+SRCS=cfuuid.cpp
 
 
 $(TARGET): $(SRCS)
