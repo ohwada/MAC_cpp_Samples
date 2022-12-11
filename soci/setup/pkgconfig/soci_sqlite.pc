@@ -1,0 +1,12 @@
+# 2022-06-01 K.OHWADA
+
+ver=4.0.3
+prefix=/usr/local/Cellar/soci/${ver} 
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: soci
+Description: Database access library for C++  
+Version: ${ver}
+Cflags: -I${includedir}
+Libs: -L${libdir} -lsoci_core  -lsoci_sqlite3

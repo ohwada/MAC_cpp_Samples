@@ -55,6 +55,9 @@ Open source relational database management system
 ### mysql-connector-cpp  
 MySQL database connector for C++ applications  
 
+### soci  
+Database access library for C++  
+
 ### mongodb
 a source-available cross-platform document-oriented database program
 
