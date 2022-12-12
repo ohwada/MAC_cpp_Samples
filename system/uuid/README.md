@@ -17,3 +17,6 @@ Build and Run:
 % make cfuuid  
 % bin/cfuuid 
 > 0x7fe446c06be0
+
+### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/12/12/142328  
