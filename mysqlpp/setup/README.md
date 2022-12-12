@@ -12,7 +12,7 @@ mysqlpp: setup
 https://formulae.brew.sh/formula/mysql++  
 
 
-(2) copy config file (mysqlpp.pc) to system area 
-% bash setup_pkgconfig.sh
-% pkg-config --cflags --libs mysqlpp
+(2) copy config file (mysqlpp.pc) to system area   
+% bash setup_pkgconfig.sh  
+% pkg-config --cflags --libs mysqlpp  
 
