@@ -55,6 +55,9 @@ Open source relational database management system
 ### mysql-connector-cpp  
 MySQL database connector for C++ applications  
 
+### mysqlpp 
+C++ wrapper for MySQL's C API  
+
 ### soci  
 Database access library for C++  
 

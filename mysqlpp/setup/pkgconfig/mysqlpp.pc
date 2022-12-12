@@ -1,0 +1,13 @@
+# 2022-06-01 K.OHWA
+
+ver=3.3.0_1
+prefix=/usr/local/Cellar/mysql++/${ver}
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: mysql++
+Description: C++ wrapper for MySQL's C API
+Version: ${ver}
+Cflags: -I${includedir} -I${includedir}/mysql++
+Libs: -L${libdir} -lmysqlpp
+Requires:  mysqlclient

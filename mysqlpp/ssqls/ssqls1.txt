@@ -1,0 +1,10 @@
+ohwada@ohwada-MacBook-Air ssqls1 % bin/ssqls1 
+Error: Access denied for user 'ohwada'@'localhost' (using password: NO)
+
+
+
+
+% bin/ssqls1 -u root
+ssqls1(1573,0x101644dc0) malloc: *** error for object 0x7fddb8504b50: pointer being freed was not allocated
+ssqls1(1573,0x101644dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+zsh: abort      bin/ssqls1 -u root
