@@ -1,0 +1,12 @@
+# 2020-07-01 K.OHWADA
+
+ver=4.33
+prefix=/usr/local/Cellar/libev/${ver}
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: libev
+Description: Asynchronous event library
+Version: ${ver}
+Cflags: -I${includedir}
+Libs: -L${libdir} -lev

@@ -46,6 +46,9 @@ C utility libraly
 ### Clara  
 A simple to use, composable, command line parser for C++ 11 and beyond  
 
+### libev  
+Asynchronous event library  
+
 ### libpcap  
 Portable library for network traffic capture  
 
