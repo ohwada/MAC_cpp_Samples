@@ -20,4 +20,5 @@ Build and Run:
 > fab81212-63a0-4718-b2f6-ae5ae9b4de69  
 
 ### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/12/14/140821
 - https://ken-ohwada.hatenadiary.org/entry/2022/12/11/143356
