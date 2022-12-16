@@ -1,7 +1,7 @@
 RESTinio:  hello_world https
 ===============
 
-<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RESTinio/screenshots/hello_world_https.png" width="300" /> 
+<image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/RESTinio/screenshots/helloworld_https.png" width="300" /> 
 
 
 ### sample
