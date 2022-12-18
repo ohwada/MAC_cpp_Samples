@@ -52,10 +52,9 @@ std::cout <<  "file: " << full_path << std::endl;
 /**
  * run_server
  */
-bool run_server(std::string port)
+bool run_server(std::string port, std::string doc_root)
 {
    std::string address("127.0.0.1");
-    std::string doc_root("www");
 
   try
   {
@@ -84,6 +83,7 @@ int main(int argc, char* argv[])
 {
 
     string port("8080");
+    std::string doc_root("www");
 
     if(argc == 2) {
       	port = argv[1];
@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
 
     cout << "port: " << port << endl;
 
-    run_server(port);
+    run_server(port, doc_root);
 
   return 0;
 }
