@@ -1,4 +1,4 @@
-boost_asio: http file server
+boost_asio: http server
 ===============
 
 <image src="https://raw.githubusercontent.com/ohwada/MAC_cpp_Samples/master/boost_asio/screenshots/http_file_server.png" width="300" /> 
@@ -6,16 +6,22 @@ boost_asio: http file server
 HTTP Server  
 reference : https://github.com/boostorg/asio/blob/develop/example/cpp03/http/server
 
-return requested file content
 
 ### sample code
-- main.cpp
+- http_hello_server.cpp
+return fixed response "Hello World"  
+
+- http_index_server.cpp
+return fixed response index.html
+
+- http_file_server.cpp
+return requested file content
 
 
 Build and Run:
-% make server
+% make file
 
-% bin/server
+% bin/file
 > listen port: 8080
 
 

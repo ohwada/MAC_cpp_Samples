@@ -1,5 +1,5 @@
 /**
- * main.cpp
+ * http_index_server.cpp
  * 2022-06-01 K.OHWADA
  */
 
@@ -20,9 +20,20 @@
 /**
  * on_request
  */
-void on_request(const http::server::request& req, http::server::reply& rep, std::string request_path)
+void on_request(const http::server::request& req, http::server::reply& rep, std::string doc_root, std::string request_path)
 {
-    std::string full_path("www/index.html");
+  // If path ends in slash (i.e. is a directory) then add "index.html".
+  if (request_path[request_path.size() - 1] == '/')
+  {
+    request_path += "index.html";
+  }
+
+
+ // Open the file to send back.
+  std::string full_path = doc_root + request_path;
+
+    std::cout <<  "file: " << full_path << std::endl;
+
     do_response_file(rep, full_path);
 }
 
@@ -30,10 +41,9 @@ void on_request(const http::server::request& req, http::server::reply& rep, std:
 /**
  * run_server
  */
-bool run_server(std::string port)
+bool run_server(std::string port, std::string doc_root)
 {
    std::string address("127.0.0.1");
-    std::string doc_root("www");
 
   try
   {
@@ -62,6 +72,7 @@ int main(int argc, char* argv[])
 {
 
     string port("8080");
+    std::string doc_root("www2");
 
     if(argc == 2) {
       	port = argv[1];
@@ -71,7 +82,7 @@ int main(int argc, char* argv[])
 
     cout << "port: " << port << endl;
 
-    run_server(port);
+    run_server(port, doc_root);
 
   return 0;
 }

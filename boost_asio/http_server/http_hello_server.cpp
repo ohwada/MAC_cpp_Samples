@@ -1,10 +1,10 @@
 /**
- * main.cpp
+ * http_hello_server.cpp
  * 2022-06-01 K.OHWADA
  */
 
-// http server
-// return requested file content
+// simple http server
+// return fixed response "Hello World"
 
 // reference : https://github.com/boostorg/asio/blob/develop/example/cpp03/http/server/main.cpp
 
@@ -22,30 +22,10 @@
  */
 void on_request(const http::server::request& req, http::server::reply& rep, std::string doc_root, std::string request_path)
 {
+    std::string text("Hello world");
+    std::string mime("text/plain");
 
-    std::cout <<  "request_path: " << request_path << std::endl;
-
-  // If path ends in slash (i.e. is a directory) then add "index.html".
-  if (request_path[request_path.size() - 1] == '/')
-  {
-    request_path += "index.html";
-  }
-
-
- // Open the file to send back.
-  std::string full_path = doc_root + request_path;
-
-std::cout <<  "file: " << full_path << std::endl;
-
-   if( ! can_open(full_path) )
-  {
-    do_response_not_found(rep, request_path);
-    return;
-  }
-
-
-  // Fill out the reply to be sent to the client.
-    do_response_file(rep, full_path);
+    do_response_text(rep, text, mime);
 }
 
 
