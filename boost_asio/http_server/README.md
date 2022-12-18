@@ -7,15 +7,15 @@ HTTP Server
 reference : https://github.com/boostorg/asio/blob/develop/example/cpp03/http/server
 
 
-### sample code
-- http_hello_server.cpp
+### sample code  
+- http_hello_server.cpp  
 return fixed response "Hello World"  
 
-- http_index_server.cpp
-return fixed response index.html
+- http_index_server.cpp  
+return fixed response index.html  
 
-- http_file_server.cpp
-return requested file content
+- http_file_server.cpp  
+return requested file content  
 
 
 Build and Run:
