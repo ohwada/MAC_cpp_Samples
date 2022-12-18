@@ -4,6 +4,7 @@ boost: core
 
 ### sample code  
 - format.cpp  
+- regrex.cpp  
 - version.cpp  
 
 

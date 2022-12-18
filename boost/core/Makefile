@@ -6,9 +6,10 @@ BOOST_FLAGS=`pkg-config --cflags  boost`
 
 TARGET1=format
 SRCS1=format.cpp
-TARGET2=version
-SRCS2=version.cpp
-
+TARGET2=regex
+SRCS2=regex.cpp
+TARGET3=version
+SRCS3=version.cpp
 
 $(TARGET1): $(SRCS1)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
@@ -18,9 +19,13 @@ $(TARGET2): $(SRCS2)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
 
 
+$(TARGET3): $(SRCS3)
+	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
+
+
 %.o: %.cpp
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
 
 clean:
-	rm -rf bin/* out/*   *.o 
+	rm -rf bin/*   *.o 
