@@ -5,13 +5,13 @@ beast : websocket sync
 - websocket_server_sync.cpp
 - websocket_client_sync.cpp
 
-Buid andRun:
-% make server
-% bin/server
-> listen port: 8090
+Buid andRun:  
+% make server  
+% bin/server  
+> listen port: 8090  
 
-% make client
-% bin/client
-> r: Hello, world!
+% make client  
+% bin/client  
+> r: Hello, world!  
 
 
