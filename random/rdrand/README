@@ -1,0 +1,41 @@
+Usage
+       rdrand [--hex] [length]
+
+Description
+
+ Very fast random byte generating command using Intel's rdrand
+ instruction.
+
+Install
+
+  % make install
+
+ Executable binary file "rdrand" will be install into $HOME/bin.
+ If your CPU have no rdrand capability, make will be failed.
+
+Evaluation
+
+ Command rngtest results as below:
+
+ % grep 'model name'   /proc/cpuinfo  | head -1
+ model name	: Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+ 
+ % rdrand 2500008 | rngtest -c 1000 
+ rngtest 5
+ Copyright (c) 2004 by Henrique de Moraes Holschuh
+ This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ rngtest: starting FIPS tests...
+ rngtest: bits received from input: 20000032
+ rngtest: FIPS 140-2 successes: 1000
+ rngtest: FIPS 140-2 failures: 0
+ rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+ rngtest: FIPS 140-2(2001-10-10) Poker: 0
+ rngtest: FIPS 140-2(2001-10-10) Runs: 0
+ rngtest: FIPS 140-2(2001-10-10) Long run: 0
+ rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+ rngtest: input channel speed: (min=762.939; avg=14493.531; max=19073.486)Mibits/s
+ rngtest: FIPS tests speed: (min=8.075; avg=68.410; max=84.771)Mibits/s
+ rngtest: Program run time: 281271 microseconds
+
+Author
+  Hironobu SUZUKI <suzuki.hironobu@gmail.com>
