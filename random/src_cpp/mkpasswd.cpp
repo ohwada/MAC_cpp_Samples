@@ -1,5 +1,5 @@
 /**
- * random sample
+ * mkpasswd.cpp
  * 2022-06-01 K.OHWADA
  */
 
@@ -10,7 +10,7 @@
 // source: https://raw.githubusercontent.com/aeruder/expect/master/example/mkpasswd
 
 // command line paser using tclap
-https://linuxjm.osdn.jp/html/LDP_man-pages/man3/getopt.3.html
+// https://linuxjm.osdn.jp/html/LDP_man-pages/man3/getopt.3.html
 
 // Difference from Linux mkpasswd
 //

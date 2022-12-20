@@ -1,5 +1,5 @@
 /**
- * random sample
+ * gen_random_char_no_duplicate.c
  * 2020-03-01 K.OHWADA
  */
 

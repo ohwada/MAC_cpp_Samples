@@ -1,6 +1,6 @@
  #pragma once
 /**
- * random sample
+ * random_char.h
  * 2020-03-01 K.OHWADA
  */
 

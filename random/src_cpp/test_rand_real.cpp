@@ -1,5 +1,5 @@
 /**
- * C++ sample
+ * test_rand_real
  * 2022-06-01 K.OHWADA
  */
 

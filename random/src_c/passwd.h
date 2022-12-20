@@ -1,6 +1,6 @@
 #pragma once
 /**
- * random sample
+ * passwd.h
  * 2022-06-01 K.OHWADA
  */
 

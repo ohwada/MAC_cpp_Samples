@@ -1,5 +1,5 @@
 /**
- *  random sample
+ *  mkpasswd.cpp
  * 2022-06-01 K.OHWADA
  */
 

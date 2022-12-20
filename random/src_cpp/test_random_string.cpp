@@ -1,5 +1,5 @@
 /**
- * random sample
+ * test_rand_string
  * 2022-06-01 K.OHWADA
  */
 
@@ -16,9 +16,9 @@ using namespace std;
 /**
  *  genRandomString
  */
-string genRandomString(int mode, int length)
+std::string genRandomString(int mode, int length)
 {
-    string str;
+    std::string str;
     switch(mode)
     {   
         case  1:

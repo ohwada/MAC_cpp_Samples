@@ -1,5 +1,5 @@
 /**
- * random sample
+ * test_rand.c
  * 2020-03-01 K.OHWADA
  */
 

@@ -1,6 +1,6 @@
 #pragma once
 /**
- * random sample
+ * random_string.hpp
  * 2022-06-01 K.OHWADA
  */
 
@@ -21,7 +21,7 @@ std::string genRandomStringLower(int length);
 std::string genRandomStringUpper(int length);
 std::string genRandomStringDigit(int length);
 std::string genRandomStringSpecial(int length);
-char choseRandomChar(const char* chars);
+char choseRandomChar(const std::string chars);
 char getRandomCharMix(void);
 char getRandomCharLower(void);
 char getRandomCharUpper(void);
@@ -95,16 +95,14 @@ std::string genRandomStringSpecial(int length)
 }
 
 
-// === same as randm_char.h  ===
-
 
 /**
  * choseRandomChar
  */
-char choseRandomChar(const char* chars)
+char choseRandomChar(const std::string chars)
 {
 
-    int max = strlen(chars) -1;
+    int max = chars.size() -1;
     int index = genRandInt(0, max);
     char c = chars[index];
     return c;
@@ -117,7 +115,8 @@ char choseRandomChar(const char* chars)
  */
 char getRandomCharMix(void)
 {
-    const char CHARS[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const std::string CHARS(
+ "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
     char c = choseRandomChar(CHARS);
     return c;
@@ -129,7 +128,8 @@ char getRandomCharMix(void)
  */
 char getRandomCharLower(void)
 {
-    const char CHARS[] = "abcdefghijklmnopqrstuvwxyz";
+    const std::string CHARS(
+"abcdefghijklmnopqrstuvwxyz");
 
     char c = choseRandomChar(CHARS);
 
@@ -142,7 +142,8 @@ char getRandomCharLower(void)
  */
 char getRandomCharUpper(void)
 {
-    const char CHARS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const std::string CHARS( 
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
     char c = choseRandomChar(CHARS);
 
@@ -155,7 +156,8 @@ char getRandomCharUpper(void)
  */
 char getRandomCharDigit(void)
 {
-    const char CHARS[] = "01234567890123456789";
+    const std::string CHARS(
+"01234567890123456789");
 
     char c = choseRandomChar(CHARS);
 
@@ -169,7 +171,8 @@ char getRandomCharDigit(void)
 char getRandomCharSpecial(void) 
 {
 
-    char  CHARS[] = "!@#$%~^&*()-=_+[]{}\\|;:'\"<>,.?/";
+    const std::string  CHARS = 
+R"***(!@#$%~^&*()-=_+[]{}\\|;:'\"<>,.?/)***";
 
    char c = choseRandomChar(CHARS);
 

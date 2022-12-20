@@ -1,6 +1,6 @@
 #pragma once
 /**
- * C++ sample
+ * rand.hpp
  * 2022-06-01 K.OHWADA
  */
 
