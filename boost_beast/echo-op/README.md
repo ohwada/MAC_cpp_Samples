@@ -7,7 +7,7 @@ TCP Echo Server
 ### samples
 - echo_op.cpp
 
-Buid andRun:  
+Buid and Run:  
 % make echo  
 % bin/echo  
 > listen: 8080  
