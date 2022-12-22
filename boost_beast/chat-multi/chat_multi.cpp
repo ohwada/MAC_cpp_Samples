@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 
     string str_address("0.0.0.0");
     string str_port("8090");
-    string doc_root(".");
+    string doc_root("www");
     string str_threads("5");
 
     // Check command line arguments.
