@@ -16,8 +16,9 @@
 #include <boost/archive/iterators/binary_from_base64.hpp>
 #include <boost/archive/iterators/base64_from_binary.hpp>
 #include <boost/archive/iterators/transform_width.hpp>
+ #include <boost/algorithm/string/predicate.hpp>
 
-// prototyp
+// prototype
  std::string encode_base64( std::vector<char> vec);
 std::vector<char> decode_base64(std::string str);
 
@@ -40,7 +41,23 @@ std::vector<char> decode_base64(std::string str);
 
   copy(EncodeItr(InputItr(is)), EncodeItr(InputItr()), OutputItr(os));
 
-return os.str();
+    std::string res = os.str();
+
+// make the number of characters a multiple of four
+    int remainder = res.size() % 4;
+
+    if(remainder == 1){
+// add 3 equals
+        res += "===";
+    }else if(remainder == 2){
+// add 2 equals
+        res += "==";
+    }else if(remainder == 3){
+// add 1 equal
+        res += "=";
+    }
+
+    return res;
 }
 
 
@@ -49,6 +66,16 @@ return os.str();
  */
 std::vector<char> decode_base64(std::string str) 
 {
+// remove trailing equals
+    size_t len = str.size();
+    if( boost::algorithm::iends_with(str, "===") ){
+        str.erase((len-3), 3);
+    }else if( boost::algorithm::iends_with(str, "==") ){
+        str.erase((len-2), 2);
+    }else if( boost::algorithm::iends_with(str, "=") ){
+        str.substr((len-1), 1);
+    }
+
     using InputItr  = std::istreambuf_iterator<char>;
     using OutputItr = std::ostream_iterator<char>;
     using DecodeItr = boost::archive::iterators::transform_width<boost::archive::iterators::binary_from_base64<InputItr>, 8, 6, char>;
