@@ -19,3 +19,8 @@ Build and Run:
 % make client  
 % bin/client  
 > HTTP/1.1 101 Switching Protocols  
+
+
+### Document  
+- https://ken-ohwada.hatenadiary.org/entry/2022/12/25/114123  
+
