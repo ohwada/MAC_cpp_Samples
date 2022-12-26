@@ -1,31 +1,28 @@
-thread - boost
+boost: thread
 ===============
 
-boost Sample <br/>
+Boost.Thread  
+ enables the use of multiple threads of execution with shared data in portable C++ code  
+https://www.boost.org/doc/libs/1_75_0/doc/html/thread.html 
 
 
-Boost.Thread <br/>
- enables the use of multiple threads of execution with shared data in portable C++ code <br/>
-https://www.boost.org/doc/libs/1_75_0/doc/html/thread.html <br/>
+### samples
+- thread_1.cpp 
+simple example of spawning only one thread with boost::thread
+
+- thread_2.cpp 
+simple example of spawning only two thread with boost::thread
+
+- thread_sleep.cpp 
+sleep a thread in boost::thread
+  
+- bank_account.cpp  
+the bankAgent will deposit $500 in JoesAccount.  
+Joe will similarly withdraw $100 from his account.   
 
 
-### sample code <br/>
-- bank_account.cpp <br/>
-the bankAgent will deposit $500 in JoesAccount. <br/>
-Joe will similarly withdraw $100 from his account. <br/>
-
-
-build code <br/>
-% g++ bank_account.cpp  -std=c++11 `pkg-config --cflags --libs boost_thread` <br/>
-
-run code  <br/>
- ./a.out <br/>
-
-display as below <br/>
- > bankAgent: 4900 <br/>
- > Joe: 4800 <br/>
-
-
-### Reference <br/>
-- https://www.boost.org/
+Build and Run:  
+% make thread1  
+% bin/thread1  
+> void thread_1()  
 
