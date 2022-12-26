@@ -88,6 +88,9 @@ An implementation of Actor, Publish-Subscribe, and CSP models in one rather smal
 ### RESTinio  
 Cross-platform, efficient, customizable, and robust asynchronous HTTP/WebSocket server C++14 library with the right balance between performance and ease of use  
 
+### cwebsocket  
+High performance websocket client/server in ANSI C  
+
 ### tinytinyhttpd  
 tiny tiny httpd written in C.   
 

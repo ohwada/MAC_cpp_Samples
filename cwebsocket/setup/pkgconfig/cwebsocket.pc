@@ -1,0 +1,12 @@
+# 2022-10-01 K.OHWADA
+
+prefix=/usr/local/opt/cwebsocket
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: cwebsocket
+Description: High performance websocket client/server in ANSI C
+Version: 0.1a
+Cflags: -I${includedir}
+Libs: -L${libdir} -lwsserver  -lwsclient
+Requires: openssl libev

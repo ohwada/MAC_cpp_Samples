@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- 2022-10-01 K.OHWADA -->
+<!-- https://ja.javascript.info/webwa -->
+<html>
+<head>
+<title>WebSpcket Client </title>
+</head>
+<body>
+<h1>WebSocket Client </h1>
+<div><font size="+1">connect to Server, send text, send close automatically</font><br/><br/>
+<div id="messages"></div>
+</body>
+<script>
+let url = "ws://localhost:8090";
+let text = "Hello World";
+sleep(1000);
+let ws = new WebSocket(url);
+ws.onopen = function(ev) {
+    showMessage( `Open ${url}`);
+    sleep(1000);
+    ws.send(text);
+};
+
+ws.onclose = function(ev) {
+    showMessage( `Closed  ${ev.code} `);
+};
+
+ws.onmessage = function(ev) { 
+    showMessage( `Recive: ${ev.data} `);
+    sleep(1000);
+    ws.close(1000);
+};
+
+
+// show message in div#messages
+function showMessage(message) {
+  let messageElem = document.createElement('div');
+  messageElem.textContent = message;
+  document.getElementById('messages').prepend(messageElem);
+}
+
+function sleep(waitMsec) {
+  var startMsec = new Date();
+  while (new Date() - startMsec < waitMsec);
+}
+</script>
+<html>
