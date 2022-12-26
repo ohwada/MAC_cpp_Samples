@@ -8,7 +8,8 @@ https://github.com/jeremyhahn/cwebsocket
  High performance websocket client/server  
 
 see detail  
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/cwebsocket/README_orig.md  
+https://github.com/ohwada/MAC_cpp_Samples/blob/master/cwebsocket/cwebsocket/README_orig.md  
+
 
 ### Changes:  
 cwebsocket/server.c  
