@@ -1,8 +1,8 @@
 string util: replace_c
 ===============
 
-C samples
-replace string
+C samples  
+replace string  
 
 ### samples  
 - test_str_replace.c

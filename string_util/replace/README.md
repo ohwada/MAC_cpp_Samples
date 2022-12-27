@@ -1,8 +1,8 @@
 string util: replace
 ===============
 
-C++ samples
-replace string
+C++ samples  
+replace string  
 
 ### samples  
 - str_replace.cpp  
