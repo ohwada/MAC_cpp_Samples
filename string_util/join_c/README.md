@@ -1,7 +1,7 @@
 string util: join_c
 ===============
 
-C samples
+C samples  
 join two strings to one string  
 join array to string  
 
