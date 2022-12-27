@@ -12,7 +12,7 @@ Build and Run:
 % make replace
 
 % bin/replace
-> The quick white fox jumps over the lazy dog 
-> successful 
+> The quick white fox jumps over the lazy dog   
+> successful   
 
 
