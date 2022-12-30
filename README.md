@@ -271,9 +271,8 @@ CUI menu
 ### mail builder  
 sample codes that create mail message  
 
-### base64  
-base64 encoder decoder  
-
+### cpp-base64
+Base64 encoding and decoding with c++  
 
 ### sqlite  
 a small, fast, self-contained, high-reliability, full-featured, SQL database engine  

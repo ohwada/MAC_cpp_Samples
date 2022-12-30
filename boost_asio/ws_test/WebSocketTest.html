@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!-- https://tomono.tokyo/2021/03/25/9540/ -->
+<head>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+var wsUri = "ws://localhost:9090/";
+var output;
+let count = 0;
+const send = () => {  
+  count++;
+  if(count <= 5){
+    doSend("WebSocket rocks " + count);
+  }
+  if(count == 7){
+    websocket.close();
+  }
+}
+function init()
+{
+  output = document.getElementById("output");
+  testWebSocket();
+}
+function testWebSocket()
+{
+  websocket = new WebSocket(wsUri);
+  websocket.onopen = function(evt) { onOpen(evt) };
+  websocket.onclose = function(evt) { onClose(evt) };
+  websocket.onmessage = function(evt) { onMessage(evt) };
+  websocket.onerror = function(evt) { onError(evt) };
+  // setInterval(send, 1000);
+}
+function onOpen(evt)
+{
+  writeToScreen("CONNECTED");
+  //doSend("WebSocket rocks");
+setInterval(send, 1000); // 1 sec interval
+}
+function onClose(evt)
+{
+  writeToScreen("DISCONNECTED");
+}
+function onMessage(evt)
+{
+  writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+  //websocket.close();
+}
+function onError(evt)
+{
+  writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+}
+function doSend(message)
+{
+  writeToScreen("SENT: " + message);
+  websocket.send(message);
+}
+function writeToScreen(message)
+{
+  var pre = document.createElement("p");
+  pre.style.wordWrap = "break-word";
+  pre.innerHTML = message;
+  output.appendChild(pre);
+}
+window.addEventListener("load", init, false);
+</script>
+</head>
+<body>
+<h2>WebSocket Test</h2>
+<div id="output"></div>
+</body>
+</html>
+
