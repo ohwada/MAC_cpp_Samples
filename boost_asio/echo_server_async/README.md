@@ -1,12 +1,12 @@
 boost_asio: echo_server_async
 ===============
 
-### sample code
-- async_tcp_echo_server.cpp
+### sample code  
+- async_tcp_echo_server.cpp  
 
 
-Build and Run:
-% make server
+Build and Run:  
+% make server  
 % bin/server  
 > listen: 1234  
 
