@@ -1,25 +1,17 @@
+ #pragma once
 /**
- *  async_tcp_echo_server.cpp
+ *  echo_server_async.hpp
  * 2022-06-01 K.OHWADA
  */
 
-// https://github.com/boostorg/asio/blob/develop/example/cpp03/echo/async_tcp_echo_server.cpp
-//
-// async_tcp_echo_server.cpp
-// ~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-// Copyright (c) 2003-2022 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-//
+// original : https://github.com/boostorg/asio/blob/develop/example/cpp03/echo/async_tcp_echo_server.cpp
 
-#include <cstdlib>
 #include <iostream>
 #include <boost/bind/bind.hpp>
 #include <boost/asio.hpp>
 
-using boost::asio::ip::tcp;
+// prototype
+bool run_server(unsigned short port);
 
 
 /**
@@ -33,7 +25,7 @@ public:
   {
   }
 
-  tcp::socket& socket()
+  boost::asio::ip::tcp::socket& socket()
   {
     return socket_;
   }
@@ -80,7 +72,7 @@ private:
     }
   }
 
-  tcp::socket socket_;
+  boost::asio::ip::tcp::socket socket_;
   enum { max_length = 1024 };
   char data_[max_length];
 };
@@ -94,7 +86,7 @@ class server
 public:
   server(boost::asio::io_context& io_context, short port)
     : io_context_(io_context),
-      acceptor_(io_context, tcp::endpoint(tcp::v4(), port))
+      acceptor_(io_context, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port))
   {
     start_accept();
     std::cout << "listen: " << port << std::endl;
@@ -125,24 +117,15 @@ private:
   }
 
   boost::asio::io_context& io_context_;
-  tcp::acceptor acceptor_;
+  boost::asio::ip::tcp::acceptor acceptor_;
 };
 
 
 /**
- *  main
+ *  run_server
  */
-int main(int argc, char* argv[])
+bool run_server(unsigned short port)
 {
-
-    unsigned short port = 1234;
-
-    if (argc == 2){
-        port = std::atoi(argv[1]);
-    } else {
-      std::cerr << "Usage: async_tcp_echo_server <port>\n";
-    }
-
   try
   {
 
@@ -155,7 +138,8 @@ int main(int argc, char* argv[])
   catch (std::exception& e)
   {
     std::cerr << "Exception: " << e.what() << "\n";
+    return false;
   }
 
-  return 0;
+  return true;
 }
