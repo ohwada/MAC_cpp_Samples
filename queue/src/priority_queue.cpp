@@ -68,6 +68,8 @@ void swap(
    lhs.swap(rhs);
 }
 
+using  namespace std;
+
 
 /**
  *  main
@@ -86,10 +88,10 @@ int main()
 // extracted in descending order of numerical value
    while (!q.empty())
    {
-      std::cout << q.top() << ' ';
+      cout << q.top() << ' ';
       q.pop();
    } // while
-    std;:cout << std::endl;
+    cout << endl;
 
     return 0;
 }
