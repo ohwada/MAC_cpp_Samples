@@ -101,6 +101,8 @@ private:
 
   void handle_read_status_line(const boost::system::error_code& err)
   {
+std::cout << "handle_read_status_line" << std::endl;
+
     if (!err)
     {
       // Check that response is OK.
@@ -111,6 +113,13 @@ private:
       response_stream >> status_code;
       std::string status_message;
       std::getline(response_stream, status_message);
+
+    std::cout << std::endl;
+    std::cout << "response" << std::endl;
+std::cout << "http_version: " <<  http_version << std::endl;
+std::cout << "status_code: " <<  status_code << std::endl;
+std::cout << "status_message: " <<  status_message << std::endl;
+
       if (!response_stream || http_version.substr(0, 5) != "HTTP/")
       {
         std::cout << "Invalid response\n";
@@ -136,13 +145,12 @@ private:
 
   void handle_read_headers(const boost::system::error_code& err)
   {
+std::cout << "handle_read_headers" << std::endl;
+
     if (!err)
     {
       // Process the response headers.
       std::istream response_stream(&response_);
-
-        std::cout << std::endl;
-        std::cout << "response" << std::endl;
 
       std::string header;
       while (std::getline(response_stream, header) && header != "\r") {
@@ -169,6 +177,8 @@ private:
 
   void handle_read_content(const boost::system::error_code& err)
   {
+std::cout << "handle_read_content" << std::endl;
+
     if (!err)
     {
       // Write all of the data that has been read so far.

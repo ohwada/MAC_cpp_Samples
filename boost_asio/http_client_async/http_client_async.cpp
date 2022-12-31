@@ -43,3 +43,14 @@ int main(int argc, char* argv[])
 
   return 0;
 }
+
+
+// request
+// GET / HTTP/1.1
+// Host: example.com
+// response
+// http_version: HTTP/1.1
+// status_code: 200
+// status_message:  OK
+// <title>Example Domain</title>
+
