@@ -14,8 +14,9 @@
 
 // prototype
 bool run_server(unsigned short port, int mode);
-bool do_handle_read(char* data,  size_t bytes_transferred, bool is_handshake, int mode,   std::vector<char> &write_data);
-std::vector<char> do_handle_write_response();
+int do_handle_read_handshake(char* data,  size_t bytes_transferred,  std::string &write_data);
+std::vector<char> do_handle_read_frame(char* data,  size_t bytes_transferred, int mode );
+std::vector<char> do_handle_write_handshake();
 
 /**
  *  class session
@@ -30,7 +31,6 @@ public:
     : socket_(io_context)
   {
         m_mode = MODE_ECHO;
-        m_handshake = true;
   }
 
 
@@ -51,55 +51,34 @@ public:
     std::cout << "session start mode: " << mode << std::endl;
     m_mode = mode;
     socket_.async_read_some(boost::asio::buffer(data_, max_length),
-        boost::bind(&session::handle_read, this,
+        boost::bind(&session::handle_read_handshake, this,
           boost::asio::placeholders::error,
           boost::asio::placeholders::bytes_transferred));
   }
 
 private:
 /**
- *  handle read
+ *  handle read_handshake
  */
-  void handle_read(const boost::system::error_code& error,
+  void handle_read_handshake(const boost::system::error_code& error,
       size_t bytes_transferred)
   {
-// When Echo mode
-// wait to next massage
-// after recieve handshake response
-// When NORMAL mode
-// send first text
-// when recieve handshake response
-
+    std::cout << " handle_read_handshake" << std::endl;
     if (!error)
     {
-        std::vector<char> write_data;
-        int res = do_handle_read(data_,  bytes_transferred, m_handshake, m_mode,  write_data);
-        auto write_data_size = write_data.size();
-        // std::cout << "res: " << res << std::endl;
-        // std::cout << "write_data_size: " << write_data_size << std::endl;
-
+        std::string write_data;
+        int res = do_handle_read_handshake(data_,  bytes_transferred, write_data);
+    
         if(res == RES_HANDSHAKE) {
-            m_handshake= false;
-            if(write_data_size>0) {
                 boost::asio::async_write(socket_,
-                boost::asio::buffer( (char *)write_data.data(), write_data_size),
-                boost::bind(&session::handle_write_response, this,
+                boost::asio::buffer(write_data),
+                boost::bind(&session::handle_write_handshake, this,
                 boost::asio::placeholders::error));
-            }
-        } else {
-            if(write_data_size>0) {
-                dump_write_vec(write_data);
+        } else if(res == RES_BRAWSER) {
                 boost::asio::async_write(socket_,
-                boost::asio::buffer( (char *)write_data.data(), write_data_size),
-                boost::bind(&session::handle_write, this,
+                boost::asio::buffer(write_data),
+                boost::bind(&session::handle_write_brawser, this,
                 boost::asio::placeholders::error));
-            } else {
-// recurcive call myself
-                socket_.async_read_some(boost::asio::buffer(data_, max_length),
-                boost::bind(&session::handle_read, this,
-                boost::asio::placeholders::error,
-                boost::asio::placeholders::bytes_transferred));
-            }
         } // res
     }
     else
@@ -110,14 +89,54 @@ private:
 
 
 /**
- *  handle write
+ *  handle write handshake
  */
-  void handle_write(const boost::system::error_code& error)
+  void handle_write_handshake(const boost::system::error_code& error)
   {
+// In Test mode
+// send first text
+// In other mode
+// wait next message
+    std::cout << " handle_write_handshake" << std::endl;
     if (!error)
     {
-      socket_.async_read_some(boost::asio::buffer(data_, max_length),
-          boost::bind(&session::handle_read, this,
+        if(m_mode == MODE_TEST){
+// send first text
+                auto write_data = do_handle_write_handshake();
+                auto write_data_size = write_data.size();
+                if(write_data_size>0) {
+                    dump_write_vec(write_data);
+                    boost::asio::async_write(socket_,
+                    boost::asio::buffer( (char *)write_data.data(), write_data_size),
+                    boost::bind(&session::handle_write_frame, this,
+                    boost::asio::placeholders::error));
+                }
+        } else {
+// wait next message
+            socket_.async_read_some(boost::asio::buffer(data_, max_length),
+            boost::bind(&session::handle_read_frame, this,
+            boost::asio::placeholders::error,
+            boost::asio::placeholders::bytes_transferred));
+        }
+    }
+    else
+    {
+      delete this;
+    }
+  }
+
+
+/**
+ *  handle write brawser
+ */
+  void handle_write_brawser(const boost::system::error_code& error)
+  {
+    std::cout << " handle_write_brawser" << std::endl;
+    if (!error)
+    {
+     // wait handshake
+            socket_.async_read_some(boost::asio::buffer(data_, max_length),
+            boost::bind(&session::handle_read_handshake, this,
             boost::asio::placeholders::error,
             boost::asio::placeholders::bytes_transferred));
     }
@@ -129,34 +148,29 @@ private:
 
 
 /**
- *  handle write response
+ *  handle read_frame
  */
-  void handle_write_response(const boost::system::error_code& error)
+  void handle_read_frame(const boost::system::error_code& error,
+      size_t bytes_transferred)
   {
-// In Test mode
-// send first text
-// In other mode
-// wait next message
-
+    std::cout << " handle_read_frame" << std::endl;
     if (!error)
     {
-        if(m_mode == MODE_TEST){
-// send first text
-                auto write_data = do_handle_write_response();
-                auto write_data_size = write_data.size();
-                if(write_data_size>0) {
-                    dump_write_vec(write_data);
-                    boost::asio::async_write(socket_,
-                    boost::asio::buffer( (char *)write_data.data(), write_data_size),
-                    boost::bind(&session::handle_write, this,
-                    boost::asio::placeholders::error));
-                }
+        auto write_data =
+        do_handle_read_frame(data_,  bytes_transferred, m_mode);
+        auto write_data_size = write_data.size();
+        if(write_data_size>0) {
+                dump_write_vec(write_data);
+                boost::asio::async_write(socket_,
+                boost::asio::buffer( (char *)write_data.data(), write_data_size),
+                boost::bind(&session::handle_write_frame, this,
+                boost::asio::placeholders::error));
         } else {
-// wait next message
-            socket_.async_read_some(boost::asio::buffer(data_, max_length),
-            boost::bind(&session::handle_read, this,
-            boost::asio::placeholders::error,
-            boost::asio::placeholders::bytes_transferred));
+// recurcive call myself
+                socket_.async_read_some(boost::asio::buffer(data_, max_length),
+                boost::bind(&session::handle_read_frame, this,
+                boost::asio::placeholders::error,
+                boost::asio::placeholders::bytes_transferred));
         }
     }
     else
@@ -165,11 +179,32 @@ private:
     }
   }
 
+
+/**
+ *  handle write_frame
+ */
+  void handle_write_frame(const boost::system::error_code& error)
+  {
+    std::cout << " handle_write_frame" << std::endl;
+    if (!error)
+    {
+// wait next message
+      socket_.async_read_some(boost::asio::buffer(data_, max_length),
+          boost::bind(&session::handle_read_frame, this,
+            boost::asio::placeholders::error,
+            boost::asio::placeholders::bytes_transferred));
+    }
+    else
+    {
+      delete this;
+    }
+  }
+
+
 boost::asio::ip::tcp::socket socket_;
 enum { max_length = 1024 };
 char data_[max_length];
 int m_mode;
-bool m_handshake;
 };
 
 

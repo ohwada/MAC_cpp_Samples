@@ -14,10 +14,8 @@
 
 // prototype
 bool run_server(unsigned short port, int mode);
-bool handshake_response(char* data,  size_t bytes_transferred, std::vector<char> &response);
+bool do_handle_read(char* data,  size_t bytes_transferred, bool is_handshake, int mode,   std::vector<char> &write_data);
 std::vector<char> do_handle_write_response();
-std::vector<char> do_handle_read(char* data_,  size_t bytes_transferred, int mode);
-
 
 /**
  *  class session
@@ -75,15 +73,13 @@ private:
     if (!error)
     {
         std::vector<char> write_data;
-        size_t write_data_size;
-        if(m_handshake) {
-            std::vector<char> res;
-            bool ret = handshake_response(data_, bytes_transferred,  res);
-            if(ret){
-                m_handshake= false;
-            }
-            write_data = res;
-            write_data_size = write_data.size();
+        int res = do_handle_read(data_,  bytes_transferred, m_handshake, m_mode,  write_data);
+        auto write_data_size = write_data.size();
+        // std::cout << "res: " << res << std::endl;
+        // std::cout << "write_data_size: " << write_data_size << std::endl;
+
+        if(res == RES_HANDSHAKE) {
+            m_handshake= false;
             if(write_data_size>0) {
                 boost::asio::async_write(socket_,
                 boost::asio::buffer( (char *)write_data.data(), write_data_size),
@@ -91,8 +87,6 @@ private:
                 boost::asio::placeholders::error));
             }
         } else {
-            write_data = do_handle_read(data_, bytes_transferred, m_mode);
-            write_data_size = write_data.size();
             if(write_data_size>0) {
                 dump_write_vec(write_data);
                 boost::asio::async_write(socket_,
@@ -106,7 +100,7 @@ private:
                 boost::asio::placeholders::error,
                 boost::asio::placeholders::bytes_transferred));
             }
-        } // m_handshake
+        } // res
     }
     else
     {

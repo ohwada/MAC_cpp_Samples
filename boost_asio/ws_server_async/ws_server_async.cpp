@@ -27,12 +27,10 @@ int text_cnt = 0;
 
 
 /**
- * handshake_response
+ * do_handle_read_handshake
  */
-int handshake_response(char* data,  size_t bytes_transferred, std::vector<char> &write_data)
+int do_handle_read_handshake(char* data,  size_t bytes_transferred, std::string &write_data)
 {
-    std::cout << "ws_handshake_response" << std::endl;
-
 // If the request have "Sec-WebSocket-Key" header, 
 // send back the handshake response.
 //  as WebSocket opening handshake
@@ -51,9 +49,8 @@ int handshake_response(char* data,  size_t bytes_transferred, std::vector<char> 
         std::cout << "no sec key" << std::endl;
         std::string file("www/index.html");
         auto res = build_response_file(file);
-        std::vector<char> vec(res.begin(), res.end());
-        write_data = vec;
-        std::cout << "return index.html" << std::endl;
+        write_data = res;
+        std::cout << "send index.html" << std::endl;
         return RES_BRAWSER;
     }
 
@@ -62,8 +59,8 @@ int handshake_response(char* data,  size_t bytes_transferred, std::vector<char> 
     std::cout << "accept_key: " << accept_key << std::endl;
 
     auto res = ws_build_response(accept_key);
-    std::vector<char> vec(res.begin(), res.end());
-    write_data = vec;
+    write_data = res;
+    std::cout << std::endl;
     std::cout <<  "response" << std::endl;
     std::cout << res << std::endl;
     return RES_HANDSHAKE;
@@ -71,9 +68,9 @@ int handshake_response(char* data,  size_t bytes_transferred, std::vector<char> 
 
 
 /**
- *  do_handle_write_response
+ *  do_handle_write_handshake
  */
-std::vector<char> do_handle_write_response()
+std::vector<char> do_handle_write_handshake()
 {
     const int SLEEP = 2000; // 2 sec
     std::string text("Hello World");
@@ -87,20 +84,13 @@ std::vector<char> do_handle_write_response()
 
 
 /**
- *  do_handle_read
+ *  do_handle_read_frame
  */
-  bool do_handle_read(char* data,  size_t bytes_transferred, bool is_handshake, int mode,  std::vector<char> &write_data)
+  std::vector<char> do_handle_read_frame(char* data,  size_t bytes_transferred, int mode )
 {
     const int SLEEP = 1000; // 1 sec
 
     std::vector<char> res;
-
-    if(is_handshake) {
-        int ret = handshake_response(data, bytes_transferred, res);
-        write_data = res;
-        thread_sleep( SLEEP );
-        return ret;
-     }
 
     std::cout << std::endl;
     dump_frame_read_data(data,  bytes_transferred);
@@ -119,9 +109,8 @@ std::vector<char> do_handle_write_response()
                 res = proc_pong(data, bytes_transferred, text_cnt, TEXT_LIMIT, mode);
     }
    
-    write_data = res;
     thread_sleep( SLEEP );
-    return RES_FRAME ;
+    return res;
 }
 
 

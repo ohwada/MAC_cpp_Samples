@@ -1,4 +1,9 @@
-// https://github.com/boostorg/asio/blob/develop/example/cpp03/chat/posix_chat_client.cpp
+/**
+ * posix_chat_client.cpp
+ * 2022-06-01 K.OHWADA
+ */
+
+// original : https://github.com/boostorg/asio/blob/develop/example/cpp03/chat/posix_chat_client.cpp
 
 //
 // posix_chat_client.cpp
@@ -17,17 +22,21 @@
 #include <boost/bind/bind.hpp>
 #include <boost/asio.hpp>
 #include "chat_message.hpp"
+#include "port.h"
 
 #if defined(BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR)
 
-using boost::asio::ip::tcp;
 namespace posix = boost::asio::posix;
 
+
+/**
+ * class posix_chat_client
+ */
 class posix_chat_client
 {
 public:
   posix_chat_client(boost::asio::io_context& io_context,
-      const tcp::resolver::results_type& endpoints)
+      const boost::asio::ip::tcp::resolver::results_type& endpoints)
     : socket_(io_context),
       input_(io_context, ::dup(STDIN_FILENO)),
       output_(io_context, ::dup(STDOUT_FILENO)),
@@ -166,7 +175,7 @@ private:
   }
 
 private:
-  tcp::socket socket_;
+  boost::asio::ip::tcp::socket socket_;
   posix::stream_descriptor input_;
   posix::stream_descriptor output_;
   chat_message read_msg_;
@@ -174,20 +183,40 @@ private:
   boost::asio::streambuf input_buffer_;
 };
 
+using namespace std;
+
+
+/**
+ * main
+ */
 int main(int argc, char* argv[])
 {
+
+    string host("localhost");
+    string port = std::to_string( PORT );
+
+    if (argc == 3){
+        host = argv[1];
+        port = argv[2];
+    } else {
+        std::cerr << "Usage: posix_chat_client <host> <port>\n";
+    }
+
+    cout << "host: " << host << endl;
+    cout << "port: " << port << endl;
+
   try
   {
-    if (argc != 3)
-    {
-      std::cerr << "Usage: posix_chat_client <host> <port>\n";
-      return 1;
-    }
+   
 
     boost::asio::io_context io_context;
 
-    tcp::resolver resolver(io_context);
-    tcp::resolver::results_type endpoints = resolver.resolve(argv[1], argv[2]);
+    boost::asio::ip::tcp::resolver resolver(io_context);
+    boost::asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(host, port);
+
+    std::cout << "listen: " << port << std::endl;        
+
+    std::cout << "enter message" << std::endl;        
 
     posix_chat_client c(io_context, endpoints);
 

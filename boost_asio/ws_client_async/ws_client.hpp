@@ -17,8 +17,8 @@
 // prototype
 bool check_handshake_response(char *data,  size_t bytes_transferred);
 std::vector<char> proc_handshake_response(std::string text, int mode);
-std::vector<char> proc_text(char *read_data, size_t data_size, int mode );
-std::vector<char> proc_close(char *read_data, size_t data_size, int mode );
+std::vector<char> proc_text(char *read_data, size_t data_size, int mode);
+std::vector<char> proc_close(char *read_data, size_t data_size, int mode);
 std::vector<char> proc_ping(char *read_data, size_t data_size, int mode);
 std::vector<char> proc_pong(char *read_data, size_t data_size, int cnt, int limit, int mode);
 void print_close( std::string prefix, int code, std::string reason);
@@ -67,15 +67,19 @@ bool check_handshake_response(char *data,  size_t bytes_transferred)
  */
 std::vector<char> proc_handshake_response(std::string text, int mode)
 {
+// In Normal mode
+// send first text
+// In Echo mode
+// wait next message
 
     std::vector<char> res;
 
     if(mode == MODE_NORMAL){
-// send text
+// send first text
+         std::cout << "send text: " << text << std::endl;
         res = build_client_text(text);
-        std::cout << "send text: " << text << std::endl;
     } else if(mode == MODE_ECHO){
-// send nothing
+// none
     }
 
     return res;
@@ -85,8 +89,12 @@ std::vector<char> proc_handshake_response(std::string text, int mode)
 /**
  * proc_text
  */
-std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode )
+std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode)
 {
+// In Normal mode
+// // send ping
+// In Echo mode
+// echo back text
 
     std::vector<char> res;
 
@@ -99,14 +107,17 @@ std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode )
         return res;
     }
 
-    if (mode == MODE_NORMAL) {
-        res = get_client_ping();
-        std::cout << "send Ping" << std::endl;
-    } else if (mode == MODE_ECHO){
+
+    if(mode == MODE_NORMAL) {
+// send ping
+        res = get_client_ping();    
+        std::cout <<"send Ping" << std::endl;
+    } else if(mode == MODE_ECHO) {
 // echo back
-        res = build_client_text(text);
+        res = build_client_text(text);    
         std::cout <<"send text: " << text << std::endl;
     }
+
 
     return res;
 }
@@ -117,9 +128,20 @@ std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode )
  */
 std::vector<char> proc_close(char *read_data, size_t read_data_size, int mode )
 {
+// In Normal mode
+// wait next message
+// In Echo mode
+// send back close
 
-    std::vector<char> vec;
+    std::vector<char> res;
 
+
+
+    if(mode != MODE_ECHO){
+        return res;
+    }
+
+// send back close
     int recv_code = 0;
     int send_code = 0;
 
@@ -131,16 +153,12 @@ std::vector<char> proc_close(char *read_data, size_t read_data_size, int mode )
         send_code = recv_code;
       } else {
         send_code = CLOSE_NORMAL;
+        reason = "";
      }
 
-   if (mode == MODE_NORMAL) {
-        return vec;
-    }
-
-// echo back
- auto res = build_client_close(send_code, reason);
-
+// send back
     print_close("send", send_code, reason);
+    res = build_client_close(send_code, reason);
     return res;
 }
 
@@ -155,6 +173,7 @@ std::vector<char> proc_ping(char *read_data, size_t read_data_size, int mode )
     auto res = get_client_pong();
 
     std::cout << "send Pong" << std::endl;
+
     return res;
 }
 
@@ -162,13 +181,15 @@ std::vector<char> proc_ping(char *read_data, size_t read_data_size, int mode )
 /**
  * proc_pong
  */
-std::vector<char> proc_pong(char *read_data, size_t read_data_size, int cnt, int limit, int mode )
+std::vector<char> proc_pong(char *read_data, size_t data_size, int cnt, int limit, int mode)
 {    
-// when Normal mode
-// send new text until limit is reached
+// In Normal  mode
+// send text until limit is reached
 // send close when the limit is reached
-// when other mode
-// wait to next message
+// If  Normal mode
+// send nothing
+
+    const std::string FORMAT("Test %03d");
 
     int code = CLOSE_NORMAL;
     std::string reason;
@@ -176,18 +197,20 @@ std::vector<char> proc_pong(char *read_data, size_t read_data_size, int cnt, int
     std::vector<char> res;
 
     if(mode == MODE_NORMAL) {
-        if(cnt > limit) {
-// send back close
+        if(cnt > limit){
+// send close
             res = build_client_close(code, reason);
             print_close("send", code, reason);
         } else {
 // send new text
-            auto text = build_msg_text(cnt);
+            auto text = boost::str( boost::format(FORMAT) % cnt);
             res = build_client_text(text);
             std::cout << "send text: " << text << std::endl;
         }
-    } // mode
+    } else {
+// send nothing wait next message
+    }
 
-    return res;
+     return res;
 }
 

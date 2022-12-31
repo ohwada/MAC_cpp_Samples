@@ -1,15 +1,17 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-Wall -std=c++03
-BOOST_FLAGS=`pkg-config --cflags --libs  boost`
+CFLAGS=-Wall -std=c++11
+BOOST_FLAGS=`pkg-config --cflags boost`
 
-TARGET1=server
-SRCS1=chat_server.cpp
-TARGET2=client
-SRCS2=chat_client.cpp
-TARGET3=posix
-SRCS3=posix_chat_client.cpp
+
+TARGET1=hello
+SRCS1=http_hello_server_async.cpp
+TARGET2=file
+SRCS2=http_file_server_async.cpp
+TARGET3=test
+SRCS3= test_request_parser.cpp
+
 
 
 $(TARGET1): $(SRCS1)
@@ -25,8 +27,8 @@ $(TARGET3): $(SRCS3)
 
 
 %.o: %.cpp
-	$(CXX) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 
 clean:
-	rm -rf bin/*   *.o 
+	rm -rf bin/* *.o 

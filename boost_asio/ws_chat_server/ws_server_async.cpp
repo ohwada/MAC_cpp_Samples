@@ -29,7 +29,7 @@ int text_cnt = 0;
 /**
  * handshake_response
  */
-bool handshake_response(char* data,  size_t bytes_transferred, std::vector<char> &response)
+int handshake_response(char* data,  size_t bytes_transferred, std::vector<char> &write_data)
 {
     std::cout << "ws_handshake_response" << std::endl;
 
@@ -39,8 +39,6 @@ bool handshake_response(char* data,  size_t bytes_transferred, std::vector<char>
 // If the request doesn't have "Sec-WebSocket-Key" header, 
 // send back index.html, 
 // considered as access from a Web Browser
-
-    const int SLEEP = 1000; // 1 sec
 
     std::string request(data, bytes_transferred);
 
@@ -54,9 +52,9 @@ bool handshake_response(char* data,  size_t bytes_transferred, std::vector<char>
         std::string file("www/index.html");
         auto res = build_response_file(file);
         std::vector<char> vec(res.begin(), res.end());
-        response = vec;
+        write_data = vec;
         std::cout << "return index.html" << std::endl;
-        return false;
+        return RES_BRAWSER;
     }
 
     std::cout << "sec_key: " << sec_key << std::endl;
@@ -65,12 +63,12 @@ bool handshake_response(char* data,  size_t bytes_transferred, std::vector<char>
 
     auto res = ws_build_response(accept_key);
     std::vector<char> vec(res.begin(), res.end());
-    response = vec;
-    thread_sleep( SLEEP );
+    write_data = vec;
     std::cout <<  "response" << std::endl;
     std::cout << res << std::endl;
-    return true;
+    return RES_HANDSHAKE;
 }
+
 
 /**
  *  do_handle_write_response
@@ -91,14 +89,22 @@ std::vector<char> do_handle_write_response()
 /**
  *  do_handle_read
  */
-  std::vector<char> do_handle_read(char* data,  size_t bytes_transferred, int mode)
+  bool do_handle_read(char* data,  size_t bytes_transferred, bool is_handshake, int mode,  std::vector<char> &write_data)
 {
     const int SLEEP = 1000; // 1 sec
+
+    std::vector<char> res;
+
+    if(is_handshake) {
+        int ret = handshake_response(data, bytes_transferred, res);
+        write_data = res;
+        thread_sleep( SLEEP );
+        return ret;
+     }
 
     std::cout << std::endl;
     dump_frame_read_data(data,  bytes_transferred);
 
-    std::vector<char> res;
 
     auto opcode = parse_frame(data, bytes_transferred);
 
@@ -113,9 +119,11 @@ std::vector<char> do_handle_write_response()
                 res = proc_pong(data, bytes_transferred, text_cnt, TEXT_LIMIT, mode);
     }
    
+    write_data = res;
     thread_sleep( SLEEP );
-    return res;
+    return RES_FRAME ;
 }
+
 
  using namespace std;
 

@@ -18,8 +18,7 @@
 // prototype
 bool chat_client(std::string host, std::string port);
 
-
-// using boost::asio::ip::tcp;
+const bool isDebug = true;
 
 typedef std::deque<chat_message> chat_message_queue;
 
@@ -42,14 +41,19 @@ public:
 
   void write(const chat_message& msg)
   {
-std::cout << "write" << std::endl;
+    if(isDebug){
+        std::string body(msg.body(), msg.body_length());
+        std::cout << "write: " << body << std::endl;
+    }
     boost::asio::post(io_context_,
         boost::bind(&chat_client::do_write, this, msg));
   }
 
   void close()
   {
-std::cout << "close" << std::endl;
+        if(isDebug){
+            std::cout << "close" << std::endl;
+        }
     boost::asio::post(io_context_,
         boost::bind(&chat_client::do_close, this));
   }
@@ -58,7 +62,9 @@ private:
 
   void handle_connect(const boost::system::error_code& error)
   {
-std::cout << "handle_connect" << std::endl;
+        if(isDebug){
+            std::cout << "handle_connect" << std::endl;
+        }
     if (!error)
     {
       boost::asio::async_read(socket_,
@@ -70,7 +76,9 @@ std::cout << "handle_connect" << std::endl;
 
   void handle_read_header(const boost::system::error_code& error)
   {
-std::cout << "handle_read_header" << std::endl;
+        if(isDebug){
+            std::cout << "handle_read_header" << std::endl;
+        }
     if (!error && read_msg_.decode_header())
     {
       boost::asio::async_read(socket_,
@@ -86,7 +94,9 @@ std::cout << "handle_read_header" << std::endl;
 
   void handle_read_body(const boost::system::error_code& error)
   {
-    std::cout << "handle_read_body " << std::endl;
+        if(isDebug){
+            std::cout << "handle_read_body " << std::endl;
+        }
     if (!error)
     {
         std::string body(read_msg_.body(), read_msg_.body_length());
@@ -104,8 +114,10 @@ std::cout << "handle_read_header" << std::endl;
 
   void do_write(chat_message msg)
   {
-std::string data(msg.data(), msg.length() );
-std::cout << "do_write: " << data << std::endl;
+        if(isDebug){
+            std::string data(msg.data(), msg.length() );
+            std::cout << "do_write: " << data << std::endl;
+        }
     bool write_in_progress = !write_msgs_.empty();
     write_msgs_.push_back(msg);
     if (!write_in_progress)
@@ -120,7 +132,9 @@ std::cout << "do_write: " << data << std::endl;
 
   void handle_write(const boost::system::error_code& error)
   {
-std::cout << "handle_write" << std::endl;
+        if(isDebug){
+            std::cout << "handle_write" << std::endl;
+        }
     if (!error)
     {
       write_msgs_.pop_front();
@@ -141,7 +155,9 @@ std::cout << "handle_write" << std::endl;
 
   void do_close()
   {
-std::cout << "do_close" << std::endl;
+        if(isDebug){
+            std::cout << "do_close" << std::endl;
+        }
     socket_.close();
   }
 
@@ -151,6 +167,8 @@ private:
   chat_message read_msg_;
   chat_message_queue write_msgs_;
 };
+
+using namespace std;
 
 
 /**
@@ -170,16 +188,15 @@ bool chat_client(std::string host, std::string port)
 
     boost::thread t(boost::bind(&boost::asio::io_context::run, &io_context));
 
-    std::cout << "enter message" << std::endl;
+    std::cout << "enter message" << std::endl;        
     char line[chat_message::max_body_length + 1];
     while (std::cin.getline(line, chat_message::max_body_length + 1))
     {
-      using namespace std; // For strlen and memcpy.
-      chat_message msg;
-      msg.body_length(strlen(line));
-      memcpy(msg.body(), line, msg.body_length());
+        chat_message msg;
+        msg.body_length( std::strlen(line) );
+        std::memcpy(msg.body(), line, msg.body_length());
       msg.encode_header();
-      c.write(msg);
+        c.write(msg);
     }
 
     c.close();

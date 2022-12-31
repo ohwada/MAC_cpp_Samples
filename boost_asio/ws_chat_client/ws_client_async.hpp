@@ -88,7 +88,7 @@ private:
 
 
 /**
- *  handle_resolve
+ *  handle_connect
  */
   void handle_connect(const boost::system::error_code& err)
   {

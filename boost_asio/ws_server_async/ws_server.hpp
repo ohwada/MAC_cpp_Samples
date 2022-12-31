@@ -48,6 +48,10 @@ enum mode {
  */
 std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode )
 {
+// In Echo mode
+// echo back text
+// In test mode
+// send ping
 
     std::vector<char> res;
 
@@ -66,12 +70,11 @@ std::vector<char> proc_text(char *read_data, size_t read_data_size, int mode )
         res = build_server_text(text);    
         std::cout <<"send text: " << text << std::endl;
     } else if(mode == MODE_TEST) {
-// send back ping
+// send ping
         res = get_server_ping();    
         std::cout <<"send Ping" << std::endl;
     } else {
-// return empty
-        return res;
+// none
     }
 
     return res;
@@ -131,10 +134,10 @@ std::vector<char> proc_ping(char *read_data, size_t read_data_size, int mode )
  */
 std::vector<char> proc_pong(char *read_data, size_t read_data_size, int cnt, int limit, int mode )
 {
-// when Test mode
+// In Test mode
 // send text until limit is reached
 // send close when the limit is reached
-// when not Test mode
+// In not Test mode
 // send nothing
 
     const std::string FORMAT("Test %03d");
@@ -156,7 +159,7 @@ std::vector<char> proc_pong(char *read_data, size_t read_data_size, int cnt, int
             std::cout << "send text: " << text << std::endl;
         }
     } else {
-// send nothing
+// send nothing wait next message
     }
 
      return res;

@@ -1,15 +1,13 @@
 ### 2022-06-01 K.OHWADA
 
 CXX=g++
-CFLAGS=-Wall -std=c++03
+CFLAGS=-Wall -std=c++11
 BOOST_FLAGS=`pkg-config --cflags --libs  boost`
 
 TARGET1=server
-SRCS1=chat_server.cpp
+SRCS1=ws_chat_server.cpp
 TARGET2=client
 SRCS2=chat_client.cpp
-TARGET3=posix
-SRCS3=posix_chat_client.cpp
 
 
 $(TARGET1): $(SRCS1)
@@ -17,10 +15,6 @@ $(TARGET1): $(SRCS1)
 
 
 $(TARGET2): $(SRCS2)
-	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
-
-
-$(TARGET3): $(SRCS3)
 	$(CXX) $< $(CFLAGS)  $(BOOST_FLAGS) -o bin/$@
 
 
