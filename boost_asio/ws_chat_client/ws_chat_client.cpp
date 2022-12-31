@@ -87,3 +87,16 @@ int main(int argc, char* argv[])
 
   return 0;
 }
+
+// request
+// GET / HTTP/1.1
+// Host: localhost
+// response
+// HTTP/1.1 101 Switching Protocols
+// enter message
+// hello
+// write: hello
+//write (11) : 81 85 79 77 00 fe 11 12 6c 92 16 
+// read(7) : 81 05 68 65 6c 6c 6f 
+// r text: hello
+

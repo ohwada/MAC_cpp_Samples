@@ -18,6 +18,12 @@ echo back Text  when recieve Text
 
 Build and Run:  
 % make client  
+
 % bin/client  
+> request  
+> GET / HTTP/1.1  
+> Host: localhost  
+> response  
 > HTTP/1.1 101 Switching Protocols  
+
 

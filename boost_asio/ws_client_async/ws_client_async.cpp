@@ -122,3 +122,14 @@ int main(int argc, char* argv[])
 
   return 0;
 }
+
+
+// request
+// GET / HTTP/1.1
+// Host: localhost
+// response
+// HTTP/1.1 101 Switching Protocols
+// send text: Hello World
+// write (17) : 81 8b 59 72 00 fe 11 17 6c 92 36 52 57 91 2b 1e 64 
+// read(13) : 81 0b 48 65 6c 6c 6f 20 57 6f 72 6c 64 
+// r text: Hello World
