@@ -423,6 +423,9 @@ write log to file
 ### spdlog  
  Super fast C++ logging library
 
+### quill  
+C++17 Asynchronous Low Latency Logging Library  
+
 ### cctz  
 display local time  
 
