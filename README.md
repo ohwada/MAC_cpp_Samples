@@ -52,6 +52,9 @@ Asynchronous event library
 ### libpcap  
 Portable library for network traffic capture  
 
+### libyaml  
+YAML Parser  
+
 ### mysql 
 Open source relational database management system  
 

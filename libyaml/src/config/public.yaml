@@ -1,0 +1,47 @@
+# config/public.yaml
+# https://www.wpsoftware.net/andrew/pages/libyaml.html
+
+title   : Finex 2011
+img_url : /finex/html/img/
+css_url : /finex/html/style/
+js_url  : /finex/html/js/
+
+template_dir: html/templ/
+
+default_act : idx    # used for invalid/missing act=
+
+pages:
+  - act   : idx
+    title : Welcome
+    html  : public/welcome.phtml
+  - act   : reg
+    title : Register
+    html  : public/register.phtml
+  - act   : log
+    title : Log in
+    html  : public/login.phtml
+  - act   : out
+    title : Log out
+    html  : public/logout.phtml
+title   : Finex 2011
+img_url : /finex/html/img/
+css_url : /finex/html/style/
+js_url  : /finex/html/js/
+
+template_dir: html/templ/
+
+default_act : idx    # used for invalid/missing act=
+
+pages:
+  - act   : idx
+    title : Welcome
+    html  : public/welcome.phtml
+  - act   : reg
+    title : Register
+    html  : public/register.phtml
+  - act   : log
+    title : Log in
+    html  : public/login.phtml
+  - act   : out
+    title : Log out
+    html  : public/logout.phtml
