@@ -420,6 +420,9 @@ parse commandline flags
 ### glog  
 write log to file  
 
+### spdlog  
+ Super fast C++ logging library
+
 ### cctz  
 display local time  
 
