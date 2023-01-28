@@ -15,6 +15,5 @@ https://github.com/odygrd/quill
 % bash setup_pkgconfig.sh  
 
 check for pkg-config  
-% pkg-config --cflags --libs quill
- -I/usr/local/Cellar/quill/2.5.1/include -L/usr/local/Cellar/quill/2.5.1/lib -lquill -lpthread
-
+% pkg-config --cflags --libs quill  
+  
