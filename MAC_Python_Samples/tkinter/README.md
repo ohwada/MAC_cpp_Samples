@@ -11,7 +11,8 @@ Python interface to Tcl/Tk
 
 ## samples
 
-- tk_hello.py  
+- tk_hello.py    
+![tk_hello](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_hello.png)  
 
 - tk_clock.py  
 
