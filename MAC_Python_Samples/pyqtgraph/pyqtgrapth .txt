@@ -1,0 +1,418 @@
+% pip3 list
+pyqtgraph                                         0.13.7
+
+
+
+プラモッドビュート
+未読、
+2018/05/28 11:31:11
+宛先: pyqtgraph
+こんにちは、
+
+私はウェブカメラを使用して画像をキャプチャし、最大の輪郭を見つけて、pyqtgraph plotwidget を使用してアプリにプロットするプログラムを作成しています。 
+
+私は、XPS 13 に接続されたウェブカメラから opencv を使用してフレームをキャプチャしています。次に、plotwidget を使用して埋め込み qt ui でそれを表示しようとしています (デザイナーで plotwidget に昇格し、ImageView を使用してみましたが、setUI を試みるとエラーが発生します)。 
+
+私が現在抱えている問題は、キャプチャした画像が plotwidget の境界外に表示されることです。そして、その解決策を 3 日間探してきました。plotwidget では切り取られた画像しか見えません。 
+別途ビューボックスを設定し、setcentralwidget() として plotwidget に追加してみました。enablerange などの plotwidget のプロパティを直接設定してみましたが、どうにもならず、どなたか助けてくださる方を探しています。
+
+ありがとう、
+プラモッド
+
+コード:
+
+1. ウェブカメラキャプチャ用のクラス
+
+クラスWebcamWorker(QRunnable): 
+
+    def __init__ ( self 、 cam 、 width 、 height 、 fps): 
+        super (WebcamWorker 、self )。__init__ () 
+        # コンストラクターの引数を保存します (処理に再利用されます) 
+self .cam = cam self .width = width self .height = height self .fps = fps self .signals = WebCamSignal() self .capture = cv2.VideoCapture( self .cam) self .capture.set( cv2.CAP_PROP_FRAME_WIDTH , self .width) self .capture.set(cv2.CAP_PROP_FRAME_HEIGHT , self .height) self .capture.set(cv2.CAP_PROP_FPS , self .fps) @pyqtSlot () def run ( self ): #etval, img = self.capture.read(0) while (running):             retval , img = self .capture.read( 0 )             cv2.waitKey( 30 )             img = cv2.cvtColor(img , cv2.COLOR_BGR2RGB)             ret , thresh = cv2.threshold(cv2.cvtColor(img , cv2.COLOR_BGR2GRAY) , 100 , 255 , cv2.THRESH_BINARY_INV) #blur = cv2.GaussianBlur(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (5, 5), 0)             #ret3, thresh = c(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU) image , outlines , hierarchy = cv2.findContours(thresh , cv2.RETR_EXTERNAL , cv2.CHAIN_APPROX_SIMPLE)             x=[]             y=[]             w=[]             h=[]             area_c=[] len (contours) > 0 の場合: c in outline: #cnt = outlines[0] x_tmp , y_tmp , w_tmp , h_tmp = cv2.boundingRect(c)                     x.append(x_tmp)                     y.append(y_tmp)                     w.append(w_tmp) h.append (                     h_tmp)                     area_c.append(cv2.contourArea(c))        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+    
+    
+        
+        
+
+
+
+
+
+
+            
+
+            
+
+
+
+
+
+            
+                
+                    
+                    
+
+
+
+
+
+                #if len(self.area_c) > 0:
+                 index = area_c.index( max (area_c)) 
+                #cv2.rectangle(img, (x_tmp, y_tmp), (x_tmp + w_tmp, y_tmp + h_tmp), (255, 153, 0), 1)
+                 cv2.rectangle(img , (x[index] , y[index]) , (x[index] + w[index] , y[index] + h[index]) , ( 50 , 255 , 255 ) , 1 ) 
+
+                X0 = (x[index]/ self .width)* 100
+                 Y0 = (y[index]/ self .height)* 100 
+#四角形のx、yの角cv2.putText(img , f'{X0:.2f}% , {Y0:.2f}%' , (x[index]- 50 , y[index]) , cv2.FONT_HERSHEY_SIMPLEX , 0.4 , ( 255 , 255 , 255 ) , 1 , cv2.LINE_AA) #長方形の高さ (height) cv2.putText(img , str (w[index]) , (x[index]+( int (w[index]/ 2 )) , y[index]) , cv2.FONT_HERSHEY_SIMPLEX , 0.4 , ( 255 , 255 , 255 ) , 1 , cv2.LINE_AA) #長方形の幅cv2.putText(img , str (h[index]) , (x[index]- 50 , y[index]+( int (h[index]/ 2 ))) , cv2.FONT_HERSHEY_SIMPLEX , 0.4 , ( 255 , 255 , 255 ) , 1 , cv2.LINE_AA)             (h_max , w_max) = img.shape[: 2 ] # 画像の中心を計算しますcenter = (w_max / 2 , h_max / 2 ) # angle90 = 90             angle180 = 180 angle270 = 270 scale = 1.0 M = cv2.getRotationMatrix2D(center , 270 , scale)             img = cv2.warpAffine(img , M , (h_max
+                
+                
+                
+                
+                            
+
+                
+                
+                            
+
+
+            
+            
+            
+
+            
+            
+            
+, w_max))
+            自己.signals.captured.emit(img)
+
+2. クラスのインスタンスを作成する:
+実行中 = True 
+self.webcam = WebcamWorker( 0 , 640 , 480 , 30 ) 
+self.webcam.signals.captured.connect ( self.run_webcam ) 
+self.threadpool.start ( self.webcam )
+
+3. デザイナーの .ui ファイルからのメイン UI
+qtCreatorFile = "TRFS27B.ui"   # ここにファイルを入力してください。Ui_MainWindow 
+、 QtBaseClass = pg.Qt.loadUiType(qtCreatorFile )
+
+self .ui = Ui_MainWindow() 
+self .ui.setupUi( self )
+
+
+self .mainWindowvb = pg.ViewBox() 
+self .mainWindowvb.setAspectLocked() 
+self .ui.mainWindow.showAxis( 'left' ,False ) 
+
+
+
+pyqtgraphでヒートマップを作成する
+https://qiita.com/shu32/items/a696573b7c9074735e90
+
+
+
+
+
+Pyqtgraph plotwidget displays part of the image outside the plotwidget window, image captured by opencv from webcam
+https://groups.google.com/g/pyqtgraph/c/QbQr5mxnvHc
+
+
+self .ui.mainWindow.showAxis( 'bottom' ,False ) 
+self .ui.mainWindow.showGrid( x = True, y = True, alpha = 1 ) 
+self .ui.mainWindow.setCentralWidget( self .mainWindowvb) 
+self .pc = pg.PlotCurveItem() 
+#self.imv = pg.ImageView() 
+self .im1 = pg.ImageItem() 
+
+self .window_width , self .window_height = self .mainWindowvb.viewPixelSize() 
+self .mainWindowvb.enableAutoRange( enable = True ) 
+self .mainWindowvb.addItem( self .im1)
+4. plotwidgetに画像を表示する
+
+def run_webcam ( self , img ): 
+    self .i
+=======
+
+ImageView
+https://pyqtgraph.readthedocs.io/en/latest/api_reference/widgets/imageview.html
+
+------
+imv = pg.ImageView()
+imv.show()
+imv.setImage(data)
+----
+
+pyqtgraphを用いたアプリケーション開発（はじめの一歩）
+https://www.swelec.tech/blog/blog/2021/05/14/pyqtgraph%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%EF%BC%88%E3%81%AF%E3%81%98%E3%82%81%E3%81%AE%E4%B8%80%E6%AD%A9/#google_vignette
+
+
+Matplotlibで円や長方形などの図形を描画
+https://note.nkmk.me/python-matplotlib-patches-circle-rectangle/
+
+
+ython, Pillowで円や四角、直線などの図形を描画
+https://note.nkmk.me/python-pillow-imagedraw/
+
+
+PyQtGraph 2行で画像表示
+https://python.diandian.online/python-pyqtgraph-display-image-with-two-lines-of-code/
+
+PyQtGraph – 画像ビュー
+https://www.geeksforgeeks.org/pyqtgraph-image-view/
+
+python】画像処理その1 ~画像を読み込んで表示
+https://qiita.com/soiSource/items/e859d57f07847063de4d
+
+Pythonでアナログ時計を作る
+https://qiita.com/ddside/items/5831980e9409e2b09ed5
+
+
+PyQtGraph sin波のグラフを描画する方法
+https://python.diandian.online/python-pyqtgraph-draw-sin-wave/
+
+python3 pyqtgraph_sin_wave.py 
+
+PyQtGraphの凡例などのフォント設定について
+https://zenn.dev/mashi_z/articles/pyqtgraph-lissa
+
+
+pyqtgraph
+
+a pure-python graphics and GUI library built on PyQt5/PySide2 and numpy
+
+pip3 install pyqtgraph 
+
+pyqtgraph    0.13.7
+
+
+pyside
+
+PySide2
+https://pypi.org/project/PySide2/
+
+PySide2 is the official Python module from the Qt for Python project, which provides access to the complete Qt 5.12+ framework.
+
+PySide2をゼロから学んでいく
+https://qiita.com/karakuri-t910/items/f0736a322a6ba217a36c
+
+pip3 install PySide2
+
+pip3 list | grep PySide2
+
+
+
+PySide2をゼロから学んでいく～#1 ウィンドウ
+https://qiita.com/karakuri-t910/items/7d2aac29d979f2413162
+
+
+
+
+matplotlibとPyQtGraphのコードの比較
+https://qiita.com/Yukiho_P/items/84da6ff37fc3579366fe
+
+Qtを使って動くので必須．
+brew install qt
+
+
+ C/C++ にて 画像ファイルを読み込む
+ https://qiita.com/ohwada/items/8703ede811476dd9c47f
+
+
+OpenCV-ImageReadWrite
+read and write Image File using OpenCV
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/OpenCV-ImageReadWrite
+
+
+pip install PyQt6 pyqtgraph
+
+
+opencv3
+https://formulae.brew.sh/formula/opencv
+
+brew install opencv
+
+
+
+
+PyQt6の基本の使い方からのまとめとPyQt5との違い
+https://qiita.com/phyblas/items/d56003904c83938823f2
+
+ウィンドウを作成する
+
+
+PyQt5でGUIを作ろう
+https://www.sejuku.net/blog/75467
+
+
+PythonのPyQtとは
+https://saas.n-works.link/programming/python/what-is-python-pyqt
+
+
+Pythonで画像表示、お絵描き用のアプリケーション作りの解説
+https://qiita.com/koharite/items/de23ab1bf3f4c4d708ef
+
+画像表示の仕組み
+
+
+PyQt5】画像をウィンドウ上に表示する方法
+https://tanalib.com/pyqt-image-display/
+
+ちなみに画像を表示させる方法はたくさんありますので、その一例になります。
+
+リンゴの画像はPexelsによるPixabayから引用させていただきました
+
+
+
+
+
+
+
+
+
+
+
+[PythonのTkinterを使ってみる](https://qiita.com/nnahito/items/ad1428a30738b3d93762)
+
+```
+import tkinter as tk
+
+WIN_TITLE='Tk'
+WIN_SIZE='100x50'
+
+LABEL_TEXT = 'Hello'
+
+# Window
+win = tk.Tk()
+
+win.title(WIN_TITLE)
+
+win.geometry(WIN_SIZE)
+
+label = tk.Label(win, text=LABEL_TEXT)
+
+label.pack()
+
+win.mainloop()
+```
+
+実行すると、Tkウインドウが表示される。
+
+
+
+
+
+
+
+
+
+コピペでできる！Tkinter
+https://nnahito.gitbooks.io/tkinter/content/
+
+新・お気楽 Python/Tkinter 入門
+https://www.nct9.ne.jp/m_hiroi/light/pytk01.html
+
+Tkinterでタスクトレイに常駐させる
+https://blog2.k05.biz/2021/09/python-pystray.html
+
+デジタル時計の常駐アプリ化
+
+
+
+
+
+Python は クロスプラットフォームのプログラミング言語である。
+
+Python 3は 2008年に公開されたPython の最新版である。
+
+[wikipedia: Python](https://ja.wikipedia.org/wiki/Python)
+
+MACに python3 をインストールするには homebrewを使用する。
+
+[homebrew: Python@3.9](https://formulae.brew.sh/formula/python@3.9)
+
+[Homebrewでpython3系の最新をインストールする方法](https://qiita.com/toranoko92114/items/08b287e54bdc36943375)
+
+[homebrewでpython3をインストールする](https://zenn.dev/kametani256/articles/a658ce1f1c64f2)
+
+
+Tkinterは PythonからGUIを構築・操作するための標準ライブラリである。
+
+[wikipedia: Tkinter](https://ja.wikipedia.org/wiki/Tkinter)
+
+しかし、homebrewでインストールされた python3 では実行できない。
+下記のようなエラーになる。
+
+```
+ % python3 -m tkinter 
+
+ your Python may not be configured for Tk
+ModuleNotFoundError: No module named '_tkinter'
+```
+
+MACにTkinterをインストールするには homebrewを使用する。
+
+[homebrew: python-tk@3.12](https://formulae.brew.sh/formula/python-tk@3.12)
+
+[Homebrew経由でインストールしたPythonでtkinterライブラリが使えなかったときの解決方法](https://wp.tekapo.com/2021/07/17/when-no-module-named-_tkinter/)
+
+[Mac で brew upgrade したら tkinter が見つからなくなったが、解決した話](https://blog.peddals.com/install_tkinter_by_brew/#google_vignette)
+
+
+python-tkをインストールする。
+
+>  % brew install python-tk@3.12
+
+インストールされたライブライを確認する。
+
+```
+% brew list
+
+python-tk@3.11
+python@3.11
+tcl-tk
+```
+
+pythonコマンドで python3.11を実行するように別名をつける。
+
+> % echo 'alias python=python3.11' >> ~/.zshrc
+
+
+pythonコマンドのバージョンを確認する。
+
+
+```
+% python -V
+Python 3.11.1
+```
+
+tcl-tk のバージョン確認する。
+
+```
+% tclsh
+% info patchlevel
+8.68.6.13
+```
+
+Tkinterの動作を確認する。
+
+> % python -m tkinter
+
+
+ Tkウィンドが表示される。
+
+![tkinter](tkinter.png)
+
+
+
+
+
+

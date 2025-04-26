@@ -1,0 +1,133 @@
+ python-tk.txt 
+
+
+
+PythonのTkinterによるアナログ時計です。
+https://github.com/massongit/Analog-Clock
+
+
+
+Tkinterでタスクトレイに常駐させる
+https://blog2.k05.biz/2021/09/python-pystray.html
+
+% pip install pystray
+
+
+
+pystray 0.19.5
+pip install pystray
+
+Provides systray integration
+
+psgtray 5.0.0
+pip install psgtray 
+
+A System Tray Icon that works with the PySimpleGUI tkinter port. Uses pystray to supply the system tray. Works well under Windows.
+
+
+
+
+
+Tkinterを用いたウィンドウへの図形や画像の描画
+https://chantastu.hatenablog.com/entry/2022/09/20/121257
+
+
+
+tk_python tk_image_show.py ../images/baboon.tiff
+
+
+-  marbles.bmp
+
+- baboon.tiff
+
+
+
+Tkinterのcanvasを使ってみる
+
+https://qiita.com/nnahito/items/2ab3ad0f3adacc3314e6
+
+
+
+
+ボードゲーム用 GUI を作ろう
+https://www.shido.info/py/tkinter9.html
+
+
+Eight Queens
+
+
+
+Tkinterで使われるcanvasとは?canvasの作成方法を徹底解説
+https://kuroro.blog/python/V63iINoXI8iwMeRMEJPK/
+
+
+
+
+Python で画像ファイルの読み込み・表示・保存する方法を解説！【Pillow 編
+https://www.kikagaku.co.jp/kikagaku-blog/pillow/#i-3
+
+
+
+
+
+
+
+
+
+
+
+
+Python標準のGUIツールキット「Tkinter」の準備
+
+https://qiita.com/Grangclark/items/5a4d9ca3ad674fbb3b2f
+
+
+python-tk@3.12
+
+https://formulae.brew.sh/formula/python-tk@3.12
+
+
+
+Install command:
+brew install python-tk@3.12
+
+Warning: python-tk@3.11 3.11.1 is already installed
+
+
+ % ls -1 /usr/local/bin/ | grep python
+
+python3 -> ../Cellar/python@3.10/3.10.9/bin/python3
+
+python3.11 -> ../Cellar/python@3.11/3.11.1/bin/python3.11
+
+
+ % python3  -V
+Python 3.10.9
+
+% python3.11  -V
+Python 3.11.1
+
+
+$ python3 -m tkinter
+
+ your Python may not be configured for Tk
+
+
+$ python3.11 -m tkinter
+
+This is T cl/Tk version 8.6
+
+
+
+
+
+
+Python標準のGUIツールキット「Tkinter」の準備
+
+https://qiita.com/Grangclark/items/5a4d9ca3ad674fbb3b2f
+
+$ pip3 install pytk
+
+$ python3 -m tkinter
+
+

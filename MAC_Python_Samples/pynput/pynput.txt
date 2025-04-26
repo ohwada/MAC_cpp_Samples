@@ -1,0 +1,39 @@
+ pynput.txt
+
+
+PandasGUIで探査的データ分析をしてみよう
+https://scrapbox.io/PythonOsaka/PandasGUI%E3%81%A7%E6%8E%A2%E6%9F%BB%E7%9A%84%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%82%92%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86
+
+] macOSでiTermなど標準のターミナル以外を利用しているときは、次のメッセージが表示されることがあります。
+>  `This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.` は macOS 固有のものですが、これは無視することができますが、気になる場合は、[# System Preference] ー＞[# Security & Privacy] ー＞ [# Privacy] で、[# Accessibility] から該当アプリケーション（次のスクリーンショットの場合は　iTerm.app) にチェックをいれてください。
+
+
+'This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.'
+https://stackoverflow.com/questions/76484854/this-process-is-not-trusted-input-event-monitoring-will-not-be-possible-until%20#%20This%20process%20is%20not%20trusted!%20Input%20event%20monitoring%20will%20not%20be%20possible%20until%20it%20is%20added%20to%20accessibility%20clients.
+
+
+If you run your Python code from the terminal, you might include the terminal as one of your accessibility services.
+
+I'm on macOS Sonoma 14.5, so keep in mind that the following steps may vary depending on the version you're using:
+
+Go to System Settings
+Privacy and Security --> Accessibility
+Add your terminal application. You can try adding PyCharm here as well
+
+
+[# Security & Privacy] 　から 該当アプリケーションの（次のスクリーンショットの場合は　iTerm.app) にチェックをいれてください。
+
+
+
+
+macOSでは 次のメッセージが表示されることがあります。
+>  `This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+
+これは無視することができます。
+
+気になる場合は [# Security & Privacy] にて
+該当アプリケーションに実行権限を許可してください。
+
+
+
+

@@ -1,0 +1,36 @@
+tcl-tk.txt
+
+
+% tclsh
+% info patchlevel
+8.68.6.13
+
+
+%  python3 -m tckinter
+/usr/local/opt/python@3.10/bin/python3.10: No module named tckinter
+
+
+
+% brew search python  
+==> Formulae
+app-engine-python          python-lsp-server          python@3.7
+boost-python3              python-markdown            python@3.8 ✔
+bpython                    python-tabulate            python@3.9 ✔
+gst-python                 python-tk@3.10             reorder-python-imports
+ipython                    python-tk@3.11 ✔           wxpython
+micropython                python-tk@3.9              pythran
+ptpython                   python-typing-extensions   jython
+python-build               python-yq                  cython
+python-gdbm@3.11           python@3.10 ✔
+python-launcher            python@3.11 
+
+
+
+% echo 'alias python3=python3.11' >> ~/.zshrc
+
+
+% python3 -V
+
+Python 3.11.1
+
+ % python3 -m tkinter

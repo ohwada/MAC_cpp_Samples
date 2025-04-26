@@ -1,0 +1,81 @@
+mutagen.txt
+
+
+Mutagen
+https://pypi.org/project/mutagen/
+
+pip3 install mutagen
+Successfully installed mutagen-1.47.0
+
+
+python3 mutagen_mp3_info.py ../sounds/J.S.Bach-Menuet-Piano.mp3
+
+
+
+Pythonでmp3などのID3タグを編集するmutagenの使い方
+ https://note.nkmk.me/python-mutagen-mp3-id3/
+
+
+python-vlcで音楽再生をプログラム制御'
+https://monomonotech.jp/kurage/raspberrypi/python_vlc.html
+
+
+PythonでMP3音源を再生する ( Mutagen )
+https://qiita.com/kekeho/items/a0b93695d8a8ac6f1028
+
+
+Pythonで定周期で実行する方法と検証
+https://qiita.com/montblanc18/items/05715730d99d450fd0d3
+
+
+	python3 qt_image_show.py ../images/marbles.bmp
+
+baboon.tiff
+
+marbles.bmp
+
+
+% python3 -V
+Python 3.10.9
+
+% ls -1 /usr/local/Cellar/python@3.10/3.10.9
+Frameworks
+IDLE 3.app
+INSTALL_RECEIPT.json
+LICENSE
+Python Launcher 3.app
+README.rst
+bin
+lib
+libexec
+share
+
+
+
+
+% tclsh
+% info patchlevel
+8.68.6.13
+
+
+
+%  python3 -m tckinter
+/usr/local/opt/python@3.10/bin/python3.10: No module named tckinter
+
+% pyenv --version
+pyenv 2.3.12
+
+
+
+cat  /usr/local/Cellar/pyenv/2.3.12/plugins/python-build/bin/python-build
+
+
+
+
+
+% brew uninstall python3.10
+% pyenv install 3.10.9
+
+
+
+

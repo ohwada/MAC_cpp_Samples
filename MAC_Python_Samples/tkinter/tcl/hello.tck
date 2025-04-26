@@ -1,0 +1,24 @@
+# Tck: display Tk window
+# wish hello.tck
+# 2025-04-10  K.OHWADA
+
+# https://news.mynavi.jp/techplus/article/programinglanguageoftheworld-51/
+
+# window title
+wm title . "Tk"
+
+# window size
+wm geometry . 100x50
+
+# create label
+label .l -text "Hello!"
+
+# display label
+pack .l
+
+
+
+
+
+
+
