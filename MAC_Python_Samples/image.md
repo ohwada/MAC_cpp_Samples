@@ -7,10 +7,13 @@ show image file
 
 ### suport jpeg
 
-- pillow
+- pillow  
+ https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/pillow/
 
-- pyqt
+- pyqt  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/ pyqt/
 
 ###  png
 
-- tkinter
+- tkinter  
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/tkinter/
