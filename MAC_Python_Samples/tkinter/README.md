@@ -11,18 +11,17 @@ Python interface to Tcl/Tk
 
 ## samples
 
-- tk_hello.py    
-![tk_hello](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_hello.png)  
+- tk_hello.py  
+[tk_hello](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_hello.png)  
 
 - tk_clock.py  
+[tk_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_clock.png)
 
-- tk_image_show_1.py 
-
+- tk_image_show_1.py   
 fixed Window size
 
-- tk_image_show_2.py  
-
-adjust Window size to fit Image size
+- tk_image_show_2.py    
+adjust Window size to fit Image size  
 
 ## tcl
 
