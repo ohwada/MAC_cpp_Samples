@@ -11,7 +11,7 @@ show image file
  https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/pillow/
 
 - pyqt  
-https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/ pyqt/
+https://github.com/ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/pyqt/
 
 ###  png
 
