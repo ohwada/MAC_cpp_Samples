@@ -13,3 +13,4 @@ System-specific parameters and functions
 
 - sys_stdout.py  
 
+- sys_judge_platform.py  
