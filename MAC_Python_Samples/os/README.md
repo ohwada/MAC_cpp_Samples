@@ -13,7 +13,13 @@ Miscellaneous Operating System Interfaces
 
 - os_parse_fpath.py  
 
+- os_get_usr_dir.py
 
+- os_get_environ.py
+
+- os_make_dir_files.py
+
+- os_walk.py
 
 
 
