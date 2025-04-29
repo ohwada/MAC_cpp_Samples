@@ -1,7 +1,11 @@
 # Python: show image file with Tk window
 # suport png Not suport jpeg
-# Not resize image
-# adjust Window size to fit Image size
+# show image in original size. 
+# If image size is larger than the window, 
+# adjust The window size to fit the image size
+# Image size is limited to  the screen size
+# If image size is larger than the screen , 
+# show only a portion of image
 # 2025-04-10  K.OHWADA
 
 # https://qiita.com/nnahito/items/2ab3ad0f3adacc3314e6
