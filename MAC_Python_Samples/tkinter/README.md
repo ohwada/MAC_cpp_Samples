@@ -48,7 +48,7 @@ If image size is larger than the screen ,
 
 Image size is limited to  the screen size
 
-[665x1000 Image in 1440x900 Screen](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
+[665x1000 Image in 1440x900 Screen](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_tiger.png)
 
 
 
