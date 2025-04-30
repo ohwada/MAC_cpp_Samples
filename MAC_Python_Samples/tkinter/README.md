@@ -21,29 +21,36 @@ Python interface to Tcl/Tk
 
 show image in original size
 
-If Image saize is smaller than the window,
+If Image size is smaller than the window,
 
 show image in original size  within the window
+
+[256x256 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_sample.png)  
 
 If image size is larger than the window, 
 
 show only a portion of image
+
+[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
+
+[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/tiger_665x1000.png)
 
 - tk_image_show_adjust.py  
 
 show image in original size. 
 
-If image size is larger than the window, 
-
-adjust The window size to fit the image size
-
 adjust Window size to fit Image size
 
-Image size is limited to  the screen size
+
+[256x256 Image in  256x256 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/M](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_sample.png)
 
 If image size is larger than the screen , 
 
-show only a portion of image
+Image size is limited to  the screen size
+
+[665x1000 Image in 1440x900 Screen](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
+
+
 
 ## tcl
 
