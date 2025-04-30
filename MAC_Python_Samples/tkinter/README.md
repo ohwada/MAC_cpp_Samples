@@ -42,7 +42,7 @@ show image in original size.
 adjust Window size to fit Image size
 
 
-[256x256 Image in  256x256 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/M](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_sample.png)
+[256x256 Image in  256x256 Window](https://git](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_sample.png)
 
 If image size is larger than the screen , 
 
