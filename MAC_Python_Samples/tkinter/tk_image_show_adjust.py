@@ -14,16 +14,15 @@ import tkinter as tk
 import sys
 import os
 
+# Window
+PX= 50
+PY= 50
+
+FORMAT = "%dx%d+%d+%d"
+
 # Canvas
-PX=0
-PY=0
-
-# image
-IX=0
-IY=0
-
-# window
-FORMAT = "%dx%d"
+CX=0
+CY=0
 
 
 # main
@@ -52,13 +51,13 @@ iw = img.width()
 ih = img.height()
 
 # adjust Window size to fit Image size
-win_size = FORMAT % (iw , ih)
-win.geometry(win_size)
+win_geometry = FORMAT % (iw , ih, PX, PY)
+win.geometry(win_geometry)
 
 # adjust Canvas size to fit Image size
 canvas = tk.Canvas(win, width =iw, height =ih)
 
-canvas.place(x=PX, y=PY)
+canvas.place(x=CX, y=CY)
 
 px=iw/2
 py=ih/2

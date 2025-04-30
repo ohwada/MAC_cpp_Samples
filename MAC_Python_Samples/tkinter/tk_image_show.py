@@ -13,14 +13,17 @@ import tkinter as tk
 import sys
 import os
 
-# Canvas
-PX=0
-PY=0
-WIDTH = 300
-HEIGHT = 300
+# Window
+PX= 50
+PY= 50
+WIDTH = 400
+HEIGHT = 400
 
-# window
-FORMAT = "%dx%d"
+FORMAT = "%dx%d+%d+%d"
+
+# Canvas
+CX=0
+CY=0
 
 
 # main
@@ -35,28 +38,26 @@ if argc < 2:
 
 fpath = args[1]
 
-
-
 # Window
 win = tk.Tk()
 
 fname = os.path.basename(fpath)
 win.title(fname)
 
-win_size = FORMAT % (WIDTH , HEIGHT)
-win.geometry(win_size)
+win_geometry = FORMAT % (WIDTH , HEIGHT, PX, PY)
+win.geometry(win_geometry)
 
 # Canvas
 canvas = tk.Canvas(win, width=WIDTH,  height =HEIGHT)
-canvas.place(x=PX, y=PY)
+canvas.place(x=CX, y=CY)
 
 # image
 img = tk.PhotoImage(file =fpath)
-iw = img.width()
-ih = img.height()
 
-px=iw/2
-py=ih/2
+# draw in center
+px= WIDTH/2
+py= HEIGHT/2
+
 canvas.create_image(px, py, image = img)
 
 win.mainloop()
