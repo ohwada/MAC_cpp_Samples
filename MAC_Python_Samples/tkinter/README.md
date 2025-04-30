@@ -33,7 +33,7 @@ show only a portion of image
 
 [665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
 
-[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/tiger_665x1000.png)
+[665x1000 whole Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/tiger_665x1000.png)
 
 - tk_image_show_adjust.py  
 
