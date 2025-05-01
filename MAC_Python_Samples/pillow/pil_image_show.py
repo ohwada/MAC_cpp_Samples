@@ -1,5 +1,6 @@
-# Python: show image file using Pillow suport jpeg
+# Python: show Image file using Pillow 
 # suport jpeg
+# disply Image in original size on Preview app
 # 2025-04-10  K.OHWADA
 
 # https://www.kikagaku.co.jp/kikagaku-blog/pillow/#i-3

@@ -1,8 +1,9 @@
-# Python: print font files in font_installed_dirs
+# Python: print installed font files in font_installed_dirs
 # 2025-04-10  K.OHWADA
 
 # https://programwiz.org/2021/05/08/python-draw-images-for-font-list/#google_vignette
 
+from PIL import ImageFont, ImageDraw
 import os
 import sys
 
@@ -17,8 +18,8 @@ ENV_KEY_LINUX = "XDG_DATA_DIRS"
 DIR_USR_SHAR = "/usr/share"
 FONTS = "fonts"
  
-MAC_LIB_FONT_DIR = "/Library/Fonts"
 MAC_SYSTEM_FONT_DIR = "/System/Library/Fonts"
+MAC_LIB_FONT_DIR = "/Library/Fonts"
 MAC_USR_FONT_DIR = "~/Library/Fonts"
 
 TTF = "ttf"
@@ -47,8 +48,8 @@ def get_win_font_dirs():
 # end
 
 def get_mac_font_dirs():
-    return [ MAC_LIB_FONT_DIR, 
-    MAC_SYSTEM_FONT_DIR, 
+    return [   MAC_SYSTEM_FONT_DIR,
+    MAC_LIB_FONT_DIR, 
     os.path.expanduser(MAC_USR_FONT_DIR)]
 # end
 
@@ -62,6 +63,18 @@ def get_font_installed_dirs():
         return  get_mac_font_dirs()
 # end
 
+
+def get_family_name(fpath):
+    try:
+        font = ImageFont.truetype(fpath)
+        familyName, fontName = font.getname()
+        return familyName
+    except OSError:
+        print('OSError')
+        return 'invalid'
+# end
+
+
 # main
 dirs = get_font_installed_dirs()
 print(dirs)
@@ -74,7 +87,8 @@ for d in dirs:
         fpath = os.path.join(d, f)
         ext= os.path.splitext(os.path.basename(fpath) )[1][1:]
         if  os.path.isfile(fpath) and ( (ext == TTF) or (ext == TTC) ):
-            print(f)
+            familyName = get_family_name(fpath)
+            print(f, ': ',  familyName)
 # end
 
 
