@@ -1,4 +1,4 @@
-# Python: show image file using matplotlib and pillow
+# Python: show image using matplotlib and pillow
 # 2025-04-10  K.OHWADA
 
 # https://qiita.com/soiSource/items/e859d57f07847063de4d
@@ -9,13 +9,23 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
+WIDTH = 400
+
+HEIGHT = 400
+
+DPI = 100
+
+AXIS = "off"
 
 def show_image(fpath):
-	img = np.array(Image.open(fpath))
+	img = Image.open(fpath)
+	img_np = np.array(img)
 	fname = os.path.basename(fpath)
-	plt.figure(num=fname)
-	plt.axis("off")
-	plt.imshow(img)
+	w = WIDTH/DPI
+	h =  HEIGHT/DPI
+	plt.figure(num=fname, figsize=(w, h))
+	plt.axis(AXIS )
+	plt.imshow(img_np)
 	plt.show()
 # end
 

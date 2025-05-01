@@ -9,16 +9,21 @@ import numpy as np
 
 WIN_TITLE = "matplotlib"
 
-PLT_TITLE = "Sin Wave")
+PLT_TITLE = "Sin Wave"
+
+FNAME = "mat_sin_wave.png"
 
 NUM = 500
 
-x = np.linspace(0,  2*np.pi, NUM)
-
-fig=plt.figure(WIN_TITLE)
+# main
+fig = plt.figure(WIN_TITLE)
 
 plt.title(PLT_TITLE)
 
+x = np.linspace(0,  2*np.pi, NUM)
+
 plt.plot(x, np.sin(x))
+
+plt.savefig(FNAME)
 
 plt.show()
