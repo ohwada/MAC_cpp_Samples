@@ -23,7 +23,9 @@ Preview App For Mac
 
 ## samples
 
- pil_font_family.py
+- pil_font_family.py
+
+- pil_image_info.py
 
 - pil_image_show.py  
 
