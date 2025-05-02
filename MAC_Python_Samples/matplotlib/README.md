@@ -21,6 +21,8 @@ use Pillow
 
 ## samples
 
+-  mat_info_show.py 
+
 -  mat_sin_wave.py  
  
  [sin wave](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_sin_wave.png)
@@ -33,15 +35,17 @@ use Pillow
 
 load Image file with Pillow 
 
-and display Image with Matplotlib
-
-Regardless of Image size, 
-
-Image will be resized to fit the Matplotlib Window.
+and display Image with Matplotlib default size Window (640x480)
 
  [256x256 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
 
  [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
+
+ mat_pil_image_show_resize.py  
+
+If Image size is larger than the Window size,  resize Image
+
+ [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_tiger.png)
 
 - mat_pil_image_show_actual.py  
 
@@ -51,9 +55,5 @@ display Image in actual size
 
  [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_tiger.png)
 
-- mat_pil_image_show_resize.py  
-
-If Image size is larger than the specified size,  resize Image
-
- [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_tiger.png)
+-
 

@@ -9,12 +9,9 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-WIDTH = 400
-
-HEIGHT = 400
-
-# DPI = float(80)
-DPI = float(80)
+# default figsize
+WIDTH = 640
+HEIGHT = 480
 
 AXIS = "off"
 
@@ -39,12 +36,7 @@ def get_image_resize(fpath):
 def display_image_resize(fpath):
 	fname = os.path.basename(fpath)
 	img =  get_image_resize(fpath)
-	iw, ih = img.size
-    # What size does the figure need to be in inches to fit the image?
-	figsize = (iw / DPI, ih / DPI)
-	fig = plt.figure(num=fname,  figsize=figsize)
-	#ax = fig.add_axes([0, 0, 1, 1])
-	#ax.axis(AXIS)
+	fig = plt.figure(num=fname)
 	plt.axis(AXIS)
 	img_np = np.array(img)
 	#ax.imshow(img_np)

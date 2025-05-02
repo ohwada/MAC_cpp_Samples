@@ -10,7 +10,7 @@ import sys
 import os
 
 
-DPI = float(80)
+DPI = 80.0
 
 AXIS = "off"
 

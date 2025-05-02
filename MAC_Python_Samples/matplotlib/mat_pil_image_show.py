@@ -9,21 +9,13 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-WIDTH = 400
-
-HEIGHT = 400
-
-DPI = 100
-
 AXIS = "off"
 
-def show_image(fpath):
+def show_image_in_default(fpath):
 	img = Image.open(fpath)
 	img_np = np.array(img)
 	fname = os.path.basename(fpath)
-	w = WIDTH/DPI
-	h =  HEIGHT/DPI
-	plt.figure(num=fname, figsize=(w, h))
+	plt.figure(num=fname)
 	plt.axis(AXIS )
 	plt.imshow(img_np)
 	plt.show()
@@ -40,5 +32,5 @@ if argc < 2:
 # end
 
 fpath = args[1]
-show_image(fpath)
+show_image_in_default(fpath)
 
