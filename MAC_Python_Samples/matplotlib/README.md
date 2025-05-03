@@ -37,17 +37,17 @@ load Image file with Pillow
 
 and display Image with Matplotlib default size Window (640x480)
 
- [256x256 Image in 640x320 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
+ [256x256 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
 
- [665x1000 Image in 640x320 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
+ [665x1000 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
 
  - mat_pil_image_show_qvga.py
 
 display Image with Matplotlib QGVA size Window (320x240)
 
- [256x256 Image in QGVA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_sample.png)
+ [256x256 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_sample.png)
 
- [665x1000 Image in QGVA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_tiger.png)
+ [665x1000 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_tiger.png)
 
  - mat_pil_image_show_resize_vga.py  
 
