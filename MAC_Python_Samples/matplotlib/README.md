@@ -37,23 +37,37 @@ load Image file with Pillow
 
 and display Image with Matplotlib default size Window (640x480)
 
- [256x256 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
+ [256x256 Image in 640x320 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
 
- [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
+ [665x1000 Image in 640x320 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
 
- mat_pil_image_show_resize.py  
+ - mat_pil_image_show_qvga.py
 
-If Image size is larger than the Window size,  resize Image
+display Image with Matplotlib QGVA size Window (320x240)
 
- [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_tiger.png)
+ [256x256 Image in QGVA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_sample.png)
+
+ [665x1000 Image in QGVA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_tiger.png)
+
+ - mat_pil_image_show_resize_vga.py  
+
+If Image size is larger than VGA  (640x480),  resize Image
+
+ [665x1000 Image resize VGA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_vga_tiger.png)
+
+ - mat_pil_image_show_resize_qvga.py  
+
+If Image size is larger than QVGA  (320x240),  resize Image
+
+ [665x1000 Image resize QVGA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_qvga_tiger.png)
 
 - mat_pil_image_show_actual.py  
 
 display Image in actual size
 
- [256x256 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_sample.png)
+ [256x256 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_sample.png)
 
- [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_tiger.png)
+ [665x1000 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_tiger.png)
 
 -
 
