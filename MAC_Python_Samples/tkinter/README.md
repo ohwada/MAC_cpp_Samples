@@ -12,10 +12,13 @@ Python interface to Tcl/Tk
 ## samples
 
 - tk_hello.py  
- [tk_hello](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_hello.png)  
+ [hello](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_hello.png)  
 
 - tk_clock.py  
-[tk_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_clock.png)  
+[clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_clock.png)  
+
+- tk_analog_clock.py  
+[analog_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_analog_clock.png) 
 
 - tk_image_show.py 
 
@@ -41,15 +44,13 @@ show image in original size.
 
 adjust Window size to fit Image size
 
-
-[256x256 Image in  256x256 Window](https://git](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_sample.png)
+[256x256 Image in  256x256 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/M](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_sample.png)
 
 If image size is larger than the screen , 
 
 Image size is limited to  the screen size
 
-[665x1000 Image in 1440x900 Screen](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_adjust_tiger.png)
-
+[665x1000 Image in 1440x900 Screen](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
 
 
 ## tcl
