@@ -1,4 +1,4 @@
-# Python: show image file with Tk window
+# Python: show image file with Canvas in Tk window
 # suport png Not suport jpeg
 # show image in original size
 # If Image saize is smaller than the window,
@@ -7,7 +7,7 @@
 # show only a portion of image
 # 2025-04-10  K.OHWADA
 
-# https://qiita.com/nnahito/items/2ab3ad0f3adacc3314e6
+# https://kuroro.blog/python/Z7k1LSyDyiDHtD5UCjmG/
 
 import tkinter as tk
 import sys

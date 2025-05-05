@@ -28,23 +28,27 @@ use Pillow
 - tk_analog_clock.py  
 [analog_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_analog_clock.png) 
 
-- tk_image_show.py 
+- tk_image_show_canvas.py 
 
-show image in original size
+show image in original size in Canvas
 
 If Image size is smaller than the window,
 
 show image in original size  within the window
 
-[256x256 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_sample.png)  
+[256x256 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_canvas_sample.png)  
 
 If image size is larger than the window, 
 
 show only a portion of image
 
-[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_tiger.png)
+[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_canvas_tiger.png)
 
 [665x1000 whole Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/tiger_665x1000.png)
+
+- tk_image_show_label.py 
+
+show image in original size in Label
 
 - tk_image_show_adjust.py  
 
