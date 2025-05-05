@@ -11,15 +11,16 @@ Python Imaging Library (Fork)
 
 ## Features
 
-- Pillow has No Image Viewer    
+- load Image file,  suport jpeg  
 
-using Image Viewer enbded in platform
+ - resize Image
+
+-  No Feature to show Image    
+
+use Image Viewer enbded in platform
 
 Preview App For Mac
 
-- suport jpeg  
-
- - resize image
 
 ## samples
 

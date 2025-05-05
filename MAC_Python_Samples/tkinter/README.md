@@ -9,6 +9,14 @@ Python interface to Tcl/Tk
 
 > % brew install python-tk@3.12
 
+## Features
+
+- load Image file,  Not suport jpeg  
+
+ - No Feature to resize Image
+
+use Pillow
+
 ## samples
 
 - tk_hello.py  

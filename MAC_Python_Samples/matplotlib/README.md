@@ -15,7 +15,7 @@
 
 - draw Figures
 
--  No Feature to load Image files
+-  No Feature to load Image file
 
 use Pillow  
 
