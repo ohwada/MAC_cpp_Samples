@@ -50,6 +50,12 @@ show only a portion of image
 
 show image in original size in Label
 
+[256x256 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/
+master/MAC_Python_Samples/screenshots/tk_image_show_label_sample.png) 
+
+[665x1000 Image in 400x400 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/tk_image_show_label_tiger.png)
+
+
 - tk_image_show_adjust.py  
 
 show image in original size. 
