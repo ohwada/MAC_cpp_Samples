@@ -1,9 +1,13 @@
  matplotlib
 ===============
 
-[pypi:  matplotlib](https://pypi.org/project/matplotlib/) 
+[wikipedia: Matplotlib](https://en.wikipedia.org/wiki/Matplotlib)  
 
-  Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.
+Matplotlib  is a plotting library for the Python  
+
+[pypi:  matplotlib](https://pypi.org/project/matplotlib/)  
+
+  Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.  
 
 ## Installation
 
@@ -19,17 +23,22 @@
 
 use Pillow  
 
+## tutorials 
+
+Matplotlib Tutorials
+
 ## samples
 
 -  mat_info_show.py 
 
+- mat_figure.py  
+ [figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
+
 -  mat_sin_wave.py  
- 
  [sin wave](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_sin_wave.png)
 
-- mat_figure.py  
-
- [figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
+-  mat_analog_clock.py  
+ [analog_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_analog_clock.png)
 
 - mat_pil_image_show.py  
 
