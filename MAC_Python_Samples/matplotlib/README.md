@@ -38,7 +38,10 @@ Matplotlib Tutorials
  [sin wave](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_sin_wave.png)
 
 -  mat_analog_clock.py  
- [analog_clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_analog_clock.png)
+ [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_analog_clock.png)
+
+-  mat_realtime_plot.py  
+ [realtime plot](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_realtime_plot.png)
 
 - mat_pil_image_show.py  
 
