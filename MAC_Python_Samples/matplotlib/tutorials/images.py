@@ -1,3 +1,5 @@
+# https://matplotlib.org/stable/tutorials/index.html
+# modify: 2025-04-10  K.OHWADA
 """
 .. redirect-from:: /tutorials/introductory/images
 

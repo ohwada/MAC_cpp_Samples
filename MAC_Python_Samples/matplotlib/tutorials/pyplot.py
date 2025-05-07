@@ -1,3 +1,4 @@
+# https://matplotlib.org/stable/tutorials/index.html
 """
 .. redirect-from:: /tutorials/introductory/pyplot
 
