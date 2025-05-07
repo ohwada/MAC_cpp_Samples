@@ -75,5 +75,15 @@ Image size is limited to  the screen size
 
 tcl samples
 
+## Document in Japanese
 
+- [tk install](https://ken-ohwada.hatenadiary.org/entry/2025/04/18/174701)  
+
+- [tk hello](https://ken-ohwada.hatenadiary.org/entry/2025/04/20/084255)  
+
+- [tk clock](https://ken-ohwada.hatenadiary.org/entry/2025/05/03/221157)  
+
+- [tk analog clock](https://ken-ohwada.hatenadiary.org/entry/2025/05/05/131513)  
+
+- [tk image show](https://ken-ohwada.hatenadiary.org/entry/2025/05/07/135443)  
 
