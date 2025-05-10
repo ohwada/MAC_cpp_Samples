@@ -67,8 +67,8 @@ see  [misc: print_font_list](https://github.com//ohwada/MAC_cpp_Samples/tree/mas
 
 - pil_font_jp.py  
   
- [text with font AppleSDGothicNeo](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_AppleSDGothicNeo.png)  
+ [text with font AppleSDGothicNeo](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_font_jp_AppleSDGothicNeo.png)  
 
- [text with fiont Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_Times.png)  
+ [text with font Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_font_jp_Times.png)  
 
 
