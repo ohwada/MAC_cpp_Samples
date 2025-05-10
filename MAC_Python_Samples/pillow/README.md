@@ -1,9 +1,13 @@
 pillow
 ===============
 
+[wikipedia: Python Imaging Library](https://en.wikipedia.org/wiki/Python_Imaging_Library)
+
+PIL (Python Imaging Library) is a free and open-source additional library for the Python programming language
+
 [pypi: pillow](https://pypi.org/project/pillow/)
 
-Python Imaging Library (Fork)
+Pillow is Fork of PIL ( Python Imaging Library) 
 
  ## Installation
 
@@ -21,6 +25,9 @@ use Image Viewer enbded in platform
 
 Preview App For Mac
 
+## tutorials
+
+Pllow Tutorials
 
 ## samples
 
@@ -58,8 +65,5 @@ see  [misc: print_font_list](https://github.com//ohwada/MAC_cpp_Samples/tree/mas
  [pil_font_jp_AppleSDGothicNeo](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_AppleSDGothicNeo.png)
 
  [pil_fiont_jp_Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_Times.png)
-
-
-
 
 
