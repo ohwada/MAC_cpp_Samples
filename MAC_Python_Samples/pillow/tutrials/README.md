@@ -37,8 +37,7 @@ The ftutorials in this directory referenced below
 
 - image_color.py
 
- [swap Red Blue](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/-Air tutrials % python3 image_color.py sample.png
-pil_tutorial_image_color_swap_red_blue_sample.png)
+ [swap Red Blue](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_color_swap_red_blue_sample.png)
 
  [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
 
