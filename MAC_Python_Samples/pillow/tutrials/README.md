@@ -43,13 +43,13 @@ The ftutorials in this directory referenced below
 
 - image_rotate.py
 
- [rotate 90](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_rotate_person_90.png)
+ [rotate 90](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_rotate_90_person.png)
 
 - image_transpose.py  
 
    [flip_left_right](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_transpose_flip_left_right_sample.png)
 
- [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
+ [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/uparrow_250x250.png)
 
 - image_ops.py  
 
