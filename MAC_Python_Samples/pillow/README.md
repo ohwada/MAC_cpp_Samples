@@ -1,98 +1,69 @@
-tutorials - pillow 
+pillow
 ===============
 
-The ftutorials in this directory referenced below
+[wikipedia: Python Imaging Library](https://en.wikipedia.org/wiki/Python_Imaging_Library)
 
-[Pllow Tutorial](https://pillow.readthedocs.io/en/stable/handbook/tutorial.html)
+PIL (Python Imaging Library) is a free and open-source additional library for the Python programming language
+
+[pypi: pillow](https://pypi.org/project/pillow/)
+
+Pillow is Fork of PIL ( Python Imaging Library) 
+
+ ## Installation
+
+> % pip3 install pillow
+
+## Features
+
+- load Image file,  suport jpeg  
+
+ - resize Image
+
+-  No Feature to show Image    
+
+use Image Viewer enbded in platform
+
+Preview App For Mac
 
 ## tutorials
 
-- image_show.py  
+Pllow Tutorials
 
- [person (341x512) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_tutorial_image_show_person.png)
+## samples
 
-- image_jpeg.py  
+- pil_font_family.py
 
- [jpeg](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_jpeg_person.jpg)
+- pil_image_info.py
 
-- image_thumbnail.py  
+- pil_image_show.py  
 
- [thumbnail (85x128)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_thumbnail_person.png)
+disply Image in original size on Preview app
 
-- image_crop.py  
+ [256x256 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_sample.png)
 
- [crop (170x250)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_crop_person.png)
+ [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_tiger.png)
 
-- image_paste.py
+- pil_image_show_resize.py  
 
- [pillow_logo on person](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_paste_pillow_logo_on_person.png)
+If Image size is larger than the specified size, resize Image
 
-- image_slide.py  
+ [665x1000 Image in 400x400](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_resize_tiger.png)
 
-  [slide](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_slide_person.png)
+- pil_figure.py  
+ [pil_figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_figure.png)
 
-- image_merge.py  
+- pil_text.py  
+ [pil_text](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_text.png)
 
-  [person, person](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_merge_person_person.png)
+- pil_font.py 
+ [pil_font_Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_font_Times.png)
 
-- image_color.py
+available font
+see  [misc: print_font_list](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/misc)
 
- [swap Red Blue](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/-Air tutrials % python3 image_color.py sample.png
-pil_tutorial_image_color_swap_red_blue_sample.png)
+- pil_font_jp.py  
+ [pil_font_jp_AppleSDGothicNeo](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_AppleSDGothicNeo.png)
 
- [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
-
-- image_rotate.py
-
- [rotate 90](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_rotate_person_90.png)
-
-- image_transpose.py  
-
-   [flip_left_right](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_transpose_flip_left_right_sample.png)
-
- [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
-
-- image_ops.py  
-
-   [contain](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_ops_contain_person.png)
-
-- image_grey.py  
-
- [grey scale](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_grey_person.png)
-
-- image_filter.py  
-
- [filter detail](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_filter_detail_person.png)
-
-- image_point_multiply.py  
-
- [multiply 20](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_point_multiply_20_person.png)
-
-- image_point_mask.py  
-
- [point mask](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_point_mask_person.png)
-
-- image_enhance.py  
-
- [ enhance contrast](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_enhance_contrast_person.png)
-
-- image_anime_gif_create.py  
-
- [anime baboon](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_anime_gif_create_baboon.gif)
-
-image_anime_gif_load_split.py  
-
-image_anime_gif_merge.py
-  
-- image_ps.py  
-
-
- [person](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_ps_person.ps)
-
-
-
-
-
-
+ [pil_fiont_jp_Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_pnot_jp_Times.png)
 
 

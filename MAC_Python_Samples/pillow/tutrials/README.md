@@ -9,7 +9,7 @@ The ftutorials in this directory referenced below
 
 - image_show.py  
 
- [341x512 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_tutorial_image_show_person.png)
+ [person (341x512) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_tutorial_image_show_person.png)
 
 - image_jpeg.py  
 
@@ -17,11 +17,11 @@ The ftutorials in this directory referenced below
 
 - image_thumbnail.py  
 
- [thumbnail](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_thumbnail_person.png)
+ [thumbnail (85x128)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_thumbnail_person.png)
 
 - image_crop.py  
 
- [crop](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_crop_person.png)
+ [crop (170x250)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_crop_person.png)
 
 - image_paste.py
 
@@ -37,7 +37,10 @@ The ftutorials in this directory referenced below
 
 - image_color.py
 
- [B G R](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_color_bgr_sample.png)
+ [swap Red Blue](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/-Air tutrials % python3 image_color.py sample.png
+pil_tutorial_image_color_swap_red_blue_sample.png)
+
+ [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
 
 - image_rotate.py
 
