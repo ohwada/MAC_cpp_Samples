@@ -63,13 +63,9 @@ The ftutorials in this directory referenced below
 
  [filter detail](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_filter_detail_person.png)
 
-- image_point_multiply.py  
+- image_point.py  
 
- [multiply 20](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_point_multiply_20_person.png)
-
-- image_point_mask.py  
-
- [point mask](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_point_mask_person.png)
+ [multiply 2](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_point_multiply_2_person.png)
 
 - image_enhance.py  
 
