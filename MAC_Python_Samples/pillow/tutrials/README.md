@@ -39,7 +39,7 @@ The ftutorials in this directory referenced below
 
  [swap Red Blue](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_tutorial_image_color_swap_red_blue_sample.png)
 
- [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/	uparrow_250x250.png)
+ [original](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/images/uparrow_250x250.png)
 
 - image_rotate.py
 
