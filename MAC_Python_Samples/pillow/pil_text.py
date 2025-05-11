@@ -1,9 +1,7 @@
 # Python: draw text using Pillow
 # 2025-04-10  K.OHWADA
 
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 #  Image
 MODE = "RGB"

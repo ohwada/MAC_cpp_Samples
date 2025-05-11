@@ -1,4 +1,4 @@
-# Python: set font and draw text using Pillow
+# Python: draw Text Outline using Pillow
 # 2025-04-10  K.OHWADA
 
 from PIL import Image, ImageDraw, ImageFont
@@ -20,7 +20,11 @@ BG_COLOR = (256, 256, 256) # white
 # Text
 TEXT = "Hello,World!"                   
 
-TEXT_COLOR = (0, 0, 0, 255) # black
+TEXT_COLOR = (256, 256, 256) # white
+
+STROKE_WIDTH =2
+
+STROKE_FILL = (0, 0, 0) # black 
 
 
 # main
@@ -37,13 +41,13 @@ textWidth = draw.textlength(TEXT, font=fnt)
 x = (imgWhidth - textWidth) // 2      
 y = (imgHight - FONT_SIZE) // 2       #
 
-draw .text((x, y), TEXT, TEXT_COLOR, font=fnt)
+draw .text((x, y), TEXT, TEXT_COLOR, font=fnt, stroke_width=STROKE_WIDTH, stroke_fill= STROKE_FILL)
 
 img.show()
 
 name = os.path.splitext( os.path.basename(FONT_NAME) )[0]
 
-fname = "pil_font_" + name + ".png"
+fname = "pil_text_stroke_" + name + ".png"
 
 print(fname)
 

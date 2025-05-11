@@ -71,4 +71,11 @@ see  [misc: print_font_list](https://github.com//ohwada/MAC_cpp_Samples/tree/mas
 
  [text with font Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_font_jp_Times.png)  
 
+- pil_text_ttb.py
+
+ [text with font AppleSDGothicNeo](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_text_ttb_AppleSDGothicNeo.png)
+
+- pil_text_stroke.py
+
+ [text stroke with font Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_text_stroke_Times.png)
 
