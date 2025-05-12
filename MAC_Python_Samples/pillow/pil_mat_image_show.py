@@ -22,7 +22,7 @@ def show_image_in_matplotlib_window(fpath):
 	plt.figure(num=basename)
 	plt.axis(AXIS )
 	plt.imshow(img_np)
-	plt.savefig(outfile)
+	# plt.savefig(outfile)
 	plt.show()
 # end
 

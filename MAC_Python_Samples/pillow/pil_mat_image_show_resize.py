@@ -18,7 +18,7 @@ HEIGHT = 300
 AXIS = "off"
 
 # name_width x height.png
-FORMAT = "pil_mat_image_show_resize_{}_{}x{}.png"
+FORMAT = "pil_mat_image_show_resize_{:s}_{:d}x{:d}.png"
 
 def resize_image(fpath):
 	is_resize = False
@@ -47,12 +47,12 @@ def show_resize_image_in_matplotlib_window_save(fpath):
 	plt.figure(num=basename)
 	plt.axis(AXIS )
 	plt.imshow(img_np)
-	plt.savefig(outfile)
+	# plt.savefig(outfile)
 	if is_resize:
 		iw, ih = img.size 
 		fname = FORMAT.format(name, iw, ih)
 		print(fname)
-		img.save(fname)
+		# img.save(fname)
 # end
 	plt.show()
 # end
