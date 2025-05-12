@@ -21,6 +21,8 @@ MAX_TICKS = 60
 TICK_WIDTH = 1
 TICK5_WIDTH = 5
 
+# one letter color
+# https://matplotlib.org/2.0.1/api/colors_api.html#module-matplotlib.colors
 TICK_COLOR =  'k-' # black
 TICK5_COLOR =  'k-' # black
 
@@ -47,6 +49,7 @@ HOUR_HAND_LENGTH = 0.6
 MIN_HAND_WIDTH = 3
 HOUR_HAND_LWIDTH = 4
 
+# one letter color
 SEC_HAND_COLOR  = 'r-' # red
 MIN_HAND_COLOR  = 'b-' # blue
 HOUR_HAND_COLOR  = 'g-'  # grren
