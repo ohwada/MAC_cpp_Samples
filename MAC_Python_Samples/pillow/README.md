@@ -39,8 +39,6 @@ Pllow Tutorials
 
 show Image in original size on Preview app  
 
-pil_mat_image_show_person.png
-
  [[person (341x512)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_person.png)  
 
 - pil_mat_image_show.py  
