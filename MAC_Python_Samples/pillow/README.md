@@ -37,17 +37,33 @@ Pllow Tutorials
 
 - pil_image_show.py  
 
-disply Image in original size on Preview app  
+show Image in original size on Preview app  
 
- [sample (256x256)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_sample.png)  
+pil_mat_image_show_person.png
 
- [tiger (665x1000 )](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_tiger.png)  
+ [[person (341x512)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_person.png)  
+
+- pil_mat_image_show.py  
+
+show Image in original size on Matplotlib Window
+  
+ [person (341x512)](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_mat_image_show_person.png)  
 
 - pil_image_show_resize.py  
 
+show resized Image on Preview app
+
 If Image size is larger than the specified size, resize Image  
 
- [tiger(665x1000) in 400x400](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_resize_tiger.png)
+ [[person (341x512) in 300x300](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pil_image_show_resize_person.png)
+
+- pil_mat_image_show_resize.py  
+
+show resized Image on Matplotlib Window
+
+If Image size is larger than the specified size, resize Image  
+
+ [[person (341x512) in 300x300](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_mat_image_show_person.png)
 
 - pil_figure.py  
   

@@ -1,19 +1,24 @@
-# Python: show resized Image using Pillow 
-# If Image size is larger than the specified size, resize Image
+# Python: show Image in Matplotlib Window using Pillow and Matplotlib
+# default Window size : 640x480
 # 2025-04-10  K.OHWADA
 
-# https://www.kikagaku.co.jp/kikagaku-blog/pillow/#i-3
+# https://qiita.com/soiSource/items/e859d57f07847063de4d
 
 from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
 import sys
 import os
+
 
 # resize
 WIDTH = 300
 HEIGHT = 300
 
+AXIS = "off"
+
 # name_width x height.png
-FORMAT = "pil_image_show_resize_{}_{}x{}.png"
+FORMAT = "pil_mat_image_show_resize_{}_{}x{}.png"
 
 def resize_image(fpath):
 	is_resize = False
@@ -31,19 +36,27 @@ def resize_image(fpath):
 		img = img.resize( (w, h) )
 	# end
 	return [is_resize, img]
-# end
 
-def show_resize_image_save(fpath):
+def show_resize_image_in_matplotlib_window_save(fpath):
+	basename = os.path.basename(fpath)
 	name, ext = os.path.splitext(fpath)
+	outfile = "pil_mat_image_show_resize_" + name + ".png"
+	print(outfile)
 	is_resize, img = resize_image(fpath)
+	img_np = np.array(img)
+	plt.figure(num=basename)
+	plt.axis(AXIS )
+	plt.imshow(img_np)
+	plt.savefig(outfile)
 	if is_resize:
 		iw, ih = img.size 
 		fname = FORMAT.format(name, iw, ih)
 		print(fname)
 		img.save(fname)
 # end
-img.show()
+	plt.show()
 # end
+
 
 # main
 args = sys.argv
@@ -56,4 +69,5 @@ if argc < 2:
 # end
 
 fpath = args[1]
-show_resize_image_save(fpath)
+show_resize_image_in_matplotlib_window_save(fpath)
+
