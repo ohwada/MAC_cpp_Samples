@@ -61,7 +61,7 @@ show resized Image on Matplotlib Window
 
 If Image size is larger than the specified size, resize Image  
 
- [[person (341x512) in 300x300](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_mat_image_show_person.png)
+ [[person (341x512) in 300x300](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_mat_image_show_resize_person.png)
 
 - pil_figure.py  
   
