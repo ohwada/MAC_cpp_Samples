@@ -19,9 +19,11 @@ Matplotlib  is a plotting library for the Python
 
 - draw Figures
 
--  No Feature to load Image file
+-  save Graph
 
-use Pillow  
+-  read Image file
+ 
+-  show Image
 
 ## tutorials 
 
@@ -32,54 +34,60 @@ Matplotlib Tutorials
 -  mat_info_show.py 
 
 - mat_figure.py  
+ 
  [figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
 
--  mat_sin_wave.py  
+-  mat_sin_wave.py  '
+ 
  [sin wave](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_sin_wave.png)
 
 -  mat_analog_clock.py  
+ 
  [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_analog_clock.png)
 
 -  mat_realtime_plot.py  
+ 
  [realtime plot](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_realtime_plot.png)
+
+- mat_image_show.py  
+
+load Image file and show Image with Matplotlib default size Window (640x480)
+
+ [256x256 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_sample.png)
+
+ [665x1000 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_tiger.png)
 
 - mat_pil_image_show.py  
 
 load Image file with Pillow 
 
-and display Image with Matplotlib default size Window (640x480)
+show Image with Matplotlib default size Window (640x480)
 
  [256x256 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
 
  [665x1000 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
 
- - mat_pil_image_show_qvga.py
+ - mat_image_show_qvga.py  
 
 display Image with Matplotlib QGVA size Window (320x240)
 
- [256x256 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_sample.png)
+ [256x256 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_qvga_sample.png)
 
- [665x1000 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_tiger.png)
+ [665x1000 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_qvga_tiger.png)
 
- - mat_pil_image_show_resize_vga.py  
+- mat_image_show_actual.py  
+ 
+show Image in actual size
 
-If Image size is larger than VGA  (640x480),  resize Image
+ [256x256 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_actual_sample.png)  
 
- [665x1000 Image resize VGA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_vga_tiger.png)
+ [665x1000 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_actual_tiger.png)  
 
- - mat_pil_image_show_resize_qvga.py  
+- mat_pil_image_show_resize.py  
+ 
+If Image is large than specipid size (400x400), resize Image
 
-If Image size is larger than QVGA  (320x240),  resize Image
+show resized Image
 
- [665x1000 Image resize QVGA](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_qvga_tiger.png)
-
-- mat_pil_image_show_actual.py  
-
-display Image in actual size
-
- [256x256 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_sample.png)
-
- [665x1000 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_tiger.png)
-
--
+ [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_tiger.png)
 

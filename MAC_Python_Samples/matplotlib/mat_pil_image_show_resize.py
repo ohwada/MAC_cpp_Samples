@@ -4,14 +4,14 @@
 # https://stackoverflow.com/questions/28816046/displaying-different-images-with-actual-size-in-matplotlib-subplot
 
 from PIL import Image
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
 import os
 
-# default figsize
-WIDTH = 640
-HEIGHT = 480
+# resize
+WIDTH = 400
+HEIGHT = 400
 
 AXIS = "off"
 
@@ -33,13 +33,12 @@ def get_image_resize(fpath):
 # end
 
 
-def display_image_resize(fpath):
-	fname = os.path.basename(fpath)
+def show_resized_image(fpath):
+	basename = os.path.basename(fpath)
 	img =  get_image_resize(fpath)
-	fig = plt.figure(num=fname)
-	plt.axis(AXIS)
 	img_np = np.array(img)
-	#ax.imshow(img_np)
+	fig = plt.figure(num=basename)
+	plt.axis(AXIS)
 	plt.imshow(img_np)
 	plt.show()
 # end
@@ -56,6 +55,6 @@ if argc < 2:
 # end
 
 fpath = args[1]
-# show_image(fpath)
-display_image_resize(fpath)
+show_resized_image(fpath)
+
 

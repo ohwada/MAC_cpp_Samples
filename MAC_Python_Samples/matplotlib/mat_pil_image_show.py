@@ -1,25 +1,31 @@
-# Python: show image using matplotlib and pillow
+# Python: show Image using Matplotlib and Pillow
+# default Window size : 640x480
 # 2025-04-10  K.OHWADA
 
 # https://qiita.com/soiSource/items/e859d57f07847063de4d
 
 from PIL import Image
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
 import os
 
 AXIS = "off"
 
-def show_image_in_default(fpath):
+def show_image(fpath):
+	name, ext = os.path.splitext(fpath)
+	outfile = "mat_pil_image_show_" + name + ".png"
+	print(outfile)
+	basename = os.path.basename(fpath)
 	img = Image.open(fpath)
 	img_np = np.array(img)
-	fname = os.path.basename(fpath)
-	plt.figure(num=fname)
+	plt.figure(num=basename)
 	plt.axis(AXIS )
 	plt.imshow(img_np)
+	# plt.savefig(outfile)
 	plt.show()
 # end
+
 
 # main
 args = sys.argv
@@ -32,5 +38,5 @@ if argc < 2:
 # end
 
 fpath = args[1]
-show_image_in_default(fpath)
+show_image(fpath)
 

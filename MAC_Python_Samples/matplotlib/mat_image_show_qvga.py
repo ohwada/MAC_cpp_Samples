@@ -1,10 +1,8 @@
-# Python: show image in _actual size using matplotlib and pillow
+# Python: show Image in QVGA size Window using matplotlib
 # 2025-04-10  K.OHWADA
 
 # https://stackoverflow.com/questions/28816046/displaying-different-images-with-actual-size-in-matplotlib-subplot
 
-from PIL import Image
-import numpy as np
 import matplotlib.pyplot as plt
 import sys
 import os
@@ -18,14 +16,13 @@ DPI = 100.0
 AXIS = "off"
 
 
-def display_image_in_qvga(fpath):
-	fname = os.path.basename(fpath)
-	img = Image.open(fpath)
-	img_np = np.array(img)
-	figsize = ( (WIDTH/ DPI), (HEIGHT / DPI))
-	fig = plt.figure(num=fname, figsize=figsize )
+def show_image_in_qvga(fpath):
+	basename = os.path.basename(fpath)
+	figsize = ( int(WIDTH/ DPI), int(HEIGHT / DPI))
+	plt.figure(num=basename, figsize=figsize )
 	plt.axis(AXIS)
-	plt.imshow(img_np)
+	img = plt.imread(fpath)	
+	plt.imshow(img)
 	plt.show()
 # end
 
@@ -41,5 +38,5 @@ if argc < 2:
 # end
 
 fpath = args[1]
-display_image_in_qvga(fpath)
+show_image_in_qvga(fpath)
 
