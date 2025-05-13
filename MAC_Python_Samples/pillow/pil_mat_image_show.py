@@ -10,7 +10,11 @@ import numpy as np
 import sys
 import os
 
+
+# hide all axis labels
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html
 AXIS = "off"
+
 
 def show_image_in_matplotlib_window(fpath):
 	name, ext = os.path.splitext(fpath)
