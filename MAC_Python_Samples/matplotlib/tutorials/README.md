@@ -9,23 +9,25 @@ The files in this directory were downloaded from
 
 - pyplot.py  
 
- [pyplot](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pyplot.png)
+ [pyplot](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_tutorial_pyplot_2.png)
 
 - images.py  
 
 require Pillow, numpy  
 
- [images](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_images.png)
+ [images](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_tutorial_images_1.png)
+
+- artists.py  
+
+ [artists](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_tutorial_artists_1.png)
 
 - lifecycle.py   
 
 require numpy  
 
- [lifecycle](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_lifecycle.png)
+ [lifecycle](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_tutorial_lifecycle_10.png)
 
-- artists.py  
 
- [artists](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_artists.png)
 
 
 

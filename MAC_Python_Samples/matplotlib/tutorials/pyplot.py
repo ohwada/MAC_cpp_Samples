@@ -1,4 +1,5 @@
 # https://matplotlib.org/stable/tutorials/index.html
+# modify: 2025-04-10  K.OHWADA
 """
 .. redirect-from:: /tutorials/introductory/pyplot
 
@@ -44,8 +45,15 @@ supported user APIs.
 
 import matplotlib.pyplot as plt
 
+FORMAT = "mat_tutorial_pyplot_%d.png"
+
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some numbers')
+
+fname = FORMAT % 1
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -75,6 +83,11 @@ plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
 
 plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
 plt.axis((0, 6, 0, 20))
+
+fname = FORMAT % 2
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -98,6 +111,11 @@ t = np.arange(0., 5., 0.2)
 
 # red dashes, blue squares and green triangles
 plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+
+fname = FORMAT % 3
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -125,6 +143,11 @@ data['d'] = np.abs(data['d']) * 100
 plt.scatter('a', 'b', c='c', s='d', data=data)
 plt.xlabel('entry a')
 plt.ylabel('entry b')
+
+fname = FORMAT % 4
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -149,6 +172,11 @@ plt.scatter(names, values)
 plt.subplot(133)
 plt.plot(names, values)
 plt.suptitle('Categorical Plotting')
+
+fname = FORMAT % 5
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -266,6 +294,11 @@ plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
 
 plt.subplot(212)
 plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+
+fname = FORMAT % 6
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -348,6 +381,11 @@ plt.title('Histogram of IQ')
 plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
 plt.axis([40, 160, 0, 0.03])
 plt.grid(True)
+
+fname = FORMAT % 7
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -403,6 +441,11 @@ plt.annotate('local max', xy=(2, 1), xytext=(3, 1.5),
              )
 
 plt.ylim(-2, 2)
+
+fname = FORMAT % 8
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%
@@ -469,6 +512,10 @@ plt.grid(True)
 # than usual, due to y-tick labels like "1 - 10^{-3}"
 plt.subplots_adjust(top=0.92, bottom=0.08, left=0.10, right=0.95, hspace=0.25,
                     wspace=0.35)
+
+fname = FORMAT % 9
+print(fname)
+plt.savefig(fname)
 
 plt.show()
 

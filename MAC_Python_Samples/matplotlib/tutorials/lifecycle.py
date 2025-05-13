@@ -61,6 +61,8 @@ import matplotlib.pyplot as plt
 # sphinx_gallery_thumbnail_number = 10
 import numpy as np
 
+FORMAT = "mat_tutorial_lifecycle_%d.png"
+
 data = {'Barton LLC': 109438.50,
         'Frami, Hills and Schmidt': 103569.59,
         'Fritsch, Russel and Anderson': 112214.71,
@@ -93,11 +95,19 @@ group_mean = np.mean(group_data)
 
 fig, ax = plt.subplots()
 
+fname = FORMAT % 1
+print(fname)
+plt.savefig(fname)
+
 # %%
 # Now that we have an Axes instance, we can plot on top of it.
 
 fig, ax = plt.subplots()
 ax.barh(group_names, group_data)
+
+fname = FORMAT % 2
+print(fname)
+plt.savefig(fname)
 
 # %%
 # Controlling the style
@@ -120,6 +130,10 @@ plt.style.use('fivethirtyeight')
 fig, ax = plt.subplots()
 ax.barh(group_names, group_data)
 
+fname = FORMAT % 3
+print(fname)
+plt.savefig(fname)
+
 # %%
 # The style controls many things, such as color, linewidths, backgrounds,
 # etc.
@@ -136,6 +150,10 @@ fig, ax = plt.subplots()
 ax.barh(group_names, group_data)
 labels = ax.get_xticklabels()
 
+fname = FORMAT % 4
+print(fname)
+plt.savefig(fname)
+
 # %%
 # If we'd like to set the property of many items at once, it's useful to use
 # the :func:`pyplot.setp` function. This will take a list (or many lists) of
@@ -145,6 +163,10 @@ fig, ax = plt.subplots()
 ax.barh(group_names, group_data)
 labels = ax.get_xticklabels()
 plt.setp(labels, rotation=45, horizontalalignment='right')
+
+fname = FORMAT % 5
+print(fname)
+plt.savefig(fname)
 
 # %%
 # It looks like this cut off some of the labels on the bottom. We can
@@ -161,6 +183,10 @@ ax.barh(group_names, group_data)
 labels = ax.get_xticklabels()
 plt.setp(labels, rotation=45, horizontalalignment='right')
 
+fname = FORMAT % 6
+print(fname)
+plt.savefig(fname)
+
 # %%
 # Next, we add labels to the plot. To do this with the OO interface,
 # we can use the :meth:`.Artist.set` method to set properties of this
@@ -172,6 +198,10 @@ labels = ax.get_xticklabels()
 plt.setp(labels, rotation=45, horizontalalignment='right')
 ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
        title='Company Revenue')
+
+fname = FORMAT % 7
+print(fname)
+plt.savefig(fname)
 
 # %%
 # We can also adjust the size of this plot using the :func:`pyplot.subplots`
@@ -190,6 +220,10 @@ labels = ax.get_xticklabels()
 plt.setp(labels, rotation=45, horizontalalignment='right')
 ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
        title='Company Revenue')
+
+fname = FORMAT % 8
+print(fname)
+plt.savefig(fname)
 
 # %%
 # For labels, we can specify custom formatting guidelines in the form of
@@ -225,6 +259,10 @@ ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
        title='Company Revenue')
 ax.xaxis.set_major_formatter(currency)
 
+fname = FORMAT % 9
+print(fname)
+plt.savefig(fname)
+
 # %%
 # Combining multiple visualizations
 # =================================
@@ -254,6 +292,10 @@ ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
 ax.xaxis.set_major_formatter(currency)
 ax.set_xticks([0, 25e3, 50e3, 75e3, 100e3, 125e3])
 fig.subplots_adjust(right=.1)
+
+fname = FORMAT % 10
+print(fname)
+plt.savefig(fname)
 
 plt.show()
 

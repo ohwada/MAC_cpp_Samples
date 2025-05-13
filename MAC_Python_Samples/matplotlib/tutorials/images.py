@@ -59,7 +59,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 
-FPATH = '../../images/lena.png'
+FORMAT = "mat_tutorial_images_%d.png"
+
+FPATH = "../../images/stinkbug.png"
 
 # %%
 # .. _importing_data:
@@ -113,6 +115,11 @@ print(repr(img))
 # plot from the prompt.
 
 imgplot = plt.imshow(img)
+
+fname = FORMAT % 1
+print(fname)
+plt.savefig(fname)
+
 plt.show()
 
 # %%

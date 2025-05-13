@@ -1,4 +1,5 @@
 # https://matplotlib.org/stable/tutorials/index.html
+# modify: 2025-04-10  K.OHWADA
 """
 .. redirect-from:: /tutorials/intermediate/artists
 
@@ -47,6 +48,7 @@ directly and connect them yourselves -- but since we are focusing here on the
 for us::
 
     import matplotlib.pyplot as plt
+
     fig = plt.figure()
     ax = fig.add_subplot(2, 1, 1) # two rows, one column, first plot
 
@@ -122,6 +124,8 @@ Try creating the figure below.
 import matplotlib.pyplot as plt
 import numpy as np
 
+FORMAT = "mat_tutorial_artists_%d.png"
+
 fig = plt.figure()
 fig.subplots_adjust(top=0.8)
 ax1 = fig.add_subplot(211)
@@ -139,6 +143,10 @@ ax2 = fig.add_axes([0.15, 0.1, 0.7, 0.3])
 n, bins, patches = ax2.hist(np.random.randn(1000), 50,
                             facecolor='yellow', edgecolor='yellow')
 ax2.set_xlabel('Time [s]')
+
+fname = FORMAT % 1
+print(fname)
+plt.savefig(fname)
 
 plt.show()
 
@@ -339,6 +347,10 @@ fig = plt.figure()
 l1 = lines.Line2D([0, 1], [0, 1], transform=fig.transFigure, figure=fig)
 l2 = lines.Line2D([0, 1], [1, 0], transform=fig.transFigure, figure=fig)
 fig.lines.extend([l1, l2])
+
+fname = FORMAT % 2
+print(fname)
+plt.savefig(fname)
 
 plt.show()
 
@@ -686,6 +698,10 @@ for line in ax1.yaxis.get_ticklines():
     line.set_color('green')
     line.set_markersize(25)
     line.set_markeredgewidth(3)
+
+fname = FORMAT % 3
+print(fname)
+plt.savefig(fname)
 
 plt.show()
 
