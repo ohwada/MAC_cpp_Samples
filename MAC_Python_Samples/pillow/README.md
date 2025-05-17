@@ -93,3 +93,13 @@ see  [misc: print_font_list](https://github.com//ohwada/MAC_cpp_Samples/tree/mas
 
  [text stroke with font Times](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pil_text_stroke_Times.png)
 
+## Document in Japanese  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/11/175048  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/13/203829  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/15/190545  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/17/092702  
+
