@@ -7,13 +7,13 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 
-WIN_TITLE = "figure"
+WIN_TITLE = "Figure"
 
 AXIS  = "scaled"
 
 ASPECT = "equal"
 
-FNAME = "mat_figure.png"
+OUTFILE = "mat_figure.png"
 
 # min
 fig = plt.figure(WIN_TITLE)
@@ -32,7 +32,7 @@ plt.axis(AXIS)
 
 ax.set_aspect(ASPECT)
 
-plt.savefig(FNAME)
+plt.savefig(OUTFILE)
 
 plt.show()
 

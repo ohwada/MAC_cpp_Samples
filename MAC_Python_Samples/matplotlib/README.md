@@ -31,13 +31,17 @@ Matplotlib Tutorials
 
 ## samples
 
--  mat_info_show.py 
+-  mat_params.py 
+
+-  mat_figsize.py  
+
+- mat_close_event.py  
 
 - mat_figure.py  
  
  [figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
 
--  mat_sin_wave.py  '
+-  mat_sin_wave.py  
  
  [sin wave](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_sin_wave.png)
 
@@ -51,7 +55,9 @@ Matplotlib Tutorials
 
 - mat_image_show.py  
 
-load Image file and show Image with Matplotlib default size Window (640x480)
+load Image file with  Matplotlib imread
+
+show Image with Matplotlib default size Window (640x480)
 
  [256x256 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_sample.png)
 
@@ -59,29 +65,32 @@ load Image file and show Image with Matplotlib default size Window (640x480)
 
 - mat_pil_image_show.py  
 
-load Image file with Pillow 
+load Image file with Pillow Image
 
-show Image with Matplotlib default size Window (640x480)
+show Image in Matplotlib Window
 
- [256x256 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_sample.png)
 
- [665x1000 Image in 640x480 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_tiger.png)
+- mat_q2n_image_show.py  
+ 
+load Image file with qimage2ndarray imread
 
- - mat_image_show_qvga.py  
+show Image in Matplotlib Window
 
-display Image with Matplotlib QGVA size Window (320x240)
+ - mat_pil_image_show_qvga.py  
 
- [256x256 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_qvga_sample.png)
+show Image with Matplotlib QGVA size Window (320x240)
 
- [665x1000 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_qvga_tiger.png)
+ [256x256 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_sample.png)
 
-- mat_image_show_actual.py  
+ [665x1000 Image in 320x240 Window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_qvga_tiger.png)
+
+- mat_pil_image_show_actual.py  
  
 show Image in actual size
 
- [256x256 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_actual_sample.png)  
+ [256x256 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_sample.png)  
 
- [665x1000 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_image_show_actual_tiger.png)  
+ [665x1000 Image in actual](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_actual_tiger.png)  
 
 - mat_pil_image_show_resize.py  
  
@@ -90,4 +99,20 @@ If Image is large than specipid size (400x400), resize Image
 show resized Image
 
  [665x1000 Image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_image_show_resize_tiger.png)
+
+- mat_anime_artist.py  
+ 
+show animation using matplotlib ArtistAnimation
+
+save anime gif
+
+ [anime artist](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_anime_artist.gif)
+
+- mat_anime_func.py  
+
+ [anime func](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/ mat_anime_func.gif)
+
+- mat_anime_ball.py  
+
+ [anime ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/anime_ball.gif)
 

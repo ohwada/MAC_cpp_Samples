@@ -1,8 +1,14 @@
-# Python: show Image using matplotlib
+# Python: load Image file with  Matplotlib imread
+# show Image in Matplotlib Window
+# suport jpeg
 # default Window size : 640x480
+# imread
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imread.html
+# This function exists for historical reasons. 
+# It is recommended to use PIL.Image.open instead for loading images.
 # 2025-04-10  K.OHWADA
 
-#https://zerofromlight.com/blogs/detail/98/
+# https://zerofromlight.com/blogs/detail/98/
 
 import matplotlib.pyplot as plt
 import sys
@@ -22,7 +28,12 @@ def show_image_in_default(fpath):
 	print(outfile)
 	plt.figure(num=basename)
 	plt.axis(AXIS )
+
+# imread
+# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imread.html
+# It is recommended to use PIL.Image.open instead for loading images.
 	img = plt.imread(fpath)
+
 	plt.imshow(img)
 	# plt.savefig(outfile)
 	plt.show()
