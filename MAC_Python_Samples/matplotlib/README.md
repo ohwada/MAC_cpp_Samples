@@ -110,9 +110,9 @@ save anime gif
 
 - mat_anime_func.py  
 
- [anime func](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/ mat_anime_func.gif)
+ [anime func](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_anime_func.gif)
 
 - mat_anime_ball.py  
 
- [anime ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/anime_ball.gif)
+ [anime ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_anime_ball.gif)
 
