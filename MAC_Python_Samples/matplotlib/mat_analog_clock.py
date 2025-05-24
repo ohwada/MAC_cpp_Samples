@@ -9,9 +9,10 @@ from time import time, localtime
 # Constant are CAPitalized in python by convention
 from cmath import  pi as PI, e as E
 
-# window
+# Window
 WIN_TITLE = "Analog Clock"
 
+# hide axis
 AXIS = 'off'
 
 # ticks
@@ -56,7 +57,7 @@ HOUR_HAND_COLOR  = 'g-'  # grren
 
 def on_close(event):
     print('on_close')
-    plt.ioff()
+    # plt.ioff()
     exit()
 # end
 
