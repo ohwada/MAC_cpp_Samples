@@ -32,5 +32,8 @@ print('sin(30 deg) = ', sin30) # 0.5
 cos30 = math.cos(math.radians(30))
 print('cos(30 deg) = ', cos30 ) # 0.866
 
+# Pythagorean theorem of trigonometric Functions
+print()
+print('Pythagorean theorem of trigonometric Functions')
 ret30 = (sin30 * sin30) + (cos30*cos30)
 print( 'sin(30 deg)**2 + cos(30 deg)**2 = ', ret30) # 1.0
