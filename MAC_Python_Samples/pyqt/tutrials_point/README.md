@@ -74,7 +74,7 @@ object oriented programming style of hello.py
 
 - show_image.py
 
- [show image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_ show_image.png)
+ [show image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_show_image.png)
 
 
 
