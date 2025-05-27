@@ -30,25 +30,25 @@ object oriented programming style of hello.py
 
 - dialog.py  
 
- [dialog](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_dialog.png)
+ [dialog](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_dialog.png)
 
 ### QMessageBox
 
 - message_box.py  
 
- [message box](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_message_box.png)
+ [message box](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_message_box.png)
 
 ### Multiple Document Interface
 
 - mdi.py  
 
- [mdi](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_mdi.png)
+ [mdi](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_mdi.png)
 
 ### Drag and Drop
 
 - drag_drop.py  
 
- [drag drop](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_drag_drop.png)
+ [drag drop](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_drag_drop.png)
 
 ### Database Handling
 
@@ -56,25 +56,25 @@ object oriented programming style of hello.py
 
 - read_db.py  
 
- [read db](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_read_db.png)
+ [read db](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_read_db.png)
 
 ### Drawing API
 
 - draw_figure.py  
 
- [draw figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_poit_draw_figure.png)
+ [draw figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_point_draw_figure.png)
 
 ### QClipboard
 
 - clipboard.py  
 
- [clipboard](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_clipboard.png)
+ [clipboard](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_clipboard.png)
 
 ### QPixmap Class
 
 - show_image.py
 
- [show image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_ show_image.png)
+ [show image](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_ show_image.png)
 
 
 
