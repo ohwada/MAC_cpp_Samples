@@ -24,7 +24,7 @@ object oriented programming style of hello.py
 
 - signals_slots.py  
 
- [signals slots](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_poit_signals_slots.png)
+ [signals slots](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_point_signals_slots.png)
 
 ### QDialog Class
 
