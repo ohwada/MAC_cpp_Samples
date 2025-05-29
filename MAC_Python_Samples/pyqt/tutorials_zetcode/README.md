@@ -1,8 +1,8 @@
 tutorials  zetcode - pyqt
 ===============
 
-The ftutorials in this directory referenced below
-[README](README.md)
+The ftutorials in this directory referenced below  
+
 [zetcode: PyQt5 tutorial](https://zetcode.com/gui/pyqt5/)
 
 ### date and time
@@ -43,11 +43,11 @@ The ftutorials in this directory referenced below
 
 - quit_button.py  
 
- [uit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_uit_button.png)
+ [quit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_quit_button.png)
 
 - messagebox.py  
 
- [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ messagebox.png)
+ [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_messagebox.png)
 
 - center.py  
 
