@@ -23,6 +23,7 @@ def ex2():
 	print(' plt.figure() : ', fig2)  #  Figure(640x480)
 # get the current Figure'	
 	print( "gcf: ", plt.gcf() )  # Figure(640x480)
+	plt.show()
 # end
 
 
@@ -49,12 +50,13 @@ def ex4():
 
 def ex5():
 # change Window Posision Size
-	mpl.use('QtAgg') # interactive backends
+	mpl.use('QtAgg') # require PyQt
 	manager = plt.get_current_fig_manager()
 	print(manager)  # matplotlib.backends.backend_qt.FigureManagerQT 
 	win = manager.window
 	print(win) # matplotlib.backends.backend_qt.MainWindow
 	win.setGeometry(50, 100, 320, 240)
+	win.setWindowTitle('PyQt QVGA')
 	print( "gcf: ", plt.gcf() ) # Figure(640x480)
 	plt.show()
 # end

@@ -37,9 +37,9 @@ Matplotlib Tutorials
 
 - mat_close_event.py  
 
-- mat_figure.py  
+- mat_draw_figures.py  
  
- [figure](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
+ [figures](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_figure.png)
 
 -  mat_sin_wave.py  
  
@@ -115,4 +115,8 @@ save anime gif
 - mat_anime_ball.py  
 
  [anime ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_anime_ball.gif)
+
+- mat_pil_anime_gif_show.py  
+
+ [bounsing_ball.gif](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_anime_gif_show_bounsing_ball.png)
 

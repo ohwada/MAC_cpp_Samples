@@ -1,7 +1,8 @@
 # Bouncing  Ball Animation using matplotlib FuncAnimation
-# https://github.com/Shunichi09/Qiita/blob/master/Animation/Animation.py
+# midify: 2025-04-10  K.OHWADA
+
 # https://qiita.com/MENDY/items/e1b432df1e0bfe8b680c
-# midify/; 2025-04-10  K.OHWADA
+
 
 import numpy as np
 import matplotlib.pyplot as plt

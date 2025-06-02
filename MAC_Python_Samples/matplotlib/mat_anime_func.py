@@ -33,6 +33,6 @@ def plot(data):
 
 # main
 fig = plt.figure(num=FIG_TITLE)
-ani = animation.FuncAnimation(fig, plot, interval=100, frames=FRAMES)
+ani = animation.FuncAnimation(fig, plot, interval=INTERVAL, frames=FRAMES)
 ani.save(OUTFILE, writer=WRITER)
 plt.show()
