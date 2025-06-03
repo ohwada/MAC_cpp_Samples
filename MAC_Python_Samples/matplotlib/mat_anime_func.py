@@ -28,7 +28,8 @@ def plot(data):
 # create random graph
     plt.cla()                     
     rand = np.random.randn(NUM)   
-    im = plt.plot(rand)        
+    im = plt.plot(rand)
+    return im        
 # end
 
 # main

@@ -8,8 +8,10 @@ import matplotlib.animation as animation
 import numpy as np
 import os, sys
 
-
+# ArtistAnimation
 INTERVAL=100  #100ms
+REPEAT  = True
+REPEAT_DELAY = 0
 
 # hide axis
 AXIS = 'off'
@@ -20,6 +22,7 @@ def split_amine_gif(fpath):
 	list_frames = ImageSequence.Iterator(img)
 	ims = []
 	for frame in list_frames:
+		# plt.cla() 
 		arr = np.array(frame)
 		im = plt.imshow(arr)
 		ims.append( [im] )
@@ -34,7 +37,7 @@ def show_amine_gif(fpath):
 	ims = split_amine_gif(fpath)
 	num = len(ims)
 	print(basename, ':', num, 'frames')
-	anim = animation.ArtistAnimation(fig, ims, INTERVAL)
+	anim = animation.ArtistAnimation(fig, ims, interval =INTERVAL, repeat=REPEAT, repeat_delay= REPEAT_DELAY)
 	plt.axis(AXIS)
 	plt.show()
 # end

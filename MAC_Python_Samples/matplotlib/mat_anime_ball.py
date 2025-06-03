@@ -119,6 +119,7 @@ class Drawing():
 
 def update_anim(i):
     # This i will increase every time it is updated
+    # plt.cla() 
     ball_x, ball_y =  ball.state_update()
     ball_img, = drawer.draw_circle(ball_x, ball_y)
     # Time

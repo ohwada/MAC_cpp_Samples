@@ -29,9 +29,10 @@ ims = []
 
 for i in range(MAX_IMS):
 # create ramdom graph
+        # plt.cla() 
         rand = np.random.randn(NUM)     
         im = plt.plot(rand)            
-        ims.append(im)                  
+        ims.append(im)                
 # end
 
 ani = animation.ArtistAnimation(fig, ims, interval= INTERVAL)
