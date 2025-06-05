@@ -120,3 +120,20 @@ save anime gif
 
  [bounsing_ball.gif](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/mat_pil_anime_gif_show_bounsing_ball.png)
 
+### Documents inJapanese
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/19/222126  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/21/160436  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/25/144320  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/27/190907 
+ 
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/29/152120  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/03/001454  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/05/131911  
+
+

@@ -27,8 +27,9 @@ require numpy
 
  [lifecycle](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/mat_tutorial_lifecycle_10.png)
 
+### Documents inJapanese
 
-
+- https://ken-ohwada.hatenadiary.org/entry/2025/05/19/222126  
 
 
 
