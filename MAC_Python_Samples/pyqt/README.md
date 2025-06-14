@@ -38,9 +38,9 @@ zetcode: PyQt5 tutorial
 
  [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_analog_clock.png)
 
-- fig_draw.py
+- figure_draw.py
 
- [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_fig_draw.png)
+ [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_figure_draw.png)
 
 - image_show_label.py  
 
@@ -64,11 +64,11 @@ If Image ig large than window, resize Image
 
 - image_show_scene_resize_event.py
 
- [tigerr(665x100)  in window (480x360) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_image_show_scene_resize_event_tiger_360.png)  
+ [tiger(665x100)  in window (480x360) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_image_show_scene_resize_event_tiger_360.png)  
 
 automatically change Image Size when Window  (Canvas) is resized  
 
- [[tigerr(665x100)  in window ( 480x610) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_image_show_scene_resize_event_tiger_610.png)  
+ [[tiger(665x100)  in window ( 480x610) ](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_image_show_scene_resize_event_tiger_610.png)  
 
 - anime_gif_show.py  
 
