@@ -1,7 +1,7 @@
 pyqt
 ===============
 
-[wikipedia: Qt](https://en.wikipedia.org/wiki/Qt_(software%29)
+[wikipedia: Qt](https://en.wikipedia.org/wiki/Qt_(software%29 )
 
 Qt  is a cross-platform application development framework for creating graphical user interfaces 
 as well as cross-platform applications that run on various software and hardware platforms
@@ -36,11 +36,11 @@ zetcode: PyQt5 tutorial
 
 - analog_clock.py  
 
- [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/- qt_analog_clock.png)
+ [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_analog_clock.png)
 
 - fig_draw.py
 
- [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/ qt_fig_draw.png)
+ [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_fig_draw.png)
 
 - image_show_label.py  
 
