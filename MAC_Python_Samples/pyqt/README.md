@@ -76,11 +76,10 @@ automatically change Image Size when Window  (Canvas) is resized
 
 - video_player.py  
 
- [video player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/- qt_video_player.png)  
-
-- sound_play.py  
+ [video player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_video_player.png)  
 
 - audio_player.py  
 
- [audio player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/- qt_audio_player.png)  
+ [audio player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_audio_player.png)  
 
+- sound_play.py  
