@@ -30,6 +30,8 @@ zetcode: PyQt5 tutorial
 
 - qt_version.py  
 
+- sound_play.py  
+
 - clock.py
 
  [clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_clock.png)
@@ -82,4 +84,4 @@ automatically change Image Size when Window  (Canvas) is resized
 
  [audio player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_audio_player.png)  
 
-- sound_play.py  
+
