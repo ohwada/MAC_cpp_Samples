@@ -101,7 +101,14 @@ class Window(QMainWindow):
         self.sColor = Qt.red
  # end
 
-    # method for paint event
+    def drawHand(self, painter, color, rotation, pointer):
+        painter.setBrush(QBrush(color))
+        painter.save()
+        painter.rotate(rotation)
+        painter.drawConvexPolygon(pointer)
+        painter.restore()
+ # end
+
 # called from a timer at 1 second intervals
     def paintEvent(self, event):
         # getting minimum of width and height
@@ -110,32 +117,23 @@ class Window(QMainWindow):
         # current time
         tik = QTime.currentTime()
         painter = QPainter(self)
-
-# inner function
- # method to draw the hands
-# argument : color rotation and which hand should be pointed
-        def drawPointer(color, rotation, pointer):
-            painter.setBrush(QBrush(color))
-            painter.save()
-            painter.rotate(rotation)
-            painter.drawConvexPolygon(pointer)
-            painter.restore()
- # end
-
         painter.setRenderHint(QPainter.Antialiasing)
         painter.translate(self.width() / 2, self.height() / 2)
         painter.scale(rec /  PAINTER_SCALE, rec /  PAINTER_SCALE)
         painter.setPen(QtCore.Qt.NoPen)
         # draw each hand
-        drawPointer(self.bColor, (HOUR_DEG * (tik.hour() + tik.minute() / ONE_HOUR_MIN )), self.hPointer)
-        drawPointer(self.bColor, (MIN_DEG * (tik.minute() + tik.second() / ONE_MIN_SEC)), self.mPointer)
-        drawPointer(self.sColor, (SEC_DEG * tik.second()), self.sPointer)
+        h_rotation = HOUR_DEG * (tik.hour() + tik.minute() / ONE_HOUR_MIN )
+        m_rotation =  MIN_DEG * (tik.minute() + tik.second() / ONE_MIN_SEC)
+        s_rotation = SEC_DEG * tik.second()
+        self.drawHand( painter, self.bColor,  h_rotation, self.hPointer)
+        self.drawHand( painter, self.bColor, m_rotation, self.mPointer)
+        self.drawHand( painter, self.sColor, s_rotation, self.sPointer)
         # drawing background
         painter.setPen(QPen(self.bColor))
           # draw sec scale
         for i in range(0, MAX_SEC):
             if (i % SEC_SCALE_INTERVAL ) == 0:
-                painter.drawLine(LINE_X1, LINE_Y1, LINE_X2, LINE_Y2)
+                  painter.drawLine(LINE_X1, LINE_Y1, LINE_X2, LINE_Y2)
  # if end
             painter.rotate(SEC_DEG)
 # for end
@@ -143,12 +141,17 @@ class Window(QMainWindow):
  # class end
 
 
-# main
-if __name__ == '__main__':
+def main():
   app = QApplication(sys.argv)
   win = Window()
   win.show()
   exit(app.exec_())
+# end
+
+
+# main
+if __name__ == '__main__':
+    main()
 # end
  
 
