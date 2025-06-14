@@ -73,11 +73,12 @@ SEC_Y2 = 1
 SEC_X3 = 0
 SEC_Y3 = -90
  
-class Clock(QMainWindow):
+
+class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         timer = QTimer(self)
-        timer.timeout.connect(self.update)
+        timer.timeout.connect(self.update) # call paintEvent
         timer.start(UPDATE_INTERVAL)
         self.setWindowTitle(WIN_TITLE)
         self.setGeometry(PX, PY, WIDTH, HEIGHT)
@@ -101,6 +102,7 @@ class Clock(QMainWindow):
  # end
 
     # method for paint event
+# called from a timer at 1 second intervals
     def paintEvent(self, event):
         # getting minimum of width and height
         # so that clock remain square
@@ -108,10 +110,10 @@ class Clock(QMainWindow):
         # current time
         tik = QTime.currentTime()
         painter = QPainter(self)
- # end
- 
-        # method to draw the hands
-        # argument : color rotation and which hand should be pointed
+
+# inner function
+ # method to draw the hands
+# argument : color rotation and which hand should be pointed
         def drawPointer(color, rotation, pointer):
             painter.setBrush(QBrush(color))
             painter.save()
@@ -119,19 +121,17 @@ class Clock(QMainWindow):
             painter.drawConvexPolygon(pointer)
             painter.restore()
  # end
- 
+
         painter.setRenderHint(QPainter.Antialiasing)
         painter.translate(self.width() / 2, self.height() / 2)
         painter.scale(rec /  PAINTER_SCALE, rec /  PAINTER_SCALE)
         painter.setPen(QtCore.Qt.NoPen)
- 
         # draw each hand
         drawPointer(self.bColor, (HOUR_DEG * (tik.hour() + tik.minute() / ONE_HOUR_MIN )), self.hPointer)
         drawPointer(self.bColor, (MIN_DEG * (tik.minute() + tik.second() / ONE_MIN_SEC)), self.mPointer)
         drawPointer(self.sColor, (SEC_DEG * tik.second()), self.sPointer)
         # drawing background
         painter.setPen(QPen(self.bColor))
- 
           # draw sec scale
         for i in range(0, MAX_SEC):
             if (i % SEC_SCALE_INTERVAL ) == 0:
@@ -139,14 +139,14 @@ class Clock(QMainWindow):
  # if end
             painter.rotate(SEC_DEG)
 # for end
-
         painter.end()
  # class end
+
 
 # main
 if __name__ == '__main__':
   app = QApplication(sys.argv)
-  win = Clock()
+  win = Window()
   win.show()
   exit(app.exec_())
 # end

@@ -3,6 +3,6 @@
 
 #  https://retrofocus28.blogspot.com/2013/06/pyqt_25.html
 
-from PyQt5.QtCore import QT_VERSION_STR
+from PyQt5.QtCore import *
 
-print ('Qt version: ', QT_VERSION_STR)
+print ('Qt version: ', QT_VERSION_STR) # 5.15.7

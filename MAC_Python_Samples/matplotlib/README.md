@@ -132,6 +132,8 @@ save anime gif
  
 - https://ken-ohwada.hatenadiary.org/entry/2025/05/29/152120  
 
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/01/011416
+
 - https://ken-ohwada.hatenadiary.org/entry/2025/06/03/001454  
 
 - https://ken-ohwada.hatenadiary.org/entry/2025/06/05/131911  

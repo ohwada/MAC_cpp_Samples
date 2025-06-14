@@ -18,30 +18,30 @@ DIGITS = 8
 INTERVAL = 1000 # 1 sec
 
 
-class TestTimer(QWidget):
+class Window(QWidget):
     def __init__(self, parent=None):
-        super(TestTimer, self).__init__(parent)
+        super(Window, self).__init__(parent)
         self.setWindowTitle(TITLE )
         timer = QTimer(self)
-        timer.timeout.connect(self.updtTime)
+        timer.timeout.connect(self.updateTime)
         self.testTimeDisplay = QLCDNumber(self)
         self.testTimeDisplay.setSegmentStyle(QLCDNumber.Filled)
         self.testTimeDisplay.setDigitCount(DIGITS)
         self.testTimeDisplay.resize(WIDTH,  HEIGHT)
-        self.updtTime()
+        self.updateTime()
         timer.start( INTERVAL )
 # end
 
-    def updtTime(self):
+    def updateTime(self):
         currentTime = QDateTime.currentDateTime().toString(FORMAT)
         self.testTimeDisplay.display(currentTime)
 # end
 
 if __name__ == '__main__':
-    myApp = QApplication(sys.argv)
-    myWindow = TestTimer()
-    myWindow.show()
-    myApp.exec_()
+    app = QApplication(sys.argv)
+    win = Window()
+    win.show()
+    app.exec_()
     sys.exit()
 # end
 
