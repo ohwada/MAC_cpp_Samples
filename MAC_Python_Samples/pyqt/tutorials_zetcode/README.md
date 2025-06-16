@@ -231,7 +231,7 @@ The ftutorials in this directory referenced below
 
  - anim_size.py  
 
- [nim size](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_nim_size.png)
+ [nim size](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_anim_size.png)
 
 - anim_color.py  
 
@@ -243,4 +243,4 @@ The ftutorials in this directory referenced below
 
 - anim_gvf.py  
 
- [ anim gvf](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ anim_gvf.png)
+ [ anim gvf](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_anim_gvf.png)
