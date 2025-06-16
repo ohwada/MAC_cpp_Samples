@@ -73,16 +73,23 @@ SEC_Y2 = 1
 SEC_X3 = 0
 SEC_Y3 = -90
  
+# Color
+SEC_SCALE_COLOR = Qt.green
+HOUR_COLOR =  Qt.green
+MIN_COLOR =  Qt.green
+SEC_COLOR = Qt.red
+
 
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
-        timer = QTimer(self)
-        timer.timeout.connect(self.update) # call paintEvent
-        timer.start(UPDATE_INTERVAL)
         self.setWindowTitle(WIN_TITLE)
         self.setGeometry(PX, PY, WIDTH, HEIGHT)
         self.setStyleSheet(STYLE)
+        self.initDraw()
+# end
+
+    def initDraw(self):
         # hour hand
         self.hPointer = QtGui.QPolygon([QPoint(HOUR_X1, HOUR_Y1),
                                         QPoint(HOUR_X2, HOUR_Y2),
@@ -95,11 +102,12 @@ class Window(QMainWindow):
         self.sPointer = QPolygon([QPoint(SEC_X1, SEC_Y1),
                                   QPoint(SEC_X2, SEC_Y2),
                                   QPoint(SEC_X2, SEC_Y3)])
-        # color for minute and hour hand: green
-        self.bColor = Qt.green
-        # color for second hand: red
-        self.sColor = Qt.red
+# timer
+        timer = QTimer(self)
+        timer.timeout.connect(self.update)
+        timer.start(UPDATE_INTERVAL)
  # end
+
 
     def drawHand(self, painter, color, rotation, pointer):
         painter.setBrush(QBrush(color))
@@ -109,27 +117,22 @@ class Window(QMainWindow):
         painter.restore()
  # end
 
-# called from a timer at 1 second intervals
-    def paintEvent(self, event):
-        # getting minimum of width and height
-        # so that clock remain square
-        rec = min(self.width(), self.height())
-        # current time
+
+    def drawHands(self, painter):
         tik = QTime.currentTime()
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing)
-        painter.translate(self.width() / 2, self.height() / 2)
-        painter.scale(rec /  PAINTER_SCALE, rec /  PAINTER_SCALE)
-        painter.setPen(QtCore.Qt.NoPen)
         # draw each hand
         h_rotation = HOUR_DEG * (tik.hour() + tik.minute() / ONE_HOUR_MIN )
         m_rotation =  MIN_DEG * (tik.minute() + tik.second() / ONE_MIN_SEC)
         s_rotation = SEC_DEG * tik.second()
-        self.drawHand( painter, self.bColor,  h_rotation, self.hPointer)
-        self.drawHand( painter, self.bColor, m_rotation, self.mPointer)
-        self.drawHand( painter, self.sColor, s_rotation, self.sPointer)
-        # drawing background
-        painter.setPen(QPen(self.bColor))
+        painter.setPen(QtCore.Qt.NoPen)
+        self.drawHand(painter, HOUR_COLOR,  h_rotation, self.hPointer)
+        self.drawHand(painter, MIN_COLOR, m_rotation, self.mPointer)
+        self.drawHand( painter, SEC_COLOR, s_rotation, self.sPointer)
+# end
+
+
+    def drawSecScale(self, painter):
+        painter.setPen(QPen(SEC_SCALE_COLOR))
           # draw sec scale
         for i in range(0, MAX_SEC):
             if (i % SEC_SCALE_INTERVAL ) == 0:
@@ -137,6 +140,21 @@ class Window(QMainWindow):
  # if end
             painter.rotate(SEC_DEG)
 # for end
+
+
+# called from a timer at 1 second intervals
+    def paintEvent(self, event):
+    # getting minimum of width and height
+        # so that clock remain square
+        rec = min(self.width(), self.height())
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+        painter.translate(self.width() / 2, self.height() / 2)
+        painter.scale(rec /  PAINTER_SCALE, rec /  PAINTER_SCALE)
+        # draw background
+        self.drawSecScale(painter)
+        # draw hands
+        self.drawHands(painter)
         painter.end()
  # class end
 

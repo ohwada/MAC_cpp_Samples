@@ -32,6 +32,8 @@ zetcode: PyQt5 tutorial
 
 - sound_play.py  
 
+- music_play.py  
+
 - clock.py
 
  [clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_clock.png)
@@ -43,6 +45,10 @@ zetcode: PyQt5 tutorial
 - figure_draw.py
 
  [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_figure_draw.png)
+
+- anime_ball.py
+
+ [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.png)
 
 - image_show_label.py  
 
@@ -76,6 +82,10 @@ automatically change Image Size when Window  (Canvas) is resized
 
  [anime gif show](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_anime_gif_show.png)  
 
+- movie_play.py  
+
+ [movie play](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_movie_play.png)  
+ 
 - video_player.py  
 
  [video player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_video_player.png)  

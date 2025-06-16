@@ -1,11 +1,10 @@
 # Python: load Image file using QPixmap
-# show Image using QGraphicsScene
+# draw Image using QPainter
 # If Image is smaller than Window, show Image in original size
 # If Image is large than Window, show Image in resized size
  # suport jpeg
 #  2025-04-10  K.OHWADA
 
-# https://tanalib.com/pyqt-image-display/
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -38,8 +37,8 @@ def resize_image(fpath):
 # end
     print('original: ', iw, ih)
     if (iw> WIDTH) or (ih > HEIGHT):
-        width = int(0.9*WIDTH)
-        height = int(0.9*HEIGHT)
+        width = int(0.9 * WIDTH)
+        height = int(0.9 * HEIGHT)
         img = img.scaled(width, height, Qt.KeepAspectRatio,Qt.FastTransformation)
         w = img.width()
         h = img.height()
@@ -71,15 +70,6 @@ class Window(QMainWindow):
         self.setGeometry( PX, PY, WIDTH, HEIGHT)
 # end
 
-    def set_pixmap(self, pixmap):
-        view = QGraphicsView() 
-        scene = QGraphicsScene()
-        scene.addPixmap(pixmap)
-        view.setScene(scene)
-        self.setCentralWidget(view)
-# end
-
-
     def set_fpath(self,fpath):
         basename= os.path.basename(fpath)
         self.setWindowTitle(basename)
@@ -90,8 +80,22 @@ class Window(QMainWindow):
             return False
 # end
         self.setWindowTitle(basename)
-        self.set_pixmap(pixmap)
+        self.pixmap = pixmap
+        self.update
         return True
+# def end
+
+    def paintEvent(self, event):
+        w = self.width()
+        h = self.height()
+        iw = self.pixmap.width()
+        ih = self.pixmap.height()
+        x= int ((w - iw)//2)
+        y= int( (h - ih)//2 )
+        qp = QPainter()
+        qp.begin(self)
+        qp.drawPixmap(x, y, self.pixmap)
+        qp.end()
 # def end
 # class end
 

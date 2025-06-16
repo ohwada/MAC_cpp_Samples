@@ -1,4 +1,3 @@
-# Python: 
 # Python: load Image file using QPixmap
 # show Image using QGraphicsScene
 # automatically change Image Size when Window  (Canvas) is resized
@@ -23,13 +22,9 @@ HEIGHT = 360
 USAGE_FORMAT = "Usage: python {:s}  <image filepath>"
 
 
-class Canvas(QWidget):
+class Canvas(QGraphicsView):
     def __init__(self):
         super(Canvas, self).__init__()
-        self.layout = QGridLayout()
-        self.setLayout(self.layout)
-        self.view = QGraphicsView()  
-        self.layout.addWidget(self.view)
         self.pixmap_orig = QPixmap()
         self.is_load = False
 # end
@@ -48,7 +43,6 @@ class Canvas(QWidget):
         return True
 # end        
 
-
     def resize_image(self, win_width, win_height): 
         img = self.pixmap_orig
         iw = img.width()
@@ -61,7 +55,7 @@ class Canvas(QWidget):
         width = int(0.9*win_width)
         height = int(0.9*win_height)
         print('win: ', win_width, win_height)
-        print('win liit: ', width, height)
+        print('win lmiit: ', width, height)
     # Image is large than Window
         if ( iw > width ) or ( ih > height):
             img = img.scaled(width, height, Qt.KeepAspectRatio,Qt.FastTransformation)
@@ -72,7 +66,6 @@ class Canvas(QWidget):
         return img
 # def end
 
-
     def resizeEvent(self, event):
         if not self.is_load:
             return
@@ -80,10 +73,10 @@ class Canvas(QWidget):
         width = self.width()
         height = self.height()
         pixmap = self.resize_image(width, height)
-        self.view.resetCachedContent()
+        self.resetCachedContent()
         scene = QGraphicsScene()
         scene.addPixmap(pixmap)
-        self.view.setScene(scene)
+        self.setScene(scene)
 # end
 
 

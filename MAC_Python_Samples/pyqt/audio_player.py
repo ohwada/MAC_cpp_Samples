@@ -9,8 +9,8 @@
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PyQt5.QtMultimedia import *
 from PyQt5.QtGui import *
+from PyQt5.QtMultimedia import *
 import sys, os, random
 
 # from qtwidgets import EqualizerBar
@@ -79,7 +79,7 @@ class Window(QMainWindow):
 
     def initPlayer(self):
         self.player = QMediaPlayer()
-        print('supportedMimeTypes: ', self.player.supportedMimeTypes() )
+        # print('supportedMimeTypes: ', self.player.supportedMimeTypes() )
         self.player.stateChanged.connect(self.Logo_Changed)
         self.player.positionChanged.connect(self.position_Changed)
         self.player.durationChanged.connect(self.duration_Changed)
@@ -203,8 +203,8 @@ class Window(QMainWindow):
             print('selectedFilter: ', selectedFilter)
             self.basename= os.path.basename(fileName)
             self.setWindowTitle(self.basename)
-            self.player.setMedia(
-                QMediaContent(QUrl.fromLocalFile(fileName)))
+            media = QMediaContent(QUrl.fromLocalFile(fileName))
+            self.player.setMedia(media)
             self.Play_Button.setEnabled(True)
             self.Stop_Button.setEnabled(True)
             self.Muted_CheckBox.setEnabled(True)

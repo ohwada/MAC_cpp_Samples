@@ -92,7 +92,8 @@ class Window(QMainWindow):
         if fileName != EMPTY:
             print('fileName: ', fileName)
             print('selectedFilter: ', selectedFilter)
-            self.player.setMedia(QMediaContent(QUrl.fromLocalFile(fileName)))
+            media = QMediaContent(QUrl.fromLocalFile(fileName))
+            self.player.setMedia(media)
             self.playButton.setEnabled(True)
             self.basename= os.path.basename(fileName)
             self.setWindowTitle(self.basename)

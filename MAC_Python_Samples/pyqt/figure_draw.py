@@ -1,4 +1,4 @@
-# Python: draw Figure usibg PyQt5 
+# Python: draw Figure using PyQt5 
 # 2025-04-10  K.OHWADA
 
 #  https://qiita.com/hoshianaaa/items/1a2552c91d42912430a2

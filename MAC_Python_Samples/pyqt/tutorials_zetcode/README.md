@@ -43,11 +43,11 @@ The ftutorials in this directory referenced below
 
 - quit_button.py  
 
- [quit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_quit_button.png)
+ [uit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_uit_button.png)
 
 - messagebox.py  
 
- [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_messagebox.png)
+ [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ messagebox.png)
 
 - center.py  
 
@@ -227,4 +227,20 @@ The ftutorials in this directory referenced below
 
  [tetris](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_tetris.png)
 
+### QPropertyAnimation  
 
+ - anim_size.py  
+
+ [nim size](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_nim_size.png)
+
+- anim_color.py  
+
+ [anim color](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_anim_color.png)
+
+- anim_along_curve.py  
+
+ [anim along curve](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_anim_along_curve.png)
+
+- anim_gvf.py  
+
+ [ anim gvf](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ anim_gvf.png)
