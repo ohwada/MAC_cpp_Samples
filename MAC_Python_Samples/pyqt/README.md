@@ -48,7 +48,7 @@ zetcode: PyQt5 tutorial
 
 - anime_ball.py
 
- [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.png)
+ [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_anime_ball.png)
 
 - image_show_label.py  
 
