@@ -1,4 +1,5 @@
-# Python: draw Figure using PyQt5 
+# Python: draw Figure using QPainter
+# save file using Pillow Image
 # 2025-04-10  K.OHWADA
 
 #  https://qiita.com/hoshianaaa/items/1a2552c91d42912430a2
@@ -20,6 +21,8 @@ FONT_SIZE = 20
 
 FPATH_IMG = "python_qt_logo.png"
 
+OUTFILE = "qt_figure_draw.png"
+
 
 class Window(QWidget):
    def __init__(self):
@@ -29,8 +32,17 @@ class Window(QWidget):
 # end
 
    def paintEvent(self, event):
+        self.drawPaint(self)
+        img = QImage(self.size(), QImage.Format_RGB32)
+        img.fill(Qt.white)
+        self.drawPaint(img)
+        img.save(OUTFILE)
+        print('save ',OUTFILE)
+# end
+
+   def drawPaint(self, device):
         qp = QPainter()
-        qp.begin(self)
+        qp.begin(device)
 # draw line
         qp.setPen(QColor(Qt.red))
         qp.setFont(QFont(FONT, FONT_SIZE))

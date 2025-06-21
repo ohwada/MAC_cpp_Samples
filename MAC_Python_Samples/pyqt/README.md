@@ -38,17 +38,29 @@ zetcode: PyQt5 tutorial
 
  [clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_clock.png)
 
-- analog_clock.py  
+- analog_clock_save.py  
+
+display Analog Clock using QPainter  
+
+save Anime gif using Pillow Image
 
  [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_analog_clock.png)
 
-- figure_draw.py
+- figure_draw_save.py
+
+draw Figure using QPainter  
+
+save file using Pillow Image  
 
  [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_figure_draw.png)
 
-- anime_ball_painting.py
+- anime_ball_painting_save.py
 
- [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.gif)
+animate   Bouncing  Ball using QPainter  
+
+save Anime gif using Pillow Image
+
+ [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.png)
 
 - image_show_label.py  
 

@@ -6,8 +6,6 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from pos import *
-from PIL import Image
-import io
 import sys
 
 
@@ -18,34 +16,6 @@ PY = 10
 
 # Anim
 UPDATE_INTERVAL = 50 # msec
-
-DURATION =  100 # msec
-
-LOOP = 0 # endless
-
-FRAMES = 600 # 60 sec
-
-OUTFILE = "qt_anime_ball.gif"
-
-def qimage_to_pilimage(qimage):
-    buffer = QBuffer()
-    buffer.open(QIODevice.WriteOnly)
-    qimage.save(buffer, "BMP")
-    fp = io. BytesIO()
-    fp.write(buffer.data().data())
-    buffer.close()
-    fp.seek(0)
-    return Image.open(fp)
-# end
-
-def create_anime_gif(images):
-    images[0].save(OUTFILE,
-        save_all=True,
-        append_images = images[1:],
-        duration= DURATION , 
-        loop= LOOP
-        )
-# end
 
 
 class Window(QWidget):
@@ -59,8 +29,6 @@ class Window(QWidget):
     def startAnime(self):
         self.pos = Pos()
         self.img_ball = QPixmap(FPATH_IMG)
-        self.cnt = 0
-        self.list_img = []
         timer = QTimer(self)
         timer.timeout.connect(self.update)
         timer.start(UPDATE_INTERVAL) 
@@ -68,29 +36,13 @@ class Window(QWidget):
 
     def paintEvent(self, e):
         x, y =  self.pos.update_pos()
-        self.drawPaint(self, x, y)
-        if self.cnt < FRAMES:
-            self.cnt +=1
-            img = QImage(self.size(), QImage.Format_RGB32)
-            img.fill(Qt.white)
-            self.drawPaint(img, x, y)
-            pilimage = qimage_to_pilimage(img)
-            self.list_img.append(pilimage)
-        elif  self.cnt == FRAMES:
-            create_anime_gif(self.list_img)
-            exit()
-# end
-
-    def drawPaint(self, device, x, y):
         qp = QPainter()
-        qp.begin(device)
+        qp.begin(self)
         qp.setPen(QColor(Qt.blue))
         qp.drawRect(RECT_LEFT, RECT_TOP, RECT_WIDTH, RECT_HEIGHT)
         qp.drawPixmap(int(x), int(y), self.img_ball)
         qp.end()
 # end
-
-
 
 
 def main():

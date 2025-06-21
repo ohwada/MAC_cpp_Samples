@@ -1,4 +1,5 @@
 # Python: display Analog Clock using QPainter
+# save Anime gif using Pillow Image
 # 2025-04-10  K.OHWADA
 
 #  https://www.geeksforgeeks.org/create-analog-clock-using-pyqt5-in-python/
@@ -7,6 +8,8 @@ from PyQt5.QtWidgets import *
 from PyQt5 import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PIL import Image
+import io
 import sys
  
 
@@ -19,8 +22,6 @@ WIDTH = 400
 HEIGHT = 400
 
 STYLE = "background : black;"
-
-UPDATE_INTERVAL = 1000 # 1 sec
 
 # time for the hand to rotate one lap
 # ONE_LAP_HOUR = 12 # 12 houurs
@@ -79,6 +80,43 @@ HOUR_COLOR =  Qt.green
 MIN_COLOR =  Qt.green
 SEC_COLOR = Qt.red
 
+# Anime
+UPDATE_INTERVAL = 500 # 500 msec
+
+# Anime gif
+SAVE_FORMAT = "BMP"
+
+DURATION =  500 # msec
+
+LOOP = 0 # endless
+
+FRAMES = 120 # 60 sec
+
+OUTFILE = "qt_analog_clock.gif"
+
+
+# https://doloopwhile.hatenablog.com/entry/20100305/1267782841
+def qimage_to_pilimage(qimage):
+    buffer = QBuffer()
+    buffer.open(QIODevice.WriteOnly)
+    qimage.save(buffer, SAVE_FORMAT)
+    fp = io. BytesIO()
+    fp.write(buffer.data().data())
+    buffer.close()
+    fp.seek(0)
+    return Image.open(fp)
+# end
+
+def create_anime_gif(images):
+    images[0].save(OUTFILE,
+        save_all=True,
+        append_images = images[1:],
+        duration= DURATION , 
+        loop= LOOP
+        )
+    print('save ', OUTFILE)
+# end
+
 
 class Window(QMainWindow):
     def __init__(self):
@@ -88,6 +126,7 @@ class Window(QMainWindow):
         self.setStyleSheet(STYLE)
         self.initDraw()
         self.startDraw()
+
 # end
 
     def initDraw(self):
@@ -106,6 +145,9 @@ class Window(QMainWindow):
 # end
 
     def startDraw(self):
+        self.cnt = 0
+        self.is_draw_image = True
+        self.list_img = []
         timer = QTimer(self)
         timer.timeout.connect(self.update)
         timer.start(UPDATE_INTERVAL)
@@ -147,10 +189,25 @@ class Window(QMainWindow):
 
 # called from a timer at 1 second intervals
     def paintEvent(self, event):
+        self.drawPainter(self)
+        if self.is_draw_image:
+            if self.cnt < FRAMES:
+                self.cnt +=1
+                img = QImage(self.size(), QImage.Format_RGB32)
+                img.fill(Qt.black)
+                self.drawPainter(img)
+                pilimage = qimage_to_pilimage(img)
+                self.list_img.append(pilimage)
+            elif  self.cnt == FRAMES:
+                create_anime_gif(self.list_img)
+                self.is_draw_image = False
+# end
+
+    def drawPainter(self, device):
     # getting minimum of width and height
         # so that clock remain square
         rec = min(self.width(), self.height())
-        painter = QPainter(self)
+        painter = QPainter(device)
         painter.setRenderHint(QPainter.Antialiasing)
         painter.translate(self.width() / 2, self.height() / 2)
         painter.scale(rec /  PAINTER_SCALE, rec /  PAINTER_SCALE)
