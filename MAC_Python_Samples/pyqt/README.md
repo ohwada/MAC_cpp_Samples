@@ -44,7 +44,7 @@ display Analog Clock using QPainter
 
 save Anime gif using Pillow Image
 
- [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_analog_clock.png)
+ [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_analog_clock.gif)
 
 - figure_draw_save.py
 
@@ -60,7 +60,7 @@ animate   Bouncing  Ball using QPainter
 
 save Anime gif using Pillow Image
 
- [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.png)
+ [bounsing ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_anime_ball.gif)
 
 - image_show_label.py  
 
