@@ -25,9 +25,14 @@ Class Pixels has the following Pixels
 
 * Checker Board Pattern Pixels
 
-- test_pixels.py
+- test_pixels.py  
 
-show  Pixels as Image using matplotlib
+show  Pixels as Image using matplotlib  
 
-save Pixels to png file using Pillow
+ [ColorMatrx 2x2](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pixels_screenshots_color_matrx_2x2.png)  
+
+save Pixels to png file using Pillow  
+
+ [ColorMatrx 2x2](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pixels_ColorMatrix_2x2_32.png)  
+
 
