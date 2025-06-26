@@ -15,15 +15,23 @@ each pixel has RGB color format
 
 - pixels.py
 
-Class Pixels has the following Pixels
+Class Pixels has the following Pixels  
 
-* 2x2  Color Matrix Pixels
+* 2x2  Color Matrix Pixels  
 
-* 3x3  Color Matrix Pixels
+ [ColorMatrx 2x2](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pixels_ColorMatrix_2x2_32.png)
 
-* 4x4  Color Matrix Pixels
+* 3x3  Color Matrix Pixels  
 
-* Checker Board Pattern Pixels
+ [ColorMatrx 3x3](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pixels_ColorMatrix_3x3_24.png)
+
+* 4x4  Color Matrix Pixels  
+
+ [ColorMatrx 4x4](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pixels_ColorMatrix_4x4_16.png)
+
+* Checker Board Pattern Pixels  
+
+ [CheckerBoard 8x8](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pixels_CheckerBoard_8x8_8.png)
 
 - test_pixels.py  
 

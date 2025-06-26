@@ -13,7 +13,9 @@ import sys, os
 # hide all axis labels
 AXIS = "off"
 
-CHECKERBOARD_NAME_FORMAT = "CheckerBoard_{:d}x{:d}_{:d}"
+COLOR_MATRIX_NAME_FORMAT ="ColorMatrix_{:d}x{:d}_{:d}"
+
+CHECKER_BOARD_NAME_FORMAT = "CheckerBoard_{:d}x{:d}_{:d}"
 
 USAGE_FORMAT = """
 Usage: python {:s}  <num> <scale>
@@ -35,7 +37,7 @@ def show_pixels( pixels, name):
 
 
 def save_pixels( pixels, name):
-    outfile = name +".png"
+    outfile = "pixels_" + name +".png"
     np_arr = np.array(pixels, dtype=np.uint8)
     img = Image.fromarray(  np_arr,  mode="RGB")
     img.save(outfile)
@@ -50,7 +52,7 @@ def show_save_pixels( pixels, name):
 
 
 def show_save_colorMatrix(num, scale):
-    name =  "ColorMatrix_" + str(num) + "_" +  str(scale)
+    name = COLOR_MATRIX_NAME_FORMAT.format(num, num, scale)
     print(name)
     pixels = Pixels.createColorMatrixPixels(num, scale)
     show_save_pixels( pixels, name)
@@ -58,7 +60,7 @@ def show_save_colorMatrix(num, scale):
 
 
 def show_save_checkerBoard(num, scale):
-    name= CHECKERBOARD_NAME_FORMAT.format(num, num, scale)
+    name= CHECKER_BOARD_NAME_FORMAT.format(num, num, scale)
     print(name)
     pixels = Pixels.createCheckerBoardPixels(num, scale)
     show_save_pixels( pixels, name)
