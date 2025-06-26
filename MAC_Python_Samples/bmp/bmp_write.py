@@ -7,10 +7,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys, os
 
-SIZE = 256
+SIZE = 128
 
 # hide all axis labels
 AXIS = "off"
+
+COLOR_MATRIX_NAME_FORMAT = "ColorMatrix_{:d}x{:d}"
 
 USAGE_FORMAT = """
 Usage: python {:s}  <num>
@@ -21,7 +23,7 @@ Usage: python {:s}  <num>
 """
 
 
-def show_img(pixels, name):
+def show_pixels(pixels, name):
     np_arr = np.array(pixels)
     plt.figure(num=name)
     plt.axis(AXIS )
@@ -31,7 +33,7 @@ def show_img(pixels, name):
 
 
 def write_bmp(width, height, pixels, name):
-    outfile = name + ".bmp"
+    outfile = "bmp_" + name + ".bmp"
     print(outfile)
     bmp = Bmp()
     bmp.setPixels(width, height, pixels)
@@ -43,11 +45,11 @@ def write_bmp(width, height, pixels, name):
 def show_save_colorMatrix(num):
     scale = int(SIZE / num)
     size = num * scale
-    name =  "ColorMatrix_" + str(num) + "x" +  str(num)
+    name =  COLOR_MATRIX_NAME_FORMAT.format(num, num)
     print(name)
     pixels = Pixels.createColorMatrixPixels(num, scale)
     write_bmp(size, size, pixels, name)
-    show_img(      pixels, name)
+    show_pixels(pixels, name)
 # end
 
 def show_save_checkerBoard_8x8():
@@ -57,7 +59,7 @@ def show_save_checkerBoard_8x8():
     print(name)
     pixels = Pixels.createCheckerBoardPixels(8, scale)
     write_bmp(size, size, pixels, name)
-    show_img(pixels, name)
+    show_pixels(pixels, name)
 # end
 
 

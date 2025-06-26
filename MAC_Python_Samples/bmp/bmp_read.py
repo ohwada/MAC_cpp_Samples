@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys, os
 
-FPATH_IMG = "images/door.bmp"
+FPATH_IMG = "images/uparrow.bmp"
 
 AXIS = "off"
 
