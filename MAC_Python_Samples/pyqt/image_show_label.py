@@ -64,32 +64,40 @@ def set_text(label, text):
 # end
 
 
-def setupWindow(fpath):
-    basename = os.path.basename(fpath)
-    win = QMainWindow()
-    win.setWindowTitle(basename)
-    win.setGeometry(PX, PY, WIDTH, HEIGHT)
-    label = QLabel(win)
-    pixmap =  resize_image(fpath)
-    if not pixmap:
-        text = "cannot load " + basename
-        set_text(label, text)
-        return win
-    iw = pixmap.width()
-    ih = pixmap.height()
-    x = (WIDTH - iw)//2
-    y = (HEIGHT - ih)//2
-    label.setGeometry(x, y, iw, ih)
-    label.setPixmap(pixmap)
-    return win
+class Window(QMainWindow):
+    def __init__(self):
+        super(Window, self).__init__()
+        self.setGeometry( PX, PY, WIDTH, HEIGHT)
 # end
+
+    def set_pixmap(self, pixmap):
+        label = QLabel(self)
+        iw = pixmap.width()
+        ih = pixmap.height()
+        x = (WIDTH - iw)//2
+        y = (HEIGHT - ih)//2
+        label.setGeometry(x, y, iw, ih)
+        label.setPixmap(pixmap)
+# end
+
+    def set_fpath(self,fpath):
+        basename= os.path.basename(fpath)
+        self.setWindowTitle(basename)
+        pixmap = resize_image(fpath)
+        if not pixmap:
+            text = "cannot load " + basename
+            set_text(label, text)
+            return False
+# end
+        self.set_pixmap( pixmap)
+        return True
+# class end
 
 
 def main(fpath):
     app = QApplication(sys.argv)
-    win = setupWindow(fpath)
-    if not win:
-        exit()
+    win = Window()
+    win.set_fpath(fpath)
     win.show()
     sys.exit(app.exec_())
 # end

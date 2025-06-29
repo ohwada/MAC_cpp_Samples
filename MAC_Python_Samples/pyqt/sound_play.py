@@ -16,6 +16,9 @@ USAGE_FORMAT = "Usage: python {:s}  <sound filepath>"
 
 
 def play_sound(fpath):
+# require QApplication
+# If not, the following error
+# Cannot be used without QApplication
     app = QApplication(sys.argv)
     sound = QSound(fpath)
     sound.play() 
