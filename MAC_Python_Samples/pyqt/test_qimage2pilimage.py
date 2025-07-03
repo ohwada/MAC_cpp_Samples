@@ -11,6 +11,7 @@ from PIL import Image
 import io
 import sys
 
+# Transparent png should be "PNG"
 SAVE_FORMAT = "BMP"
 
 USAGE_FORMAT = "Usage: python {:s}  <image filepath>"

@@ -46,13 +46,21 @@ save Anime gif using Pillow Image
 
  [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_analog_clock.png)
 
-- figure_draw_save.py
+- draw_shapes_painter_save.py
 
-draw Figure using QPainter  
+draw Shapes using QPainter
 
-save file using Pillow Image  
+save file using QImage
 
- [fig draw](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_figure_draw.png)
+ [shapes](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_draw_shapes_painter.png)
+
+- draw_shapes_scene_save.py
+
+draw Shapes using  QGraphicsScene
+
+save file using QImage
+
+ [shapes](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_draw_shapes_scene.png)
 
 - anime_ball_painting_save.py
 
@@ -106,7 +114,7 @@ automatically change Image Size when Window  (Canvas) is resized
 
  [audio player](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_audio_player.png)  
 
-- qimage2pilimage.py  
+- test_qimage2pilimage.py  
 
 load Image file using QImage  
 convet QImage to numpy ndarray
@@ -114,7 +122,7 @@ show Image using matplotlib
 
  [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_qimage2pilimage_sample.png)  
 
-- pilimage2qimage.py  
+- test_pilimage2qimage.py  
 
 load Image file using Pillow Image  
 convert Pillow Image to pyqt QImage  
@@ -122,15 +130,15 @@ show Image using QLabel
 
  [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_pilimage2qimage_sample.png)  
 
-- qimage2ndarray.py  
+- test_qimage2ndarray.py  
 
 load Image file using QImage  
 convet QImage to numpy ndarray  
 show Image using matplotlib  
 
- [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_qimage2ndarray_sample.png)  
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_ qimage2ndarray_sample.png)  
 
-- ndarray2qimage.py  
+- test_ndarray2qimage.py  
 
 load Image file using Pillow Image  
 convert Pillow Image to numpy ndarray
@@ -139,7 +147,7 @@ show Image using QLabel
 
  [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_ndarray2qimage_sample.png)  
 
-- pixels_shw.py
+- pixels_show.py
 
 show Color Matrix Pixels
 convert Pixels to numpy array 

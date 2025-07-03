@@ -1,5 +1,6 @@
 # Python: load Image file using Pillow Image
-# convert Pillow Image to pyqt QImage
+# convert Pillow Image to numpy ndarray
+# convert numpy ndarray to pyqt QImage
 # show Image using QLabel
 #  2025-04-10  K.OHWADA
 
@@ -8,7 +9,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PIL import Image
-import io
+import numpy as np
 import sys, os
 
 
@@ -18,19 +19,23 @@ PY=50
 WIDTH = 480
 HEIGHT = 360
 
+IMG_MODE = "RGB"
+
 USAGE_FORMAT = "Usage: python {:s}  <image filepath>"
 
-SAVE_FORMAT = "BMP"
 
-
-# https://doloopwhile.hatenablog.com/entry/20100305/1267782841
-def pilimage2qimage(pilimage):
-    buffer = QBuffer()
-    buffer.open(QIODevice.WriteOnly)
-    pilimage.save(buffer, SAVE_FORMAT )
-    qimage = QImage()
-    qimage.loadFromData(buffer.data().data(), SAVE_FORMAT )
+# https://medium.com/@bgallois/numpy-ndarray-qimage-beware-the-trap-52dcbe7388b9
+def ndarray2qimage(ndarray):
+    buf = ndarray.data
+    print('shape:', ndarray.shape)
+    print('strides:', ndarray.strides)
+    height = ndarray.shape[0]
+    width = ndarray.shape[1]
+    bytesPerLine = ndarray.strides[0]
+    qimage = QImage(buf, width, height, bytesPerLine, QImage.Format_RGB888)
     return qimage
+# end
+
 
 def resize_qimage(qimg):
     img = qimg.copy()
@@ -49,39 +54,36 @@ def resize_qimage(qimg):
 # end
 
 
-def load_img(fpath):
-    pimg = Image.open(fpath)
-    qimg = pilimage2qimage(pimg)
-    img = resize_qimage(qimg)
-    pixmap = QPixmap.fromImage(img)
-    return  pixmap
-# end
-
-
 class Window(QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
         self.setGeometry( PX, PY, WIDTH, HEIGHT)
 # end
 
+
     def set_pixmap(self, pixmap):
-    label = QLabel(self)
-    iw = pixmap.width()
-    ih = pixmap.height()
-    x = (WIDTH - iw)//2
-    y = (HEIGHT - ih)//2
-    label.setGeometry(x, y, iw, ih)
-    label.setPixmap(pixmap)
+        label = QLabel(self)
+        iw = pixmap.width()
+        ih = pixmap.height()
+        x = (WIDTH - iw)//2
+        y = (HEIGHT - ih)//2
+        label.setGeometry(x, y, iw, ih)
+        label.setPixmap(pixmap)
 # end
 
-    def set_fpath(self,fpath):
+
+    def set_fpath(self, fpath):
         basename= os.path.basename(fpath)
         self.setWindowTitle(basename)
-        pixmap =load_img(fpath)
+        pimg = Image.open(fpath)
+        print('mode: ', pimg.mode)
+        img_rgb = pimg.convert(IMG_MODE)
+        nd_arr = np.array(img_rgb)
+        qimg = ndarray2qimage(nd_arr)
+        img_resize = resize_qimage(qimg)
+        pixmap = QPixmap.fromImage(img_resize)
         self.set_pixmap(pixmap)
-# def end
 # class end
-
 
 
 def main(fpath):

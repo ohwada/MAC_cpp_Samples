@@ -2,77 +2,73 @@
 # 2025-04-10  K.OHWADA
 
 
-# Window
-WIDTH = 480
-HEIGHT = 360
-
-# Ball
-FPATH_IMG = "soccer_ball.png"
-
-BALL_SIZE = 32
-
-# Pos
-MIN_X = int(0.2 * WIDTH)
-LEFT_X = int(0.9 * WIDTH)
-MAX_X = LEFT_X - BALL_SIZE
-
-MIN_Y = int(0.1 * HEIGHT)
-BOTTOM_Y= int(0.9 * HEIGHT)
-MAX_Y = BOTTOM_Y - BALL_SIZE
-
-INIT_X = MIN_X
-INIT_Y = MIN_Y 
-V_X = 4 # velocity x
-V_Y = 6 # velocity y
-
-BALL_E = 0.75 # the coefficient of repulsion
-BALL_DT = 0.5 # Distance travelled by the ball
-
-# Rect
-RECT_LEFT = MIN_X
-RECT_TOP = MIN_Y
-RECT_WIDTH = LEFT_X - MIN_X
-RECT_HEIGHT =  BOTTOM_Y - MIN_Y
-
-
 # calc Ball position
 # https://qiita.com/MENDY/items/e1b432df1e0bfe8b680c
 class Pos():
+    E = 0.75 # the coefficient of repulsion
+    DT = 1.0 # Distance travelled by the ball
+    VX = 6.0 # velocity x
+    VY = 8.0 # velocity y
+
     def __init__(self):
-        self.x = INIT_X
-        self.y = INIT_Y
-        self.v_x = V_X
-        self.v_y = V_Y
+        self.e = Pos.E
+        self.dt = Pos.DT
+        self.x_min = 0
+        self.y_min = 0
+        self.y_max = 0
+        self.x = 0
+        self.y = 0
+        self.vx = Pos.VX
+        self.vy = Pos.VY
+# end
+
+    def set_ball_param(self, e, dt):
+        self.e = e
+        self.dt = dt
+# end
+
+    def set_range(self, x_min, x_max, y_min, y_max):
+        self.x_min = x_min
+        self.x_max = x_max
+        self.y_min = y_min
+        self.y_max = y_max
+# end
+
+    def set_init(self, x_init, y_init, vx_init, vy_init):
+        self.x = x_init
+        self.y = y_init
+        self.vx = vx_init
+        self.vy = vy_init
 # end
 
     def update_pos(self):
-        self.x += self.v_x * BALL_DT
-        self.y += self.v_y * BALL_DT
+        self.x += self.vx * self.dt
+        self.y += self.vy * self.dt
     #x limit
-        if self.x > MAX_X:
-            self.x = MAX_X
+        if self.x >   self.x_max:
+            self.x =    self.x_max
             self.update_velocity_x()
-        elif self.x < MIN_X:
-            self.x = MIN_X
+        elif self.x <   self.x_min:
+            self.x =   self.x_min
             self.update_velocity_x()
 # end
 # y limit
-        if self.y > MAX_Y:
-            self.y = MAX_Y
+        if self.y >   self.y_max:
+            self.y =   self.y_max
             self.update_velocity_y()
-        elif self.y < MIN_Y:
-            self.y = MIN_Y
+        elif self.y <    self.y_min:
+            self.y =    self.y_min
             self.update_velocity_y()
 # end
         return self.x, self.y
 # end
 
     def update_velocity_x(self):
-        self.v_x = - BALL_E * self.v_x
+        self.vx = -  self.e * self.vx
     # end
 
     def update_velocity_y(self):
-        self.v_y = - BALL_E * self.v_y
+        self.vy = -  self.e * self.vy
 # end
 
 

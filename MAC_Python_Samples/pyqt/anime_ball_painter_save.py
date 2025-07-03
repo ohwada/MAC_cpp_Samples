@@ -6,7 +6,8 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from pos import *
+from pos import Pos
+from ball import *
 from PIL import Image
 import io
 import sys
@@ -20,7 +21,7 @@ WIDTH = 400
 HEIGHT = 400
 
 # Anim
-UPDATE_INTERVAL = 50 # msec
+UPDATE_INTERVAL = 100 # msec
 
 # Anime gif
 SAVE_FORMAT = "BMP"
@@ -32,6 +33,27 @@ LOOP = 0 # endless
 FRAMES = 600 # 60 sec
 
 OUTFILE = "qt_anime_ball.gif"
+
+# ball rect
+rect =  getRect(WIDTH, HEIGHT, 0.2, 0.9, 0.1, 0.9)
+
+RECT = rect
+
+X_MIN = rect.left()
+
+X_MAX = rect.right() - BALL_SIZE
+
+Y_MIN = rect.top()
+
+Y_MAX = rect.bottom()  - BALL_SIZE
+
+X_INIT = X_MIN
+
+Y_INIT = Y_MIN
+
+VX_INIT =Pos.VX
+
+VY_INIT = Pos.VY
 
 
 # https://doloopwhile.hatenablog.com/entry/20100305/1267782841
@@ -67,6 +89,8 @@ class Window(QWidget):
 
     def startAnime(self):
         self.pos = Pos()
+        self.pos.set_range(X_MIN, X_MAX, Y_MIN, Y_MAX)
+        self.pos.set_init(X_INIT, Y_INIT, VX_INIT, VY_INIT)
         self.img_ball = QPixmap(FPATH_IMG)
         self.cnt = 0
         self.is_draw_image = True
@@ -96,7 +120,7 @@ class Window(QWidget):
         qp = QPainter()
         qp.begin(device)
         qp.setPen(QColor(Qt.blue))
-        qp.drawRect(RECT_LEFT, RECT_TOP, RECT_WIDTH, RECT_HEIGHT)
+        qp.drawRect(RECT)
         qp.drawPixmap(int(x), int(y), self.img_ball)
         qp.end()
 # end
