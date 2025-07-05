@@ -5,7 +5,7 @@ pyqtgraph
 
 Scientific Graphics and GUI Library for Python
 
-[pypi: pyqtgraph](https://pypi.org/project/pyqtgraph /)
+[pypi: pyqtgraph](https://pypi.org/project/pyqtgraph/)
 
 PyQtGraph is a pure-python graphics and GUI library built on PyQt5/PySide2 and numpy.
 
