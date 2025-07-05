@@ -244,3 +244,7 @@ The ftutorials in this directory referenced below
 - anim_gvf.py  
 
  [ anim gvf](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_anim_gvf.png)
+
+### Documents in Japanese  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/08/005355 

@@ -157,4 +157,32 @@ show Image using QLabel
 
  [ColorMatrix 2x2](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_ColorMatrix_2x2.png.png)  
 
+### Documents in Japanese  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/08/005355  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/14/214843  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/16/180325  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/18/000040  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/20/205300  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/22/003514  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/23/025825  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/24/233117  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/27/002226  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/06/29/224345  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/07/01/003717  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/07/03/022941  
+
+- https://ken-ohwada.hatenadiary.org/entry/2025/07/04/012659  
+
 
