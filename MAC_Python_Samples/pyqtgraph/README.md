@@ -25,4 +25,4 @@ PyQtGraph is a pure-python graphics and GUI library built on PyQt5/PySide2 and n
 
 - pg_analog_clock.py  
   
- [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/scrrenshots/pg_analog_clock.png)
+ [analog clock](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_analog_clock.png)
