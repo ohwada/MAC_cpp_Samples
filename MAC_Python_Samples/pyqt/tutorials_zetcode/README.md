@@ -43,11 +43,11 @@ The ftutorials in this directory referenced below
 
 - quit_button.py  
 
- [uit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_uit_button.png)
+ [quit_button](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_uit_button.png)
 
 - messagebox.py  
 
- [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ messagebox.png)
+ [ messagebox](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_messagebox.png)
 
 - center.py  
 
@@ -65,7 +65,7 @@ The ftutorials in this directory referenced below
 
 - submenu.py 
 
- [ubmenu](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ubmenu.png)
+ [submenu](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ubmenu.png)
 
 - check_menu.py   
 
@@ -73,7 +73,7 @@ The ftutorials in this directory referenced below
 
 - context_menu.py  
 
- [- context menu](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_- context_menu.png)
+ [- context menu](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_context_menu.png)
 
 - toolbar.py  
 
@@ -81,7 +81,7 @@ The ftutorials in this directory referenced below
 
 - main_window.py  
 
- [- main window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_- main_window.png)
+ [- main window](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_main_window.png)
 
 ### Layout management 
 
@@ -113,7 +113,7 @@ The ftutorials in this directory referenced below
 
 - event_object.py  
 
- [ event object](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ event_object.png)
+ [ event object](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_event_object.png)
 
 - event_sender.py  
 
@@ -121,7 +121,7 @@ The ftutorials in this directory referenced below
 
 - custom_signal.py  
 
- [ custom signal](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_ custom_signal.png)
+ [ custom signal](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_custom_signal.png)
 
 ### Dialogs
 
@@ -165,11 +165,11 @@ The ftutorials in this directory referenced below
 
 - pixmap.py  
 
- [ pixmap](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_pixmap.png)
+ [pixmap](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_pixmap.png)
 
 - line_edit.py  
 
- [ line edit](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode- line_edit.png)
+ [ line edit](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_tutorials_zetcode_line_edit.png)
 
 - splitter.py  
 
@@ -201,7 +201,7 @@ The ftutorials in this directory referenced below
 
 - colours.py  
 
- [ colours](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_zetcode_ colours.png)
+ [ colours](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_zetcode_colours.png)
 
 - pens.py  
 
@@ -209,7 +209,7 @@ The ftutorials in this directory referenced below
 
 - brushes.py  
 
- [ brushes](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_zetcode_ brushes.png)
+ [ brushes](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/qt_tutorials_zetcode_brushes.png)
 
 - bezier_curve.py  
 
