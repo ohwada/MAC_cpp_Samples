@@ -136,7 +136,7 @@ load Image file using QImage
 convet QImage to numpy ndarray  
 show Image using matplotlib  
 
- [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_ qimage2ndarray_sample.png)  
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/qt_qimage2ndarray_sample.png)  
 
 - test_ndarray2qimage.py  
 
