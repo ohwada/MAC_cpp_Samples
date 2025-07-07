@@ -6,7 +6,6 @@
 
 from pyqtgraph.Qt import QtGui, QtCore
 import pyqtgraph as pg
-import pyqtgraph.exporters
 import numpy as np
 import sys
 
@@ -67,19 +66,14 @@ class Window(pg.LayoutWidget):
 # end
 
     def save_plot(self, plt):
-        exporter = pg.exporters.ImageExporter(plt) 
-        exporter.export(OUTFILE) 
+        plt.writeImage(OUTFILE) 
 # end
 
 
-def main():
-    app = pg.mkQApp()
-    win = Window()
-    win.show()
-    sys.exit(app.exec())
-# end
+# main
+app = pg.mkQApp()
+win = Window()
+win.show()
+sys.exit(app.exec())
 
 
-if __name__ == '__main__':
-    main()
-# end
