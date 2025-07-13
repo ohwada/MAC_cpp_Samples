@@ -37,7 +37,7 @@ PyQtGraph is a pure-python graphics and GUI library built on PyQt5/PySide2 and n
 
 - pg_image_show_PlotItem_QGraphicsPixmapItem.py
 
- [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_plotItem_PixmapItem_inverty_sample.png.png)
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_plotItem_PixmapItem_inverty_sample.png)
 
 - pg_pil_image_show_PlotItem_ImageItem.py
 
