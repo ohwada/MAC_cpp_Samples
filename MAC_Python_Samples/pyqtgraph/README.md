@@ -31,12 +31,16 @@ PyQtGraph is a pure-python graphics and GUI library built on PyQt5/PySide2 and n
 
  [shapes](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pg_draw_shapes.png)
 
-- pg_pil_image_show_ViewBox_ImageItem.py
+- pg_image_show_QLabel.py
 
- [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_ViewBox_ImageItem_sample.png)
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_QLabel_sample.png)
 
-If Image size is large than  Window size  
-show image reduced to fit in Window  
+- pg_image_show_PlotItem_QGraphicsPixmapItem.py
 
- [tiger](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_ViewBox_ImageItem_tiger.png)
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_image_show_plotItem_PixmapItem_inverty_sample.png.png)
+
+- pg_pil_image_show_PlotItem_ImageItem.py
+
+ [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_pil_image_show_plotItem_ImageItem_rotate_sample.png)
+
 
