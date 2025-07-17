@@ -43,4 +43,8 @@ PyQtGraph is a pure-python graphics and GUI library built on PyQt5/PySide2 and n
 
  [sample](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/screenshots/pg_pil_image_show_plotItem_ImageItem_rotate_sample.png)
 
+- pg_pil_anime_ball_save.py
+
+ [# Python: animate Bousing Ball](https://github.com//ohwada/MAC_cpp_Samples/tree/master/MAC_Python_Samples/result/pg_anime_ball.gif)  
+
 
