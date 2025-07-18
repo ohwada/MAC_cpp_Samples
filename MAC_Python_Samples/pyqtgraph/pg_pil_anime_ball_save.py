@@ -1,4 +1,5 @@
 # Python: animate Bousing Ball using PlotItem
+# convert each scene to QImage and Pillow Image
 # create anime gif using Pillow Image
 # 2025-04-10  K.OHWADA
 
@@ -9,7 +10,7 @@ from PIL import Image
 from pos import Pos  
 from ball import *
 import numpy as np
-import glob
+import io
 import sys, os
 
 
@@ -27,17 +28,11 @@ UPDATE_INTERVAL = 500 # msec
 
 FRAMES = 120 # 60 sec
 
-DIR_BALL = "ball"
-
-FNAME_FORMAT = "ball_{:03d}.bmp"
-
-GLOB_PATHNAME = "ball/*.bmp"
-
 GIF_DURATION= 500 # msec
 
 GIF_LOOP= 0 # endless
 
-GIF_OUTFILE = "pg_anime_ball.gif"
+GIF_OUTFILE = "pg_anime_ball_qimg.gif"
 
 WHITE = (255, 255, 255)
 BLUE =  (0, 0, 255)
@@ -63,16 +58,10 @@ VX= Pos.VX
 
 VY = - Pos.VY
 
+SAVE_FORMAT = "BMP"
 
-def create_amine_gif():
-	file_list = sorted(glob.glob(GLOB_PATHNAME))
-	images = []
-	for f in file_list:
-		if  os.path.isfile(f):
-			im = Image.open(f)
-			images.append(im)
-# end
-# save the images as an animated GIF
+
+def create_amine_gif(	images):
 	images[0].save(GIF_OUTFILE,
 	save_all=True,
 	append_images = images[1:],
@@ -82,76 +71,101 @@ def create_amine_gif():
 	print('create ', GIF_OUTFILE)
 # end
 
+# https://doloopwhile.hatenablog.com/entry/20100305/1267782841
+def qimage2pilimage(qimage):
+    buffer =  QtCore.QBuffer()
+    buffer.open(QtCore.QIODevice.WriteOnly)
+    qimage.save(buffer, SAVE_FORMAT)
+    fp = io. BytesIO()
+    fp.write(buffer.data().data())
+    buffer.close()
+    fp.seek(0)
+    return Image.open(fp)
+# end
 
-def pilimage2ImageItem(pimg):
-	nd_arr = np.array(pimg)
-# ImageItem is rotated 90 degrees for col-major is the default
-# rotated 270 degrees so that it is displayed in the correct orientation when rotated.
-	arr_270 = np.rot90(	nd_arr, 3)
-	img_item = pg.ImageItem()
-	img_item.setImage(arr_270)
-	return img_item
-# def
+def plotitem2qimage(plt):
+    sourceRect = plt.sceneBoundingRect()
+    # print('sourceRect: ', sourceRect)
+    targetRect = plt.mapRectToDevice(sourceRect)
+    # print('targetRect:', targetRect)
+    scene = plt.scene()
+    # print( 'scene: ', type(scene) )
+    bgbrush =  scene.views()[0].backgroundBrush()
+    bg = bgbrush.color()
+    w = int( targetRect.width() )
+    h = int( targetRect.height() )
+    # print('qimg:', w, h)
+    qimg = QtGui.QImage(w, h, QtGui.QImage.Format_RGB32)
+    qimg.fill(bg)
+    painter = QtGui.QPainter(qimg)
+    scene.render(painter, QtCore.QRectF(targetRect), QtCore.QRectF(sourceRect))
+    painter.end()
+    return qimg
+# end
+
+def plotitem2pilimage(plt):
+	qimg = plotitem2qimage(plt)
+	pimg = qimage2pilimage(qimg)
+	return pimg
+# end
 
 
 class Window(pg.GraphicsLayoutWidget):
-	def __init__(self):
-		super().__init__()
-		self.setWindowTitle(WIN_TITLE)
-		self.setGeometry( PX, PY, WIDTH, HEIGHT)
-		self.setBackground(WHITE)
-		pg.setConfigOptions(antialias=True)
-		self.initPlot()
-		self.startAnim()
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle(WIN_TITLE)
+        self.setGeometry( PX, PY, WIDTH, HEIGHT)
+        self.setBackground(WHITE)
+        pg.setConfigOptions(antialias=True)
+        self.initPlot()
+        self.startAnim()
 # end
 
-	def initPlot(self):
-		self.plt = self.addPlot()
-		self.plt.setRange(xRange = (0, WIDTH), yRange = (0,  HEIGHT))
-		self.plt.showAxis(BOTTOM, False)
-		self.plt.showAxis(LEFT, False)
-		self.drawRect(self.plt)
+    def initPlot(self):
+        self.plt = self.addPlot()
+        self.plt.setRange(xRange = (0, WIDTH), yRange = (0,  HEIGHT))
+        self.plt.showAxis(BOTTOM, False)
+        self.plt.showAxis(LEFT, False)
+        self.drawRect(self.plt)
 # end
 
-	def drawRect(self, plt):
-		pen_blue = pg.mkPen(BLUE, width=1)
-		rect = QtCore.QRectF(RECT)
-		rect_item = QtWidgets.QGraphicsRectItem(rect)
-		rect_item.setPen( pen_blue)
-		plt.addItem(rect_item)
+    def drawRect(self, plt):
+        pen_blue = pg.mkPen(BLUE, width=1)
+        rect = QtCore.QRectF(RECT)
+        rect_item = QtWidgets.QGraphicsRectItem(rect)
+        rect_item.setPen( pen_blue)
+        plt.addItem(rect_item)
 # end
 
-	def startAnim(self):
-		pimg = Image.open(FPATH_IMG)
-		self.img_item = pilimage2ImageItem(pimg)
-		self.plt.addItem(self.img_item)
-		self.pos = Pos()
-		self.pos.set_range(X_MIN, X_MAX, Y_MIN, Y_MAX)
-		self.pos.set_init(X_INIT, Y_INIT, VX, VY)
-		self.cnt = 0
-		self.is_save_plt = True
-		os.mkdir(DIR_BALL)
-		timer = QtCore.QTimer(self)
-		timer.timeout.connect(self.updatePos)
-		timer.start(UPDATE_INTERVAL) 
+    def startAnim(self):
+        img = Image.open(FPATH_IMG)
+        nd_arr = np.array(img)
+        arr_270 = np.rot90(	nd_arr, 3)
+        self.img_item = pg.ImageItem()
+        self.img_item.setImage(arr_270)
+        self.plt.addItem(self.img_item)
+        self.pos = Pos()
+        self.pos.set_range(X_MIN, X_MAX, Y_MIN, Y_MAX)
+        self.pos.set_init(X_INIT, Y_INIT, VX, VY)
+        self.cnt = 0
+        self.images = []
+        self.is_append_plt = True
+        timer = QtCore.QTimer(self)
+        timer.timeout.connect(self.updatePos)
+        timer.start(UPDATE_INTERVAL) 
 # end
 
-	def updatePos(self):
-		x, y =  self.pos.update_pos()
-		self.img_item.setPos(x, y)
-		if self.is_save_plt:
-			if self.cnt < FRAMES:
-				self.cnt +=1
-				self.save_plot(self.plt, self.cnt)
-			elif self.cnt == FRAMES:
-				self.is_save_plt = False
-				create_amine_gif()
-# end
-
-	def save_plot(self, plt, cnt):
-		fname = FNAME_FORMAT.format(cnt)
-		outfile = os.path.join(DIR_BALL, fname)
-		plt.writeImage(outfile)
+    def updatePos(self):
+        x, y =  self.pos.update_pos()
+        self.img_item.setPos(x, y)
+        if self.is_append_plt:
+            if self.cnt < FRAMES:
+                self.cnt +=1
+                pimg = plotitem2pilimage(self.plt)
+                self.images.append(pimg)
+            elif self.cnt == FRAMES:
+                self.is_append_plt = False
+                create_amine_gif(self.images)
 # end
 
 
