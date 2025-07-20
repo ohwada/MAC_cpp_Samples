@@ -32,7 +32,7 @@ GIF_DURATION= 500 # msec
 
 GIF_LOOP= 0 # endless
 
-GIF_OUTFILE = "pg_anime_ball_qimg.gif"
+GIF_OUTFILE = "pg_anime_ball.gif"
 
 WHITE = (255, 255, 255)
 BLUE =  (0, 0, 255)
@@ -83,19 +83,16 @@ def qimage2pilimage(qimage):
     return Image.open(fp)
 # end
 
-def plotitem2qimage(plt):
+def plotitem2qimage(plt, width, height):
     sourceRect = plt.sceneBoundingRect()
     # print('sourceRect: ', sourceRect)
-    targetRect = plt.mapRectToDevice(sourceRect)
-    # print('targetRect:', targetRect)
+    targetRect = QtCore.QRect(0, 0, width, height)
     scene = plt.scene()
     # print( 'scene: ', type(scene) )
     bgbrush =  scene.views()[0].backgroundBrush()
     bg = bgbrush.color()
-    w = int( targetRect.width() )
-    h = int( targetRect.height() )
-    # print('qimg:', w, h)
-    qimg = QtGui.QImage(w, h, QtGui.QImage.Format_RGB32)
+
+    qimg = QtGui.QImage(width, height, QtGui.QImage.Format_RGB32)
     qimg.fill(bg)
     painter = QtGui.QPainter(qimg)
     scene.render(painter, QtCore.QRectF(targetRect), QtCore.QRectF(sourceRect))
@@ -103,8 +100,8 @@ def plotitem2qimage(plt):
     return qimg
 # end
 
-def plotitem2pilimage(plt):
-	qimg = plotitem2qimage(plt)
+def plotitem2pilimage(plt, width, height):
+	qimg = plotitem2qimage(plt, width, height)
 	pimg = qimage2pilimage(qimg)
 	return pimg
 # end
@@ -161,7 +158,7 @@ class Window(pg.GraphicsLayoutWidget):
         if self.is_append_plt:
             if self.cnt < FRAMES:
                 self.cnt +=1
-                pimg = plotitem2pilimage(self.plt)
+                pimg = plotitem2pilimage(self.plt, self.width(), self.height() )
                 self.images.append(pimg)
             elif self.cnt == FRAMES:
                 self.is_append_plt = False

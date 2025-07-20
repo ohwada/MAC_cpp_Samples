@@ -35,7 +35,7 @@ RAD_START = math.pi/2
 
 OUTFILE = "pg_draw_shapes.png"
 
-OUTFILE_EXPORTERS = "pg_draw_shapes_exporters.png"
+OUTFILE_WRITE = "pg_draw_shapes_write_image.png"
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -126,10 +126,19 @@ class Window(pg.GraphicsLayoutWidget):
 # end
 
     def save_plot(self, plt):
-        plt.writeImage(OUTFILE)
-        print('create ', OUTFILE)
-        # exporter = pg.exporters.ImageExporter(plt) 
-        # exporter.export(OUTFILE_EXPORTERS) 
+        rect1 = plt.sceneBoundingRect()
+# QRectF(12.0, 12.0, 616.0, 456.0)
+        print('sceneBoundingRect: ', rect1)
+        rect2 = plt.viewGeometry()
+# QRect(68, 33, 581, 436)
+        print('iewGeometry: ', rect2)
+        plt.writeImage(OUTFILE_WRITE)
+        print('create ', OUTFILE_WRITE)
+        exporter = pg.exporters.ImageExporter(plt)
+        exporter.parameters()['width'] =  self.width()
+        exporter.parameters()['height'] =  self.height()
+        exporter.export(OUTFILE)
+        print('create ', OUTFILE) 
 # end
 
 # main

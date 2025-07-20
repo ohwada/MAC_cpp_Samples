@@ -1,16 +1,15 @@
-
-# https://github.com/ddside/analog_clock_python/blob/main/analog_clock.py
 # Python: animate Analog Clock using PlotItem
 # create anime gif using Pillow Image
-# modify; 2025-04-10  K.OHWADA
+# 2025-04-10  K.OHWADA
 
+# https://github.com/ddside/analog_clock_python/blob/main/analog_clock.py
 
 from pyqtgraph.Qt import QtGui, QtCore
 import pyqtgraph as pg
 from PIL import Image
 import numpy as np
 import datetime
-import io
+import glob
 import sys, os
 
 WIN_TITLE= "Analog Clock"
@@ -24,8 +23,6 @@ LEFT =  "left"
 
 RESIZE_INTERVAL = 500 # msec
 UPDATE_INTERVAL = 500 # msec
-
-SAVE_FORMAT = "BMP"
 
 # number of points to draw circle
 NUM_CIRCLE_POINTS =1000
@@ -89,14 +86,30 @@ BLUE = (0, 0,255)
 # Anime gif
 FRAMES = 120 # 60 sec
 
+DIR_CLOCK = "clock"
+
+FNAME_FORMAT = "clk_{:03d}.bmp"
+
+GLOB_PATHNAME = "clock/*.bmp"
+
 GIF_DURATION= 500 # msec
 
 GIF_LOOP= 1 
 
-GIF_OUTFILE = "pg_analog_clock_anime.gif"
+GIF_OUTFILE = "pg_analog_clock_anime_write.gif"
+
+USAGE_FORMAT = "Usage: python {:s} [anime gif]"
 
 
-def create_amine_gif(images):
+def create_amine_gif():
+	file_list = sorted(glob.glob(GLOB_PATHNAME))
+	images = []
+	for f in file_list:
+		if  os.path.isfile(f):
+			im = Image.open(f)
+			images.append(im)
+# end
+# save the images as an animated GIF
 	images[0].save(GIF_OUTFILE,
 	save_all=True,
 	append_images = images[1:],
@@ -104,39 +117,6 @@ def create_amine_gif(images):
 	loop=GIF_LOOP
 	)
 	print('create ', GIF_OUTFILE)
-# end
-
-# https://doloopwhile.hatenablog.com/entry/20100305/1267782841
-def qimage2pilimage(qimage):
-    buffer =  QtCore.QBuffer()
-    buffer.open(QtCore.QIODevice.WriteOnly)
-    qimage.save(buffer, SAVE_FORMAT)
-    fp = io. BytesIO()
-    fp.write(buffer.data().data())
-    buffer.close()
-    fp.seek(0)
-    return Image.open(fp)
-# end
-
-def plotitem2qimage(plt, width, height):
-    sourceRect = plt.sceneBoundingRect()
-    targetRect = QtCore.QRect(0, 0, width, height)
-    scene = plt.scene()
-    bgbrush =  scene.views()[0].backgroundBrush()
-    bg = bgbrush.color()
-
-    qimg = QtGui.QImage(width, height, QtGui.QImage.Format_RGB32)
-    qimg.fill(bg)
-    painter = QtGui.QPainter(qimg)
-    scene.render(painter, QtCore.QRectF(targetRect), QtCore.QRectF(sourceRect))
-    painter.end()
-    return qimg
-# end
-
-def plotitem2pilimage(plt, width, height):
-	qimg = plotitem2qimage(plt, width, height)
-	pimg = qimage2pilimage(qimg)
-	return pimg
 # end
 
 
@@ -147,7 +127,6 @@ class Window(pg.GraphicsLayoutWidget):
 		self.setGeometry( PX, PY, WIDTH, HEIGHT)
 		pg.setConfigOptions(antialias=True)
 		self.init_clock()
-		self.start_clock()
 # end
 
 	def init_clock(self):
@@ -156,8 +135,6 @@ class Window(pg.GraphicsLayoutWidget):
 		self.graph.showAxis(LEFT, False)
 		self.graph.setAspectLocked(lock=True)
 		self.graph.setMouseEnabled(x=False, y=False)
-		rect = self.graph.sceneBoundingRect()
-		print('sceneBoundingRect:', rect)
 		self.init_hands(self.graph)
 		self.draw_circle(self.graph)
 		self.draw_sec_scales(self.graph)
@@ -230,10 +207,17 @@ class Window(pg.GraphicsLayoutWidget):
 			self.hour_texts.append(hour_text)
 # end
 
-	def start_clock(self):
+	def set_param(self, is_anime_gif):
 		self.cnt = 0
-		self.images = []
-		self.is_append_graph = True
+		self.is_save_graph = False
+		if is_anime_gif:
+			self.is_save_graph = True
+			os.mkdir(DIR_CLOCK)
+#end
+		self.start_clock()
+# end
+
+	def start_clock(self):
 		update_timer = QtCore.QTimer(self)
 		update_timer.timeout.connect(self.update_clock)
 		update_timer.start(UPDATE_INTERVAL)
@@ -247,14 +231,13 @@ class Window(pg.GraphicsLayoutWidget):
 		self.update_hands(dt_now)
 		time_str = dt_now.strftime(TIME_FORMAT)
 		self.time_text.setText(time_str)
-		if self.is_append_graph:
+		if self.is_save_graph:
 			if self.cnt < FRAMES:
 				self.cnt +=1
-				pimg = plotitem2pilimage(self.graph, self.width(), self.height() )
-				self.images.append(pimg)
+				self.save_plot(self.graph, self.cnt)
 			elif self.cnt == FRAMES:
-				self.is_append_graph = False
-				create_amine_gif(self.images)
+				self.is_save_graph = False
+				create_amine_gif()
 # end
 
 	def update_hands(self, dt_now):
@@ -293,10 +276,38 @@ class Window(pg.GraphicsLayoutWidget):
 			hour_text.setFont(font_hour_text)
 # end
 
+	def save_plot(self, graph, cnt):
+		fname = FNAME_FORMAT.format(cnt)
+		outfile = os.path.join(DIR_CLOCK, fname)
+		graph.writeImage(outfile)
+# end
 
-# main 
-app = pg.mkQApp()
-win = Window()
-win.show()
-sys.exit(app.exec_())
 
+def main(is_anime_gif):
+	app = pg.mkQApp()
+	win = Window()
+	win.set_param(is_anime_gif)
+	win.show()
+	sys.exit(app.exec_())
+# end
+
+def usage(script):
+    usage = USAGE_FORMAT.format(script)
+    print(usage)
+# end
+
+
+# main
+fpath = ""
+is_anime_gif = False
+is_resize = False
+args = sys.argv
+argc = len(args)
+if argc < 2:
+    usage(args[0])
+elif argc >= 2:
+   is_anime_gif = int(args[1])
+# end
+main(is_anime_gif)
+
+  
